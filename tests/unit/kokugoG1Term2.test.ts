@@ -1,5 +1,5 @@
-import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { readUnitQuestionSets } from './questionSetFixture';
 
 interface ChoiceQuestion {
   id: string;
@@ -10,9 +10,7 @@ interface ChoiceQuestion {
   };
 }
 
-const questions = JSON.parse(
-  readFileSync('content/questions/kokugo/g1/katakana.json', 'utf8'),
-) as ChoiceQuestion[];
+const questions = readUnitQuestionSets<ChoiceQuestion>('kokugo', 'g1', 'katakana');
 
 const question = (id: string) => questions.find((item) => item.id === id)!;
 const correctText = (item: ChoiceQuestion) =>

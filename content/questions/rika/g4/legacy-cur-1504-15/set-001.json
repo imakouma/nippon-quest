@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-15.1cb7157dbdcf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度と体積の関係として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度が変わると体積も変わりやすい"
+        },
+        {
+          "id": "c2",
+          "text": "温度[おんど]が上[あ]がると体積[たいせき]は必[かなら]ず小[ちい]さくなる"
+        },
+        {
+          "id": "c3",
+          "text": "温度[おんど]が変[か]わると重[おも]さだけが変[か]わる"
+        },
+        {
+          "id": "c4",
+          "text": "温度[おんど]と体積[たいせき]には関係[かんけい]がない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度の変化で体積も変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.57d45ff216b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える（ふくらむ）"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "凍る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気は温めると大きくふくらみます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.5821980d1bf6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "水になるだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすとちぢみます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.78b7afad36fd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "石けん膜をつけた容器の空気を温めるとどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石[せっ]けん膜[まく]は平[たい]らなままになる"
+        },
+        {
+          "id": "c2",
+          "text": "ふくらむ"
+        },
+        {
+          "id": "c3",
+          "text": "石[せっ]けん膜[まく]が内側[うちがわ]へへこむ"
+        },
+        {
+          "id": "c4",
+          "text": "空気[くうき]がなくなり、膜[まく]が下[さ]がる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気の体積が増えて膜がふくらみます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.9043fa2674b7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える"
+        },
+        {
+          "id": "c3",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "多くの物は温めると体積が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.9b63efae9a35",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気・水・金属で、温めたときの体積の変化が大きいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "金属"
+        },
+        {
+          "id": "c2",
+          "text": "空気"
+        },
+        {
+          "id": "c3",
+          "text": "どれも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "水だけ変化しない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "気体の空気がいちばん変化しやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.cb73f7fe1894",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすと体積は減りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-15.f640e124c0d6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実験で大切なかんさつはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度と体積の変化"
+        },
+        {
+          "id": "c2",
+          "text": "温度[おんど]だけを記録[きろく]する"
+        },
+        {
+          "id": "c3",
+          "text": "体積[たいせき]だけを記録[きろく]する"
+        },
+        {
+          "id": "c4",
+          "text": "温[あたた]めた時間[じかん]だけを記録[きろく]する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度を変え、体積の変化をかんさつします。"
+  }
+]

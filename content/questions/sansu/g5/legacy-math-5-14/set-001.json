@@ -1,0 +1,522 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-14.0393683429b5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "定価の 70% で売られていた服を買ったところ、1400円 になりました。この服の定価は、いくらだったでしょう。",
+      "answers": [
+        "2000"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "この問題[もんだい]では、「もとにする数」が求められている。「もとにする数=くらべる数÷割合[わりあい]」 で求めることができるので、70%を 0.7に直して、 1400÷0.7=2000円 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.2e460d602b6d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の百分率で表された値を小数で表そう。",
+      "answers": [
+        "0.08"
+      ]
+    },
+    "explanation": "百分率では、1=100%、0.1=10%、0.01=1% になる。百分率（%）を小数にするときは、100 で割ればいいので、8%は 0.08 だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.3564d18681ca",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の歩合で表された値を小数で表そう。",
+      "answers": [
+        "0.056"
+      ]
+    },
+    "explanation": "歩合の 1分が 0.01、1厘が 0.001 の大きさになるので、5分6厘は、0.056 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.36511baf0a2e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "割合[わりあい]について、かっこにあてはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "百分率・100"
+        },
+        {
+          "id": "c2",
+          "text": "10"
+        },
+        {
+          "id": "c3",
+          "text": "歩合"
+        },
+        {
+          "id": "c4",
+          "text": "百分率[ひゃくぶんりつ]・10"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "％（パーセント）を使って、割合[わりあい]を表す方法を {百分率} といい、1を {100} に分けて考える。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.3a054be937fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "定価 1500円 の商品が、定価の7割5分 で売っています。代金は、いくらになるでしょう。",
+      "answers": [
+        "1125"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、7割5分 を、0.75に直して、 1500×0.75=1125円 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.4815d9c1d5c5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある商品が 定価の 7割の 1260 円で売られています。この商品の定価は、いくらになるでしょう。",
+      "answers": [
+        "1800"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "この問題[もんだい]では「もとにする数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、7割 を、0.7に直して、 1260÷0.7=1800円 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.4fd6b2ac9908",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "百分率で表された次の値を小数で表すと、いくらになるでしょう。",
+      "answers": [
+        "0.01"
+      ]
+    },
+    "explanation": "百分率は、1を 100 に分けて 割合[わりあい]を表す方法。小数の 1=100% になるので、 1%は、0.01 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.62c1baeca9a6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1200円 の商品の消費税[しょうひぜい]（10%）は、いくらになるでしょう。",
+      "answers": [
+        "120"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "消費税[しょうひぜい]は、商品の値段をもととした「くらべる数」になる。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、10% を、0.1に直して、 1200×0.1=120円 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.69d240b2f62f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "歩合で表された次の値を小数で表すと、いくらになるでしょう。",
+      "answers": [
+        "0.1"
+      ]
+    },
+    "explanation": "歩合では、「割・分ぶ・厘りん」を使って、割合[わりあい]を表す。1割は、0.1 の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.751c15dfe02d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "百分率で表された次の値を小数で表すと、いくらになるでしょう。",
+      "answers": [
+        "0.1"
+      ]
+    },
+    "explanation": "百分率は、1を 100 に分けて 割合[わりあい]を表す方法。小数の 1=100% になるので、 10%は、0.1 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.796d600b870a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を歩合で表そう。",
+      "answers": [
+        "1",
+        "2"
+      ],
+      "template": "0.12 = {{INPUT}}割{{INPUT}}分"
+    },
+    "explanation": "歩合の 1割が 0.1、1分が 0.01 の大きさになるので、0.12は、1割2分 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.82d6401da9d4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "定価 3000円 の商品が、定価の 80% で売られていました。代金は、いくらになるでしょう。",
+      "answers": [
+        "2400"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、80% を、0.8に直して、 3000×0.8=2400円 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.99ec7d68f57d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "歩合で表された次の値を小数で表すと、いくらになるでしょう。",
+      "answers": [
+        "0.01"
+      ]
+    },
+    "explanation": "歩合では、「割・分ぶ・厘りん」を使って、割合[わりあい]を表す。1分は、0.01 の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.9f86b3b9e48b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "歩合で表された次の値を小数で表すと、いくらになるでしょう。",
+      "answers": [
+        "0.001"
+      ]
+    },
+    "explanation": "歩合では、「割・分ぶ・厘りん」を使って、割合[わりあい]を表す。1厘は、0.001 の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.a3cfc0738c8f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "定価 300円 のお魚が、10% 引きで売られていました。代金は、いくらになるでしょう。",
+      "answers": [
+        "270"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "「10%引き」ということは、90% の値段で売っているということ。これを「もとにする数」である定価にかければいい。 300×0.9=270円"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.b24db5b6b72f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を百分率で表そう。",
+      "answers": [
+        "9"
+      ],
+      "template": "0.09 = {{INPUT}} %",
+      "suffix": "%"
+    },
+    "explanation": "百分率では、1=100%、0.1=10%、0.01=1% になる。小数を百分率（%）にするときは、100 をかければいいので、0.09は 9% になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.b60167e70734",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の百分率で表された値を小数で表そう。",
+      "answers": [
+        "1.2"
+      ]
+    },
+    "explanation": "百分率では、1=100%、0.1=10% なる。百分率（%）を小数にするときは、100 で割ればいいので、120%は 1.2 だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.b72205bd0f5c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を歩合で 表そう。",
+      "answers": [
+        "3",
+        "4"
+      ],
+      "template": "0.034 = {{INPUT}}分{{INPUT}}厘"
+    },
+    "explanation": "歩合の 1分が 0.01、1厘が 0.001 の大きさになるので、0.034は、3分4厘 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.c2d777edea13",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を百分率で表そう。",
+      "answers": [
+        "20"
+      ],
+      "template": "0.2 = {{INPUT}} %",
+      "suffix": "%"
+    },
+    "explanation": "百分率では、1=100%、0.1=10% になる。小数を百分率（%）にするときは、100 をかければいいので、0.2は 20% になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.d31de89b9461",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1ふくろ 50g のおかしが、期間限定で「2割増量」で売られていました。1ふくろ、何gになりますか。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}} g",
+      "suffix": "g"
+    },
+    "explanation": "「２割増量」ということは、全部で １２割の重さになる。これを「もとにする数」である 50g にかければいい。 50×1.2=60g"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.d96ef24ece09",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の歩合で表された値を小数で表そう。",
+      "answers": [
+        "0.708"
+      ]
+    },
+    "explanation": "歩合の 1割が 0.1、1厘が 0.001 の大きさになるので、7割8厘は、0.708 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.df80ef792c88",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を百分率で表そう。",
+      "answers": [
+        "12.3"
+      ],
+      "template": "0.123 = {{INPUT}} %",
+      "suffix": "%"
+    },
+    "explanation": "百分率では、1=100%、0.1=10%、0.01=1%、0.001=0.1% になる。小数を百分率（%）にするときは、100 をかければいいので、0.123は 12.3% になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.e69af55bcfbc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を百分率で表そう。",
+      "answers": [
+        "75"
+      ],
+      "template": "0.75 = {{INPUT}} %",
+      "suffix": "%"
+    },
+    "explanation": "百分率では、1=100%、0.1=10%、0.01=1% になる。小数を百分率（%）にするときは、100 をかければいいので、0.75は 75% になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.ed74964096f4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の百分率で表された値を小数で表そう。",
+      "answers": [
+        "0.321"
+      ]
+    },
+    "explanation": "百分率では、1=100%、0.1=10%、0.01=1%、0.001=0.1% になる。百分率（%）を小数にするときは、100 で割ればいいので、32.1%は 0.321 だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-14.f2d756162508",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "25人のクラスで そうじのボランティアをぼ集したところ、15人 が参加することになりました。参加する生徒は、何％になりますか。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}%",
+      "suffix": "%"
+    },
+    "explanation": "この問題[もんだい]では、「割合[わりあい]（％）」が求められている。「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができるので、 15÷25=0.6=60% になる。"
+  }
+]

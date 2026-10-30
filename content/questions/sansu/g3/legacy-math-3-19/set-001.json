@@ -1,0 +1,365 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-19.0cc801110e91",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あおいさんは、25mおよげます。妹は、5mおよげます。あおいさんは、妹の何倍およげますか。 倍",
+      "answers": [
+        "5"
+      ],
+      "template": "あおいさんは、25mおよげます。妹は、5mおよげます。あおいさんは、妹の何倍およげますか。 {{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "何倍かをもとめるときは、その逆をすればいいので、 25÷5 = 5倍"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.353853d4f524",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "30円のおかしを、5つ買いました。500円はらうと、おつりは いくらになるでしょう。",
+      "answers": [
+        "350"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "30人のおかしを 5つ買うのに、30×5円 ひつようになる。 はらったのは 500円なので、500-30×5 = 350円"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.35d29b862f83",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１こ50円 のチョコを 4こ、１こ80円 のガムを 4こ 買いました。全部でいくらになるでしょう。",
+      "answers": [
+        "520"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "１こ50円 のチョコを 4こで、50×4=200円 １こ80円 のガムを 4こで、80×4=320円 これを合わせればいいので、50×4+80×4 = 200+320 = 520円"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.41811b3a576b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "300円 のおこづかいから 60円の消しゴムを買い、のこりを３人で分けました。分けたあと、それぞれが持っているお金は、いくらになりますか。",
+      "answers": [
+        "80"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "300円 のおこづかいから 60円の消しゴムを買うと、のこりは 300-60円 になる。 これを３人で分けるので、(300-60)÷3 = 240÷3 = 80円"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.5942f52ae1f5",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(500-100)÷2"
+        },
+        {
+          "id": "c2",
+          "text": "500-100÷2"
+        },
+        {
+          "id": "c3",
+          "text": "500+100÷2"
+        },
+        {
+          "id": "c4",
+          "text": "(500+100)÷2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "500円のお金から 100円のペンを買うと、のこりは 500-100円 になる。 これを２人で分けるので、 (500-100)÷2 で求めることができる。先に、500-100をするので、かっこをわすれずに。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.7236ef42df26",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の式をまとめて計算すると、どういう式になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(30+50)×3"
+        },
+        {
+          "id": "c2",
+          "text": "30+50×3"
+        },
+        {
+          "id": "c3",
+          "text": "(30+50)×6"
+        },
+        {
+          "id": "c4",
+          "text": "30+50×9"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれをかけ算してから足しても、足し算してまとめてから かけ算しても、答えは同じになるので、30+50 でまとめよう。それに 3をかけて、(30+50)×3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.79274016ec0d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の式をまとめて計算すると、どういう式になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "(50+80)×4"
+        },
+        {
+          "id": "c2",
+          "text": "50+80×4"
+        },
+        {
+          "id": "c3",
+          "text": "(50+80)×8"
+        },
+        {
+          "id": "c4",
+          "text": "50+80×16"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれをかけ算してから足しても、足し算してまとめてから かけ算しても、答えは同じになるので、50+80 でまとめよう。それに 4をかけて、(50+80)×4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.7e9a0e4aa617",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "30×3+50×3"
+        },
+        {
+          "id": "c2",
+          "text": "30+50×3"
+        },
+        {
+          "id": "c3",
+          "text": "30×3+50"
+        },
+        {
+          "id": "c4",
+          "text": "30×(3+50)"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１こ30円 のチョコを 3こで、30×3=90円 １こ50円 のガムを 3こで、50×3=150円 これを合わせればいいので、30×3+50×3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.a42c149c34d7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たかしくんは、おこづかいを 800円もらったので、弟と２人で同じ金がく ずつ分け、150円のアイスを買いました。たかしくんは、のこりいくら持っているでしょう。",
+      "answers": [
+        "250"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "800円 のおこづかいを ２人で分けると、800÷2=400円 になる。 ここから150円のアイスを買ったので、800÷2-150 = 400-150 = 250円"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.a6a8f3b0cb36",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あめを 6人で分けると、１人8つ になり、5つあまりました。あめは、全部でいくつありましたか。",
+      "answers": [
+        "53"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "あめを 6人で分けると、１人8つ になるので、6×8こ ひつようになる。 あと、5つあまりがあるので、6×8+5 = 53こ"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.bf4fd322a91f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "36÷6"
+        },
+        {
+          "id": "c2",
+          "text": "36-6"
+        },
+        {
+          "id": "c3",
+          "text": "36×6"
+        },
+        {
+          "id": "c4",
+          "text": "6×6"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「〇倍」のときは、かけ算をしたね。何倍かをもとめるときは、その逆をすればいいので、わり算しよう。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.cdd3d5549b93",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お父さんは、32才です。妹は、4才です。お父さんのとしは、妹の何倍ですか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "何倍かをもとめるときは、その逆をすればいいので、 32÷4 = 8倍"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-19.e07226b315ce",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4×5+3"
+        },
+        {
+          "id": "c2",
+          "text": "5×4-3"
+        },
+        {
+          "id": "c3",
+          "text": "5÷4-3"
+        },
+        {
+          "id": "c4",
+          "text": "4÷5+3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "クッキーを 5人で分けて、１人4枚 になるので、4×5枚 ひつようになる。 あと、3枚あまりがあるので、4×5+3 で求めることができる。"
+  }
+]

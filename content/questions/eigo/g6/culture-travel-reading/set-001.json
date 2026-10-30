@@ -1,0 +1,332 @@
+[
+  {
+    "id": "eigo.g6.culture-travel-reading.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "案内[あんない]に「Open 9:00–17:00」とある。分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "午前[ごぜん]9時[じ]から午後[ごご]5時[じ]まで開[あ]いている。"
+        },
+        {
+          "id": "b",
+          "text": "9月[がつ]17日[にち]だけ開[あ]いている。"
+        },
+        {
+          "id": "c",
+          "text": "料金[りょうきん]は917円[えん]である。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "時刻[じこく]の範囲[はんい]として読[よ]む。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "パンフレットの「Free admission」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "入場無料[にゅうじょうむりょう]"
+        },
+        {
+          "id": "b",
+          "text": "飲食禁止[いんしょくきんし]"
+        },
+        {
+          "id": "c",
+          "text": "予約必要[よやくひつよう]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "admission は入場[にゅうじょう]、free は無料[むりょう]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「You can see traditional dances.」で紹介[しょうかい]していることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "伝統的[でんとうてき]な踊[おど]りを見[み]られる。"
+        },
+        {
+          "id": "b",
+          "text": "踊[おど]ってはいけない。"
+        },
+        {
+          "id": "c",
+          "text": "踊[おど]りを昨日[きのう]見[み]た。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "can see は見[み]ることができるという案内[あんない]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "旅行案内[りょこうあんない]から出発時刻[しゅっぱつじこく]を探[さが]すとき、注目[ちゅうもく]する語[ご]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Departure"
+        },
+        {
+          "id": "b",
+          "text": "Price"
+        },
+        {
+          "id": "c",
+          "text": "Food"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "departure は出発[しゅっぱつ]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Please take off your shoes.」という文化施設[ぶんかしせつ]の案内[あんない]に従[したが]う行動[こうどう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "靴[くつ]を脱[ぬ]ぐ。"
+        },
+        {
+          "id": "b",
+          "text": "写真[しゃしん]を撮[と]る。"
+        },
+        {
+          "id": "c",
+          "text": "大声[おおごえ]で話[はな]す。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "take off your shoes は靴[くつ]を脱[ぬ]ぐ依頼[いらい]。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "外国[がいこく]の友達[ともだち]へ日本文化[にほんぶんか]を紹介[しょうかい]する文[ぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "We enjoy hanami in spring."
+        },
+        {
+          "id": "b",
+          "text": "Hanami is five o'clock."
+        },
+        {
+          "id": "c",
+          "text": "Turn left at hanami."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "季節[きせつ]と文化的[ぶんかてき]な活動[かつどう]を簡単[かんたん]な文[ぶん]で説明[せつめい]している。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Where can I buy a ticket?」がたずねていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "切符[きっぷ]を買[か]える場所[ばしょ]"
+        },
+        {
+          "id": "b",
+          "text": "切符[きっぷ]の値段[ねだん]"
+        },
+        {
+          "id": "c",
+          "text": "旅行[りょこう]の日付[ひづけ]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Where は場所[ばしょ]をたずねる。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "掲示[けいじ]に「No photos」とある。どうする？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "写真[しゃしん]を撮[と]らない。"
+        },
+        {
+          "id": "b",
+          "text": "写真[しゃしん]を無料[むりょう]でもらう。"
+        },
+        {
+          "id": "c",
+          "text": "写真[しゃしん]を二枚[にまい]撮[と]る。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "No photos は撮影禁止[さつえいきんし]を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "二[ふた]つの観光地[かんこうち]を比[くら]べるとき必要[ひつよう]な情報[じょうほう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "場所[ばしょ]、時間[じかん]、料金[りょうきん]、できること。"
+        },
+        {
+          "id": "b",
+          "text": "文字[もじ]の色[いろ]だけ。"
+        },
+        {
+          "id": "c",
+          "text": "パンフレットの紙[かみ]の重[おも]さ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目的[もくてき]に関係[かんけい]する共通項目[きょうつうこうもく]を比[くら]べる。"
+  },
+  {
+    "id": "eigo.g6.culture-travel-reading.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 6,
+    "unit": "eigo.g6.culture-travel-reading",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I'd like to visit Canada.」で伝[つた]えていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "カナダを訪[おとず]れたい。"
+        },
+        {
+          "id": "b",
+          "text": "カナダから帰[かえ]った。"
+        },
+        {
+          "id": "c",
+          "text": "カナダの値段[ねだん]を知[し]りたい。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "I'd like to ... はしたいことを丁寧[ていねい]に伝[つた]える。"
+  }
+]

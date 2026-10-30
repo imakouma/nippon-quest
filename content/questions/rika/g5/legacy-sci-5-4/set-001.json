@@ -1,0 +1,622 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-4.076c93e9798f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡の使い方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "反しゃ鏡・ステージ・横・接眼レンズ・調節ねじ"
+        },
+        {
+          "id": "c2",
+          "text": "反[はん]しゃ鏡[きょう]・ステージ・上[うえ]・接眼[せつがん]レンズ・調節[ちょうせつ]ねじ"
+        },
+        {
+          "id": "c3",
+          "text": "接眼[せつがん]レンズ・ステージ・横[よこ]・対物[たいぶつ]レンズ・調節[ちょうせつ]ねじ"
+        },
+        {
+          "id": "c4",
+          "text": "反[はん]しゃ鏡[きょう]・クリップ・横[よこ]・接眼[せつがん]レンズ・ステージ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "①（反しゃ鏡）を動かして、明るく見えるようにする。 ② プレパラートを（ステージ）にのせ、クリップでとめる。 ③（横）から見ながら調節ねじを回し、対物レンズとプレパラートをできるだけ近づける。 ④（接眼レンズ）をのぞきながら（調節ねじ）を回して対物レンズとプレパラートをはなしていき、ピントを合わせる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.0d00bc85d843",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、ヘチマを使って図のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "受粉させないため。"
+        },
+        {
+          "id": "c2",
+          "text": "花粉を集めるため。"
+        },
+        {
+          "id": "c3",
+          "text": "鳥などに食べられないようにするため。"
+        },
+        {
+          "id": "c4",
+          "text": "はやく花をさかせるため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/828b789393eb611e.png"
+    },
+    "explanation": "ヘチマの場合、ハチなどのこん虫が、おしべの花粉をめしべに運んでいる。明日さきそうなめばなに ふくろをかぶせるのは、こん虫などによって、受粉させないため。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.1302d60536c3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アブラナ や アサガオの花のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "めしべ・おしべ・がく・花びら"
+        },
+        {
+          "id": "c2",
+          "text": "おしべ・めしべ・がく・花[はな]びら"
+        },
+        {
+          "id": "c3",
+          "text": "めしべ・おしべ・花[はな]びら・がく"
+        },
+        {
+          "id": "c4",
+          "text": "がく・花[はな]びら・おしべ・めしべ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/77dfbe034741cad6.png"
+    },
+    "explanation": "アブラナ や アサガオには１つの花に Aの（めしべ）と Bの（おしべ）がある。花は外側から、（がく）、（花びら）、B、A の順についている。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.145e8430a7d4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉をしたヘチマのめばなは、めしべのふくらんだ部分が大きくなり、実（果実）ができた。このヘチマの実（果実）の中には、図のような黒いつぶ A があった。これは何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "種子"
+        },
+        {
+          "id": "c2",
+          "text": "実（果実）"
+        },
+        {
+          "id": "c3",
+          "text": "花粉"
+        },
+        {
+          "id": "c4",
+          "text": "こん虫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1cb189ba02a92cc6.png"
+    },
+    "explanation": "ヘチマは受粉すると、めしべのふくらんだ部分が育って実（果実）になり、中に種子ができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.1a331013566c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アサガオとヘチマの花について、次の部分として当てはまる記号[きごう]の組み合わせを、それぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イとエ・アとオ・ウとカ"
+        },
+        {
+          "id": "c2",
+          "text": "イとオ・アとエ・ウとカ"
+        },
+        {
+          "id": "c3",
+          "text": "アとエ・イとオ・ウとカ"
+        },
+        {
+          "id": "c4",
+          "text": "エとオ・イとア・カとウ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b7565df23a90481f.png"
+    },
+    "explanation": "花粉をつくる部分：イとエ 花粉がつく部分：アとオ 将来、実になる部分（子ぼう）：ウとカ"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.28ad5b93b243",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヘチマの花粉をけんび鏡で観察すると、図のように見えた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/0c914d76017fc419.png"
+    },
+    "explanation": "ふつう、けんび鏡では、上下左右が逆ぎゃくに見えている。見たいものを右下に動かしたいときには、プレパラートを上下左右が逆の、A（左上）の方向に動かす。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.31aceeffc614",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "花粉がめしべの先につくことを何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "受粉"
+        },
+        {
+          "id": "c2",
+          "text": "受精"
+        },
+        {
+          "id": "c3",
+          "text": "発芽"
+        },
+        {
+          "id": "c4",
+          "text": "成長"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "花粉がめしべの先につくことを受粉という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.4ac9fffc9271",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、アサガオを使って図のような実験を行った。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "できた・できなかった・受粉"
+        },
+        {
+          "id": "c2",
+          "text": "できなかった・できた・ふくろ"
+        },
+        {
+          "id": "c3",
+          "text": "できなかった・できた・受粉[じゅふん]"
+        },
+        {
+          "id": "c4",
+          "text": "できた・できなかった・日光[にっこう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f7a1c29e0383057a.png"
+    },
+    "explanation": "受粉をしたアサガオは、実や種子が（できた）。受粉をしなかったアサガオは、実や種子が（できなかった）。よって、実や種子ができるためには（受粉）が必要だということが分かった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.4be602b9a747",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡について、A〜Dを何というでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接眼レンズ・対物レンズ・調節ねじ・反しゃ鏡"
+        },
+        {
+          "id": "c2",
+          "text": "対物[たいぶつ]レンズ・接眼[せつがん]レンズ・調節[ちょうせつ]ねじ・反[はん]しゃ鏡[きょう]"
+        },
+        {
+          "id": "c3",
+          "text": "接眼[せつがん]レンズ・対物[たいぶつ]レンズ・反[はん]しゃ鏡[きょう]・調節[ちょうせつ]ねじ"
+        },
+        {
+          "id": "c4",
+          "text": "対物[たいぶつ]レンズ・調節[ちょうせつ]ねじ・接眼[せつがん]レンズ・反[はん]しゃ鏡[きょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/10a69d9ceccd6948.png"
+    },
+    "explanation": "A：接眼レンズ B：対物レンズ C：調節ねじ D：反しゃ鏡"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.5b77afc27596",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A〜Cの アサガオとヘチマの花のうち、めしべがない花はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c2f3ef7d72b7438c.png"
+    },
+    "explanation": "花には、アブラナやアサガオのように、１つの花に めしべとおしべ があるものと、ヘチマのように おばなにおしべ、めばなにめしべ があるものがある。B はヘチマのおばな なので、めしべがない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.80f904c7f52a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "めしべ・実・種子"
+        },
+        {
+          "id": "c2",
+          "text": "おしべ・実[み]・種子[しゅし]"
+        },
+        {
+          "id": "c3",
+          "text": "めしべ・種子[しゅし]・実[み]"
+        },
+        {
+          "id": "c4",
+          "text": "おしべ・種子[しゅし]・実[み]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "花粉が（めしべ）の先につくことを受粉という。受粉するとめしべのもとのしぼうが育って（実）になり，中に（種子）ができる"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.85a602fb600f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、ヘチマを使って図のような実験を行った。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "できた・できなかった・受粉"
+        },
+        {
+          "id": "c2",
+          "text": "できなかった・できた・ふくろ"
+        },
+        {
+          "id": "c3",
+          "text": "できなかった・できた・受粉[じゅふん]"
+        },
+        {
+          "id": "c4",
+          "text": "できた・できなかった・日光[にっこう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/828b789393eb611e.png"
+    },
+    "explanation": "受粉させためばなは、めしべのふくらんだ部分が大きくなり、実が（できた）。受粉させなかっためばなは、実が（できなかった）。よって、実（果実）ができるためには、（受粉）が必要だということが分かった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.8e63cdbbe16f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おしべの先には、粉こながついている。この粉を何というでしょう。正しい言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "花粉"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷん"
+        },
+        {
+          "id": "c3",
+          "text": "がく"
+        },
+        {
+          "id": "c4",
+          "text": "種子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "おしべの先についている粉を花粉という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.93345bcb1c56",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヘチマの花のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おばな・めばな・おしべ・めしべ"
+        },
+        {
+          "id": "c2",
+          "text": "めばな・おばな・おしべ・めしべ"
+        },
+        {
+          "id": "c3",
+          "text": "おばな・めばな・めしべ・おしべ"
+        },
+        {
+          "id": "c4",
+          "text": "めばな・おばな・めしべ・おしべ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/17b7a6edafc43717.png"
+    },
+    "explanation": "ヘチマは、A の（おばな）、B の（めばな）のように、花のつくりがちがう２種類の花がさく。A には ア（おしべ）があり、B には イ（めしべ）がある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.9bb79d044710",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヘチマの花粉をけんび鏡で観察した。もっと大きくして見たいときは、どうすればいいでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "レボルバーを回して、高い倍率のレンズにかえる。"
+        },
+        {
+          "id": "c2",
+          "text": "反しゃ鏡を動かして、明るく見えるようにする。"
+        },
+        {
+          "id": "c3",
+          "text": "調節ねじを回して、対物レンズをプレパラートに近づける。"
+        },
+        {
+          "id": "c4",
+          "text": "プレパラートを動かして、花粉が視野の中央にくるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/df058895b8714070.png"
+    },
+    "explanation": "けんび鏡で観察しているものを、もっと大きくして見たいときは、レボルバーを回して、高い倍率りつのレンズにかえて観察する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.c3620a32debb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "受粉について調べるために、アサガオを使って図のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "受粉させないため。"
+        },
+        {
+          "id": "c2",
+          "text": "花粉を集めるため。"
+        },
+        {
+          "id": "c3",
+          "text": "鳥などに食べられないようにするため。"
+        },
+        {
+          "id": "c4",
+          "text": "はやく花をさかせるため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f7a1c29e0383057a.png"
+    },
+    "explanation": "アサガオは１つの花におしべとめしべが両方あって、花がさくのと同時に受粉する。アサガオのつぼみからおしべをとったのは、受粉させないため。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-4.e322b48ad170",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おしべ・ハチ"
+        },
+        {
+          "id": "c2",
+          "text": "花[はな]びら・ハチ"
+        },
+        {
+          "id": "c3",
+          "text": "おしべ・風[かぜ]"
+        },
+        {
+          "id": "c4",
+          "text": "花[はな]びら・風[かぜ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヘチマのめばなをよく観察すると、めしべの先に花粉がついていた。この花粉は、（おしべ）から運ばれてきたと考えられる。ヘチマの場合、（ハチ）などが花粉をめしべに運んでいる。"
+  }
+]

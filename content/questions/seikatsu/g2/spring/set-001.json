@@ -1,0 +1,164 @@
+[
+  {
+    "id": "seikatsu.g2.spring.0001",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.spring",
+    "payload": {
+      "prompt": "冬[ふゆ]と 春[はる]の おなじ 木[き]を くらべます。のこすと よいことは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "葉[は]や つぼみの ようすと 日[ひ]づけ"
+        },
+        {
+          "id": "b",
+          "text": "木[き]と かんけいのない こと"
+        },
+        {
+          "id": "c",
+          "text": "友達[ともだち]の 名前[なまえ]だけ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おなじ 木[き]の 葉[は]や つぼみを 日[ひ]づけと いっしょに のこすと、季節[きせつ]の 変化[へんか]を くらべられます。"
+  },
+  {
+    "id": "seikatsu.g2.spring.0002",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.spring",
+    "payload": {
+      "prompt": "校庭[こうてい]で 春[はる]を さがします。見[み]つけたものを たしかめるには？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "色[いろ]・形[かたち]・においなどを よく 観察[かんさつ]する"
+        },
+        {
+          "id": "b",
+          "text": "見[み]ないで きめる"
+        },
+        {
+          "id": "c",
+          "text": "草花[くさばな]を ぜんぶ ぬく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "色[いろ]や 形[かたち]などを よく 観察[かんさつ]すると、春[はる]らしい ようすに 気[き]づけます。"
+  },
+  {
+    "id": "seikatsu.g2.spring.0003",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.spring",
+    "payload": {
+      "prompt": "春[はる]の 町[まち]を 歩[ある]く ときに 大切[たいせつ]なことは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "先生[せんせい]と きめた 道[みち]を 安全[あんぜん]に 歩[ある]く"
+        },
+        {
+          "id": "b",
+          "text": "一人[ひとり]で 知[し]らない 道[みち]へ 行[い]く"
+        },
+        {
+          "id": "c",
+          "text": "道[みち]の まんなかを 走[はし]る"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "きめた 道[みち]と 約束[やくそく]を まもると、町[まち]の 春[はる]を 安全[あんぜん]に 見[み]つけられます。"
+  },
+  {
+    "id": "seikatsu.g2.spring.0004",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.spring",
+    "payload": {
+      "prompt": "春[はる]に なって、上着[うわぎ]を ぬぐ 人[ひと]が ふえました。どんな 変化[へんか]と かんけいが ありそう？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "気温[きおん]が あたたかく なった"
+        },
+        {
+          "id": "b",
+          "text": "一日[いちにち]が なくなった"
+        },
+        {
+          "id": "c",
+          "text": "町[まち]から 人[ひと]が いなくなった"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "季節[きせつ]が 変[か]わると、気温[きおん]に 合[あ]わせて 服装[ふくそう]や くらしも 変[か]わります。"
+  },
+  {
+    "id": "seikatsu.g2.spring.0005",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.spring",
+    "payload": {
+      "prompt": "見[み]つけた 春[はる]を 友達[ともだち]に わかりやすく つたえるには？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "見[み]つけた 場所[ばしょ]と ようすを 絵[え]や 言葉[ことば]で しめす"
+        },
+        {
+          "id": "b",
+          "text": "場所[ばしょ]を かくして 何[なに]も 書[か]かない"
+        },
+        {
+          "id": "c",
+          "text": "見[み]ていない ことを つけたす"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "場所[ばしょ]と ようすを 絵[え]や 言葉[ことば]で のこすと、見[み]つけた 春[はる]が つたわります。"
+  },
+  {
+    "id": "seikatsu.g2.spring.0006",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.spring",
+    "payload": {
+      "prompt": "去年[きょねん]の 春[はる]の きろくと 今年[ことし]の ようすが ちがいます。どう する？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ちがいを のこし、天気[てんき]や 日[ひ]づけも くらべる"
+        },
+        {
+          "id": "b",
+          "text": "どちらかを まちがいに する"
+        },
+        {
+          "id": "c",
+          "text": "きろくを すてる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "春[はる]の ようすは 天気[てんき]や 時期[じき]でも ちがいます。ちがいを のこすことも 大切[たいせつ]な 気[き]づきです。"
+  }
+]

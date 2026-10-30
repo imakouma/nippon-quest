@@ -1,0 +1,258 @@
+[
+  {
+    "id": "legacy.sansu.g1.math-1-8.13b5d9e4304f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アとイのうち、どちらで なんふんかが わかるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f352be15a5a70bb5.png"
+    },
+    "explanation": "ほそくて ながいはり で、なんぷんかが わかります。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.3c5ad93789a3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "12",
+        "20"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/64316757ca60108f.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.64c4ef4d45b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "9",
+        "15"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/0a24201dd8eefd99.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.6c2c0a80bec3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "2",
+        "30"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/72374769b78ffba3.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.7b4e7e51b9eb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とけいでは、ながいはりが １しゅう すると、なんふん すすみますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12ふん"
+        },
+        {
+          "id": "c2",
+          "text": "10ぷん"
+        },
+        {
+          "id": "c3",
+          "text": "60ぷん"
+        },
+        {
+          "id": "c4",
+          "text": "100ぷん"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "とけいで ながいはりが １しゅう すると 60ぷん すすむ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.7bed5fa2e4a0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7じ"
+        },
+        {
+          "id": "c2",
+          "text": "7じ 12ふん"
+        },
+        {
+          "id": "c3",
+          "text": "12じ"
+        },
+        {
+          "id": "c4",
+          "text": "12じ 7ふん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6a6f0445e8d30b69.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.7f09e0a90aba",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "6",
+        "3"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/164d4c0d1a1cc263.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.bf1c1121fe83",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "4",
+        "33"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/e9d76a6f1ad7375f.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.c6e63b71e522",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アとイのうち、どちらで なんじかが わかるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4f69ec5c6dcba2db.png"
+    },
+    "explanation": "ふとくて みじかいはり で、なんじかが わかります。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-8.ef8dff9d637a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なんじ なんふん でしょう。",
+      "answers": [
+        "9",
+        "47"
+      ],
+      "template": "{{INPUT}} じ {{INPUT}} ふん",
+      "promptImage": "questions/legacy/c45ef72b80c7d9f0.png"
+    }
+  }
+]

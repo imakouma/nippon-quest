@@ -1,0 +1,650 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-3.0a955695dfb4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのめすとおすのちがいについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "せびれ・しりびれ・おす・めす"
+        },
+        {
+          "id": "c2",
+          "text": "しりびれ・せびれ・おす・めす"
+        },
+        {
+          "id": "c3",
+          "text": "せびれ・しりびれ・めす・おす"
+        },
+        {
+          "id": "c4",
+          "text": "むなびれ・おびれ・おす・めす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e25583c25d686b58.png"
+    },
+    "explanation": "メダカのめすとおすは、アの（せびれ）や、イの（しりびれ）などの体の形で見分けることができる。Aのメダカは、ア（せびれ）に切れこみがあり、イ（しりびれ）が平行四辺形に近い形をしているので、（おす）だと分かる。Bのメダカは、せびれに切れこみがなく、しりびれのうしろが短いのにくわえて、はらがふくれているので、（めす）だと分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.0f0f312f0460",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカの飼かい方として まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水そうは、日光が直接当たらない、明るいところに置く。"
+        },
+        {
+          "id": "c2",
+          "text": "たまごを産みつけやすいように、水草を入れる。"
+        },
+        {
+          "id": "c3",
+          "text": "えさは食べ残しが出るくらいに十分にあたえる。"
+        },
+        {
+          "id": "c4",
+          "text": "水がにごったら、くみ置きの水と半分くらいとりかえる。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "えさをあげすぎると、水がすぐにごってしまうので、食べ残さないくらいの量のえさを、１日に数回にわけてあげるようにする。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.15dcf6be976e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そう眼実体けんび鏡・両目"
+        },
+        {
+          "id": "c2",
+          "text": "そう眼[がん]実体[じったい]けんび鏡[きょう]・片目[かため]"
+        },
+        {
+          "id": "c3",
+          "text": "かいぼうけんび鏡[きょう]・両目[りょうめ]"
+        },
+        {
+          "id": "c4",
+          "text": "かいぼうけんび鏡[きょう]・片目[かため]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/56678d59f3370944.png"
+    },
+    "explanation": "このけんび鏡は、（そう眼がん実じっ体たいけんび鏡）といい、見たいものを 20〜40 倍の大きさで見ることができる。接眼レンズは２つで、（両目）でのぞいて観察する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.21ce032cb3c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカの産卵について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご・精子・受精・受精卵"
+        },
+        {
+          "id": "c2",
+          "text": "精子[せいし]・たまご・受精[じゅせい]・受精卵[じゅせいらん]"
+        },
+        {
+          "id": "c3",
+          "text": "たまご・精子[せいし]・発芽[はつが]・受精卵[じゅせいらん]"
+        },
+        {
+          "id": "c4",
+          "text": "たまご・養分[ようぶん]・受精[じゅせい]・子[こ]メダカ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "めすのメダカが産んだ（たまご）が、おすのメダカが出す（精子）と結びつくと、たまごは育ちはじめる。このように、たまごと精子が結びつくことを （受精）といい、受精したたまごを（受精卵らん）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.25c3b00653ad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカがふ化するまでの間、たまごの大きさはどうなるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だんだん大きくなる。"
+        },
+        {
+          "id": "c2",
+          "text": "だんだん小さくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/848109889976c6f1.png"
+    },
+    "explanation": "メダカがふ化するまでの間、たまごの中では、だんだんメダカの形が見られるようになるが、たまごの大きさは変わらない。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.278cd9061163",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かいぼうけんび鏡の使い方について、正しい順番になるように、ア〜エをならべかえよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イ・エ・ウ・ア"
+        },
+        {
+          "id": "c2",
+          "text": "エ・イ・ウ・ア"
+        },
+        {
+          "id": "c3",
+          "text": "イ・ウ・エ・ア"
+        },
+        {
+          "id": "c4",
+          "text": "ア・ウ・エ・イ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d18d67b7baf71972.png"
+    },
+    "explanation": "イ→エ→ウ→ア"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.3fffe073a7c5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かいぼうけんび鏡・片目"
+        },
+        {
+          "id": "c2",
+          "text": "そう眼[がん]実体[じったい]けんび鏡[きょう]・両目[りょうめ]"
+        },
+        {
+          "id": "c3",
+          "text": "かいぼうけんび鏡[きょう]・両目[りょうめ]"
+        },
+        {
+          "id": "c4",
+          "text": "そう眼[がん]実体[じったい]けんび鏡[きょう]・片目[かため]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d18d67b7baf71972.png"
+    },
+    "explanation": "このけんび鏡は、（かいぼうけんび鏡）といい、見たいものを 10〜20 倍の大きさで見ることができる。接眼レンズは１つで、（片目）でのぞいて観察する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.4a5a88e9a10e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカがたまごを産むようすを調べるために、水そうに水草を入れて、メダカを飼った。水そうに水草を入れる理由[りゆう]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メダカがたまごを産みつけやすくなるから。"
+        },
+        {
+          "id": "c2",
+          "text": "水草が水温を調節してくれるから。"
+        },
+        {
+          "id": "c3",
+          "text": "水草は、メダカのエサになるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカがたまごを産むようすを調べるときには、メダカがたまごを産みつけやすいように、水そうに水草を入れる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.638105087de1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのたまごを観察し、どのように育つのかを調べた。メダカのたまごの成長について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご・見られない・見られる"
+        },
+        {
+          "id": "c2",
+          "text": "めすのはらの中[なか]・見[み]られない・見[み]られる"
+        },
+        {
+          "id": "c3",
+          "text": "たまご・見[み]られる・見[み]られない"
+        },
+        {
+          "id": "c4",
+          "text": "めすのはらの中[なか]・見[み]られる・見[み]られない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/848109889976c6f1.png"
+    },
+    "explanation": "メダカは、（たまご）の中で育つ。受精してすぐはたまごのなかにメダカは（見られない）が、だんだんメダカのような形が（見られる）ようになり、受精から約２週間で子メダカがたまごから出てくる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.7c18b6cb9b41",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのたまごを観察し、どのように育つのかを調べた。次のA〜Dを、成長の順にならべよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A・B・D・C"
+        },
+        {
+          "id": "c2",
+          "text": "A・D・B・C"
+        },
+        {
+          "id": "c3",
+          "text": "B・A・D・C"
+        },
+        {
+          "id": "c4",
+          "text": "A・B・C・D"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e2ba91f4774f79e8.png"
+    },
+    "explanation": "A→B→D→C たまごの中では、だんだんとメダカの形ができてくるよ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.84b4bda2632b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカのたまごを観察するために、図のような水そうでおすのメダカを１０ぴき育てているが、なかなかたまごを産まない。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おすのメダカをいっしょに飼う。"
+        },
+        {
+          "id": "c2",
+          "text": "水そうに水草を入れる。"
+        },
+        {
+          "id": "c3",
+          "text": "めすのメダカをいっしょに飼う。"
+        },
+        {
+          "id": "c4",
+          "text": "水道水を入れる。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7e942f257fc70f4f.png"
+    },
+    "explanation": "たまごを産むのは、めすのメダカ。おすのメダカだけではたまごを産まないので、めすのメダカもいっしょに飼おう。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.8676d6f1f289",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たまごの中のメダカは、どのようにして育っているのでしょう。正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまごの中の養分を使って育つ。"
+        },
+        {
+          "id": "c2",
+          "text": "養分がなくても育つことができる。"
+        },
+        {
+          "id": "c3",
+          "text": "日光をあびることで育つ。"
+        },
+        {
+          "id": "c4",
+          "text": "水草をエサにして育つ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "たまごの中のメダカは、たまごの中の養分を使って育つ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.86d1e3ca4fbe",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカがたまごを産むようすについて、順にならべかえよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "C・D・E・B"
+        },
+        {
+          "id": "c2",
+          "text": "C・E・D・B"
+        },
+        {
+          "id": "c3",
+          "text": "D・C・E・B"
+        },
+        {
+          "id": "c4",
+          "text": "B・E・D・C"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f0481685d4fb2e6b.png"
+    },
+    "explanation": "（A →）C → D → E → B まず、おすがめすの目の前を輪をえがくように泳いだり、めすを追いかけたりした後、しばらくならんで泳ぐようになる。その後、体をすり合わせ、めすがたまごを産み、おすは精せい子しをかける。めすはしばらくの間たまごをつけたまま泳ぎ、たまごを水草につける。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.8d1139a33d93",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカを飼うときに、くみ置きの水（水道水をくんでから１〜２日置いておいた水）をいれる理由[りゆう]として、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メダカに有害な、水道水の消毒薬などをなくすため。"
+        },
+        {
+          "id": "c2",
+          "text": "水温などのかん境が急に変化しないようにするため。"
+        },
+        {
+          "id": "c3",
+          "text": "水をにごりにくくし、きれいなかん境をたもつため。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "くみ置きの水を使うのは、水道水に入っているメダカに有害な消しょう毒どく薬やくなどをなくし、水温などのかん境きょうが急に変化しないようにするため。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.c627e9711301",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のA、Bのうち、たまごを産むのはどのメダカでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Aのメダカ"
+        },
+        {
+          "id": "c2",
+          "text": "Bのメダカ"
+        },
+        {
+          "id": "c3",
+          "text": "AとBどちらのメダカもたまごを産む"
+        },
+        {
+          "id": "c4",
+          "text": "AとBどちらのメダカもたまごを産まない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4edc8eb44d45d662.png"
+    },
+    "explanation": "Aのメダカは、せびれに切れこみがあり、しりびれが平行四辺形に近い形をしているので「おす」。Bのメダカは、せびれに切れこみがなく、しりびれのうしろが短いのにくわえて、はらがふくれているので、「めす」だと分かる。たまごを産むのは、Bのめすのメダカ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.c94faa89fbd7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メダカは、受精してからどれくらいの期間でたんじょうするでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約２週間"
+        },
+        {
+          "id": "c2",
+          "text": "約１週間"
+        },
+        {
+          "id": "c3",
+          "text": "約３８週間"
+        },
+        {
+          "id": "c4",
+          "text": "約１ヶ月"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メダカは、受精してから約２週間（10〜14日）で、たんじょうする。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.cf33d0e30ef3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たまごからかえった直後の子メダカについての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たんじょうして２〜３日は、はらのふくろにはいっている養分を使って育つ。"
+        },
+        {
+          "id": "c2",
+          "text": "たんじょうすると、すぐにエサを食べはじめる。"
+        },
+        {
+          "id": "c3",
+          "text": "たんじょうしたときには、すでに親と同じ大きさになっている。"
+        },
+        {
+          "id": "c4",
+          "text": "たんじょうしたときのすがたは、親と同じ形をしている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cf4a0ab8290f5bc9.png"
+    },
+    "explanation": "たまごからかえった直後の子メダカには、ふくろのようなものがついている。たんじょうして２〜３日は、はらのふくろにはいっている養分を使って育つ。その後、自分でエサをとって食べるようになる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-3.e329c7a35786",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の２種類のけんび鏡の特ちょうについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そう眼実体けんび鏡・厚みのあるものを立体的に・かいぼうけんび鏡・接眼レンズだけで"
+        },
+        {
+          "id": "c2",
+          "text": "かいぼうけんび鏡[きょう]・厚[あつ]みのあるものを立体的[りったいてき]に・そう眼[がん]実体[じったい]けんび鏡[きょう]・接眼[せつがん]レンズだけで"
+        },
+        {
+          "id": "c3",
+          "text": "そう眼[がん]実体[じったい]けんび鏡[きょう]・うすいものを平面的[へいめんてき]に・かいぼうけんび鏡[きょう]・両方[りょうほう]の目[め]で"
+        },
+        {
+          "id": "c4",
+          "text": "かいぼうけんび鏡[きょう]・厚[あつ]みのあるものを立体的[りったいてき]に・そう眼[がん]実体[じったい]けんび鏡[きょう]・両方[りょうほう]の目[め]で"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b2578bb59a0030bc.png"
+    },
+    "explanation": "Aは（そう眼実体けんび鏡）といい、（厚みのあるものを立体的に）観察できる。Bは（かいぼうけんび鏡）といい、（接眼レンズだけで）観察する。 「そうがん」は、漢字で「双眼」と書く。「双」は、双子ふたごという言葉にも使われるように、ふたつという意味があり、双眼は２つの目で見ることを表している。両方の目で見ると、より立体的に見ることができるんだ。"
+  }
+]

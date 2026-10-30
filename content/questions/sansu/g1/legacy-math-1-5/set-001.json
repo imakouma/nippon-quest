@@ -1,0 +1,264 @@
+[
+  {
+    "id": "legacy.sansu.g1.math-1-5.18033ca31de5",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "11"
+        },
+        {
+          "id": "c2",
+          "text": "13"
+        },
+        {
+          "id": "c3",
+          "text": "10"
+        },
+        {
+          "id": "c4",
+          "text": "14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d081309126fab678.png"
+    },
+    "explanation": "4 に 7 のうち 6 をあわせると、10 のまとまりができる。 のこった 1 と 10 で、こたえは、11 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.3b2b1b7ef678",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "12 － 7 ＝ {{INPUT}}"
+    },
+    "explanation": "12 を 10 と 2 にわけて、10 から 7 をひくと、3 になる。 3 と 2 をあわせて、5 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.57580d0cada2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "16"
+      ],
+      "template": "7 ＋ 9 ＝ {{INPUT}}"
+    },
+    "explanation": "7 に 9 のうち 3 をあわせると、10 のまとまりができる。 のこった 6 と 10 で、こたえは、16 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.97c33ad72178",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9"
+        },
+        {
+          "id": "c2",
+          "text": "6"
+        },
+        {
+          "id": "c3",
+          "text": "7"
+        },
+        {
+          "id": "c4",
+          "text": "8"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c03cf27e48b1875f.png"
+    },
+    "explanation": "15 を 10 と 5 にわけて、10 から 7 をひくと、3 になる。 3 と 5 をあわせて、8 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.9d2bbdf6748d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6"
+        },
+        {
+          "id": "c2",
+          "text": "7"
+        },
+        {
+          "id": "c3",
+          "text": "8"
+        },
+        {
+          "id": "c4",
+          "text": "9"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/976adb76d6ad39d9.png"
+    },
+    "explanation": "12 を 10 と 2 にわけて、10 から 4 をひくと、6 になる。6 と 2 をあわせて、8 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.9f657e1c2e87",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10"
+        },
+        {
+          "id": "c2",
+          "text": "11"
+        },
+        {
+          "id": "c3",
+          "text": "12"
+        },
+        {
+          "id": "c4",
+          "text": "13"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f31bc2cb443655ab.png"
+    },
+    "explanation": "9 に 3 のうち 1 をあわせると、10 のまとまりができる。 のこった 2 と 10 で、こたえは、12 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.cf075e7e8b74",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12"
+        },
+        {
+          "id": "c2",
+          "text": "14"
+        },
+        {
+          "id": "c3",
+          "text": "10"
+        },
+        {
+          "id": "c4",
+          "text": "16"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1b9f14c1258d6a28.png"
+    },
+    "explanation": "6 に 8 のうち 4 をあわせると、10 のまとまりができる。のこった 4 と 10 で、こたえは、14 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-5.e5e1ef83fb5f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ずをみて、つぎのけいさんの こたえを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "11"
+        },
+        {
+          "id": "c2",
+          "text": "10"
+        },
+        {
+          "id": "c3",
+          "text": "8"
+        },
+        {
+          "id": "c4",
+          "text": "9"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6ec35bcc985eed79.png"
+    },
+    "explanation": "18 を 10 と 8 にわけて、10 から 9 をひくと、1 になる。 1 と 8 をあわせて、9 だね。"
+  }
+]

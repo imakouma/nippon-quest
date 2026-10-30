@@ -1,0 +1,399 @@
+[
+  {
+    "id": "legacy.sansu.g1.math-1-6.0028cd1e9454",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "82"
+      ],
+      "template": "81 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "81 のつぎのかずは、81 と 1 で 82 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.0d5b59f1d0b1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "十のくらいが 2 で、一のくらいが 4 のかずは、いくつに なるでしょう。",
+      "answers": [
+        "24"
+      ]
+    },
+    "explanation": "十のくらいが 2 なので、20 になる。20 と 一のくらいの 4 で、あわせて 24 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.256da7111221",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "28 より、2 ちいさいかずは、いくつでしょう。",
+      "answers": [
+        "26"
+      ]
+    },
+    "explanation": "28 から ぎゃくのじゅんばんに 2 かぞえて、26 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.392c6f803a77",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつ あるでしょう。",
+      "answers": [
+        "41"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/fc0005de2b1ff22e.png"
+    },
+    "explanation": "１れつが 10 に なっているね。４れつと 1 あるので、41 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.4520b07d4ccb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50 より、10 ちいさいかずは、いくつでしょう。",
+      "answers": [
+        "40"
+      ]
+    },
+    "explanation": "10 ちいさいので、十のくらいを 1 ちいさくして、40 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.4a5ecb6dfb0f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "80 より、10 おおきいかずは、いくつでしょう。",
+      "answers": [
+        "90"
+      ]
+    },
+    "explanation": "10 おおきいので、十のくらいを 1 おおきくして、90 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.4a9fa52b28f3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまるかずは、いくつでしょう。",
+      "answers": [
+        "101"
+      ],
+      "template": "100 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "100 から 1 ふえると、100 と 1 で 101 だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.582c47dfbafd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "十のくらいが 3 で、一のくらいが 6 のかずは、いくつに なるでしょう。",
+      "answers": [
+        "36"
+      ]
+    },
+    "explanation": "十のくらいが 3 なので、30 になる。30 と 一のくらいの 6 で、あわせて 36 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.76bdd12e3d89",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまるかずは、いくつでしょう。",
+      "answers": [
+        "123"
+      ],
+      "template": "122 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "一のくらいが、じゅんばんにふえているね。122 から 1 ふやして、123 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.77a6f5ef6b43",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "63"
+      ],
+      "template": "64 の まえの かずは {{INPUT}}"
+    },
+    "explanation": "64 のまえのかずは、64 から 1 をひいて 63 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.7b588cd0c820",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "30 より、3 おおきいかずは、いくつでしょう。",
+      "answers": [
+        "33"
+      ]
+    },
+    "explanation": "30 から じゅんばんに 3 かぞえて、33 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.9599d1629996",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "70 より、5 ちいさいかずは、いくつでしょう。",
+      "answers": [
+        "65"
+      ]
+    },
+    "explanation": "70 から ぎゃくのじゅんばんに 5 かぞえて、65 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.a382bc3ef2ab",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつ あるでしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/82a1610dc2891f54.png"
+    },
+    "explanation": "１れつが 10 に なっているね。６れつ あるので、60 だ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.b603d681415b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "21"
+      ],
+      "template": "20 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "20 のつぎのかずは、20 と 1 で 21 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.be2e2c092c35",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまるかずは、いくつでしょう。",
+      "answers": [
+        "110"
+      ],
+      "template": "109 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "109 は、100 と 9 をあわせたかず。9 から 1 ふえると 10 なので、110 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.c7841ad0eb14",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "50 より、8 おおきいかずは、いくつでしょう。",
+      "answers": [
+        "58"
+      ]
+    },
+    "explanation": "50 から じゅんばんに8 かぞえて、58 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.cefe86ef8762",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "49"
+      ],
+      "template": "48 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "48 のつぎのかずは、48 と 1 で 49 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.d29acb17630b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "十のくらいが 5 で、一のくらいが 7 のかずは、いくつに なるでしょう。",
+      "answers": [
+        "57"
+      ]
+    },
+    "explanation": "十のくらいが 5 なので、50 になる。50 と 一のくらいの 7 で、あわせて 57 だね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.e7036378edfa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "100"
+      ],
+      "template": "99 の つぎの かずは {{INPUT}}"
+    },
+    "explanation": "99 のつぎなので、10 が 10こ あつまるので、100 になる。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-6.ffb22b7264ce",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "○は、いくつ あるでしょう。",
+      "answers": [
+        "25"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/legacy/a912f4c94ef8e008.png"
+    },
+    "explanation": "１れつが 10 に なっているね。２れつと 5 あるので、25 になる。"
+  }
+]

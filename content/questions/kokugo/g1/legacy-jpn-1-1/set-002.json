@@ -1,0 +1,398 @@
+[
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.c14981bbfd9d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ナ」と同じ文字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ナ"
+        },
+        {
+          "id": "c2",
+          "text": "ニ"
+        },
+        {
+          "id": "c3",
+          "text": "ネ"
+        },
+        {
+          "id": "c4",
+          "text": "ハ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カタカナの「ナ」です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.c24be2cf4cf1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「つ」と同じ文字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つ"
+        },
+        {
+          "id": "c2",
+          "text": "て"
+        },
+        {
+          "id": "c3",
+          "text": "な"
+        },
+        {
+          "id": "c4",
+          "text": "ぬ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひらがなの「つ」です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.c5ec0d1c3cfb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「い」と同じ文字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "い"
+        },
+        {
+          "id": "c2",
+          "text": "う"
+        },
+        {
+          "id": "c3",
+          "text": "お"
+        },
+        {
+          "id": "c4",
+          "text": "き"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひらがなの「い」です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.d583393d769b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「らいおん」をカタカナで正しく書いたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ライオン"
+        },
+        {
+          "id": "c2",
+          "text": "ラインオ"
+        },
+        {
+          "id": "c3",
+          "text": "ライオソ"
+        },
+        {
+          "id": "c4",
+          "text": "ラィオン"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「らいおん」は「ライオン」。「ン」と「ソ」をまちがえないようにします。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.db838271e7dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「がっこう」を正しく書いたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "がっこう"
+        },
+        {
+          "id": "c2",
+          "text": "がつこう"
+        },
+        {
+          "id": "c3",
+          "text": "がこう"
+        },
+        {
+          "id": "c4",
+          "text": "がっこお"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "つまる音は小さい「っ」を使って「がっこう」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.e52f40d870cf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこ」をカタカナで正しく書いたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ネコ"
+        },
+        {
+          "id": "c2",
+          "text": "ヌコ"
+        },
+        {
+          "id": "c3",
+          "text": "メコ"
+        },
+        {
+          "id": "c4",
+          "text": "へこ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ねこはカタカナで「ネコ」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.e6735a678185",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「サ」と同じ文字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "サ"
+        },
+        {
+          "id": "c2",
+          "text": "シ"
+        },
+        {
+          "id": "c3",
+          "text": "セ"
+        },
+        {
+          "id": "c4",
+          "text": "タ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カタカナの「サ」です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.e78af7243d29",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「こ」と同じ文字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こ"
+        },
+        {
+          "id": "c2",
+          "text": "さ"
+        },
+        {
+          "id": "c3",
+          "text": "す"
+        },
+        {
+          "id": "c4",
+          "text": "そ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひらがなの「こ」です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.e7f7fe9cd5d1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「しゃしん（写真）」の正しいカタカナ表記はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "シャシン"
+        },
+        {
+          "id": "c2",
+          "text": "シヤシン"
+        },
+        {
+          "id": "c3",
+          "text": "サシン"
+        },
+        {
+          "id": "c4",
+          "text": "シャーシン"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「しゃ」は小さい「ャ」を使って「シャ」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.e93e6a8aab7c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「おねえさん」を正しく書いたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おねえさん"
+        },
+        {
+          "id": "c2",
+          "text": "おねいさん"
+        },
+        {
+          "id": "c3",
+          "text": "おねーさん"
+        },
+        {
+          "id": "c4",
+          "text": "おねさん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ねえ」とのばす音は、ひらがなでは「え」を添えて「おねえさん」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-1.f3845cf1b0e3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「と」と同じ文字はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "と"
+        },
+        {
+          "id": "c2",
+          "text": "な"
+        },
+        {
+          "id": "c3",
+          "text": "ぬ"
+        },
+        {
+          "id": "c4",
+          "text": "の"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひらがなの「と」です。"
+  }
+]

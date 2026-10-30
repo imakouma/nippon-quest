@@ -1,0 +1,559 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-6.049176cc2663",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２万５千分の１の地図上で 0.5cm の長さは、実際何 m か求めよう。",
+      "answers": [
+        "125"
+      ],
+      "template": "{{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "２万５千分の１の地図上で 0.5cm の長さは、 0.5×25000 = 12500（cm） 12500 cm = 125 m"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.04b5bd0e1887",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対応"
+        },
+        {
+          "id": "c2",
+          "text": "拡大[かくだい]"
+        },
+        {
+          "id": "c3",
+          "text": "合同"
+        },
+        {
+          "id": "c4",
+          "text": "縮小[しゅくしょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e293eefa057f2af3.png"
+    },
+    "explanation": "辺ABと辺DE、角Cと角Fのように、拡大図や縮図をもとの大きさにしたときに、重なる辺や角のことを ①（対応）する辺・① 対応する角といいます。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.1107b475a124",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図のように、形を変えずに小さくすることを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拡大[かくだい]"
+        },
+        {
+          "id": "c2",
+          "text": "割合[わりあい]"
+        },
+        {
+          "id": "c3",
+          "text": "倍"
+        },
+        {
+          "id": "c4",
+          "text": "縮小[しゅくしょう]"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e293eefa057f2af3.png"
+    },
+    "explanation": "上の図のように、形を変えずに小さくすることを縮小[しゅくしょう]という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.4016f172189d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。辺ADの長さを求めよう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDを２倍に拡大[かくだい]したものであり、辺ADに対応するのは辺EH。辺EHが 8cm なので、辺ADは、 8÷2 = 4（cm）。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.43684db49651",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。角Dの角度を求めよう。",
+      "answers": [
+        "84"
+      ],
+      "template": "{{INPUT}}°",
+      "suffix": "°",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "拡大[かくだい]や縮小[しゅくしょう]をしても、角の大きさは変わらない。角Dは角Hと対応しており、角Hが 84° であることから、角Dも 84° 。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.45ef7b9abd0f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２万５千分の１の地図上で 0.5cm の長さが、実際何 m かを知るには、どのように計算すればよいでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0.5×25000"
+        },
+        {
+          "id": "c2",
+          "text": "0.5÷25000"
+        },
+        {
+          "id": "c3",
+          "text": "25000÷0.5"
+        },
+        {
+          "id": "c4",
+          "text": "0.5×\\dfrac{1}{25000}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "２万５千分の１の地図は、実際のきょりを２万５千分の１に縮めてかかれている。地図上の長さから実際のきょりを求めるには、地図上の長さを２万５千倍すればよい。よって、２万５千分の１の地図上で 0.5cm の長さが実際何 m あるのかは、 0.5×25000 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.4672b8714d71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。角Fの角度を求めよう。",
+      "answers": [
+        "68"
+      ],
+      "template": "{{INPUT}}°",
+      "suffix": "°",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "拡大[かくだい]や縮小[しゅくしょう]をしても、角の大きさは変わらない。角Fは角Bと対応しており、角Bが 68° であることから、角Fも 68° 。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.5a3bb2c7e01a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。角Bと対応する角をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角E"
+        },
+        {
+          "id": "c2",
+          "text": "角F"
+        },
+        {
+          "id": "c3",
+          "text": "角G"
+        },
+        {
+          "id": "c4",
+          "text": "角H"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する角とは、大きさを同じにしたときに重なる角なので、角Bに対応するのは、角F。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.5bf3ebc54d9c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮図"
+        },
+        {
+          "id": "c2",
+          "text": "拡大図"
+        },
+        {
+          "id": "c3",
+          "text": "縮小[しゅくしょう]"
+        },
+        {
+          "id": "c4",
+          "text": "拡大[かくだい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e293eefa057f2af3.png"
+    },
+    "explanation": "三角形[さんかくけい]DEFは、三角形[さんかくけい]ABCを\\dfrac{1}{2}にしたものです。三角形[さんかくけい]DEFは、三角形[さんかくけい]ABCの（縮図）です。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.63019aa1a803",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図のように、形を変えずに大きくすることを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拡大[かくだい]"
+        },
+        {
+          "id": "c2",
+          "text": "割合[わりあい]"
+        },
+        {
+          "id": "c3",
+          "text": "倍"
+        },
+        {
+          "id": "c4",
+          "text": "縮小[しゅくしょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cd38068f45a72696.png"
+    },
+    "explanation": "上の図のように、形を変えずに大きくすることを拡大[かくだい]という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.64a31b414e3f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。辺BCと対応する辺をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺EF"
+        },
+        {
+          "id": "c2",
+          "text": "辺FG"
+        },
+        {
+          "id": "c3",
+          "text": "辺GH"
+        },
+        {
+          "id": "c4",
+          "text": "辺EH"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する辺とは、大きさを同じにしたときに重なる線なので、辺BCに対応するのは、辺FG。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.8e60c96c86f4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。辺ADと対応する辺をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺EH"
+        },
+        {
+          "id": "c2",
+          "text": "辺EF"
+        },
+        {
+          "id": "c3",
+          "text": "辺FG"
+        },
+        {
+          "id": "c4",
+          "text": "辺GH"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する辺とは、大きさを同じにしたときに重なる線なので、辺ADに対応するのは、辺EH。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.b21487bbe77b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２万５千分の１の地図上で 2cm の長さは、実際何 m か求めよう。",
+      "answers": [
+        "500"
+      ],
+      "template": "{{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "２万５千分の１の地図上で 2cm の長さは、 2×25000 = 50000（cm） 50000cm = 500m"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.b4e7c006fe4f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下図のように、縮図を利用して建物の高さを計算します。赤い矢印の部分の長さと、建物の高さを、それぞれ求めよう。",
+      "answers": [
+        "9",
+        "10.4"
+      ],
+      "template": "赤い矢印の部分の長さ：{{INPUT}}m 建物の高さ：{{INPUT}}m",
+      "promptImage": "questions/legacy/96b7d04a8e637e49.png"
+    },
+    "explanation": "赤い矢印の部分は、【ノートに書いた縮図】の 9cm の部分と対応している。よって、 9×100 = 900（cm） 900 cm = 9 m 建物の高さは、 9+1.4 = 10.4（m）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.da2c9b3e6a47",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "拡大図"
+        },
+        {
+          "id": "c2",
+          "text": "縮図"
+        },
+        {
+          "id": "c3",
+          "text": "縮小[しゅくしょう]"
+        },
+        {
+          "id": "c4",
+          "text": "拡大[かくだい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cd38068f45a72696.png"
+    },
+    "explanation": "三角形[さんかくけい]GHIは、三角形[さんかくけい]ABCを２倍にしたものです。三角形[さんかくけい]GHIは、三角形[さんかくけい]ABCの（拡大図）です。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.e4fe1f583a9a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDを何倍したものか求めよう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍",
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図であり、辺FGに対応するのは辺BC。辺FGの長さが 12cm 、辺BCの長さが 6cm であることから、12÷6 = 2。四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDを２倍に拡大[かくだい]したもの。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.e913bb695e44",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]EFGHは、四角形[しかくけい]ABCDの拡大図です。角Hと対応する角をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角A"
+        },
+        {
+          "id": "c2",
+          "text": "角B"
+        },
+        {
+          "id": "c3",
+          "text": "角C"
+        },
+        {
+          "id": "c4",
+          "text": "角D"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/102fd139b3bc597d.png"
+    },
+    "explanation": "対応する角とは、大きさを同じにしたときに重なる角なので、角Hに対応するのは、角D。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-6.ee904343473d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図には「２万５千分の１」のように、どのくらいの割合[わりあい]で小さくしたのかがしめされています。この割合[わりあい]のことを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮尺[しゅくしゃく]"
+        },
+        {
+          "id": "c2",
+          "text": "縮図"
+        },
+        {
+          "id": "c3",
+          "text": "拡大[かくだい]"
+        },
+        {
+          "id": "c4",
+          "text": "拡大図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図にしめされた「２万５千分の１」のように、実際のきょりをどのくらい小さくしたのかをしめす割合[わりあい]を縮尺[しゅくしゃく]という。"
+  }
+]

@@ -1,0 +1,319 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-5.0a702a03d140",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食料自給率が低下することでおこる問題[もんだい]として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "輸入[ゆにゅう]した食品の安全性をたしかめることが、難しい。"
+        },
+        {
+          "id": "c2",
+          "text": "何かの理由[りゆう]で、外国からの輸入[ゆにゅう]がストップすると、食料不足になるおそれがある。"
+        },
+        {
+          "id": "c3",
+          "text": "日本でつくられた農産物が売れなくなってしまう。"
+        },
+        {
+          "id": "c4",
+          "text": "農業で働く人の高れい化が進む。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "働く人の高れい化は、農業の大きな問題[もんだい]になっている。しかし、食料自給率の低下とは、直接せつ関係がない。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.0f6792cb3e62",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食品の安全性について、「トレーサビリティ」という言葉がある。その意味として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地いきで生産[せいさん]したものを、地いきで消費[しょうひ]すること。"
+        },
+        {
+          "id": "c2",
+          "text": "食品がどこでどのように生産[せいさん]されたか、分かるようにすること。"
+        },
+        {
+          "id": "c3",
+          "text": "どれくらいの量の食料が、どれくらい運ばれてきたかを表すこと。"
+        },
+        {
+          "id": "c4",
+          "text": "売れ残りや食べ残し、期げんが切れた食品など、食べることができたはずの食料がすてられること。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "食品がどこでどのように生産[せいさん]されたか、分かるようにすることを「トレーサビリティ」という。「トレーサビリティ」は、英語でついせきを意味する trace（トレース）と、能力を意味する ability（アビリティ）をあわせた言葉。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.1c06d9e2dd08",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漁業の種類について、表のかっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "遠洋漁業",
+        "沖合漁業",
+        "沿岸漁業"
+      ],
+      "template": "種類 漁場 期間 魚の種類 {{INPUT}} 遠い海 数ヶ月〜１年 マグロ、カツオなど {{INPUT}} 日本近海 2, 3日 イワシ、サンマ、サバ など {{INPUT}} 沿えん岸の海 日帰り アジ、タラ、タイなど"
+    },
+    "explanation": "種類 漁場 期間 魚の種類 遠洋漁業 遠い海 数ヶ月〜１年 マグロ、カツオなど 沖合漁業 日本近海 2, 3日 イワシ、サンマ、サバ など 沿岸漁業 沿えん岸の海 日帰り アジ、タラ、タイなど"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.386804aff3a2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の漁業は、水産物を「とる漁業」から「育てる漁業」へと、移うつりかわってきている。この理由[りゆう]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "魚のとれる量が 減ってきたから。"
+        },
+        {
+          "id": "c2",
+          "text": "養しょくした魚の方が、高く売れるから。"
+        },
+        {
+          "id": "c3",
+          "text": "とる漁業には、若い人がつきたがらず、後つぎがいないから。"
+        },
+        {
+          "id": "c4",
+          "text": "船を海に出すための燃料が、高くなってきたから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "魚の種類によっては、とれる量が 減ってきており、このまま「とる漁業」だけを続けていくことは、難しくなっている。そのため、「とる漁業」から 養しょく業などの「育てる漁業」へかわっていく必要がある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.619908e12f51",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肉牛の飼し育が さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北海道[ほっかいどう]、鹿児島県、宮崎県"
+        },
+        {
+          "id": "c2",
+          "text": "鹿児島県、宮崎県、熊本県"
+        },
+        {
+          "id": "c3",
+          "text": "北海道[ほっかいどう]、栃木県、熊本県"
+        },
+        {
+          "id": "c4",
+          "text": "熊本県、岩手県、栃木県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "飼育数が一番多い北海道[ほっかいどう]で、全国の約20%をしめていて、北海道[ほっかいどう]では乳牛の飼育もさかん。鹿児島県、宮崎県も、他の家畜の飼育もさかんな 畜産県 になっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.703e24dd931a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ぶたの飼育が さかんな都道府県の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鹿児島県、宮崎県"
+        },
+        {
+          "id": "c2",
+          "text": "北海道[ほっかいどう]、栃木県"
+        },
+        {
+          "id": "c3",
+          "text": "茨城県、千葉県[ちばけん]"
+        },
+        {
+          "id": "c4",
+          "text": "鹿児島県、茨城県"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "鹿児島県、宮崎県は、あたたかい気候のため、家畜のえさ が育ちやすい。そのため、ぶた以外の家畜の飼育もさかんに行われている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.7579c793f59d",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漁業の種類について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "養しょく漁業",
+        "さいばい漁業"
+      ],
+      "template": "魚や貝、海そうなどを育てる漁業を、養しょく業 という。養しょく業のうち、たまごからふ化させた魚や貝を 大きくなるまでしせつ内で人工的に育てる漁業を {{INPUT}} といい、少し大きくなるまで育てた後、川や海に放し、成長させてから とる漁業を {{INPUT}} という。"
+    },
+    "explanation": "魚や貝、海そうなどを育てる漁業を、養しょく業 という。養しょく業のうち、たまごからふ化させた魚や貝を 大きくなるまでしせつ内で人工的に育てる漁業を（養しょく漁業）といい、少し大きくなるまで育てた後、川や海に放し、成長させてから とる漁業を（さいばい漁業）という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.ad0ce7090420",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中から、食料自給率が低下した理由[りゆう]として、正しくないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本は 米が主食だが、1960年代ごろからは、パン や めん がよく食べられるようになった。"
+        },
+        {
+          "id": "c2",
+          "text": "小麦や大豆について、日本の食料自給率は とても低くなっている。"
+        },
+        {
+          "id": "c3",
+          "text": "日本人は、昔に比べると 肉、たまご、乳製品をよく食べるようになった。"
+        },
+        {
+          "id": "c4",
+          "text": "日本でつくられた食料の多くが、外国に輸出[ゆしゅつ]されるようになった。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "日本の食料自給率の低下は、日本人の食生活が変化したことが、大きな理由[りゆう]になっている。1960年代ごろからは、パン や めん がよく食べられるようになったが、その原料になる小麦は、外国からの輸入[ゆにゅう]にたよっている。その他にも、肉や大豆などを日本は輸入[ゆにゅう]にたよっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.bbdf13ddd319",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "世界ではアフリカなどを中心に、食料不足に苦しんでいる。わたしたちのできることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "フードロスを減らす。"
+        },
+        {
+          "id": "c2",
+          "text": "食品の消費期げんが切れても、気にせず食べる。"
+        },
+        {
+          "id": "c3",
+          "text": "国内でつくられたものを、食べるようにする。"
+        },
+        {
+          "id": "c4",
+          "text": "食料不足の国から輸入[ゆにゅう]されたものを、よく食べるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "フードロスとは、売れ残りや食べ残し、期げんが切れた食品など、食べることができたはずの食料がすてられること。これをへらすことは、わたしたちの今の生活の中でも、できることだろう。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-5.bc1c4e88acb6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ちく産業[さんぎょう]について、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "BSE",
+        "口ていえき",
+        "鳥インフルエンザ"
+      ],
+      "template": "家ちくの伝せん病には、きょう牛病とよばれる {{INPUT}}、2010年に宮崎県で流行した 牛やぶたがかかる {{INPUT}}、鳥がかかる {{INPUT}} などがある。"
+    },
+    "explanation": "家ちくの伝せん病には、きょう牛病とよばれる（BSE） 、2010年に宮崎県で流行した 牛やぶたがかかる（口ていえき）、鳥がかかる（鳥インフルエンザ）などがある。"
+  }
+]

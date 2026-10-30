@@ -73,8 +73,9 @@ describe('QuestionBank', () => {
   });
 
   it('1年生の旧問題は表示材料不足を通常警告へ残さず、復元不能分だけ明示的に隔離する', async () => {
-    const questions = (await read('questions/legacy/sansu/g1.json')) as QuestionBase[];
-    const { report } = await QuestionBank.load(['questions/legacy/sansu/g1.json'], async () => questions);
+    const manifest = (await read('manifest.json')) as { questions: string[] };
+    const files = manifest.questions.filter((file) => file.startsWith('questions/sansu/g1/legacy-math-1-'));
+    const { report } = await QuestionBank.load(files, read);
 
     expect(report.omitted).toBe(0);
     expect(report).toMatchObject({ quarantined: 13 });

@@ -1,0 +1,829 @@
+[
+  {
+    "id": "source.kokugo.g4.jpn-4-3.4f2cd71c693a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "ことわざ「猿も木から___」の空欄に入る言葉はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "登る"
+        },
+        {
+          "id": "b",
+          "text": "落ちる"
+        },
+        {
+          "id": "c",
+          "text": "ぶらさがる"
+        },
+        {
+          "id": "d",
+          "text": "とぶ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「猿も木から落ちる」は、どんな名人でも時には失敗するという意味です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.0747a77290f7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「猿も木から落ちる」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "名人も失敗する"
+        },
+        {
+          "id": "c2",
+          "text": "猿が嫌い"
+        },
+        {
+          "id": "c3",
+          "text": "木が危ない"
+        },
+        {
+          "id": "c4",
+          "text": "落ちない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "誰でも失敗する。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.07759f5570d8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "故事成語「矛盾」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "話のつじつまが合わないこと"
+        },
+        {
+          "id": "c2",
+          "text": "つよい武器"
+        },
+        {
+          "id": "c3",
+          "text": "戦い"
+        },
+        {
+          "id": "c4",
+          "text": "やりとたて"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ほこ（矛）とたて（盾）の話から、つじつまが合わないこと。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.0db35985bc40",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「□をひやす」（こわい思いをする）の□に入るのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きも"
+        },
+        {
+          "id": "c2",
+          "text": "あし"
+        },
+        {
+          "id": "c3",
+          "text": "て"
+        },
+        {
+          "id": "c4",
+          "text": "はな"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「きもをひやす」＝こわい思いをする。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.10cedd1c8494",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「石橋をたたいてわたる」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "用心ぶかく行動する"
+        },
+        {
+          "id": "c2",
+          "text": "橋をこわす"
+        },
+        {
+          "id": "c3",
+          "text": "急いでわたる"
+        },
+        {
+          "id": "c4",
+          "text": "川であそぶ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とても用心ぶかいこと。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.1cbf5398ab51",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「話を聞き流して、全く効果がないこと」を表すことわざはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "馬の耳に念仏"
+        },
+        {
+          "id": "c2",
+          "text": "猫に小判"
+        },
+        {
+          "id": "c3",
+          "text": "猿も木から落ちる"
+        },
+        {
+          "id": "c4",
+          "text": "石の上にも三年"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "意見を言っても全く効き目がないことを「馬の耳に念仏」と言います（猫に小判は価値がわからないこと）。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.226ef539bc3d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこに___」（価値がわからないこと）の□は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小判"
+        },
+        {
+          "id": "c2",
+          "text": "魚"
+        },
+        {
+          "id": "c3",
+          "text": "水"
+        },
+        {
+          "id": "c4",
+          "text": "花"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「猫に小判」＝価値がわからないこと。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.2305a940de04",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "慣用句「頭をひねる」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あれこれ考える"
+        },
+        {
+          "id": "c2",
+          "text": "首がいたい"
+        },
+        {
+          "id": "c3",
+          "text": "おこる"
+        },
+        {
+          "id": "c4",
+          "text": "ねむる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "工夫してよく考えること。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.2f48d9fc07ec",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「何事も初めが大切である」という意味のことわざはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "終わりよければすべてよし"
+        },
+        {
+          "id": "c2",
+          "text": "始めが半分"
+        },
+        {
+          "id": "c3",
+          "text": "ちりも積もれば山となる"
+        },
+        {
+          "id": "c4",
+          "text": "習うより慣れろ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "物事を始めるのには大きなエネルギーが必要で、始まれば半分終わったようなものだ、という「始めが半分」という格言があります（「習うより慣れろ」等もあります）。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.3e4af5acbd62",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "故事成語「漁夫の利」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "争う間に第三者が利益を得る"
+        },
+        {
+          "id": "c2",
+          "text": "魚をとる"
+        },
+        {
+          "id": "c3",
+          "text": "海の仕事"
+        },
+        {
+          "id": "c4",
+          "text": "もうけ話"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "シギとハマグリが争う間に漁師が両方を得た話から。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.44338796adf6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「□をそろえる」（みんな同じことを言う）の□は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "口"
+        },
+        {
+          "id": "c2",
+          "text": "目"
+        },
+        {
+          "id": "c3",
+          "text": "手"
+        },
+        {
+          "id": "c4",
+          "text": "足"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「口をそろえる」＝みんなが同じことを言う。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.4c26dd4e39e0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこの手も借りたい」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とてもいそがしい"
+        },
+        {
+          "id": "c2",
+          "text": "ねこがすき"
+        },
+        {
+          "id": "c3",
+          "text": "手が小さい"
+        },
+        {
+          "id": "c4",
+          "text": "ひまだ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "人手が足りずいそがしいようす（慣用句）。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.4fc30a9739eb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「□が広い」（知り合いが多い）の□は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "顔"
+        },
+        {
+          "id": "c2",
+          "text": "手"
+        },
+        {
+          "id": "c3",
+          "text": "足"
+        },
+        {
+          "id": "c4",
+          "text": "耳"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「顔が広い」＝知り合いが多い。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.53581ca21e83",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「花より団子」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見た目より実利"
+        },
+        {
+          "id": "c2",
+          "text": "花が嫌い"
+        },
+        {
+          "id": "c3",
+          "text": "団子が嫌い"
+        },
+        {
+          "id": "c4",
+          "text": "春が嫌い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実用が大事。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.8bfe24d7adf0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「□から火が出る」（とてもはずかしい）の□は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "顔"
+        },
+        {
+          "id": "c2",
+          "text": "手"
+        },
+        {
+          "id": "c3",
+          "text": "口"
+        },
+        {
+          "id": "c4",
+          "text": "足"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「顔から火が出る」＝はずかしくて顔が赤くなる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.a8ccd2432421",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「石の上にも___年」の□に入るのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三"
+        },
+        {
+          "id": "c2",
+          "text": "五"
+        },
+        {
+          "id": "c3",
+          "text": "十"
+        },
+        {
+          "id": "c4",
+          "text": "百"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「石の上にも三年」＝がまん強く続ければ成功する。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.b7da4771b7c5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔の中国の話からできた「五十歩百歩」「矛盾」のような言葉を何という？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "故事成語"
+        },
+        {
+          "id": "c2",
+          "text": "ことわざ"
+        },
+        {
+          "id": "c3",
+          "text": "慣用句"
+        },
+        {
+          "id": "c4",
+          "text": "四字熟語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "故事（昔のできごと）からできた故事成語。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.c10dfda1f0dd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ことわざ「猿も木から___」の空欄に入る言葉は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "落ちる"
+        },
+        {
+          "id": "c2",
+          "text": "滑る"
+        },
+        {
+          "id": "c3",
+          "text": "飛び降りる"
+        },
+        {
+          "id": "c4",
+          "text": "逃げる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「猿も木から落ちる」は、どんな名人でも時には失敗するという意味です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.c3e0e1f4aca2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "故事成語「五十歩百歩」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "少しのちがいで本質は同じ"
+        },
+        {
+          "id": "c2",
+          "text": "百歩あるく"
+        },
+        {
+          "id": "c3",
+          "text": "五十番目"
+        },
+        {
+          "id": "c4",
+          "text": "勝ち負けがつく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中国の故事から。たいしたちがいがないこと。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.d25d1e301fe6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「とても仲が良いこと」を表す慣用句はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "目が回る"
+        },
+        {
+          "id": "c2",
+          "text": "手が回る"
+        },
+        {
+          "id": "c3",
+          "text": "気が合う"
+        },
+        {
+          "id": "c4",
+          "text": "顔が広い"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "考え方や感じ方が一致して親しいことを「気が合う」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.d9e982db7b3b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ちりも積もれば___となる」の□は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山"
+        },
+        {
+          "id": "c2",
+          "text": "川"
+        },
+        {
+          "id": "c3",
+          "text": "海"
+        },
+        {
+          "id": "c4",
+          "text": "空"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小さなことも積もれば大きくなる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.dfa5b8067b91",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「早起きは三文の徳」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "早起きは良い"
+        },
+        {
+          "id": "c2",
+          "text": "お金3文"
+        },
+        {
+          "id": "c3",
+          "text": "夜更かしが良い"
+        },
+        {
+          "id": "c4",
+          "text": "寝る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "早起きの大切さ。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-3.fbb4ea5ec406",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「非常に忙しいこと」を表す慣用句はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "猫の手も借りたい"
+        },
+        {
+          "id": "c2",
+          "text": "犬の足も借りたい"
+        },
+        {
+          "id": "c3",
+          "text": "馬の耳に念仏"
+        },
+        {
+          "id": "c4",
+          "text": "手を抜く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "人手が足りず誰でもいいから手伝ってほしい様子を「猫の手も借りたい」と言います。"
+  }
+]

@@ -1,0 +1,794 @@
+[
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.00d68fad3407",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「げんきですか」のように、人にたずねる文のさいごにもつける記号はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "。(まる)"
+        },
+        {
+          "id": "c2",
+          "text": "、(てん)"
+        },
+        {
+          "id": "c3",
+          "text": "「(かぎ)"
+        },
+        {
+          "id": "c4",
+          "text": "ー(ぼう)"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "たずねる文でも、文の終わりには「。（句点・まる）」をつけます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.031578a397b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文をよみやすくするため、ことばの切れめにうつしるしはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "、"
+        },
+        {
+          "id": "c2",
+          "text": "。"
+        },
+        {
+          "id": "c3",
+          "text": "「"
+        },
+        {
+          "id": "c4",
+          "text": "ー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「、」（読点・てん）を切れめにうつ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.0a04a7a0aebb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "会話文「 」の中に入れるのはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人がしゃべったことば"
+        },
+        {
+          "id": "c2",
+          "text": "数字だけ"
+        },
+        {
+          "id": "c3",
+          "text": "絵"
+        },
+        {
+          "id": "c4",
+          "text": "文のおわりの「。」"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「 」の中にはしゃべったことばを書く。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.2322d133da9b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぼくはうみへいく」を正しく分かち書きすると？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぼくは うみへ いく"
+        },
+        {
+          "id": "c2",
+          "text": "ぼく はうみへいく"
+        },
+        {
+          "id": "c3",
+          "text": "ぼくはうみ へいく"
+        },
+        {
+          "id": "c4",
+          "text": "ぼ くはうみへいく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ぼくは」「うみへ」「いく」で分ける。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.25b9b1f6819e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ことりが なく。」という文で、「だれが」にあたる言葉はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ことりが"
+        },
+        {
+          "id": "c2",
+          "text": "なく"
+        },
+        {
+          "id": "c3",
+          "text": "とり"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「だれが・なにが」にあたる「ことりが」が主語です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.3c8cb3be9aff",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文の終わりの記号は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "、"
+        },
+        {
+          "id": "c2",
+          "text": "。"
+        },
+        {
+          "id": "c3",
+          "text": "？"
+        },
+        {
+          "id": "c4",
+          "text": "！"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "句点（。）。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.5989f35e6e95",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこがなく」を正しく分かち書きすると？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ねこが なく"
+        },
+        {
+          "id": "c2",
+          "text": "ねこ がなく"
+        },
+        {
+          "id": "c3",
+          "text": "ね こがなく"
+        },
+        {
+          "id": "c4",
+          "text": "ねこがな く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ことばのまとまり「ねこが」「なく」で分ける。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.5d03e62d82c0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かぎかっこ「 」は、主にどのようなときに使いますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しゃべった言葉（会話）や、特別な言葉を表すとき"
+        },
+        {
+          "id": "c2",
+          "text": "文を終わらせるとき"
+        },
+        {
+          "id": "c3",
+          "text": "数字を書くとき"
+        },
+        {
+          "id": "c4",
+          "text": "カタカナを書くとき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "かぎかっこは会話文や強調したい言葉を囲むときに使います。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.6424c8642aa0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「おもしろい本を読んだ」という文で、正しい順序になっているものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "本を読んだおもしろい"
+        },
+        {
+          "id": "c2",
+          "text": "おもしろい読んだ本を"
+        },
+        {
+          "id": "c3",
+          "text": "おもしろい本を読んだ"
+        },
+        {
+          "id": "c4",
+          "text": "読んだおもしろい本を"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "日本語では修飾語（おもしろい）が被修飾語（本）の前にきます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.6ff2d3fbd6b0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「きょうはてんきがいい」を正しく分かち書きしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きょうは てんきが いい"
+        },
+        {
+          "id": "c2",
+          "text": "きょうはてんき がいい"
+        },
+        {
+          "id": "c3",
+          "text": "きょう はてんきが いい"
+        },
+        {
+          "id": "c4",
+          "text": "きょうはてんきがいい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "言葉のまとまりごとにスペースを空ける分かち書きでは、「きょうは / てんきが / いい」と分けます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.7c6d2f24fd3b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "会話文を囲む記号は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "「」"
+        },
+        {
+          "id": "c2",
+          "text": "()"
+        },
+        {
+          "id": "c3",
+          "text": "[]"
+        },
+        {
+          "id": "c4",
+          "text": "―"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "かぎかっこ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.8303a2b64ce4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "分かち書きの例は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きょうは てんきが いい"
+        },
+        {
+          "id": "c2",
+          "text": "きょうはてんきがいい"
+        },
+        {
+          "id": "c3",
+          "text": "きょう はてんき"
+        },
+        {
+          "id": "c4",
+          "text": "全部つなげる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "言葉のまとまりで区切る。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.992e9bab2bf2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「、」の名前は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "句点"
+        },
+        {
+          "id": "c2",
+          "text": "読点"
+        },
+        {
+          "id": "c3",
+          "text": "疑問符"
+        },
+        {
+          "id": "c4",
+          "text": "括弧"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "読点（てん）。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.b1d7352b8637",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぼくは、あした」の「、」の記号の名前は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くてん"
+        },
+        {
+          "id": "c2",
+          "text": "とうてん"
+        },
+        {
+          "id": "c3",
+          "text": "なかてん"
+        },
+        {
+          "id": "c4",
+          "text": "かっこ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「、」は「読点（とうてん・てん）」と呼びます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.b30735d9856a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "しゃべったことば（会話）をかこむしるしはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "「 」"
+        },
+        {
+          "id": "c2",
+          "text": "（ ）"
+        },
+        {
+          "id": "c3",
+          "text": "。"
+        },
+        {
+          "id": "c4",
+          "text": "、"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "会話文は「 」（かぎかっこ）でかこむ。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.bb6f309faa42",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文のおわりにつけるしるしはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "。"
+        },
+        {
+          "id": "c2",
+          "text": "、"
+        },
+        {
+          "id": "c3",
+          "text": "「"
+        },
+        {
+          "id": "c4",
+          "text": "・"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "文のおわりには「。」（句点・まる）をつける。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.cdf322342005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふつうのことば「あそぶ」はどの文字で書く？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ひらがな"
+        },
+        {
+          "id": "c2",
+          "text": "カタカナ"
+        },
+        {
+          "id": "c3",
+          "text": "漢字だけ"
+        },
+        {
+          "id": "c4",
+          "text": "ローマ字"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ふつうのことばはひらがなで書く（鳴き声などはカタカナ）。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.d5d0c75c390d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いぬが はしる。」という文で、「どうする（うごき）」を表す言葉はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いぬが"
+        },
+        {
+          "id": "c2",
+          "text": "はしる"
+        },
+        {
+          "id": "c3",
+          "text": "いぬ"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "うごきや様子を表す「はしる」が述語です。文の終わりにくることが多いです。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.d80042960f0d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「だれが どうする」の形になっている文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とりが とぶ。"
+        },
+        {
+          "id": "c2",
+          "text": "あおい そら"
+        },
+        {
+          "id": "c3",
+          "text": "とても はやい"
+        },
+        {
+          "id": "c4",
+          "text": "きれいな はな"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「とりが（だれが）」「とぶ（どうする）」がそろって文になる。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.dc2d8a1fc2b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "読点「、」は、文のどこで使うとよいですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "言葉の切れめや読みやすいところ"
+        },
+        {
+          "id": "c2",
+          "text": "文のいちばん終わり"
+        },
+        {
+          "id": "c3",
+          "text": "名前の上"
+        },
+        {
+          "id": "c4",
+          "text": "数字と数字の間"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「、」は意味の切れめにつけて、文を読みやすくするための記号です。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.e1e0a6a0dfc6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "原稿用紙で文章を書きはじめるとき、書き出しの一マス目はどうしますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一マスあけて（下げて）書く"
+        },
+        {
+          "id": "c2",
+          "text": "つめていっぱいに書く"
+        },
+        {
+          "id": "c3",
+          "text": "点を書く"
+        },
+        {
+          "id": "c4",
+          "text": "カタカナで書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "文章や段落の書き出しは、はじめの一マスをあけて書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g1.jpn-1-4.f2d0ad6edaf2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.legacy-jpn-1-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_1_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文の終わりに必ずつける記号は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "、(てん)"
+        },
+        {
+          "id": "c2",
+          "text": "。(まる)"
+        },
+        {
+          "id": "c3",
+          "text": "？(はてな)"
+        },
+        {
+          "id": "c4",
+          "text": "！(びっくり)"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "文の終わりには「句点（くてん・まる）」をつけます。"
+  }
+]

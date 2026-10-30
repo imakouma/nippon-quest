@@ -1,0 +1,273 @@
+[
+  {
+    "id": "legacy.sansu.g1.math-1-3.334599058766",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるまが ８だい ありました。５だい いってしまうと、のこりは ３だいです。このひきざんの「しき」を、つくりましょう。",
+      "answers": [
+        "8",
+        "5",
+        "3"
+      ],
+      "template": "{{INPUT}} - {{INPUT}} = {{INPUT}}"
+    },
+    "explanation": "もとあった 「８だい」から、「５だい」ひくので、8-5=3 に なるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.58b9bb14fbad",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "4"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.617c22787295",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ねこが ５ひき、いぬが ４ひき います。ねこは、なんびき おおいですか。",
+      "answers": [
+        "1"
+      ],
+      "template": "{{INPUT}}ぴき",
+      "suffix": "ぴき",
+      "promptImage": "questions/legacy/4aadffbf102fc6b1.png"
+    },
+    "explanation": "ふたつのかずの「ちがい」は、ひきざんで だすことができるよ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.8266536db113",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "3"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.828be8a15da8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごが ４つ、ばななが ２ほん あります。いくつ、かずは ちがいますか。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/206bf4f5d485c107.png"
+    },
+    "explanation": "ふたつのかずの「ちがい」は、ひきざんで だすことができるよ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.95ee1b626954",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばすが ６だい とまっていました。４だい でていくと、なんだい のこるでしょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}だい",
+      "suffix": "だい",
+      "promptImage": "questions/legacy/640274628e280010.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.97a5435eca00",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くるまが ８だい、ばすが ４だい あります。いくつ、かずは ちがいますか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}だい",
+      "suffix": "だい",
+      "promptImage": "questions/legacy/515b1a766a5073aa.png"
+    },
+    "explanation": "ふたつのかずの「ちがい」は、ひきざんで だすことができるよ。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.a0cc8743250a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばななが ７ほん、りんごが ３つあります。ばななが ４ほん おおいです。あいているところに すうじをいれて、このひきざんの「しき」を つくりましょう。",
+      "answers": [
+        "7",
+        "3",
+        "4"
+      ],
+      "template": "{{INPUT}} - {{INPUT}} = {{INPUT}}"
+    },
+    "explanation": "どちらが おおいかは、ひきざんで だすことが できるよ。おおきい かずから、ちいさい かずを ひこう。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.a26fac7b675a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "6"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.adb80c3ad7af",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りんごが ５つ ありました。３つ たべると、のこりは ２つです。あいているところに すうじをいれて、このひきざんの「しき」を つくりましょう。",
+      "answers": [
+        "5",
+        "3",
+        "2"
+      ],
+      "template": "{{INPUT}} - {{INPUT}} = {{INPUT}}"
+    },
+    "explanation": "もとあった 「５つ」から、「３つ」ひくので、5-3=2 に なるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.bc5ddf12769f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いぬが ６ぴき いました。５ひき いなくなると、のこりは なんびきでしょう。",
+      "answers": [
+        "1"
+      ],
+      "template": "{{INPUT}}ぴき",
+      "suffix": "ぴき",
+      "promptImage": "questions/legacy/5031e723c6d0b265.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.e8b22f2abbd7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
+    ],
+    "payload": {
+      "prompt": "つぎの けいさんを、しましょう。",
+      "answers": [
+        "1"
+      ]
+    }
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-3.f6cd1c7fd19d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ばななが ７ほん ありました。２ほん たべると、のこりは なんぼんでしょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "{{INPUT}}ほん",
+      "suffix": "ほん",
+      "promptImage": "questions/legacy/122888be41f3a45c.png"
+    }
+  }
+]

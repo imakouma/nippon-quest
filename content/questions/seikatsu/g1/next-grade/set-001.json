@@ -1,0 +1,173 @@
+[
+  {
+    "id": "seikatsu.g1.next-grade.0001",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.next-grade",
+    "payload": {
+      "prompt": "4月[がつ]と いまの じぶんを くらべます。成長[せいちょう]を たしかめやすいのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4月[がつ]と いまの さくひんや きろくを ならべる"
+        },
+        {
+          "id": "b",
+          "text": "いまの きろくだけを みる"
+        },
+        {
+          "id": "c",
+          "text": "ともだちと できることの かずを きそう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "おなじ じぶんの むかしと いまの きろくを くらべると、できるように なったことを みつけられます。"
+  },
+  {
+    "id": "seikatsu.g1.next-grade.0002",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.next-grade",
+    "payload": {
+      "prompt": "なわとびの きろくに『3かいから 10かいに なった』と あります。わかることは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "れんしゅうして、できることが ふえた"
+        },
+        {
+          "id": "b",
+          "text": "はじめから なんでも できた"
+        },
+        {
+          "id": "c",
+          "text": "ほかの ひとより えらく なった"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "きろくの へんかは、じぶんが くふうしたり つづけたりして 成長[せいちょう]した こんきょに なります。"
+  },
+  {
+    "id": "seikatsu.g1.next-grade.0003",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.next-grade",
+    "payload": {
+      "prompt": "できるように なったことを ふりかえると、たすけてくれた ひとを おもいだしました。どうする？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いつ、どんな たすけが あったかを おもいだす"
+        },
+        {
+          "id": "b",
+          "text": "じぶん ひとりで できたことに する"
+        },
+        {
+          "id": "c",
+          "text": "たすけてくれたことを わすれる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "成長[せいちょう]には、じぶんの がんばりだけでなく、かぞくや せんせい、ともだちの たすけも つながっています。"
+  },
+  {
+    "id": "seikatsu.g1.next-grade.0004",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.next-grade",
+    "payload": {
+      "prompt": "たすけてくれた ひとへ、ありがとうを つたえます。よい つたえかたは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "『いっしょに れんしゅうしてくれて ありがとう』と できごとも つたえる"
+        },
+        {
+          "id": "b",
+          "text": "なにを してもらったかは いわない"
+        },
+        {
+          "id": "c",
+          "text": "ほんとうは たすけていない ひとにだけ いう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "どんな たすけが うれしかったかを そえると、ありがとうの きもちが わかりやすく つたわります。"
+  },
+  {
+    "id": "seikatsu.g1.next-grade.0005",
+    "type": "sort-order",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.next-grade",
+    "payload": {
+      "prompt": "じぶんの 成長[せいちょう]を ふりかえる じゅんに ならべよう。",
+      "direction": "vertical",
+      "cards": [
+        {
+          "id": "record",
+          "text": "むかしの きろくを みつける"
+        },
+        {
+          "id": "compare",
+          "text": "いまの じぶんと くらべる"
+        },
+        {
+          "id": "growth",
+          "text": "できるように なったことを みつける"
+        },
+        {
+          "id": "goal",
+          "text": "つぎに したいことを きめる"
+        }
+      ],
+      "answer": [
+        "record",
+        "compare",
+        "growth",
+        "goal"
+      ]
+    },
+    "explanation": "きろくを くらべて 成長[せいちょう]を みつけると、つぎの もくひょうを じぶんで かんがえられます。"
+  },
+  {
+    "id": "seikatsu.g1.next-grade.0006",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.next-grade",
+    "payload": {
+      "prompt": "2年生[ねんせい]で ちょうせんする もくひょうに、いちばん よいのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あさの したくを じぶんで たしかめる ひを ふやす"
+        },
+        {
+          "id": "b",
+          "text": "あしたから ぜんぶ かんぺきに する"
+        },
+        {
+          "id": "c",
+          "text": "できるか たしかめられない もくひょうに する"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "いつ、なにを するかが わかる もくひょうなら、2年生[ねんせい]に なってから ためして ふりかえれます。"
+  }
+]

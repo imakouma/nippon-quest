@@ -1,0 +1,227 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-15.0e525d76ac26",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、センチメートルをつかって、あらわそう。",
+      "answers": [
+        "200"
+      ],
+      "template": "2m = {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "1m = 100cm なので、2m は 200cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.2040913e6342",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、センチメートルをつかって、あらわそう。",
+      "answers": [
+        "120"
+      ],
+      "template": "1m20cm = {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "1m = 100cm なので、1m20cm は 120cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.230a46e72118",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、メートルをつかって、あらわそう。",
+      "answers": [
+        "3"
+      ],
+      "template": "300cm = {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "100cm = 1m なので、300cm は 3m になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.6e0035bc5ecc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "メートルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "cm"
+        },
+        {
+          "id": "c2",
+          "text": "mm"
+        },
+        {
+          "id": "c3",
+          "text": "sm"
+        },
+        {
+          "id": "c4",
+          "text": "m"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "メートルは、「m」とあらわす。1メートルは、100センチメートルになる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.6eaa47f587b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、メートルをつかって、あらわそう。",
+      "answers": [
+        "1",
+        "80"
+      ],
+      "template": "とびらのたかさ ： 180cm = {{INPUT}}m {{INPUT}}cm"
+    },
+    "explanation": "180cm は、100cm と 80cm ということ。 100cm = 1m なので、180cm は 1m 80cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.76bb3bfce318",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1メートルは、何センチメートルでしょう。",
+      "answers": [
+        "100"
+      ],
+      "template": "{{INPUT}}センチメートル",
+      "suffix": "センチメートル"
+    },
+    "explanation": "センチメートルが 100こで、1メートルになるよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.82dcca76f68a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、メートルと センチメートルをつかって、あらわそう。",
+      "answers": [
+        "3",
+        "85"
+      ],
+      "template": "385cm = {{INPUT}}m {{INPUT}}cm"
+    },
+    "explanation": "100cm = 1m なので、385cm は 3m 85cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.9338d1a2d518",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、メートルをつかって、あらわそう。",
+      "answers": [
+        "1",
+        "91"
+      ],
+      "template": "はばとびの きょり ： 191cm = {{INPUT}}m {{INPUT}}cm"
+    },
+    "explanation": "191cm は、100cm と 91cm ということ。 100cm = 1m なので、191cm は 1m 91cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.d46d80e8bd47",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、センチメートルをつかって、あらわそう。",
+      "answers": [
+        "105"
+      ],
+      "template": "1m5cm = {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "1m = 100cm なので、1m5cm は 105cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-15.d6241e7e783c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さを、メートルをつかって、あらわそう。",
+      "answers": [
+        "1",
+        "18"
+      ],
+      "template": "みさきさんの しんちょう ： 118cm = {{INPUT}}m {{INPUT}}cm"
+    },
+    "explanation": "118cm は、100cm と 18cm ということ。 100cm = 1m なので、118cm は 1m 18cm になる。"
+  }
+]

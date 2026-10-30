@@ -1,0 +1,548 @@
+[
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.0bbc2357fb32",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、大雨で山の斜面が崩れたり土砂が流れてきたりする災害を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土砂災害（崖崩れ・土石流）"
+        },
+        {
+          "id": "c2",
+          "text": "津波[つなみ]"
+        },
+        {
+          "id": "c3",
+          "text": "高潮"
+        },
+        {
+          "id": "c4",
+          "text": "火災"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/be9a86f590735486.png"
+    },
+    "explanation": "長時間の大雨で地盤が緩むと、崖崩れや土石流が発生して住宅地を襲う危険があります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.1c154e13017e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "海底で大きな地震が起きたとき、海岸に押し寄せる非常に高い波を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "津波（つなみ）"
+        },
+        {
+          "id": "c2",
+          "text": "高潮（たかしお）"
+        },
+        {
+          "id": "c3",
+          "text": "三角波"
+        },
+        {
+          "id": "c4",
+          "text": "渦潮"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "海底の地盤変動で生じる津波[つなみ]は凄まじい破壊力を持ち、揺れを感じたら直ちに高台へ避難する必要があります。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.2b9c41ef7fde",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大雨や地震のとき、自分の地域で起こりうる危険な場所や避難場所が示された地図を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ハザードマップ（防災マップ）"
+        },
+        {
+          "id": "c2",
+          "text": "住宅地図"
+        },
+        {
+          "id": "c3",
+          "text": "路線図"
+        },
+        {
+          "id": "c4",
+          "text": "絵地図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ハザードマップには、浸水予想エリアや土砂災害警戒区域、避難所の場所がわかりやすく描かれています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.36f3afc9107d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、大雨で川の水位が上昇[じょうしょう]し、堤防[ていぼう]を越えて街に流れ込む災害は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "洪水（こうずい）災害"
+        },
+        {
+          "id": "c2",
+          "text": "干ばつ"
+        },
+        {
+          "id": "c3",
+          "text": "地震"
+        },
+        {
+          "id": "c4",
+          "text": "噴火"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/64279aeb465f9ab7.png"
+    },
+    "explanation": "降水量が河川の容量を超えると氾濫[はんらん]を起こし、家屋の床上浸水や道路の通行止め被害が発生します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.3fd8a94a7246",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "災害時に家族[かぞく]が離れ離れになった際に備え、普段から話し合っておくべき内容はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "集合する避難場所と連絡方法（災害用伝言ダイヤル171など）"
+        },
+        {
+          "id": "c2",
+          "text": "将来の夢や進路"
+        },
+        {
+          "id": "c3",
+          "text": "好きなゲームの攻略法"
+        },
+        {
+          "id": "c4",
+          "text": "明日の献立"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電話[でんわ]が繋がりにくくなる事態に備え、「〇〇避難所で合流する」などの決め事や伝言サービスの利用手順を確認しておきます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.553bd3f06565",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家庭に準備しておく「非常用持ち出し袋」に入れるべきものとして最も適切なセットはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "飲料水・保存食・懐中電灯・簡易トイレ・ラジオ"
+        },
+        {
+          "id": "c2",
+          "text": "おもちゃ・漫画・お菓子だけ"
+        },
+        {
+          "id": "c3",
+          "text": "教科書・筆箱・定規"
+        },
+        {
+          "id": "c4",
+          "text": "重い辞書・大きなクッション"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8d6b8ee843548d55.png"
+    },
+    "explanation": "電気や水道が止まっても数日間安全に避難生活を過ごせる非常用品を準備しておくことが重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.806d3cfa513d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校[がっこう]や地域で行われる避難訓練に参加する一番の目的は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "避難経路を実際に歩いて確認し、いざという時に落ち着いて行動するため"
+        },
+        {
+          "id": "c2",
+          "text": "友だちとおしゃべりするため"
+        },
+        {
+          "id": "c3",
+          "text": "運動のタイムを競うため"
+        },
+        {
+          "id": "c4",
+          "text": "スタンプカードを埋めるため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日頃の避難訓練でルートや危険箇所を体に覚えさせることで、実際の災害時にもパニックを防げます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.89dc99aec6f9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、災害で「自分や家族[かぞく]の身は自分で守る」ことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "自助（じじょ）"
+        },
+        {
+          "id": "c2",
+          "text": "共助（きょうじょ）"
+        },
+        {
+          "id": "c3",
+          "text": "公助（こうじょ）"
+        },
+        {
+          "id": "c4",
+          "text": "補助（ほじょ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/250b8c89b8311107.png"
+    },
+    "explanation": "防災は、自分を守る「自助[じじょ]」、地域で助け合う「共助[きょうじょ]」、行政や消防が助ける「公助」の三つの連携で成り立ちます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.99c6f881a0dc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大きな地震のあとに発生する火災を防ぐため、家庭でできる備えとして効果的なものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家具を固定し、揺れで自動遮断する「感震ブレーカー」を設置する"
+        },
+        {
+          "id": "c2",
+          "text": "部屋の中に大きなダンボールを積んでおく"
+        },
+        {
+          "id": "c3",
+          "text": "窓ガラスをすべて開けておく"
+        },
+        {
+          "id": "c4",
+          "text": "電気製品のスイッチを入れたままにする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地震時の家具転倒を防ぎ、通電火災（揺れ後の電気復旧による出火）を防ぐ感震ブレーカーが有効です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.9d2472872b2e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、災害発生時に消防・警察・自衛隊や自治体が最初に行う最優先の活動は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人命救助と被災者の安全な避難誘導"
+        },
+        {
+          "id": "c2",
+          "text": "道路の舗装工事"
+        },
+        {
+          "id": "c3",
+          "text": "観光地のPR活動"
+        },
+        {
+          "id": "c4",
+          "text": "税金の集計"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/be9a86f590735486.png"
+    },
+    "explanation": "関係機関が連携し、倒壊した建物からの救出作業や避難所への安全な誘導を優先して行います。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.a30ed7b8db27",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "テレビやスマホの緊急速報メールで流れる防災情報の主な役割は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "危険の接近を迅速に知らせ、住民の自発的な避難行動を促す"
+        },
+        {
+          "id": "c2",
+          "text": "テレビ番組の宣伝をする"
+        },
+        {
+          "id": "c3",
+          "text": "避難所のお弁当のメニューを発表する"
+        },
+        {
+          "id": "c4",
+          "text": "スマートフォンの充電を通知する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "警報や緊急地震速報、避難指示などの情報を素早く届けることで、手遅れになる前の安全確保に役立ちます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.a53d2d72e064",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大雨による川の氾濫[はんらん]を防ぐため、川の土手を高く頑丈にする工事は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "堤防（ていぼう）の建設"
+        },
+        {
+          "id": "c2",
+          "text": "砂防ダムの建設"
+        },
+        {
+          "id": "c3",
+          "text": "トンネルの掘削"
+        },
+        {
+          "id": "c4",
+          "text": "用水路[ようすいろ]の開削"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "堤防[ていぼう]を設置することで、増水した川の水が市街地や農地に溢れ出るのを防ぎます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.ba2eee192f82",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校や家で大きな地震が起きたとき、直ちにとるべき安全確保行動（シェイクアウト）はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まず低く、頭を守り、動かない"
+        },
+        {
+          "id": "c2",
+          "text": "走って外へ飛び出す"
+        },
+        {
+          "id": "c3",
+          "text": "荷物をまとめてエレベーターに乗る"
+        },
+        {
+          "id": "c4",
+          "text": "大声で叫んで立ち尽くす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地震の揺れを感じたら、倒れやすい家具から離れ、机の下などで頭を優先的に保護して静止します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.c26872ada537",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真の地図を見て、山あいの谷に建設され、土砂や大きな岩が住宅地へ流れるのを食い止める施設は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "砂防ダム（さぼうダム）"
+        },
+        {
+          "id": "c2",
+          "text": "浄水場[じょうすいじょう]"
+        },
+        {
+          "id": "c3",
+          "text": "変電所[へんでんしょ]"
+        },
+        {
+          "id": "c4",
+          "text": "下水処理場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7513865491af2fbd.png"
+    },
+    "explanation": "砂防ダムは山崩れで発生した土砂を受け止め、下流にある家々や道路を守る役割を果たします。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-03.cfdeef7b3d3d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火山の噴火によって、数百度の熱い岩石や火山灰が高速で坂を流れ下ってくる現象を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火砕流（かさいりゅう）"
+        },
+        {
+          "id": "c2",
+          "text": "溶岩流"
+        },
+        {
+          "id": "c3",
+          "text": "火山ガス"
+        },
+        {
+          "id": "c4",
+          "text": "土石流"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火砕流[かさいりゅう]は時速100km以上のスピードで襲いかかるため、噴火の予兆があれば事前の避難指示に従うことが重要です。"
+  }
+]

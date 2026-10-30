@@ -1,0 +1,356 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-11.17af82d9dde6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球温暖化を防止するために考えられることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石油や石炭[せきたん]にかわる新しいエネルギーを開発する。"
+        },
+        {
+          "id": "c2",
+          "text": "温室効果ガスを一番多く出している国だけが減らす努力をする。"
+        },
+        {
+          "id": "c3",
+          "text": "干ばつなどのひ害にあった地域でNGO（非政府組織）が支援をおこなう。"
+        },
+        {
+          "id": "c4",
+          "text": "海をよごさないよう、国際的な取り決めをつくる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地球温暖化を防止するためには、世界全体で協力する必要があり、それぞれの国が温室効果ガスの排はい出しゅつを減らす努力をしていかなければいけない。また、燃やすことで温室効果ガスを排出する石油や石炭[せきたん]にかわり、新しいエネルギーを開発することも、地球温暖化を防止する１つの方法といえる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.19bcb34b24b0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国連の機関であるユニセフについての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食料不足などに苦しむ子どもを助ける活動をしている。"
+        },
+        {
+          "id": "c2",
+          "text": "世界中の人の健康状態がよくなることをめざして活動している。"
+        },
+        {
+          "id": "c3",
+          "text": "各国間の自由な貿易を実現するために活動している。"
+        },
+        {
+          "id": "c4",
+          "text": "各国の労働条件をよくすることなどをめざして活動している。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ユニセフ（国連児童基金）は、食料不足などに苦しむ子どもを助ける活動をおこなっている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.234f0e19bed8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、国連の機関であるユネスコと関わりのあることをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "世界遺産の登録や保護"
+        },
+        {
+          "id": "c2",
+          "text": "難民の保護や救済"
+        },
+        {
+          "id": "c3",
+          "text": "地雷の処理"
+        },
+        {
+          "id": "c4",
+          "text": "医師の派遣"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ユネスコ（国連教育科学文化機関）は、教育・科学・文化を通して国際協力を進めるために活動しており、世界遺産の登録や保護もおこなっている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.51001a8fd7ef",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "助けを必要とする国に、政府が資金面や技術面で協力することを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ODA（政府開発援助）"
+        },
+        {
+          "id": "c2",
+          "text": "NGO（非政府組織）"
+        },
+        {
+          "id": "c3",
+          "text": "JICA（国際協力機構）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "助けを必要とする国に、政府が資金面や技術面で協力することをODA（政府開発援助）という。 ・NGO（非政府組織）：政府から独立した民間の団体 ・JICA（国際協力機構）：海外協力隊の派遣など、ODAをおこなう日本の機関"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.6f5166937da1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球温暖化が原因となって引き起こされていることとして、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸性雨"
+        },
+        {
+          "id": "c2",
+          "text": "豪雨などの異常気象"
+        },
+        {
+          "id": "c3",
+          "text": "海面の上昇[じょうしょう]"
+        },
+        {
+          "id": "c4",
+          "text": "干ばつ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地球温暖化が原因となり、豪ごう雨うなどの異常気象、干ばつ、森林火災などが引き起こされる。また、地球温暖化により氷河がとけて水が海に流れこむと、海面が上じょう昇しょうする。海面の上昇[じょうしょう]によって、水没すいぼつのおそれがある地域もある。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.909ef5541685",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "2015年に採たくされた、SDGsとよばれる以下の17のことがらは何を表しているのか、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "持続可能な開発目標"
+        },
+        {
+          "id": "c2",
+          "text": "地球温暖化問題の対策"
+        },
+        {
+          "id": "c3",
+          "text": "人権問題の対策"
+        },
+        {
+          "id": "c4",
+          "text": "技術力や経済力向上の目標"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f905301953227d65.png"
+    },
+    "explanation": "2015年に持続可能な開発目標（SDGs）が採たくされた。これは、全世界の人びとが安定して生きていけるよう、さまざまな課題を解決するための目標。大人だけでなく、子どももふくめ地球に住むすべての人が、自分にできることは何か考え、行動にうつすことが重要だといえる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.9608de08733a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人権問題や環境保全など、さまざまな分野で活動している、政府から独立した民間の団体を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "NGO（非政府組織）"
+        },
+        {
+          "id": "c2",
+          "text": "JICA（国際協力機構）"
+        },
+        {
+          "id": "c3",
+          "text": "ODA（政府開発援助）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "人権問題や環境保全など、さまざまな分野で活動している、政府から独立した民間の団体をNGO（非政府組織）という。 ・ODA（政府開発援助えんじょ）：助けを必要とする国に、政府が資金面や技術面で協力すること ・JICA（国際協力機構）：海外協力隊の派は遣けんなど、ODAをおこなう日本の機関"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.a65f14f23786",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "世界の平和と安全を守り、さまざまな分野での国際協力を進めるため、第二次世界大戦後につくられた国際的な機関を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国際連合"
+        },
+        {
+          "id": "c2",
+          "text": "国際連盟"
+        },
+        {
+          "id": "c3",
+          "text": "ユネスコ"
+        },
+        {
+          "id": "c4",
+          "text": "ユニセフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "世界の平和と安全を守り、さまざまな分野での国際協力を進めるため、第二次世界大戦後に国際連合（国連）がつくられた。 ・国際連盟は、第一次世界大戦後につくられた国際機関。 ・ユネスコ（国連教育科学文化機関）は、国連の機関の１つで、教育・科学・文化を通して国際協力を進める。世界遺産の登録や保護もおこなっている。 ・ユニセフ（国連児童基金）は、国連の機関の１つで、食料不足などに苦しむ子どもを助ける活動をおこなっている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.eceeb732a0a1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本と国連の関わりについて、次のグラフからわかることとして正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国連が活動に使うお金の約９％を日本が出している。"
+        },
+        {
+          "id": "c2",
+          "text": "日本の自衛隊が国連の平和維持活動（PKO）に協力している。"
+        },
+        {
+          "id": "c3",
+          "text": "国連の職員のうち、日本人は３番目に多い。"
+        },
+        {
+          "id": "c4",
+          "text": "日本は国連の総会に参加している。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/45f94d0526a55106.png"
+    },
+    "explanation": "問題[もんだい]のグラフは、国連が活動に使うお金を、どの国がどのくらい負担しているのかを表している。日本は、アメリカ・中国に次いで３番目に多く、全体の約９％を負担している。 日本は国連の総会に参加しており、また、日本の自衛隊は国連の平和維い持じ活動（PKO）に協力しているが、問題[もんだい]のグラフから読み取ることはできない。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-11.f1f526497e59",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球規模でおこっている環境問題として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸性雨"
+        },
+        {
+          "id": "c2",
+          "text": "オゾン層の破かい"
+        },
+        {
+          "id": "c3",
+          "text": "さばく化"
+        },
+        {
+          "id": "c4",
+          "text": "イタイイタイ病"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "イタイイタイ病は、高度経済成長期の日本で発生した公害病。 地球規模でおこっている問題[もんだい]として、地球温暖化のほか、オゾン層の破かい、酸性雨、さばく化などがあげられる。"
+  }
+]

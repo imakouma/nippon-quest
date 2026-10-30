@@ -1,0 +1,703 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-7.0a93589d4b9f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公倍数・最小公倍数"
+        },
+        {
+          "id": "c2",
+          "text": "最大公約数"
+        },
+        {
+          "id": "c3",
+          "text": "公約数"
+        },
+        {
+          "id": "c4",
+          "text": "倍数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある倍数と べつの倍数の両方の倍数になっている数を、それらの数の（公倍数）という。また、その中で一番小さいものを、（最小公倍数）という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.32060c069ea3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "6 と 8 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "24"
+      ]
+    },
+    "explanation": "6の倍数：6, 12, 18, 24 … 8の倍数：8, 16, 24, 32 … 両方の倍数になっている公倍数の中で 一番小さい最小公倍数は、24 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.343bf6c81a06",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 と 18 の最大公約数は、いくらになるでしょう。",
+      "answers": [
+        "6"
+      ]
+    },
+    "explanation": "12の約数：1, 2, 3, 4, 6, 12 18の約数：1, 2, 3, 6, 9, 18 両方の約数になっている公約数の中で 一番大きい最大公約数は、6 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.34ac5bf2e4c1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある整数をかけてできる数を、その数の何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "約数"
+        },
+        {
+          "id": "c2",
+          "text": "公約数"
+        },
+        {
+          "id": "c3",
+          "text": "公倍数"
+        },
+        {
+          "id": "c4",
+          "text": "倍数"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ある整数をかけてできる数を、その数の「倍数」という。３の倍数であれば、３をかけてできる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.35b263fc52ff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "32 と 80 の最大公約数は、いくらになるでしょう。",
+      "answers": [
+        "16"
+      ]
+    },
+    "explanation": "32の約数：1, 2, 4, 8, 16, 32 80の約数：1, 2, 4, 5, 8, 10, 16, 20, 40, 80 最大公約数は、16 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.39c7f5837110",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 と 24 の最大公約数は、いくらになるでしょう。",
+      "answers": [
+        "12"
+      ]
+    },
+    "explanation": "12の約数：1, 2, 3, 4, 6, 12 24の約数：1, 2, 3, 4, 6, 8, 12, 24 最大公約数は、12 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.3d14bae00930",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3 と 4 の公倍数を、小さい方から順に３つ答えよう。 ,,",
+      "answers": [
+        "12",
+        "24",
+        "36"
+      ],
+      "template": "3 と 4 の公倍数を、小さい方から順に３つ答えよう。 {{INPUT}},{{INPUT}},{{INPUT}}"
+    },
+    "explanation": "ある倍数と べつの倍数の両方の倍数になっている数を、それらの数の「公倍数」という。 3 の倍数：3, 6, 9, 12 … 4 の倍数：4, 8, 12, 16 … 3 と 4 の公倍数は、12 ずつふえていく 12の倍数になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.3d8c0758e907",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4, 12 の公倍数を、小さい方から順に３つ答えよう。 ,,",
+      "answers": [
+        "12",
+        "24",
+        "36"
+      ],
+      "template": "4, 12 の公倍数を、小さい方から順に３つ答えよう。 {{INPUT}},{{INPUT}},{{INPUT}}"
+    },
+    "explanation": "ある倍数と べつの倍数の両方の倍数になっている数を、それらの数の「公倍数」という。 4, 12 の公倍数は、12 ずつふえていく 12の倍数になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.4d50fa0ba036",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "8 と 6 の最大公約数は、いくらになるでしょう。",
+      "answers": [
+        "2"
+      ]
+    },
+    "explanation": "8の約数：1, 2, 4, 8 6の約数：1, 2, 3, 6 両方の約数になっている公約数の中で 一番大きい最大公約数は、2 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.4dd7ff0bbe35",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3 と 4 と 5 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "60"
+      ]
+    },
+    "explanation": "３つの数の最小公倍数を考えるには、まず２つの数の最小公倍数を考えるといい。3 と 4 の最小公倍数は 12 になるので、そこから 12 と 5 の最小公倍数を考えて、60 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.63031e6d7568",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "５の倍数を 小さい方から順に５つ答えよう。",
+      "answers": [
+        "5",
+        "10",
+        "15",
+        "20",
+        "25"
+      ],
+      "template": "{{INPUT}}, {{INPUT}} , {{INPUT}}, {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "ある整数をかけてできる数を、その数の「倍数」という。５の倍数であれば、５をかけてできる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.67422eed8d3f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4 と 12 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "12"
+      ]
+    },
+    "explanation": "4の倍数：4, 8, 12, 16 … 12の倍数：12, 24, 36, 48 … 両方の倍数になっている公倍数の中で 一番小さい最小公倍数は、12 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.78515f7667ba",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３の倍数を 小さい方から順に５つ答えよう。",
+      "answers": [
+        "3",
+        "6",
+        "9",
+        "12",
+        "15"
+      ],
+      "template": "{{INPUT}}, {{INPUT}} , {{INPUT}}, {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "ある整数をかけてできる数を、その数の「倍数」という。３の倍数であれば、３をかけてできる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.79112d8f4f7b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "7 と 12 の最大公約数は、いくらになるでしょう。",
+      "answers": [
+        "1"
+      ]
+    },
+    "explanation": "7の約数：1, 7 12の約数：1, 2, 3, 4, 6, 12 両方の約数になっている公約数の中で 一番大きい最大公約数は、1 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.831280203282",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3, 4, 5 の公倍数を、小さい方から順に３つ答えよう。 ,,",
+      "answers": [
+        "60",
+        "120",
+        "180"
+      ],
+      "template": "3, 4, 5 の公倍数を、小さい方から順に３つ答えよう。 {{INPUT}},{{INPUT}},{{INPUT}}"
+    },
+    "explanation": "ある倍数と べつの倍数の両方の倍数になっている数を、それらの数の「公倍数」という。 3, 4, 5 の公倍数は、60 ずつふえていく 60の倍数になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.83c7e1cfa767",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "偶数・奇数"
+        },
+        {
+          "id": "c2",
+          "text": "倍数"
+        },
+        {
+          "id": "c3",
+          "text": "約数"
+        },
+        {
+          "id": "c4",
+          "text": "奇数[きすう]・偶数[ぐうすう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2, 4, 6, 8 … のように 2 でわり切れる数を（偶数）といい、1, 3, 5, 7 … のように わり切れない数を（奇数）という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.90d1a06dfce1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15 の約数を、小さい方からすべて答えよう。 , , ,",
+      "answers": [
+        "1",
+        "3",
+        "5",
+        "15"
+      ],
+      "template": "15 の約数を、小さい方からすべて答えよう。 {{INPUT}}, {{INPUT}}, {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "ある整数をわり切ることができる整数を、その数の「約数」という。15 の約数であれば、15 をわり切ることができる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.9b45a5168035",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "8 と 6 の公約数を、小さい方から順にすべて答えよう。 ,",
+      "answers": [
+        "1",
+        "2"
+      ],
+      "template": "8 と 6 の公約数を、小さい方から順にすべて答えよう。 {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "8の約数：1, 2, 4, 8 6の約数：1, 2, 3, 6 両方の約数になっている公約数は、1, 2 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.a06aeacc24f0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 と 27 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "108"
+      ]
+    },
+    "explanation": "12の倍数：12, 24, 36, 48, 60, 72, 84,96, 108 … 27の倍数：27, 54, 81, 108 … 最小公倍数は、108 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.a1ea654cc0fd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "2 と 3 の公倍数を、小さい方から順に３つ答えよう。 ,,",
+      "answers": [
+        "6",
+        "12",
+        "18"
+      ],
+      "template": "2 と 3 の公倍数を、小さい方から順に３つ答えよう。 {{INPUT}},{{INPUT}},{{INPUT}}"
+    },
+    "explanation": "ある倍数と べつの倍数の両方の倍数になっている数を、それらの数の「公倍数」という。 2 の倍数：2, 4, 6, 8 … 3 の倍数：3, 6, 9, 12 … 2 と 3 の公倍数は、6 ずつふえていく 6の倍数になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.aae20fdd9e0b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3 と 4 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "12"
+      ]
+    },
+    "explanation": "3の倍数：3, 6, 9, 12 … 4の倍数：4, 8, 12, 16 … 両方の倍数になっている公倍数の中で 一番小さい最小公倍数は、12 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.b027ff64a5a8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある整数をわり切ることができる整数を、その数の何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "倍数"
+        },
+        {
+          "id": "c2",
+          "text": "公約数"
+        },
+        {
+          "id": "c3",
+          "text": "公倍数"
+        },
+        {
+          "id": "c4",
+          "text": "約数"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ある整数をわり切ることができる整数を、その数の「約数」という。８の約数であれば、８をわり切ることができる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.b77f22b7bcc2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 と 18 の公約数を、小さい方から順にすべて答えよう。 , , ,",
+      "answers": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "template": "12 と 18 の公約数を、小さい方から順にすべて答えよう。 {{INPUT}}, {{INPUT}}, {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "12の約数：1, 2, 3, 4, 6, 12 18の約数：1, 2, 3, 6, 9, 18 両方の約数になっている公約数は、1, 2, 3, 6 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.b9d4ae0298ff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "6 と 8 の公倍数を、小さい方から順に３つ答えよう。 ,,",
+      "answers": [
+        "24",
+        "48",
+        "72"
+      ],
+      "template": "6 と 8 の公倍数を、小さい方から順に３つ答えよう。 {{INPUT}},{{INPUT}},{{INPUT}}"
+    },
+    "explanation": "ある倍数と べつの倍数の両方の倍数になっている数を、それらの数の「公倍数」という。 6の倍数：6, 12, 18, 24 … 8の倍数：8, 16, 24, 32 … 6と8の公倍数は、24 ずつふえていく 24の倍数になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.b9f9b0362bcb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公約数・最大公約数"
+        },
+        {
+          "id": "c2",
+          "text": "最小公倍数"
+        },
+        {
+          "id": "c3",
+          "text": "公倍数"
+        },
+        {
+          "id": "c4",
+          "text": "約数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ある約数と べつの約数の両方の約数になっている数を、それらの数の（公約数）という。また、その中で一番大きいものを、（最大公約数）という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.c7ca2127494b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "8 の約数を、小さい方からすべて答えよう。 , , ,",
+      "answers": [
+        "1",
+        "2",
+        "4",
+        "8"
+      ],
+      "template": "8 の約数を、小さい方からすべて答えよう。 {{INPUT}}, {{INPUT}}, {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "ある整数をわり切ることができる整数を、その数の「約数」という。8 の約数であれば、8 をわり切ることができる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.e832be5f1432",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "7 の約数を、小さい方からすべて答えよう。 ,",
+      "answers": [
+        "1",
+        "7"
+      ],
+      "template": "7 の約数を、小さい方からすべて答えよう。 {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "ある整数をわり切ることができる整数を、その数の「約数」という。7 の約数であれば、7 をわり切ることができる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.f3844a864f2d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "４の倍数を 小さい方から順に５つ答えよう。",
+      "answers": [
+        "4",
+        "8",
+        "12",
+        "16",
+        "20"
+      ],
+      "template": "{{INPUT}}, {{INPUT}} , {{INPUT}}, {{INPUT}}, {{INPUT}}"
+    },
+    "explanation": "ある整数をかけてできる数を、その数の「倍数」という。４の倍数であれば、４をかけてできる数のこと。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.fca3d4bd0e72",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "16 と 20 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "80"
+      ]
+    },
+    "explanation": "16の倍数：16, 32, 48, 64, 80 … 20の倍数：20, 40, 60, 80 … 最小公倍数は、80 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-7.fdf06cceacb0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "2 と 3 の最小公倍数は、いくらになるでしょう。",
+      "answers": [
+        "6"
+      ]
+    },
+    "explanation": "2の倍数：2, 4, 6, 8 … 3の倍数：3, 6, 9, 12 … 両方の倍数になっている公倍数の中で 一番小さい最小公倍数は、6 になる。"
+  }
+]

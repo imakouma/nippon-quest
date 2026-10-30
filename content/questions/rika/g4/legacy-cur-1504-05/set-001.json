@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-05.3799f1baed23",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気と水のちがいとして正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらも同じように押しちぢめられる"
+        },
+        {
+          "id": "c2",
+          "text": "空気は押しちぢめやすく、水は押しちぢめにくい"
+        },
+        {
+          "id": "c3",
+          "text": "水だけが気体"
+        },
+        {
+          "id": "c4",
+          "text": "空気は液体"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気は押しちぢめやすく、水は押しちぢめにくいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.4f3819fd3e4a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気でっぽうでおしぼうを押すと、中の空気の体積はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "押すと空気は押しちぢめられて体積が減ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.600963ece2ca",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "注射器にとじこめた水を強く押すと、ピストンはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すぐ下がる"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど動かない"
+        },
+        {
+          "id": "c3",
+          "text": "上に飛び出す"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水は押しちぢめにくいので、ほとんど動きません。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.72d74dd61fbc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とじこめた水の体積について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "力を加えると大きく減る"
+        },
+        {
+          "id": "c2",
+          "text": "力を加えてもほとんど変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "必ず増える"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水の体積は力を加えてもほとんど変わりません。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.7bc760cfb26e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とじこめた空気について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "押しちぢめられない"
+        },
+        {
+          "id": "c2",
+          "text": "押しちぢめられる"
+        },
+        {
+          "id": "c3",
+          "text": "重さがない"
+        },
+        {
+          "id": "c4",
+          "text": "固体である"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "とじこめた空気は押しちぢめられます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.81675f00e86e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を押しちぢめると、手ごたえはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "弱くなる"
+        },
+        {
+          "id": "c2",
+          "text": "強くなる"
+        },
+        {
+          "id": "c3",
+          "text": "なくなる"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "押しちぢめるほどおし返す力が強くなります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.d42bb8d5d143",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "とじこめた水について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "押しちぢめやすい"
+        },
+        {
+          "id": "c2",
+          "text": "押しちぢめにくい"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "音になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "とじこめた水は押しちぢめにくいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-05.f067d2db8a66",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-05",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-05",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "少し押して手を離すと、おしぼうはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そのまま"
+        },
+        {
+          "id": "c2",
+          "text": "もとに戻ろうとする"
+        },
+        {
+          "id": "c3",
+          "text": "折れる"
+        },
+        {
+          "id": "c4",
+          "text": "熱くなるだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気にはもとにもどろうとする性質があります。"
+  }
+]

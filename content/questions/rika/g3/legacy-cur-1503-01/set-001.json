@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-01.15a88fa0a6e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんさつカードのいちばん上に書くとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かんさつした場所[ばしょ]の名前[なまえ]"
+        },
+        {
+          "id": "c2",
+          "text": "かんさつしたものの名前[なまえ]"
+        },
+        {
+          "id": "c3",
+          "text": "かんさつした日[ひ]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "その日[ひ]の天気[てんき]だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "かんさつカードには、かんさつしたものの名前[なまえ]を書きます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.45d11cceb0fa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "手[て]に持[も]てる物[もの]を虫[むし]めがねで観察[かんさつ]するとき、正[ただ]しい方法[ほうほう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "虫[むし]めがねを目[め]に近[ちか]づけ、物[もの]を少[すこ]しずつ動[うご]かす"
+        },
+        {
+          "id": "c2",
+          "text": "虫[むし]めがねを物[もの]に強[つよ]く押[お]しつける"
+        },
+        {
+          "id": "c3",
+          "text": "レンズをよごしたまま使う"
+        },
+        {
+          "id": "c4",
+          "text": "太陽[たいよう]をのぞく"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "虫[むし]めがねを目[め]に近[ちか]づけたまま、観察[かんさつ]する物[もの]を少[すこ]しずつ動[うご]かして、はっきり見[み]える位置[いち]を探[さが]します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.83348d998a7c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生き物のすがたについて正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形・色・大きさはどれも同じ"
+        },
+        {
+          "id": "c2",
+          "text": "形・色・大きさにちがいがある"
+        },
+        {
+          "id": "c3",
+          "text": "色だけがちがう"
+        },
+        {
+          "id": "c4",
+          "text": "大きさだけがちがう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生き物は、形・色・大きさなどすがたにちがいがあります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.83b6770c33de",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんさつカードに書くとよい内容はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見つけた日・場所・すがた"
+        },
+        {
+          "id": "c2",
+          "text": "見[み]つけた日[ひ]と場所[ばしょ]だけ"
+        },
+        {
+          "id": "c3",
+          "text": "色[いろ]と形[かたち]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "大[おお]きさと天気[てんき]だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付・場所・色・形・大きさなど、気づいたことを書きます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.9ae2fd9effd3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「高さは15cmぐらい」は、何についての記ろくですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形"
+        },
+        {
+          "id": "c2",
+          "text": "色"
+        },
+        {
+          "id": "c3",
+          "text": "大きさ"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "高さは「大きさ」の記ろくです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.a2fd99d450a9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「花の色は黄色[きいろ]だった」は、何についての記ろくですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形"
+        },
+        {
+          "id": "c2",
+          "text": "色"
+        },
+        {
+          "id": "c3",
+          "text": "大きさ"
+        },
+        {
+          "id": "c4",
+          "text": "におい"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "花の色は「色」の記ろくです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.a86d2fdd1dba",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで物を見ると、どう見えますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きく見える"
+        },
+        {
+          "id": "c2",
+          "text": "小さく見える"
+        },
+        {
+          "id": "c3",
+          "text": "明るく見える"
+        },
+        {
+          "id": "c4",
+          "text": "さかさまに見える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "虫めがねで見ると、物は大きく見えます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.aedcad415883",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生き物をかんさつするときの注意として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どんな生き物でもさわって調べる"
+        },
+        {
+          "id": "c2",
+          "text": "危険な生き物にはさわらない"
+        },
+        {
+          "id": "c3",
+          "text": "つかまえて全部持ち帰る"
+        },
+        {
+          "id": "c4",
+          "text": "大声で追いかける"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "危険な生き物にはさわらず、やさしくかんさつします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.af8a2ed18e73",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かんさつしたあと、大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生き物をもとの場所に戻す"
+        },
+        {
+          "id": "c2",
+          "text": "全部つかまえて持ち帰る"
+        },
+        {
+          "id": "c3",
+          "text": "足でふむ"
+        },
+        {
+          "id": "c4",
+          "text": "水に入れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "かんさつが終わったら、生き物をもとの場所に戻します。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.bfad0c46dd5f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "動かせる物をかんさつするとき、正しく動かすのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭を動かす"
+        },
+        {
+          "id": "c2",
+          "text": "虫めがねを動かす"
+        },
+        {
+          "id": "c3",
+          "text": "かんさつする物を動かす"
+        },
+        {
+          "id": "c4",
+          "text": "両方を大きく動かす"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "動かせる物は、かんさつする物の方を動かしてピントを合わせます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.d3f6b99414c3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「葉はぎざぎざしていた」は、何についての記ろくですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "形"
+        },
+        {
+          "id": "c2",
+          "text": "色"
+        },
+        {
+          "id": "c3",
+          "text": "大きさ"
+        },
+        {
+          "id": "c4",
+          "text": "重さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "葉のようすは「形」の記ろくです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-01.ed5938dc69a7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "虫めがねで見ていけないものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉"
+        },
+        {
+          "id": "c2",
+          "text": "太陽[たいよう]"
+        },
+        {
+          "id": "c3",
+          "text": "石"
+        },
+        {
+          "id": "c4",
+          "text": "虫"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]を虫めがねで見ると目を傷つけるので、絶対に見てはいけません。"
+  }
+]

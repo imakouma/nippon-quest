@@ -1,0 +1,294 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.131f994fd1f9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文「母がくるまで待っている。」は、だれが待っているのかによって二通りの意味にとれます。その二つの意味の組み合わせとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1: 母が来るのを（自分が）待っている。\n2: （だれかが来るのを）母が待っている。"
+        },
+        {
+          "id": "c2",
+          "text": "1: 母と一緒に待っている。\n2: 母を追いかけている。"
+        },
+        {
+          "id": "c3",
+          "text": "1: 母が来る前に出かける。\n2: 母が来るのをあきらめる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「（わたしが）母の来るのを待っている」という意味と、「母自身が（だれかが来るまで）待っている」という二通りの意味に受け取ることができます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.4daeab3a2a33",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、主語と述語が正しく対応している文はどちらですか。\n\nア わたしのゆめは花屋になりたい。\nイ わたしのゆめは花屋になることだ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたしのゆめは花屋になることだ。"
+        },
+        {
+          "id": "c2",
+          "text": "わたしのゆめは花屋になりたい。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語「わたしのゆめは」に対して、述語は「〜ことだ」と結ぶのが正しい対応です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.7b996e125db0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いい香りがするのはケーキ屋さん」であることをはっきりさせるために、読点（、）を入れる正しい位置はどこですか。\n\n◆ いい香りのする(ア)ケーキ屋さんの(イ)花がすてきだ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アの位置（いい香りのする、ケーキ屋さんの花がすてきだ。）"
+        },
+        {
+          "id": "c2",
+          "text": "イの位置（いい香りのするケーキ屋さんの、花がすてきだ。）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "アに打つと「いい香りのする」が「ケーキ屋さん」を修飾することがはっきりします。イに打つ、または打たないと、「いい香りのする花」とも読めます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.8d028d7db9a5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「アイスを食べたのが昨日」であることをはっきりさせるために、読点（、）を入れる正しい位置はどこですか。\n\n◆ ぼくは(ア)昨日(イ)買ったアイスを食べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イの位置（ぼくは昨日、買ったアイスを食べた。）"
+        },
+        {
+          "id": "c2",
+          "text": "アの位置（ぼくは、昨日買ったアイスを食べた。）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "イの位置に打つと、「ぼくが昨日（アイスを）食べた」となり、アの位置に打つと「昨日買った（アイス）」になります。食べたのが昨日であることを示すにはイに打ちます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.9bc5d31fb312",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「自転車に乗ったのは兄」であることをはっきりさせるために、読点（、）を入れる正しい位置はどこですか。\n\n◆ 兄は自転車に乗って(ア)にげる弟を(イ)追いかけた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アの位置（兄は自転車に乗って、にげる弟を追いかけた。）"
+        },
+        {
+          "id": "c2",
+          "text": "イの位置（兄は自転車に乗ってにげる弟を、追いかけた。）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "アに打つと、「自転車に乗った」のが「兄」であることがはっきりします。イに打つ、または打たないと「自転車に乗ってにげる弟」となり、自転車に乗っているのが弟とも受け取れます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.a81e3e59db5f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、主語と述語が正しく対応している文はどちらですか。\n\nア 弟の好物は魚が好きです。\nイ 弟は魚が好きです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "弟は魚が好きです。"
+        },
+        {
+          "id": "c2",
+          "text": "弟の好物は魚が好きです。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語「弟は」に対して「好きです」が正しく対応しています。「弟の好物は」とする場合は「魚です」と結ぶ必要があります。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.bcb8907e69d9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、主語と述語が正しく対応している文はどちらですか。\n\nア 母の特ぎは、ピアノをひくことです。\nイ 母の特ぎは、ピアノをひきます。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "母の特ぎは、ピアノをひくことです。"
+        },
+        {
+          "id": "c2",
+          "text": "母の特ぎは、ピアノをひきます。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語「母の特ぎは」に対して、述語は「〜ことです」と結ぶのが正しい対応です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.c16f8b67416a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「姉は出かけている（家にいない）」ことをはっきりさせるために、読点（、）を入れる正しい位置はどこですか。\n\n◆ 姉は(ア)出かけて(イ)いない。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イの位置（姉は出かけて、いない。）"
+        },
+        {
+          "id": "c2",
+          "text": "アの位置（姉は、出かけていない。）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "イの位置に打つと、「姉は出かけて、（家に）いない」という意味になります。アの位置に打つと「出かけていない（家にいる）」という意味になります。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.db483e287930",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぼくのしゅみは音楽をききます。」を、主語と述語が正しく対応するように書き直したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぼくのしゅみは音楽をきくことです。"
+        },
+        {
+          "id": "c2",
+          "text": "ぼくは音楽をきくことです。"
+        },
+        {
+          "id": "c3",
+          "text": "ぼくのしゅみは音楽をききますことです。"
+        },
+        {
+          "id": "c4",
+          "text": "ぼくのしゅみは音楽をきく。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語「ぼくのしゅみは」に対応させて、末尾を「〜きくことです」と直します。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-25.dddf5b79a779",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-25",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_25",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、主語と述語が正しく対応している文はどちらですか。\n\nア 妹のじまんは走るのが速いです。\nイ 妹のじまんは走るのが速いことです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "妹のじまんは走るのが速いことです。"
+        },
+        {
+          "id": "c2",
+          "text": "妹のじまんは走るのが速いです。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語「妹のじまんは」に対して、述語は「〜ことです」と結ぶのが正しい対応です。"
+  }
+]

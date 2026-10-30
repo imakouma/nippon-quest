@@ -1,0 +1,394 @@
+[
+  {
+    "id": "source.kokugo.g5.jpn-5-3.bd342e3bb926",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "次の2つの文の関係はどれですか。◆「大雨が降った。川の水があふれた。」",
+      "choices": [
+        {
+          "id": "a",
+          "text": "意見と感想"
+        },
+        {
+          "id": "b",
+          "text": "原因と結果"
+        },
+        {
+          "id": "c",
+          "text": "目的と方法"
+        },
+        {
+          "id": "d",
+          "text": "質問と答え"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「大雨が降った」こと（原因）によって、「川があふれた」という（結果）が起きています。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.bfa285a878a0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "説明文などの基本的な文章の組み立て（構成）として、正しい順番はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "結論 → 本論 → 序論"
+        },
+        {
+          "id": "b",
+          "text": "本論 → 序論 → 結論"
+        },
+        {
+          "id": "c",
+          "text": "序論 → 結論 → 本論"
+        },
+        {
+          "id": "d",
+          "text": "序論 → 本論 → 結論"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "問題を提示する「序論」、理由や例を説明する「本論」、考えをまとめる「結論」の順で構成するのが基本です。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.b8fc84548a85",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "自分で書いた文章を読み返し、より良くなるように書き直すことを何といいますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "引用（いんよう）"
+        },
+        {
+          "id": "b",
+          "text": "推敲（すいこう）"
+        },
+        {
+          "id": "c",
+          "text": "構成（こうせい）"
+        },
+        {
+          "id": "d",
+          "text": "要旨（ようし）"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "書いた文章を読み返して、間違いを直したり分かりやすくしたりすることを「推敲（すいこう）」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-3.f1abaf671af1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "自分の意見の根拠として、他の人が書いた文章やデータを自分の文章にそのまま書き写して使うことを何といいますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "引用（いんよう）"
+        },
+        {
+          "id": "b",
+          "text": "構成（こうせい）"
+        },
+        {
+          "id": "c",
+          "text": "要約（ようやく）"
+        },
+        {
+          "id": "d",
+          "text": "朗読（ろうどく）"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "本などの文章を使うことを「引用」といい、「 」で囲んで出典を明記するルールがあります。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.05ac8bca5293",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「橋を渡る」の「渡る」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたる"
+        },
+        {
+          "id": "c2",
+          "text": "とおる"
+        },
+        {
+          "id": "c3",
+          "text": "こえる"
+        },
+        {
+          "id": "c4",
+          "text": "のぼる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同音異義語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.0e0df5682800",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いし」という言葉で、「自分の考えややり遂げようとする気持ち」を表す漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石"
+        },
+        {
+          "id": "c2",
+          "text": "医師"
+        },
+        {
+          "id": "c3",
+          "text": "意志（意思）"
+        },
+        {
+          "id": "c4",
+          "text": "遺志"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "心の決定や思いを表すのは「意志」や「意思」です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.18d0184ae25f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「こうしょう」という言葉で、「話し合いをすること」を指す漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交渉"
+        },
+        {
+          "id": "c2",
+          "text": "公称"
+        },
+        {
+          "id": "c3",
+          "text": "高尚"
+        },
+        {
+          "id": "c4",
+          "text": "高床"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話し合いや掛け合いをすることは「交渉（こうしょう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.34bbced5c0f3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「道を渡る」の「渡る」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたる"
+        },
+        {
+          "id": "c2",
+          "text": "とおる"
+        },
+        {
+          "id": "c3",
+          "text": "こえる"
+        },
+        {
+          "id": "c4",
+          "text": "のぼる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「とおる」。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.7a30bd7b5406",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「市立（しりつ）図書館」と「私立（しりつ）学校」。同じ「しりつ」と読みますが、意味はどうですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同じ意味"
+        },
+        {
+          "id": "c2",
+          "text": "「市立」は市が建てた、「私立」は個人や法人が建てたもので、意味が異なる"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも国が建てたもの"
+        },
+        {
+          "id": "c4",
+          "text": "読み方が違う"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "同音異義語の例です。「市立（市が設立）」と「私立（民間が設立）」で意味が異なります。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.899f59683c61",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「きかい」という言葉で、「何かを行うのに都合が良いタイミング（チャンス）」を指す漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "機械"
+        },
+        {
+          "id": "c2",
+          "text": "機会"
+        },
+        {
+          "id": "c3",
+          "text": "器会"
+        },
+        {
+          "id": "c4",
+          "text": "気怪"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "チャンスを指すのは「機会」です（「機械」はマシンです）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-3.f6721db90468",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「じしん」という言葉で、「自分を信じる心」を表す漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地震"
+        },
+        {
+          "id": "c2",
+          "text": "自身"
+        },
+        {
+          "id": "c3",
+          "text": "自信"
+        },
+        {
+          "id": "c4",
+          "text": "時針"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "自分を信じる気持ちは「自信」です（「地震」は揺れです）。"
+  }
+]

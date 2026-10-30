@@ -64,6 +64,32 @@ const graph: CurriculumGraph = {
 };
 
 describe('curriculum graph quality', () => {
+  it('概念の重複出現を統合し、関係種別と孤立IDを決定的に集計する', () => {
+    const repeated = structuredClone(graph);
+    repeated.concepts.push(structuredClone(repeated.concepts[0]!));
+    repeated.relations.push({
+      from: 'sansu.g1.base.concept',
+      to: 'sansu.g1.apply.concept',
+      kind: 'related',
+      strength: 0.5,
+      rationale: 'non-lock relation',
+      sourceIds: ['source'],
+      reviewStatus: 'source-checked',
+    });
+
+    const report = buildCurriculumGraphQuality({ units, graph: repeated });
+
+    expect(report.conceptGraph).toEqual({
+      concepts: 6,
+      relations: 5,
+      relationKinds: {
+        prerequisite: 4,
+        related: 1,
+      },
+      isolated: ['kokugo.g2.read.concept', 'sansu.g2.isolated.concept'],
+    });
+  });
+
   it('単元レベルの分岐、合流、孤立を教科別に数える', () => {
     const report = buildCurriculumGraphQuality({ units, graph });
 

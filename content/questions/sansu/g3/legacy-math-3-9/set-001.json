@@ -1,0 +1,341 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-9.012e7acaf760",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さを、m（メートル）を使ってあらわそう。 4km 800m = m",
+      "answers": [
+        "4800"
+      ],
+      "template": "次の長さを、m（メートル）を使ってあらわそう。 4km 800m = {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "1キロメートルは、1000メートルなので、4km = 4000m になる。それに 800m を合わせて、4800m だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.06e8891039ef",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さを、km （キロメートル）を使ってあらわそう。 5000m = km",
+      "answers": [
+        "5"
+      ],
+      "template": "次の長さを、km （キロメートル）を使ってあらわそう。 5000m = {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "1キロメートルは、1000メートルなので、5000m=5km になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.2d54955c2bba",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さの計算を しましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4km"
+        },
+        {
+          "id": "c2",
+          "text": "3km1000m"
+        },
+        {
+          "id": "c3",
+          "text": "3km100m"
+        },
+        {
+          "id": "c4",
+          "text": "4km100m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "メートルどうしを足し算すると、 3km200m + 800m = 3km1000mとなる。 1000m=1kmなので、3kmとあわせて、4kmとなる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.3e476f311f0c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さの計算を しましょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "10km - 5km = {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "そのまま、10 から 5 をひけばいいね。 10km - 5km = 5km"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.4f20b7c76550",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さの計算を しましょう。",
+      "answers": [
+        "1",
+        "700"
+      ],
+      "template": "2km 200m - 500m = {{INPUT}}km {{INPUT}}m"
+    },
+    "explanation": "200m から 500m は引き算できないから、2km をメートルになおしてみよう。 2km = 2000m なので、2km200m は 2200m になるね。 2200m - 500m = 1700m 1700m = 1km700m"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.5b9035411c97",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さを、m （メートル）を使ってあらわそう。 7km 600m = m",
+      "answers": [
+        "7600"
+      ],
+      "template": "次の長さを、m （メートル）を使ってあらわそう。 7km 600m = {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "1キロメートルは、1000メートルなので、7km=7000mになる。のこりの 600m と合わせて、7600m だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.696e153c4086",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さを、km （キロメートル）を使ってあらわそう。 3200m = km m",
+      "answers": [
+        "3",
+        "200"
+      ],
+      "template": "次の長さを、km （キロメートル）を使ってあらわそう。 3200m = {{INPUT}}km {{INPUT}}m"
+    },
+    "explanation": "1キロメートルは、1000メートルなので、3200m のうち、3000m=3km になる。のこりの 200m と合わせて、3km 200m だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.750b2b765f20",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さを、m （メートル）を使ってあらわそう。",
+      "answers": [
+        "4000"
+      ],
+      "template": "4km= {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "1キロメートルは、1000メートルなので、4km=4000m になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.992e0e833854",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さを、km （キロメートル）を使ってあらわそう。 1500m = km m",
+      "answers": [
+        "1",
+        "500"
+      ],
+      "template": "次の長さを、km （キロメートル）を使ってあらわそう。 1500m = {{INPUT}}km {{INPUT}}m"
+    },
+    "explanation": "1キロメートルは、1000メートルなので、1500m のうち、1000m=1km になる。のこりの 500m と合わせて、1km 500m だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.afc9e27b8d37",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "キロメートルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "cm"
+        },
+        {
+          "id": "c2",
+          "text": "km"
+        },
+        {
+          "id": "c3",
+          "text": "lm"
+        },
+        {
+          "id": "c4",
+          "text": "m"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "キロメートルは、「km」とあらわす。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.b6305e46d204",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さの計算を しましょう。",
+      "answers": [
+        "600"
+      ],
+      "template": "1km - 400m = {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "1kmをmになおすと、1000mになる。 1000m - 400m = 600mとなる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.bc8f29ab6694",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さの計算を しましょう。",
+      "answers": [
+        "1",
+        "300"
+      ],
+      "template": "600m + 700m = {{INPUT}}km {{INPUT}}m"
+    },
+    "explanation": "百のくらいだけ、足し算すればいいね。 600m + 700m = 1300m 1300m = 1km300m"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.dd491005f417",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1キロメートルは、何メートルでしょう。",
+      "answers": [
+        "1000"
+      ],
+      "template": "{{INPUT}}メートル",
+      "suffix": "メートル"
+    },
+    "explanation": "1キロメートルは、1000メートルだ。k（キロ）は、1000 をあらわすんだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-9.fe60b183f57a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の長さの計算を しましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1km"
+        },
+        {
+          "id": "c2",
+          "text": "100m"
+        },
+        {
+          "id": "c3",
+          "text": "1m"
+        },
+        {
+          "id": "c4",
+          "text": "1km100m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "百のくらいだけ、足し算すればいいね。 600m + 400m = 1000m 1000m = 1km"
+  }
+]

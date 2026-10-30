@@ -1,0 +1,634 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-8.0500b0b40a90",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒のてこで、作用点の位置だけをA、B、Cと動かして、おもりを持ち上げるときの手ごたえを比べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fe9da3d157f9289d.png"
+    },
+    "explanation": "支点から作用点までのきょりが短いほど、重いものを小さな力で持ち上げることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.08cba85df5e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はさみは、てこを利用した道具である。はさみを使って、より小さい力で紙を切るためには、 A〜C のどこで切ると良いでしょう。正しい記号[きごう]を選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4ab638f01ea03a1f.png"
+    },
+    "explanation": "はさみは、手で持つところが力点、交差[こうさ]しているところが支点、切るところが作用点となる。作用点が支点の近くにあるほど小さな力で切れるので、C で切ると良い。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.0968c54dbf18",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、てこの左のうでの３の位置に、 10g のおもりを１個つるした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "２の位置"
+        },
+        {
+          "id": "c2",
+          "text": "３の位置"
+        },
+        {
+          "id": "c3",
+          "text": "４の位置"
+        },
+        {
+          "id": "c4",
+          "text": "５の位置"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3d832c4bbbee492d.png"
+    },
+    "explanation": "てこの支点から左右に等しいきょりに物をつるし、両側の物の重さが等しいとき、てこが水平になってつり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.17c8f1887fa9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さおばかりのしくみついて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "支点・位置・水平・めもり"
+        },
+        {
+          "id": "c2",
+          "text": "分銅[ふんどう]・重[おも]さ・垂直[すいちょく]・めもり"
+        },
+        {
+          "id": "c3",
+          "text": "支点[してん]・重[おも]さ・水平[すいへい]・めもり"
+        },
+        {
+          "id": "c4",
+          "text": "支点[してん]・位置[いち]・垂直[すいちょく]・めもり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/273b6403ea321460.png"
+    },
+    "explanation": "さおばかりは、（支点）の近くにはかりたいものをつるし、反対側につるした分銅の（位置）を変えて、棒を（水平）につり合わせる。棒に（めもり）がついているため、分銅の位置によってものの重さがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.1e13766f103a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこを利用した道具について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "作用点・力点・支点・小さ"
+        },
+        {
+          "id": "c2",
+          "text": "力点[りきてん]・作用点[さようてん]・支点[してん]・大[おお]き"
+        },
+        {
+          "id": "c3",
+          "text": "支点[してん]・力点[りきてん]・作用点[さようてん]・小[ちい]さ"
+        },
+        {
+          "id": "c4",
+          "text": "作用点[さようてん]・力点[りきてん]・支点[してん]・大[おお]き"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2796c39bc2fa6464.png"
+    },
+    "explanation": "パンをつかむときに使うトングは、Aが（作用点）、Bが（力点）、Cが（支点）となる。作用点よりも力点のほうが支点の近くにあるので、力点での力が作用点で（小さ）くなり、パンをつぶさずに持つことができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.2030558536f0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこを利用した道具について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "作用点・力点・支点・大き・小さ"
+        },
+        {
+          "id": "c2",
+          "text": "力点[りきてん]・作用点[さようてん]・支点[してん]・小[ちい]さ・大[おお]き"
+        },
+        {
+          "id": "c3",
+          "text": "支点[してん]・力点[りきてん]・作用点[さようてん]・大[おお]き・小[ちい]さ"
+        },
+        {
+          "id": "c4",
+          "text": "作用点[さようてん]・支点[してん]・力点[りきてん]・小[ちい]さ・大[おお]き"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9465f8853580f7a7.png"
+    },
+    "explanation": "くぎぬきは、Aが（作用点）、Bが（力点）、Cが（支点）となる。力点よりも作用点のほうが支点の近くにあるので、力点での力が作用点で（大き）くなり、（小さ）い力でくぎをぬくことができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.2f6dce5374ea",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、左のうでの３の位置に、 10g のおもりを３個つるした。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１個"
+        },
+        {
+          "id": "c2",
+          "text": "２個"
+        },
+        {
+          "id": "c3",
+          "text": "３個"
+        },
+        {
+          "id": "c4",
+          "text": "４個"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/38249a2c271a6d6a.png"
+    },
+    "explanation": "てこの支点から左右に等しいきょりに物をつるし、両側の物の重さが等しいとき、てこが水平になってつり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.3dc4d4beded3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、てこが水平につり合わないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/393e95ae7b855aec.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの重さ × 支点から力点までのきょり」で求められる。 B では、 左側：30 × 5 = 150 右側：20 × 6 = 120 となり、てこをかたむけるはたらきの大きさが左右で異なるため、てこはつり合わない。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.45157ae4cc2a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重さ・きょり・等しい"
+        },
+        {
+          "id": "c2",
+          "text": "重[おも]さ・きょり・異[こと]なる"
+        },
+        {
+          "id": "c3",
+          "text": "きょり・重[おも]さ・異[こと]なる"
+        },
+        {
+          "id": "c4",
+          "text": "きょり・重[おも]さ・等[ひと]しい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7933a376a7b0f36b.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの（重さ）× 支点から力点までの（きょり）」で表すことができる。このはたらきの大きさが左右のうでで（等しい）とき、てこが水平につり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.520bd7d50d7f",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のようにてこがつり合っているとき、左右のうでのてこをかたむけるはたらきの大きさ（おもりの重さ × 支点までのきょり）をそれぞれ計算しよう。",
+      "answers": [
+        "60",
+        "60"
+      ],
+      "template": "左側：{{INPUT}} 右側：{{INPUT}}",
+      "promptImage": "questions/legacy/b5423e66d3ff2523.png"
+    },
+    "explanation": "左右のうででそれぞれ、おもりの重さ × 支点までのきょり を計算して求めよう。 左のうでを下にかたむけるはたらきの大きさは、20 × 3 ＝ 60 右のうでを下にかたむけるはたらきの大きさは、10 × 6 ＝ 60"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.6014e38abc77",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "棒のてこで、力点の位置だけをA、B、Cと動かして、おもりを持ち上げるときの手ごたえを比べた",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d6306150a9381fef.png"
+    },
+    "explanation": "支点から力点までのきょりが長いほど、重いものを小さな力で持ち上げることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.608f54b9ce06",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "等しい・重さ・水平"
+        },
+        {
+          "id": "c2",
+          "text": "異[こと]なる・大[おお]きさ・水平[すいへい]"
+        },
+        {
+          "id": "c3",
+          "text": "等[ひと]しい・きょり・水平[すいへい]"
+        },
+        {
+          "id": "c4",
+          "text": "異[こと]なる・重[おも]さ・水平[すいへい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/da5d673a84624fb9.png"
+    },
+    "explanation": "てこの支点から左右に（等しい）きょりに物をつるし、両側の物の（重さ）が等しいとき、てこが（水平）になってつり合う。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.63cd526e2279",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のとき、てこを手でおす力の大きさは何 g でしょう。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}} g",
+      "suffix": "g",
+      "promptImage": "questions/legacy/f632b6abdb2118b5.png"
+    },
+    "explanation": "力の大きさは、おもりの重さで表すことができる。図のとき、てこを手でおす力の大きさは、10 g のおもりの重さと等しい。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.760df5015e63",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おもりの重さ・250・250 gのおもりの重さ"
+        },
+        {
+          "id": "c2",
+          "text": "おもりの大[おお]きさ・250・250 gのおもりの重[おも]さ"
+        },
+        {
+          "id": "c3",
+          "text": "おもりの重[おも]さ・500・500 gのおもりの重[おも]さ"
+        },
+        {
+          "id": "c4",
+          "text": "おもりの大[おお]きさ・250・250 gのおもりの大[おお]きさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ca94f85be68a3db9.png"
+    },
+    "explanation": "力の大きさは、（おもりの重さ）で表すことができる。図では、どちらの台ばかりも（250）gを表している。つまり、右の台ばかりを手でおす力は、（250 gのおもりの重さ）と同じであるといえる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.978e2e27fb66",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "左のうでの６の位置に 10g のおもりをつるしたとき、右のうでの１～６の位置に何 g のおもりをつるすとつり合うかを調べ、表にまとめた。当てはまる数字を記入して、表を完成させよう。",
+      "answers": [
+        "60",
+        "30",
+        "20",
+        "10"
+      ],
+      "template": "左のうで 右のうで 支点からのきょり 6 1 2 3 4 5 6 重さ (g) 10 {{INPUT}} {{INPUT}} {{INPUT}} × × {{INPUT}}",
+      "promptImage": "questions/legacy/82922a7b9041bca9.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの重さ × 支点から力点までのきょり」で表すことができる。 左のうでを下にかたむけるはたらきの大きさは、10 × 6 ＝ 60 よって、右のうでを下にかたむけるはたらきの大きさが 60 になるようにおもりをつるすと、てこは水平につり合う。 左のうで 右のうで 支点からのきょり 6 1 2 3 4 5 6 重さ (g) 10 60 30 20 × × 10"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.cf16345b7238",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこのつり合いについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半分・反比例"
+        },
+        {
+          "id": "c2",
+          "text": "半分[はんぶん]・比例[ひれい]"
+        },
+        {
+          "id": "c3",
+          "text": "２倍[ばい]・比例[ひれい]"
+        },
+        {
+          "id": "c4",
+          "text": "２倍[ばい]・反比例[はんぴれい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b5423e66d3ff2523.png"
+    },
+    "explanation": "支点からのきょりが２倍になると、つりあうときのおもりの重さは（半分）になる。つまり、てこがつり合っているとき、うでを引く力の大きさは、支点からのきょりに（反比例）する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.d3947df3e5e0",
+    "type": "text-input",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "左のうでの４の位置に 30g のおもりをつるしたとき、右のうでの１～６の位置に何 g のおもりをつるすとつり合うかを調べ、表にまとめた。当てはまる数字を記入して、表を完成させよう。",
+      "answers": [
+        "120",
+        "60",
+        "40",
+        "30",
+        "20"
+      ],
+      "template": "左のうで 右のうで 支点からのきょり 4 1 2 3 4 5 6 重さ (g) 30 {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} × {{INPUT}}",
+      "promptImage": "questions/legacy/5956b4a9b76cdb72.png"
+    },
+    "explanation": "てこをかたむけるはたらきの大きさは、「力点にかかるおもりの重さ × 支点から力点までのきょり」で表すことができる。 左のうでを下にかたむけるはたらきの大きさは、30 × 4 ＝ 120 よって、右のうでを下にかたむけるはたらきの大きさが 120 になるようにおもりをつるすと、てこは水平につり合う。 左のうで 右のうで 支点からのきょり 4 1 2 3 4 5 6 重さ (g) 30 120 60 40 30 × 20"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.fae23d61eeab",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "てこを利用した道具について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "支点・作用点・力点・大き・小さ"
+        },
+        {
+          "id": "c2",
+          "text": "作用点[さようてん]・支点[してん]・力点[りきてん]・小[ちい]さ・大[おお]き"
+        },
+        {
+          "id": "c3",
+          "text": "力点[りきてん]・作用点[さようてん]・支点[してん]・大[おお]き・小[ちい]さ"
+        },
+        {
+          "id": "c4",
+          "text": "支点[してん]・力点[りきてん]・作用点[さようてん]・小[ちい]さ・大[おお]き"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1caafa302811153e.png"
+    },
+    "explanation": "せんぬきは、Aが（支点）、Bが（作用点）、Cが（力点）となる。力点よりも作用点のほうが支点の近くにあるので、力点での力が作用点で（大き）くなり、（小さ）い力でふたをあけることができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-8.ff8e66205d03",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる数字や言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "てこ・支点・力点・作用点"
+        },
+        {
+          "id": "c2",
+          "text": "てんびん・支点[してん]・力点[りきてん]・作用点[さようてん]"
+        },
+        {
+          "id": "c3",
+          "text": "てこ・力点[りきてん]・支点[してん]・作用点[さようてん]"
+        },
+        {
+          "id": "c4",
+          "text": "てんびん・支点[してん]・作用点[さようてん]・力点[りきてん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/47e34e5937c0eb68.png"
+    },
+    "explanation": "図のように、棒を１点で支え、棒に力を加えることで、ものを動かしたりできるようにしたものを（てこ）という。このとき、棒を支えるところ A を（支点）、棒に力を加えるところ B を（力点）、棒からものに力がはたらくところ C を（作用点）という。"
+  }
+]

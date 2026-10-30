@@ -1,0 +1,539 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-12.00fde638b75f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を求めよう。",
+      "answers": [
+        "20"
+      ],
+      "template": "分速500m の自動車が、10km 走るのにかかる時間 {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "時間は、「道のり÷速さ」で求めることができる。 10km=10000m なので 10000÷500=20（分）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.02b3abac2908",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分速で表された速さを、秒速（m）に直そう。",
+      "answers": [
+        "2"
+      ],
+      "template": "分速 120m = 秒速 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "分速を秒速に直すということは、「１分（60秒）で進む道のり」を「１秒で進む道のり」に直すということなので、60で割ってあげればいい。 120÷60=2（m）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.03694d1112ee",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を求めよう。",
+      "answers": [
+        "25"
+      ],
+      "template": "分速80m で、2000m 走ったときにかかる時間 {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "時間は、「道のり÷速さ」で求めることができるので、 2000÷80=25（分）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.090d121c656a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の道のりを求めよう。",
+      "answers": [
+        "3600"
+      ],
+      "template": "秒速3mの自転車が、20分で進んだ道のり {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "道のりは、「速さ×時間」で求めることができる。 20分は、20×60=1200秒なので、 3×1200=3600（m)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.1e3460269a9e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の速さを求めよう。",
+      "answers": [
+        "50"
+      ],
+      "template": "800m のコースを 16分で歩いた人の速さ 分速 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "速さは、「道のり÷時間」で求めることができるので、 800÷16=50（分速）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.2104d392d4da",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分速で表された速さを、時速（km）に直そう。",
+      "answers": [
+        "3"
+      ],
+      "template": "分速 50m = 時速 {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "分速を時速に直すということは、「１分間で進む道のり」を「１時間（60分）で進む道のり」に直すということなので、60をかければいい。 50×60=3000（m） 3000m=3km"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.2c7d165887b1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時速で表された速さを、分速（km）に直そう。",
+      "answers": [
+        "1.5"
+      ],
+      "template": "時速 90km = 分速 {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "時速を分速に直すということは、「１時間（60分）で進む道のり」を「１分で進む道のり」に直すということなので、60で割ってあげればいい。 90÷60=1.5（km）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.307c89d215d6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を求めよう。",
+      "answers": [
+        "6"
+      ],
+      "template": "秒速30m のチーターが、180m 走るのにかかる時間 {{INPUT}}秒",
+      "suffix": "秒"
+    },
+    "explanation": "時間は、「道のり÷速さ」で求めることができるので、 180÷30=6（秒）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.389689b9e7d2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時速250km の新幹線で、500km進むと、時間はどれだけかかるでしょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}時間",
+      "suffix": "時間"
+    },
+    "explanation": "時間は、「道のり÷速さ」で求めることができるので、 500÷250=2（時間）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.4270fca150a2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の道のりを求めよう。",
+      "answers": [
+        "30"
+      ],
+      "template": "時速12kmで、２時間半走った時の道のり {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "道のりは、「速さ×時間」で求めることができるので、 12×2\\dfrac{1}{2}=30（km)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.55d4cd7c91c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "40m を 2秒で走るライオンの速さ（秒速）を求めよう。",
+      "answers": [
+        "20"
+      ],
+      "template": "秒速 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "速さは、「道のり÷時間」で求めることができるので、 40÷2=20（秒速）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.67c1405ffb3a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "速さを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速さ＝道のり÷時間"
+        },
+        {
+          "id": "c2",
+          "text": "速さ＝道のり×時間"
+        },
+        {
+          "id": "c3",
+          "text": "速さ＝時間÷道のり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "速さは、「ある時間あたりに進む道のりの平均」のことをいうので、速さ＝道のり÷時間 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.6bbadf969e98",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の速さを求めよう。",
+      "answers": [
+        "30"
+      ],
+      "template": "90m を 3秒で走るチーターの速さ 秒速 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "速さは、「道のり÷時間」で求めることができるので、 90÷3=30（秒速）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.728fca9b42e4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "90m を 6秒で走るシマウマの速さ（秒速）を求めよう。",
+      "answers": [
+        "15"
+      ],
+      "template": "秒速 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "速さは、「道のり÷時間」で求めることができるので、 90÷6=15（秒速）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.8347e761af0b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の速さを求めよう。",
+      "answers": [
+        "4"
+      ],
+      "template": "12km の道のりを 3時間で歩いたときの速さ 時速 {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "速さは、「道のり÷時間」で求めることができるので、 12÷3=4（時速）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.86dc0303b91d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の速さを求めよう。",
+      "answers": [
+        "75"
+      ],
+      "template": "300km を 4時間で走った車の速さ 時速 {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "速さは、「道のり÷時間」で求めることができるので、 300÷4=75（時速）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.8f0eb195f17f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の道のりを求めよう。",
+      "answers": [
+        "240"
+      ],
+      "template": "時速80kmで、３時間進んだ時の道のり {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "道のりは、「速さ×時間」で求めることができるので、 80×3=240（km)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.933dd92cebe7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の道のりを求めよう。",
+      "answers": [
+        "24"
+      ],
+      "template": "分速0.8kmの電車が、30分で進んだ道のり {{INPUT}}km",
+      "suffix": "km"
+    },
+    "explanation": "道のりは、「速さ×時間」で求めることができるので、 0.8×30=24（km)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.99ceaa50e373",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "道のりを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "道のり＝速さ×時間"
+        },
+        {
+          "id": "c2",
+          "text": "道のり＝速さ÷時間"
+        },
+        {
+          "id": "c3",
+          "text": "道のり＝時間÷速さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "道のりは、「決まった速さで、ある時間進んだ長さ」のことをいうので、道のり＝速さ×時間 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.d064a287ad71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を求めよう。",
+      "answers": [
+        "5"
+      ],
+      "template": "時速35km の自動車が、175km 走るのにかかる時間 {{INPUT}}時間",
+      "suffix": "時間"
+    },
+    "explanation": "時間は、「道のり÷速さ」で求めることができるので、 175÷35=5（時間）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.d0b8f12d6701",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時間を求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "時間＝道のり÷速さ"
+        },
+        {
+          "id": "c2",
+          "text": "時間＝道のり×速さ"
+        },
+        {
+          "id": "c3",
+          "text": "時間＝速さ÷道のり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "時間は、「ある道のりを 決まった速さで進んだ時にかかる時間」のことをいうので、時間＝道のり÷速さ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.e3a833dcf832",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の秒速で表された速さを、分速（m）に直そう。",
+      "answers": [
+        "1800"
+      ],
+      "template": "秒速 30m = 分速 {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "秒速を分速に直すということは、「１秒間で進む道のり」を「１分（60秒）で進む道のり」に直すということなので、60をかければいい。 30×60=1800（m）"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.f3eaa21b17b3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "秒速20m で走るライオンが、20秒間走った時の道のりは、何mになるでしょう。",
+      "answers": [
+        "400"
+      ],
+      "template": "{{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "道のりは、「速さ×時間」で求めることができるので、 20×20=400（m)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-12.f77a8c408835",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を求めよう。",
+      "answers": [
+        "15"
+      ],
+      "template": "分速60m で、900m 歩くのにかかる時間 {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "時間は、「道のり÷速さ」で求めることができるので、 900÷60=15（分）"
+  }
+]

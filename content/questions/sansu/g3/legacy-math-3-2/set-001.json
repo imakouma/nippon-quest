@@ -1,0 +1,348 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-2.011da566cca6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "9"
+      ]
+    },
+    "explanation": "÷8なので、８のだんで、こたえが 72 になる数を かんがえる。 8×9=72なので。こたえは、9 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.314a807e1f11",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "0"
+      ]
+    },
+    "explanation": "0（れい）という 何もないものを分けるので、こたえも 0 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.3ee206088b50",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの わり算を とくときには、何のだんを かんがえれば いいですか。",
+      "answers": [
+        "5"
+      ],
+      "template": "15÷5 {{INPUT}}のだん",
+      "suffix": "のだん"
+    },
+    "explanation": "÷5なので、５のだん をかんがえよう。５のだんで、こたえが 15になるのは、5×3=15。こたえは、3 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.42bfafb95d55",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "÷6なので、６のだんで、こたえが 18 になる数を かんがえる。 6×3=18なので。こたえは、3 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.595d3afaa121",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "15この みかんが あります、 3人で 分けると、1人 5こになります。これをあらわした わり算の「しき」を、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "15÷3=5"
+        },
+        {
+          "id": "c2",
+          "text": "15÷5=3"
+        },
+        {
+          "id": "c3",
+          "text": "5÷3=15"
+        },
+        {
+          "id": "c4",
+          "text": "3÷5=15"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「15こ」を「3人」で分けるので、15÷3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.6a6f1674fcc1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのしきの □にあてはまる 数は、いくつになりますか。",
+      "answers": [
+        "7"
+      ],
+      "template": "{{INPUT}}×2 = 14",
+      "suffix": "×2 = 14"
+    },
+    "explanation": "×2 なので、２のだんで、こたえが 14 になる数を かんがえる。 2×7=14 なので、こたえは、7 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.72f54cb2b780",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "7"
+      ]
+    },
+    "explanation": "÷2なので、２のだんで、こたえが 14 になる数を かんがえる。 2×7=14なので。こたえは、7 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.7ff8c0ef02e4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "6"
+      ]
+    },
+    "explanation": "÷7なので、７のだんで、こたえが 42 になる数を かんがえる。 7×6=42なので。こたえは、6 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.845caf9d730f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのしきの □にあてはまる 数は、いくつになりますか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}×8 = 72",
+      "suffix": "×8 = 72"
+    },
+    "explanation": "×8 なので、８のだんで、こたえが 72 になる数を かんがえる。 8×9=72 なので、こたえは、9 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.970225c4c212",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "8"
+      ]
+    },
+    "explanation": "÷7なので、７のだんで、こたえが 56 になる数を かんがえる。 7×8=56なので。こたえは、8 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.baebd85bbe9b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの わり算を とくときには、何のだんを かんがえれば いいですか。",
+      "answers": [
+        "3"
+      ],
+      "template": "12÷3 {{INPUT}}のだん",
+      "suffix": "のだん"
+    },
+    "explanation": "÷3なので、３のだん をかんがえよう。３のだんで、こたえが 12になるのは、3×4=12。こたえは、4 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.c81579d92ef4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの けい算をしよう。",
+      "answers": [
+        "4"
+      ]
+    },
+    "explanation": "÷4なので、４のだんで、こたえが 16 になる数を かんがえる。 4×4=16なので。こたえは、4 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.d0e62895c61d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのしきの □にあてはまる 数は、いくつになりますか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}×4 = 16",
+      "suffix": "×4 = 16"
+    },
+    "explanation": "×4 なので、４のだんで、こたえが 16 になる数を かんがえる。 4×4=16 なので、こたえは、4 だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.da8db88f9dca",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12この りんごが あります、 3人で 分けると、1人 4こになります。これをあらわした わり算の「しき」を、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12÷3=4"
+        },
+        {
+          "id": "c2",
+          "text": "12÷4=3"
+        },
+        {
+          "id": "c3",
+          "text": "4÷3=12"
+        },
+        {
+          "id": "c4",
+          "text": "3÷4=12"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「12こ」を「3人」で分けるので、12÷3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-2.fd7fcaa09be0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "8この ももが あります、 2人で 分けると、1人 4こになります。これをあらわした わり算の「しき」を、えらびましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "8÷2=4"
+        },
+        {
+          "id": "c2",
+          "text": "8÷4=2"
+        },
+        {
+          "id": "c3",
+          "text": "4÷2=8"
+        },
+        {
+          "id": "c4",
+          "text": "2÷4=8"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「8こ」を「2人」で分けるので、8÷2 になる。"
+  }
+]

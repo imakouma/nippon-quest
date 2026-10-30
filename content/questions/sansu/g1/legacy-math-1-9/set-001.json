@@ -1,0 +1,296 @@
+[
+  {
+    "id": "legacy.sansu.g1.math-1-9.0ae1b28a84da",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みかさんは 5人 かぞくです。かぞくみんなが、2つずつ パンをもっています。 パンは、ぜんぶで いくつあるでしょう。 こ",
+      "answers": [
+        "10"
+      ],
+      "template": "みかさんは 5人 かぞくです。かぞくみんなが、2つずつ パンをもっています。 パンは、ぜんぶで いくつあるでしょう。 {{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "2 つのパンを もっている人が5 人いるので、2 を 5 かい たしざんしよう。 2+2+2+2+2=10 ぜんぶで、10 このパンがあるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.21c817506842",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こどもが、8人 います。2人 で 1つのはんをつくると、いくつのはんを つくることができるでしょう。 つ",
+      "answers": [
+        "4"
+      ],
+      "template": "こどもが、8人 います。2人 で 1つのはんをつくると、いくつのはんを つくることができるでしょう。 {{INPUT}}つ",
+      "suffix": "つ"
+    },
+    "explanation": "2人で １つのはんを つくるので、たしざんでかんがえよう。 2+2+2+2=8 2 を ４つたしたら、8 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.3e2f1449e1d8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5人のこどもがいます。15 こ のパンを、みんなで おなじかずずつ わけたとき、1人がもらえるパンは いくつになるでしょう。 こ",
+      "answers": [
+        "3"
+      ],
+      "template": "5人のこどもがいます。15 こ のパンを、みんなで おなじかずずつ わけたとき、1人がもらえるパンは いくつになるでしょう。 {{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "1人が 3 このパンを もらうと、3+3+3+3+3=15。3 を 5人分[にんぶん] あわせると、15 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.51c44ae28310",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みくさんは、90 えん もっています。いもうとは、30 えん もっています。みくさんは、いくらおおく もっていますか。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}えん",
+      "suffix": "えん"
+    },
+    "explanation": "「いくらおおく…」ときかれているので、ひきざんをしよう。 90-30=60 みくさんは、60 えん おおくもっているね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.696022d14077",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こども 3人 で1つのはんを つくります。ぜんぶで 4 つのはんが できました。 こどもは、なん人いるでしょう。 人",
+      "answers": [
+        "12"
+      ],
+      "template": "こども 3人 で1つのはんを つくります。ぜんぶで 4 つのはんが できました。 こどもは、なん人いるでしょう。 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "3 人のはんを、4つ つくるので、3 を 4 かい たしざんしよう。 3+3+3+3=12 ぜんぶで、12 人のこどもが いるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.6c0325c6e9af",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つばささんは、55 えん もっています。30 えん おこづかいを もらいました。 あわせて、いくらになるでしょう。 えん",
+      "answers": [
+        "85"
+      ],
+      "template": "つばささんは、55 えん もっています。30 えん おこづかいを もらいました。 あわせて、いくらになるでしょう。 {{INPUT}}えん",
+      "suffix": "えん"
+    },
+    "explanation": "「あわせて…」ときかれているので、たしざんをしよう。 55+30=85 あわせて、85えん になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.77899e75da75",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１くみは、36 人います。２くみは、30 人います。 １くみは、２くみより なん人 おおいですか。 人",
+      "answers": [
+        "6"
+      ],
+      "template": "１くみは、36 人います。２くみは、30 人います。 １くみは、２くみより なん人 おおいですか。 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "「なん人おおい…」ときかれているので、ひきざんをしよう。 36-30=6 １くみは、6人 おおいね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.7cbc728997f0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はるかさんは、えんぴつを 12 ほん もっています。たくまさんが もっている えんぴつは、3 ほん すくないそうです。たくまさんは、えんぴつを なんほんもっていますか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}ほん",
+      "suffix": "ほん"
+    },
+    "explanation": "たくまさんは、「3 ほん すくない」ので、はるかさんの もっている ほんすうから、ひきざんしよう。12-3=9。たくまさんは、9 ほん もっている。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.8aa8ea763eae",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆいさんは、りんごを 15 こ もっています。りこさんが もっている りんごは、7 こ すくないそうです。りこさんは、りんごを なんこもっていますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "りこさんは、「7 こ すくない」ので、ゆいさんの もっている こすうから、ひきざんしよう。15-7=8。りこさんは、8 こ もっている。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.91fcf0312a4a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たいいくかんに、15 人のこどもがいます。そこに、40 人のこどもが、きました。あわせて、なん人が たいいくかんに いるでしょう。",
+      "answers": [
+        "55"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "「あわせて…」ときかれているので、たしざんをしよう。 15+40=55 あわせて、55人 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.a76d953c1d33",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "りょうさんは、6 さいです。おにいさんは、りょうさんより、2 さい としうえです。 おにいさんは、なんさいでしょう。 さい",
+      "answers": [
+        "8"
+      ],
+      "template": "りょうさんは、6 さいです。おにいさんは、りょうさんより、2 さい としうえです。 おにいさんは、なんさいでしょう。 {{INPUT}}さい",
+      "suffix": "さい"
+    },
+    "explanation": "おにいさんは、「としうえ」なので、りょうさん のとしに、たしざんしてあげよう。 6+2=8 おにいさんは、8 さいだね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.d3a516ae95c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こどもが 4人 います。チョコを １人に 2こ ずつ くばります。チョコは、ぜんぶでなんこ いりますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "１人に 2こずつ、4人 にくばるので、2 を 4 かい たしざんしよう。 2+2+2+2=8 ぜんぶで、8 こ チョコがいるね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.d565d918d645",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆうとさんは、5 つ あめを もっています。おにいさんは、ゆうとさんより、5 こ おおくあめを もっています。 おにいさんは、いくつ あめをもっていますか。 こ",
+      "answers": [
+        "10"
+      ],
+      "template": "ゆうとさんは、5 つ あめを もっています。おにいさんは、ゆうとさんより、5 こ おおくあめを もっています。 おにいさんは、いくつ あめをもっていますか。 {{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "おにいさんは、ゆうとさんより、5つあめを おおくもっているので、ゆうとさん のもっていた かずに、たしざんしてあげよう。 5+5=10 おにいさんは、10 この あめを もっているね。"
+  },
+  {
+    "id": "legacy.sansu.g1.math-1-9.e3bac09b0df6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.legacy-math-1-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_1_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あめが、9こ あります。1人に 3 こずつ くばると、なん人に くばれるでしょう。 人",
+      "answers": [
+        "3"
+      ],
+      "template": "あめが、9こ あります。1人に 3 こずつ くばると、なん人に くばれるでしょう。 {{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "1人に 3 こずつ くばるので、たしざんでかんがえよう。 3+3+3=9 3 を ３つたしたら、9 になるね。"
+  }
+]

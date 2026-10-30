@@ -1,0 +1,300 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-14.2091ba8ff60c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけざんを しましょう。",
+      "answers": [
+        "60"
+      ]
+    },
+    "explanation": "九九[くく]にでてくる 5×9=45 より、かけるかずは、3 大きくなっているので 5×3=15 だけ、こたえを ふやせばいい。 45+15=60"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.296573ffa550",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]のひょうについて、エにあてはまる かずをこたえよう。",
+      "answers": [
+        "56"
+      ],
+      "promptImage": "questions/legacy/075728b69d30b8a8.png"
+    },
+    "explanation": "エは 7×8=56"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.2d37edbd04ed",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かけざん について、かけられるかずと かけるかずを いれかえると、こたえは どうなるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こたえは かわらない。"
+        },
+        {
+          "id": "c2",
+          "text": "こたえは 大きくなる。"
+        },
+        {
+          "id": "c3",
+          "text": "こたえは 小さくなる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "7×8 と 8×7 のこたえを かんがえて、くらべてみよう。 7×8=56 8×7=56 かけられるかずと かけるかずを いれかえても、こたえは かわらない。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.382d88aa9dd4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かけざん について、かけられるかず がかわらないとき、かけるかずが １ふえると、こたえは どうなるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こたえは かけられるかず のぶんだけ、大きくなる。"
+        },
+        {
+          "id": "c2",
+          "text": "こたえは かわらない。"
+        },
+        {
+          "id": "c3",
+          "text": "こたえは かけられるかず のぶんだけ、小さくなる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2×1=2 から、かけるかずが ふえていくと 2×2=4 2×3=6 のように、こたえは 2 ずつ大きくなる。かけざん では、かけられるかず がかわらないとき、かけるかずが １ふえると、こたえは かけられるかず のぶんだけ、大きくなる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.414d6b687eeb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけざんを しましょう。",
+      "answers": [
+        "40"
+      ]
+    },
+    "explanation": "九九[くく]にでてくる 4×9=36 より、かけるかずは、1 大きくなっているので 4×1=4 だけ、こたえを ふやせばいい。 36+4=40"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.522221c43bd2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]のひょうについて、アにあてはまる かずをこたえよう。",
+      "answers": [
+        "12"
+      ],
+      "promptImage": "questions/legacy/075728b69d30b8a8.png"
+    },
+    "explanation": "アは 3×4=12"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.756e2034df95",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけざんを しましょう。",
+      "answers": [
+        "88"
+      ]
+    },
+    "explanation": "九九[くく]にでてくる 9×8=72 より、かけられるかずは、2 大きくなっているので 2×8=16 だけ、こたえを ふやせばいい。 72+16=88"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.895fa3d06807",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけざんを しましょう。",
+      "answers": [
+        "126"
+      ]
+    },
+    "explanation": "九九[くく]にでてくる 9×9=81 より、かけられるかずは、5 大きくなっているので 5×9=45 だけ、こたえを ふやせばいい。 81+45=126"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.9e4eeae84e8e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]のひょうについて、オにあてはまる かずをこたえよう。",
+      "answers": [
+        "56"
+      ],
+      "promptImage": "questions/legacy/075728b69d30b8a8.png"
+    },
+    "explanation": "オは 8×7=56"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.bd9c037bb249",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]のひょうについて、カにあてはまる かずをこたえよう。",
+      "answers": [
+        "81"
+      ],
+      "promptImage": "questions/legacy/075728b69d30b8a8.png"
+    },
+    "explanation": "カは 9×9=81"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.c1d916a578e6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけざんを しましょう。",
+      "answers": [
+        "72"
+      ]
+    },
+    "explanation": "九九[くく]にでてくる 6×9=54 より、かけるかずは、3 大きくなっているので 6×3=18 だけ、こたえを ふやせばいい。 54+18=72"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.ce6ed987e2c6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]のひょうについて、ウにあてはまる かずをこたえよう。",
+      "answers": [
+        "10"
+      ],
+      "promptImage": "questions/legacy/075728b69d30b8a8.png"
+    },
+    "explanation": "ウは 5×2=10"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.d431f077300b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのかけざんを しましょう。",
+      "answers": [
+        "39"
+      ]
+    },
+    "explanation": "九九[くく]にでてくる 3×9=27 より、かけるかずは、4 大きくなっているので 3×4=12 だけ、こたえを ふやせばいい。 27+12=39"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-14.e537be5776c9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "九九[くく]のひょうについて、イにあてはまる かずをこたえよう。",
+      "answers": [
+        "24"
+      ],
+      "promptImage": "questions/legacy/075728b69d30b8a8.png"
+    },
+    "explanation": "イは 4×6=24"
+  }
+]

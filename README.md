@@ -94,7 +94,7 @@ tests/           ← ユニット 582 件 + E2E（件数は増えるため実行
 **問題の中身（content）／問題の見た目（renderers）／ゲーム本体（core・scenes）は、3人が同時に別々に触っても衝突しない**ように分けてあります。接点は `src/questions/contracts.ts` の型だけです。
 
 ```
-[問題作成者] content/questions/*.json  ──検証──▶ 各レンダラーの schema
+[問題作成者] content/questions/**/*.json  ──検証──▶ 各レンダラーの schema
                                                       │
 [UI担当]     src/questions/renderers/<type>/  ────────┘
                      │ QuestionResult { score: 0.0〜1.0 } だけを返す
@@ -128,7 +128,7 @@ tests/           ← ユニット 582 件 + E2E（件数は増えるため実行
 
 ## 問題を1問足してみる（問題作成者向けの最短手順）
 
-1. `content/questions/sansu/g1/tashizan.json` を開く
+1. `content/questions/sansu/g1/tashizan/set-001.json` を開く
 2. 配列に 1 要素足す（`"$schema"` を書いておくと VS Code で補完が効きます）
 3. `pnpm validate:content` を実行 → OK が出れば完了
 4. `/playground.html` でその問題を選んで、実際に解いてみる

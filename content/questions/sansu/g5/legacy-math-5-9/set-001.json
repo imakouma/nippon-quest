@@ -1,0 +1,363 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-9.0576dd5e31f4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を、約分した分数で表そう。",
+      "answers": [
+        "3,250"
+      ]
+    },
+    "explanation": "0.012 は、\\dfrac{1}{1000} が 12こ集まっているので、 0.012 = \\dfrac{12}{1000} = \\dfrac{3}{250}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.11d0f80a2897",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を、約分した帯分数で表そう。",
+      "answers": [
+        "1,3,10"
+      ]
+    },
+    "explanation": "1.3 の 整数部分 1 は、帯分数の整数部分として表そう。0.3 は、\\dfrac{1}{10} が 3こ集まっている。 1.3 = 1\\dfrac{3}{10}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.1cdde45e1828",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を、約分した分数で表そう。",
+      "answers": [
+        "1,5"
+      ]
+    },
+    "explanation": "0.2 は、\\dfrac{1}{10} が 2つ集まっているので、 0.2 = \\dfrac{2}{10} = \\dfrac{1}{5}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.210da849139b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のわり算の商を、分数で表そう。",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "わり算の答え「商」は、わられる数を分子に わる数を分母にして、分数の形で表すことができる。約分できるときは、必ず約分しよう。 3÷6 = \\dfrac{3}{6} = \\dfrac{1}{2}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.21755022464a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を四捨五入して、\\frac{1}{100} の位までの小数で表そう。",
+      "answers": [
+        "0.22"
+      ]
+    },
+    "explanation": "分数をわり算の式で表して、計算してみよう。 \\dfrac{2}{9} = 2÷9 = 0.222 … 「\\dfrac{1}{100} の位までの小数」なので、１つ下の\\dfrac{1}{1000}の位を見て、四捨五入すると、0.22 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.27bbb4b6fbd8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を小数で表そう。",
+      "answers": [
+        "0.15"
+      ]
+    },
+    "explanation": "分数をわり算の式で表してみよう。そのわり算を計算すれば、小数で表すことができる。 \\dfrac{3}{20} = 3÷20 = 0.15"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.3d0fccd43985",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を小数で表そう。",
+      "answers": [
+        "1.4"
+      ]
+    },
+    "explanation": "分数をわり算の式で表してみよう。そのわり算を計算すれば、小数で表すことができる。 \\dfrac{7}{5} = 7÷5 = 1.4"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.45024dcec0f3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を小数で表そう。",
+      "answers": [
+        "0.5"
+      ]
+    },
+    "explanation": "分数をわり算の式で表してみよう。そのわり算を計算すれば、小数で表すことができる。 \\dfrac{1}{2} = 1÷2 = 0.5"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.45d9b4282600",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を小数で表そう。",
+      "answers": [
+        "0.75"
+      ]
+    },
+    "explanation": "分数をわり算の式で表してみよう。そのわり算を計算すれば、小数で表すことができる。 \\dfrac{3}{4} = 3÷4 = 0.75"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.5193261ebb02",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を、約分した分数で表そう。",
+      "answers": [
+        "6,25"
+      ]
+    },
+    "explanation": "0.24 は、\\dfrac{1}{100} が 24こ集まっているので、 0.24 = \\dfrac{24}{100} = \\dfrac{6}{25}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.531541c706a9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のわり算の商を、分数で表そう。",
+      "answers": [
+        "4,7"
+      ]
+    },
+    "explanation": "わり算の答え「商」は、わられる数を分子に わる数を分母にして、分数の形で表すことができる。 4÷7 = \\dfrac{4}{7}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.60af68bb4cd9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を小数で表そう。",
+      "answers": [
+        "0.3"
+      ]
+    },
+    "explanation": "分数をわり算の式で表してみよう。そのわり算を計算すれば、小数で表すことができる。 \\dfrac{3}{10} = 3÷10 = 0.3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.646ce16ee501",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を四捨五入して、\\frac{1}{100} の位までの小数で表そう。",
+      "answers": [
+        "0.71"
+      ]
+    },
+    "explanation": "分数をわり算の式で表して、計算してみよう。 \\dfrac{5}{7} = 5÷7 = 0.714 … 「\\dfrac{1}{100} の位までの小数」なので、１つ下の\\dfrac{1}{1000}の位を見て、四捨五入すると、0.71 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.7ae334cc9a76",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を四捨五入して、\\frac{1}{100} の位までの小数で表そう。",
+      "answers": [
+        "0.42"
+      ]
+    },
+    "explanation": "分数をわり算の式で表して、計算してみよう。 \\dfrac{5}{12} = 5÷12 = 0.416 … 「\\dfrac{1}{100} の位までの小数」なので、１つ下の\\dfrac{1}{1000}の位を見て、四捨五入すると、0.42 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.7ff94daf1efe",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数を、約分した分数で表そう。",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "0.5 は、\\dfrac{1}{10} が 5つ集まっているので、 0.5 = \\dfrac{5}{10} = \\dfrac{1}{2}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.8df7d60f6047",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数を四捨五入して、\\frac{1}{100} の位までの小数で表そう。",
+      "answers": [
+        "0.33"
+      ]
+    },
+    "explanation": "分数をわり算の式で表して、計算してみよう。 \\dfrac{1}{3} = 1÷3 = 0.333 … 「 \\dfrac{1}{100} の位までの小数」なので、１つ下の\\dfrac{1}{1000}の位を見て、四捨五入すると、0.33 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.9f510e2d5a71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のわり算の商を、分数で表そう。",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "わり算の答え「商」は、わられる数を分子に わる数を分母にして、分数の形で表すことができる。 2÷3 = \\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.c5cc28618f7b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のわり算の商を、分数で表そう。",
+      "answers": [
+        "1,3"
+      ]
+    },
+    "explanation": "わり算の答え「商」は、わられる数を分子に わる数を分母にして、分数の形で表すことができる。 1÷3 = \\dfrac{1}{3}"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-9.d535eb98efe6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-9",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_9",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のわり算の商を、分数で表そう。",
+      "answers": [
+        "3,2"
+      ]
+    },
+    "explanation": "わり算の答え「商」は、わられる数を分子に わる数を分母にして、分数の形で表すことができる。約分できるときは、必ず約分しよう。 12÷8 = \\dfrac{12}{8} = \\dfrac{3}{2}"
+  }
+]

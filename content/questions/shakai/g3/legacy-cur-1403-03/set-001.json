@@ -1,0 +1,689 @@
+[
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.041d0368e4b9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "通学路の途中にあり、不審者に追いかけられたり困ったりした子どもが逃げ込んで助けを求めることができる、目印の看板がある民家やお店を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こども110番の家"
+        },
+        {
+          "id": "c2",
+          "text": "交番"
+        },
+        {
+          "id": "c3",
+          "text": "児童館"
+        },
+        {
+          "id": "c4",
+          "text": "学習塾"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「こども110番の家」のステッカーが貼ってある家は、子どもが危険な目にあったときに逃げ込める協力者の家です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.0b3df56ec1d8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校[がっこう]や公共の建物、街の中に設置されている「火災をすばやく消すための水」が通っている消火設備を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消火栓（しょうかせん）"
+        },
+        {
+          "id": "c2",
+          "text": "防火水そう"
+        },
+        {
+          "id": "c3",
+          "text": "火災警報器"
+        },
+        {
+          "id": "c4",
+          "text": "避難はしご"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "道路や壁に設置され、消防車に水を供給するための水道設備を「消火栓[しょうかせん]」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.36b39201a1cb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "消防署にある「通信指令室[つうしんしれいしつ]」は、119番通報を受けたときに、どのような指示を出す場所ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "出動する消防車や救急車に、火事や事故の場所を教える"
+        },
+        {
+          "id": "c2",
+          "text": "パトカーを現場に向かわせる"
+        },
+        {
+          "id": "c3",
+          "text": "市役所の仕事を分担する"
+        },
+        {
+          "id": "c4",
+          "text": "新しいニュースを放送する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "通信指令室[つうしんしれいしつ]は、通報者の住所や場所を素早く割り出し、最も早く現場に行ける消防車や救急車に指令を送ります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.399c19579316",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、初期消火（火が小さいうちに消すこと）のために、家庭や学校[がっこう]に備え付けられている最も一般的な道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消火器（しょうかき）"
+        },
+        {
+          "id": "c2",
+          "text": "バケツ"
+        },
+        {
+          "id": "c3",
+          "text": "ホース"
+        },
+        {
+          "id": "c4",
+          "text": "うちわ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消火器[しょうかき]は初期消火[しょきしょうか]の設備[せつび]です。子[こ]どもは自分[じぶん]で無理[むり]に消[け]そうとせず、大人[おとな]に知[し]らせて安全[あんぜん]な場所[ばしょ]へ逃[に]げ、119番[ばん]通報[つうほう]につなげます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.4570d1336d67",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分たちの地域で火事が起きたとき、消防署の消防士と協力して消火活動や救助活動を行う、普段は別の仕事を持っている地域の人々で組織された団体を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防団（しょうぼうだん）"
+        },
+        {
+          "id": "c2",
+          "text": "警察隊"
+        },
+        {
+          "id": "c3",
+          "text": "自衛隊"
+        },
+        {
+          "id": "c4",
+          "text": "こども会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消防団員は、本業の仕事をしながら「自分たちの街は自分たちで守る」という志のもと、地域の消防活動に協力するボランティア組織です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.4b74da65b0d0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "警察署の「通信指令室[つうしんしれいしつ]」に110番通報がかかってきたとき、現場に最も早く到着[とうちゃく]できるように指示を受けるのはだれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "現場の近くをパトロールしている警察官"
+        },
+        {
+          "id": "c2",
+          "text": "消防署の消防士"
+        },
+        {
+          "id": "c3",
+          "text": "市役所の職員"
+        },
+        {
+          "id": "c4",
+          "text": "小学校の先生"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "110番を受けると、通信指令室[つうしんしれいしつ]から無線で、現場の最も近くを巡回しているパトカーや警察官に急行指令が飛びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.5268421bba1f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火事が起きたときに、天井から自動的に水がスプレーのように出て、初期の消火を行うための設備を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "スプリンクラー"
+        },
+        {
+          "id": "c2",
+          "text": "消火栓[しょうかせん]"
+        },
+        {
+          "id": "c3",
+          "text": "防火扉"
+        },
+        {
+          "id": "c4",
+          "text": "非常口"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "デパートやホテルの天井にあり、火災の熱を感知して自動で水をまく消火設備を「スプリンクラー」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.7d4b1837f778",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "消防署で働く「消防士」などの仕事において、24時間いつでも火事や救急に対応するために行われている勤務の工夫はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交代で勤務し、夜間もだれかが必ず起きている体制をとる"
+        },
+        {
+          "id": "c2",
+          "text": "夜は全員で寝る"
+        },
+        {
+          "id": "c3",
+          "text": "昼間だけ働く"
+        },
+        {
+          "id": "c4",
+          "text": "火事が起きてから消防署に集まる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消防士は24時間体制を維持するため、交代制（当番と非番など）で勤務し、夜間も常に警戒にあたっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.9323494e5738",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、社会生活を営むうえで大切なこととして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "法やきまりを守る"
+        },
+        {
+          "id": "c2",
+          "text": "きまりは不要"
+        },
+        {
+          "id": "c3",
+          "text": "記録しない"
+        },
+        {
+          "id": "c4",
+          "text": "見学のルールを守らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/250b8c89b8311107.png"
+    },
+    "explanation": "社会生活を営むうえでは、交通ルールなど大切な法やきまりを守ることが求められます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.97ac012af30c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "歩行者が安全に道路を横断できるように、道路上に白い平行な線で描かれている場所を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横断歩道（おうだんほどう）"
+        },
+        {
+          "id": "c2",
+          "text": "歩道"
+        },
+        {
+          "id": "c3",
+          "text": "交差点"
+        },
+        {
+          "id": "c4",
+          "text": "踏切"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "歩行者が安全に渡れるように指定された場所を「横断歩道[おうだんほどう]」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.acf0ef4930d5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、緊急時に使う番号として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "119番や110番"
+        },
+        {
+          "id": "c2",
+          "text": "0120の番号"
+        },
+        {
+          "id": "c3",
+          "text": "学校[がっこう]の内線"
+        },
+        {
+          "id": "c4",
+          "text": "友だちの携帯"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/250b8c89b8311107.png"
+    },
+    "explanation": "火事や救急のときは119番、警察のときは110番に電話[でんわ]します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.c18e4c15cbaa",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校[がっこう]で火事[かじ]が起[お]きたと想定[そうてい]し、煙[けむり]を避[さ]けて安全[あんぜん]な場所[ばしょ]へ逃[に]げる練習[れんしゅう]を何[なん]といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "避難訓練[ひなんくんれん]"
+        },
+        {
+          "id": "c2",
+          "text": "体育大会"
+        },
+        {
+          "id": "c3",
+          "text": "授業参観"
+        },
+        {
+          "id": "c4",
+          "text": "林間学校"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火事[かじ]のときに落[お]ち着[つ]いて逃[に]げられるよう、避難経路[ひなんけいろ]や行動[こうどう]の約束[やくそく]を確[たし]かめる練習[れんしゅう]を避難訓練[ひなんくんれん]といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.c1e7067c39cc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、火災や事故を防ぐために大切なこととして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通ルールを守る"
+        },
+        {
+          "id": "c2",
+          "text": "ルールを守らない"
+        },
+        {
+          "id": "c3",
+          "text": "火の取り扱いを気にしない"
+        },
+        {
+          "id": "c4",
+          "text": "一人で勝手に行動する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/64279aeb465f9ab7.png"
+    },
+    "explanation": "関係機関は地域の人々と協力して、火災や交通事故などを未然に防ぐ活動を行っています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.d0e284e5de56",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "火事のときに、煙や炎が他の部屋や階段に広がるのを防ぎ、安全に逃げる時間を確保するために設置されている、熱を感知して自動的に閉まる重い扉を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "防火扉（ぼうかどびら）"
+        },
+        {
+          "id": "c2",
+          "text": "自動ドア"
+        },
+        {
+          "id": "c3",
+          "text": "障子（しょうじ）"
+        },
+        {
+          "id": "c4",
+          "text": "窓ガラス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "炎や煙を通さない特殊な金属のドア（防火扉）が閉まることで、避難する通路を守ることができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.d341a6e036f7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "乾燥しやすい冬の時期などに、火事を防ぐために「火の用心」と声をかけながら地域の夜回りをすることを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夜警（よまわり・防火パトロール）"
+        },
+        {
+          "id": "c2",
+          "text": "交通整理"
+        },
+        {
+          "id": "c3",
+          "text": "大掃除"
+        },
+        {
+          "id": "c4",
+          "text": "お祭り"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "火事の起こりやすい夜に、火の点検や消火器[しょうかき]の場所を確認しながら見回る活動を「夜警」や「防火パトロール」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.d89355ad426b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域のお年寄りや大人が、子どもの登下校の時間帯に通学路に立ち、安全を見守るボランティア活動を行う人々のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見守り隊（みまもりたい）"
+        },
+        {
+          "id": "c2",
+          "text": "消防団[しょうぼうだん]"
+        },
+        {
+          "id": "c3",
+          "text": "パトロールカー"
+        },
+        {
+          "id": "c4",
+          "text": "交通指導員"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域の安全や子どもの登下校を見守るボランティアは、一般的に「見守り隊」などと呼ばれます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.da93a7a1b1d3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "警察署や交番で働く警察官が、地域の安全を守るために、街の中を歩いたり自転車やパトカーで回ったりする活動を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "パトロール（巡回）"
+        },
+        {
+          "id": "c2",
+          "text": "交通整理"
+        },
+        {
+          "id": "c3",
+          "text": "聞き込み捜査"
+        },
+        {
+          "id": "c4",
+          "text": "避難訓練"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "街の中を回って犯罪や事故を防ぎ、不審なものがないか確認する警察官の活動を「パトロール（パトロールパトロール）」や「巡回」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.ec2092275430",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "通学路や遊び場の近くで、交通事故や犯罪が起きやすい危険な場所を調べてまとめた地図を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域安全マップ（安全マップ）"
+        },
+        {
+          "id": "c2",
+          "text": "ハザードマップ"
+        },
+        {
+          "id": "c3",
+          "text": "観光案内図"
+        },
+        {
+          "id": "c4",
+          "text": "路線図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分たちで町を歩き、見通しが悪かったり入り込みやすかったりする危険な場所を記した手作りの地図を「地域安全マップ」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-03.fed5b4d987e6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "交通事故を防ぐために、道路の交差点や通学路の横断歩道[おうだんほどう]などで、警察官や交通安全ボランティアの人が行う誘導活動を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交通整理（交通誘導）"
+        },
+        {
+          "id": "c2",
+          "text": "防火パトロール"
+        },
+        {
+          "id": "c3",
+          "text": "消防訓練"
+        },
+        {
+          "id": "c4",
+          "text": "地域の清掃活動"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "信号機が故障したときや混雑するときに、車や歩行者を安全に誘導し事故を防ぐ活動を「交通整理」といいます。"
+  }
+]

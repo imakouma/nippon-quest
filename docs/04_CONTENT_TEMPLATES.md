@@ -16,7 +16,7 @@
 
 | 作るもの | 置き場所 | スキーマ |
 |---|---|---|
-| 問題 | `content/questions/<subject>/g<学年>/<単元>.json`（配列） | `schemas/questions/<type>.schema.json` |
+| 問題 | `content/questions/<subject>/g<学年>/<単元>/set-<3桁>.json`（1〜30問の配列） | `schemas/questions/<type>.schema.json` |
 | 都道府県（名所・敵配置・イベント・店・ミッション・NPC） | `content/prefectures/<code>.json` | `schemas/prefecture.schema.json` |
 | モンスター | `content/monsters/<area>-<name>.json` | `schemas/monster.schema.json` |
 | アイテム・装備・素材 | `content/items/<area>-<name>.json` | `schemas/item.schema.json` |
@@ -213,7 +213,7 @@
 
 ```json
 {
-  "$schema": "../../../schemas/questions/choice.schema.json",
+  "$schema": "../../../../../schemas/questions/choice.schema.json",
   "id": "sansu.g1.tashizan.0001",
   "type": "choice",
   "subject": "sansu",
@@ -226,7 +226,13 @@
 }
 ```
 
-1 ファイル＝同じ `unit` の問題の **配列**。`id` は `<unit>.<4桁連番>`。
+1 ファイル＝同じ `unit` の問題1〜30問の **配列**。`id` は `<unit>.<4桁連番>`。
+フォルダ名は `unit` の `<subject>.g<grade>.` より後ろと一致させ、セット名は
+`set-001.json` から欠番なく付ける。31問目以降は `set-002.json` へ分ける。
+
+例：`unit: "sansu.g1.tashizan"` は
+`content/questions/sansu/g1/tashizan/set-001.json` に置く。全問題を探すときは、
+生成済み `content/manifest.json` の `questionCatalog`（階層）または `questionIndex`（ID検索）を使う。
 
 ### 3.1 `choice`（2〜4 択）
 

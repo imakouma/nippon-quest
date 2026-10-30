@@ -1,0 +1,697 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-6.053f06228620",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "数字でかきましょう。",
+      "answers": [
+        "1090000"
+      ]
+    },
+    "explanation": "万でくぎって、かんがえよう。 百九万 → 百九万 / 「万」までを数字にすると、109 のこりの部分はないので、0000 これをあわせて、1090000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.1fda91d058de",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 39×10 =",
+      "answers": [
+        "390"
+      ]
+    },
+    "explanation": "39×10 = 10×39 つまり、10が 39こある ということなので、390 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.2a8dd4a0c6d3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (50)",
+      "answers": [
+        "50"
+      ]
+    },
+    "explanation": "÷10 や ÷100では、かけ算とは ぎゃくに 0 をとってあげればいい。 ÷10なので、0 を１つとって、50 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.369be7622133",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8×10 =",
+      "answers": [
+        "80"
+      ]
+    },
+    "explanation": "8×10 = 10×8 つまり、10が 8こある ということなので、80 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.3b80f32a7841",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "数字でかきましょう。",
+      "answers": [
+        "745000"
+      ]
+    },
+    "explanation": "万でくぎって、かんがえよう。 七十四万五千 → 七十四万 / 五千 「万」までを数字にすると、74 のこりの部分を数字にして、5000 これをあわせて、745000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.45eb3af8a5ca",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる 言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "数直線・大きく"
+        },
+        {
+          "id": "c2",
+          "text": "不等号"
+        },
+        {
+          "id": "c3",
+          "text": "小さく"
+        },
+        {
+          "id": "c4",
+          "text": "数直線[すうちょくせん]・小[ちい]さく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/826536e66e74433a.png"
+    },
+    "explanation": "数の大きさを直線で表したものを {数直線} といい、右にいくほど 数は大きくなる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.4b7ed4384e15",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をよみましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "八十七万二千三百"
+        },
+        {
+          "id": "c2",
+          "text": "八百七十二万三千"
+        },
+        {
+          "id": "c3",
+          "text": "八万七十二千三百"
+        },
+        {
+          "id": "c4",
+          "text": "八十七万二千三"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "くらいを数えていくと、十万のくらいまで、あることがわかる。万のくらいで くぎって読めばいいので 87万2300 → 八十七万二千三百になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.4d39a2e6d37a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大きな数について、あてはまる数をこたえよう。",
+      "answers": [
+        "3",
+        "2",
+        "1",
+        "9",
+        "5"
+      ],
+      "template": "32195 は、一万を {{INPUT}}こ、千を {{INPUT}}こ、百を {{INPUT}}こ、十を {{INPUT}}こ、一を {{INPUT}}こ あわせた数です。"
+    },
+    "explanation": "32195 は、一万を 3こ、千を 2こ、百を 1こ、十を 9こ、一を 5こ あわせた数です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.4fb7e538017a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線上で、78000をあらわすのは ア〜エのうち、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        },
+        {
+          "id": "c4",
+          "text": "エ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5f450f3f9f103771.png"
+    },
+    "explanation": "この数直線では、大きな目もり１つで、10000 になっている。小さな目もりは、10000 を さらに１０こ に分けているね。 大きな目もりで ７つ分、そこから小さな目もりで８つ分進んだところが、78000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.5158897a5cc7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アがあらわす数は、いくつでしょう。",
+      "answers": [
+        "50000"
+      ],
+      "promptImage": "questions/legacy/a87094791f55ed85.png"
+    },
+    "explanation": "この数直線では、大きな目もり１０こで、100000 になっている。大きな目もり１つ分で、10000 になることがわかる。アは、５つ目の大きな目もりなので、50000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.59cc9e22aa55",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "イがあらわす数は、いくつでしょう。",
+      "answers": [
+        "32000"
+      ],
+      "promptImage": "questions/legacy/a87094791f55ed85.png"
+    },
+    "explanation": "この数直線では、大きな目もり１つで、10000 になっている。小さな目もりは、10000 を さらに１０こ に分けているので、イは、３つ目の大きな目もりから、小さな目もり２つ分進んで、32000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.5b293e320880",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をくらべたとき、□に入る きごう をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\gt"
+        },
+        {
+          "id": "c2",
+          "text": "\\lt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "21000+32000=53000 50000 より大きくなるので、きごうは \\gt になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.5c8bb1ff176c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 99×100 =",
+      "answers": [
+        "9900"
+      ]
+    },
+    "explanation": "99×100 = 100×99 つまり、100が 99こある ということなので、9900 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.694dad06897e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数をくらべたとき、□に入る きごう をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\gt"
+        },
+        {
+          "id": "c2",
+          "text": "\\lt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": ">は、左の数が大きく、<は、右の数が大きいことをあらわす。78000 の方が大きいので、正しいきごうは、\\gt だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.8f0e8a9c0673",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "千万を 10こ集めた数を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一億"
+        },
+        {
+          "id": "c2",
+          "text": "十万"
+        },
+        {
+          "id": "c3",
+          "text": "一兆"
+        },
+        {
+          "id": "c4",
+          "text": "百万"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "千万を 10こ集めた数を 一億という。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.94d80332a118",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線上について、１つの目もりの大きさは いくつでしょう。",
+      "answers": [
+        "10000"
+      ],
+      "promptImage": "questions/legacy/b364a14cc7dc36b9.png"
+    },
+    "explanation": "５つ目の目もりで、50000 になっているので、目もり１つ分は 10000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.b047f4ee4289",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (400)",
+      "answers": [
+        "400"
+      ]
+    },
+    "explanation": "40 は 10 が 4つ集まったもの。それが 10こ 集まると、10は全部で 40 になる。10 は 40 こ集まると 400 になるね。 ×10 をするときは、位が一つ大きくなるとかんがえればいい。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.c5eeaba099ef",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (1000)",
+      "answers": [
+        "1000"
+      ]
+    },
+    "explanation": "÷10 や ÷100では、かけ算とは ぎゃくに 0 をとってあげればいい。 ÷10なので、0 を１つとって、1000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.d2f59af4b550",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線上について、１つの目もりの大きさは いくつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100万"
+        },
+        {
+          "id": "c2",
+          "text": "10万"
+        },
+        {
+          "id": "c3",
+          "text": "1万"
+        },
+        {
+          "id": "c4",
+          "text": "1"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9a0b189151e893d2.png"
+    },
+    "explanation": "この数直線は、全体のうち 600万から 700万までのところを あらわしている。600万と 700万の間には、１０こ 目もりがあるので、１つの目もりは 10万になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.d4bc305b4bd6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "数字でかきましょう。",
+      "answers": [
+        "68302000"
+      ]
+    },
+    "explanation": "万でくぎって、かんがえよう。 六千八百三十万二千 → 六千八百三十万 / 二千 「万」までを数字にすると、6830 のこりの部分を数字にして、2000 これをあわせて、68302000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.e3eea046185c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をよみましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三百九万"
+        },
+        {
+          "id": "c2",
+          "text": "三十九万"
+        },
+        {
+          "id": "c3",
+          "text": "三十万九千"
+        },
+        {
+          "id": "c4",
+          "text": "三百万九千"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "くらいを数えていくと、百万のくらいまで、あることがわかる。万のくらいで くぎって読めばいいので 309万 → 三百九万になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.e5cbb2c52439",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をよみましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "五千六百三十二万百"
+        },
+        {
+          "id": "c2",
+          "text": "五百六十三万二千十"
+        },
+        {
+          "id": "c3",
+          "text": "五千六百三十二万千"
+        },
+        {
+          "id": "c4",
+          "text": "五百六十三万二千百"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "くらいを数えていくと、千万のくらいまで、あることがわかる。万のくらいで くぎって読めばいいので 5632万100 → 五千六百三十二万百になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.ea363376b215",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をくらべたとき、□に入る きごう をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\gt"
+        },
+        {
+          "id": "c2",
+          "text": "\\lt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "21000+32000=53000 78000 より小さいので、きごうは \\lt になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.f267afd072b2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の２つの数をくらべたとき、□に入る きごう をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\gt"
+        },
+        {
+          "id": "c2",
+          "text": "\\lt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": ">は、左の数が大きく、<は、右の数が大きいことをあらわす。32000 の方が大きいので、正しいきごうは、\\lt だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.f42bb42db85a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (600)",
+      "answers": [
+        "600"
+      ]
+    },
+    "explanation": "60 は 10 が 6つ集まったもの。それが 10こ 集まると、10は全部で 60 になる。10 は 60 こ集まると 600 になるね。 ×10 をするときは、位が一つ大きくなるとかんがえればいい。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.f8ac192d2d05",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 10×100 =",
+      "answers": [
+        "1000"
+      ]
+    },
+    "explanation": "10×100 = 100×10 つまり、100が 10こある ということなので、1000 になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-6.fae072d2b545",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (9)",
+      "answers": [
+        "9"
+      ]
+    },
+    "explanation": "÷10 や ÷100では、かけ算とは ぎゃくに 0 をとってあげればいい。 ÷100なので、0 を２つとって、9 になる。"
+  }
+]

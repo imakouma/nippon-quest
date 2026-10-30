@@ -1,0 +1,443 @@
+[
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.1416fefb4993",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、みんなで使う公共物はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公園の遊具"
+        },
+        {
+          "id": "c2",
+          "text": "自分のおもちゃ"
+        },
+        {
+          "id": "c3",
+          "text": "家のテレビ"
+        },
+        {
+          "id": "c4",
+          "text": "私物の本"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8d9c8cb78b0d8359.jpg"
+    },
+    "explanation": "公園の遊具は、みんなで使う公共物です。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.3b67be132f8a",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域の安全を守る施設はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防署"
+        },
+        {
+          "id": "c2",
+          "text": "パン屋"
+        },
+        {
+          "id": "c3",
+          "text": "花屋"
+        },
+        {
+          "id": "c4",
+          "text": "本屋"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7bdf0c0f691bc79a.jpg"
+    },
+    "explanation": "消防署の人々は、地域の安全を守る仕事をしています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.48568a8fbd00",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "公共施設を利用するときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "施設のルールやマナーを守る"
+        },
+        {
+          "id": "c2",
+          "text": "大声で騒ぐ"
+        },
+        {
+          "id": "c3",
+          "text": "ルールを無視する"
+        },
+        {
+          "id": "c4",
+          "text": "勝手に物を持ち帰る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "静かに過ごす場所では声を控えるなど、マナーを守りましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.48f6e8bca906",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、公共物を支える人々の仕事に関係するものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水道の蛇口[じゃぐち]"
+        },
+        {
+          "id": "c2",
+          "text": "おもちゃ"
+        },
+        {
+          "id": "c3",
+          "text": "ぬいぐるみ"
+        },
+        {
+          "id": "c4",
+          "text": "クレヨン"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/467530a0534dda33.jpg"
+    },
+    "explanation": "水道は、多くの人の働きによって整えられています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.4bbcebc48d15",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真[しゃしん]を見[み]て、公共[こうきょう]の場所[ばしょ]をきれいに使[つか]う行動[こうどう]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ごみを分別してすてる"
+        },
+        {
+          "id": "c2",
+          "text": "ごみを道にすてる"
+        },
+        {
+          "id": "c3",
+          "text": "遊具を壊す"
+        },
+        {
+          "id": "c4",
+          "text": "花壇を荒らす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4c58177faec2e99f.jpg"
+    },
+    "explanation": "公共[こうきょう]の場所[ばしょ]では、ごみを決[き]められた場所[ばしょ]に分別[ぶんべつ]して捨[す]て、みんなが気持[きも]ちよく使[つか]えるようにします。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.4cefc3ecf7c1",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域のくらしを支える公共施設はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防署"
+        },
+        {
+          "id": "c2",
+          "text": "遊園地"
+        },
+        {
+          "id": "c3",
+          "text": "カラオケ"
+        },
+        {
+          "id": "c4",
+          "text": "ゲームセンター"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/918801b6b107fd00.jpg"
+    },
+    "explanation": "消防署は、火事や救急のときに地域を守る施設です。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.60b16e6d15bf",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、公共施設の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "図書館"
+        },
+        {
+          "id": "c2",
+          "text": "自分の部屋"
+        },
+        {
+          "id": "c3",
+          "text": "友達の家"
+        },
+        {
+          "id": "c4",
+          "text": "秘密基地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/96129f5ce9a036a5.jpg"
+    },
+    "explanation": "図書館は、地域の人々が使える公共施設です。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.b136e1814085",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真[しゃしん]を見[み]て、施設[しせつ]の人[ひと]にすぐ伝[つた]えたほうがよいことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消火器[しょうかき]が決[き]められた場所[ばしょ]にないこと"
+        },
+        {
+          "id": "c2",
+          "text": "今日[きょう]の天気[てんき]"
+        },
+        {
+          "id": "c3",
+          "text": "自分[じぶん]の靴[くつ]のサイズ"
+        },
+        {
+          "id": "c4",
+          "text": "自分[じぶん]の好[す]きな食[た]べ物[もの]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9f1cdb0700f28a25.jpg"
+    },
+    "explanation": "安全[あんぜん]のための物[もの]が決[き]められた場所[ばしょ]にないときや、壊[こわ]れている物[もの]を見[み]つけたときは、触[さわ]らずに施設[しせつ]の人[ひと]や先生[せんせい]へ伝[つた]えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.c5b6f601f800",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "公共物を大切に使うために正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "遊具を壊さない"
+        },
+        {
+          "id": "c2",
+          "text": "ルールを守らない"
+        },
+        {
+          "id": "c3",
+          "text": "ゴミをすてる"
+        },
+        {
+          "id": "c4",
+          "text": "花壇を荒らす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "遊具を壊さず、ルールを守りましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.cafad8b675e5",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "公共物を大切に使う理由[りゆう]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多くの人の働きで守られているから"
+        },
+        {
+          "id": "c2",
+          "text": "自分だけのものだから"
+        },
+        {
+          "id": "c3",
+          "text": "壊してもよいから"
+        },
+        {
+          "id": "c4",
+          "text": "関係ないから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みんなで使うものは、多くの人の働きによって守られています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.d02adad6110a",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、公共の場所で気をつけることとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "危ない遊びをしない"
+        },
+        {
+          "id": "c2",
+          "text": "走りまわる"
+        },
+        {
+          "id": "c3",
+          "text": "他人に迷惑をかける"
+        },
+        {
+          "id": "c4",
+          "text": "ルールを破る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b4adaefc24b952bc.jpg"
+    },
+    "explanation": "遊具では安全に気をつけて遊びましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-02.d6bf3053e390",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、公共施設の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "郵便ポスト"
+        },
+        {
+          "id": "c2",
+          "text": "自分の机"
+        },
+        {
+          "id": "c3",
+          "text": "おもちゃ箱"
+        },
+        {
+          "id": "c4",
+          "text": "冷蔵庫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1daec7e667ee008e.jpg"
+    },
+    "explanation": "郵便ポストは、みんなが手紙を出すための公共の設備です。"
+  }
+]

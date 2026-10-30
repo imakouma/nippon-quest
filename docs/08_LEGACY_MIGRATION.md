@@ -58,7 +58,8 @@
 - メニューの初期タブへ、既存の習熟度データを使う2Dロードマップを統合済み
 
 `imports/legacy-questions/report.json` は初回ステージング時点の監査記録なので、そこに残るフラグ集計は
-画像ローカライズ前の値である。最終結果は `image-report.json` と `content/questions/legacy/` を正とする。
+画像ローカライズ前の値である。最終結果は `image-report.json` と
+`content/questions/<subject>/g<grade>/<unit>/set-*.json` を正とする。
 
 構造検査、参照検査、全テスト、プロダクションビルドは通過している。ただし、自動検査だけで教材内容の
 学術的な正しさを保証するものではない。今後の内容レビューは問題を削除せず、指紋単位の修正履歴として残す。

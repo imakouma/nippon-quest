@@ -1,0 +1,195 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-3.04bce993b920",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１こ 80 円のりんごを 200 円の箱に入れて買ったときの りんごを買った数と代金の関係について、表にまとめます。表の□に当てはまる数をうめよう。",
+      "answers": [
+        "280",
+        "360",
+        "440",
+        "520",
+        "600",
+        "680"
+      ],
+      "template": "りんごの数（こ） 1 2 3 4 5 6 代金（円） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "りんごの数（こ） 1 2 3 4 5 6 代金（円） 280 360 440 520 600 680"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-3.0fb4f544efc4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が 4cm の立方体のつみ木があります。これを上に積み上げていったとき、その高さは、どのように変わるでしょう。下の表の□に当てはまる数をうめよう。",
+      "answers": [
+        "4",
+        "8",
+        "12",
+        "16",
+        "20",
+        "24"
+      ],
+      "template": "つみ木の数（こ） 1 2 3 4 5 6 高さ（cm） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "つみ木の数（こ） 1 2 3 4 5 6 高さ（cm） 4 8 12 16 20 24"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-3.14344ddb86e8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積[めんせき]が 24cm^2 の長方形[ちょうほうけい]のたてと横の長さの関係について、表にまとめます。表の□に当てはまる数をうめよう。",
+      "answers": [
+        "24",
+        "12",
+        "8",
+        "6",
+        "4.8",
+        "4"
+      ],
+      "template": "たての長さ（cm） 1 2 3 4 5 6 横の長さ（cm） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "たての長さ（cm） 1 2 3 4 5 6 横の長さ（cm） 24 12 8 6 4.8 4"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-3.56314937376a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が 4cm の立方体のつみ木を上に積み上げていきます。このとき、積み上げるつみ木の数が２倍、３倍とふえると、その高さも２倍、３倍とふえます。このような関係を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比例"
+        },
+        {
+          "id": "c2",
+          "text": "反比例"
+        },
+        {
+          "id": "c3",
+          "text": "倍"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "一方が２倍、３倍とふえると、もう一方も２倍、３倍とふえる関係のことを比例という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-3.70bf1a8451fa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの重さが 1.2kg のおもりの数と重さの関係について、表にまとめます。表の□に当てはまる数をうめよう。",
+      "answers": [
+        "1.2",
+        "2.4",
+        "3.6",
+        "4.8",
+        "6",
+        "7.2"
+      ],
+      "template": "おもりの数（こ） 1 2 3 4 5 6 重さ（kg） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "おもりの数（こ） 1 2 3 4 5 6 重さ（kg） 1.2 2.4 3.6 4.8 6 7.2"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-3.f290598cb3cb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１本 60 円のえんぴつを買った本数とその代金の関係について、表にまとめます。表の□に当てはまる数をうめよう。",
+      "answers": [
+        "60",
+        "120",
+        "180",
+        "240",
+        "300",
+        "360"
+      ],
+      "template": "えんびつの数（本） 1 2 3 4 5 6 代金（円） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "えんびつの数（本） 1 2 3 4 5 6 代金（円） 60 120 180 240 300 360"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-3.fb5ba8c7d9af",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が 4cm の立方体のつみ木を上に積み上げていきます。積み上げるつみ木の数とその高さには、どのような関係があるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "積み上げるつみ木の数が２倍になると、その高さも２倍になる。"
+        },
+        {
+          "id": "c2",
+          "text": "積み上げるつみ木の数が２倍になると、その高さは４倍になる。"
+        },
+        {
+          "id": "c3",
+          "text": "積み上げるつみ木の数が１つふえると、その高さは 2cm ふえる。"
+        },
+        {
+          "id": "c4",
+          "text": "積み上げるつみ木の数が１つふえると、その高さは 3cm ふえる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "表をみると、積み上げるつみ木の数が２倍になると、その高さも２倍になっていることが読み取れる。"
+  }
+]

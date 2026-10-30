@@ -1,0 +1,507 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-4.01eb324fd937",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.86×0.754306020.6450 =",
+      "answers": [
+        "0.645"
+      ]
+    },
+    "explanation": "0. 8 6 × 0. 7 5 4 3 0 6 0 2 0. 6 4 5 0"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.038c22ce73fd",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、積が かけられる数の 6 より大きくなるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6×1.1"
+        },
+        {
+          "id": "c2",
+          "text": "6×1"
+        },
+        {
+          "id": "c3",
+          "text": "6×0.9"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "かける数が 1 より大きいと、積はかけられる数より大きくなる。 6×1.1 が 6 より大きくなる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.05fbd37d59a8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4×2 =",
+      "answers": [
+        "0.08"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 4×2= 8 0.4 と 0.2 で合わせて 位が２つ小さくなるので、答えは 0.08 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.1a3f92581cfd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 6.7×0.732014694.891 =",
+      "answers": [
+        "4.891"
+      ]
+    },
+    "explanation": "6. 7 × 0. 7 3 2 0 1 4 6 9 4. 8 9 1"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.1c1bb1d43735",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、積が かけられる数の 6 より小さくなるものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6×1.1"
+        },
+        {
+          "id": "c2",
+          "text": "6×1"
+        },
+        {
+          "id": "c3",
+          "text": "6×0.9"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "かける数が 1 より小さいと、積はかけられる数より小さくなる。 6×0.9 が 6 より小さくなる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.1cc9fc47ff69",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4.3×0.51432152.193 =",
+      "answers": [
+        "2.193"
+      ]
+    },
+    "explanation": "4. 3 × 0. 5 1 4 3 2 1 5 2. 1 9 3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.2145e9a10050",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9.1×8.763772879.17 =",
+      "answers": [
+        "79.17"
+      ]
+    },
+    "explanation": "9. 1 × 8. 7 6 3 7 7 2 8 7 9. 1 7"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.21651a9ad59b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 13×6 =",
+      "answers": [
+        "0.78"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 13×6= 78 1.3 と 0.6 で合わせて 位が２つ小さくなるので、答えは 0.78 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.2f07affd6ddb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9×6 =",
+      "answers": [
+        "0.054"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 9×6= 54 0.9 と 0.06 で合わせて 位が３つ小さくなるので、答えは 0.054 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.3083eea447a9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12×5 =",
+      "answers": [
+        "0.6"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 12×5= 60 1.2 と 0.5 で合わせて 位が２つ小さくなるので、答えは 0.60=0.6 になる。答えの小数の最後が 0 のときは、0 をとりのぞいて答えよう。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.39785be24391",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9.9×2.879219827.72 =",
+      "answers": [
+        "27.72"
+      ]
+    },
+    "explanation": "9. 9 × 2. 8 7 9 2 1 9 8 2 7. 7 2"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.3ad8b10fe746",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3.6×2.4144728.64 =",
+      "answers": [
+        "8.64"
+      ]
+    },
+    "explanation": "3. 6 × 2. 4 1 4 4 7 2 8. 6 4"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.4b8ecb95b3d0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.95×7.87606657.410 =",
+      "answers": [
+        "7.41"
+      ]
+    },
+    "explanation": "0. 9 5 × 7. 8 7 6 0 6 6 5 7. 4 1 0"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.51fee93b8c71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12×2 =",
+      "answers": [
+        "2.4"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 12×2= 24 0.2 で位が１つ小さくなるので、答えは 2.4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.670f33fa29fd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 80×7 =",
+      "answers": [
+        "56"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 80×7= 560 0.7 で位が１つ小さくなるので、答えは 56 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.6e7ce6ef3350",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて4.8cm、横7.2cm の長方形[ちょうほうけい]の面積[めんせき]を求めよう。",
+      "answers": [
+        "34.56"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、たて×横 で求めることができた。 4.8×7.2 = 34.56(cm^2)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.6fdcac40c37b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.55×2.63301101.430 =",
+      "answers": [
+        "1.43"
+      ]
+    },
+    "explanation": "0. 5 5 × 2. 6 3 3 0 1 1 0 1. 4 3 0"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.79acd51fa245",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8×4 =",
+      "answers": [
+        "0.32"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 8×4= 32 0.8 と 0.4 で合わせて 位が２つ小さくなるので、答えは 0.32 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.7d99d313d7a8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3.3×0.09 =",
+      "answers": [
+        "0.297"
+      ]
+    },
+    "explanation": "かけ算は、順番を入れかえても答えは変わらない。3.3×0.09 にすると、楽に計算できるぞ。 3.3×0.09 = 0.297"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.7f46fd6670c0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7.21×1.214427218.652 =",
+      "answers": [
+        "8.652"
+      ]
+    },
+    "explanation": "7. 2 1 × 1. 2 1 4 4 2 7 2 1 8. 6 5 2"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.90a1cc0729db",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.49×0.03 =",
+      "answers": [
+        "0.0147"
+      ]
+    },
+    "explanation": "これは、筆算にしないでも、計算できそう。小数点の位置に注意しよう。 0.49×0.03 = 0.0147"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.94e505462287",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一辺 2.2cm の立方体の体積を求めよう。",
+      "answers": [
+        "10.648"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3"
+    },
+    "explanation": "立方体の体積は、一辺×一辺×一辺 で求めることができる。 2.2×2.2×2.2 = 10.648(cm^3)"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.ad6921467625",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3×9 =",
+      "answers": [
+        "2.7"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 3×9= 27 0.9 で位が１つ小さくなるので、答えは 2.7 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.e283ae35482b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9×7 =",
+      "answers": [
+        "0.63"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 9×7= 63 0.9 と 0.7 で合わせて 位が２つ小さくなるので、答えは 0.63 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-4.e666ff525c01",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 15×8 =",
+      "answers": [
+        "0.12"
+      ]
+    },
+    "explanation": "まずは、整数どうしのかけ算で考える。 15×8= 120 1.5 と 0.08 で合わせて 位が３つ小さくなるので、答えは 0.120=0.12 になる。答えの小数の最後が 0 のときは、0 をとりのぞいて答えよう。"
+  }
+]

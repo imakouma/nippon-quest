@@ -1,0 +1,898 @@
+[
+  {
+    "id": "source.kokugo.g4.jpn-4-2.f1bd103fc101",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「雨が降った。___、傘をさした。」の空欄に入る正しい接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "しかし"
+        },
+        {
+          "id": "b",
+          "text": "または"
+        },
+        {
+          "id": "c",
+          "text": "だから（そこで）"
+        },
+        {
+          "id": "d",
+          "text": "ところで"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "原因と結果をつなぐ順接の接続詞「だから」や「そこで」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-2.45b82c2613cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "前の内容のまとめや言い換えに使う接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "つまり"
+        },
+        {
+          "id": "b",
+          "text": "たとえば"
+        },
+        {
+          "id": "c",
+          "text": "しかし"
+        },
+        {
+          "id": "d",
+          "text": "または"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "要約や言い換えを表す「つまり」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-2.1900d1ccbab5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「りんご___バナナを買う。」の空欄に入る接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "だから"
+        },
+        {
+          "id": "b",
+          "text": "しかし"
+        },
+        {
+          "id": "c",
+          "text": "つまり"
+        },
+        {
+          "id": "d",
+          "text": "または"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "どちらか一方を選ぶ選択を表す「または」が適しています。"
+  },
+  {
+    "id": "source.kokugo.g4.jpn-4-2.dee0dd8ff6d2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「国語と算数、___理科も好きだ。」の空欄に入る接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "または"
+        },
+        {
+          "id": "b",
+          "text": "しかし"
+        },
+        {
+          "id": "c",
+          "text": "さらに（そして）"
+        },
+        {
+          "id": "d",
+          "text": "なぜなら"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "付け足し（累加）を表す「さらに」や「そして」が適しています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.02d00fdcb0c1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "話題を変えるときに使う接続語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ところで"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "つまり"
+        },
+        {
+          "id": "c4",
+          "text": "なぜなら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話題転換は「ところで」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.05e003899b84",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「のどがかわいた。___、水を飲んだ。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だから"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "または"
+        },
+        {
+          "id": "c4",
+          "text": "ところで"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原因→結果は順接「だから」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.0e51e42657ca",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「だから」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "順接"
+        },
+        {
+          "id": "c2",
+          "text": "逆接"
+        },
+        {
+          "id": "c3",
+          "text": "並列"
+        },
+        {
+          "id": "c4",
+          "text": "添加"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原因→結果。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.2781f0a48e11",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "理由をあとから述べる接続語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "なぜなら"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "けれども"
+        },
+        {
+          "id": "c4",
+          "text": "ところで"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なぜなら〜から」で理由を述べる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.36201f092218",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "話題をかえるときに使うつなぎ言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ところで"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "しかし"
+        },
+        {
+          "id": "c4",
+          "text": "そして"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話を変えるときは「ところで」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.38d981486998",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「勉強した。___、テストの点数は悪かった。」の空欄に入る接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だから"
+        },
+        {
+          "id": "c2",
+          "text": "しかし（だが）"
+        },
+        {
+          "id": "c3",
+          "text": "そして"
+        },
+        {
+          "id": "c4",
+          "text": "つまり"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "前の内容と反対の結果をつなぐ逆接の接続詞「しかし」や「だが」が適しています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.3f9076303d76",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「赤___青、すきな色をえらぶ。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "または"
+        },
+        {
+          "id": "c2",
+          "text": "そして"
+        },
+        {
+          "id": "c3",
+          "text": "だから"
+        },
+        {
+          "id": "c4",
+          "text": "しかし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "どちらかをえらぶ「または」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.7743f367b251",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「宿題をした。___、ねた。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そして"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "でも"
+        },
+        {
+          "id": "c4",
+          "text": "なぜなら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ことがらを続けてならべる「そして」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.79be4a4cc39c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「練習した。___、勝てなかった。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でも"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "そして"
+        },
+        {
+          "id": "c4",
+          "text": "つまり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "前と反対の結果は逆接「でも」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.7d774067f3fd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "前に言ったことを、別の言い方でまとめる接続語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つまり"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "または"
+        },
+        {
+          "id": "c4",
+          "text": "そして"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "言い換え・要約は「つまり」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.93492977ab80",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ケーキ___アイス、どちらかえらぶ。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "または"
+        },
+        {
+          "id": "c2",
+          "text": "そして"
+        },
+        {
+          "id": "c3",
+          "text": "だから"
+        },
+        {
+          "id": "c4",
+          "text": "しかし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "どちらかをえらぶ「または」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.96e44c480949",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「走った。___、まにあわなかった。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でも"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "そして"
+        },
+        {
+          "id": "c4",
+          "text": "つまり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "前と反対の結果は逆接「でも」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.a80ea777de67",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「りんご___バナナを買う。」のように、どちらか一方を選ぶときに使う接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だから"
+        },
+        {
+          "id": "c2",
+          "text": "または"
+        },
+        {
+          "id": "c3",
+          "text": "しかし"
+        },
+        {
+          "id": "c4",
+          "text": "そして"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "選択を表す「または」や「あるいは」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.a8d06d5518e7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「雨がふった。___、試合は中止だ。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だから"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "または"
+        },
+        {
+          "id": "c4",
+          "text": "ところで"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原因→結果は順接「だから」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.a973f7c31790",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「しかし」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "順接"
+        },
+        {
+          "id": "c2",
+          "text": "逆接"
+        },
+        {
+          "id": "c3",
+          "text": "並列"
+        },
+        {
+          "id": "c4",
+          "text": "理由"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "逆接。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.afc7eaa739d8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "前の文のまとめや言い換えをするときに使う接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "つまり"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "それから"
+        },
+        {
+          "id": "c4",
+          "text": "または"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "要約や言い換えを表す「つまり」や「すなわち」が適しています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.bb9599afdb5c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「朝ごはんを食べた。___、歯をみがいた。」に合うのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そして"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "でも"
+        },
+        {
+          "id": "c4",
+          "text": "なぜなら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ことがらを続けてならべる「そして」。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.bf4a55c078fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "理由をあとから言うときのつなぎ言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "なぜなら"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "しかし"
+        },
+        {
+          "id": "c4",
+          "text": "または"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なぜなら〜から」で理由を述べる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.c7af61c3a8b0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「国語と算数、___理科も好きだ。」の空欄に入る、付け足す接続詞はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しかし"
+        },
+        {
+          "id": "c2",
+          "text": "さらに（そして）"
+        },
+        {
+          "id": "c3",
+          "text": "なぜなら"
+        },
+        {
+          "id": "c4",
+          "text": "つまり"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "並列や累加を表す「さらに」や「そして」、「それに」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.d5a48ec981dd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「そして」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "逆接"
+        },
+        {
+          "id": "c2",
+          "text": "並列・添加"
+        },
+        {
+          "id": "c3",
+          "text": "理由"
+        },
+        {
+          "id": "c4",
+          "text": "条件"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "並列・添加。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-2.e690139d9e6c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「雨が降った。___、傘をさした。」の空欄に入る正しいつなぎ言葉（接続詞）はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しかし"
+        },
+        {
+          "id": "c2",
+          "text": "だから（そこで）"
+        },
+        {
+          "id": "c3",
+          "text": "または"
+        },
+        {
+          "id": "c4",
+          "text": "たとえば"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "原因と結果をつなぐ順接の接続詞「だから」や「そこで」が適しています。"
+  }
+]

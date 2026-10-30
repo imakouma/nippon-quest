@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-21.3c80af05d7af",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を冷やすと何度くらいで氷になりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100℃"
+        },
+        {
+          "id": "c2",
+          "text": "0℃"
+        },
+        {
+          "id": "c3",
+          "text": "50℃"
+        },
+        {
+          "id": "c4",
+          "text": "20℃"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "およそ0℃で氷になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.3d47f44c202d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を熱すると何度くらいで沸騰しやすいか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0℃"
+        },
+        {
+          "id": "c2",
+          "text": "100℃"
+        },
+        {
+          "id": "c3",
+          "text": "50℃"
+        },
+        {
+          "id": "c4",
+          "text": "−10℃"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "およそ100℃で沸騰し水蒸気になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.5e0d98f201cd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "氷は水のどのすがたですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気体"
+        },
+        {
+          "id": "c2",
+          "text": "液体"
+        },
+        {
+          "id": "c3",
+          "text": "固体"
+        },
+        {
+          "id": "c4",
+          "text": "プラズマ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "氷は固体の水です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.6ea090d8c6c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水のすがたが変わる主な要因はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度"
+        },
+        {
+          "id": "c2",
+          "text": "音"
+        },
+        {
+          "id": "c3",
+          "text": "色"
+        },
+        {
+          "id": "c4",
+          "text": "名前[なまえ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度によって固体・液体・気体に変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.9302b73742fb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水→水蒸気→水の変化で正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水がなくなる"
+        },
+        {
+          "id": "c2",
+          "text": "すがたが変わる"
+        },
+        {
+          "id": "c3",
+          "text": "重さが必ず0"
+        },
+        {
+          "id": "c4",
+          "text": "電気になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "すがた（状態）が変わるだけで、水そのものです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.c63740df25d7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "すがたを変える水の学習[がくしゅう]でわかることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度で水の状態が変わる"
+        },
+        {
+          "id": "c2",
+          "text": "電池のつなぎ方"
+        },
+        {
+          "id": "c3",
+          "text": "星座の名前[なまえ]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "関節の数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度によって氷・水・水蒸気と変わります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.e907dd52095c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水蒸気が冷やされるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消える"
+        },
+        {
+          "id": "c2",
+          "text": "水にもどる"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷だけ"
+        },
+        {
+          "id": "c4",
+          "text": "油になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やされると液体の水にもどります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-21.f82133213423",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-21",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-21",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水蒸気はどのようなすがたですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "固体"
+        },
+        {
+          "id": "c2",
+          "text": "液体"
+        },
+        {
+          "id": "c3",
+          "text": "気体"
+        },
+        {
+          "id": "c4",
+          "text": "プラズマ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "水蒸気は気体です。"
+  }
+]

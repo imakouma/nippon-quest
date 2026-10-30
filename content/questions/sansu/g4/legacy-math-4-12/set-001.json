@@ -1,0 +1,382 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-12.0d3c0799e490",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4×2 =",
+      "answers": [
+        "0.8"
+      ]
+    },
+    "explanation": "0.4は 0.1が4つになる。これに 2をかけるので、0.1が 4×2=8こで、0.8になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.1929d02c2e89",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8.19×20163.80 =",
+      "answers": [
+        "163.8"
+      ]
+    },
+    "explanation": "まずは筆算でかけ算をした後に、小数点を動かして位を小さくしよう。×0は、計算せずにとばしてしまおう。 8. 1 9 × 2 0 1 6 3. 8 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.3067e6e62169",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 6.74×2960661348195.46 =",
+      "answers": [
+        "195.46"
+      ]
+    },
+    "explanation": "×２けたになっても、やり方は同じ。まずは筆算でかけ算をした後に、小数点を動かして位を小さくしよう。 6. 7 4 × 2 9 6 0 6 6 1 3 4 8 1 9 5. 4 6"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.366664afb0e7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9.5×1657095152.0 =",
+      "answers": [
+        "152"
+      ]
+    },
+    "explanation": "×２けたになっても、やり方は同じ。まずは筆算でかけ算をした後に、小数点を動かして位を小さくしよう。 小数の最後につく 0は、とりのぞいて答えよう。 9. 5 × 1 6 5 7 0 9 5 1 5 2. 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.42ff569b1f50",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8×5 =",
+      "answers": [
+        "0.4"
+      ]
+    },
+    "explanation": "0.08は 0.01が8つになる。これに 5をかけるので、0.01が 8×5=40こで、0.40になる。 小数の最後につく 0は、とりのぞいて 0.4で答えよう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.62e7aa9321e0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.44×5022.00 =",
+      "answers": [
+        "22"
+      ]
+    },
+    "explanation": "まずは筆算でかけ算をした後に、小数点を動かして位を小さくしよう。×0は、計算せずに、とばしてしまおう。 0. 4 4 × 5 0 2 2. 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.668c4d3ea686",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2.7×410.8 =",
+      "answers": [
+        "10.8"
+      ]
+    },
+    "explanation": "2.7は、整数27より１つ位が小さくなっているので、答えも位が１つ小さくなる。 2. 7 × 4 1 0. 8"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.6fd01e5a66ff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3.1×12623137.2 =",
+      "answers": [
+        "37.2"
+      ]
+    },
+    "explanation": "×２けたになっても、やり方は同じ。まずは筆算でかけ算をした後に、小数点を動かして位を小さくしよう。 3. 1 × 1 2 6 2 3 1 3 7. 2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.7031dd2c7974",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1.63×58.15 =",
+      "answers": [
+        "8.15"
+      ]
+    },
+    "explanation": "1.63は、整数163より２つ位が小さくなっているので、答えも位が２つ小さくなる。 1. 6 3 × 5 8. 1 5"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.7d4a74afa762",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9.5×219.0 =",
+      "answers": [
+        "19"
+      ]
+    },
+    "explanation": "9.5は、整数95より１つ位が小さくなっているので、答えも位が１つ小さくなる。 小数の最後につく 0は、とりのぞいて答えよう。 9. 5 × 2 1 9. 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.8655ab63183a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5×3 =",
+      "answers": [
+        "1.5"
+      ]
+    },
+    "explanation": "0.5は 0.1が5つになる。これに 3をかけるので、0.1が 5×3=15こで、1.5になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.9c70cc33124b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.77×32.31 =",
+      "answers": [
+        "2.31"
+      ]
+    },
+    "explanation": "0.77は、整数77より２つ位が小さくなっているので、答えも位が２つ小さくなる。 0. 7 7 × 3 2. 3 1"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.bd87a722c377",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1.5×34.5 =",
+      "answers": [
+        "4.5"
+      ]
+    },
+    "explanation": "1.5は、整数15より１つ位が小さくなっているので、答えも位が１つ小さくなる。 1. 5 × 3 4. 5"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.d100c1b961fd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2.7×718.9 =",
+      "answers": [
+        "18.9"
+      ]
+    },
+    "explanation": "2.7は、整数27より１つ位が小さくなっているので、答えも位が１つ小さくなる。 2. 7 × 7 1 8. 9"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.d3f4be035f3d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7.5×645.0 =",
+      "answers": [
+        "45"
+      ]
+    },
+    "explanation": "7.5は、整数75より１つ位が小さくなっているので、答えも位が１つ小さくなる。 小数の最後につく 0は、とりのぞいて答えよう。 7. 5 × 6 4 5. 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.d934ae8c8af6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.88×5217644045.76 =",
+      "answers": [
+        "45.76"
+      ]
+    },
+    "explanation": "×２けたになっても、やり方は同じ。まずは筆算でかけ算をした後に、小数点を動かして位を小さくしよう。 0. 8 8 × 5 2 1 7 6 4 4 0 4 5. 7 6"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.d9fe87fe66d6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9×3 =",
+      "answers": [
+        "2.7"
+      ]
+    },
+    "explanation": "0.9は 0.1が9つになる。これに 3をかけるので、0.1が 9×3=27こで、2.7になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.e9220ddf1a19",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7×8 =",
+      "answers": [
+        "0.56"
+      ]
+    },
+    "explanation": "0.07は 0.01が7つになる。これに 8をかけるので、0.01が 7×8=56こで、0.56になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.eaf625b77990",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.15×91.35 =",
+      "answers": [
+        "1.35"
+      ]
+    },
+    "explanation": "0.15は、整数15より２つ位が小さくなっているので、答えも位が２つ小さくなる。 0. 1 5 × 9 1. 3 5"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-12.eb64b0695448",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5×6 =",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "0.5は 0.1が5つになる。これに 6をかけるので、0.1が 5×6=30こで、3.0になる。 小数の最後につく 0は、とりのぞいて 3で答えよう。"
+  }
+]

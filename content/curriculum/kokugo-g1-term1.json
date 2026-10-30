@@ -231,6 +231,15 @@
   ],
   "relations": [
     {
+      "from": "kokugo.g1.sentence.subject-predicate",
+      "to": "kokugo.g1.writing.word-connections",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "主語[しゅご]と述語[じゅつご]の関係[かんけい]を捉[とら]える力[ちから]を、言葉[ことば]のつながりを整[ととの]えて書[か]く基礎[きそ]とする。",
+      "sourceIds": ["mext-82v12-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
       "from": "kokugo.g1.sound.syllable",
       "to": "kokugo.g1.script.hiragana",
       "kind": "prerequisite",

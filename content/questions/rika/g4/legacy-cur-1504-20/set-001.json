@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-20.3b1ba621982d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ビーカーの水を温める実験で観察することはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水の動きと温度"
+        },
+        {
+          "id": "c2",
+          "text": "星座"
+        },
+        {
+          "id": "c3",
+          "text": "電流"
+        },
+        {
+          "id": "c4",
+          "text": "月の形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "色水などで動きと温度を観察します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.43eecc7170f4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水は金属にくらべて熱の伝わり方はどうですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まったく同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう（動きを伴う）"
+        },
+        {
+          "id": "c3",
+          "text": "伝わらない"
+        },
+        {
+          "id": "c4",
+          "text": "一瞬で凍る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水は対流で全体があたたまります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.487010f47b5a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水のあたたまり方の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動きながら全体があたたまる"
+        },
+        {
+          "id": "c2",
+          "text": "温[あたた]めた部分[ぶぶん]だけが動[うご]かずに熱[あつ]くなる"
+        },
+        {
+          "id": "c3",
+          "text": "水面[すいめん]から底[そこ]へ、動[うご]かずに熱[ねつ]が伝[つた]わる"
+        },
+        {
+          "id": "c4",
+          "text": "水全体[みずぜんたい]が一度[いちど]に同[おな]じ温度[おんど]になる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水は動き（対流）ながらあたたまります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.71979b289b43",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "部屋の暖房で上があたたかくなりやすい理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あたたかい空気が上へ行くから"
+        },
+        {
+          "id": "c2",
+          "text": "冷たい空気が上へ行くから"
+        },
+        {
+          "id": "c3",
+          "text": "無関係"
+        },
+        {
+          "id": "c4",
+          "text": "音のせい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "あたたかい空気は上昇[じょうしょう]します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.824b3ba12f07",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水と空気のあたたまり方に共通することはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "動きながらあたたまる"
+        },
+        {
+          "id": "c2",
+          "text": "金属と同じ伝導だけ"
+        },
+        {
+          "id": "c3",
+          "text": "熱が伝わらない"
+        },
+        {
+          "id": "c4",
+          "text": "凍るだけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "どちらも動き（対流）を伴いやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.baa38010e475",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を下から温めると、あたたかい水はどう動きやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下へたまる"
+        },
+        {
+          "id": "c2",
+          "text": "上へ動く"
+        },
+        {
+          "id": "c3",
+          "text": "動かない"
+        },
+        {
+          "id": "c4",
+          "text": "凍る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかい水は上へ動き、対流が起きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.cb116a328349",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気を温めると、あたたかい空気はどう動きやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下へ"
+        },
+        {
+          "id": "c2",
+          "text": "上へ"
+        },
+        {
+          "id": "c3",
+          "text": "動かない"
+        },
+        {
+          "id": "c4",
+          "text": "水になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "あたたかい空気は上へ動きやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-20.fdd4ff7b4007",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "もののあたたまり方を調べる目的はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱の伝わり方のちがいを知る"
+        },
+        {
+          "id": "c2",
+          "text": "星を数える"
+        },
+        {
+          "id": "c3",
+          "text": "電池を直列にする"
+        },
+        {
+          "id": "c4",
+          "text": "葉の数を数える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "金属・水・空気の伝わり方のちがいを学びます。"
+  }
+]

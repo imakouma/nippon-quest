@@ -1,0 +1,756 @@
+[
+  {
+    "id": "source.kokugo.g5.jpn-5-4.d805161b38f5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "あるものを別のものにたとえる「比喩（ひゆ）」を使った文はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "彼はとても足が速い。"
+        },
+        {
+          "id": "b",
+          "text": "彼はチーターのように足が速い。"
+        },
+        {
+          "id": "c",
+          "text": "彼はクラスで一番足が速い。"
+        },
+        {
+          "id": "d",
+          "text": "彼は毎日走っているから足が速い。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「〜のようだ」などの言葉を使って別のものにたとえる表現を「比喩」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-4.bae4ab6edb61",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "同じ言葉や似た言葉を繰り返す「反復（はんぷく）」を使うと、どのような効果がありますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "意味がわからなくなる。"
+        },
+        {
+          "id": "b",
+          "text": "文章が短くなる。"
+        },
+        {
+          "id": "c",
+          "text": "印象が強まり、リズムが生まれる。"
+        },
+        {
+          "id": "d",
+          "text": "敬語が正しくなる。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "同じ言葉を繰り返すことで、その部分が強調され、リズムが生まれて印象に残りやすくなります。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.0e105fb5a139",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「テレビ」や「カメラ」のように、主に欧米などから入ってきた言葉を何と呼びますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語"
+        },
+        {
+          "id": "c2",
+          "text": "漢語"
+        },
+        {
+          "id": "c3",
+          "text": "外来語（カタカナ語）"
+        },
+        {
+          "id": "c4",
+          "text": "新語"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "外国から入ってきた言葉を「外来語」と呼び、現代日本語では主にカタカナで表記します。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.10d312a0ebc2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "和語・漢語・外来語のうち、ふつうカタカナで書くのはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外来語"
+        },
+        {
+          "id": "c2",
+          "text": "和語"
+        },
+        {
+          "id": "c3",
+          "text": "漢語"
+        },
+        {
+          "id": "c4",
+          "text": "ぜんぶ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "外来語はカタカナで書く。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.11509ef3da56",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「走る」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語"
+        },
+        {
+          "id": "c2",
+          "text": "漢語"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "記号"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "和語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.12b737f65774",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「消しゴム」の「消し」はどの分類？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語"
+        },
+        {
+          "id": "c2",
+          "text": "漢語"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "数字"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「けし」は訓読みの和語（「ゴム」は外来語）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.14267548090e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「学校」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語"
+        },
+        {
+          "id": "c2",
+          "text": "漢語"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "略語"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "漢語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.16ce7e847bea",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「はやさ」を漢語で言うと？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "速度"
+        },
+        {
+          "id": "c2",
+          "text": "はやさ"
+        },
+        {
+          "id": "c3",
+          "text": "スピード"
+        },
+        {
+          "id": "c4",
+          "text": "すばやさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "音読みの「速度」が漢語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.1ca04e4f3fab",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「とざん（登山）」のような音読みの言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "漢語"
+        },
+        {
+          "id": "c2",
+          "text": "和語"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "方言"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "音読みの組み合わせは漢語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.27eca75a20c3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、和語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はなし"
+        },
+        {
+          "id": "c2",
+          "text": "電話（でんわ）"
+        },
+        {
+          "id": "c3",
+          "text": "メール"
+        },
+        {
+          "id": "c4",
+          "text": "ラジオ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「はなし」は和語（訓読み）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.3956b7502caa",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ごはん」と「食事」、あらたまった言い方（漢語）はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食事"
+        },
+        {
+          "id": "c2",
+          "text": "ごはん"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "漢語の「食事」のほうがあらたまった言い方。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.4c5d2f16446c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「学校（がっこう）」のように、中国から伝わった漢字をもとにした言葉を何と呼びますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語"
+        },
+        {
+          "id": "c2",
+          "text": "漢語（かんご）"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "翻訳語"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音読みの漢字を組み合わせてできた言葉を「漢語」と呼びます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.4d0ea1d04fb9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、外来語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "パン"
+        },
+        {
+          "id": "c2",
+          "text": "ごはん"
+        },
+        {
+          "id": "c3",
+          "text": "みそしる"
+        },
+        {
+          "id": "c4",
+          "text": "おちゃ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「パン」は外来語（ポルトガル語から）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.5558d16fbb5f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の言葉のうち、「漢語」はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お茶（ちゃ）"
+        },
+        {
+          "id": "c2",
+          "text": "コップ"
+        },
+        {
+          "id": "c3",
+          "text": "牛乳（ぎゅうにゅう）"
+        },
+        {
+          "id": "c4",
+          "text": "みず"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "「牛乳」は音読みの組み合わせでできた「漢語」です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.65d94a0e6c05",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「のぼる・上昇・アップ」のうち、外来語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アップ"
+        },
+        {
+          "id": "c2",
+          "text": "のぼる"
+        },
+        {
+          "id": "c3",
+          "text": "上昇"
+        },
+        {
+          "id": "c4",
+          "text": "ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「アップ」が外来語（「のぼる」は和語、「上昇」は漢語）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.81d3f90f12f9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の言葉のうち、「和語」はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "机（つくえ）"
+        },
+        {
+          "id": "c2",
+          "text": "テーブル"
+        },
+        {
+          "id": "c3",
+          "text": "学習（がくしゅう）"
+        },
+        {
+          "id": "c4",
+          "text": "デスク"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「つくえ」は日本固有の「和語」です（「テーブル」は外来語、「学習」は漢語）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.81f1b3514349",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「テレビ」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語"
+        },
+        {
+          "id": "c2",
+          "text": "漢語"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "方言"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "外来語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.9dcbffc29ffd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「さくら（桜）」のように、日本で昔から使われている言葉の分類を何と呼びますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "和語（わご）"
+        },
+        {
+          "id": "c2",
+          "text": "漢語（かんご）"
+        },
+        {
+          "id": "c3",
+          "text": "外来語（がいらいご）"
+        },
+        {
+          "id": "c4",
+          "text": "造語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本固有の言葉（主に訓読みの言葉）を「和語」と呼びます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.a45d056c1406",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ノート」「ペン」のような言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外来語"
+        },
+        {
+          "id": "c2",
+          "text": "和語"
+        },
+        {
+          "id": "c3",
+          "text": "漢語"
+        },
+        {
+          "id": "c4",
+          "text": "古語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "外国から来た言葉は外来語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.bd05bb98809c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「やど」「旅館」「ホテル」のうち、和語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "やど"
+        },
+        {
+          "id": "c2",
+          "text": "旅館"
+        },
+        {
+          "id": "c3",
+          "text": "ホテル"
+        },
+        {
+          "id": "c4",
+          "text": "ない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "訓読みの「やど」が和語。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-4.bebeb8d273e2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、漢語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "読書"
+        },
+        {
+          "id": "c2",
+          "text": "本を読む"
+        },
+        {
+          "id": "c3",
+          "text": "よみもの"
+        },
+        {
+          "id": "c4",
+          "text": "ブック"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "音読みの「読書」が漢語。"
+  }
+]

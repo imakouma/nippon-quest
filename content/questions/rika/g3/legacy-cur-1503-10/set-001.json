@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-10.1e2ea9453164",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物の形を変えたときのきまりとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重さも必ず変わる"
+        },
+        {
+          "id": "c2",
+          "text": "重さは変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "色が必ず変わる"
+        },
+        {
+          "id": "c4",
+          "text": "音が出る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "形が変わっても重さは変わりません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.2f37f992c555",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ大きさのアルミニウム・木・プラスチックでは、どれが重いことが多いですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "木"
+        },
+        {
+          "id": "c2",
+          "text": "プラスチック"
+        },
+        {
+          "id": "c3",
+          "text": "アルミニウム"
+        },
+        {
+          "id": "c4",
+          "text": "どれも同じ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "同じ大きさなら、アルミニウムが重いことが多いです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.378f53cd51c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はかりで量る前に、表示を何にしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100"
+        },
+        {
+          "id": "c2",
+          "text": "0"
+        },
+        {
+          "id": "c3",
+          "text": "最大"
+        },
+        {
+          "id": "c4",
+          "text": "適当な数"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "はかりは0にしてから量ります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.4267ce0a6a92",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ大きさでも、材質がちがうと重さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必ず同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがうことがある"
+        },
+        {
+          "id": "c3",
+          "text": "測れない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず0"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "同じ大きさ（体積）でも、材質によって重さはちがいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.62c5d7178bb5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "120gの粘土をまるくしたりのばしたりすると、重さはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100gになる"
+        },
+        {
+          "id": "c2",
+          "text": "140gになる"
+        },
+        {
+          "id": "c3",
+          "text": "120gのまま"
+        },
+        {
+          "id": "c4",
+          "text": "0gになる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "形を変えても重さは120gのままです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.643ed37368ef",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "粘土の形を変えても、重さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "軽くなる"
+        },
+        {
+          "id": "c2",
+          "text": "重くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "なくなる"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "形が変わっても重さは変わりません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.72749b5d85f5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "アルミはくを丸めても、重さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重くなる"
+        },
+        {
+          "id": "c2",
+          "text": "軽くなる"
+        },
+        {
+          "id": "c3",
+          "text": "同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "形が変わっても重さは同じです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.935fc1d30972",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "重さをくらべるときに使える道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "虫めがね"
+        },
+        {
+          "id": "c2",
+          "text": "はかり（てんびん）"
+        },
+        {
+          "id": "c3",
+          "text": "方位じしん"
+        },
+        {
+          "id": "c4",
+          "text": "導線だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "はかりやてんびんで重さをくらべます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.a018956dd332",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "重さを調べる実験で大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "条件をそろえてくらべる"
+        },
+        {
+          "id": "c2",
+          "text": "ちがうはかりを使[つか]ってくらべる"
+        },
+        {
+          "id": "c3",
+          "text": "形[かたち]や量[りょう]を変[か]えてくらべる"
+        },
+        {
+          "id": "c4",
+          "text": "手[て]で持[も]った感[かん]じだけでくらべる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同じ条件でくらべると、正しいきまりがわかります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.ba88ca416b12",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物の大きさ（かさ）を表す言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度"
+        },
+        {
+          "id": "c2",
+          "text": "体積"
+        },
+        {
+          "id": "c3",
+          "text": "方位"
+        },
+        {
+          "id": "c4",
+          "text": "回路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "物の大きさを体積といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.e58ebf4e9b98",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "重さの単位「g」は何と読みますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "メートル"
+        },
+        {
+          "id": "c2",
+          "text": "グラム"
+        },
+        {
+          "id": "c3",
+          "text": "リットル"
+        },
+        {
+          "id": "c4",
+          "text": "度"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "gはグラムと読みます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-10.eb9526d72cd6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ大きさの物の重さをくらべるとわかることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "材質によって重さがちがう"
+        },
+        {
+          "id": "c2",
+          "text": "大[おお]きさが同[おな]じなら、重[おも]さも必[かなら]ず同[おな]じ"
+        },
+        {
+          "id": "c3",
+          "text": "色[いろ]がこい物[もの]ほど重[おも]い"
+        },
+        {
+          "id": "c4",
+          "text": "表面[ひょうめん]がなめらかな物[もの]ほど軽[かる]い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "材質によって重さがちがうことがわかります。"
+  }
+]

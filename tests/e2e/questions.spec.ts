@@ -117,8 +117,8 @@ test('number-build：現在値と操作部から設問を読み上げで参照�
 
 test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page }) => {
   await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/sansu/g1/ringo-number-build.json');
-  await page.locator('select#pg-question').selectOption('2');
+  await page.locator('select#pg-file').selectOption('questions/sansu/g1/kazu-100/set-001.json');
+  await page.locator('select#pg-question').selectOption('20');
   await page.click('button.pg-run');
   const numberline = page.getByRole('slider');
   await expect(numberline).toHaveValue('0');

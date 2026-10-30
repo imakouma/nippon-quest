@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-01.2b087bc23952",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "気温を測るとき、温度計を置く場所として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日光が直接当たる場所"
+        },
+        {
+          "id": "c2",
+          "text": "風通しがよく日光が直接当たらない場所"
+        },
+        {
+          "id": "c3",
+          "text": "地面[じめん]のすぐ上"
+        },
+        {
+          "id": "c4",
+          "text": "室内の暗い場所だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風通しがよく、日光が直接当たらない場所で測ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.4c2bd8d56476",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "晴れの日に気温が上がりやすい主な理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風が強いから"
+        },
+        {
+          "id": "c2",
+          "text": "太陽[たいよう]の光で地面[じめん]や空気があたためられるから"
+        },
+        {
+          "id": "c3",
+          "text": "雨が降るから"
+        },
+        {
+          "id": "c4",
+          "text": "雲が厚いから"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]の光で地面[じめん]や空気があたためられるからです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.93a3004d88af",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度計の目盛りを読むとき、正しいやり方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "斜め上から読む"
+        },
+        {
+          "id": "c2",
+          "text": "液の面と目の高さをそろえて読む"
+        },
+        {
+          "id": "c3",
+          "text": "振ってから読む"
+        },
+        {
+          "id": "c4",
+          "text": "遠くからざっくり読む"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "液の面と目の高さをそろえて読みます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.964c7e0f5f80",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "晴れの日の気温の変化として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ほとんど変わらない"
+        },
+        {
+          "id": "c2",
+          "text": "昼ごろ高くなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "夜がいちばん高い"
+        },
+        {
+          "id": "c4",
+          "text": "朝がいちばん高いだけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴れの日は昼ごろ（午後2時ごろ）気温が高くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.9d6e2516a86b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "気温を測るときの地面[じめん]からの高さとして近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10cmくらい"
+        },
+        {
+          "id": "c2",
+          "text": "1.2m〜1.5mくらい"
+        },
+        {
+          "id": "c3",
+          "text": "3m以上"
+        },
+        {
+          "id": "c4",
+          "text": "地面[じめん]すれすれの高[たか]さ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "だいたい1.2m〜1.5mの高さで測ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.a2f67510d152",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一日の気温が低くなりやすいころはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正午"
+        },
+        {
+          "id": "c2",
+          "text": "日の出ごろ"
+        },
+        {
+          "id": "c3",
+          "text": "午後2時"
+        },
+        {
+          "id": "c4",
+          "text": "夕方だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "気温は日の出ごろ低くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.c16bf5d20984",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "空気の温度のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温"
+        },
+        {
+          "id": "c2",
+          "text": "水温"
+        },
+        {
+          "id": "c3",
+          "text": "体温"
+        },
+        {
+          "id": "c4",
+          "text": "湿度"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "空気の温度を気温といいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-01.e0bbd2cf8a4f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨の日の気温の変化として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れの日より変化が大きい"
+        },
+        {
+          "id": "c2",
+          "text": "晴れの日より変化が小さい"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷点下になる"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "雨の日は雲で日光がさえぎられ、気温の変化は小さくなりやすいです。"
+  }
+]

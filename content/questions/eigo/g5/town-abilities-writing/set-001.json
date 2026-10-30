@@ -1,0 +1,332 @@
+[
+  {
+    "id": "eigo.g5.town-abilities-writing.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Where is the library?」がたずねていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "図書館[としょかん]の場所[ばしょ]"
+        },
+        {
+          "id": "b",
+          "text": "図書館[としょかん]の値段[ねだん]"
+        },
+        {
+          "id": "c",
+          "text": "図書館[としょかん]の時刻[じこく]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Where is ...? は場所[ばしょ]をたずねる。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Go straight and turn left.」の指示[しじ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まっすぐ進[すす]んで左[ひだり]へ曲[ま]がる。"
+        },
+        {
+          "id": "b",
+          "text": "右[みぎ]へ曲[ま]がって戻[もど]る。"
+        },
+        {
+          "id": "c",
+          "text": "その場[ば]に座[すわ]る。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "straight と left の意味[いみ]を順[じゅん]に捉[とら]える。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Can you play the piano?」への肯定[こうてい]の答[こた]えはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Yes, I can."
+        },
+        {
+          "id": "b",
+          "text": "Yes, I do at seven."
+        },
+        {
+          "id": "c",
+          "text": "Yes, it is left."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "can の質問[しつもん]には can で答[こた]える。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I can't cook.」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "わたしは料理[りょうり]ができません。"
+        },
+        {
+          "id": "b",
+          "text": "わたしは料理[りょうり]ができます。"
+        },
+        {
+          "id": "c",
+          "text": "料理[りょうり]をください。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "can't は「できない」を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "町[まち]の案内板[あんないばん]に「Park →」とある。分[わ]かることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "公園[こうえん]は矢印[やじるし]の方向[ほうこう]にある。"
+        },
+        {
+          "id": "b",
+          "text": "公園[こうえん]は閉[し]まっている。"
+        },
+        {
+          "id": "c",
+          "text": "公園[こうえん]は500円[えん]である。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "掲示[けいじ]の語[ご]と記号[きごう]を結[むす]び付[つ]けて必要[ひつよう]な情報[じょうほう]を読[よ]む。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「This is my town.」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ここはわたしの町[まち]です。"
+        },
+        {
+          "id": "b",
+          "text": "これはわたしの時間[じかん]です。"
+        },
+        {
+          "id": "c",
+          "text": "わたしは町[まち]へ行[い]けません。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "This is ... は身近[みぢか]なものを紹介[しょうかい]する表現[ひょうげん]。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "例文[れいぶん]「I like music.」を参考[さんこう]に好[す]きなものを書[か]くならどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I like books."
+        },
+        {
+          "id": "b",
+          "text": "Books like I."
+        },
+        {
+          "id": "c",
+          "text": "I books can."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "例文[れいぶん]の語順[ごじゅん]を保[たも]ち、最後[さいご]の語[ご]を入[い]れ替[か]える。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「わたしはサッカーができます」を書[か]くとき正[ただ]しいのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I can play soccer."
+        },
+        {
+          "id": "b",
+          "text": "Can I soccer play."
+        },
+        {
+          "id": "c",
+          "text": "I play can soccer."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "主語[しゅご]＋can＋動詞[どうし]の順[じゅん]にする。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "道[みち]を教[おし]えてもらった後[あと]の応答[おうとう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Thank you very much."
+        },
+        {
+          "id": "b",
+          "text": "How much is it?"
+        },
+        {
+          "id": "c",
+          "text": "I am a station."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "案内[あんない]への感謝[かんしゃ]を伝[つた]える。"
+  },
+  {
+    "id": "eigo.g5.town-abilities-writing.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.town-abilities-writing",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "町[まち]を紹介[しょうかい]する発表[はっぴょう]で適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "We have a nice park. I like it."
+        },
+        {
+          "id": "b",
+          "text": "My town at seven yen."
+        },
+        {
+          "id": "c",
+          "text": "Can town left?"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "身近[みぢか]な場所[ばしょ]と自分[じぶん]の気持[きも]ちを基本表現[きほんひょうげん]で伝[つた]える。"
+  }
+]

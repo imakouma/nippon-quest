@@ -1,0 +1,296 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-5.04ffc8e1c045",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あやさんは、7時45分に 家を出て、8時に 学校[がっこう]につきました。かかった時間は、何分でしょう。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "時計をおもいうかべて、数えてみよう。小さなめもりが、15 あるので、かかった時間は 15 分だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.0df57e0c1151",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ひろとさんは、午後10時にねて、午前7時30分におきました。何時間何分 ねましたか。",
+      "answers": [
+        "9",
+        "30"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午後10時から 12時までは、2時間。12時から 午前7時30分までは、7時間30分。あわせて、9時間30分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.107217fdb310",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たくとさんは、2時10分に公園を出て、25分後に 家につきました。家についたのは、何時何分ですか。",
+      "answers": [
+        "2",
+        "35"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "時計をおもいうかべて、2時10分から、25分 はりをすすめてみよう。2時35分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.2545c842cd80",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あやさんは、10時35分に 家を出て、11時30分に 学校[がっこう]につきました。かかった時間は、何分でしょう。",
+      "answers": [
+        "55"
+      ],
+      "template": "{{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "10時35分から 11時までかかった時間が、25分。11時から 11時30分までかかった時間が、30分。あわせて、55分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.269206acfb8e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かずきさんの家から 学校[がっこう]までは、30分かかります。8時15分に 学校[がっこう]につくには、何時何分に 家を出ればいいでしょう。",
+      "answers": [
+        "7",
+        "45"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "時計をおもいうかべて、8時15分から、30分 はりをもどしてみよう。7時45分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.3ffe6c69cd6b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１分は、何秒（びょう）でしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}秒",
+      "suffix": "秒"
+    },
+    "explanation": "時計の小さなめもりを 数えてみよう。60こ のめもりがあるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.406dafbd4ccd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゆうまさんは、50分 ひるねをして おきたら、2時45分でした。 ゆうまさんが ひるねをはじめたのは何時何分ですか。",
+      "answers": [
+        "1",
+        "55"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "時計をおもいうかべて、2時45分から、50分 はりをもどしてみよう。1時55分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.53aff7719e40",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かずきさんの家から図書館までは、10分かかります。 かずきさんが 4時5分に 図書館につくには、何時何分に 家を出ればいいでしょう。",
+      "answers": [
+        "3",
+        "55"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "時計をおもいうかべて、4時5分から、10分 はりをもどしてみよう。3時55分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.55fdb3828b3b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１時間は、何分でしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "時計の小さなめもりを 数えてみよう。60こ のめもりがあるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.627f58a63aaa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たくとさんは、5時15分に公園を出て、35分後に 家につきました。家についたのは、何時何分ですか。",
+      "answers": [
+        "5",
+        "50"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "時計をおもいうかべて、5時15分から、35分 はりをすすめてみよう。5時50分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.8b8544a0120f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お兄さんは、午前10時から 午後3時30分まで、野球のれんしゅうをします。何時間何分 れんしゅうしていますか。",
+      "answers": [
+        "5",
+        "30"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午前10時から 12時までのかかった時間が、2時間。12時から、 午後3時30分までのかかった時間が、3時間30分。あわせて、5時間30分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.98489571fd39",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かおるさんがへやにいると、午後8時45分に かみなりがなりました。その日の夜ねていると またかみなりがなり、その時に時計を見たら午前2時でした。一回目のかみなりと 二回目のかみなりの間は 何時間何分あいていましたか。 時間分",
+      "answers": [
+        "5",
+        "15"
+      ],
+      "template": "かおるさんがへやにいると、午後8時45分に かみなりがなりました。その日の夜ねていると またかみなりがなり、その時に時計を見たら午前2時でした。一回目のかみなりと 二回目のかみなりの間は 何時間何分あいていましたか。 {{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午後8時45分から 12時までは、3時間15分。12時から、 午前2時までは、2時間。あわせて、5時間15分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.b474f1ff513b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お姉さんは 今日、午前9時から 午後4時15分まで、ピアノのれんしゅうをしました。何時間何分 れんしゅうしましたか。",
+      "answers": [
+        "7",
+        "15"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午前9時から 12時までのかかった時間が、3時間。12時から、 午後4時15分までのかかった時間が、4時間15分。あわせて、7時間15分になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-5.e9aad5dc918b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あやさんは、7時45分に 家を出て、8時10分に 学校[がっこう]につきました。かかった時間は、何分でしょう。",
+      "answers": [
+        "25"
+      ],
+      "template": "{{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "7時45分から 8時までかかった時間が、15分。8時から 8時10分までかかった時間が、10分。あわせて、25分になるね。"
+  }
+]

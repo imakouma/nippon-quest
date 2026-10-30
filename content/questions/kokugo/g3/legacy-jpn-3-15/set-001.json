@@ -1,0 +1,686 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.0164e7041ab2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「き」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ki"
+        },
+        {
+          "id": "c2",
+          "text": "ke"
+        },
+        {
+          "id": "c3",
+          "text": "ka"
+        },
+        {
+          "id": "c4",
+          "text": "ku"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「き」は「ki」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.02f3a8f0a82c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字「Nippon」をひらがなで正しく書き表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "にっぽん"
+        },
+        {
+          "id": "c2",
+          "text": "にほん"
+        },
+        {
+          "id": "c3",
+          "text": "にぽん"
+        },
+        {
+          "id": "c4",
+          "text": "にっぽんん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「Nippon」は「にっぽん」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.1d91eba7e628",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「びょ」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "byo"
+        },
+        {
+          "id": "c2",
+          "text": "bio"
+        },
+        {
+          "id": "c3",
+          "text": "byou"
+        },
+        {
+          "id": "c4",
+          "text": "hyo"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「びょ」は「byo」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.24e532600796",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語「牛肉」をローマ字で正しく表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "gyūniku"
+        },
+        {
+          "id": "c2",
+          "text": "gyuniku"
+        },
+        {
+          "id": "c3",
+          "text": "giuniku"
+        },
+        {
+          "id": "c4",
+          "text": "gyunikuu"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「牛肉（ぎゅうにく）」は「gyūniku」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.3c0e89cb3e75",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「にゅ」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "nyu"
+        },
+        {
+          "id": "c2",
+          "text": "niu"
+        },
+        {
+          "id": "c3",
+          "text": "nyuu"
+        },
+        {
+          "id": "c4",
+          "text": "nyo"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「にゅ」は「nyu」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.519545930b58",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語「弟」をローマ字で正しく表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "otōto"
+        },
+        {
+          "id": "c2",
+          "text": "otouto"
+        },
+        {
+          "id": "c3",
+          "text": "otono"
+        },
+        {
+          "id": "c4",
+          "text": "otoutou"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「弟（おとうと）」は「otōto」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.63509573acd2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語「電話」をローマ字で正しく表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "denwa"
+        },
+        {
+          "id": "c2",
+          "text": "demwa"
+        },
+        {
+          "id": "c3",
+          "text": "denha"
+        },
+        {
+          "id": "c4",
+          "text": "denbaa"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「電話（でんわ）」は「denwa」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.6a96c117f7a9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語「千円」をローマ字で正しく表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "sen'en"
+        },
+        {
+          "id": "c2",
+          "text": "senen"
+        },
+        {
+          "id": "c3",
+          "text": "semen"
+        },
+        {
+          "id": "c4",
+          "text": "sennen"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「千円（せんえん）」は「sen'en」と書きます。「ん」の次に母音がくるためアポストロフィが必要です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.6c26f9f1310b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「す」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "su"
+        },
+        {
+          "id": "c2",
+          "text": "se"
+        },
+        {
+          "id": "c3",
+          "text": "sa"
+        },
+        {
+          "id": "c4",
+          "text": "so"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「す」は「su」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.79706c3d294e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「て」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "te"
+        },
+        {
+          "id": "c2",
+          "text": "ta"
+        },
+        {
+          "id": "c3",
+          "text": "ti"
+        },
+        {
+          "id": "c4",
+          "text": "to"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「て」は「te」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.7e2e81d73f25",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字「ueki」をひらがなで正しく書き表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "うえき"
+        },
+        {
+          "id": "c2",
+          "text": "うわき"
+        },
+        {
+          "id": "c3",
+          "text": "うきき"
+        },
+        {
+          "id": "c4",
+          "text": "うえきり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ueki」は「うえき」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.aee8fb39b459",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語[にほんご]「切手[きって]」をローマ字[じ]で正[ただ]しく表[あらわ]したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "kitte"
+        },
+        {
+          "id": "c2",
+          "text": "kite"
+        },
+        {
+          "id": "c3",
+          "text": "kittee"
+        },
+        {
+          "id": "c4",
+          "text": "kitee"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「切手（きって）」は「kitte」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.cfc50ff0043e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「ん」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "n"
+        },
+        {
+          "id": "c2",
+          "text": "nn"
+        },
+        {
+          "id": "c3",
+          "text": "m"
+        },
+        {
+          "id": "c4",
+          "text": "n'"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ん」は「n」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.cfc7f3676503",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「きゃ」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "kya"
+        },
+        {
+          "id": "c2",
+          "text": "kia"
+        },
+        {
+          "id": "c3",
+          "text": "kyaa"
+        },
+        {
+          "id": "c4",
+          "text": "cya"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「きゃ」は「kya」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.e71ca8fcbe1b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「の」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "no"
+        },
+        {
+          "id": "c2",
+          "text": "na"
+        },
+        {
+          "id": "c3",
+          "text": "ni"
+        },
+        {
+          "id": "c4",
+          "text": "nu"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「の」は「no」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.f24db413f8dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字「Tōkyō」をひらがなで正しく書き表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とうきょう"
+        },
+        {
+          "id": "c2",
+          "text": "ときお"
+        },
+        {
+          "id": "c3",
+          "text": "ときょ"
+        },
+        {
+          "id": "c4",
+          "text": "ときょう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「Tōkyō」は「とうきょう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.f350335db90d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「ぼ」に当てはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "bo"
+        },
+        {
+          "id": "c2",
+          "text": "ho"
+        },
+        {
+          "id": "c3",
+          "text": "po"
+        },
+        {
+          "id": "c4",
+          "text": "vo"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ぼ」は「bo」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.f4a1228d9429",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語「黄色」をローマ字で正しく表したものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "kiiro"
+        },
+        {
+          "id": "c2",
+          "text": "kīro"
+        },
+        {
+          "id": "c3",
+          "text": "kiro"
+        },
+        {
+          "id": "c4",
+          "text": "kiirou"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「黄色（きいろ）」は「kiiro」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-15.fc237c5b020b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ローマ字の穴埋めで、ひらがな「あ」に当てはまるアルファベットはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "a"
+        },
+        {
+          "id": "c2",
+          "text": "u"
+        },
+        {
+          "id": "c3",
+          "text": "i"
+        },
+        {
+          "id": "c4",
+          "text": "o"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あ」は「a」です。"
+  }
+]

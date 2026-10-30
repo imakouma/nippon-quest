@@ -1,0 +1,375 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-1.1677485ba4e9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (40.3)",
+      "answers": [
+        "40.3"
+      ]
+    },
+    "explanation": "10倍すると、位が１つ大きくなり、小数点は右に１つ動く。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.1cc857d26ba7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0.0314は、31.4を何分の1 にした数でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1000分の1"
+        },
+        {
+          "id": "c2",
+          "text": "100分の1"
+        },
+        {
+          "id": "c3",
+          "text": "10分の1"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "31.4 の小数点を左に３つ動かすと、0.0314 になる。小数点が左に３つ動くということは、位が３つ小さくなるということなので、1000分の1 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.2056225063aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (0.4)",
+      "answers": [
+        "0.4"
+      ]
+    },
+    "explanation": "÷100すると、位が２つ小さくなり、小数点は左に２つ動く。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.4ae8459eba96",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数について、□に当てはまる数を入れよう。",
+      "answers": [
+        "4",
+        "2",
+        "1",
+        "9",
+        "5"
+      ],
+      "template": "42195 は、一万を {{INPUT}}こ、千を {{INPUT}}こ、百を {{INPUT}}こ、十を {{INPUT}}こ、一を {{INPUT}}こ 集めた数です。"
+    },
+    "explanation": "42195 は、一万を 4こ、千を 2こ、百を 1こ、十を 9こ、一を 5こ 集めた数です。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.55965affa6a6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3140は、3.14を何倍した数でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10倍"
+        },
+        {
+          "id": "c2",
+          "text": "100倍"
+        },
+        {
+          "id": "c3",
+          "text": "1000倍"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "3.14 の小数点を右に３つ動かすと、3140 になる。小数点が右に３つ動くということは、位が３つ大きくなるということなので、1000倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.5aedbab9dbe7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (1.23)",
+      "answers": [
+        "1.23"
+      ]
+    },
+    "explanation": "÷10すると、位が１つ小さくなり、小数点は左に１つ動く。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.5f869fdc7c24",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "42.195 を 1000倍 すると、いくつになるでしょう。",
+      "answers": [
+        "42195"
+      ]
+    },
+    "explanation": "1000倍 すると、位は３つ分大きくなるので、42195 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.67316332d150",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "31.4は、3.14を何倍した数でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10倍"
+        },
+        {
+          "id": "c2",
+          "text": "100倍"
+        },
+        {
+          "id": "c3",
+          "text": "1000倍"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "3.14 の小数点を右に１つ動かすと、31.4 になる。小数点が右に１つ動くということは、位が１つ大きくなるということなので、10倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.6bd1169fe6c2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の小数について、□に当てはまる数を入れよう。",
+      "answers": [
+        "4",
+        "2",
+        "1",
+        "9",
+        "5"
+      ],
+      "template": "42.195 は、10を{{INPUT}}こ、1を{{INPUT}}こ、0.1を{{INPUT}}こ、0.01を{{INPUT}}こ、0.001を{{INPUT}}こ 集めた数です。"
+    },
+    "explanation": "42.195 は、10を 4こ、1を 2こ、0.1を 1こ、0.01を 9こ、0.001を 5こ 集めた数です。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.84ad5324d3f6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3.14は、31.4を何分の1 にした数でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100分の1"
+        },
+        {
+          "id": "c2",
+          "text": "10分の1"
+        },
+        {
+          "id": "c3",
+          "text": "1000分の1"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "31.4 の小数点を左に１つ動かすと、3.14 になる。小数点が左に１つ動くということは、位が１つ小さくなるということなので、10分の1 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.aa7954cd9143",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0.314は、31.4を何分の1 にした数でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100分の1"
+        },
+        {
+          "id": "c2",
+          "text": "10分の1"
+        },
+        {
+          "id": "c3",
+          "text": "1000分の1"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "31.4 の小数点を左に２つ動かすと、0.314 になる。小数点が左に２つ動くということは、位が２つ小さくなるということなので、100分の1 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.ae9faccc2e99",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (0.00569)",
+      "answers": [
+        "0.00569"
+      ]
+    },
+    "explanation": "÷1000すると、位が３つ小さくなり、小数点は左に３つ動く。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.b1f053e929eb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (8720)",
+      "answers": [
+        "8720"
+      ]
+    },
+    "explanation": "100倍すると、位が２つ大きくなり、小数点は右に２つ動く。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.c719a11384a1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "314は、3.14を何倍した数でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10倍"
+        },
+        {
+          "id": "c2",
+          "text": "100倍"
+        },
+        {
+          "id": "c3",
+          "text": "1000倍"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "3.14 の小数点を右に２つ動かすと、314 になる。小数点が右に２つ動くということは、位が２つ大きくなるということなので、100倍になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-1.cc233bdfca8c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (590)",
+      "answers": [
+        "590"
+      ]
+    },
+    "explanation": "1000倍すると、位が３つ大きくなり、小数点は右に３つ動く。"
+  }
+]

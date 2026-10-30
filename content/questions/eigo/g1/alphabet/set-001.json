@@ -1,0 +1,194 @@
+[
+  {
+    "id": "eigo.g1.alphabet.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": [
+      "theme:greetings",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、あいさつに あう えを えらぼう。",
+      "promptSpeech": "Hello",
+      "choices": [
+        {
+          "id": "hello",
+          "text": "👋"
+        },
+        {
+          "id": "thanks",
+          "text": "🙏"
+        },
+        {
+          "id": "night",
+          "text": "🌙"
+        }
+      ],
+      "answer": "hello",
+      "shuffle": true
+    },
+    "explanation": "『ハロー』は、であった ときの あいさつだよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": [
+      "theme:greetings",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、おれいに あう えを えらぼう。",
+      "promptSpeech": "Thank you",
+      "choices": [
+        {
+          "id": "hello",
+          "text": "👋"
+        },
+        {
+          "id": "thanks",
+          "text": "🙏"
+        },
+        {
+          "id": "bye",
+          "text": "👋🚪"
+        }
+      ],
+      "answer": "thanks",
+      "shuffle": true
+    },
+    "explanation": "『サンキュー』は、ありがとうを つたえる おとだよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": [
+      "theme:greetings",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、わかれる ときに あう えを えらぼう。",
+      "promptSpeech": "Goodbye",
+      "choices": [
+        {
+          "id": "bye",
+          "text": "👋🚪"
+        },
+        {
+          "id": "morning",
+          "text": "🌅"
+        },
+        {
+          "id": "thanks",
+          "text": "🙏"
+        }
+      ],
+      "answer": "bye",
+      "shuffle": true
+    },
+    "explanation": "『グッバイ』は、わかれる ときの あいさつだよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": [
+      "theme:greetings",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、あさに あう えを えらぼう。",
+      "promptSpeech": "Good morning",
+      "choices": [
+        {
+          "id": "morning",
+          "text": "🌅"
+        },
+        {
+          "id": "night",
+          "text": "🌙"
+        },
+        {
+          "id": "thanks",
+          "text": "🙏"
+        }
+      ],
+      "answer": "morning",
+      "shuffle": true
+    },
+    "explanation": "『グッド モーニング』は、あさの あいさつだよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": [
+      "theme:feelings",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、うれしい きもちに あう えを えらぼう。",
+      "promptSpeech": "Happy",
+      "choices": [
+        {
+          "id": "happy",
+          "text": "😊"
+        },
+        {
+          "id": "sad",
+          "text": "😢"
+        },
+        {
+          "id": "sleepy",
+          "text": "😴"
+        }
+      ],
+      "answer": "happy",
+      "shuffle": true
+    },
+    "explanation": "『ハッピー』は、うれしい きもちを あらわす おとだよ。"
+  },
+  {
+    "id": "eigo.g1.alphabet.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.alphabet",
+    "tags": [
+      "theme:feelings",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、かなしい きもちに あう えを えらぼう。",
+      "promptSpeech": "Sad",
+      "choices": [
+        {
+          "id": "happy",
+          "text": "😊"
+        },
+        {
+          "id": "sad",
+          "text": "😢"
+        },
+        {
+          "id": "sleepy",
+          "text": "😴"
+        }
+      ],
+      "answer": "sad",
+      "shuffle": true
+    },
+    "explanation": "『サッド』は、かなしい きもちを あらわす おとだよ。"
+  }
+]
