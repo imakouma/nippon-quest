@@ -141,9 +141,9 @@ button:disabled {
 .pg-workspace {
   display: grid;
   grid-template-columns: minmax(330px, 390px) minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  padding: 18px clamp(12px, 2vw, 32px) 32px;
+  gap: 9px;
+  align-items: stretch;
+  padding: 18px clamp(6px, 1vw, 16px) 32px;
 }
 
 .pg-list,
@@ -158,10 +158,8 @@ button:disabled {
 }
 
 .pg-list {
-  position: sticky;
-  top: 18px;
   display: flex;
-  height: calc(100vh - 130px);
+  height: 100%;
   min-height: 620px;
   flex-direction: column;
   overflow: hidden;
@@ -1000,7 +998,6 @@ button:disabled {
   }
 
   .pg-list {
-    position: static;
     width: 100%;
     height: auto;
     min-height: 720px;
@@ -1018,8 +1015,8 @@ button:disabled {
 @media (max-width: 520px) {
   .pg-header,
   .pg-workspace {
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
   }
 
   .pg-link {
