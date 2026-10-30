@@ -17,6 +17,12 @@ test('Playground は問題を探して試すレビュー画面として表示す
 
   await expect(page.getByRole('heading', { name: '問題レビュー' })).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole('navigation', { name: '問題を探す' })).toBeVisible();
+  const filters = page.locator('details.pg-filter-details');
+  await expect(filters).not.toHaveAttribute('open', '');
+  await expect(page.locator('input#pg-f-text')).toBeHidden();
+  await expect(page.getByRole('region', { name: '問題フォルダ' })).toBeVisible();
+  await filters.locator('summary').click();
+  await expect(page.locator('input#pg-f-text')).toBeVisible();
   await expect(page.getByRole('region', { name: '問題プレビュー' })).toBeVisible();
   await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText(
     /まだ結果はありません|回答中です/,
@@ -39,6 +45,7 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   await expect(page.locator('.pg-empty')).toContainText('先頭 200 問');
   await expect(page.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 
+  await page.locator('details.pg-filter-details > summary').click();
   await page.locator('select#pg-f-type').selectOption('picture-word');
   await expect(rows.first()).toBeVisible();
   expect(

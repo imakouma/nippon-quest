@@ -166,52 +166,60 @@ export function QuestionList({
         </button>
       </div>
 
-      <div class="pg-filters">
-        <label class="pg-search" for="pg-f-text">
-          <span>{pgText('searchLabel')}</span>
-          <input
-            id="pg-f-text"
-            type="search"
-            placeholder={pgText('searchPlaceholder')}
-            value={text}
-            onInput={(ev) => setText((ev.target as HTMLInputElement).value)}
-          />
-        </label>
-        <div class="pg-filter-grid">
-          {facet(
-            'subject',
-            pgText('allSubjects'),
-            (v) => subjects.get(v) ?? v,
-            (a, b) => SUBJECT_ORDER.indexOf(a) - SUBJECT_ORDER.indexOf(b),
-          )}
-          {facet(
-            'grade',
-            pgText('allGrades'),
-            (v) => `${pgText('gradePrefix')}${v}`,
-            (a, b) => Number(a) - Number(b),
-          )}
-          {facet('type', pgText('allTypes'), (v) => v, byText)}
-          {facet('unit', pgText('allUnits'), (v) => `${stripRuby(units.get(v) ?? '', 'kanji')} ${v}`, byText)}
-        </div>
-        <div class="pg-filter-options">
-          <label>
+      <details class="pg-filter-details">
+        <summary>{pgText('filters')}</summary>
+        <div class="pg-filters">
+          <label class="pg-search" for="pg-f-text">
+            <span>{pgText('searchLabel')}</span>
             <input
-              type="checkbox"
-              checked={samples}
-              onChange={(ev) => setSamples((ev.target as HTMLInputElement).checked)}
+              id="pg-f-text"
+              type="search"
+              placeholder={pgText('searchPlaceholder')}
+              value={text}
+              onInput={(ev) => setText((ev.target as HTMLInputElement).value)}
             />
-            {pgText('showSamples')}
           </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={onlyBad}
-              onChange={(ev) => setOnlyBad((ev.target as HTMLInputElement).checked)}
-            />
-            {pgText('onlyErrors')}
-          </label>
+          <div class="pg-filter-grid">
+            {facet(
+              'subject',
+              pgText('allSubjects'),
+              (v) => subjects.get(v) ?? v,
+              (a, b) => SUBJECT_ORDER.indexOf(a) - SUBJECT_ORDER.indexOf(b),
+            )}
+            {facet(
+              'grade',
+              pgText('allGrades'),
+              (v) => `${pgText('gradePrefix')}${v}`,
+              (a, b) => Number(a) - Number(b),
+            )}
+            {facet('type', pgText('allTypes'), (v) => v, byText)}
+            {facet(
+              'unit',
+              pgText('allUnits'),
+              (v) => `${stripRuby(units.get(v) ?? '', 'kanji')} ${v}`,
+              byText,
+            )}
+          </div>
+          <div class="pg-filter-options">
+            <label>
+              <input
+                type="checkbox"
+                checked={samples}
+                onChange={(ev) => setSamples((ev.target as HTMLInputElement).checked)}
+              />
+              {pgText('showSamples')}
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={onlyBad}
+                onChange={(ev) => setOnlyBad((ev.target as HTMLInputElement).checked)}
+              />
+              {pgText('onlyErrors')}
+            </label>
+          </div>
         </div>
-      </div>
+      </details>
 
       <div class="pg-browser">
         {catalog && (
