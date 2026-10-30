@@ -104,6 +104,86 @@ export function EditorQuestionForm({
   return (
     <>
       <div class="ed-group">
+        <div class="ed-group-title">問題のコンテンツ</div>
+        {question.type === 'choice' && (
+          <>
+            <div class="ed-field">
+              <label class="ed-label" for="ed-question-prompt">
+                問題文
+              </label>
+              <textarea
+                id="ed-question-prompt"
+                class="ed-textarea"
+                value={((question.payload as Record<string, unknown>)?.prompt as string) ?? ''}
+                onInput={(event) => onPayloadChange('prompt', (event.target as HTMLTextAreaElement).value)}
+              />
+            </div>
+            <div class="ed-field">
+              <span class="ed-label">選択肢一覧</span>
+              {choices.map((choice, index) => (
+                <div key={choice.id} class="ed-choice-row">
+                  <input
+                    type="radio"
+                    name="correct"
+                    aria-label={`選択肢 ${index + 1}を正解にする`}
+                    class="ed-radio"
+                    checked={((question.payload as Record<string, unknown>)?.answer as string) === choice.id}
+                    onChange={() => onPayloadChange('answer', choice.id)}
+                    title="正解の選択肢として指定"
+                  />
+                  <input
+                    class="ed-input"
+                    aria-label={`選択肢 ${index + 1}`}
+                    value={choice.text ?? ''}
+                    onInput={(event) => {
+                      const nextChoices = [...choices];
+                      nextChoices[index] = {
+                        ...choice,
+                        text: (event.target as HTMLInputElement).value,
+                      };
+                      onPayloadChange('choices', nextChoices);
+                    }}
+                  />
+                  <button
+                    type="button"
+                    class="ed-btn"
+                    aria-label={`選択肢 ${index + 1}を削除`}
+                    onClick={() =>
+                      onPayloadChange(
+                        'choices',
+                        choices.filter((_, choiceIndex) => choiceIndex !== index),
+                      )
+                    }
+                  >
+                    ❌
+                  </button>
+                </div>
+              ))}
+              <button
+                type="button"
+                class="ed-btn"
+                style={{ marginTop: '6px' }}
+                onClick={() => {
+                  let number = choices.length + 1;
+                  while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
+                  onPayloadChange('choices', [
+                    ...choices,
+                    { id: `choice-${number}`, text: `選択肢${number}` },
+                  ]);
+                }}
+              >
+                ➕ 選択肢を追加
+              </button>
+            </div>
+          </>
+        )}
+
+        {question.type !== 'choice' && (
+          <PayloadFields question={question} onQuestionChange={onQuestionChange} />
+        )}
+      </div>
+
+      <div class="ed-group">
         <div class="ed-group-title">基本メタデータ</div>
         <div class="ed-identifiers">
           <div class="ed-field">
@@ -191,86 +271,6 @@ export function EditorQuestionForm({
             onInput={(event) => onFieldChange('explanation', (event.target as HTMLTextAreaElement).value)}
           />
         </div>
-      </div>
-
-      <div class="ed-group">
-        <div class="ed-group-title">問題のコンテンツ</div>
-        {question.type === 'choice' && (
-          <>
-            <div class="ed-field">
-              <label class="ed-label" for="ed-question-prompt">
-                問題文
-              </label>
-              <textarea
-                id="ed-question-prompt"
-                class="ed-textarea"
-                value={((question.payload as Record<string, unknown>)?.prompt as string) ?? ''}
-                onInput={(event) => onPayloadChange('prompt', (event.target as HTMLTextAreaElement).value)}
-              />
-            </div>
-            <div class="ed-field">
-              <span class="ed-label">選択肢一覧</span>
-              {choices.map((choice, index) => (
-                <div key={choice.id} class="ed-choice-row">
-                  <input
-                    type="radio"
-                    name="correct"
-                    aria-label={`選択肢 ${index + 1}を正解にする`}
-                    class="ed-radio"
-                    checked={((question.payload as Record<string, unknown>)?.answer as string) === choice.id}
-                    onChange={() => onPayloadChange('answer', choice.id)}
-                    title="正解の選択肢として指定"
-                  />
-                  <input
-                    class="ed-input"
-                    aria-label={`選択肢 ${index + 1}`}
-                    value={choice.text ?? ''}
-                    onInput={(event) => {
-                      const nextChoices = [...choices];
-                      nextChoices[index] = {
-                        ...choice,
-                        text: (event.target as HTMLInputElement).value,
-                      };
-                      onPayloadChange('choices', nextChoices);
-                    }}
-                  />
-                  <button
-                    type="button"
-                    class="ed-btn"
-                    aria-label={`選択肢 ${index + 1}を削除`}
-                    onClick={() =>
-                      onPayloadChange(
-                        'choices',
-                        choices.filter((_, choiceIndex) => choiceIndex !== index),
-                      )
-                    }
-                  >
-                    ❌
-                  </button>
-                </div>
-              ))}
-              <button
-                type="button"
-                class="ed-btn"
-                style={{ marginTop: '6px' }}
-                onClick={() => {
-                  let number = choices.length + 1;
-                  while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
-                  onPayloadChange('choices', [
-                    ...choices,
-                    { id: `choice-${number}`, text: `選択肢${number}` },
-                  ]);
-                }}
-              >
-                ➕ 選択肢を追加
-              </button>
-            </div>
-          </>
-        )}
-
-        {question.type !== 'choice' && (
-          <PayloadFields question={question} onQuestionChange={onQuestionChange} />
-        )}
       </div>
     </>
   );
