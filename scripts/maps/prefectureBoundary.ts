@@ -28,8 +28,23 @@ function adjacent(index: number, width: number, length: number): number[] {
   );
 }
 
+function completesTwoByTwo(index: number, walls: ReadonlySet<number>, width: number, height: number): boolean {
+  const x = index % width;
+  const y = Math.floor(index / width);
+  for (const left of [x - 1, x]) {
+    for (const top of [y - 1, y]) {
+      if (left < 0 || left + 1 >= width || top < 0 || top + 1 >= height) continue;
+      const topLeft = top * width + left;
+      if ([topLeft, topLeft + 1, topLeft + width, topLeft + width + 1].every((cell) => cell === index || walls.has(cell)))
+        return true;
+    }
+  }
+  return false;
+}
+
 /**
- * 県外陸地 x のうち自県に上下左右で接する一列を石垣にし、県境門の正面だけ道として開ける。
+ * 県外陸地 x のうち自県に接する一列を石垣にし、斜めの切れ目だけ草側の一マスでつなぐ。
+ * 県境門の正面だけは道として開ける。
  * 深い県外陸地は草原のままなので、隣県も陸続きに見える。
  */
 export function paintPrefectureBorders(
@@ -53,14 +68,37 @@ export function paintPrefectureBorders(
     if (opening >= 0) openings.add(opening);
   }
 
+  const boundaries = new Set<number>();
+  for (let index = 0; index < cells.length; index++) {
+    if (
+      cells[index] === 'x' &&
+      adjacent(index, terrain.width, cells.length).some((candidate) => !OUTSIDE.has(cells[candidate]!))
+    )
+      boundaries.add(index);
+  }
+
+  const connectorCandidates = new Set<number>();
+  for (const index of boundaries) {
+    const x = index % terrain.width;
+    const y = Math.floor(index / terrain.width);
+    for (const dx of [-1, 1]) {
+      if (y + 1 >= terrain.height || x + dx < 0 || x + dx >= terrain.width) continue;
+      const diagonal = index + terrain.width + dx;
+      if (!boundaries.has(diagonal)) continue;
+      const between = [index + dx, index + terrain.width].filter((candidate) => cells[candidate] === 'x');
+      if (between.length === 1) connectorCandidates.add(between[0]!);
+    }
+  }
+  const walls = new Set(boundaries);
+  for (const connector of [...connectorCandidates].sort((a, b) => a - b)) {
+    if (!completesTwoByTwo(connector, walls, terrain.width, terrain.height)) walls.add(connector);
+  }
+
   for (let index = 0; index < cells.length; index++) {
     if (cells[index] !== 'x') continue;
-    const boundary = adjacent(index, terrain.width, cells.length).some(
-      (candidate) => !OUTSIDE.has(cells[candidate]!),
-    );
     background[index] = openings.has(index)
       ? ROAD_TILE
-      : boundary
+      : walls.has(index)
         ? PREFECTURE_BORDER_TILE
         : OUTSIDE_LAND_TILE;
   }

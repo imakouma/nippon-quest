@@ -170,7 +170,7 @@ describe('マップ', () => {
     }
   });
 
-  it('県外の陸地は陸として描き、門だけを開けた一列の県境を見えるように塞ぐ', () => {
+  it('県外の陸地は陸として描き、斜めの切れ目をつないだ一列の県境は門だけを開ける', () => {
     let neighboringLandTiles = 0;
     let visibleBorderTiles = 0;
     let gateOpenings = 0;
@@ -198,15 +198,47 @@ describe('マップ', () => {
         }),
       );
       expect(terrain.rows, `${key}: 地形の高さ`).toHaveLength(terrain.height);
+      const boundaries = new Set<number>();
+      for (let index = 0; index < cells.length; index++) {
+        if (
+          cells[index] === 'x' &&
+          neighbors(map, index).some((candidate) => !['.', '~', 'x'].includes(cells[candidate]!))
+        )
+          boundaries.add(index);
+      }
+      const connectors = new Set<number>();
+      for (const index of boundaries) {
+        const x = index % map.width;
+        const y = Math.floor(index / map.width);
+        for (const dx of [-1, 1]) {
+          if (y + 1 >= map.height || x + dx < 0 || x + dx >= map.width) continue;
+          if (!boundaries.has(index + map.width + dx)) continue;
+          const between = [index + dx, index + map.width].filter((candidate) => cells[candidate] === 'x');
+          if (between.length === 1) connectors.add(between[0]!);
+        }
+      }
+      const walls = new Set(boundaries);
+      for (const connector of [...connectors].sort((a, b) => a - b)) {
+        const x = connector % map.width;
+        const y = Math.floor(connector / map.width);
+        const completesTwoByTwo = [x - 1, x].some((left) =>
+          [y - 1, y].some((top) => {
+            if (left < 0 || left + 1 >= map.width || top < 0 || top + 1 >= map.height) return false;
+            const topLeft = top * map.width + left;
+            return [topLeft, topLeft + 1, topLeft + map.width, topLeft + map.width + 1].every(
+              (cell) => cell === connector || walls.has(cell),
+            );
+          }),
+        );
+        if (!completesTwoByTwo) walls.add(connector);
+      }
       for (const [y, row] of terrain.rows.entries()) {
         expect(row, `${key}: 地形 ${y} 行目の幅`).toHaveLength(terrain.width);
         for (const [x, cell] of [...row].entries()) {
           const index = y * terrain.width + x;
           if (cell === 'x') {
             neighboringLandTiles++;
-            const boundary = neighbors(map, index).some(
-              (candidate) => !['.', '~', 'x'].includes(cells[candidate]!),
-            );
+            const boundary = walls.has(index);
             const expected = openings.has(index) ? ROAD_TILE : boundary ? PREFECTURE_BORDER_TILE : 1;
             if (openings.has(index)) gateOpenings++;
             else if (boundary) visibleBorderTiles++;
