@@ -181,7 +181,7 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
   expect(maximum).toBeLessThanOrEqual(8);
 });
 
-test('Playground の問題ツリー：教科からセットを選び、キーボードで全件へ戻せる', async ({ page }) => {
+test('Playground の問題ツリー：単元から直接問題を選び、キーボードで全件へ戻せる', async ({ page }) => {
   await page.goto('/playground.html');
   const rows = page.locator('.pg-question-row');
 
@@ -207,19 +207,17 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   await expect(grade.locator(':scope > summary')).toContainText('186');
   await grade.locator(':scope > summary').click();
 
-  const unit = grade.locator('details[data-unit="sansu.g1.kazu-100"]');
-  await expect(unit.locator(':scope > summary')).toContainText('21');
-  await unit.locator(':scope > summary').click();
-
-  const set = unit.getByRole('button', { name: /set-001\.json.*21/ });
-  await set.click();
-  await expect(set).toHaveAttribute('aria-pressed', 'true');
+  const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
+  await expect(unit).toContainText('21');
+  await unit.click();
+  await expect(unit).toHaveAttribute('aria-pressed', 'true');
+  await expect(tree.getByText('set-001.json')).toHaveCount(0);
   await expect(rows).toHaveCount(21);
   expect(await rows.evaluateAll((items) => items.map((item) => item.getAttribute('title')))).toEqual(
     Array(21).fill('questions/sansu/g1/kazu-100/set-001.json'),
   );
 
-  await unit.locator(':scope > summary').click();
+  await grade.locator(':scope > summary').click();
   await expect(rows).toHaveCount(0);
 
   await all.focus();
@@ -249,22 +247,35 @@ test('Playground の問題ツリー：教科と学年はそれぞれ一つずつ
   await expect(sansuGrade).toHaveAttribute('open', '');
 });
 
+test('複数ファイルに分かれた単元もまとめて表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  await page.locator('details[data-subject="kokugo"] > summary').click();
+  await page.locator('details[data-subject="kokugo"] details[data-grade="1"] > summary').click();
+  await page.locator('button[data-unit="kokugo.g1.legacy-jpn-1-1"]').click();
+  await expect(page.locator('.pg-question-row').first()).toBeVisible();
+  const files = await page.locator('.pg-question-row').evaluateAll((rows) => rows.map((row) => row.title));
+  expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-1/set-001.json');
+  expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-1/set-002.json');
+});
+
 test('親フォルダを閉じると子フォルダの開閉状態をリセットする', async ({ page }) => {
   await page.goto('/playground.html');
   const subject = page.locator('details[data-subject="kokugo"]');
   const grade = subject.locator('details[data-grade="2"]');
-  const unit = grade.locator('details[data-unit="kokugo.g2.bun-no-kimari"]');
+  const unit = grade.locator('button[data-unit="kokugo.g2.bun-no-kimari"]');
   await subject.locator(':scope > summary').click();
   await grade.locator(':scope > summary').click();
-  await unit.locator(':scope > summary').click();
+  await unit.click();
+  await expect(page.locator('.pg-question-row')).toHaveCount(4);
   await grade.locator(':scope > summary').click();
+  await expect(page.locator('.pg-question-row')).toHaveCount(0);
   await grade.locator(':scope > summary').click();
-  await expect(unit).not.toHaveAttribute('open', '');
-  await unit.locator(':scope > summary').click();
+  await expect(unit).toHaveAttribute('aria-pressed', 'false');
+  await unit.click();
   await subject.locator(':scope > summary').click();
   await subject.locator(':scope > summary').click();
   await expect(grade).not.toHaveAttribute('open', '');
-  await expect(unit).not.toHaveAttribute('open', '');
+  await expect(unit).toHaveAttribute('aria-pressed', 'false');
 });
 
 test('Playground の問題ツリー：狭い画面では表の上に並ぶ', async ({ page }) => {

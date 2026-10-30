@@ -344,7 +344,9 @@ button:disabled {
   background: #f0f4e9;
 }
 
-.pg-tree details[data-unit] > summary {
+.pg-tree button[data-unit] {
+  width: calc(100% - 21px);
+  margin-left: 21px;
   color: #345663;
   background: #edf4f6;
 }

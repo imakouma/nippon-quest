@@ -6,18 +6,17 @@ interface QuestionTreeProps {
   catalog: QuestionCatalog;
   units: ReadonlyMap<string, string>;
   subjects: ReadonlyMap<string, string>;
-  selectedFile: string | null | undefined;
-  onSelectFile: (file: string | null | undefined) => void;
+  selectedUnit: string | null | undefined;
+  onSelectUnit: (unit: string | null | undefined) => void;
 }
 
-const fileName = (file: string) => file.slice(file.lastIndexOf('/') + 1);
 const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
 const closeChildren = (folder: HTMLDetailsElement) => {
   if (!folder.open)
     folder.querySelectorAll('details[open]').forEach((child) => child.removeAttribute('open'));
 };
 
-export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectFile }: QuestionTreeProps) {
+export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectUnit }: QuestionTreeProps) {
   return (
     <details class="pg-tree-details" open>
       <summary>
@@ -31,8 +30,8 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
         <button
           type="button"
           class="pg-tree-all"
-          aria-pressed={selectedFile === null}
-          onClick={() => onSelectFile(null)}
+          aria-pressed={selectedUnit === null}
+          onClick={() => onSelectUnit(null)}
         >
           <span class="pg-tree-label">{pgText('all')}</span>
           <span class="pg-tree-count">
@@ -48,9 +47,9 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
               closeChildren(event.currentTarget as HTMLDetailsElement);
               if (
                 !(event.currentTarget as HTMLDetailsElement).open &&
-                selectedFile?.startsWith(`questions/${subject.subject}/`)
+                subject.grades.some((grade) => grade.units.some((unit) => unit.unit === selectedUnit))
               )
-                onSelectFile(undefined);
+                onSelectUnit(undefined);
             }}
           >
             <summary>
@@ -70,9 +69,9 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                   closeChildren(event.currentTarget as HTMLDetailsElement);
                   if (
                     !(event.currentTarget as HTMLDetailsElement).open &&
-                    selectedFile?.startsWith(`questions/${subject.subject}/g${grade.grade}/`)
+                    grade.units.some((unit) => unit.unit === selectedUnit)
                   )
-                    onSelectFile(undefined);
+                    onSelectUnit(undefined);
                 }}
               >
                 <summary>
@@ -86,44 +85,18 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                   </span>
                 </summary>
                 {grade.units.map((unit) => (
-                  <details
+                  <button
+                    type="button"
                     data-unit={unit.unit}
-                    onToggle={(event) => {
-                      if (
-                        !(event.currentTarget as HTMLDetailsElement).open &&
-                        unit.sets.some((set) => set.file === selectedFile)
-                      )
-                        onSelectFile(undefined);
-                    }}
+                    aria-pressed={selectedUnit === unit.unit}
+                    onClick={() => onSelectUnit(unit.unit)}
                   >
-                    <summary>
-                      <span class="pg-tree-label">
-                        {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
-                      </span>
-                      <span class="pg-tree-count">
-                        {unit.count}
-                        {pgText('questionSuffix')}
-                      </span>
-                    </summary>
-                    <ul>
-                      {unit.sets.map((set) => (
-                        <li>
-                          <button
-                            type="button"
-                            aria-pressed={selectedFile === set.file}
-                            title={set.file}
-                            onClick={() => onSelectFile(set.file)}
-                          >
-                            <span class="pg-tree-label">{fileName(set.file)}</span>
-                            <span class="pg-tree-count">
-                              {set.count}
-                              {pgText('questionSuffix')}
-                            </span>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
+                    <span class="pg-tree-label">{stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}</span>
+                    <span class="pg-tree-count">
+                      {unit.count}
+                      {pgText('questionSuffix')}
+                    </span>
+                  </button>
                 ))}
               </details>
             ))}

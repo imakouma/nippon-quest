@@ -109,10 +109,19 @@ export function QuestionList({
   const [text, setText] = useState('');
   const [samples, setSamples] = useState(false);
   const [onlyBad, setOnlyBad] = useState(false);
-  const [scopeFile, setScopeFile] = useState<string | null | undefined>(undefined);
+  const [scopeUnit, setScopeUnit] = useState<string | null | undefined>(undefined);
   const search = useMemo(() => new Map(entries.map((e) => [e.key, haystack(e)])), [entries]);
 
-  const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeFile || e.file === scopeFile));
+  const unitFiles = new Set(
+    catalog?.subjects.flatMap((subject) =>
+      subject.grades.flatMap((grade) =>
+        grade.units
+          .filter((unit) => unit.unit === scopeUnit)
+          .flatMap((unit) => unit.sets.map((set) => set.file)),
+      ),
+    ),
+  );
+  const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeUnit || unitFiles.has(e.file)));
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
   const needle = text.trim().toLowerCase();
   /** skip の しぼりこみ だけ 外して あてはまるか（えらぶ ところの 件数に つかう） */
@@ -120,7 +129,7 @@ export function QuestionList({
     (!onlyBad || !!e.problem) &&
     FACETS.every((k) => k === skip || !f[k] || valueOf(e, k) === f[k]) &&
     (!needle || (search.get(e.key) ?? '').includes(needle));
-  const awaitingFolder = !!catalog && scopeFile === undefined;
+  const awaitingFolder = !!catalog && scopeUnit === undefined;
   const shown = awaitingFolder ? [] : pool.filter((e) => match(e));
   const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;
@@ -228,8 +237,8 @@ export function QuestionList({
             catalog={catalog}
             units={units}
             subjects={subjects}
-            selectedFile={scopeFile}
-            onSelectFile={setScopeFile}
+            selectedUnit={scopeUnit}
+            onSelectUnit={setScopeUnit}
           />
         )}
         <div class="pg-results">
