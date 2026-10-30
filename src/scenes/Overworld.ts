@@ -109,7 +109,7 @@ import { addSheet } from '../rendering/sheet';
 import type { BattleEndEvent, BattleLaunchData, BattleSceneData } from './battle/contracts';
 import { buildFieldTextures } from '../rendering/overworld/fieldArt';
 import { addOverworldViewLayer } from '../rendering/overworld/viewLayer';
-import { addTownViewLayer } from './overworld/townPresentation';
+import { addTownDecor, addTownViewLayer } from './overworld/townPresentation';
 import {
   attachPlayerContactEffects,
   type PlayerContactEffects,
@@ -491,7 +491,8 @@ export class OverworldScene extends Phaser.Scene {
     if (this.kind() === 'field' || this.kind() === 'enclave') addOverworldViewLayer(this, this.map, TILE);
     if (this.kind() === 'town') addTownViewLayer(this, this.map, TILE);
     // 町・ダンジョンの 木・かざり・たいまつ など（地面の上に重ねる）
-    if (this.map.getLayer('decor')) this.map.createLayer('decor', tileset, 0, 0);
+    if (this.map.getLayer('decor') && !(this.kind() === 'town' && addTownDecor(this, this.map, TILE)))
+      this.map.createLayer('decor', tileset, 0, 0);
     this.colLayer = this.map.createLayer('collision', tileset, 0, 0);
     this.colLayer?.setVisible(this.map.getLayer('collision')?.visible ?? true);
 
