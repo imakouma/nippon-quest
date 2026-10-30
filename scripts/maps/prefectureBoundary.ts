@@ -28,23 +28,8 @@ function adjacent(index: number, width: number, length: number): number[] {
   );
 }
 
-function surrounding(index: number, width: number, length: number): number[] {
-  const x = index % width;
-  const y = Math.floor(index / width);
-  const height = Math.ceil(length / width);
-  const result: number[] = [];
-  for (let dy = -1; dy <= 1; dy++)
-    for (let dx = -1; dx <= 1; dx++) {
-      const nextX = x + dx;
-      const nextY = y + dy;
-      if ((dx !== 0 || dy !== 0) && nextX >= 0 && nextX < width && nextY >= 0 && nextY < height)
-        result.push(nextY * width + nextX);
-    }
-  return result;
-}
-
 /**
- * 県外陸地 x のうち自県に接する一列を隙間なく石垣にし、県境門の正面だけ道として開ける。
+ * 県外陸地 x のうち自県に上下左右で接する一列を石垣にし、県境門の正面だけ道として開ける。
  * 深い県外陸地は草原のままなので、隣県も陸続きに見える。
  */
 export function paintPrefectureBorders(
@@ -68,23 +53,14 @@ export function paintPrefectureBorders(
     if (opening >= 0) openings.add(opening);
   }
 
-  const boundary = new Set<number>();
-  for (let index = 0; index < cells.length; index++)
-    if (
-      cells[index] === 'x' &&
-      surrounding(index, terrain.width, cells.length).some((candidate) => !OUTSIDE.has(cells[candidate]!))
-    )
-      boundary.add(index);
-  const connectedBoundary = new Set(boundary);
-  for (let index = 0; index < cells.length; index++)
-    if (cells[index] === 'x' && adjacent(index, terrain.width, cells.length).filter((i) => boundary.has(i)).length >= 2)
-      connectedBoundary.add(index);
-
   for (let index = 0; index < cells.length; index++) {
     if (cells[index] !== 'x') continue;
+    const boundary = adjacent(index, terrain.width, cells.length).some(
+      (candidate) => !OUTSIDE.has(cells[candidate]!),
+    );
     background[index] = openings.has(index)
       ? ROAD_TILE
-      : connectedBoundary.has(index)
+      : boundary
         ? PREFECTURE_BORDER_TILE
         : OUTSIDE_LAND_TILE;
   }

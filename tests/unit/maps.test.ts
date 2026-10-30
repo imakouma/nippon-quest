@@ -76,20 +76,6 @@ const neighbors = (m: TiledMap, i: number): number[] => {
   );
 };
 
-const surrounding = (m: TiledMap, i: number): number[] => {
-  const x = i % m.width;
-  const y = Math.floor(i / m.width);
-  const result: number[] = [];
-  for (let dy = -1; dy <= 1; dy++)
-    for (let dx = -1; dx <= 1; dx++) {
-      const nextX = x + dx;
-      const nextY = y + dy;
-      if ((dx !== 0 || dy !== 0) && nextX >= 0 && nextX < m.width && nextY >= 0 && nextY < m.height)
-        result.push(nextY * m.width + nextX);
-    }
-  return result;
-};
-
 /** 'spawn' から4方向に歩いて届くマス。遷移のマスには乗れるが、その先へは歩けない（乗った瞬間に移動するため） */
 function reachable(key: string, m: TiledMap, extraBlocked: ReadonlySet<number> = new Set()): Set<number> {
   const col = m.layers.find((l) => l.name === 'collision')?.data ?? [];
@@ -184,7 +170,7 @@ describe('マップ', () => {
     }
   });
 
-  it('県外の陸地は陸として描き、門だけを開けた県境を見えるように塞ぐ', () => {
+  it('県外の陸地は陸として描き、門だけを開けた一列の県境を見えるように塞ぐ', () => {
     let neighboringLandTiles = 0;
     let visibleBorderTiles = 0;
     let gateOpenings = 0;
@@ -211,21 +197,6 @@ describe('マップ', () => {
           return neighbors(map, entry).includes(opening) && cells[opening] === 'x' ? [opening] : [];
         }),
       );
-      const rawBoundary = new Set(
-        [...cells].flatMap((cell, index) =>
-          cell === 'x' &&
-          surrounding(map, index).some((candidate) => !['.', '~', 'x'].includes(cells[candidate]!))
-            ? [index]
-            : [],
-        ),
-      );
-      const connectedBoundary = new Set(rawBoundary);
-      for (const [index, cell] of [...cells].entries())
-        if (
-          cell === 'x' &&
-          neighbors(map, index).filter((candidate) => rawBoundary.has(candidate)).length >= 2
-        )
-          connectedBoundary.add(index);
       expect(terrain.rows, `${key}: 地形の高さ`).toHaveLength(terrain.height);
       for (const [y, row] of terrain.rows.entries()) {
         expect(row, `${key}: 地形 ${y} 行目の幅`).toHaveLength(terrain.width);
@@ -233,7 +204,9 @@ describe('マップ', () => {
           const index = y * terrain.width + x;
           if (cell === 'x') {
             neighboringLandTiles++;
-            const boundary = connectedBoundary.has(index);
+            const boundary = neighbors(map, index).some(
+              (candidate) => !['.', '~', 'x'].includes(cells[candidate]!),
+            );
             const expected = openings.has(index) ? ROAD_TILE : boundary ? PREFECTURE_BORDER_TILE : 1;
             if (openings.has(index)) gateOpenings++;
             else if (boundary) visibleBorderTiles++;
