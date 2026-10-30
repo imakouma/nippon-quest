@@ -652,6 +652,6 @@ test('開発者モードのメニューから問題一覧と問題編集を開�
   );
   await expect(menu.getByRole('link', { name: 'もんだいへんしゅう' })).toHaveAttribute(
     'href',
-    '/playground.html?mode=edit',
+    '/playground.html',
   );
 });

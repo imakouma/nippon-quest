@@ -7,7 +7,7 @@ AIを使って教材を管理する開発者が、問題を探す・解いて確
 ## Assumptions
 
 1. 「ページが違う」の根本問題は配色差だけでなく、問題選択と作業文脈が別ページで切れることである。
-2. 左の問題ライブラリはレビュー時も編集時も共通の主導線として残す。
+2. 左の問題ライブラリは編集とプレビューに共通の主導線として残す。
 3. 既存エディタから再利用するのはフォーム編集だけとし、JSONコード編集、共有URL、共同編集、JSON入出力は削除する。
 4. 問題の編集は既存どおりブラウザ上の下書きであり、リポジトリへ直接保存する新機能は今回追加しない。
 
@@ -17,7 +17,7 @@ Designing an integrated question review/edit workspace for AI-assisted curriculu
 Goal: find one real repository question, review it, edit it, and return to review without losing context.
 Tone: calm, practical, trustworthy developer tool.
 Main risk: three competing panes becoming cramped or the editor resetting to samples.
-Must remember: one selected question, one workspace, two modes.
+Must remember: one selected question, one workspace, edit and preview together.
 Constraints: Preact, existing question renderer, development-build-only boundary, keyboard accessibility, 320px support, no new dependency.
 Research needed: existing product style and concrete workspace/mode-switching pattern.
 Path: direct build after approval.
@@ -45,9 +45,9 @@ Path: direct build after approval.
 | Decision                                             | Source                               | Rule                                        | Why                                                              |
 | ---------------------------------------------------- | ------------------------------------ | ------------------------------------------- | ---------------------------------------------------------------- |
 | Left library stays visible                           | User screenshots + Playground        | Preserve the established primary navigation | A selected repository problem remains the shared context         |
-| Right pane switches Review/Edit                      | User request                         | One workspace, two modes                    | Avoids a third cramped column and a page transition              |
-| Review mode owns rendered preview/results            | Existing Playground                  | One renderer surface                        | Removes the editor's duplicate preview without losing capability |
-| Edit mode owns the visual form only                  | User clarification + existing editor | Do not expose JSON code editing             | Keeps the workflow understandable for non-coders                 |
+| Edit form and preview are always visible together    | User request                         | One workspace, no mode switch               | Removes the extra click while keeping one selected question      |
+| Preview owns rendered output/results                 | Existing Playground                  | One renderer surface                        | Removes the editor's duplicate preview without losing capability |
+| Edit area owns the visual form only                  | User clarification + existing editor | Do not expose JSON code editing             | Keeps the workflow understandable for non-coders                 |
 | Old editor route and its dedicated shell are deleted | User clarification                   | One canonical workspace                     | Prevents the split UX from returning through another entry point |
 
 ## Tech Stack
@@ -67,30 +67,27 @@ Path: direct build after approval.
 
 ## Project Structure
 
-- `src/tools/playground.tsx`: unified shell, selected question, Review/Edit mode.
+- `src/tools/playground.tsx`: unified shell, selected question, always-visible edit and preview areas.
 - `src/tools/QuestionList.tsx`: shared problem navigation; no editing logic.
-- `src/tools/EditorQuestionForm.tsx`: existing visual form reused in edit mode.
+- `src/tools/EditorQuestionForm.tsx`: existing visual form reused beside the preview.
 - `src/tools/editor.tsx`, `editor.html`, and editor-only helpers: removed after the visual form is integrated.
 - `src/tools/playground.css`: canonical workspace visual system.
-- `tests/e2e/`: selection, mode switching, legacy entry, responsive behavior.
+- `tests/e2e/`: selection, simultaneous edit/preview, legacy entry, responsive behavior.
 
 ## Code Style
 
-Reuse current Preact state and callback patterns; do not introduce a new global store or generic workspace framework.
+Reuse current Preact state and callback patterns; do not introduce a new global store or generic workspace framework. The edit form and preview consume the same draft state.
 
 ```tsx
-<button aria-pressed={mode === 'edit'} onClick={() => setMode('edit')}>
-  {pgText('editMode')}
-</button>
+<EditorQuestionForm question={draft} onQuestionChange={updateDraft} />
+<section aria-label={pgText('preview')}>{/* existing renderer */}</section>
 ```
-
-Mode changes update the URL with `history.replaceState` and preserve the selected `q` parameter.
 
 ## Testing Strategy
 
 - Add a failing Playwright contract before implementation.
 - Verify selecting a real problem and entering Edit shows that exact ID, not a sample.
-- Verify editing a field, switching to Review, and returning to Edit preserves the draft.
+- Verify the form and real renderer are visible together and a field edit updates the preview heading immediately.
 - Verify the developer build no longer generates `editor.html`.
 - Keep current 960px side-by-side and 320px stacked layout tests.
 - Run repository full gates and compare the rendered screen to the reference lock.
@@ -100,7 +97,7 @@ Mode changes update the URL with `history.replaceState` and preserve the selecte
 ### Always
 
 - Keep the developer-tools-only build boundary.
-- Preserve keyboard focus and visible mode state.
+- Preserve keyboard focus across the form and preview controls.
 - Preserve existing visual-form validation behavior.
 - Keep real repository problem selection as the canonical starting point.
 
@@ -112,22 +109,22 @@ Mode changes update the URL with `history.replaceState` and preserve the selecte
 
 ### Never
 
-- Add a new dependency for mode switching.
+- Add tabs, dialogs, or another mode switch between editing and previewing.
 - Embed the old editor in an iframe.
 - Reset an existing selected question to a sample when entering edit mode.
 - Expose the workspace in the public production build.
 
 ## Success Criteria
 
-1. The normal user flow stays on `playground.html` while switching between Review and Edit.
-2. The selected question ID and current draft survive mode switches.
-3. The left problem library remains the shared navigation in both modes.
-4. Edit mode includes the visual form and validation, with no editable JSON code field.
-5. Review mode continues to render and score the current draft with the existing question renderer.
-6. `editor.html` and editor-only entry code are removed; developer menu links target `playground.html` review/edit modes.
+1. The normal user flow stays on `playground.html` with editing and preview visible together.
+2. The selected question ID and current draft are shared by both areas.
+3. The left problem library remains their shared navigation.
+4. The visual form and validation are present with no editable JSON code field.
+5. The existing renderer continues to run and score the current draft.
+6. `editor.html` and editor-only entry code are removed; both developer-menu links target the unified `playground.html`.
 7. The integrated screen uses the Playground visual system and remains usable at 960px and 320px.
 8. Public `pnpm build` excludes the developer workspace; the developer build includes it.
 
 ## Open Questions
 
-None. The user approved the shared library/right-pane mode design and explicitly requested removal of JSON editing and the old editor route.
+None. The user explicitly requested removal of the edit/review switch, JSON editing, and the old editor route.

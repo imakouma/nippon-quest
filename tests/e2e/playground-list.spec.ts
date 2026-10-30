@@ -40,29 +40,25 @@ test('Playground は選択中の実問題を同じ画面でフォーム編集で
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
 
-  await page.getByRole('button', { name: '問題を編集する' }).click();
-  await expect(page).toHaveURL(/playground\.html\?(?=[^#]*q=eigo\.g1\.alphabet\.0002)(?=[^#]*mode=edit)/);
+  await expect(page.getByRole('region', { name: '問題を編集' })).toBeVisible();
   await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g1.alphabet.0002');
+  await expect(page.getByRole('button', { name: /問題を編集する|問題を確認する/ })).toHaveCount(0);
   await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 
   const prompt = page.getByLabel('問題文 (prompt)', { exact: true });
   await prompt.fill('へんしゅうした もんだい');
-  await page.getByRole('button', { name: '問題を確認する' }).click();
   await expect(page.getByRole('heading', { name: 'へんしゅうした もんだい' })).toBeVisible();
-
-  await page.getByRole('button', { name: '問題を編集する' }).click();
   await expect(prompt).toHaveValue('へんしゅうした もんだい');
 });
 
 test('Playground は choice 以外も JSON を使わず項目ごとに編集できる', async ({ page }) => {
-  await page.goto('/playground.html?q=eigo.g3.sea.0006&mode=edit');
+  await page.goto('/playground.html?q=eigo.g3.sea.0006');
 
   const word = page.locator('#ed-payload-words-0-text');
   await expect(word).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('.nq-q-pw')).toBeVisible();
   const original = await word.inputValue();
   await word.fill(`${original}-edited`);
-  await page.getByRole('button', { name: '問題を確認する' }).click();
-  await page.getByRole('button', { name: '問題を編集する' }).click();
   await expect(word).toHaveValue(`${original}-edited`);
   await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 });
@@ -186,6 +182,27 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   expect(reviewBox).not.toBeNull();
   expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
+});
+
+test('Playground は広い画面で問題一覧・編集・プレビューを横に並べる', async ({ page }) => {
+  await page.setViewportSize({ width: 1600, height: 900 });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
+
+  const list = page.locator('.pg-list');
+  const editor = page.locator('.pg-editor');
+  const preview = page.locator('.pg-preview');
+  await expect(editor).toBeVisible({ timeout: 20_000 });
+  await expect(preview).toBeVisible();
+
+  const listBox = await list.boundingBox();
+  const editorBox = await editor.boundingBox();
+  const previewBox = await preview.boundingBox();
+  expect(listBox).not.toBeNull();
+  expect(editorBox).not.toBeNull();
+  expect(previewBox).not.toBeNull();
+  expect(editorBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(previewBox!.x).toBeGreaterThanOrEqual(editorBox!.x + editorBox!.width);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1600);
 });
 
 test('Playground は旧 manifest でも問題表を全幅で表示する', async ({ page }) => {

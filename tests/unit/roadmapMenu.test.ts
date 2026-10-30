@@ -337,17 +337,14 @@ describe('開発者ツール', () => {
     const developer = await showRoadmap(vi.fn(), true, true, {
       developerTools: {
         questionsHref: '/playground.html',
-        editorHref: '/playground.html?mode=edit',
+        editorHref: '/playground.html',
       },
       stayHome: true,
     });
     const links = [...developer.querySelectorAll<HTMLAnchorElement>('.nq-menu-dev-tools a')];
 
     expect(links.map((link) => link.getAttribute('aria-label'))).toEqual(['問題一覧', '問題編集']);
-    expect(links.map((link) => link.getAttribute('href'))).toEqual([
-      '/playground.html',
-      '/playground.html?mode=edit',
-    ]);
+    expect(links.map((link) => link.getAttribute('href'))).toEqual(['/playground.html', '/playground.html']);
   });
 });
 

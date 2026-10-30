@@ -55,7 +55,7 @@ test('Playground で choice 問題を解くと QuestionResult が返る', async 
 });
 
 test('問題レビュー内の編集フォームに主要入力と選択肢操作の名前がある', async ({ page }) => {
-  await page.goto('/playground.html?q=eigo.g1.alphabet.0002&mode=edit');
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   for (const label of [
     '問題 ID',
     '問題タイプ (type)',

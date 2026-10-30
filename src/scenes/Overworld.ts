@@ -2639,7 +2639,7 @@ export class OverworldScene extends Phaser.Scene {
     if (!this.devAvailable() || !this.devAll()) return undefined;
     if (!import.meta.env.DEV && import.meta.env.VITE_NQ_DEV_TOOLS !== '1') return undefined;
     const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-    return { questionsHref: `${base}/playground.html`, editorHref: `${base}/playground.html?mode=edit` };
+    return { questionsHref: `${base}/playground.html`, editorHref: `${base}/playground.html` };
   }
 
   /** 開発者モード中：全地域へ移動でき、教材ロードマップも全開放する（counters の dev:all）。 */

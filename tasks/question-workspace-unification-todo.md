@@ -5,7 +5,7 @@
 **Acceptance criteria:**
 
 - [x] 選択中の実問題IDが編集フォームに表示される。
-- [x] 問題文をフォーム変更し、レビューへ戻ると同じ下書きが表示される。
+- [x] 問題文をフォーム変更すると、同じ画面のプレビュー見出しへ即時反映される。
 - [x] 編集画面にJSONコードtextareaが存在しない。
 
 **Verify:** 実装前に追加E2Eが失敗し、実装後に成功する。
@@ -16,9 +16,9 @@
 
 **Acceptance criteria:**
 
-- [x] 右側にキーボード操作可能なレビュー／編集切替がある。
+- [x] 右側に編集フォームと実問題プレビューが同時に表示される。
 - [x] `EditorQuestionForm`が選択中の下書きを更新する。
-- [x] `?q=<id>&mode=edit`と問題選択後のURLが両状態を保持する。
+- [x] `?q=<id>`が選択問題を保持し、編集専用のURL状態を持たない。
 
 **Verify:** Task 1 E2E、960px/320pxレスポンシブE2E。
 
@@ -63,7 +63,7 @@
 **Acceptance criteria:**
 
 - [x] 問題一覧は `playground.html` を開く。
-- [x] 問題編集は `playground.html?mode=edit` を開く。
+- [x] 問題編集も統合済みの `playground.html` を開く。
 - [x] 公開環境で開発者導線が出ない既存境界を維持する。
 
 **Verify:** `tests/unit/roadmapMenu.test.ts` と開発者モードE2E。
@@ -86,7 +86,7 @@
 **Acceptance criteria:**
 
 - [x] focused E2Eと全品質ゲートが成功する。
-- [x] 実ブラウザで問題選択・編集・レビュー復帰を確認する。
+- [x] 実ブラウザで問題選択・編集・プレビュー同時表示を確認する。
 - [x] コードレビューで必須指摘が残らない。
 
 **Verify:** `pnpm lint`, `pnpm check:architecture`, `pnpm test`, `pnpm validate:content`, `pnpm build`, developer build, Playwright E2E。

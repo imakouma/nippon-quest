@@ -521,6 +521,14 @@ button:disabled {
 
 .pg-review {
   display: grid;
+  grid-template-columns: minmax(340px, 0.8fr) minmax(520px, 1.2fr);
+  min-width: 0;
+  gap: 14px;
+  align-items: start;
+}
+
+.pg-preview-column {
+  display: grid;
   min-width: 0;
   gap: 14px;
 }
@@ -550,7 +558,7 @@ button:disabled {
 
 .pg-editor-form {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px;
   padding: 18px;
 }
@@ -932,11 +940,13 @@ button:disabled {
   white-space: pre-wrap;
 }
 
-@media (max-width: 1100px) {
-  .pg-editor-form {
-    grid-template-columns: 1fr;
+@media (max-width: 1400px) {
+  .pg-review {
+    grid-template-columns: minmax(0, 1fr);
   }
+}
 
+@media (max-width: 1100px) {
   .pg-preview-head,
   .pg-result-summary {
     align-items: stretch;

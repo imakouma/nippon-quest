@@ -94,9 +94,6 @@ function resultStatus(result: QuestionResult): { key: string; label: string } {
 }
 
 function App() {
-  const [mode, setMode] = useState<'review' | 'edit'>(() =>
-    new URLSearchParams(location.search).get('mode') === 'edit' ? 'edit' : 'review',
-  );
   const [files, setFiles] = useState<string[]>([]);
   const [file, setFile] = useState('');
   const [items, setItems] = useState<QuestionBase[]>([]);
@@ -241,12 +238,11 @@ function App() {
     setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
   };
 
-  const replaceUrl = (questionId: string | undefined, nextMode = mode) => {
+  const replaceUrl = (questionId: string | undefined) => {
     const url = new URL(location.href);
     if (questionId) url.searchParams.set('q', questionId);
     else url.searchParams.delete('q');
-    if (nextMode === 'edit') url.searchParams.set('mode', 'edit');
-    else url.searchParams.delete('mode');
+    url.searchParams.delete('mode');
     history.replaceState(null, '', `${url.pathname}${url.search}`);
   };
 
@@ -265,12 +261,6 @@ function App() {
     const payload =
       draft.payload && typeof draft.payload === 'object' ? (draft.payload as Record<string, unknown>) : {};
     updateDraft({ ...draft, payload: { ...payload, [key]: value } });
-  };
-
-  const changeMode = (nextMode: 'review' | 'edit') => {
-    setMode(nextMode);
-    replaceUrl(selectedItemId || draft?.id, nextMode);
-    if (nextMode === 'review' && draft) void run(JSON.stringify(draft, null, 2));
   };
 
   /** いちらんの 行を おした：JSON に 入れて、ステージで 出す（URL も ?q=<id> に） */
@@ -315,15 +305,6 @@ function App() {
           <a class="pg-link pg-link-secondary" href={`${base}/`}>
             ← {tOpt('ui.backToGame')}
           </a>
-          {mode === 'review' ? (
-            <button type="button" class="pg-link pg-link-primary" onClick={() => changeMode('edit')}>
-              {pgText('editQuestion')}
-            </button>
-          ) : (
-            <button type="button" class="pg-link pg-link-primary" onClick={() => changeMode('review')}>
-              {pgText('reviewQuestion')}
-            </button>
-          )}
         </nav>
       </header>
 
@@ -340,30 +321,28 @@ function App() {
         />
 
         <div class="pg-review">
-          {mode === 'edit' && (
-            <section class="pg-editor" aria-label={pgText('editPanel')}>
-              <div class="pg-editor-head">
-                <div>
-                  <p class="pg-section-label">{pgText('selectedQuestion')}</p>
-                  <h2>{pgText('editPanel')}</h2>
-                </div>
-                <p>{pgText('draftHelp')}</p>
+          <section class="pg-editor" aria-label={pgText('editPanel')}>
+            <div class="pg-editor-head">
+              <div>
+                <p class="pg-section-label">{pgText('selectedQuestion')}</p>
+                <h2>{pgText('editPanel')}</h2>
               </div>
-              {draft ? (
-                <div class="pg-editor-form">
-                  <EditorQuestionForm
-                    question={draft}
-                    onQuestionChange={updateDraft}
-                    onFieldChange={updateDraftField}
-                    onPayloadChange={updateDraftPayload}
-                  />
-                </div>
-              ) : (
-                <p class="pg-editor-empty">{pgText('chooseQuestion')}</p>
-              )}
-            </section>
-          )}
-          <div hidden={mode === 'edit'}>
+              <p>{pgText('draftHelp')}</p>
+            </div>
+            {draft ? (
+              <div class="pg-editor-form">
+                <EditorQuestionForm
+                  question={draft}
+                  onQuestionChange={updateDraft}
+                  onFieldChange={updateDraftField}
+                  onPayloadChange={updateDraftPayload}
+                />
+              </div>
+            ) : (
+              <p class="pg-editor-empty">{pgText('chooseQuestion')}</p>
+            )}
+          </section>
+          <div class="pg-preview-column">
             <section class="pg-preview" aria-label={pgText('preview')}>
               <div class="pg-preview-head">
                 <div class="pg-question-heading">
