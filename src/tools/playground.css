@@ -197,7 +197,8 @@ button:disabled {
   background: #fafbf9;
 }
 
-.pg-filter-details > summary {
+.pg-filter-details > summary,
+.pg-tree-details > summary {
   min-height: 44px;
   padding: 11px 16px;
   color: #43534f;
@@ -206,16 +207,19 @@ button:disabled {
   cursor: pointer;
 }
 
-.pg-filter-details > summary:hover {
+.pg-filter-details > summary:hover,
+.pg-tree-details > summary:hover {
   background: #f3f6f4;
 }
 
-.pg-filter-details > summary:focus-visible {
+.pg-filter-details > summary:focus-visible,
+.pg-tree-details > summary:focus-visible {
   outline: 2px solid #38715e;
   outline-offset: -3px;
 }
 
-.pg-filter-details[open] > summary {
+.pg-filter-details[open] > summary,
+.pg-tree-details[open] > summary {
   border-bottom: 1px solid #e3e8e5;
 }
 
@@ -282,21 +286,16 @@ button:disabled {
   overflow: hidden;
 }
 
-.pg-tree {
-  max-height: 210px;
+.pg-tree-details {
   flex: none;
-  overflow: auto;
-  padding: 12px 12px 10px;
   border-bottom: 1px solid #e3e8e5;
+  background: #fff;
 }
 
-.pg-tree-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-  color: #43534f;
-  font-size: 12px;
+.pg-tree {
+  height: 350px;
+  overflow: auto;
+  padding: 8px 12px 10px;
 }
 
 .pg-tree details details {
@@ -864,10 +863,6 @@ button:disabled {
 
   .pg-question-list {
     max-height: 520px;
-  }
-
-  .pg-tree {
-    max-height: 260px;
   }
 }
 

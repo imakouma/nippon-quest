@@ -82,7 +82,15 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   const rows = page.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
 
+  const treeDetails = page.locator('details.pg-tree-details');
   const tree = page.getByRole('region', { name: '問題フォルダ' });
+  await expect(treeDetails).toHaveAttribute('open', '');
+  expect((await tree.boundingBox())!.height).toBeGreaterThan(300);
+  await treeDetails.locator(':scope > summary').click();
+  await expect(tree).toBeHidden();
+  await treeDetails.locator(':scope > summary').click();
+  await expect(tree).toBeVisible();
+
   const all = tree.getByRole('button', { name: /すべて.*4829/ });
   await expect(all).toHaveAttribute('aria-pressed', 'true');
 
