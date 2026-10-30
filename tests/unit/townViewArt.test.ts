@@ -40,8 +40,8 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
       }
   }
   expect([...invalid]).toEqual([]);
-  const roofPixel = (roof: number, x: number, y: number, mask = 15) => {
-    const tile = TOWN_ROOF_START + roof * 16 + mask;
+  const roofPixel = (roof: number, x: number, y: number, mask = 15, ground = 0) => {
+    const tile = TOWN_ROOF_START + (ground * TOWN_ROOFS.length + roof) * 16 + mask;
     return pixels.get(`${(tile % 8) * 16 + x},${Math.floor(tile / 8) * 16 + y}`);
   };
   const stoneTile = 15;
@@ -59,5 +59,10 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
   expect(roofPixel(0, 8, 1, 14)).toBe(NQ.apricot);
   expect(roofPixel(6, 2, 9)).toBe(NQ.cloud);
   expect(roofPixel(6, 8, 15, 11)).toBe(NQ.brown);
+  expect(roofPixel(6, 8, 0, 14, 1)).toBe(NQ.silver);
+  expect(roofPixel(6, 15, 5, 13, 1)).toBe(NQ.gray);
+  expect(roofPixel(6, 8, 0, 15, 1)).toBe(NQ.white);
+  expect(roofPixel(6, 15, 5, 15, 1)).toBe(NQ.white);
+  expect(roofPixel(6, 0, 2, 0, 1)).toBe(NQ.white);
   expect(roofPixel(7, 2, 3)).toBe(NQ.brown);
 });
