@@ -119,6 +119,7 @@ export function QuestionList({
     FACETS.every((k) => k === skip || !f[k] || valueOf(e, k) === f[k]) &&
     (!needle || (search.get(e.key) ?? '').includes(needle));
   const shown = pool.filter((e) => match(e));
+  const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;
 
   const facet = (
@@ -223,7 +224,7 @@ export function QuestionList({
               </tr>
             </thead>
             <tbody>
-              {shown.map((e) => (
+              {visible.map((e) => (
                 <Row
                   key={e.key}
                   e={e}
@@ -237,6 +238,9 @@ export function QuestionList({
             </tbody>
           </table>
           {shown.length === 0 && <p class="pg-empty">あてはまる 問題が ありません</p>}
+          {shown.length > visible.length && (
+            <p class="pg-empty">先頭 200 問を表示しています。フォルダか検索で絞り込んでください。</p>
+          )}
         </div>
       </div>
     </section>

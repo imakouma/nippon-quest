@@ -12,12 +12,14 @@ test('Playground は翻訳辞書の読込前に欠落警告を出さない', asy
   expect(warnings.filter((message) => message.includes('[i18n] キーがありません'))).toEqual([]);
 });
 
-test('Playground の問題いちらん：ぜんぶ出て、しぼりこめて、行を おすと その問題が出る', async ({ page }) => {
+test('Playground の問題いちらん：全件数と先頭200問が出て、しぼりこめる', async ({ page }) => {
   await page.goto('/playground.html');
   const rows = page.locator('.pg-table tbody tr');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
   const allQuestionCount = await rows.count();
-  expect(allQuestionCount).toBeGreaterThan(100);
+  expect(allQuestionCount).toBe(200);
+  await expect(page.locator('.pg-count')).toContainText('ぜんぶで 4829');
+  await expect(page.locator('.pg-empty')).toContainText('先頭 200 問');
   await expect(page.locator('.pg-table tr.pg-bad')).toHaveCount(0);
 
   await page.locator('select#pg-f-type').selectOption('picture-word');
