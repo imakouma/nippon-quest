@@ -336,6 +336,21 @@ test('漢字の単元を国語から分けて表示する', async ({ page }) => 
   await expect(page.locator('.pg-question-row')).toHaveCount(15);
 });
 
+test('問題フォルダの教科名を漢字で表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  for (const [subject, label] of Object.entries({
+    kokugo: '国語',
+    kanji: '漢字',
+    sansu: '算数',
+    rika: '理科',
+    shakai: '社会',
+    seikatsu: '生活科',
+    eigo: '英語',
+  })) {
+    await expect(page.locator(`details[data-subject="${subject}"] > summary`)).toContainText(label);
+  }
+});
+
 test('親フォルダを閉じると子フォルダの開閉状態をリセットする', async ({ page }) => {
   await page.goto('/playground.html');
   const subject = page.locator('details[data-subject="kokugo"]');

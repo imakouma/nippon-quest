@@ -92,7 +92,12 @@ export function QuestionTree({
               <span class="pg-tree-label">
                 {subject.subject === 'kanji'
                   ? pgText('kanjiFolder')
-                  : stripRuby(subjects.get(subject.subject) ?? subject.subject, 'kanji')}
+                  : stripRuby(
+                      tOpt(`field.roadmapSubjectLong.${subject.subject}`) ??
+                        subjects.get(subject.subject) ??
+                        subject.subject,
+                      'kanji',
+                    )}
               </span>
               <span class="pg-tree-count">
                 {subject.count}
