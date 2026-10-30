@@ -268,9 +268,7 @@ function App() {
     <div class="pg">
       <header class="pg-header">
         <div>
-          <p class="pg-eyebrow">{pgText('eyebrow')}</p>
           <h1>{pgText('title')}</h1>
-          <p class="pg-header-copy">{pgText('headerCopy')}</p>
         </div>
         <nav class="pg-header-actions" aria-label={pgText('pageNavigation')}>
           <a class="pg-link pg-link-secondary" href={`${base}/`}>
