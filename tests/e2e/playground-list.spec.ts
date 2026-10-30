@@ -111,6 +111,52 @@ test('選択式と記述式を変更して元に戻せる', async ({ page }) => 
   }
 });
 
+test('選択肢をドラッグで並べ替えても正解を保持し、一つもどせる', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const first = page.getByLabel('選択肢 1', { exact: true });
+  const second = page.getByLabel('選択肢 2', { exact: true });
+  await expect(first).toBeVisible();
+  const firstValue = await first.inputValue();
+  const secondValue = await second.inputValue();
+  const correctValue = await page
+    .locator('.ed-choice-row')
+    .filter({ has: page.locator('input[type="radio"]:checked') })
+    .locator('.ed-input')
+    .inputValue();
+  await page.getByLabel('選択肢 1をドラッグして並べ替え').dragTo(page.locator('.ed-choice-row').nth(1));
+  await expect(first).toHaveValue(secondValue);
+  await expect(second).toHaveValue(firstValue);
+  await expect(
+    page
+      .locator('.ed-choice-row')
+      .filter({ has: page.locator('input[type="radio"]:checked') })
+      .locator('.ed-input'),
+  ).toHaveValue(correctValue);
+  await page.getByRole('button', { name: '一つもどる' }).click();
+  await expect(first).toHaveValue(firstValue);
+  await expect(second).toHaveValue(secondValue);
+});
+
+test('選択肢をボタンで移動し、その順番を保存できる', async ({ page }) => {
+  let savedChoices: string[] = [];
+  await page.route('**/__nq/save-question', async (route) => {
+    const body = route.request().postDataJSON();
+    savedChoices = body.question.payload.choices.map((choice: { text: string }) => choice.text);
+    await route.fulfill({
+      json: { questions: body.expected.map((q: { id: string }) => (q.id === body.id ? body.question : q)) },
+    });
+  });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const first = page.getByLabel('選択肢 1', { exact: true });
+  await expect(first).toBeVisible();
+  const value = await first.inputValue();
+  await page.getByRole('button', { name: '選択肢 1を下に移動' }).click();
+  await expect(page.getByLabel('選択肢 2', { exact: true })).toHaveValue(value);
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('保存しました');
+  expect(savedChoices[1]).toBe(value);
+});
+
 test('記述式から選択式に変更すると問題文と正解を引き継ぐ', async ({ page }) => {
   await page.goto('/playground.html?q=legacy.sansu.g3.math-3-1.01e66a4560e3');
   const type = page.getByLabel('問題タイプ', { exact: true });
