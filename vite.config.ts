@@ -71,7 +71,6 @@ export default defineConfig({
         ...(includeDeveloperTools
           ? {
               playground: resolve(root, 'playground.html'),
-              editor: resolve(root, 'editor.html'),
             }
           : {}),
       },

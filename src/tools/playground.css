@@ -147,6 +147,7 @@ button:disabled {
 }
 
 .pg-list,
+.pg-editor,
 .pg-preview,
 .pg-result-summary,
 .pg-technical {
@@ -524,6 +525,126 @@ button:disabled {
   gap: 14px;
 }
 
+.pg-editor {
+  overflow: hidden;
+}
+
+.pg-editor-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  border-bottom: 1px solid #e1e7e4;
+}
+
+.pg-editor-head h2,
+.pg-editor-head p {
+  margin: 0;
+}
+
+.pg-editor-head > p {
+  color: #61706b;
+  font-size: 13px;
+}
+
+.pg-editor-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 18px;
+}
+
+.pg-editor-empty {
+  margin: 0;
+  padding: 28px 18px;
+  color: #61706b;
+}
+
+.pg-editor .ed-group {
+  padding: 16px;
+  border: 1px solid #d9e2de;
+  border-radius: 9px;
+  background: #f8faf9;
+}
+
+.pg-editor .ed-group-title {
+  margin-bottom: 14px;
+  color: #225c54;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.pg-editor .ed-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.pg-editor .ed-field:last-child {
+  margin-bottom: 0;
+}
+
+.pg-editor .ed-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: #485853;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pg-editor .ed-label small {
+  overflow: hidden;
+  color: #788682;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pg-editor .ed-input,
+.pg-editor .ed-select,
+.pg-editor .ed-textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #bdc9c4;
+  border-radius: 7px;
+  color: #17211f;
+  background: #fff;
+}
+
+.pg-editor .ed-textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.pg-editor .ed-choice-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.pg-editor .ed-radio {
+  flex: none;
+}
+
+.pg-editor .ed-btn {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid #c9d2ce;
+  border-radius: 7px;
+  color: #293a36;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pg-editor .ed-empty {
+  margin: 0;
+  color: #61706b;
+}
+
 .pg-preview {
   overflow: hidden;
 }
@@ -812,6 +933,10 @@ button:disabled {
 }
 
 @media (max-width: 1100px) {
+  .pg-editor-form {
+    grid-template-columns: 1fr;
+  }
+
   .pg-preview-head,
   .pg-result-summary {
     align-items: stretch;

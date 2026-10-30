@@ -43,8 +43,8 @@ Raw JSON/result ───────────→ collapsed technical details
 
 ### Checkpoint: Boundary
 
-- [x] 通常の `pnpm build` に `playground.html` と `editor.html` が存在しない。
-- [x] 開発用ビルドと HMR では両ページを開ける。
+- [x] 通常の `pnpm build` に `playground.html` が存在しない。
+- [x] 開発用ビルドと HMR ではレビュー／編集を統合した Playground を開ける。
 - [x] 公開ホストの `?dev` では開発者入口が出ない。
 
 ### Phase 3: Review workspace

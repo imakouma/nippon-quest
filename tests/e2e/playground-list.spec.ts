@@ -30,9 +30,41 @@ test('Playground は問題を探して試すレビュー画面として表示す
 
   const technical = page.locator('details.pg-technical');
   await expect(technical).not.toHaveAttribute('open', '');
-  await expect(page.locator('textarea#pg-json')).toBeHidden();
+  await expect(page.locator('select#pg-file')).toBeHidden();
   await technical.locator('summary').click();
-  await expect(page.locator('textarea#pg-json')).toBeVisible();
+  await expect(page.locator('select#pg-file')).toBeVisible();
+  await expect(page.locator('textarea#pg-json')).toHaveCount(0);
+});
+
+test('Playground は選択中の実問題を同じ画面でフォーム編集できる', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
+
+  await page.getByRole('button', { name: '問題を編集する' }).click();
+  await expect(page).toHaveURL(/playground\.html\?(?=[^#]*q=eigo\.g1\.alphabet\.0002)(?=[^#]*mode=edit)/);
+  await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g1.alphabet.0002');
+  await expect(page.locator('textarea#pg-json')).toHaveCount(0);
+
+  const prompt = page.getByLabel('問題文 (prompt)', { exact: true });
+  await prompt.fill('へんしゅうした もんだい');
+  await page.getByRole('button', { name: '問題を確認する' }).click();
+  await expect(page.getByRole('heading', { name: 'へんしゅうした もんだい' })).toBeVisible();
+
+  await page.getByRole('button', { name: '問題を編集する' }).click();
+  await expect(prompt).toHaveValue('へんしゅうした もんだい');
+});
+
+test('Playground は choice 以外も JSON を使わず項目ごとに編集できる', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g3.sea.0006&mode=edit');
+
+  const word = page.locator('#ed-payload-words-0-text');
+  await expect(word).toBeVisible({ timeout: 20_000 });
+  const original = await word.inputValue();
+  await word.fill(`${original}-edited`);
+  await page.getByRole('button', { name: '問題を確認する' }).click();
+  await page.getByRole('button', { name: '問題を編集する' }).click();
+  await expect(word).toHaveValue(`${original}-edited`);
+  await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 });
 
 test('Playground の問題いちらん：全件数と先頭200問が出て、しぼりこめる', async ({ page }) => {
@@ -56,7 +88,6 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   await rows.first().focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g3\.sea\.0006/);
   await expect(page.locator('select#pg-file')).toHaveValue('questions/eigo/g3/sea/set-001.json');
   await expect(page.locator('select#pg-question option:checked')).toContainText('eigo.g3.sea.0006');
   await expect(page).toHaveURL(/\?q=eigo\.g3\.sea\.0006/);
@@ -180,6 +211,5 @@ test('Playground：?q=<問題 id> で ひらくと その問題が出る', async
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('.pg-question-row.pg-sel')).toContainText('eigo.g1.alphabet.0002');
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g1\.alphabet\.0002/);
   await expect(page.locator('select#pg-question')).toHaveValue('1');
 });
