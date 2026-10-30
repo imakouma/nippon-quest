@@ -1,6 +1,5 @@
 import type { QuestionCatalog } from '../core/content/manifest';
 import { tOpt } from '../ui/i18n';
-import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 
 interface QuestionTreeProps {
@@ -31,7 +30,7 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
           aria-pressed={selectedFile === null}
           onClick={() => onSelectFile(null)}
         >
-          {pgText('all')}{' '}
+          <span class="pg-tree-label">{pgText('all')}</span>
           <span class="pg-tree-count">
             {catalog.totalQuestions}
             {pgText('questionSuffix')}
@@ -50,7 +49,9 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
             }}
           >
             <summary>
-              <RubyLabel text={subjects.get(subject.subject) ?? subject.subject} />
+              <span class="pg-tree-label">
+                {stripRuby(subjects.get(subject.subject) ?? subject.subject, 'kanji')}
+              </span>
               <span class="pg-tree-count">
                 {subject.count}
                 {pgText('questionSuffix')}
@@ -69,8 +70,10 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                 }}
               >
                 <summary>
-                  {pgText('gradePrefix')}
-                  {grade.grade}
+                  <span class="pg-tree-label">
+                    {pgText('gradePrefix')}
+                    {grade.grade}
+                  </span>
                   <span class="pg-tree-count">
                     {grade.count}
                     {pgText('questionSuffix')}
@@ -88,7 +91,9 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                     }}
                   >
                     <summary>
-                      <RubyLabel text={units.get(unit.unit) ?? unit.unit} />
+                      <span class="pg-tree-label">
+                        {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
+                      </span>
                       <span class="pg-tree-count">
                         {unit.count}
                         {pgText('questionSuffix')}
@@ -103,7 +108,7 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                             title={set.file}
                             onClick={() => onSelectFile(set.file)}
                           >
-                            {fileName(set.file)}{' '}
+                            <span class="pg-tree-label">{fileName(set.file)}</span>
                             <span class="pg-tree-count">
                               {set.count}
                               {pgText('questionSuffix')}

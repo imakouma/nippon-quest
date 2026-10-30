@@ -291,29 +291,70 @@ button:disabled {
 }
 
 .pg-tree details details {
-  margin-left: 12px;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #d5e2dd;
 }
 
 .pg-tree summary {
-  min-height: 30px;
-  padding: 4px 2px;
-  line-height: 22px;
+  display: flex;
+  min-width: 0;
+  min-height: 36px;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  list-style: none;
+  line-height: 1.4;
   cursor: pointer;
 }
 
-.pg-tree summary::marker {
+.pg-tree summary::-webkit-details-marker {
+  display: none;
+}
+
+.pg-tree summary::before {
+  width: 12px;
+  flex: none;
   color: #60736e;
+  content: '▸';
+}
+
+.pg-tree details[open] > summary::before {
+  content: '▾';
+}
+
+.pg-tree summary:hover {
+  background: #eff5f2;
+}
+
+.pg-tree summary:focus-visible {
+  outline: 2px solid #38715e;
+  outline-offset: -2px;
+}
+
+.pg-tree > details > summary {
+  font-weight: 700;
+}
+
+.pg-tree-label {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
 }
 
 .pg-tree ul {
   margin: 0 0 4px;
-  padding: 0 0 0 12px;
+  padding: 0 0 0 22px;
   list-style: none;
 }
 
 .pg-tree button {
+  display: flex;
   width: 100%;
   min-height: 34px;
+  align-items: center;
+  gap: 7px;
   padding: 5px 7px;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -336,11 +377,15 @@ button:disabled {
 }
 
 .pg-tree-count {
-  float: right;
+  flex: none;
   margin-left: 6px;
   color: #667772;
   font-size: 11px;
   white-space: nowrap;
+}
+
+.pg-tree-details > summary .pg-tree-count {
+  float: right;
 }
 
 .pg-results {
