@@ -37,6 +37,22 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   await expect(page).toHaveURL(/\?q=eigo\.g3\.sea\.0006/);
 });
 
+test('Playground の問題ファイル読込は8並列を超えない', async ({ page }) => {
+  let active = 0;
+  let maximum = 0;
+  await page.route('**/content/questions/**/*.json', async (route) => {
+    active += 1;
+    maximum = Math.max(maximum, active);
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    await route.continue();
+    active -= 1;
+  });
+
+  await page.goto('/playground.html');
+  await expect(page.locator('.pg-count')).toContainText('ぜんぶで 4829', { timeout: 30_000 });
+  expect(maximum).toBeLessThanOrEqual(8);
+});
+
 test('Playground の問題ツリー：教科からセットを選び、キーボードで全件へ戻せる', async ({ page }) => {
   await page.goto('/playground.html');
   const rows = page.locator('.pg-table tbody tr');

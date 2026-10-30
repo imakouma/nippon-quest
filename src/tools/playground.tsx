@@ -22,6 +22,7 @@ import './playground.css';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const read = fetchReader(`${base}/content`);
+const QUESTION_FILE_CONCURRENCY = 8;
 const assets = { image: (p: string) => `${base}/assets/${p}`, audio: (p: string) => `${base}/assets/${p}` };
 // ゲームと同じ 読み上げ（英語だけの 文は 英語の 声）
 const speak = createSpeaker();
@@ -55,6 +56,21 @@ function toEntries(files: { file: string; raw: unknown }[]): QuestionEntry[] {
   return list.map((e) =>
     e.q && !e.problem && (count.get(e.q.id) ?? 0) > 1 ? { ...e, problem: `id "${e.q.id}" が 重複` } : e,
   );
+}
+
+async function readQuestionFiles(files: string[]) {
+  const loaded = new Array<{ file: string; raw: unknown }>(files.length);
+  let next = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(QUESTION_FILE_CONCURRENCY, files.length) }, async () => {
+      while (next < files.length) {
+        const index = next++;
+        const file = files[index]!;
+        loaded[index] = { file, raw: await read(file) };
+      }
+    }),
+  );
+  return loaded;
 }
 
 function App() {
@@ -100,9 +116,7 @@ function App() {
         );
         setFile(directFile);
       }
-      setEntries(
-        toEntries(await Promise.all(m.questions.map(async (f) => ({ file: f, raw: await read(f) })))),
-      );
+      setEntries(toEntries(await readQuestionFiles(m.questions)));
     } catch (e) {
       setError(String(e));
     }
