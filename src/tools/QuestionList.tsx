@@ -255,7 +255,6 @@ export function QuestionList({
                 key={e.key}
                 e={e}
                 unitName={e.q ? units.get(e.q.unit) : undefined}
-                subjectName={e.q ? subjects.get(e.q.subject) : undefined}
                 selected={selected === e.key}
                 onPick={onPick}
                 imageUrl={imageUrl}
@@ -275,13 +274,12 @@ export function QuestionList({
 interface RowProps {
   e: QuestionEntry;
   unitName?: string;
-  subjectName?: string;
   selected: boolean;
   onPick: (e: QuestionEntry) => void;
   imageUrl: (path: string) => string;
 }
 
-function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps) {
+function Row({ e, unitName, selected, onPick, imageUrl }: RowProps) {
   const q = e.q;
   const s = q ? summarize(q) : null;
   const cls = [selected && 'pg-sel', e.problem && 'pg-bad'].filter(Boolean).join(' ');
@@ -314,10 +312,6 @@ function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps)
               (q?.id ?? `${e.file}[${e.index}]`)
             )}
           </strong>
-          <span class="pg-question-facts">
-            {q && `${subjectName ?? q.subject} · ${pgText('gradePrefix')}${q.grade} · ${q.type}`}
-          </span>
-          <code class="pg-id">{q?.id ?? `${e.file}[${e.index}]`}</code>
           {s && s.options.length > 0 && (
             <span class="pg-question-options">
               {s.options.slice(0, 4).map((option) => (
@@ -333,12 +327,6 @@ function Row({ e, unitName, subjectName, selected, onPick, imageUrl }: RowProps)
           ›
         </span>
       </button>
-      {selected && q?.explanation && (
-        <div class="pg-question-explanation">
-          <span>{pgText('explanation')}</span>
-          <RubyLabel text={q.explanation} />
-        </div>
-      )}
     </div>
   );
 }

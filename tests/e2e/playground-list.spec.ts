@@ -214,6 +214,10 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
   await expect(unit).toHaveAttribute('aria-pressed', 'true');
   await expect(tree.getByText('set-001.json')).toHaveCount(0);
   await expect(rows).toHaveCount(21);
+  await expect(rows.first().locator('strong')).not.toBeEmpty();
+  await expect(rows.first().locator('.pg-question-options')).toBeVisible();
+  await expect(rows.first().locator('.pg-question-facts, .pg-id')).toHaveCount(0);
+  await expect(page.locator('.pg-question-explanation')).toHaveCount(0);
   expect(await rows.evaluateAll((items) => items.map((item) => item.getAttribute('title')))).toEqual(
     Array(21).fill('questions/sansu/g1/kazu-100/set-001.json'),
   );
