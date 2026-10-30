@@ -60,12 +60,16 @@ export function RoadmapGraph({
   const position = (node: RoadmapNode) => ({ x: node.x - offsetX, y: node.y - offsetY });
   const width = Math.max(720, ...nodes.map((node) => position(node).x + NODE_W + 40));
   const height = Math.max(460, ...nodes.map((node) => position(node).y + NODE_H + 40));
-  const edges = nodes.flatMap((target) =>
-    target.prerequisiteIds.flatMap((sourceId) => {
+  const edges = nodes.flatMap((target) => [
+    ...target.prerequisiteIds.flatMap((sourceId) => {
       const source = byId.get(sourceId);
-      return source ? [{ source, target }] : [];
+      return source ? [{ source, target, kind: undefined }] : [];
     }),
-  );
+    ...(target.supportingLinks ?? []).flatMap(({ sourceId, kind }) => {
+      const source = byId.get(sourceId);
+      return source ? [{ source, target, kind }] : [];
+    }),
+  ]);
   const focusNode =
     nodes.find((node) => node.state === 'current') ??
     nodes.find((node) => node.visibility === 'revealed' && node.state === 'open') ??
@@ -341,7 +345,7 @@ export function RoadmapGraph({
           style={{ width, height, transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}
         >
           <svg class="nq-roadmap-edges" width={width} height={height} aria-hidden="true">
-            {edges.map(({ source, target }) => {
+            {edges.map(({ source, target, kind }) => {
               const from = position(source);
               const to = position(target);
               const x1 = from.x + NODE_W / 2;
@@ -354,8 +358,8 @@ export function RoadmapGraph({
               const muted = Boolean(selectedNode) && !active;
               return (
                 <path
-                  key={`${source.id}->${target.id}`}
-                  class={`nq-roadmap-edge${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}${muted ? ' nq-roadmap-edge-muted' : ''}`}
+                  key={`${source.id}->${target.id}:${kind ?? 'prerequisite'}`}
+                  class={`nq-roadmap-edge${kind ? ` nq-roadmap-edge-supporting nq-roadmap-edge-${kind}` : ''}${hidden ? ' nq-roadmap-edge-hidden' : frontier ? ' nq-roadmap-edge-frontier' : ''}${active ? ' nq-roadmap-edge-active' : ''}${muted ? ' nq-roadmap-edge-muted' : ''}`}
                   d={`M ${x1} ${y1} L ${x2} ${y2}`}
                 />
               );
