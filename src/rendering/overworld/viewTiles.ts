@@ -256,7 +256,7 @@ function drawView(px: (n: number) => Px): void {
           mask & 8 ? 99 : x,
         );
         if (d === 0) continue;
-        p(x, y, d === 1 ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
+        p(x, y, d === 1 && (x + y) % 3 === 0 ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
       }
   }
   // 名所エリアの さかいの 山なみ：くらい 岩の 山に 雪。マスの はばいっぱいで すきま なく ならぶ（歩ける 茶色の 山と 見わけ）
