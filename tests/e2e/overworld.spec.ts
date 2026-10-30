@@ -210,6 +210,24 @@ test('フィールドと町を往復すると対応する入口へ配置され�
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
   await skipArrivalStory(page);
   await expect.poll(townLayer).toBeGreaterThan(0);
+  const presentation = await page.evaluate(() => {
+    const children = window.__nq.scene.getScene('Overworld').children.list;
+    const layers = children.filter(
+      (child) => child.type === 'TilemapLayer',
+    ) as Phaser.Tilemaps.TilemapLayer[];
+    const background = layers.find((layer) => layer.layer.name === 'background')!;
+    const town = layers.find((layer) => layer.layer.name === 'town-view')!;
+    return {
+      visible: town.visible,
+      alpha: town.alpha,
+      aboveBackground:
+        town.depth > background.depth ||
+        (town.depth === background.depth && children.indexOf(town) > children.indexOf(background)),
+      roof: town.getTileAt(11, 13)?.index,
+      paving: town.getTileAt(25, 19)?.index,
+    };
+  });
+  expect(presentation).toEqual({ visible: true, alpha: 1, aboveBackground: true, roof: 25, paving: 15 });
 
   await expect(canvas).toHaveAttribute('data-input-ready', 'true');
   await waitForTransitionReady();
