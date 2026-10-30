@@ -13,6 +13,8 @@ import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
 import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import { defaultFolderHidden, defaultFolderKey, folderSubject, isUnfiled } from './folderLayout';
+import { useFolderState } from './useFolderState';
 
 export interface QuestionEntry {
   /** "<ファイル>#<何番目>" */
@@ -112,6 +114,10 @@ export function QuestionList({
   const [onlyBad, setOnlyBad] = useState(false);
   const [scopeUnit, setScopeUnit] = useState<string | null | undefined>(undefined);
   const [scopeCategory, setScopeCategory] = useState<KanjiCategory | undefined>();
+  const folderTools = useFolderState();
+  const folderReady =
+    !catalog || entries.filter((entry) => !isSample(entry)).length >= catalog.totalQuestions;
+  const activeFolderTools = { ...folderTools, busy: folderTools.busy || !folderReady };
   const search = useMemo(() => new Map(entries.map((e) => [e.key, haystack(e)])), [entries]);
 
   const unitFiles = new Set(
@@ -132,7 +138,19 @@ export function QuestionList({
   const pool = entries.filter(
     (e) =>
       (samples || !isSample(e)) &&
-      (!scopeUnit || unitFiles.has(e.file)) &&
+      (!scopeUnit ||
+        (scopeUnit.startsWith('custom:')
+          ? !!e.q &&
+            !!folderTools.state &&
+            folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
+            !isUnfiled(e.q, units, folderTools.state.layout)
+          : scopeUnit.startsWith('unfiled:')
+            ? !!e.q &&
+              !!folderTools.state &&
+              isUnfiled(e.q, units, folderTools.state.layout) &&
+              `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
+            : unitFiles.has(e.file) &&
+              (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
       (!scopeCategory || kanjiCategory(e.q) === scopeCategory),
   );
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
@@ -187,6 +205,8 @@ export function QuestionList({
           selected={selected === e.key}
           onPick={onPick}
           imageUrl={imageUrl}
+          folderTools={activeFolderTools}
+          units={units}
         />
       ))}
       {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
@@ -267,6 +287,7 @@ export function QuestionList({
             }}
             entries={entries}
             questions={filtering ? null : questionRows}
+            folderTools={activeFolderTools}
           />
         )}
         {(filtering || !catalog) && (
@@ -302,9 +323,11 @@ interface RowProps {
   selected: boolean;
   onPick: (e: QuestionEntry) => void;
   imageUrl: (path: string) => string;
+  folderTools: ReturnType<typeof useFolderState>;
+  units: ReadonlyMap<string, string>;
 }
 
-function Row({ e, unitName, selected, onPick, imageUrl }: RowProps) {
+function Row({ e, unitName, selected, onPick, imageUrl, folderTools, units }: RowProps) {
   const q = e.q;
   const s = q ? summarize(q) : null;
   const cls = [selected && 'pg-sel', e.problem && 'pg-bad'].filter(Boolean).join(' ');
@@ -352,6 +375,44 @@ function Row({ e, unitName, selected, onPick, imageUrl }: RowProps) {
           ›
         </span>
       </button>
+      {q && !e.problem && selected && !isSample(e) && folderTools.state && (
+        <select
+          class="pg-folder-move"
+          aria-label={`${pgText('folderMove')}: ${s?.prompt ?? q.id}`}
+          disabled={folderTools.busy}
+          value={
+            isUnfiled(q, units, folderTools.state.layout)
+              ? 'unfiled'
+              : (folderTools.state.layout.assignments[q.id] ?? 'original')
+          }
+          onChange={(event) => {
+            const value = (event.currentTarget as HTMLSelectElement).value;
+            const layout = folderTools.state!.layout;
+            const assignments = { ...layout.assignments };
+            if (value === 'original') delete assignments[q.id];
+            else assignments[q.id] = value === 'unfiled' ? null : value;
+            void folderTools.change({ ...layout, assignments });
+          }}
+        >
+          <option
+            value="original"
+            disabled={defaultFolderHidden(folderTools.state.layout, defaultFolderKey(q, units))}
+          >
+            {pgText('folderOriginal')}
+          </option>
+          <option value="unfiled">{pgText('folderUnfiled')}</option>
+          {folderTools.state.layout.folders
+            .filter(
+              (folder) =>
+                folder.grade === q.grade &&
+                folder.subject === folderSubject(q, units) &&
+                (!folder.category || folder.category === kanjiCategory(q)),
+            )
+            .map((folder) => (
+              <option value={folder.id}>{folder.name}</option>
+            ))}
+        </select>
+      )}
     </div>
   );
 }

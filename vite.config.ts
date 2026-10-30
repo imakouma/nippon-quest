@@ -5,6 +5,7 @@ import { relative, resolve } from 'node:path';
 import { existsSync, statSync, createReadStream, cpSync } from 'node:fs';
 import { isGameAssetPath } from './scripts/game-asset-policy';
 import { questionSaveMiddleware } from './scripts/question-save-server';
+import { folderSaveMiddleware } from './scripts/folder-save-server';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -59,10 +60,12 @@ function questionSave(): Plugin {
     name: 'nihonquest:question-save',
     configureServer(server) {
       server.middlewares.use(questionSaveMiddleware(root));
+      server.middlewares.use(folderSaveMiddleware(root));
     },
     configurePreviewServer(server) {
       if (includeDeveloperTools) {
         server.middlewares.use(questionSaveMiddleware(root));
+        server.middlewares.use(folderSaveMiddleware(root));
         server.middlewares.use((req, res, next) => {
           const path = (req.url ?? '').split('?')[0] ?? '';
           if (

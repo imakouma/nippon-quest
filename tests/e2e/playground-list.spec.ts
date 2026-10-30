@@ -441,6 +441,66 @@ test('小1の漢字の読みを一つにまとめて両単元の問題を表示�
   await expect(rows).toHaveCount(0);
 });
 
+test('学年の下にフォルダを作り、削除した構成を復元できる', async ({ page }) => {
+  let state = { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] };
+  await page.route('**/__nq/folder-state', async (route) => {
+    const request = route.request().postDataJSON();
+    if (request.action === 'write') state = { ...request.state, revision: state.revision + 1 };
+    await route.fulfill({ json: state });
+  });
+  await page.goto('/playground.html');
+  const english = page.locator('details[data-subject="eigo"]');
+  await english.locator(':scope > summary').click();
+  const grade = english.locator('details[data-grade="1"]');
+  await grade.locator(':scope > summary').click();
+  page.once('dialog', (dialog) => dialog.accept('練習'));
+  await grade.getByRole('button', { name: 'フォルダを追加', exact: true }).click();
+  const folder = grade.locator('details.pg-custom-folder').filter({ hasText: '練習' });
+  await expect(folder).toBeVisible();
+  await grade.locator('button[data-unit="eigo.g1.alphabet"]').click();
+  const first = grade.locator('.pg-question-row').first();
+  await first.click();
+  await grade.getByLabel(/^移動先:/).selectOption({ label: '練習' });
+  await folder.locator(':scope > summary').click();
+  await folder.getByRole('button', { name: '問題を表示' }).click();
+  await expect(folder.locator('.pg-question-row')).toHaveCount(1);
+  await page.getByRole('button', { name: '構成を保存' }).click();
+  await expect(page.getByLabel('保存した構成に戻す').locator('option')).toHaveCount(2);
+  page.once('dialog', (dialog) => dialog.accept());
+  await folder.getByRole('button', { name: '削除', exact: true }).click();
+  await expect(folder).toHaveCount(0);
+  await expect(grade.getByRole('button', { name: /未整理/ })).toBeVisible();
+  await page.reload();
+  await english.locator(':scope > summary').click();
+  await grade.locator(':scope > summary').click();
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.getByLabel('保存した構成に戻す').selectOption({ index: 1 });
+  await expect(folder).toBeVisible();
+});
+
+test('既存の単元を削除しても問題は未整理に残り、元に戻せる', async ({ page }) => {
+  let state = { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] };
+  await page.route('**/__nq/folder-state', async (route) => {
+    const request = route.request().postDataJSON();
+    if (request.action === 'write') state = { ...request.state, revision: state.revision + 1 };
+    await route.fulfill({ json: state });
+  });
+  await page.goto('/playground.html');
+  const kanji = page.locator('details[data-subject="kanji"]');
+  await kanji.locator(':scope > summary').click();
+  const grade = kanji.locator('details[data-grade="1"]');
+  await grade.locator(':scope > summary').click();
+  const reading = grade.locator('details[data-kanji-category="reading"]');
+  await reading.locator(':scope > summary').click();
+  page.once('dialog', (dialog) => dialog.accept());
+  await reading.getByRole('button', { name: '1年の漢字 削除' }).click();
+  await expect(reading.locator('button[data-unit="kokugo.g1.kanji"]')).toHaveCount(0);
+  await grade.getByRole('button', { name: /未整理/ }).click();
+  await expect(grade.locator('.pg-question-row')).toHaveCount(47);
+  await page.getByRole('button', { name: 'フォルダを元に戻す' }).click();
+  await expect(reading.locator('button[data-unit="kokugo.g1.kanji"]')).toBeVisible();
+});
+
 test('問題フォルダの教科名を漢字で表示する', async ({ page }) => {
   await page.goto('/playground.html');
   for (const [subject, label] of Object.entries({

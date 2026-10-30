@@ -300,6 +300,48 @@ button:disabled {
   padding: 8px 12px 10px;
 }
 
+.pg-folder-controls,
+.pg-folder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.pg-tree .pg-folder-controls button,
+.pg-tree .pg-folder-actions button {
+  width: auto;
+  min-height: 28px;
+  border: 1px solid #c9d2ce;
+  font-size: 12px;
+}
+
+.pg-folder-controls select,
+.pg-folder-move {
+  max-width: 100%;
+  border: 1px solid #c9d2ce;
+  border-radius: 5px;
+  background: #fff;
+  font: inherit;
+  font-size: 12px;
+}
+
+.pg-folder-move {
+  margin: 0 8px 6px 35px;
+}
+
+.pg-tree button[data-unit] {
+  padding-right: 60px;
+}
+
+.pg-tree button[data-unit] + .pg-folder-delete {
+  width: auto;
+  min-height: 26px;
+  margin: -30px 4px 4px auto;
+  padding: 2px 5px;
+  position: relative;
+  font-size: 11px;
+}
+
 .pg-browser-filtering .pg-tree-details {
   flex: none;
 }
