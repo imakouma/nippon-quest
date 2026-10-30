@@ -166,7 +166,11 @@ test('タイトル・各マップ・通常戦・ボス戦・勝敗で音源を�
     const state = game.registry.get('game');
     game.registry.set('game', {
       ...state,
-      progress: { ...state.progress, counters: { ...state.progress.counters, 'story.prologue': 1 } },
+      progress: {
+        ...state.progress,
+        areaSigns: ['aomori'],
+        counters: { ...state.progress.counters, 'story.prologue': 1 },
+      },
     });
   });
   for (const [map, track] of [

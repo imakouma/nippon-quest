@@ -22,7 +22,8 @@ const TILE_COLS = 8;
 /**
  * 仮タイルセット（128×640 = 16×16 タイル×320。8 列×40 行）。番号は scripts/scaffold-maps.ts の TILE・T と対応。
  * 13〜37 は町、38〜60 はダンジョン（4 つのテーマ）、61〜146 は 県ごとの 町の テーマ（townTiles.ts）、
- * 147〜156 は フィールドの たんぼ など。161〜220 は 都会の 町、221〜300 は ダンジョンの テーマ（あき）。
+ * 147〜156 は フィールドの たんぼ など。161〜220 は 都会の 町、221〜300 は ダンジョンの テーマ、
+ * 301 は 県境の石垣。
  * 「すけ」と書いたタイルは地面の上に重ねる（decor レイヤー）
  */
 function tilesetCanvas(): HTMLCanvasElement {
@@ -95,7 +96,7 @@ function tilesetCanvas(): HTMLCanvasElement {
     r(11, 10, 2, 1, NQ.tan);
     r(6, 13, 1, 1, NQ.tan);
   });
-  // 3 水（海・湖・県の外。通れない）
+  // 3 水（海・湖。通れない）
   tile(3, (r) => {
     r(0, 0, 16, 16, NQ.azure);
     r(2, 4, 4, 1, NQ.sky);
@@ -784,6 +785,18 @@ function tilesetCanvas(): HTMLCanvasElement {
     r(5, 10, 6, 3, NQ.gray);
     r(6, 11, 4, 1, NQ.yellow);
     r(7, 3, 2, 6, NQ.white);
+  });
+  // 301 県境の石垣（門のない場所は通れない）
+  tile(301, (r) => {
+    r(0, 0, 16, 16, NQ.gray);
+    r(0, 0, 16, 2, NQ.silver);
+    r(0, 7, 16, 1, NQ.slate);
+    r(0, 14, 16, 2, NQ.night);
+    r(5, 2, 1, 5, NQ.slate);
+    r(11, 2, 1, 5, NQ.slate);
+    r(2, 8, 1, 5, NQ.slate);
+    r(8, 8, 1, 5, NQ.slate);
+    r(14, 8, 1, 5, NQ.slate);
   });
   return c;
 }

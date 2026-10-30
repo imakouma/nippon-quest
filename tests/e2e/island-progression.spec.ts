@@ -194,9 +194,9 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await page.getByRole('button', { name: /この ちほうを くわしく みる/ }).click();
   await expect(page.getByRole('button', { name: /(?:浄化|じょうか).*ずみ/ })).toBeDisabled();
   await page.locator('.nq-wmap-arrow').filter({ hasText: '▶' }).click();
-  await expect(page.locator('.nq-wmap-aname')).toContainText('北海道');
+  await expect(page.locator('.nq-wmap-aname')).toContainText('？？？');
   await expect(page.locator('.nq-wmap-island-boss')).toHaveCount(0);
   await expect(page.locator('.nq-wmap-castle')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: /ここへ.*いく/ })).toBeEnabled();
+  await expect(page.getByRole('button', { name: /ここへ.*いく/ })).toBeDisabled();
   expect(errors).toEqual([]);
 });

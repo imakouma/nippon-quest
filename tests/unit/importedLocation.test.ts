@@ -155,6 +155,75 @@ describe('保存された正確なスポーン座標', () => {
     });
   });
 
+  it.each([
+    'transition',
+    'interPrefectureLink',
+    'npc',
+    'chest',
+    'midboss',
+    'regionGate',
+    'structure',
+    'regionBoss',
+    'boss',
+    'lastboss',
+    'specialty',
+  ])('%s の上に残った古い保存座標は既定spawnへ戻す', (type) => {
+    expect(
+      resolveSpawn({
+        spawnTile: [7, 8],
+        exactSpawn: true,
+        width: 20,
+        height: 20,
+        fieldGroundRequired: true,
+        terrainAt: () => 1,
+        blocked: () => false,
+        objects: [
+          { name: 'spawn', type: 'spawn', x: 32, y: 48, width: 16, height: 16 },
+          { type, x: 112, y: 128, width: 16, height: 16 },
+        ],
+        spawnName: 'spawn',
+      }),
+    ).toEqual({ tile: [2, 3], faceUp: false });
+  });
+
+  it.each(['event', 'landmark'])('%s の歩行トリガー上に保存した座標は、その場から再開できる', (type) => {
+    expect(
+      resolveSpawn({
+        spawnTile: [7, 8],
+        exactSpawn: true,
+        width: 20,
+        height: 20,
+        fieldGroundRequired: true,
+        terrainAt: () => 1,
+        blocked: () => false,
+        objects: [
+          { name: 'spawn', type: 'spawn', x: 32, y: 48, width: 16, height: 16 },
+          { type, x: 112, y: 128, width: 16, height: 16 },
+        ],
+        spawnName: 'spawn',
+      }),
+    ).toEqual({ tile: [7, 8], faceUp: false });
+  });
+
+  it('幅のある物体の2マス目に保存座標が重なる場合も既定spawnへ戻す', () => {
+    expect(
+      resolveSpawn({
+        spawnTile: [8, 8],
+        exactSpawn: true,
+        width: 20,
+        height: 20,
+        fieldGroundRequired: true,
+        terrainAt: () => 1,
+        blocked: () => false,
+        objects: [
+          { name: 'spawn', type: 'spawn', x: 32, y: 48, width: 16, height: 16 },
+          { type: 'transition', x: 112, y: 128, width: 32, height: 16 },
+        ],
+        spawnName: 'spawn',
+      }),
+    ).toEqual({ tile: [2, 3], faceUp: false });
+  });
+
   it('歩行位置が変わったときだけ保存状態を更新する', () => {
     const game = createNewGame({ name: 'ハル', grade: 3 }, 1_000);
     game.progress.currentArea = 'aomori';
@@ -164,6 +233,7 @@ describe('保存された正確なスポーン座標', () => {
       rememberLocationState(game, {
         mapKey: 'aomori-field',
         areaId: 'aomori',
+        islandId: 'tohoku',
         areaExists: true,
         x: 1,
         y: 2,
@@ -172,8 +242,9 @@ describe('保存された正確なスポーン座標', () => {
     ).toBe(game);
     expect(
       rememberLocationState(game, {
-        mapKey: 'iwate-field',
-        areaId: 'iwate',
+        mapKey: 'niigata-field',
+        areaId: 'niigata',
+        islandId: 'hokuriku',
         areaExists: true,
         x: 3,
         y: 4,
@@ -181,7 +252,12 @@ describe('保存された正確なスポーン座標', () => {
       }),
     ).toMatchObject({
       updatedAt: 2_000,
-      progress: { currentMap: 'iwate-field', currentArea: 'iwate', position: { x: 48, y: 64 } },
+      progress: {
+        currentIsland: 'hokuriku',
+        currentMap: 'niigata-field',
+        currentArea: 'niigata',
+        position: { x: 48, y: 64 },
+      },
     });
   });
 });

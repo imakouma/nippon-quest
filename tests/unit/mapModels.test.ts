@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { createNewGame } from '../../src/core/state/newGame';
+import { normalizeUnavailableDeveloperTravel } from '../../src/core/progression/developerTravel';
+import { midBossFlag } from '../../src/core/progression/route';
 import {
   areaMapView,
   mapBaseFromTiled,
@@ -12,12 +14,29 @@ import {
   type MapBase,
 } from '../../src/scenes/overworld/mapModels';
 import type { WorldMapData } from '../../src/ui/field/worldMapModel';
+import { areaMarkAccessibleLabel } from '../../src/ui/field/AreaMap';
 import { stripRuby } from '../../src/ui/ruby';
 import { content } from './helpers';
 
 const game = () => createNewGame({ name: 'ハル', grade: 3 }, 1_000);
 
 describe('地図表示モデル', () => {
+  it('県境マーカーの種類・行先・開閉状態を読み上げる', () => {
+    expect(
+      areaMarkAccessibleLabel({
+        x: 0,
+        y: 0,
+        kind: 'bridge',
+        destination: '香川県[かがわけん]',
+        open: false,
+      }),
+    ).toBe('香川県へ向かう橋、閉鎖中');
+    expect(areaMarkAccessibleLabel({ x: 0, y: 0, kind: 'rail', destination: '岡山県', open: true })).toBe(
+      '岡山県へ向かう鉄道、通行可能',
+    );
+    expect(areaMarkAccessibleLabel({ x: 0, y: 0, kind: 'town' })).toBe('まち');
+  });
+
   it('regions プロパティは壊れていても例外にせず、正しい文字列配列だけ受け取る', () => {
     expect(parseRegionPartition('{broken')).toBeNull();
     expect(parseRegionPartition('{"ids":[1],"rows":["a"]}')).toBeNull();
@@ -30,9 +49,40 @@ describe('地図表示モデル', () => {
   it('現在地と訪問記録から解放済み県を作る', async () => {
     const c = await content();
     const state = game();
+    state.progress.areaSigns.push('aomori');
     state.progress.counters['visit:iwate-town'] = 1;
     expect([...visitedAreaIds('aomori', state, c, false)].sort()).toEqual(['aomori', 'iwate']);
     expect(visitedAreaIds('aomori', state, c, true).size).toBe(c.areas.size);
+  });
+
+  it('旧dev由来の未解放県visitは保持したまま高速移動先に出さない', async () => {
+    const c = await content();
+    const state = game();
+    state.progress.counters['visit:niigata-field'] = 1;
+
+    expect([...visitedAreaIds('aomori', state, c, false)]).toEqual(['aomori']);
+    expect(state.progress.counters['visit:niigata-field']).toBe(1);
+  });
+
+  it('隔離したvisitは後から県が解放されても、正規到着までは高速移動先に戻さない', async () => {
+    const c = await content();
+    const state = game();
+    state.progress.counters['visit:iwate-town'] = 1;
+    const quarantined = normalizeUnavailableDeveloperTravel(state, c.world, true, 2_000);
+    quarantined.progress.areaSigns.push('aomori');
+
+    expect([...visitedAreaIds('aomori', quarantined, c, false)]).toEqual(['aomori']);
+    expect(quarantined.progress.counters['visit:iwate-town']).toBe(1);
+  });
+
+  it('前地方を攻略済みなら旧順序で完了済みの県visitを維持する', async () => {
+    const c = await content();
+    const state = game();
+    state.progress.areaSigns = ['gifu'];
+    state.progress.islandsCleared = ['tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu'];
+    state.progress.counters['visit:gifu-field'] = 1;
+
+    expect(visitedAreaIds('aomori', state, c, false)).toContain('gifu');
   });
 
   it('Tiled の地形と objects レイヤーから地図の基礎データを作る', () => {
@@ -47,6 +97,19 @@ describe('地図表示モデル', () => {
     expect(base).toMatchObject({ key: 'sample-field', land: [1, 0, 2, 1] });
     expect(base?.objects).toEqual([{ type: 'transition', x: 16, y: 0 }]);
     expect(mapBaseFromTiled('missing', { width: 1, height: 1, layers: [] })).toBeNull();
+  });
+
+  it('県地図では陸表示の県外マスを現在県の詳細地形に含めない', () => {
+    const base = mapBaseFromTiled('sample-field', {
+      width: 3,
+      height: 1,
+      layers: [
+        { name: 'background', data: [1, 1, 3] },
+        { name: 'collision', data: [0, 3, 3] },
+      ],
+    });
+    expect(base?.tiles).toEqual([1, 3, 3]);
+    expect(base?.land).toEqual([0, 0, 0, 0]);
   });
 
   it('地方ミニマップに現在県の詳細地形と主人公位置を重ねる', () => {
@@ -138,4 +201,130 @@ describe('地図表示モデル', () => {
       }).map((place) => place.id),
     ).toEqual(['map:aomori-town', 'sign:aomori.ringo', 'box:aomori.ringo']);
   });
+
+  it('中ボス撃破後は跡地をワープ表示せず、実際の県境門・交通入口を表示する', async () => {
+    const c = await content();
+    const area = c.areas.get('hokkaido')!;
+    const state = game();
+    state.progress.eventsDone.push(midBossFlag('hokkaido'));
+    const base: MapBase = {
+      key: 'hokkaido-field',
+      width: 4,
+      height: 2,
+      tiles: Array(8).fill(1),
+      land: [0, 0, 3, 1],
+      objects: [
+        { type: 'midboss', x: 0, y: 0 },
+        {
+          type: 'interPrefectureLink',
+          x: 16,
+          y: 0,
+          properties: [
+            { name: 'linkId', value: 'aomori-hokkaido-seikan' },
+            { name: 'targetArea', value: 'aomori' },
+            { name: 'targetMap', value: 'aomori-field' },
+            { name: 'targetSpawn', value: 'from_aomori-hokkaido-seikan' },
+            { name: 'firstTargetSpawn', value: 'from_aomori-hokkaido-seikan' },
+            { name: 'infrastructure', value: 'tunnel' },
+            { name: 'travelMode', value: 'rail' },
+            { name: 'unlockRole', value: 'chapter' },
+          ],
+        },
+        {
+          type: 'interPrefectureLink',
+          x: 32,
+          y: 0,
+          properties: [
+            { name: 'linkId', value: 'hokkaido-ibaraki-ferry' },
+            { name: 'targetArea', value: 'ibaraki' },
+            { name: 'targetMap', value: 'ibaraki-field' },
+            { name: 'targetSpawn', value: 'from_hokkaido-ibaraki-ferry' },
+            { name: 'firstTargetSpawn', value: 'from_hokkaido-ibaraki-ferry' },
+            { name: 'infrastructure', value: 'seaRoute' },
+            { name: 'travelMode', value: 'ferry' },
+            { name: 'unlockRole', value: 'chapter' },
+          ],
+        },
+      ],
+    };
+
+    const view = areaMapView({
+      base,
+      area,
+      game: state,
+      content: c,
+      currentMapKey: base.key,
+      heroTile: [0, 1],
+      region: null,
+    });
+
+    expect(view?.marks).toEqual([
+      {
+        x: 1,
+        y: 0,
+        kind: 'rail',
+        open: false,
+        destination: c.areas.get('aomori')?.name,
+      },
+      {
+        x: 2,
+        y: 0,
+        kind: 'ship',
+        open: false,
+        destination: c.areas.get('ibaraki')?.name,
+      },
+    ]);
+  });
+
+  it.each([
+    ['aomori', 'iwate', 'land-aomori-iwate', 'landBorder', 'walk', undefined, 'gate'],
+    ['hiroshima', 'ehime', 'hiroshima-ehime-bridge', 'bridge', 'roadVehicle', 'chapter', 'bridge'],
+    ['yamaguchi', 'fukuoka', 'yamaguchi-fukuoka-kanmon', 'tunnel', 'walk', 'chapter', 'tunnel'],
+    ['aomori', 'hokkaido', 'aomori-hokkaido-seikan', 'tunnel', 'rail', 'chapter', 'rail'],
+    ['hokkaido', 'ibaraki', 'hokkaido-ibaraki-ferry', 'seaRoute', 'ferry', 'chapter', 'ship'],
+  ] as const)(
+    '県境リンク %s → %s を交通種別・開閉状態・行先つきで表示する',
+    async (current, target, id, infrastructure, travelMode, unlockRole, kind) => {
+      const c = await content();
+      const properties = [
+        { name: 'linkId', value: id },
+        { name: 'targetArea', value: target },
+        { name: 'targetMap', value: `${target}-field` },
+        { name: 'targetSpawn', value: `from_${id}` },
+        { name: 'firstTargetSpawn', value: `from_${id}` },
+        { name: 'infrastructure', value: infrastructure },
+        { name: 'travelMode', value: travelMode },
+        ...(unlockRole ? [{ name: 'unlockRole', value: unlockRole }] : []),
+      ];
+      const base: MapBase = {
+        key: `${current}-field`,
+        width: 1,
+        height: 1,
+        tiles: [1],
+        land: [0, 0, 0, 0],
+        objects: [{ type: 'interPrefectureLink', x: 0, y: 0, properties }],
+      };
+
+      expect(
+        areaMapView({
+          base,
+          area: c.areas.get(current),
+          game: game(),
+          content: c,
+          currentMapKey: base.key,
+          heroTile: null,
+          region: null,
+          revealAll: true,
+        })?.marks,
+      ).toEqual([
+        {
+          x: 0,
+          y: 0,
+          kind,
+          open: true,
+          destination: c.areas.get(target)?.name,
+        },
+      ]);
+    },
+  );
 });

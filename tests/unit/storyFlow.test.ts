@@ -151,13 +151,14 @@ describe('物語のマップ導入', () => {
     },
   );
 
-  it('北陸クリア後の山梨上陸で第五章を一度だけ始める', () => {
+  it('北陸クリア後の長野到着で第五章を一度だけ始める', () => {
     const game = createNewGame({ name: 'コウ', grade: 3 }, 100);
     game.progress.islandsCleared.push('tohoku', 'hokkaido', 'kanto', 'hokuriku');
-    const story = mapArrivalStory('yamanashi-field', game, 200);
+    const story = mapArrivalStory('nagano-field', game, 200);
     expect(story?.state.progress.counters[KOSHINETSU_CHAPTER_COUNTER]).toBe(1);
     expect(story?.lines.at(-1)?.text).toContain('第五章');
-    expect(mapArrivalStory('yamanashi-field', story!.state, 300)).toBeNull();
+    expect(mapArrivalStory('nagano-field', story!.state, 300)).toBeNull();
+    expect(mapArrivalStory('yamanashi-field', game, 300)).toBeNull();
   });
 
   it.each(['yamanashi', 'nagano'] as const)('%s の町で甲信編の観測調査を一度だけ進める', (area) => {
@@ -167,13 +168,14 @@ describe('物語のマップ導入', () => {
     expect(story?.lines).toHaveLength(5);
   });
 
-  it('甲信クリア後の岐阜上陸で第六章を一度だけ始める', () => {
+  it('甲信クリア後の静岡到着で第六章を一度だけ始める', () => {
     const game = createNewGame({ name: 'コウ', grade: 3 }, 100);
     game.progress.islandsCleared.push('tohoku', 'hokkaido', 'kanto', 'hokuriku', 'koshinetsu');
-    const story = mapArrivalStory('gifu-field', game, 200);
+    const story = mapArrivalStory('shizuoka-field', game, 200);
     expect(story?.state.progress.counters[TOKAI_CHAPTER_COUNTER]).toBe(1);
     expect(story?.lines.at(-1)?.text).toContain('第六章');
-    expect(mapArrivalStory('gifu-field', story!.state, 300)).toBeNull();
+    expect(mapArrivalStory('shizuoka-field', story!.state, 300)).toBeNull();
+    expect(mapArrivalStory('gifu-field', game, 300)).toBeNull();
   });
 
   it.each(['gifu', 'shizuoka', 'aichi', 'mie'] as const)(
@@ -227,7 +229,7 @@ describe('物語のマップ導入', () => {
     },
   );
 
-  it('中国地方クリア後の徳島上陸で第九章を一度だけ始める', () => {
+  it('中国地方クリア後の香川到着で第九章を一度だけ始める', () => {
     const game = createNewGame({ name: 'コウ', grade: 5 }, 100);
     game.progress.islandsCleared.push(
       'tohoku',
@@ -239,10 +241,11 @@ describe('物語のマップ導入', () => {
       'kinki',
       'chugoku',
     );
-    const story = mapArrivalStory('tokushima-field', game, 200);
+    const story = mapArrivalStory('kagawa-field', game, 200);
     expect(story?.state.progress.counters[SHIKOKU_CHAPTER_COUNTER]).toBe(1);
     expect(story?.lines.at(-1)?.text).toContain('第九章');
-    expect(mapArrivalStory('tokushima-field', story!.state, 300)).toBeNull();
+    expect(mapArrivalStory('kagawa-field', story!.state, 300)).toBeNull();
+    expect(mapArrivalStory('tokushima-field', game, 300)).toBeNull();
   });
 
   it.each(['tokushima', 'kagawa', 'ehime', 'kochi'] as const)('%s の町で四国編の判断調査を進める', (area) => {

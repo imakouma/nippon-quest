@@ -64,12 +64,29 @@ describe('QuestionBank', () => {
     expect(report.skipped).toEqual([]);
   }, 15_000);
 
-  it('学年別 bundle は対応学年の問題だけを含む', async () => {
+  it('学年別 bundle は選択学年までの復習問題を含む', async () => {
     const bundle = (await read('questions-g1-bundle.json')) as Record<string, { grade: number }[]>;
     const questions = Object.values(bundle).flat();
 
     expect(questions.length).toBeGreaterThan(0);
     expect(questions.every((question) => question.grade === 1)).toBe(true);
+
+    const grade6 = (await read('questions-g6-bundle.json')) as Record<string, { grade: number }[]>;
+    expect(
+      Object.values(grade6)
+        .flat()
+        .some((question) => question.grade === 1),
+    ).toBe(true);
+  });
+
+  it('英語は小学3年生以降の学年別 bundle だけに含む', async () => {
+    const loadBundle = (grade: number) =>
+      read(`questions-g${grade}-bundle.json`) as Promise<Record<string, { subject: string }[]>>;
+    const subjects = async (grade: number) => Object.values(await loadBundle(grade)).flatMap((file) => file);
+
+    expect((await subjects(1)).some((question) => question.subject === 'eigo')).toBe(false);
+    expect((await subjects(2)).some((question) => question.subject === 'eigo')).toBe(false);
+    expect((await subjects(3)).some((question) => question.subject === 'eigo')).toBe(true);
   });
 
   it('1年生の旧問題は表示材料不足を通常警告へ残さず、復元不能分だけ明示的に隔離する', async () => {

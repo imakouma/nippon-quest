@@ -38,3 +38,14 @@ it('保存して再読込でき、競合や不正な保存先は拒否する', (
   ).toThrow();
   expect(JSON.parse(readFileSync(path, 'utf8'))).toEqual([changed]);
 });
+
+it('共有側で追加された漢字問題ファイルも保存できる', () => {
+  const kanjiFile = 'questions/kokugo/g1/kanji-trace.json';
+  const kanjiPath = join(root, 'content', kanjiFile);
+  const kanji = { ...original, id: 'kokugo.g1.kanji.0001', subject: 'kokugo', unit: 'kokugo.g1.kanji' };
+  mkdirSync(join(root, 'content/questions/kokugo/g1'), { recursive: true });
+  writeFileSync(kanjiPath, JSON.stringify([kanji]));
+  const changed = { ...kanji, explanation: '解説' };
+  saveQuestion(root, { file: kanjiFile, expected: [kanji], id: kanji.id, question: changed });
+  expect(JSON.parse(readFileSync(kanjiPath, 'utf8'))).toEqual([changed]);
+});

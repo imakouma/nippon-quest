@@ -5,6 +5,7 @@ export interface MapTransitionRequest {
   spawnName?: string;
   tile?: readonly [number, number];
   exactSpawn?: boolean;
+  interPrefectureArrival?: boolean;
   reason: MapTransitionReason;
 }
 
@@ -76,5 +77,8 @@ function captureRequest(request: MapTransitionRequest): MapTransitionRequest {
       ? { tile: Object.freeze([request.tile[0], request.tile[1]] as const) }
       : {}),
     ...(request.exactSpawn !== undefined ? { exactSpawn: request.exactSpawn } : {}),
+    ...(request.interPrefectureArrival !== undefined
+      ? { interPrefectureArrival: request.interPrefectureArrival }
+      : {}),
   });
 }

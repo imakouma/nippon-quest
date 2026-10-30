@@ -1,4 +1,4 @@
-import { ENCLAVES } from '../../../scripts/data/prefectures';
+import { ENCLAVES } from '../../core/content/enclaves';
 import type { Area } from '../../core/content/schemas';
 import { t } from '../../ui/i18n';
 import { stripRuby } from '../../ui/ruby';

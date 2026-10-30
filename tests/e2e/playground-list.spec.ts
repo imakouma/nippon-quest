@@ -121,7 +121,7 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
   const allQuestionCount = await rows.count();
   expect(allQuestionCount).toBe(200);
-  await expect(page.locator('.pg-count')).toContainText('4829問 / 4829問');
+  await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問');
   await expect(page.locator('.pg-empty')).toContainText('先頭 200 問');
   await expect(page.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 
@@ -153,7 +153,7 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
   });
 
   await page.goto('/playground.html');
-  await expect(page.locator('.pg-count')).toContainText('4829問 / 4829問', { timeout: 30_000 });
+  await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問', { timeout: 30_000 });
   expect(maximum).toBeLessThanOrEqual(8);
 });
 
@@ -171,7 +171,7 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   await treeDetails.locator(':scope > summary').click();
   await expect(tree).toBeVisible();
 
-  const all = tree.getByRole('button', { name: /すべて.*4829/ });
+  const all = tree.getByRole('button', { name: /すべて.*4832/ });
   await expect(all).toHaveAttribute('aria-pressed', 'true');
 
   const subject = tree.locator('details[data-subject="sansu"]');

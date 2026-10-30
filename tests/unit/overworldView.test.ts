@@ -55,6 +55,10 @@ describe('フィールドの 見た目（overworldView）', () => {
     expect(viewTileAt([999], 1, 1, 0)).toBe(-1);
   });
 
+  it('県境の石垣には専用の見た目がある', () => {
+    expect(viewTileAt([301], 1, 1, 0)).toBe(VIEW.PREFECTURE_BORDER);
+  });
+
   it('県の フィールドと 離島に 使っている タイルは ぜんぶ 見た目が ある', () => {
     for (const f of readdirSync(MAPS).filter((n) => /-(field|enclave)\.json$/.test(n))) {
       const m = JSON.parse(readFileSync(new URL(f, MAPS), 'utf8')) as {

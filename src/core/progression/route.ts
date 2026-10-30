@@ -1,32 +1,31 @@
-/**
- * フィールドの「中ボス → ワープホール → 次の県」の道すじ。純粋関数のみ。
- * 県の順番は content/world/japan.json の islands[].order と islands[].areas の並び（コードに県名を書かない）。
- */
+/** 都道府県・地域の攻略進行に使う純粋関数。 */
 import type { World } from '../content/schemas';
-
-export interface NextStop {
-  id: string;
-  mapKey: string;
-}
-
-/**
- * 中ボスを倒したあとのワープ先のフィールド。同じ島（地方）の次の県。
- * 島の最後の県では地方ボスが次の島への結界を管理するため null。
- * どの島にも無い県も null。
- */
-export function nextStop(
-  world: World,
-  areaId: string,
-  fieldKeyOf: (areaId: string) => string = (id) => `${id}-field`,
-): NextStop | null {
-  const island = world.islands.find((candidate) => candidate.areas.includes(areaId));
-  if (!island) return null;
-  const next = island.areas[island.areas.indexOf(areaId) + 1];
-  return next ? { id: next, mapKey: fieldKeyOf(next) } : null;
-}
 
 /** progress.eventsDone に入れる「中ボスを倒した」しるし */
 export const midBossFlag = (areaId: string): string => `midboss.${areaId}`;
+
+interface AreaCompletionProgress {
+  areaSigns: readonly string[];
+  eventsDone: readonly string[];
+}
+
+/** 県間移動の順序上、すでに攻略済みとして飛ばせる県か。 */
+export function areaTravelCompleted(progress: AreaCompletionProgress, areaId: string): boolean {
+  return progress.areaSigns.includes(areaId) || progress.eventsDone.includes(midBossFlag(areaId));
+}
+
+/**
+ * 現行の地理順で最初の未攻略県。
+ * 旧攻略順の途中セーブでも、既完了県をもう一度要求しない。
+ */
+export function nextIncompleteArea(
+  world: World,
+  islandId: string,
+  progress: AreaCompletionProgress,
+): string | null {
+  const island = world.islands.find((candidate) => candidate.id === islandId);
+  return island?.areas.find((areaId) => !areaTravelCompleted(progress, areaId)) ?? null;
+}
 
 /** progress.eventsDone に入れる「ダンジョンの おくの 県ボスを倒した」しるし */
 export const areaBossFlag = (areaId: string): string => `boss.${areaId}`;

@@ -9,7 +9,7 @@ export function saveQuestion(
   data: { file: string; expected: unknown; id: string; question: unknown },
 ) {
   if (
-    !/^questions\/(kokugo|sansu|rika|shakai|seikatsu|eigo)\/g[1-6]\/[a-z0-9-]+\/set-\d{3}\.json$/.test(
+    !/^questions\/(kokugo|sansu|rika|shakai|seikatsu|eigo)\/g[1-6]\/(?:[a-z0-9-]+\/set-\d{3}|kanji-trace)\.json$/.test(
       data.file,
     )
   ) {

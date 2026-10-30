@@ -197,6 +197,7 @@ test('旧版の地図問題：正しい地点をクリックして採点でき�
   await expect(map).toBeVisible({ timeout: 20_000 });
   const box = await map.boundingBox();
   expect(box).not.toBeNull();
+  expect(box!.height).toBeGreaterThanOrEqual(48);
   await map.click({ position: { x: box!.width * 0.45, y: box!.height * 0.7 } });
   await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
 });

@@ -75,6 +75,8 @@
     "audit:academic-review": "tsx scripts/audit-academic-review.ts",
     "audit:academic-review:strict": "tsx scripts/audit-academic-review.ts --strict",
     "academic-review:record": "tsx scripts/record-academic-review.ts",
+    "kokugo:review:export": "tsx scripts/kokugo-review.ts export",
+    "kokugo:review:apply": "tsx scripts/kokugo-review.ts apply",
     "migrate:question-layout": "tsx scripts/migrate-question-layout.ts",
     "inventory:cinematics": "tsx scripts/inventory-cinematic-assets.ts",
     "audit:worldmap": "tsx scripts/audit-worldmap.ts",
@@ -88,6 +90,7 @@
     "scaffold:all-areas": "tsx scripts/scaffold-area.ts --all",
     "scaffold:maps": "tsx scripts/scaffold-maps.ts",
     "gen:terrain": "tsx scripts/gen-terrain.ts",
+    "sync:regional-boss-levels": "tsx scripts/sync-regional-boss-levels.ts",
     "check:fast": "pnpm lint && pnpm check:architecture && pnpm typecheck:app",
     "check:full": "pnpm lint && pnpm check:architecture && pnpm gen:manifest && pnpm gen:schemas && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:roadmap-graph --strict && pnpm audit:worldmap && pnpm test:unit && pnpm validate:content && pnpm validate:curriculum-graph && pnpm typecheck && pnpm exec vite build && pnpm check:performance",
     "check": "pnpm check:full"

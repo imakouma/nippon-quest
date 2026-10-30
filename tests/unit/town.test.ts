@@ -17,6 +17,11 @@ import {
   shopStock,
   villagerGift,
 } from '../../src/core/progression/town';
+import {
+  developerInnQuarantined,
+  developerVisitQuarantined,
+  normalizeUnavailableDeveloperTravel,
+} from '../../src/core/progression/developerTravel';
 import { createNewGame } from '../../src/core/state/newGame';
 import type { GameState } from '../../src/core/state/schema';
 import { content } from './helpers';
@@ -103,6 +108,26 @@ describe('おみせ・やどや・かじや', () => {
     expect(r.paid).toBe(0);
     expect(r.state.player.hp).toBe(40);
     expect(r.state.progress.lastInn).toEqual({ map: 'aomori-town', x: 10, y: 20 });
+  });
+
+  it('正規の宿泊は旧dev由来の隔離を入力を壊さず解除する', () => {
+    gs = fresh();
+    gs.progress.counters['visit:niigata-town'] = 1;
+    gs.progress.lastInn = { map: 'niigata-town', x: 80, y: 96 };
+    const quarantined = normalizeUnavailableDeveloperTravel(gs, c.world, true, 2_000);
+    const before = structuredClone(quarantined);
+
+    const rested = innRest(
+      quarantined,
+      { hp: 40, mp: 10 },
+      { map: 'niigata-town', x: 10, y: 20 },
+      0,
+      3_000,
+    ).state;
+
+    expect(quarantined).toEqual(before);
+    expect(developerVisitQuarantined(rested.progress.counters, 'niigata-town')).toBe(false);
+    expect(developerInnQuarantined(rested.progress.counters, 'niigata-town')).toBe(false);
   });
 
   it('不正な負の宿代でお金を増やさない', () => {

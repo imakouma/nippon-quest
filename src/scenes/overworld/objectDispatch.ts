@@ -4,6 +4,7 @@ import type { MapObject } from './mapModels';
 export interface MapObjectHandlers<T extends MapObject> {
   beforeAll(): void;
   transition(object: T, x: number, y: number): void;
+  interPrefectureLink(object: T, x: number, y: number): void;
   npc(object: T, x: number, y: number): void;
   chest(object: T, x: number, y: number): void;
   midboss(object: T, x: number, y: number): void;
@@ -31,6 +32,9 @@ export function dispatchMapObjects<T extends MapObject>(
     switch (object.type) {
       case 'transition':
         handlers.transition(object, x, y);
+        break;
+      case 'interPrefectureLink':
+        handlers.interPrefectureLink(object, x, y);
         break;
       case 'npc':
         handlers.npc(object, x, y);

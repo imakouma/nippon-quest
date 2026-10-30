@@ -3,13 +3,14 @@
  *   pnpm scaffold:maps          (未作成のみ)
  *   pnpm scaffold:maps --force  (既存マップを上書き)
  *   pnpm scaffold:maps --force --only=aomori  (その県の フィールドだけ 作りなおす。ほかの マップ・にほんちずは さわらない)
+ *   pnpm scaffold:maps --links-only --only=aomori  (既存フィールドを保ち、県間入口だけ同期)
  *   pnpm scaffold:maps --force --worldmap-only  (にほんちずだけ作りなおす)
  *   pnpm scaffold:maps --towns-only  (全県の町マップだけ作りなおす)
  *
  * フィールド・離島・にほんちずの地形は scripts/data/terrain.json（pnpm gen:terrain が実在の地理から作る）を使う。
  * 町（県庁所在地）・ダンジョン・名所・港も、実際の場所に置く（位置は scripts/data/geo.ts）。
- * 県のフィールドは、県の外の陸地も海として描く（県はそれぞれ海にかこまれた島。
- * となりの県へは、中ボスを倒すと開くワープホールか、にほんちずから行く）。
+ * 県のフィールドは、県外の陸地も陸として描く。県境は通れず、となりの県へは
+ * 県境門または実在する橋・トンネル・鉄道・航路の入口から行く。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -46,7 +47,9 @@ import {
   type TownTree,
 } from './data/towns.js';
 import { SECRET_SPOTS } from './data/secrets.js';
+import { TRANSPORT_LINKS } from './data/interPrefectureLinks.js';
 import { components, project } from './terrain/raster.js';
+import type { LandBorderLink } from './terrain/prefectureBorders.js';
 import {
   deriveRegionSeedCoordinates,
   filterRegionSeedCoordinates,
@@ -55,6 +58,12 @@ import {
 } from './regions/seedCoordinates.js';
 import { partitionConnectedRegions } from './regions/connectedPartition.js';
 import { applyRegionWalls } from './regions/partitionWalls.js';
+import { interPrefectureObjectDefinitions } from './maps/interPrefectureObjects.js';
+import { findImmediateArrivalTile, hasImmediateArrivalTile } from './maps/immediateArrival.js';
+import { orientLandBorderLinks } from './maps/landBorderDirections.js';
+import { paintGeneratedPrefectureBorders } from './maps/prefectureBoundary.js';
+import { syncInterPrefectureMapFile } from './maps/syncInterPrefectureMap.js';
+import { terrainLayers } from './maps/terrainLayers.js';
 import { createRng } from '../src/core/rng.js';
 import { GROUND_TILES, type Ground } from '../src/core/world/ground.js';
 import type { TerrainMap } from './gen-terrain.js';
@@ -62,26 +71,27 @@ import type { TerrainMap } from './gen-terrain.js';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 /** マップの唯一の編集・生成先。Vite が dev では直接配信し、build では dist/maps へコピーする。 */
 const MAPS_DIR = `${ROOT}maps/`;
-
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const townsOnly = args.includes('--towns-only');
 const only = args.find((a) => a.startsWith('--only='))?.slice('--only='.length);
 const worldMapOnly = args.includes('--worldmap-only');
-
+const linksOnly = args.includes('--links-only');
 if (!existsSync(MAPS_DIR)) mkdirSync(MAPS_DIR, { recursive: true });
 
-const TERRAIN = (
-  JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`, 'utf8')) as { maps: Record<string, TerrainMap> }
-).maps;
-
-/** 地形記号 → タイル番号（src/rendering/overworld/fieldArt.ts の仮タイルセットと対応）。県の外の陸地（x）も海（3） */
-const TILE: Record<string, number> = { '.': 3, '~': 3, '#': 1, '^': 11, A: 12, x: 3, W: 159 };
+const TERRAIN_DATA = JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`, 'utf8')) as {
+  maps: Record<string, TerrainMap>;
+  interPrefectureBorders: LandBorderLink[];
+};
+const TERRAIN = TERRAIN_DATA.maps;
+const LAND_BORDERS = orientLandBorderLinks(TERRAIN_DATA.interPrefectureBorders, TERRAIN);
+/** 地形記号 → タイル番号（src/rendering/overworld/fieldArt.ts の仮タイルセットと対応） */
+const TILE: Record<string, number> = { '.': 3, '~': 3, '#': 1, '^': 11, A: 12, x: 1, W: 159 };
 /** にほんちずの地図データ。Tiled のマップではないので maps/ には入れず、ゲームが読む public/ にだけ置く */
 const WORLD_MAP_FILE = 'public/worldmap.json';
 /** collision レイヤーでこの番号のマスは通れない（Overworld.ts） */
 const BLOCK = 3;
-/** 海・湖・県外の陸地は通れない */
+/** 海・湖・県外の陸地は通れない（x は陸として描くが県境の外なので止める） */
 const BLOCKED = new Set(['.', '~', 'x', 'W']);
 /** 看板・入口などの目じるしどうしを、何マス離すか（Placer） */
 const SIGN_GAP = 3;
@@ -181,7 +191,6 @@ async function saveWorldMap(content: object) {
   writeFileSync(filePath, await format(JSON.stringify(content), PRETTIER), 'utf8');
   createdCount++;
 }
-
 const toObjects = (defs: ObjDef[]): MapObject[] =>
   defs.map((d, i) => ({
     id: i + 1,
@@ -363,7 +372,6 @@ class Land {
     return [sx / n, sy / n];
   }
 }
-
 /**
  * 物体を重ならないように置いていく。看板・入口などの目じるし（labeled）どうしは SIGN_GAP マス離す
  * （名所に「着いた」とみなす まわり 1 マスの範囲が、となりの看板と重ならないように）
@@ -372,6 +380,7 @@ class Placer {
   private readonly taken: { at: Pt; labeled: boolean }[] = [];
   /** 遷移のマス。乗った瞬間に移動するので、その先へは歩いて抜けられない */
   private readonly gates = new Set<number>();
+  private readonly arrivalFree = (x: number, y: number): boolean => this.free(x, y, false);
 
   constructor(private readonly land: Land) {}
 
@@ -433,11 +442,25 @@ class Placer {
   gate(target: Pt, ok: (i: number) => boolean): Pt {
     return this.put(target, ok, true, true);
   }
-
   /** at のすぐ南（ふさがっていれば近く）の、同じ陸続きの空きマス。行き先から戻ってきたときに立つ場所 */
   beside(at: Pt): Pt {
     const comp = this.land.compOf(at);
     return this.put([at[0] + 0.5, at[1] + 1.5], (i) => this.land.label[i] === comp, false);
+  }
+
+  /** i のすぐ隣に、同じ陸続きの空いた到着マスを確保できるか。 */
+  hasImmediateArrival(i: number, required?: number): boolean {
+    return hasImmediateArrivalTile(this.land, i, this.arrivalFree, required);
+  }
+
+  /** 県間入口のすぐ隣に到着地点を置く。遠くへずらして入口と到着地点を分離しない。 */
+  besideImmediate(at: Pt, preferred: readonly number[] = [], exact = false): Pt {
+    const arrival = findImmediateArrivalTile(this.land, at, preferred, this.arrivalFree, exact);
+    if (arrival) {
+      this.taken.push({ at: arrival, labeled: false });
+      return arrival;
+    }
+    throw new Error(`${this.land.key}: 入口の隣に到着地点を置けません`);
   }
 
   /** 陸続きでない2つの陸（from → to）を結ぶ船着き場を、互いにいちばん近い海岸に置く */
@@ -474,11 +497,6 @@ function ferryObjects(
     { name: `ferry_return_${tag}`, type: 'spawn', at: place.beside(a) },
   ];
 }
-
-const terrainLayers = (land: Land, tileOf: (c: string, i: number) => number) => ({
-  bg: [...land.cells].map(tileOf),
-  col: [...land.cells].map((c) => (BLOCKED.has(c) ? BLOCK : 0)),
-});
 
 /** seed の マスから 4 方向に 何マスで とどくか（seed の マスは 0。とどかない マスは -1） */
 function distanceFrom(land: Land, seed: (c: string) => boolean): Int32Array {
@@ -547,7 +565,7 @@ const MARSHES: Record<string, string[]> = { miyagi: ['izunuma'] };
  *   A → やま（雪の山）。^ → 平地から 2 マス以上 おくは やま、ふちは もり
  *   平地（#）→ 湖・沼の そばは みずべ、海の となりは すなはま、丘の となりは もり、
  *              海からも 丘からも はなれた 所は たはた（ところどころ くさはら）、ほかは くさはら
- * 県の外（x）は 海の絵でも 海では ないので、すなはまに しない
+ * 県の外（x）は 陸の絵だが通れない。海では ないので、すなはまに しない
  */
 function groundTiles(land: Land, prefId: string): (c: string, i: number) => number {
   const sea = distanceFrom(land, (c) => c === '.');
@@ -794,7 +812,6 @@ function withWalls(land: Land, part: RegionPartition): Land {
   for (let y = 0; y < land.h; y++) rows.push(cells.slice(y * land.w, (y + 1) * land.w).join(''));
   return new Land(land.key, { ...land.terrain, rows }, (c) => !BLOCKED.has(c));
 }
-
 function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
   const { id: prefId } = pref;
   const land0 = Land.of(`${prefId}-field`, (c) => !BLOCKED.has(c));
@@ -972,13 +989,24 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
       });
     });
   }
-  const { bg, col } = terrainLayers(land, groundTiles(land, prefId));
+  defs.push(
+    ...interPrefectureObjectDefinitions({
+      prefId,
+      land,
+      place,
+      inMain,
+      borders: LAND_BORDERS,
+      transports: TRANSPORT_LINKS,
+    }),
+  );
+  const { bg, col } = terrainLayers(land, groundTiles(land, prefId), BLOCKED, BLOCK);
   if (FIELD_ALL_GRASS.has(prefId)) allGrass(land, bg);
   if (part) regionLooks(land, part, prefId, bg);
   if (part) {
     defs.push(...villages(land, part, prefId, defs, col));
     roads(land, defs, col, bg);
   }
+  paintGeneratedPrefectureBorders(land.terrain, bg, defs);
   const props = part
     ? [
         str(
@@ -997,7 +1025,6 @@ function fieldMap(pref: PrefectureMaster, eventNames: string[]): object {
     : undefined;
   return tiledMap(land.w, land.h, bg, col, toObjects(defs), false, undefined, props);
 }
-
 /** 陸の 地面を ぜんぶ 草原に（海・湖・さかいの 山なみは そのまま） */
 function allGrass(land: Land, bg: number[]): void {
   for (let i = 0; i < bg.length; i++) {
@@ -1081,12 +1108,20 @@ const ROAD_TILE = 163;
  */
 function roads(land: Land, defs: ObjDef[], col: number[], bg: number[]): void {
   const idxOf = (d: ObjDef) => land.idx([Math.floor(d.at[0]), Math.floor(d.at[1])]);
-  const passThrough = new Set(['regionGate', 'transition']);
+  const passThrough = new Set(['regionGate', 'transition', 'interPrefectureLink']);
   const blockers = new Set(defs.filter((d) => !passThrough.has(d.type) && d.type !== 'spawn').map(idxOf));
   const targets = defs.filter((d) =>
-    ['regionGate', 'transition', 'regionBoss', 'event', 'landmark', 'specialty', 'midboss', 'chest'].includes(
-      d.type,
-    ),
+    [
+      'regionGate',
+      'transition',
+      'interPrefectureLink',
+      'regionBoss',
+      'event',
+      'landmark',
+      'specialty',
+      'midboss',
+      'chest',
+    ].includes(d.type),
   );
   const town = defs.find((d) => d.name === 'to_town');
   if (!town) return;
@@ -1297,7 +1332,7 @@ function enclaveMap(enc: EnclaveDef): object {
     ...landmarks,
   ];
 
-  const { bg, col } = terrainLayers(land, groundTiles(land, enc.prefId));
+  const { bg, col } = terrainLayers(land, groundTiles(land, enc.prefId), BLOCKED, BLOCK);
   return tiledMap(land.w, land.h, bg, col, toObjects(defs), false);
 }
 
@@ -2612,6 +2647,21 @@ function dungeonMap(prefId: string, eventNames: string[], kind: 'dungeon' | 'sec
 const triggers = eventTriggers();
 for (const pref of PREFECTURES) {
   const events = (triggers.get(`${pref.id}-field`) ?? []).map((e) => e.name);
+  if (linksOnly) {
+    const filename = `${pref.id}-field.json`;
+    if (!only || pref.id === only)
+      await saveMap(
+        filename,
+        syncInterPrefectureMapFile(
+          pref.id,
+          `${MAPS_DIR}${filename}`,
+          TERRAIN[`${pref.id}-field`]!,
+          LAND_BORDERS,
+        ),
+        true,
+      );
+    continue;
+  }
   // にほんちずの名所一覧は fieldMap が確定した配置を使う。ファイルは書かず配置計算だけ行う。
   if (worldMapOnly) {
     fieldMap(pref, events);
@@ -2631,14 +2681,16 @@ for (const pref of PREFECTURES) {
   await saveMap(`${pref.id}-dungeon.json`, dungeonMap(pref.id, inDungeon));
   if (SECRETS.has(pref.id)) await saveMap(`${pref.id}-secret.json`, dungeonMap(pref.id, [], 'secret'));
 }
-if (!only && !townsOnly) {
+if (!only && !townsOnly && !linksOnly) {
   for (const enc of ENCLAVES) {
     const map = enclaveMap(enc);
     if (!worldMapOnly) await saveMap(`${enc.enclaveId}.json`, map);
   }
   await saveWorldMap(worldMap(triggers));
 }
-for (const [prefId, spots] of Object.entries(only || worldMapOnly || townsOnly ? {} : LANDMARK_SPOTS))
+for (const [prefId, spots] of Object.entries(
+  only || worldMapOnly || townsOnly || linksOnly ? {} : LANDMARK_SPOTS,
+))
   for (const motifId of Object.keys(spots))
     if (!placedLandmarks.get(prefId)?.includes(motifId))
       console.warn(

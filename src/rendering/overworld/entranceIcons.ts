@@ -3,12 +3,41 @@
  *  fld.icon.town：町（3×3マスの集落）／fld.icon.cave：ダンジョン（岩山の どうくつ）
  *  fld.icon.castle：裏ステージ（お城の 門）／fld.icon.port：港（船と さんばし）
  * 離島への 港（ハーバー）の 絵も ここ：fld.pier.h / fld.pier.v（さんばしの 板 16×16）・fld.ship（船 32×24）
+ * 県間入口：fld.interpref.<gate|bridge|tunnel|rail|ferry>.<open|closed>（すべて16×16）
  */
 import type Phaser from 'phaser';
 import { NQ } from '../palette';
 import { addImage } from '../sheet';
 
 type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
+
+export const INTER_PREFECTURE_ICON_SIZE = 16;
+
+export interface InterPrefectureIconSource {
+  infrastructure: 'landBorder' | 'bridge' | 'tunnel' | 'seaRoute';
+  travelMode: 'walk' | 'bicycle' | 'roadVehicle' | 'rail' | 'ferry';
+}
+
+export type InterPrefectureIconKind = 'gate' | 'bridge' | 'tunnel' | 'rail' | 'ferry';
+export type InterPrefectureIconTextureKey = `fld.interpref.${InterPrefectureIconKind}.${'open' | 'closed'}`;
+
+/** 県間リンクを、フィールドで見分ける入口テクスチャへ決定論的に対応させる。 */
+export function interPrefectureIconKey(
+  link: InterPrefectureIconSource,
+  open: boolean,
+): InterPrefectureIconTextureKey {
+  const kind: InterPrefectureIconKind =
+    link.travelMode === 'rail'
+      ? 'rail'
+      : link.travelMode === 'ferry' || link.infrastructure === 'seaRoute'
+        ? 'ferry'
+        : link.infrastructure === 'bridge'
+          ? 'bridge'
+          : link.infrastructure === 'tunnel'
+            ? 'tunnel'
+            : 'gate';
+  return `fld.interpref.${kind}.${open ? 'open' : 'closed'}`;
+}
 
 /** 県フィールドの町は、1マスの入口を保ったまま見た目だけ2×2マス相当にする。 */
 export const entranceIconScale = (target: string, configured?: unknown): number => {
@@ -171,6 +200,99 @@ const GATES: Record<string, (r: Rect) => void> = {
   },
 };
 
+/** 全国の県間入口。事業者ロゴを使わず、形だけで種類を見分けられる汎用デザイン。 */
+const INTER_PREFECTURE_BASE: Record<InterPrefectureIconKind, (r: Rect) => void> = {
+  gate: (r) => {
+    // 木の門。左右の柱と大きな笠木で陸続きの県境を表す。
+    r(1, 2, 14, 2, NQ.bark);
+    r(3, 4, 2, 11, NQ.brown);
+    r(11, 4, 2, 11, NQ.brown);
+    r(2, 1, 12, 1, NQ.tan);
+    r(6, 4, 4, 2, NQ.gold);
+    r(5, 13, 6, 3, NQ.sand);
+  },
+  bridge: (r) => {
+    // 青い水の上を渡る吊り橋。2本の主塔と弧を描くケーブル。
+    r(0, 12, 16, 4, NQ.azure);
+    r(1, 14, 5, 1, NQ.sky);
+    r(9, 13, 6, 1, NQ.sky);
+    r(2, 3, 2, 8, NQ.slate);
+    r(12, 3, 2, 8, NQ.slate);
+    r(1, 7, 14, 2, NQ.cloud);
+    r(0, 9, 16, 2, NQ.gray);
+    r(4, 4, 2, 1, NQ.silver);
+    r(6, 5, 4, 1, NQ.silver);
+    r(10, 4, 2, 1, NQ.silver);
+    r(3, 5, 1, 2, NQ.silver);
+    r(12, 5, 1, 2, NQ.silver);
+  },
+  tunnel: (r) => {
+    // 岩山の暗いアーチ。徒歩用トンネルも同じ入口形状で表す。
+    r(4, 2, 8, 2, NQ.tan);
+    r(2, 4, 12, 4, NQ.brown);
+    r(1, 8, 14, 8, NQ.bark);
+    r(4, 7, 8, 9, NQ.ink);
+    r(5, 5, 6, 2, NQ.night);
+    r(2, 6, 2, 2, NQ.sand);
+    r(12, 9, 2, 2, NQ.tan);
+    r(7, 11, 2, 2, NQ.gold);
+  },
+  rail: (r) => {
+    // 正面から見た列車と2本のレール。特定事業者の色やロゴは使わない。
+    r(4, 2, 8, 9, NQ.silver);
+    r(3, 4, 10, 6, NQ.cloud);
+    r(5, 3, 6, 3, NQ.navy);
+    r(5, 4, 2, 2, NQ.sky);
+    r(9, 4, 2, 2, NQ.sky);
+    r(5, 8, 2, 2, NQ.gold);
+    r(9, 8, 2, 2, NQ.gold);
+    r(4, 10, 3, 2, NQ.gray);
+    r(9, 10, 3, 2, NQ.gray);
+    r(5, 12, 2, 4, NQ.slate);
+    r(9, 12, 2, 4, NQ.slate);
+    r(3, 14, 10, 1, NQ.bark);
+  },
+  ferry: (r) => {
+    // 港へ着く横向きの小型フェリー。船体・客室・海面を分ける。
+    r(0, 13, 16, 3, NQ.azure);
+    r(2, 10, 12, 3, NQ.red);
+    r(3, 9, 10, 1, NQ.ink);
+    r(5, 5, 7, 4, NQ.paper);
+    r(6, 6, 2, 2, NQ.sky);
+    r(9, 6, 2, 2, NQ.sky);
+    r(8, 2, 1, 3, NQ.bark);
+    r(9, 2, 3, 2, NQ.white);
+    r(1, 13, 5, 1, NQ.white);
+    r(9, 14, 6, 1, NQ.sky);
+  },
+};
+
+const drawOpenMarker = (r: Rect): void => {
+  r(12, 0, 4, 4, NQ.green);
+  r(13, 1, 2, 2, NQ.lime);
+};
+
+const drawClosedBarrier = (r: Rect): void => {
+  // 全種類で共通の赤い遮断バー。背景の入口形状を残したまま閉鎖を伝える。
+  r(1, 7, 14, 3, NQ.ink);
+  r(2, 7, 12, 2, NQ.red);
+  for (let x = 3; x < 13; x += 4) r(x, 7, 2, 2, NQ.cream);
+  r(7, 5, 2, 7, NQ.brick);
+};
+
+const INTER_PREFECTURE_ICONS = Object.fromEntries(
+  (Object.keys(INTER_PREFECTURE_BASE) as InterPrefectureIconKind[]).flatMap((kind) =>
+    (['open', 'closed'] as const).map((state) => [
+      `fld.interpref.${kind}.${state}`,
+      (r: Rect) => {
+        INTER_PREFECTURE_BASE[kind](r);
+        if (state === 'open') drawOpenMarker(r);
+        else drawClosedBarrier(r);
+      },
+    ]),
+  ),
+) as Record<InterPrefectureIconTextureKey, (r: Rect) => void>;
+
 /** 港（ハーバー）の 絵：さんばし（よこ・たて）と 船。[はば, 高さ, 描きかた] */
 const HARBOR: Record<string, [number, number, (r: Rect) => void]> = {
   'fld.pier.h': [
@@ -231,6 +353,15 @@ export function buildEntranceIcons(scene: Phaser.Scene): void {
       ([k, [w, h, d]]) => [k, w, h, d] as [string, number, number, (r: Rect) => void],
     ),
     ...Object.entries(GATES).map(([k, d]) => [k, 16, 16, d] as [string, number, number, (r: Rect) => void]),
+    ...Object.entries(INTER_PREFECTURE_ICONS).map(
+      ([k, d]) =>
+        [k, INTER_PREFECTURE_ICON_SIZE, INTER_PREFECTURE_ICON_SIZE, d] as [
+          string,
+          number,
+          number,
+          (r: Rect) => void,
+        ],
+    ),
     ...Object.entries(HARBOR).map(
       ([k, [w, h, d]]) => [k, w, h, d] as [string, number, number, (r: Rect) => void],
     ),

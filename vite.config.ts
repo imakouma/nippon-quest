@@ -66,7 +66,7 @@ function questionSave(): Plugin {
         server.middlewares.use((req, res, next) => {
           const path = (req.url ?? '').split('?')[0] ?? '';
           if (
-            !/^\/content\/questions\/(kokugo|sansu|rika|shakai|seikatsu|eigo)\/g[1-6]\/[a-z0-9-]+\/set-\d{3}\.json$/.test(
+            !/^\/content\/questions\/(kokugo|sansu|rika|shakai|seikatsu|eigo)\/g[1-6]\/(?:[a-z0-9-]+\/set-\d{3}|kanji-trace)\.json$/.test(
               path,
             )
           )

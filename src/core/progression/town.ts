@@ -9,6 +9,7 @@
  */
 import type { Area, Item, Mission, Monster, Recipe, Reward } from '../content/schemas';
 import type { GameState } from '../state/schema';
+import { releaseDeveloperTravelQuarantine } from './developerTravel';
 import { applyReward, type RewardLine } from './eventReward';
 import { motifStamp } from './route';
 
@@ -111,6 +112,7 @@ export function innRest(
   gs.player.hp = max.hp;
   gs.player.mp = max.mp;
   gs.progress.lastInn = inn;
+  releaseDeveloperTravelQuarantine(gs.progress.counters, inn.map);
   gs.updatedAt = now;
   return { state: gs, paid };
 }

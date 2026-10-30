@@ -1,0 +1,36 @@
+[
+  {
+    "$schema": "../../../../schemas/questions/kanji-trace.schema.json",
+    "id": "kokugo.g1.kanji-trace.0001",
+    "type": "kanji-trace",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "tags": ["theme:osorezan"],
+    "payload": {
+      "mode": "trace",
+      "kanji": "山",
+      "reading": "やま",
+      "hintWord": "恐山[おそれざん]の 山[やま]",
+      "strokeCount": 3
+    },
+    "explanation": "「山[やま]」は 3かくで かきます。"
+  },
+  {
+    "$schema": "../../../../schemas/questions/kanji-trace.schema.json",
+    "id": "kokugo.g1.kanji-trace.0002",
+    "type": "kanji-trace",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.kanji",
+    "tags": ["theme:osorezan"],
+    "payload": {
+      "mode": "trace",
+      "kanji": "石",
+      "reading": "いし",
+      "hintWord": "石[いし]を つむ",
+      "strokeCount": 5
+    },
+    "explanation": "「石[いし]」は 5かくで かきます。"
+  }
+]

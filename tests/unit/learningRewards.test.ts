@@ -183,7 +183,7 @@ describe('学習成果のまなびのかけら', () => {
     expect(result.state.learning.masteredRewardUnits).toEqual(['sansu.g1.tashizan']);
   });
 
-  it('v13 の習熟キーと学習履歴、進行状態を変更しない', () => {
+  it('現行セーブの習熟キーと学習履歴、進行状態を変更しない', () => {
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
     game.learning.mastery.math_1_2 = { value: 0.8, n: 3, lastAt: 200 };
     game.learning.attempts.push({
@@ -209,7 +209,7 @@ describe('学習成果のまなびのかけら', () => {
     const result = applyLearningRewards(game, outcome({ unit: 'math_1_2' }));
 
     expect(game).toEqual(before);
-    expect(result.state.schemaVersion).toBe(13);
+    expect(result.state.schemaVersion).toBe(14);
     expect(result.state.learning.mastery).toEqual(before.learning.mastery);
     expect(result.state.learning.attempts).toEqual(before.learning.attempts);
     expect(result.state.learning.recent).toEqual(before.learning.recent);

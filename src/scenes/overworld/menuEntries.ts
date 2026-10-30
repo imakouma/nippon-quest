@@ -1,6 +1,6 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Item, Monster, Motif } from '../../core/content/schemas';
-import { canUse, EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
+import { canUse, EQUIP_SLOTS, equipSetProgress, isEquip } from '../../core/progression/inventory';
 import { monsterSize } from '../../core/progression/bag';
 import { specialtyTreasureBonus } from '../../core/progression/specialty';
 import type { GameState } from '../../core/state/schema';
@@ -59,6 +59,16 @@ export function itemKindLabel(item: Item): string {
   if (item.kind === 'material') return t('field.itemKindMaterial');
   if (item.kind === 'key') return t('field.itemKindKey');
   return t('field.itemKindEquip', { slot: t(`slots.${item.kind}`) });
+}
+
+/** セットそうびの行。そろったら効果と由来の説明を表示する。 */
+function setLines(content: ContentIndex, gs: GameState, item: Item): string[] {
+  const set = item.setId ? content.sets.get(item.setId) : undefined;
+  if (!set) return [];
+  const { have, total, complete } = equipSetProgress(set, gs.player.equipment);
+  return complete
+    ? [t('field.equipSetDone', { name: set.name }), set.bonus.description]
+    : [t('field.equipSetProgress', { name: set.name, have, total })];
 }
 
 export const LOOK_PARTS: readonly { part: keyof HeroLook; key: string }[] = [
@@ -134,6 +144,7 @@ export function bagMenu(
       const lines = [t('field.townHave', { n: count })];
       if (item.use?.heal) lines.push(t('field.bagHeal', { n: item.use.heal }));
       if (isEquip(item) && item.stats) lines.push(statText(item));
+      if (isEquip(item)) lines.push(...setLines(content, gs, item));
       return {
         key: item.id,
         name: item.name,
@@ -173,7 +184,9 @@ export function equipmentMenu(
       known: true,
       right: t(`slots.${slot}`),
       sub: t('field.equipSlot', { slot: t(`slots.${slot}`) }),
-      lines: item ? [statText(item)].filter(Boolean) : [t('field.equipEmptyHint')],
+      lines: item
+        ? [statText(item), ...setLines(content, gs, item)].filter(Boolean)
+        : [t('field.equipEmptyHint')],
       blurb: item?.blurb,
       action: item ? { label: t('field.bagUnequip'), ok: true } : null,
     };

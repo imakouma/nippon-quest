@@ -1,13 +1,16 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Area } from '../../core/content/schemas';
+import { developerVisitQuarantined } from '../../core/progression/developerTravel';
+import { areaReachableForTravel, interPrefectureAccess } from '../../core/progression/interPrefecture';
 import { canChallengeIslandBoss } from '../../core/progression/island';
 import { midBossFlag, motifStamp, regionBossDefeated } from '../../core/progression/route';
 import type { GameState } from '../../core/state/schema';
 import { regionMapTile } from '../../shared/regionVisibility';
 import type { RegionMiniView } from '../../ui/field/RegionMiniMap';
-import type { AreaMark, AreaMapView, PlaceOption } from '../../ui/field/AreaMap';
+import type { AreaMark, AreaMapView, AreaMarkKind, PlaceOption } from '../../ui/field/AreaMap';
 import type { MapAreaInfo, MapRegionInfo, WorldMapData } from '../../ui/field/worldMapModel';
 import { isSpecialtyMotif } from './catalogs';
+import { parseInterPrefectureLinkObject, type InterPrefectureLink } from './interPrefectureLink';
 
 const TILE = 16;
 
@@ -69,8 +72,15 @@ export function mapBaseFromTiled<T extends MapObject>(
   key: string,
   source: TiledMapSource<T> | undefined,
 ): (Omit<MapBase, 'objects'> & { objects: T[] }) | null {
-  const tiles = source?.layers.find((layer) => layer.name === 'background')?.data;
-  if (!source || !tiles) return null;
+  const background = source?.layers.find((layer) => layer.name === 'background')?.data;
+  if (!source || !background) return null;
+  const collision = source.layers.find((layer) => layer.name === 'collision')?.data;
+  // フィールド本体では県外の陸も草原（1）として見せる。一方、県地図の詳細には
+  // 現在県だけを重ねたいので、「草原だが通れない」県外マスを透明な水面相当に戻す。
+  const tiles =
+    collision?.length === background.length
+      ? background.map((tile, index) => (tile === 1 && collision[index] === 3 ? 3 : tile))
+      : background;
   let land: MapBase['land'] = null;
   for (let index = 0; index < tiles.length; index++) {
     if (tiles[index] === 3) continue;
@@ -172,17 +182,28 @@ function boxFor(object: MapObject, area: Area, game: GameState | undefined): Box
   return { motif, stamp, opened: game?.dex.motifs.includes(stamp) ?? false };
 }
 
+/** フィールドと県地図で同じ交通種別を表示する。 */
+function interPrefectureMarkKind(link: InterPrefectureLink): AreaMarkKind {
+  if (link.travelMode === 'rail') return 'rail';
+  if (link.travelMode === 'ferry' || link.infrastructure === 'seaRoute') return 'ship';
+  if (link.infrastructure === 'bridge') return 'bridge';
+  if (link.infrastructure === 'tunnel') return 'tunnel';
+  return 'gate';
+}
+
 /** 県の全体地図に描く地形、印、主人公位置を組み立てる。 */
 export function areaMapView(input: {
   base: MapBase | null;
   area: Area | undefined;
   game: GameState | undefined;
+  /** 県境リンクの正確な行先名と解放状態を表示するための読み取り専用索引。 */
+  content?: Pick<ContentIndex, 'world' | 'areas'>;
   currentMapKey: string;
   heroTile: [number, number] | null;
   region: RegionMiniView | null;
   revealAll?: boolean;
 }): AreaMapView | null {
-  const { base, area, game, currentMapKey, heroTile, region, revealAll = false } = input;
+  const { base, area, game, content, currentMapKey, heroTile, region, revealAll = false } = input;
   if (!base) return null;
   const visible = visibleRegionTiles(base, area, game, revealAll);
   const onBase = base.key === currentMapKey;
@@ -198,7 +219,20 @@ export function areaMapView(input: {
       if (!onBase && target === currentMapKey) hero = [x, y];
     } else if (object.type === 'midboss' && area?.midBoss) {
       const beaten = game?.progress.eventsDone.includes(midBossFlag(area.id)) ?? false;
-      marks.push({ x, y, kind: beaten ? 'warp' : 'boss' });
+      if (!beaten) marks.push({ x, y, kind: 'boss' });
+    } else if (object.type === 'interPrefectureLink') {
+      if (!area) continue;
+      const link = parseInterPrefectureLinkObject(area.id, object);
+      if (!link) continue;
+      marks.push({
+        x,
+        y,
+        kind: interPrefectureMarkKind(link),
+        open: Boolean(
+          content && game && interPrefectureAccess(content.world, link, game.progress, revealAll).open,
+        ),
+        destination: content?.areas.get(link.targetArea)?.name ?? link.targetArea,
+      });
     } else if ((object.type === 'event' || object.type === 'landmark') && area) {
       const sign = signFor(object, base.key, area, game);
       if (sign) marks.push({ x, y, kind: sign.kind });
@@ -229,7 +263,10 @@ export function mapPlaces(input: {
 }): MapPlace[] {
   const { base, area, game, revealAll, enclaves, labels } = input;
   if (!base || !area || !game) return [];
-  const been = (key: string) => revealAll || (game.progress.counters[`visit:${key}`] ?? 0) > 0;
+  const been = (key: string) =>
+    revealAll ||
+    ((game.progress.counters[`visit:${key}`] ?? 0) > 0 &&
+      !developerVisitQuarantined(game.progress.counters, key));
   const maps: MapPlace[] = [];
   const signs: MapPlace[] = [];
   for (const object of base.objects) {
@@ -290,8 +327,19 @@ export function visitedAreaIds(
 ): Set<string> {
   const visited = new Set([currentAreaId]);
   if (revealAll) for (const id of content?.areas.keys() ?? []) visited.add(id);
-  for (const [key, count] of Object.entries(game?.progress.counters ?? {}))
-    if (key.startsWith('visit:') && count > 0) visited.add(key.slice('visit:'.length).split('-')[0] ?? '');
+  for (const [key, count] of Object.entries(game?.progress.counters ?? {})) {
+    const areaId = key.startsWith('visit:') ? key.slice('visit:'.length).split('-')[0] : undefined;
+    const mapKey = key.startsWith('visit:') ? key.slice('visit:'.length) : '';
+    if (
+      areaId &&
+      count > 0 &&
+      content &&
+      game &&
+      !developerVisitQuarantined(game.progress.counters, mapKey) &&
+      areaReachableForTravel(content.world, areaId, game.progress)
+    )
+      visited.add(areaId);
+  }
   return visited;
 }
 
