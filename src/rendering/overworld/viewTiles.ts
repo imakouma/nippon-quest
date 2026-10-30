@@ -78,9 +78,10 @@ function grove(
   const inside = (x: number, y: number) => {
     if (x < 0 || y < 0 || x > 15 || y > 15) return false;
     if ((open.n && y < 2) || (open.s && y > 12) || (open.w && x < 1) || (open.e && x > 14)) return false;
-    const cx = open.w ? 4 - x : open.e ? x - 11 : -1;
-    const cy = open.n ? 5 - y : open.s ? y - 9 : -1;
-    return !(cx > 0 && cy > 0 && cx * cx + cy * cy > 12);
+    for (const cx of [open.w ? 4 - x : -1, open.e ? x - 11 : -1])
+      for (const cy of [open.n ? 5 - y : -1, open.s ? y - 9 : -1])
+        if (cx > 0 && cy > 0 && cx * cx + cy * cy > 12) return false;
+    return true;
   };
   for (let y = 0; y < 16; y++)
     for (let x = 0; x < 16; x++) {
@@ -161,7 +162,7 @@ function drawView(px: (n: number) => Px): void {
           land & 4 ? 15 - y : 99,
           land & 8 ? x : 99,
         );
-        p(x, y, edge === 0 ? NQ.white : edge <= 2 ? NQ.sky : waterAt(x, y, mask === 16));
+        p(x, y, edge === 0 && (x + y) % 4 !== 0 ? NQ.white : edge <= 2 ? NQ.sky : waterAt(x, y, mask === 16));
       }
   }
   // 沖の通常の波線も固定画ではなく流れるよう、位置をずらした2フレームを用意する。
