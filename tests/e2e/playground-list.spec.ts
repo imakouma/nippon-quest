@@ -64,8 +64,29 @@ test('Playground は編集を一つもどせ、問題を切り替えると履歴
   await expect(prompt).toHaveValue(original);
   await expect(undo).toBeDisabled();
   await prompt.fill('別の変更');
+  await page.locator('details.pg-tree-details > summary').click();
+  page.once('dialog', (dialog) => dialog.accept());
   await page.locator('.pg-question-row').first().click();
   await expect(undo).toBeDisabled();
+});
+
+test('Playground は保存操作で編集内容を送信し、成功を表示する', async ({ page }) => {
+  await page.route('**/__nq/save-question', async (route) => {
+    const body = route.request().postDataJSON() as {
+      expected: { id: string }[];
+      id: string;
+      question: unknown;
+    };
+    const questions = body.expected.map((question) => (question.id === body.id ? body.question : question));
+    await route.fulfill({ json: { questions } });
+  });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const prompt = page.getByLabel('問題文', { exact: true });
+  await expect(prompt).toBeVisible({ timeout: 20_000 });
+  await prompt.fill('保存する問題文');
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('保存しました');
+  await expect(page.getByRole('button', { name: '保存', exact: true })).toBeDisabled();
 });
 
 test('Playground は編集欄の学年と制限時間で問題を試す', async ({ page }) => {

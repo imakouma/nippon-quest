@@ -107,6 +107,10 @@ function App() {
   const [json, setJson] = useState('');
   const [draft, setDraft] = useState<QuestionBase | null>(null);
   const [undoHistory, setHistory] = useState<QuestionBase[]>([]);
+  const [savedDraft, setSavedDraft] = useState<QuestionBase | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState('');
+  const sourceSnapshot = useRef<unknown[]>([]);
   const [grade, setGrade] = useState<Grade>(3);
   const [result, setResult] = useState<QuestionResult | null>(null);
   const [error, setError] = useState('');
@@ -166,24 +170,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!file) return;
-    read(file)
-      .then((raw) => {
-        const arr = Array.isArray(raw) ? raw : [];
-        const validItems = arr.filter((q) => questionBaseSchema.safeParse(q).success) as QuestionBase[];
-        const requestedId = new URLSearchParams(location.search).get('q');
-        const initial = validItems.find((q) => q.id === requestedId) ?? validItems[0];
-        setItems(validItems);
-        setSelectedItemId(initial?.id ?? '');
-        if (initial) {
-          setHistory([]);
-          setGrade(initial.grade);
-          setDraft(initial);
-          setJson(JSON.stringify(initial, null, 2));
-        }
-      })
-      .catch((e) => setError(String(e)));
-  }, [file]);
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (draft && savedDraft && JSON.stringify(draft) !== JSON.stringify(savedDraft)) {
+        event.preventDefault();
+      }
+    };
+    window.addEventListener('beforeunload', beforeUnload);
+    return () => window.removeEventListener('beforeunload', beforeUnload);
+  }, [draft, savedDraft]);
 
   const run = async (text = json) => {
     // 前の 問題が まだ 出ていたら 中断して、あとから 来た 結果は 見ない
@@ -248,6 +242,7 @@ function App() {
   };
 
   const updateDraft = (next: QuestionBase) => {
+    setSaveMessage('');
     if (draft) setHistory((previous) => [...previous.slice(-99), draft]);
     setDraft(next);
     setGrade(next.grade);
@@ -276,14 +271,28 @@ function App() {
 
   /** いちらんの 行を おした：JSON に 入れて、ステージで 出す（URL も ?q=<id> に） */
   const pick = (e: QuestionEntry) => {
+    if (saving) return;
+    if (e.key === selected) return;
+    if (
+      draft &&
+      savedDraft &&
+      JSON.stringify(draft) !== JSON.stringify(savedDraft) &&
+      e.key !== selected &&
+      !window.confirm('未保存の変更があります。変更を破棄しますか？')
+    )
+      return;
     const text = JSON.stringify(e.raw, null, 2);
+    sourceSnapshot.current = entries.filter((entry) => entry.file === e.file).map((entry) => entry.raw);
+    setItems(sourceSnapshot.current.filter((q) => questionBaseSchema.safeParse(q).success) as QuestionBase[]);
     setHistory([]);
     setSelected(e.key);
     setFile(e.file);
     setSelectedItemId(e.q?.id ?? '');
     if (e.q) {
       setGrade(e.q.grade);
-      setDraft(e.q);
+      setDraft(e.raw as QuestionBase);
+      setSavedDraft(e.raw as QuestionBase);
+      setSaveMessage('');
     }
     setJson(text);
     if (e.q) replaceUrl(e.q.id);
@@ -306,6 +315,32 @@ function App() {
   const questionTitle = prompt ?? (question ? units.get(question.unit) : undefined) ?? question?.id;
   const status = result ? resultStatus(result) : null;
 
+  const save = async () => {
+    if (!draft || !file || !selectedItemId || saving) return;
+    setSaving(true);
+    setSaveMessage('');
+    try {
+      const response = await fetch(`${base}/__nq/save-question`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-NQ-Save': '1' },
+        body: JSON.stringify({ file, id: selectedItemId, expected: sourceSnapshot.current, question: draft }),
+      });
+      const data = (await response.json()) as { questions?: unknown[]; error?: string };
+      if (!response.ok || !data.questions) throw new Error(data.error ?? '保存できませんでした');
+      sourceSnapshot.current = data.questions;
+      setEntries((previous) => [
+        ...previous.filter((entry) => entry.file !== file),
+        ...toEntries([{ file, raw: data.questions }]),
+      ]);
+      setSavedDraft(draft);
+      setSaveMessage('保存しました');
+    } catch (e) {
+      setSaveMessage(`保存できませんでした: ${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
     <div class="pg">
       <header class="pg-header">
@@ -327,7 +362,16 @@ function App() {
           catalog={catalog}
           selected={selected}
           onPick={pick}
-          onReload={() => void loadAll()}
+          onReload={() => {
+            if (
+              draft &&
+              savedDraft &&
+              JSON.stringify(draft) !== JSON.stringify(savedDraft) &&
+              !window.confirm('未保存の変更があります。変更を破棄しますか？')
+            )
+              return;
+            window.location.reload();
+          }}
           imageUrl={assets.image}
         />
 
@@ -359,8 +403,18 @@ function App() {
                   <button type="button" class="pg-stop" onClick={undo} disabled={!undoHistory.length}>
                     {pgText('undo')}
                   </button>
+                  <button
+                    type="button"
+                    class="pg-run pg-save"
+                    onClick={() => void save()}
+                    disabled={saving || !draft || JSON.stringify(draft) === JSON.stringify(savedDraft)}
+                  >
+                    {saving ? pgText('saving') : pgText('save')}
+                  </button>
                 </div>
               </div>
+
+              {saveMessage && <p role="status">{saveMessage}</p>}
 
               {error && (
                 <pre class="pg-warn" role="alert">
