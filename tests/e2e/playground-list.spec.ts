@@ -29,10 +29,8 @@ test('Playground は問題を探して試すレビュー画面として表示す
   );
 
   const technical = page.locator('details.pg-technical');
-  await expect(technical).not.toHaveAttribute('open', '');
+  await expect(technical).toBeHidden();
   await expect(page.locator('select#pg-file')).toBeHidden();
-  await technical.locator('summary').click();
-  await expect(page.locator('select#pg-file')).toBeVisible();
   await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 });
 

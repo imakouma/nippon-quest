@@ -425,7 +425,7 @@ function App() {
               )}
             </section>
 
-            <details class="pg-technical">
+            <details class="pg-technical" hidden>
               <summary>
                 <span>{pgText('technical')}</span>
                 <small>{pgText('technicalHelp')}</small>
