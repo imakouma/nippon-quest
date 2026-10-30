@@ -38,6 +38,10 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
   expect(roofPixel(5, 3, 2)).toBe(NQ.brick);
   expect(roofPixel(0, 4, 5)).toBe(NQ.brick);
   expect(roofPixel(1, 4, 5)).toBe(NQ.blue);
+  expect(roofPixel(0, 0, 2, 0)).toBe(NQ.lime);
+  expect(roofPixel(0, 15, 2, 0)).toBe(NQ.lime);
+  expect(roofPixel(0, 8, 12, 11)).not.toBe(roofPixel(0, 8, 12, 15));
+  expect(roofPixel(0, 8, 1, 14)).toBe(NQ.apricot);
   expect(roofPixel(6, 2, 9)).toBe(NQ.cloud);
   expect(roofPixel(6, 8, 15, 11)).toBe(NQ.brown);
   expect(roofPixel(7, 2, 3)).toBe(NQ.brown);

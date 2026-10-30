@@ -49,7 +49,7 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
         ctx.fillStyle = base;
         ctx.fillRect(x, y, 16, 16);
         ctx.fillStyle = light;
-        if (!(mask & 1)) ctx.fillRect(x, y, 16, 1);
+        if (!(mask & 1)) ctx.fillRect(x, y, 16, 2);
         ctx.fillStyle = dark;
         ctx.fillRect(x + 3, y + 5, 6, 1);
         ctx.fillRect(x + 8, y + 10, 5, 1);
@@ -62,15 +62,23 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
           for (const ry of [3, 7, 11]) ctx.fillRect(x + (ry % 2 ? 2 : 5), y + ry, 3, 1);
         }
         if (!(mask & 4)) {
-          if (roof === 6) ctx.fillStyle = NQ.brown;
+          ctx.fillRect(x, y + 11, 16, 3);
+          ctx.fillStyle =
+            roof === 6
+              ? NQ.brown
+              : [NQ.bark, NQ.navy, NQ.forest, NQ.bark, NQ.ink, NQ.bark, NQ.brown, NQ.bark][roof]!;
           ctx.fillRect(x, y + 14, 16, 2);
           ctx.fillStyle = dark;
         }
-        if (!(mask & 8)) ctx.fillRect(x, y + 2, 1, 12);
-        if (!(mask & 2)) ctx.fillRect(x + 15, y + 2, 1, 12);
+        if (!(mask & 2)) ctx.fillRect(x + 14, y + 2, 2, 9);
+        ctx.fillStyle = light;
+        if (!(mask & 8)) ctx.fillRect(x, y + 2, 1, 9);
         ctx.fillStyle = [NQ.lime, NQ.white, NQ.sand, NQ.beige, NQ.silver, NQ.slate][ground]!;
-        if (!(mask & 1) && !(mask & 8)) ctx.fillRect(x, y, 2, 2);
-        if (!(mask & 1) && !(mask & 2)) ctx.fillRect(x + 14, y, 2, 2);
+        for (let row = 0; row < 4; row++) {
+          const inset = 5 - row;
+          if (!(mask & 1) && !(mask & 8)) ctx.fillRect(x, y + row, inset, 1);
+          if (!(mask & 1) && !(mask & 2)) ctx.fillRect(x + 16 - inset, y + row, inset, 1);
+        }
       }
     }
   }
