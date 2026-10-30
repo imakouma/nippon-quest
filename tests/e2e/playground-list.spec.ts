@@ -258,6 +258,22 @@ test('複数ファイルに分かれた単元もまとめて表示する', async
   expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-1/set-002.json');
 });
 
+test('漢字の単元を国語から分けて表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  const kokugo = page.locator('details[data-subject="kokugo"]');
+  const kanji = page.locator('details[data-subject="kanji"]');
+  await expect(kanji.locator(':scope > summary')).toContainText('漢字');
+  await kokugo.locator(':scope > summary').click();
+  await kokugo.locator('details[data-grade="2"] > summary').click();
+  await expect(kokugo.locator('button[data-unit="kokugo.g2.kanji"]')).toHaveCount(0);
+  await expect(kokugo.locator('button[data-unit="kokugo.g2.bun-no-kimari"]')).toBeVisible();
+  await kanji.locator(':scope > summary').click();
+  await kanji.locator('details[data-grade="2"] > summary').click();
+  await expect(kanji.locator('button[data-unit="kokugo.g2.legacy-jpn-2-2"]')).toBeVisible();
+  await kanji.locator('button[data-unit="kokugo.g2.kanji"]').click();
+  await expect(page.locator('.pg-question-row')).toHaveCount(15);
+});
+
 test('親フォルダを閉じると子フォルダの開閉状態をリセットする', async ({ page }) => {
   await page.goto('/playground.html');
   const subject = page.locator('details[data-subject="kokugo"]');

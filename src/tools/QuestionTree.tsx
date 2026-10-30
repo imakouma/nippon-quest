@@ -17,6 +17,32 @@ const closeChildren = (folder: HTMLDetailsElement) => {
 };
 
 export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectUnit }: QuestionTreeProps) {
+  const isKanji = (unit: { unit: string }) =>
+    /漢字|かんじ|おんよみ・くんよみ|へんとつくり/.test(units.get(unit.unit) ?? '') ||
+    unit.unit.includes('kanji');
+  const splitKokugo = (subject: QuestionCatalog['subjects'][number], kanji: boolean) => {
+    const grades = subject.grades.flatMap((grade) => {
+      const matchingUnits = grade.units.filter((unit) => isKanji(unit) === kanji);
+      return matchingUnits.length
+        ? [
+            {
+              ...grade,
+              units: matchingUnits,
+              count: matchingUnits.reduce((sum, unit) => sum + unit.count, 0),
+            },
+          ]
+        : [];
+    });
+    return {
+      ...subject,
+      subject: kanji ? 'kanji' : subject.subject,
+      grades,
+      count: grades.reduce((sum, grade) => sum + grade.count, 0),
+    };
+  };
+  const treeSubjects = catalog.subjects.flatMap((subject) =>
+    subject.subject === 'kokugo' ? [splitKokugo(subject, false), splitKokugo(subject, true)] : [subject],
+  );
   return (
     <details class="pg-tree-details" open>
       <summary>
@@ -39,7 +65,7 @@ export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectU
             {pgText('questionSuffix')}
           </span>
         </button>
-        {catalog.subjects.map((subject) => (
+        {treeSubjects.map((subject) => (
           <details
             name="question-tree-subject"
             data-subject={subject.subject}
@@ -54,7 +80,9 @@ export function QuestionTree({ catalog, units, subjects, selectedUnit, onSelectU
           >
             <summary>
               <span class="pg-tree-label">
-                {stripRuby(subjects.get(subject.subject) ?? subject.subject, 'kanji')}
+                {subject.subject === 'kanji'
+                  ? pgText('kanjiFolder')
+                  : stripRuby(subjects.get(subject.subject) ?? subject.subject, 'kanji')}
               </span>
               <span class="pg-tree-count">
                 {subject.count}
