@@ -59,8 +59,10 @@ export function renderAnimationContactSheet(entries: AnimationContactSheetEntry[
 }
 
 function main(): void {
-  const ledgerPath = 'docs/verification/animation-completion/runtime-monsters/production-ledger.json';
-  const outputPath = 'docs/verification/animation-completion/runtime-monsters/contact-sheet.html';
+  const ledgerPath =
+    process.argv[2] ?? 'docs/verification/animation-completion/runtime-monsters/production-ledger.json';
+  const outputPath =
+    process.argv[3] ?? 'docs/verification/animation-completion/runtime-monsters/contact-sheet.html';
   const ledger = JSON.parse(readFileSync(ledgerPath, 'utf8')) as {
     entries: {
       id: string;

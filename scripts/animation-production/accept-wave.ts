@@ -18,6 +18,7 @@ interface LedgerEntry {
   id: string;
   state: 'pending' | 'accepted';
   prompt?: string;
+  pixelReference?: FileEvidence;
   generatedSource?: FileEvidence;
   runtimeOutput?: FileEvidence;
   visualReview?: {
@@ -42,6 +43,8 @@ export interface AcceptAnimationWaveInput {
   recordsPath: string;
   reviewedAt: string;
   root?: string;
+  batch?: string;
+  verificationId?: string;
 }
 
 function sha256(path: string): string {
@@ -56,14 +59,18 @@ function writeJsonAtomic(path: string, value: unknown): void {
 
 export function acceptAnimationWave(input: AcceptAnimationWaveInput): { accepted: string[] } {
   const root = resolve(input.root ?? '.');
+  const batch = input.batch ?? 'batch-01';
+  const verificationId = input.verificationId ?? 'runtime-monsters';
   if (!/^\d{4}-\d{2}-\d{2}$/.test(input.reviewedAt))
     throw new Error(`reviewedAt must use YYYY-MM-DD: ${input.reviewedAt}`);
+  if (!/^batch-\d{2}$/.test(batch)) throw new Error(`Invalid animation batch: ${batch}`);
+  if (!/^[a-z0-9-]+$/.test(verificationId)) throw new Error(`Invalid verification id: ${verificationId}`);
 
   const ledgerPath = resolve(
     root,
-    'docs/verification/animation-completion/runtime-monsters/production-ledger.json',
+    `docs/verification/animation-completion/${verificationId}/production-ledger.json`,
   );
-  const manifestPath = resolve(root, 'assets/sprites/animations/batch-01/manifest.json');
+  const manifestPath = resolve(root, `assets/sprites/animations/${batch}/manifest.json`);
   const records = JSON.parse(readFileSync(resolve(root, input.recordsPath), 'utf8')) as PromptRecord[];
   const ledger = JSON.parse(readFileSync(ledgerPath, 'utf8')) as { entries: LedgerEntry[] };
   const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as RuntimeManifestEntry[];
@@ -79,10 +86,13 @@ export function acceptAnimationWave(input: AcceptAnimationWaveInput): { accepted
     if (entry.state !== 'pending') throw new Error(`${record.id}: entry is already ${entry.state}`);
     if (registered.has(record.id)) throw new Error(`${record.id}: manifest entry already exists`);
 
-    const sourcePath = `docs/verification/animation-completion/runtime-monsters/${record.id}-generated-source.png`;
-    const runtimePath = `assets/sprites/animations/batch-01/${record.id}-v1.png`;
+    const sourcePath = `docs/verification/animation-completion/${verificationId}/${record.id}-generated-source.png`;
+    const referencePath = `docs/verification/animation-completion/${verificationId}/references/${record.id}-reference.png`;
+    const runtimePath = `assets/sprites/animations/${batch}/${record.id}-v1.png`;
     const sourceAbsolute = resolve(root, sourcePath);
+    const referenceAbsolute = resolve(root, referencePath);
     const runtimeAbsolute = resolve(root, runtimePath);
+    if (!existsSync(referenceAbsolute)) throw new Error(`${record.id}: missing ${referencePath}`);
     if (!existsSync(sourceAbsolute)) throw new Error(`${record.id}: missing ${sourcePath}`);
     if (!existsSync(runtimeAbsolute)) throw new Error(`${record.id}: missing ${runtimePath}`);
     const audit = inspectAnimationSheet(decodeRgbaPng(readFileSync(runtimeAbsolute)));
@@ -90,6 +100,7 @@ export function acceptAnimationWave(input: AcceptAnimationWaveInput): { accepted
 
     entry.state = 'accepted';
     entry.prompt = record.prompt.trim();
+    entry.pixelReference = { path: referencePath, sha256: sha256(referenceAbsolute) };
     entry.generatedSource = { path: sourcePath, sha256: sha256(sourceAbsolute) };
     entry.runtimeOutput = { path: runtimePath, sha256: sha256(runtimeAbsolute) };
     entry.visualReview = {
@@ -100,7 +111,7 @@ export function acceptAnimationWave(input: AcceptAnimationWaveInput): { accepted
     manifest.push({
       id: record.id,
       key: `mon.animation.${record.id}.v1`,
-      path: `sprites/animations/batch-01/${record.id}-v1.png`,
+      path: `sprites/animations/${batch}/${record.id}-v1.png`,
       frameWidth: 128,
       frameHeight: 128,
       idle: [0, 1, 0, 3, 0, 2, 0],
@@ -122,11 +133,18 @@ function option(name: string): string {
   return value;
 }
 
+function optional(name: string): string | undefined {
+  const index = process.argv.indexOf(name);
+  return index >= 0 ? process.argv[index + 1] : undefined;
+}
+
 const invokedPath = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : '';
 if (import.meta.url === invokedPath) {
   const result = acceptAnimationWave({
     recordsPath: option('--records'),
     reviewedAt: option('--reviewed-at'),
+    batch: optional('--batch'),
+    verificationId: optional('--verification-id'),
   });
   console.log(`animation wave accepted: ${result.accepted.join(', ')}`);
 }
