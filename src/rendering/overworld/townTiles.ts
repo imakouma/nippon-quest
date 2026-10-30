@@ -1,10 +1,11 @@
 /**
- * 町の見た目を 県ごとに かえる タイル（61〜146）と、都会の 町の タイル（161〜220）。
+ * 町の見た目を 県ごとに かえる タイル（61〜146）と、都会の 町の タイル（164〜220、302〜304）。
  * どれを使うかは scripts/data/towns.ts の テーマ。
  * 番号は scripts/scaffold-maps.ts の T と対応。「すけ」は 地面の上に重ねる（decor レイヤー）。
  * 2×2 など 大きな物は block で 1 まいの絵に描いて、左上から 行ごとに 番号を ふる。
  */
 import { NQ } from '../palette';
+import { CITY_ROAD_TILES } from '../../shared/cityRoadTiles';
 
 export type Rect = (x: number, y: number, w: number, h: number, col: string) => void;
 export interface TileApi {
@@ -707,8 +708,8 @@ const TOWERS: CityTower[] = [
 ];
 
 /**
- * 都会の 町の タイル（161〜220）。scripts/scaffold-maps.ts の townMap（style: 'city'）が 使う。
- * 161〜169 道路・歩道・石だたみ、170〜183 町かどの もの（すけ）、184〜207 高い ビル（2×3 が 4 しゅるい）、
+ * 都会の 町の タイル（164〜220、302〜304）。scripts/scaffold-maps.ts の townMap（style: 'city'）が 使う。
+ * 302〜304 道路、164〜169 横断歩道・歩道・石だたみ、170〜183 町かどの もの（すけ）、184〜207 高い ビル（2×3 が 4 しゅるい）、
  * 208〜215 駅と 電車、216〜220 お店の ビルの かべ・屋上・ガラス・しばふ・歩道橋。
  */
 function drawCityTiles({ tile, block }: TileApi): void {
@@ -750,17 +751,17 @@ function drawCityTiles({ tile, block }: TileApi): void {
     r(11, 8, 1, 8, NQ.tan);
   };
 
-  // 161 道路
-  tile(161, asphalt);
-  // 162 たての 道（右はしに 白い 中央線）
-  tile(162, (r) => {
+  // 道路
+  tile(CITY_ROAD_TILES.road, asphalt);
+  // たての 道（右はしに 白い 中央線）
+  tile(CITY_ROAD_TILES.lineV, (r) => {
     asphalt(r);
-    for (const y of [1, 7, 13]) r(14, y, 2, 4, NQ.paper);
+    for (const y of [1, 7, 13]) r(14, y, 2, Math.min(4, 16 - y), NQ.paper);
   });
-  // 163 よこの 道（下はしに 白い 中央線）
-  tile(163, (r) => {
+  // よこの 道（下はしに 白い 中央線）
+  tile(CITY_ROAD_TILES.lineH, (r) => {
     asphalt(r);
-    for (const x of [1, 7, 13]) r(x, 14, 4, 2, NQ.paper);
+    for (const x of [1, 7, 13]) r(x, 14, Math.min(4, 16 - x), 2, NQ.paper);
   });
   // 164 横断歩道（よこの 道を わたる：白い 帯が よこに）
   tile(164, (r) => {
