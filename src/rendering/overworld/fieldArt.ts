@@ -788,11 +788,10 @@ function tilesetCanvas(): HTMLCanvasElement {
   });
   // 301 県境の石垣（門のない場所は通れない）
   tile(301, (r) => {
-    r(0, 0, 16, 16, NQ.lime);
-    r(0, 2, 16, 12, NQ.gray);
-    r(0, 2, 16, 2, NQ.silver);
+    r(0, 0, 16, 16, NQ.gray);
+    r(0, 0, 16, 2, NQ.silver);
     r(0, 7, 16, 1, NQ.slate);
-    r(0, 13, 16, 2, NQ.night);
+    r(0, 14, 16, 2, NQ.night);
     r(5, 2, 1, 5, NQ.slate);
     r(11, 2, 1, 5, NQ.slate);
     r(2, 8, 1, 5, NQ.slate);

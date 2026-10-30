@@ -265,10 +265,9 @@ function drawView(px: (n: number) => Px): void {
   // 県境の石垣：門の正面以外を切れ目なく塞ぐ。
   {
     const p = px(VIEW.PREFECTURE_BORDER);
-    for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
-    for (let y = 2; y < 14; y++)
+    for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++)
-        p(x, y, y < 4 ? NQ.silver : y === 7 ? NQ.slate : y >= 13 ? NQ.night : NQ.gray);
+        p(x, y, y < 2 ? NQ.silver : y === 7 ? NQ.slate : y >= 14 ? NQ.night : NQ.gray);
     for (const [x, y] of [
       [5, 2],
       [11, 2],
