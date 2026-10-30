@@ -185,8 +185,13 @@ function tilesetCanvas(): HTMLCanvasElement {
   const wall = (r: Rect) => {
     r(0, 0, 16, 16, NQ.beige);
     r(0, 0, 16, 2, NQ.tan);
+    r(0, 0, 16, 1, NQ.brown);
     r(0, 0, 1, 16, NQ.brown);
-    r(0, 14, 16, 2, NQ.tan);
+    r(1, 2, 1, 11, NQ.paper);
+    r(15, 2, 1, 11, NQ.tan);
+    r(0, 13, 16, 1, NQ.cloud);
+    r(0, 14, 16, 1, NQ.silver);
+    r(0, 15, 16, 1, NQ.gray);
   };
   // 13 花の咲いた草原
   tile(13, (r) => {
