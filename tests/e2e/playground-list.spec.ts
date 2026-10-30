@@ -202,6 +202,27 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   expect(await rows.count()).toBeGreaterThan(100);
 });
 
+test('Playground の問題ツリー：教科と学年はそれぞれ一つずつ開く', async ({ page }) => {
+  await page.goto('/playground.html');
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
+  const kokugo = tree.locator('details[data-subject="kokugo"]');
+  const sansu = tree.locator('details[data-subject="sansu"]');
+  await kokugo.locator(':scope > summary').click();
+  const grade1 = kokugo.locator('details[data-grade="1"]');
+  const grade2 = kokugo.locator('details[data-grade="2"]');
+  await grade1.locator(':scope > summary').click();
+  await grade2.locator(':scope > summary').click();
+  await expect(grade1).not.toHaveAttribute('open', '');
+  await expect(grade2).toHaveAttribute('open', '');
+  await sansu.locator(':scope > summary').click();
+  await expect(kokugo).not.toHaveAttribute('open', '');
+  await expect(sansu).toHaveAttribute('open', '');
+  const sansuGrade = sansu.locator('details[data-grade="1"]');
+  await sansuGrade.locator(':scope > summary').click();
+  await expect(grade2).not.toHaveAttribute('open', '');
+  await expect(sansuGrade).toHaveAttribute('open', '');
+});
+
 test('Playground の問題ツリー：狭い画面では表の上に並ぶ', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('/playground.html');

@@ -38,7 +38,7 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
           </span>
         </button>
         {catalog.subjects.map((subject) => (
-          <details data-subject={subject.subject}>
+          <details name="question-tree-subject" data-subject={subject.subject}>
             <summary>
               <RubyLabel text={subjects.get(subject.subject) ?? subject.subject} />
               <span class="pg-tree-count">
@@ -47,7 +47,7 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
               </span>
             </summary>
             {subject.grades.map((grade) => (
-              <details data-grade={grade.grade}>
+              <details name="question-tree-grade" data-grade={grade.grade}>
                 <summary>
                   {pgText('gradePrefix')}
                   {grade.grade}
