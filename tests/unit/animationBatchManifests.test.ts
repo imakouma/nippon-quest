@@ -39,4 +39,18 @@ describe('並列制作の担当とmanifest', () => {
       }
     }
   });
+
+  it('本番へ489キャラクターを重複なく登録し、未制作53体を明示する', () => {
+    const manifestIds = assignments.batches.flatMap((batch) => {
+      const path = `assets/sprites/animations/${batch.batch}/manifest.json`;
+      const entries = JSON.parse(readFileSync(path, 'utf8')) as MonsterAnimationSpec[];
+      return entries.map((entry) => entry.id);
+    });
+
+    expect(manifestIds).toHaveLength(488);
+    expect(new Set(manifestIds).size).toBe(488);
+    expect(monsterAnimationSpec('aomori-ringoron')).toBeDefined();
+    expect(488 + 1).toBe(489);
+    expect(assignments.runtimeMonsters - 489).toBe(53);
+  });
 });

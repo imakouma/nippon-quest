@@ -5,6 +5,8 @@
 export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip';
 export type MenuHomeKey = MenuTab | 'party';
 export type RoadmapSupportingKind = 'component' | 'transfer' | 'related' | 'chronological';
+export type RoadmapPendingReason = 'due-review' | 'weak-prerequisite' | 'unseen-primary' | 'unseen-question';
+export type RoadmapCompletedReason = 'review' | 'diagnosis';
 
 export interface RoadmapNode {
   id: string;
@@ -27,6 +29,38 @@ export interface RoadmapNode {
   y: number;
   visibility: 'revealed' | 'frontier' | 'hidden';
   state: 'cleared' | 'review' | 'current' | 'open' | 'locked';
+}
+
+export interface RoadmapUnitProgressView {
+  mastery: number;
+  attempts: number;
+  retention: number;
+  state: RoadmapNode['state'];
+}
+
+interface RoadmapTodayItemBase {
+  questionId: string;
+  actualUnitId: string;
+  unitName: string;
+  subject: string;
+  subjectLabel: string;
+  grade: number;
+  conceptIds: readonly string[];
+  progress: RoadmapUnitProgressView;
+}
+
+export type RoadmapTodayItem =
+  | (RoadmapTodayItemBase & { completed: false; reason: RoadmapPendingReason })
+  | (RoadmapTodayItemBase & { completed: true; reason: RoadmapCompletedReason });
+
+export interface RoadmapTodayPlanView {
+  items: RoadmapTodayItem[];
+  allComplete: boolean;
+}
+
+export interface RoadmapViewModel {
+  nodes: RoadmapNode[];
+  todayPlan: RoadmapTodayPlanView;
 }
 
 export interface MenuEntry {

@@ -26,11 +26,11 @@ Approved on 2026-10-28. Capability map module: `math-learning-content-pilot`.
 
 現在の基点では、対象Conceptの primary 問題数は次のとおりである。
 
-| Concept | Unit | primary問題数 |
-|---|---|---:|
-| `sansu.g1.number.two-digit-place-value` | `sansu.g1.kazu-100` | 4 |
-| `sansu.g1.addition.meaning` | `sansu.g1.tashizan` | 3 |
-| `sansu.g1.operation.make-ten-strategy` | `sansu.g1.kuriagari-kurisagari` | 6 |
+| Concept                                 | Unit                            | primary問題数 |
+| --------------------------------------- | ------------------------------- | ------------: |
+| `sansu.g1.number.two-digit-place-value` | `sansu.g1.kazu-100`             |             4 |
+| `sansu.g1.addition.meaning`             | `sansu.g1.tashizan`             |             3 |
+| `sansu.g1.operation.make-ten-strategy`  | `sansu.g1.kuriagari-kurisagari` |             6 |
 
 既存の誤概念シグナルは3件で、すべて `sansu.g1.misconception.add-instead-difference` を参照する draft QuestionLink にあり、confidence は0.60〜0.70である。
 
@@ -57,31 +57,31 @@ Approved on 2026-10-28. Capability map module: `math-learning-content-pilot`.
 
 既存 `QuestionBase.tags` に、次の4語だけを学習段階タグとして使用する。
 
-| Tag | このパイロットでの意味 |
-|---|---|
-| `stage:concrete` | 仮想ブロックなど、数を具体物として直接操作・構成する問題 |
-| `stage:visual` | 数直線など、位置やまとまりを視覚表現から読む問題 |
-| `stage:symbolic` | 数字、式、位、分解手順などの記号表現を扱う問題 |
-| `stage:application` | 生活場面から演算や答えを選ぶ問題 |
+| Tag                 | このパイロットでの意味                                   |
+| ------------------- | -------------------------------------------------------- |
+| `stage:concrete`    | 仮想ブロックなど、数を具体物として直接操作・構成する問題 |
+| `stage:visual`      | 数直線など、位置やまとまりを視覚表現から読む問題         |
+| `stage:symbolic`    | 数字、式、位、分解手順などの記号表現を扱う問題           |
+| `stage:application` | 生活場面から演算や答えを選ぶ問題                         |
 
 各対象問題は上記のタグをちょうど1件持つ。既存の `prefecture:*`、`theme:*`、`source:*`、`legacy-node:*`、`reviewed:*` タグは削除・並べ替えず、stageタグを末尾へ追加する。
 
 ### Exact target matrix
 
-| Question ID | Unit | Primary concept | Stage tag | 根拠 |
-|---|---|---|---|---|
-| `sansu.g1.kazu-100.ringo-blocks-0001` | `sansu.g1.kazu-100` | `sansu.g1.number.two-digit-place-value` | `stage:concrete` | 10と1の仮想ブロックを直接構成する |
-| `sansu.g1.kazu-100.ringo-numberline-0001` | `sansu.g1.kazu-100` | `sansu.g1.number.order` | `stage:visual` | 数直線上の位置を視覚的に合わせる |
-| `sansu.g1.kazu-100.place-value-0001` | `sansu.g1.kazu-100` | `sansu.g1.number.two-digit-place-value` | `stage:symbolic` | 2位数を10のまとまりとばらへ読む |
-| `sansu.g1.kazu-100.place-value-0002` | `sansu.g1.kazu-100` | `sansu.g1.number.two-digit-place-value` | `stage:symbolic` | 10の個数と端数を数字へ変換する |
-| `sansu.g1.kazu-100.place-value-0003` | `sansu.g1.kazu-100` | `sansu.g1.number.two-digit-place-value` | `stage:symbolic` | 位の数字が表す値を読む |
-| `sansu.g1.tashizan.0001` | `sansu.g1.tashizan` | `sansu.g1.addition.meaning` | `stage:application` | 具体的な2集合を合わせる生活場面 |
-| `sansu.g1.tashizan.0006` | `sansu.g1.tashizan` | `sansu.g1.addition.meaning` | `stage:application` | 合併場面を式へ対応させる |
-| `sansu.g1.tashizan.0007` | `sansu.g1.tashizan` | `sansu.g1.addition.meaning` | `stage:application` | 増加場面を式へ対応させる |
-| `sansu.g1.kuriagari-kurisagari.0001` | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy` | `stage:symbolic` | 10を作るための数の分解を選ぶ |
-| `sansu.g1.kuriagari-kurisagari.0002` | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy` | `stage:symbolic` | 10のまとまりを使って式を解く |
-| `sansu.g1.kuriagari-kurisagari.0004` | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy` | `stage:symbolic` | 減法の分解手順を選ぶ |
-| `sansu.g1.kuriagari-kurisagari.0006` | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy` | `stage:application` | 生活場面で繰り下がりの減法を使う |
+| Question ID                               | Unit                            | Primary concept                         | Stage tag           | 根拠                              |
+| ----------------------------------------- | ------------------------------- | --------------------------------------- | ------------------- | --------------------------------- |
+| `sansu.g1.kazu-100.ringo-blocks-0001`     | `sansu.g1.kazu-100`             | `sansu.g1.number.two-digit-place-value` | `stage:concrete`    | 10と1の仮想ブロックを直接構成する |
+| `sansu.g1.kazu-100.ringo-numberline-0001` | `sansu.g1.kazu-100`             | `sansu.g1.number.order`                 | `stage:visual`      | 数直線上の位置を視覚的に合わせる  |
+| `sansu.g1.kazu-100.place-value-0001`      | `sansu.g1.kazu-100`             | `sansu.g1.number.two-digit-place-value` | `stage:symbolic`    | 2位数を10のまとまりとばらへ読む   |
+| `sansu.g1.kazu-100.place-value-0002`      | `sansu.g1.kazu-100`             | `sansu.g1.number.two-digit-place-value` | `stage:symbolic`    | 10の個数と端数を数字へ変換する    |
+| `sansu.g1.kazu-100.place-value-0003`      | `sansu.g1.kazu-100`             | `sansu.g1.number.two-digit-place-value` | `stage:symbolic`    | 位の数字が表す値を読む            |
+| `sansu.g1.tashizan.0001`                  | `sansu.g1.tashizan`             | `sansu.g1.addition.meaning`             | `stage:application` | 具体的な2集合を合わせる生活場面   |
+| `sansu.g1.tashizan.0006`                  | `sansu.g1.tashizan`             | `sansu.g1.addition.meaning`             | `stage:application` | 合併場面を式へ対応させる          |
+| `sansu.g1.tashizan.0007`                  | `sansu.g1.tashizan`             | `sansu.g1.addition.meaning`             | `stage:application` | 増加場面を式へ対応させる          |
+| `sansu.g1.kuriagari-kurisagari.0001`      | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy`  | `stage:symbolic`    | 10を作るための数の分解を選ぶ      |
+| `sansu.g1.kuriagari-kurisagari.0002`      | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy`  | `stage:symbolic`    | 10のまとまりを使って式を解く      |
+| `sansu.g1.kuriagari-kurisagari.0004`      | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy`  | `stage:symbolic`    | 減法の分解手順を選ぶ              |
+| `sansu.g1.kuriagari-kurisagari.0006`      | `sansu.g1.kuriagari-kurisagari` | `sansu.g1.operation.make-ten-strategy`  | `stage:application` | 生活場面で繰り下がりの減法を使う  |
 
 `stage:visual` の1件は対象Unit内だが、3つの対象Conceptとは別の既存 primary Conceptへ紐づく。既存問題を改変せず、実際に視覚表現を使う問題だけへタグを付けるための意図的な選択である。
 
@@ -89,11 +89,11 @@ Approved on 2026-10-28. Capability map module: `math-learning-content-pilot`.
 
 ### Existing signals to preserve
 
-| Question ID | Answer | Concept | Confidence |
-|---|---|---|---:|
-| `sansu.g1.tashizan.0001` | `d` | `sansu.g1.misconception.add-instead-difference` | 0.65 |
-| `sansu.g1.tashizan.0002` | `b` | `sansu.g1.misconception.add-instead-difference` | 0.60 |
-| `sansu.g1.tashizan.0004` | `b` | `sansu.g1.misconception.add-instead-difference` | 0.70 |
+| Question ID              | Answer | Concept                                         | Confidence |
+| ------------------------ | ------ | ----------------------------------------------- | ---------: |
+| `sansu.g1.tashizan.0001` | `d`    | `sansu.g1.misconception.add-instead-difference` |       0.65 |
+| `sansu.g1.tashizan.0002` | `b`    | `sansu.g1.misconception.add-instead-difference` |       0.60 |
+| `sansu.g1.tashizan.0004` | `b`    | `sansu.g1.misconception.add-instead-difference` |       0.70 |
 
 ### New draft misconception concepts
 
@@ -108,11 +108,11 @@ Approved on 2026-10-28. Capability map module: `math-learning-content-pilot`.
 
 ### New signals
 
-| Question ID | Answer | Misconception concept | Confidence | QuestionLink review |
-|---|---|---|---:|---|
-| `sansu.g1.kazu-100.place-value-0001` | `b` | `sansu.g1.misconception.tens-ones-reversed` | 0.70 | `draft` |
-| `sansu.g1.kuriagari-kurisagari.0001` | `b` | `sansu.g1.misconception.make-ten-arbitrary-split` | 0.65 | `draft` |
-| `sansu.g1.kuriagari-kurisagari.0004` | `b` | `sansu.g1.misconception.add-instead-difference` | 0.65 | `draft` |
+| Question ID                          | Answer | Misconception concept                             | Confidence | QuestionLink review |
+| ------------------------------------ | ------ | ------------------------------------------------- | ---------: | ------------------- |
+| `sansu.g1.kazu-100.place-value-0001` | `b`    | `sansu.g1.misconception.tens-ones-reversed`       |       0.70 | `draft`             |
+| `sansu.g1.kuriagari-kurisagari.0001` | `b`    | `sansu.g1.misconception.make-ten-arbitrary-split` |       0.65 | `draft`             |
+| `sansu.g1.kuriagari-kurisagari.0004` | `b`    | `sansu.g1.misconception.add-instead-difference`   |       0.65 | `draft`             |
 
 新規シグナルの rationale は、観察した誤答と推測を区別し、「一度だけでは断定しない」ことを明記する。シグナルを追加する既存QuestionLinkが `source-checked` の場合は、誤概念対応を含むリンク全体を `draft` へ戻す。Concept、QuestionLink、signalを `source-checked` または `expert-reviewed` へ昇格しない。
 

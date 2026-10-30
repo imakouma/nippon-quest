@@ -4,15 +4,15 @@ import type { PixelBounds } from '../../src/rendering/monsterImageScale';
 
 type Battle = Phaser.Scene & {
   enemySprite: Phaser.GameObjects.Image;
-  layout: { enemy: { y: number } };
+  layout: { enemy: { y: number; minBodyTop: number } };
 };
 
 const cases = [
   { id: 'kanagawa-pichirasu', heightCm: 10, target: 60 },
   { id: 'yamanashi-suzurin', heightCm: 32, target: 60 },
-  { id: 'yamanashi-suzuri-tatsujin', heightCm: 120, target: 96 * Math.sqrt(1.2) },
-  { id: 'yamanashi-boss-suisho-ryu', heightCm: 350, target: 96 * Math.sqrt(3.5) },
-  { id: 'toyama-boss-tateyama-ou', heightCm: 580, target: 188 },
+  { id: 'yamanashi-suzuri-tatsujin', heightCm: 120, target: 96 * 1.2 ** 0.55 },
+  { id: 'yamanashi-boss-suisho-ryu', heightCm: 350, target: 96 * 3.5 ** 0.55 },
+  { id: 'toyama-boss-tateyama-ou', heightCm: 580, target: 250 },
 ] as const;
 
 for (const viewport of [
@@ -52,7 +52,9 @@ for (const viewport of [
           screenBodyHeight: bounds.height * sprite.scaleY * screenScale,
           visibleTop,
           visibleFoot,
-          groundY: battle.layout.enemy.y,
+          groundY: sprite.y,
+          baseGroundY: battle.layout.enemy.y,
+          minBodyTop: battle.layout.enemy.minBodyTop,
         };
       });
 
@@ -61,7 +63,11 @@ for (const viewport of [
       expect(body.renderedBodyHeight).toBeCloseTo(body.targetBodyHeight, 3);
       expect(body.screenBodyHeight).toBeGreaterThanOrEqual(viewport.width === 640 ? 40 : 60);
       expect(body.visibleFoot).toBeCloseTo(body.groundY, 3);
-      expect(body.visibleTop).toBeGreaterThanOrEqual(90);
+      expect(body.groundY).toBeCloseTo(
+        Math.max(body.baseGroundY, body.minBodyTop + body.targetBodyHeight),
+        3,
+      );
+      expect(body.visibleTop).toBeGreaterThanOrEqual(body.minBodyTop - 0.001);
       observed.push({ id: expected.id, heightCm: body.bodyHeightCm, bodyHeight: body.renderedBodyHeight });
     }
 

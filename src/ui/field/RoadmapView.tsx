@@ -37,12 +37,15 @@ export function RoadmapView({
   nodes,
   onSelect,
   developerMode = false,
+  initialUnitId,
 }: {
   nodes: RoadmapNode[];
   onSelect: (unitId: string) => void;
   developerMode?: boolean;
+  initialUnitId?: string;
 }) {
-  const [subject, setSubject] = useState('all');
+  const initialUnit = initialUnitId ? nodes.find((node) => node.id === initialUnitId) : undefined;
+  const [subject, setSubject] = useState(initialUnit?.subject ?? 'all');
   const [grade, setGrade] = useState<RoadmapGrade>('all');
   const [term, setTerm] = useState<RoadmapTerm>('all');
   const [showTermNote, setShowTermNote] = useState(false);
@@ -293,7 +296,7 @@ export function RoadmapView({
           })}
         </div>
       ) : (
-        <RoadmapGraph nodes={graphNodes} onSelect={onSelect} />
+        <RoadmapGraph nodes={graphNodes} onSelect={onSelect} initialSelectedId={initialUnitId} />
       )}
     </section>
   );

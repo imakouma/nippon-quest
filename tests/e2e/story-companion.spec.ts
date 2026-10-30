@@ -2,6 +2,10 @@ import { expect, test, type Page } from '@playwright/test';
 import type Phaser from 'phaser';
 import { completeNewGameSetup } from './newGame';
 
+type Battle = Phaser.Scene & {
+  palSprite: Phaser.GameObjects.Image | null;
+};
+
 async function putPlayerInIwateTown(page: Page): Promise<void> {
   await page.evaluate(async () => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
@@ -205,11 +209,9 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(page.locator('.nq-box-text')).toBeVisible({ timeout: 30_000 });
   const partner = await page.evaluate(() => {
     const game = (window as unknown as { __nq: Phaser.Game }).__nq;
-    const battle = game.scene.getScene('Battle');
-    const sprite = battle.children.list.find(
-      (child) =>
-        'texture' in child && (child as Phaser.GameObjects.Image).texture.key === 'mon.iwate-kagurabi',
-    ) as Phaser.GameObjects.Image;
+    const battle = game.scene.getScene('Battle') as Battle;
+    const sprite = battle.palSprite;
+    if (!sprite) throw new Error('Battle partner sprite was not created');
     return {
       width: sprite.displayWidth,
       height: sprite.displayHeight,

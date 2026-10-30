@@ -1,14 +1,23 @@
 import type { Unit } from '../../core/content/schemas';
+import type { ContentIndex } from '../../core/content/loader';
 import {
+  aggregateUnitMastery,
+  buildLearningPlan,
   curriculumGraph,
   estimatedRetention,
+  projectRoadmapRelations,
   type ConceptStateData,
   type CurriculumGraph,
 } from '../../core/learning';
 import { availableRoadmapSubjects, isCompletedRoadmapProgress } from '../../core/learning/subjectUnlocks';
 import { canonicalUnitId, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
-import type { MasteryData, MasteryRecord } from '../../questions/engine/mastery';
-import type { RoadmapNode } from '../../shared/menuModel';
+import { roadmapGrandfatheredUnitIds } from '../../core/state/roadmapSnapshot';
+import type { GameState } from '../../core/state/schema';
+import type { Grade } from '../../questions/contracts';
+import type { QuestionBank } from '../../questions/engine';
+import type { MasteryData } from '../../questions/engine/mastery';
+import type { LearningPlanInput } from '../../core/learning/learningPlan';
+import type { RoadmapNode, RoadmapTodayItem, RoadmapViewModel } from '../../shared/menuModel';
 import { layoutRoadmapNodes } from './roadmapLayout';
 
 export { LEGACY_QUESTION_UNIT_ALIASES, LEGACY_UNIT_ALIASES } from '../../core/learning/unitAliases';
@@ -28,14 +37,115 @@ export interface RoadmapInput {
   subjectLabel: (subject: string) => string;
 }
 
+export type RoadmapViewModelInput = Omit<RoadmapInput, 'curriculum' | 'now' | 'playerGrade'> & {
+  curriculum: CurriculumGraph;
+  now: number;
+  playerGrade: Grade;
+  learningPlan: Pick<LearningPlanInput, 'questionBank' | 'attempts' | 'recentQuestionIds'> & {
+    includeLower: boolean;
+  };
+};
+
 /** ゲーム本体で使う正規カリキュラムを結びつけ、Sceneから教材定義の所在を隠す。 */
 export function buildGameRoadmapNodes(input: Omit<RoadmapInput, 'curriculum'>): RoadmapNode[] {
   return buildRoadmapNodes({ ...input, curriculum: curriculumGraph });
 }
 
+/** ゲーム本体の正規カリキュラムを使って、今日プラン込みの表示モデルを作る。 */
+export function buildGameRoadmapViewModel(
+  input: Omit<RoadmapViewModelInput, 'curriculum'>,
+): RoadmapViewModel {
+  return buildRoadmapViewModel({ ...input, curriculum: curriculumGraph });
+}
+
+/** Overworld が持つ既存状態を、Scene非依存の表示モデル入力へ変換する。 */
+export function buildRuntimeRoadmapViewModel(input: {
+  content: Pick<ContentIndex, 'units'>;
+  game: GameState;
+  questionBank?: QuestionBank;
+  revealAll: boolean;
+  now: number;
+  subjectLabel: (subject: string) => string;
+}): RoadmapViewModel {
+  const base = {
+    units: input.content.units.values(),
+    mastery: input.game.learning.mastery,
+    conceptStates: input.game.learning.conceptStates,
+    grandfatheredUnitIds: roadmapGrandfatheredUnitIds(input.game),
+    revealAll: input.revealAll,
+    playerGrade: input.game.learning.grade,
+    challengeHigher: input.game.learning.challengeHigher,
+    subjectLabel: input.subjectLabel,
+  };
+  if (!input.questionBank) {
+    return { nodes: buildGameRoadmapNodes(base), todayPlan: { items: [], allComplete: false } };
+  }
+  return buildGameRoadmapViewModel({
+    ...base,
+    now: input.now,
+    learningPlan: {
+      questionBank: input.questionBank,
+      attempts: input.game.learning.attempts,
+      recentQuestionIds: input.game.learning.recent,
+      includeLower: input.game.learning.includeLower,
+    },
+  });
+}
+
+/** 正規カリキュラム、今日プラン、ロードマップを一つの表示契約へまとめる。 */
+export function buildRoadmapViewModel(input: RoadmapViewModelInput): RoadmapViewModel {
+  const units = [...input.units];
+  const grandfatheredUnitIds = [...(input.grandfatheredUnitIds ?? [])];
+  const nodes = buildRoadmapNodes({ ...input, units, grandfatheredUnitIds });
+  const nodeByCanonicalId = new Map(nodes.map((node) => [canonicalUnitId(node.id), node]));
+  const plan = buildLearningPlan({
+    graph: input.curriculum,
+    questionBank: input.learningPlan.questionBank,
+    conceptStates: input.conceptStates ?? {},
+    attempts: input.learningPlan.attempts,
+    recentQuestionIds: input.learningPlan.recentQuestionIds,
+    unitMastery: aggregateUnitMastery(input.mastery),
+    grandfatheredUnitIds,
+    gradeScope: {
+      grade: input.playerGrade,
+      includeLower: input.learningPlan.includeLower,
+      challengeHigher: input.challengeHigher,
+    },
+    now: input.now,
+  });
+  const items = plan.flatMap((item): RoadmapTodayItem[] => {
+    const actualUnitId = canonicalUnitId(item.actualUnitId);
+    const node = nodeByCanonicalId.get(actualUnitId);
+    if (!node) return [];
+    const base = {
+      questionId: item.questionId,
+      actualUnitId,
+      unitName: node.name,
+      subject: node.subject,
+      subjectLabel: node.subjectLabel,
+      grade: node.grade,
+      conceptIds: [...item.conceptIds],
+      progress: {
+        mastery: node.mastery,
+        attempts: node.attempts,
+        retention: node.retention,
+        state: node.state,
+      },
+    };
+    return item.completed
+      ? [{ ...base, completed: true, reason: item.reason }]
+      : [{ ...base, completed: false, reason: item.reason }];
+  });
+  return {
+    nodes,
+    todayPlan: { items, allComplete: items.length > 0 && items.every((item) => item.completed) },
+  };
+}
+
 /** GameState と教材定義から表示専用データを作る。Phaser/DOMには依存しない。 */
 export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
   const allUnits = [...input.units];
+  const aggregatedMastery = aggregateUnitMastery(input.mastery);
   const unitById = new Map(allUnits.map((unit) => [unit.id, unit]));
   const replacedLegacyUnits = new Set(
     allUnits
@@ -74,52 +184,38 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
     if (displayId) grandfatheredDisplayUnits.add(displayId);
   }
 
-  const masteryKeysByDisplayUnit = new Map<string, Set<string>>();
-  for (const unit of allUnits) {
-    const displayId = displayIdByUnitId.get(unit.id) ?? displayIdByUnitId.get(masteryId(unit));
-    if (!displayId) continue;
-    const keys = masteryKeysByDisplayUnit.get(displayId) ?? new Set<string>();
-    keys.add(displayId);
-    keys.add(unit.id);
-    keys.add(masteryId(unit));
-    if (unit.legacyNode) keys.add(unit.legacyNode);
-    masteryKeysByDisplayUnit.set(displayId, keys);
-  }
-  const mergedMastery = (displayId: string): MasteryRecord | undefined => {
-    const records = [...(masteryKeysByDisplayUnit.get(displayId) ?? [displayId])]
-      .map((key) => input.mastery[key])
-      .filter((record): record is MasteryRecord => record !== undefined);
-    if (!records.length) return undefined;
-    const weightedAttempts = records.reduce((sum, record) => sum + Math.max(1, record.n), 0);
-    return {
-      value:
-        records.reduce((sum, record) => sum + record.value * Math.max(1, record.n), 0) / weightedAttempts,
-      n: records.reduce((sum, record) => sum + record.n, 0),
-      lastAt: Math.max(...records.map((record) => record.lastAt)),
-    };
-  };
+  const mergedMastery = (displayId: string) => aggregatedMastery[canonicalUnitId(displayId)];
 
   const prerequisiteIds = new Map<string, Set<string>>();
+  const supportingLinks = new Map<string, NonNullable<RoadmapNode['supportingLinks']>>();
   const conceptsByUnit = new Map<string, string[]>();
   if (input.curriculum) {
-    const displayUnitByConcept = new Map<string, string>();
     for (const concept of input.curriculum.concepts) {
       const displayUnitId =
         displayIdByUnitId.get(canonicalUnitId(concept.unit)) ?? displayIdByUnitId.get(concept.unit);
       if (!displayUnitId || concept.kind === 'misconception') continue;
-      displayUnitByConcept.set(concept.id, displayUnitId);
       const ids = conceptsByUnit.get(displayUnitId) ?? [];
       ids.push(concept.id);
       conceptsByUnit.set(displayUnitId, ids);
     }
-    for (const relation of input.curriculum.relations) {
-      if (relation.kind !== 'prerequisite') continue;
-      const from = displayUnitByConcept.get(relation.from);
-      const to = displayUnitByConcept.get(relation.to);
-      if (!from || !to || from === to) continue;
-      const ids = prerequisiteIds.get(to) ?? new Set<string>();
-      ids.add(from);
-      prerequisiteIds.set(to, ids);
+    const canonicalDisplayIds = new Set(units.map((unit) => canonicalUnitId(masteryId(unit))));
+    const projected = projectRoadmapRelations(input.curriculum, canonicalDisplayIds);
+    for (const [targetId, sourceIds] of projected.prerequisiteIdsByTarget) {
+      const targetDisplayId = displayIdByUnitId.get(targetId);
+      if (!targetDisplayId) continue;
+      const displaySourceIds = sourceIds
+        .map((sourceId) => displayIdByUnitId.get(sourceId))
+        .filter((sourceId): sourceId is string => sourceId !== undefined);
+      if (displaySourceIds.length) prerequisiteIds.set(targetDisplayId, new Set(displaySourceIds));
+    }
+    for (const [targetId, links] of projected.supportingLinksByTarget) {
+      const targetDisplayId = displayIdByUnitId.get(targetId);
+      if (!targetDisplayId) continue;
+      const displayLinks = links.flatMap((link) => {
+        const sourceId = displayIdByUnitId.get(link.sourceId);
+        return sourceId ? [{ sourceId, kind: link.kind }] : [];
+      });
+      if (displayLinks.length) supportingLinks.set(targetDisplayId, displayLinks);
     }
   }
 
@@ -195,6 +291,7 @@ export function buildRoadmapNodes(input: RoadmapInput): RoadmapNode[] {
       attempts,
       retention,
       prerequisiteIds: prerequisites,
+      ...(supportingLinks.has(unit.id) ? { supportingLinks: [...supportingLinks.get(unit.id)!] } : {}),
       x: 0,
       y: 0,
       visibility: 'revealed' as const,
