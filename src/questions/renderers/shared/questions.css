@@ -162,6 +162,74 @@
 .nq-choice-dim {
   opacity: 0.45;
 }
+
+/* kanji-trace：お手本を なぞる／読みを えらぶ */
+.nq-kt-canvas {
+  align-self: center;
+  width: clamp(120px, min(240px, 60vw, calc(100dvh - 220px)), 240px);
+  aspect-ratio: 1;
+  background: #fff8e6;
+  border: 4px solid #f6e7c1;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent calc(50% - 1px),
+      rgba(42, 26, 5, 0.15) 50%,
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(50% - 1px),
+      rgba(42, 26, 5, 0.15) 50%,
+      transparent calc(50% + 1px)
+    );
+  cursor: crosshair;
+  touch-action: none;
+}
+.nq-kt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.nq-kt-submit {
+  min-width: 160px;
+  background: #6cc070;
+}
+.nq-kt-strokes {
+  margin-left: 12px;
+  opacity: 0.8;
+}
+.nq-kt-hint {
+  margin: 0;
+  text-align: center;
+}
+.nq-kt-big {
+  align-self: center;
+  font-size: 96px;
+  line-height: 1;
+}
+@media (max-height: 420px) {
+  .nq-q-kanji-trace {
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+  }
+  .nq-kt-actions {
+    gap: 8px;
+  }
+  .nq-kt-actions .nq-btn {
+    white-space: nowrap;
+  }
+  .nq-kt-submit {
+    min-width: 140px;
+  }
+  .nq-kt-canvas {
+    width: min(120px, 34dvh);
+  }
+  .nq-kt-hint {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
 /* アルファベット 1 もじの 選択肢は 大きく */
 .nq-q-choices-big .nq-choice {
   font-size: 48px;
