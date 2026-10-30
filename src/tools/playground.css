@@ -535,12 +535,6 @@ button:disabled {
   overflow: hidden;
 }
 
-.pg-draft-help {
-  margin: 8px 12px 0;
-  color: #61706b;
-  font-size: 12px;
-}
-
 .pg-editor-form {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -740,9 +734,8 @@ button:disabled {
 .pg-stage-shell {
   position: relative;
   display: grid;
-  min-height: 300px;
   place-items: center;
-  padding: 14px;
+  padding: 4px 12px;
   background: #e6ebe8;
 }
 
@@ -998,8 +991,7 @@ button:disabled {
   }
 
   .pg-stage-shell {
-    min-height: 180px;
-    padding: 7px;
+    padding: 4px 7px;
   }
 
   .pg-result-summary {
