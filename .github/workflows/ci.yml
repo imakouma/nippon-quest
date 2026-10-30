@@ -60,6 +60,7 @@ jobs:
           pnpm exec playwright test
           --config tests/e2e/playwright.prebuilt.config.ts
           --grep-invert '全問題をバトル問題枠'
+          --fully-parallel
           --shard=${{ matrix.shard }}/6
       - name: Upload Playwright diagnostics
         if: failure()

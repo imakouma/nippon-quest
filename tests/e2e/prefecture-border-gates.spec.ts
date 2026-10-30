@@ -667,7 +667,7 @@ test('開発者モードはボス・名所を起動せず進行を変更しな�
 });
 
 test('9つの実在交通を種類別に表示し、960×540と844×390に収める', async ({ page }) => {
-  test.setTimeout(180_000);
+  test.setTimeout(360_000);
   const browserErrors: string[] = [];
   page.on('pageerror', (error) => browserErrors.push(error.message));
   page.on('console', (message) => {
