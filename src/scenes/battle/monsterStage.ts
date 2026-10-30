@@ -13,10 +13,17 @@ export function monsterStageSize(def: Monster, content: ContentIndex, isBoss: bo
   return size === MONSTER_SIZE.normal && isBoss ? MONSTER_SIZE.boss : size;
 }
 
-/** 100cmを従来の通常敵相当とし、実寸差を平方根で圧縮して安全領域へ収める。 */
+const BODY_HEIGHT_COMPRESSION_EXPONENT = 0.55;
+
+/** 100cmを従来の通常敵相当とし、大型ほど少し強く反映しながら安全領域へ収める。 */
 export function monsterBodyTargetHeight(heightCm: number, layout: BattleLayout): number {
-  const compressed = layout.enemy.referenceBodyHeight * Math.sqrt(heightCm / 100);
+  const compressed = layout.enemy.referenceBodyHeight * (heightCm / 100) ** BODY_HEIGHT_COMPRESSION_EXPONENT;
   return Math.max(layout.enemy.minBodyHeight, Math.min(layout.enemy.maxBodyHeight, compressed));
+}
+
+/** 大型の敵だけ足元を下げ、身体上端がHUDの安全ラインを越えないようにする。 */
+export function monsterBodyGroundY(targetBodyHeight: number, layout: BattleLayout): number {
+  return Math.max(layout.enemy.y, layout.enemy.minBodyTop + targetBodyHeight);
 }
 
 const boundsCache = new WeakMap<Phaser.Textures.TextureManager, Map<string, PixelBounds>>();

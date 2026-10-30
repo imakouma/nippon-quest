@@ -30,7 +30,7 @@
       "unitId": "sansu.g1.kazu-100",
       "subject": "sansu",
       "name": "100までの かず",
-      "goals": 2,
+      "goals": 3,
       "questions": 41,
       "confirmedTermQuestions": 16,
       "linked": 41,
@@ -67,10 +67,10 @@
       "subject": "kokugo",
       "name": "1年[ねん]の漢字[かんじ]",
       "goals": 2,
-      "questions": 57,
+      "questions": 59,
       "confirmedTermQuestions": 0,
       "linked": 57,
-      "unreviewed": 0,
+      "unreviewed": 2,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -364,6 +364,11 @@
     {
       "unitId": "kokugo.g1.kanji",
       "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "kokugo.g1.kanji",
+      "kind": "some-questions-unreviewed",
       "severity": "review"
     },
     {

@@ -91,6 +91,7 @@ import {
   stopMonsterAnimation,
 } from './battle/monsterAnimation';
 import { BattleIdleMotion } from './battle/idleMotion';
+import { createHeroBattleSprite, playHeroBattleAnimation } from './battle/heroAnimation';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
 import { attachBattleBgm, finishBattleBgm, withBattleMusicDucked } from './battle/bgm';
@@ -105,9 +106,9 @@ import {
 import { BattleEventAnimator } from './battle/eventAnimator';
 import { resolveBattleLaunchRuleset } from './battle/rulesetSetup';
 import { BattleResumeRuntime, resumeLaunch, runCheckpointedBattleCommand } from './battle/resumeRuntime';
-import { buildBattleHistoryView } from './battle/statusHistoryViews';
 import {
   ensureMonsterTexture,
+  monsterBodyGroundY,
   monsterBodyTargetHeight,
   monsterFrameVisibleBounds,
   monsterStageSize,
@@ -156,8 +157,6 @@ export class BattleScene extends Phaser.Scene {
   private lastEnemyStyle: EnemyStyle = 'claw';
   private victory: Extract<BattleEvent, { t: 'victory' }> | null = null;
   private scriptedQuestionIndex = 0;
-  /** 演出が完了し、履歴へ出してよい `BattleState.log` の件数。 */
-  private presentedEventCount = 0;
 
   // ── ターンの 進行 ──
   private phase: Phase = 'intro';
@@ -200,7 +199,6 @@ export class BattleScene extends Phaser.Scene {
     this.lastEnemyStyle = 'claw';
     this.victory = null;
     this.scriptedQuestionIndex = 0;
-    this.presentedEventCount = 0;
     this.phase = 'intro';
     this.busy = false;
     this.overResolve = null;
@@ -378,15 +376,12 @@ export class BattleScene extends Phaser.Scene {
     const bodySize = resolveCharacterBodySize(def.id);
     if (!bodySize) throw new Error(`Missing character body size: ${def.id}`);
     const targetBodyHeight = monsterBodyTargetHeight(bodySize.heightCm, this.layout);
+    const enemyGroundY = monsterBodyGroundY(targetBodyHeight, this.layout);
     this.enemyScale = targetBodyHeight / this.enemySize;
     const eKey = ensureMonsterTexture(this.textures, def, this.state.enemy.element, this.enemySize, isBoss);
-    this.enemySprite = createMonsterSprite(
-      this,
-      def.id,
-      this.layout.enemy.x,
-      this.layout.enemy.y,
-      eKey,
-    ).setDepth(10);
+    this.enemySprite = createMonsterSprite(this, def.id, this.layout.enemy.x, enemyGroundY, eKey).setDepth(
+      10,
+    );
     const bodyBounds = monsterFrameVisibleBounds(
       this.textures,
       this.enemySprite.texture.key,
@@ -404,7 +399,7 @@ export class BattleScene extends Phaser.Scene {
       .setData('visibleBodyBounds', bodyBounds);
     this.addShadow(
       this.enemySprite,
-      this.layout.enemy.y,
+      enemyGroundY,
       Math.max(8, Math.round((bodyBounds.width * imageScale * 0.7) / S)),
     );
 
@@ -412,8 +407,7 @@ export class BattleScene extends Phaser.Scene {
     const eq = this.gs.player.equipment;
     const hk = heroKey(ap, eq, true);
     addSheet(this.textures, hk, battleSheet(heroLook(ap, eq)), HERO_W, HERO_H);
-    this.heroSprite = this.add
-      .image(this.layout.hero.x, this.layout.hero.y, hk, BATTLE_POSE.idle)
+    this.heroSprite = createHeroBattleSprite(this, this.layout.hero.x, this.layout.hero.y, hk)
       .setOrigin(0.5, 1)
       .setScale(this.layout.hero.scale)
       .setDepth(12);
@@ -479,7 +473,7 @@ export class BattleScene extends Phaser.Scene {
     this.hudRoot.className = `nq-battle-root nq-battle-root-${this.opts.presentation}`;
     layer.appendChild(this.hudRoot);
     this.hud.onAction = (a) => this.onUi(a);
-    render(h(BattleHud, { store: this.hud, devMode: this.opts.devMode === true }), this.hudRoot);
+    render(h(BattleHud, { store: this.hud }), this.hudRoot);
   }
 
   private teardown(): void {
@@ -585,17 +579,6 @@ export class BattleScene extends Phaser.Scene {
       allies: this.allyViews(),
       gauges: this.gaugeViews(),
       combo: { count: c, percent: Math.round((comboBonus(c, this.content.settings) - 1) * 100) },
-    });
-  }
-
-  private syncHistoryView(): void {
-    this.hud.set({
-      history: buildBattleHistoryView(
-        this.state,
-        this.narrateCtx(),
-        this.presentedEventCount,
-        this.opts.devMode === true,
-      ),
     });
   }
 
@@ -729,11 +712,7 @@ export class BattleScene extends Phaser.Scene {
 
   /** 演出を じゅんばんに 再生する */
   private async enqueue(events: BattleEvent[]): Promise<void> {
-    const presentedThrough = this.state.log.length;
     await this.presentation.enqueue(normalizeEvents(events), this.narrateCtx());
-    if (this.stopped) return;
-    this.presentedEventCount = Math.max(this.presentedEventCount, presentedThrough);
-    this.syncHistoryView();
   }
 
   private afterPlay(): void {
@@ -1206,12 +1185,12 @@ export class BattleScene extends Phaser.Scene {
   private async heroSlash(): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + 136, 260);
-    sp.setFrame(BATTLE_POSE.attack);
+    playHeroBattleAnimation(sp, 'attack');
     playSfx('slash');
     const fx = this.add
       .sprite(
         this.layout.enemy.x,
-        this.layout.enemy.y - (this.enemySize * this.enemyScale) / 2,
+        this.enemySprite.y - (this.enemySize * this.enemyScale) / 2,
         'bt.fx.slash',
         0,
       )
@@ -1233,13 +1212,13 @@ export class BattleScene extends Phaser.Scene {
   private async heroJumpSlash(): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + 190, 220);
-    sp.setFrame(BATTLE_POSE.attack);
+    playHeroBattleAnimation(sp, 'attack');
     await this.fx.hopTo(sp, this.layout.enemy.x + 128, this.layout.hero.y, 22 * S, 260);
     playSfx('slash');
     const fx = this.add
       .sprite(
         this.layout.enemy.x,
-        this.layout.enemy.y - (this.enemySize * this.enemyScale) / 2,
+        this.enemySprite.y - (this.enemySize * this.enemyScale) / 2,
         'bt.fx.slash',
         0,
       )
@@ -1269,13 +1248,13 @@ export class BattleScene extends Phaser.Scene {
   private async heroSwing(kind: SwingKind): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + (kind === 'thrust' ? 200 : 136), kind === 'thrust' ? 200 : 260);
-    sp.setFrame(BATTLE_POSE.attack);
+    playHeroBattleAnimation(sp, 'attack');
     if (kind === 'thrust') await this.fx.hopTo(sp, this.layout.enemy.x + 150, this.layout.hero.y, 2 * S, 100);
     playSfx('slash');
     if (kind === 'cross') this.time.delayedCall(150, () => playSfx('slash'));
     const at = {
       x: this.layout.enemy.x,
-      y: this.layout.enemy.y - (this.enemySize * this.enemyScale) / 2,
+      y: this.enemySprite.y - (this.enemySize * this.enemyScale) / 2,
     };
     await this.fx.swing(kind, at, ELEMENT_FX[this.lastElement]);
     void this.walk(sp, this.layout.hero.x, 280).then(() => {
@@ -1308,7 +1287,7 @@ export class BattleScene extends Phaser.Scene {
     const k = this.enemyAttacks++;
     if (this.state.isBossBattle && k % 2 === 1) {
       this.lastEnemyStyle = 'quake';
-      await this.fx.stomp(sp, 40 * S, this.layout.enemy.y);
+      await this.fx.stomp(sp, 40 * S, this.enemySprite.y);
     } else if (k % 3 === 1) {
       this.lastEnemyStyle = 'bash';
       await this.fx.dash(sp, 30 * S);
@@ -1382,7 +1361,6 @@ export class BattleScene extends Phaser.Scene {
     const self = toId === actorId || !attack;
     const to = this.anchorOf(toId);
     const tint = ELEMENT_FX[this.lastElement];
-    if (hero) sp.setFrame(BATTLE_POSE.attack);
     if (enemySide) this.lastEnemyStyle = 'skill';
     // 必殺技の ぶたい：画面が くらく なって 集中線（自分への 回復・まもりは しない）
     const stage = self || !mid ? null : await this.fx.stageIn(from, this.lastElement, sp, !full);
@@ -1397,6 +1375,7 @@ export class BattleScene extends Phaser.Scene {
       if (!self) await this.lunge(sp, 1);
     } else {
       this.stopBob(sp, baseY);
+      if (hero) playHeroBattleAnimation(sp, 'attack');
       await Promise.all([this.flash(sp, tint, 2), this.fx.hop(sp, baseY), charge]);
     }
     if (!hero && attack) playMonsterAttack(sp);
@@ -1421,7 +1400,6 @@ export class BattleScene extends Phaser.Scene {
       ]);
       await stage?.end();
     }
-    if (hero) sp.setFrame(BATTLE_POSE.idle);
     if (!enemySide && sp.active && (!hero || this.state.ally.hero.hp > 0)) this.idleBob(sp, baseY);
   }
 
@@ -1556,7 +1534,7 @@ export class BattleScene extends Phaser.Scene {
   private async victoryPose(): Promise<void> {
     const hero = this.heroSprite;
     this.stopBob(hero, this.layout.hero.y);
-    hero.setFrame(BATTLE_POSE.victory);
+    playHeroBattleAnimation(hero, 'victory');
     const pal = this.palSprite?.active && this.palSprite.alpha > 0.5 ? this.palSprite : null;
     if (pal) this.stopBob(pal, this.layout.partner.y);
     for (let i = 0; i < 2; i++)

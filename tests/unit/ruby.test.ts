@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   displayRuby,
@@ -17,6 +18,12 @@ const readJson = <T>(path: string): T =>
 const grades = readJson<{ byGrade: Record<string, string> }>('kanji-grades.json').byGrade;
 const properNouns = readJson<{ names: string[] }>('proper-nouns.json').names;
 const ja = readJson<Record<string, unknown>>('ja.json');
+const kokugoG1SkillFiles = ['hiragana', 'joshi', 'bun-no-kimari', 'kotoba-asobi'];
+
+const readKokugoG1Skill = (name: string): unknown[] =>
+  jsonFiles(fileURLToPath(new URL(`../../content/questions/kokugo/g1/${name}/`, import.meta.url))).flatMap(
+    (file) => JSON.parse(readFileSync(file, 'utf8')) as unknown[],
+  );
 
 function collectStrings(value: unknown, path: string[] = []): Array<{ path: string; text: string }> {
   if (typeof value === 'string') return [{ path: path.join('.'), text: value }];
@@ -123,6 +130,41 @@ describe('漢字表示レベル（まだ習っていない漢字の ことばは
     expect(displayText('遺跡[いせき]')).toBe('遺跡');
   });
 
+  it('同じ1年生問題でも、選んだ学年に合わせて漢字量が変わる', () => {
+    const questions = readKokugoG1Skill('bun-no-kimari') as Array<{
+      id: string;
+      payload: { prompt: string };
+    }>;
+    const prompt = questions.find((question) => question.id.endsWith('.0009'))?.payload.prompt;
+    expect(prompt).toBeDefined();
+
+    setKanjiLevel({ grade: 1, table, names: new Set() });
+    expect(displayText(prompt!)).toBe('とうてん「、」は、文のどこでつかうとよいですか？');
+
+    setKanjiLevel({ grade: 6, table, names: new Set() });
+    expect(displayText(prompt!)).toBe('読点「、」は、文のどこで使うとよいですか？');
+  });
+
+  it('1年生の入門技には、読みなしの未習漢字を残さない', () => {
+    const firstGradeKanji = new Set(grades['1']);
+    const bareAboveGrade = kokugoG1SkillFiles.flatMap((file) =>
+      collectStrings(readKokugoG1Skill(file))
+        .map(({ path, text }) => ({
+          file,
+          path,
+          text,
+          bare: text.replace(/[一-鿿々〆ヶ]+\[[ぁ-ゖァ-ヺー・]+\]/g, ''),
+        }))
+        .filter(({ bare }) =>
+          [...bare].some((character) =>
+            /[一-鿿々〆ヶ]/.test(character) ? !firstGradeKanji.has(character) : false,
+          ),
+        ),
+    );
+
+    expect(bareAboveGrade).toEqual([]);
+  });
+
   it('proper-nouns.json は 漢字 2 字以上の ことばだけ', () => {
     expect(properNouns.filter((n) => !/^[一-鿿々〆ヶ]{2,}$/.test(n))).toEqual([]);
     expect(new Set(properNouns).size).toBe(properNouns.length);
@@ -176,14 +218,18 @@ describe('RubyText', () => {
 
   it('ゲーム本編の表示データは、漢字問題を除いて漢字を読みなしで残さない', () => {
     const contentRoot = new URL('../../content/', import.meta.url);
-    const rootPath = decodeURIComponent(contentRoot.pathname);
+    const rootPath = fileURLToPath(contentRoot);
     const fixedFiles = ['units.json', 'recipes.json', 'sets.json', 'skills.json'].map((file) =>
       join(rootPath, file),
     );
     const folders = ['arena', 'curriculum', 'items', 'monsters', 'prefectures', 'world'];
-    const questionFiles = jsonFiles(join(rootPath, 'questions')).filter(
-      (file) => !file.includes('/kokugo/') && !file.includes('/legacy/'),
-    );
+    const questionFiles = jsonFiles(join(rootPath, 'questions')).filter((file) => {
+      const portablePath = file.replaceAll('\\', '/');
+      return (
+        !portablePath.includes('/kokugo/') &&
+        !portablePath.split('/').some((part) => part.startsWith('legacy-'))
+      );
+    });
     const files = [
       ...fixedFiles,
       ...folders.flatMap((folder) => jsonFiles(join(rootPath, folder))),
@@ -198,11 +244,15 @@ describe('RubyText', () => {
 
   it('旧教材も、読みが検証できた通常語は RubyText にし、出題意図のある表記は保護する', () => {
     const contentRoot = new URL('../../content/', import.meta.url);
-    const rootPath = decodeURIComponent(contentRoot.pathname);
-    const legacyRoot = join(rootPath, 'questions', 'legacy');
-    const files = ['sansu', 'rika', 'seikatsu', 'shakai'].flatMap((subject) =>
-      jsonFiles(join(legacyRoot, subject)),
-    );
+    const rootPath = fileURLToPath(contentRoot);
+    const questionRoot = join(rootPath, 'questions');
+    const files = jsonFiles(questionRoot).filter((file) => {
+      const portablePath = file.replaceAll('\\', '/');
+      return (
+        !portablePath.includes('/kokugo/') &&
+        portablePath.split('/').some((part) => part.startsWith('legacy-'))
+      );
+    });
     const strings = files.flatMap((file) => {
       const data = JSON.parse(readFileSync(file, 'utf8')) as unknown;
       return collectDisplayStrings(data, relative(rootPath, file));
@@ -230,11 +280,17 @@ describe('RubyText', () => {
     });
     expect(stillBare).toEqual([]);
 
-    const protectedSource = readFileSync(join(legacyRoot, 'shakai', 'g4.json'), 'utf8');
+    const protectedSource = readFileSync(
+      join(questionRoot, 'shakai', 'g4', 'legacy-cur-1404-01', 'set-001.json'),
+      'utf8',
+    );
     expect(protectedSource).toContain('雨温図（うおんず）');
     expect(protectedSource).toContain('経線（けいせん）');
 
-    const kokugoSource = readFileSync(join(legacyRoot, 'kokugo', 'g2.json'), 'utf8');
+    const kokugoSource = jsonFiles(join(questionRoot, 'kokugo', 'g2'))
+      .filter((file) => file.split('/').some((part) => part.startsWith('legacy-')))
+      .map((file) => readFileSync(file, 'utf8'))
+      .join('\n');
     expect(kokugoSource).not.toContain('漢字[かんじ]');
   });
 

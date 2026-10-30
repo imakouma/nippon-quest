@@ -1,0 +1,688 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-15.11a31ba627c2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数で、点の１つ前にある位は、何の位になりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一の位"
+        },
+        {
+          "id": "c2",
+          "text": "れいの位"
+        },
+        {
+          "id": "c3",
+          "text": "１０分の１の位"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c83770e72679ab4b.png"
+    },
+    "explanation": "小数で、点の１つ前にある位は、一の位になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.12ed4b2ecdc5",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数につく「点」を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小数点"
+        },
+        {
+          "id": "c2",
+          "text": "小点"
+        },
+        {
+          "id": "c3",
+          "text": "数点"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c83770e72679ab4b.png"
+    },
+    "explanation": "小数であることをあらわす点のことを 小数点という。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.1c00bc7a70f5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "整数であらわされた数を、「たんい」をかえて小数で表そう。",
+      "answers": [
+        "7.6"
+      ],
+      "template": "7cm 6mm = {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "10mm=1cm なので、1mm=0.1cmになる。6mmは、その６こ分で、0.6cm。7cmとあわせて、7.6cmだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.1c3dc8226a3d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、イは小数であらわすと、いくらになるでしょう。",
+      "answers": [
+        "1.2"
+      ],
+      "promptImage": "questions/legacy/ddcbd389bddc670c.png"
+    },
+    "explanation": "1から、あと2目もり すすんでいる。１つの目もりが、0.1になるので、イは 1.2だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.2a571cfd6a21",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "１を１０こに分けた数直線では、１目もりが 小数では 0.1、分数では \\dfrac{1}{10} になる。 どちらも、目もり９こ分なので、同じ大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.2c7a41ca61a6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "整数であらわされた数を、「たんい」をかえて小数で表そう。",
+      "answers": [
+        "2.5"
+      ],
+      "template": "2L 5dL = {{INPUT}}L",
+      "suffix": "L"
+    },
+    "explanation": "10dL=1L なので、1dL=0.1Lになる。5dLは、その５こ分で、0.5L。2Lとあわせて、2.5Lだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.38e448454467",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (2.4)",
+      "answers": [
+        "2.4"
+      ]
+    },
+    "explanation": "\\require{cancel} 5 1 \\bcancel{6}. 2 - 3. 8 2. 4"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.4220df7a294c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1, 2, 3 …のような、分数でも 小数でもない数を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "整数"
+        },
+        {
+          "id": "c2",
+          "text": "正数"
+        },
+        {
+          "id": "c3",
+          "text": "数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分数でも小数でもない数のことを 整数という。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.4359121ca676",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、イは小数であらわすと、いくらになるでしょう。",
+      "answers": [
+        "2.3"
+      ],
+      "promptImage": "questions/legacy/7fe8121cd99dd322.png"
+    },
+    "explanation": "2から、あと3目もり すすんでいる。１つの目もりが、0.1になるので、イは 2.3だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.4967ec42690d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (12.2)",
+      "answers": [
+        "12.2"
+      ]
+    },
+    "explanation": "5. 2 + 7 1 2. 2"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.4c6ae1509191",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (8.1)",
+      "answers": [
+        "8.1"
+      ]
+    },
+    "explanation": "1 4. 5 + 3. 6 8. 1"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.5118347a5d2f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (0.4)",
+      "answers": [
+        "0.4"
+      ]
+    },
+    "explanation": "それぞれ 0.1が、いくつ分かを考えて、足し算や引き算をしよう。 0.9-0.5 = 0.4"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.5275bb220bbf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数 0.1 と同じ大きさの分数は、いくらでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{10}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{1}{100}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{0}{1}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小数0.1は、「１を１０こに分けたときの １つ分」の大きさなので、分数\\dfrac{1}{10} と同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.6c95ca918786",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、0.1をあらわしているものは、ア～ウのうち、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/23d869d0ff3194e0.png"
+    },
+    "explanation": "小数0.1は、「１を１０こに分けたときの １つ分」の大きさ。１までに 目もりが１０あるので、１つ目の目もりが 0.1になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.75ebb3f85441",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、2.7をあらわしているものは、ア～ウのうち、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7fe8121cd99dd322.png"
+    },
+    "explanation": "2.7は、2と0.7 で分けてかんがえよう。１つの目もりが、0.1になるので、2から 7目もり すすんだところになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.798b14152f91",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数であらわされた数を、「たんい」をかえて、整数で表そう。",
+      "answers": [
+        "1",
+        "3"
+      ],
+      "template": "1.3cm = {{INPUT}}cm {{INPUT}}mm"
+    },
+    "explanation": "1.3cm は、1cm と 0.3cm に分けてかんがえよう。1cm=10mmなので、0.3cm = 3mm。1cm3mm が正かいだね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.7acdc3536864",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (0.6)",
+      "answers": [
+        "0.6"
+      ]
+    },
+    "explanation": "それぞれ 0.1が、いくつ分かを考えて、足し算や引き算をしよう。 0.2+0.4 = 0.6"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.7b58d07b9593",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (1.7)",
+      "answers": [
+        "1.7"
+      ]
+    },
+    "explanation": "2は2.0にして ひき算をしよう。 2.0-0.3=1.7"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.840b3b31643b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "１を１０こに分けた数直線では、１目もりが 小数では0.1、分数では\\dfrac{1}{10} になる。 それぞれ、目もり６こ分と３こ分になるので、0.6の方が大きい。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.85810f2fd6dc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "整数であらわされた数を、「たんい」をかえて小数で表そう。",
+      "answers": [
+        "0.8"
+      ],
+      "template": "8dL = {{INPUT}}L",
+      "suffix": "L"
+    },
+    "explanation": "10dL=1L なので、1dL=0.1Lになる。8dLは、その８こ分で、0.8Lだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.8e9f8745b32e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (2.1)",
+      "answers": [
+        "2.1"
+      ]
+    },
+    "explanation": "3. 2 - 1. 1 2. 1"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.8f944ef7346f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数で、点の１つ後にある位は、何の位になりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一の位"
+        },
+        {
+          "id": "c2",
+          "text": "れいの位"
+        },
+        {
+          "id": "c3",
+          "text": "10分の1の位"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c83770e72679ab4b.png"
+    },
+    "explanation": "小数で、点の１つ後にある位は、１０分の１の位になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.c1105b3359c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (10)",
+      "answers": [
+        "10"
+      ]
+    },
+    "explanation": "\\require{cancel} １０分の１の位が 0 のときは、整数で答えよう。 1 8. 1 + 1. 9 1 0. \\bcancel{0}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.c1e7df4c405b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (2)",
+      "answers": [
+        "2"
+      ]
+    },
+    "explanation": "1.3+0.7 = 2.0 = 2 １０分の１の位が 0 のときは、整数で答えよう。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.dc2f087ac6cc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (9.9)",
+      "answers": [
+        "9.9"
+      ]
+    },
+    "explanation": "4. 2 + 5. 7 9. 9"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.f107e82d5a54",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、1.5をあらわしているものは、ア～ウのうち、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ddcbd389bddc670c.png"
+    },
+    "explanation": "1.5は、1と0.5 で分けてかんがえよう。１つの目もりが、0.1になるので、1から 5目もり すすんだところになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.f3ca03da5428",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数であらわされた数を、「たんい」をかえて、整数で表そう。",
+      "answers": [
+        "8"
+      ],
+      "template": "0.8cm = {{INPUT}}mm",
+      "suffix": "mm"
+    },
+    "explanation": "1cm=10mmなので、0.8cm = 8mm になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-15.fd20af90cf51",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数であらわされた数を、「たんい」をかえて、整数で表そう。",
+      "answers": [
+        "15"
+      ],
+      "template": "1.5L= {{INPUT}}dL",
+      "suffix": "dL"
+    },
+    "explanation": "1.5L は、1L と 0.5L に分けてかんがえよう。1L=10dLなので、0.5L = 5dL。15dL が正かいだね。"
+  }
+]

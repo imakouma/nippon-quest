@@ -1,0 +1,100 @@
+[
+  {
+    "id": "kokugo.g4.supplemental.compound.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-37",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「左右[さゆう]」の熟語[じゅくご]の組[く]み立[た]てはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "反対[はんたい]の意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "b",
+          "text": "似[に]た意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "c",
+          "text": "上[うえ]の漢字[かんじ]が下[した]の漢字[かんじ]を修飾[しゅうしょく]する"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "左[ひだり]と右[みぎ]は反対[はんたい]の意味[いみ]。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.compound.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-37",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「森林[しんりん]」の熟語[じゅくご]の組[く]み立[た]てはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "似[に]た意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "b",
+          "text": "反対[はんたい]の意味[いみ]の漢字[かんじ]を組[く]み合[あ]わせる"
+        },
+        {
+          "id": "c",
+          "text": "動作[どうさ]と対象[たいしょう]を組[く]み合[あ]わせる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "森[もり]と林[はやし]は似[に]た意味[いみ]を表[あらわ]す。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-37.e2b102f0d2a1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-37",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_37",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「南」と「北」、「前」と「後」のように、反対の意味の漢字を組み合わせた熟語の構成にあてはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対義語（反対語）の組み合わせ"
+        },
+        {
+          "id": "c2",
+          "text": "主語と述語の組み合わせ"
+        },
+        {
+          "id": "c3",
+          "text": "上の漢字が下の漢字を修飾する組み合わせ"
+        },
+        {
+          "id": "c4",
+          "text": "同じ意味の漢字を重ねた組み合わせ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「南北」「前後」はいずれも反対（対）になる意味の漢字の組み合わせです。"
+  }
+]

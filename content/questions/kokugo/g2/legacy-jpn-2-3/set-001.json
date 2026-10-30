@@ -1,0 +1,470 @@
+[
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.1810bf465df2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「だれが・なにを・どうする」の「だれが」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主語"
+        },
+        {
+          "id": "c2",
+          "text": "述語"
+        },
+        {
+          "id": "c3",
+          "text": "修飾語"
+        },
+        {
+          "id": "c4",
+          "text": "接続詞"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語[しゅご]は、「だれが」「なにが」に当[あ]たる言葉[ことば]です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.24016a555fca",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "述語は文のどこにくることが多い？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "文の終わり"
+        },
+        {
+          "id": "c2",
+          "text": "文のはじめ"
+        },
+        {
+          "id": "c3",
+          "text": "文のまんなか"
+        },
+        {
+          "id": "c4",
+          "text": "決まっていない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本語の述語は文の最後にくることが多い。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.2b99f5ad3140",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「花が咲く」の述語は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "花"
+        },
+        {
+          "id": "c2",
+          "text": "が"
+        },
+        {
+          "id": "c3",
+          "text": "咲く"
+        },
+        {
+          "id": "c4",
+          "text": "春"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "述語は動作・状態。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.54101d35f41f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "主語と述語の組み合わせとして、正しいものはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨が / 降る。"
+        },
+        {
+          "id": "c2",
+          "text": "花が / 走る。"
+        },
+        {
+          "id": "c3",
+          "text": "車が / 咲く。"
+        },
+        {
+          "id": "c4",
+          "text": "先生が / 走る車。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「雨が降る」は主語と述語の関係が正しく成り立っています。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.56f613d70cb8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「私は小学生だ。」という文の述語はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "私は"
+        },
+        {
+          "id": "c2",
+          "text": "小学生だ"
+        },
+        {
+          "id": "c3",
+          "text": "小学生"
+        },
+        {
+          "id": "c4",
+          "text": "は"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "状態や立場を表す「小学生だ」が述語になります。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.6236ef01a8d9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "主語と述語が正しくつながるのはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "花が さく。"
+        },
+        {
+          "id": "c2",
+          "text": "花が はしる。"
+        },
+        {
+          "id": "c3",
+          "text": "花が なく。"
+        },
+        {
+          "id": "c4",
+          "text": "花が とぶ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「花が さく」は自然につながる。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.6473d5c47db0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「犬が走る。」という文の「述語（どうする・どんなだ・なんだ）」はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "犬が"
+        },
+        {
+          "id": "c2",
+          "text": "走る"
+        },
+        {
+          "id": "c3",
+          "text": "犬"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "動作を表す「走る」が述語です。文の最後にくることが多いです。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.682996c992e3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「鳥が とぶ。」の主語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鳥が"
+        },
+        {
+          "id": "c2",
+          "text": "とぶ"
+        },
+        {
+          "id": "c3",
+          "text": "鳥"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」にあたる「鳥が」が主語。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.7a923170dfa6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「妹が わらう。」の述語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わらう"
+        },
+        {
+          "id": "c2",
+          "text": "妹が"
+        },
+        {
+          "id": "c3",
+          "text": "妹"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動きを表す「わらう」が述語。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.b355ca0080a1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「大[おお]きな犬[いぬ]が走[はし]る。」の主語[しゅご]はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "犬[いぬ]が"
+        },
+        {
+          "id": "c2",
+          "text": "走[はし]る"
+        },
+        {
+          "id": "c3",
+          "text": "大[おお]きな"
+        },
+        {
+          "id": "c4",
+          "text": "大[おお]きな犬[いぬ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」に当[あ]たる「犬[いぬ]が」が主語[しゅご]です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.d7d8dda09598",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「弟が本を読む。」という文の主語はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "弟が"
+        },
+        {
+          "id": "c2",
+          "text": "本を"
+        },
+        {
+          "id": "c3",
+          "text": "読む"
+        },
+        {
+          "id": "c4",
+          "text": "本が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動作の主体である「弟が」が主語です（「本を」は目的語）。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.f1f674d65649",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「空が 青い。」の述語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "青い"
+        },
+        {
+          "id": "c2",
+          "text": "空が"
+        },
+        {
+          "id": "c3",
+          "text": "空"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ようすを表す「青い」が述語。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-3.f5a20c8839e3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「小鳥がさえずる。」という文の「主語（だれが・なにが）」はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小鳥が"
+        },
+        {
+          "id": "c2",
+          "text": "さえずる"
+        },
+        {
+          "id": "c3",
+          "text": "さえずる小鳥"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「なにが」にあたる「小鳥が」が主語です。"
+  }
+]

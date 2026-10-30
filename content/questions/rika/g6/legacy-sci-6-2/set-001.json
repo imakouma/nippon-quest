@@ -1,0 +1,972 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-2.06018759107a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "口からこう門までの、食べ物の通り道を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消化管"
+        },
+        {
+          "id": "c2",
+          "text": "消化器官"
+        },
+        {
+          "id": "c3",
+          "text": "消化液"
+        },
+        {
+          "id": "c4",
+          "text": "食道"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "口から食道、胃、小腸、大腸、こう門までは、１本の管のようにつながっていて、これを消化管という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.2173698a98f1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液によるでんぷんの変化を調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷんの液にだ液を入れると、でんぷんがなくなった。"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷんの液に水をいれると、でんぷんがなくなった。"
+        },
+        {
+          "id": "c3",
+          "text": "でんぷんの液を40℃の湯の中で5分温めると、でんぷんがなくなった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8486319b595efb08.png"
+    },
+    "explanation": "Aにはうすいでんぷんの液とだ液を入れたが、ヨウ素液は変化しなかった。一方、Bは青むらさき色になったので、水を入れたり、40℃の湯で温めたりしてもでんぷんはなくならないことがわかる。このことから、Aにはだ液を入れたことによって、でんぷんがなくなったと言える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.220ec932bfb0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷんを別のものに変える。"
+        },
+        {
+          "id": "c2",
+          "text": "酸素や二酸化炭素を全身にはこぶ。"
+        },
+        {
+          "id": "c3",
+          "text": "食べ物にふくまれている養分を吸収する。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "だ液には、でんぷんをあまく感じる別のものに変えるはたらきがある。そのため、ごはんをかんでいると、だんだんあまく感じる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.2876b85e3359",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肺のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肺ほう・毛細血管・酸素・二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "肺[はい]ほう・毛細血管[もうさいけっかん]・二酸化炭素[にさんかたんそ]・酸素[さんそ]"
+        },
+        {
+          "id": "c3",
+          "text": "気管[きかん]・太[ふと]い血管[けっかん]・酸素[さんそ]・二酸化炭素[にさんかたんそ]"
+        },
+        {
+          "id": "c4",
+          "text": "胃[い]・小腸[しょうちょう]・酸素[さんそ]・二酸化炭素[にさんかたんそ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c06eec548dd2e99f.png"
+    },
+    "explanation": "気管は、肺の中で細かく枝分かれしていて、その先には、A（肺ほう）という小さなふくろがある。A のまわりには、 B（毛細血管）という細かい血管が取り巻いている。A では、（酸素）を Bに取り入れ、（二酸化炭素）が B から取り出されている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.2e5ca6170ab2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "わたしたちが食べたものは、歯でかみくだかれて細かくなったり、体に吸収されやすいものに変えられたりする。このはたらきを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "成長"
+        },
+        {
+          "id": "c3",
+          "text": "消化"
+        },
+        {
+          "id": "c4",
+          "text": "はい出"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "わたしたちが食べたものは、歯でかみくだかれて細かくなったり、体に吸収されやすいものに変えられたりする。このはたらきを消化という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.421bf020ad50",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人が、空気を吸ったり、息をはき出すのは何のためでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素・二酸化炭素・呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "窒素[ちっそ]・二酸化炭素[にさんかたんそ]・消化[しょうか]"
+        },
+        {
+          "id": "c3",
+          "text": "酸素[さんそ]・窒素[ちっそ]・呼吸[こきゅう]"
+        },
+        {
+          "id": "c4",
+          "text": "二酸化炭素[にさんかたんそ]・酸素[さんそ]・消化[しょうか]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "空気中の（酸素）の一部を取り入れ、（二酸化炭素）を体内から出して、（呼吸）を行うため。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.5c58c7cd2e5e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "全身でできた二酸化炭素のゆくえについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "肺・二酸化炭素・血液・気管"
+        },
+        {
+          "id": "c2",
+          "text": "肺[はい]・酸素[さんそ]・血液[けつえき]・気管[きかん]"
+        },
+        {
+          "id": "c3",
+          "text": "心臓[しんぞう]・酸素[さんそ]・血液[けつえき]・食道[しょくどう]"
+        },
+        {
+          "id": "c4",
+          "text": "じん臓[ぞう]・二酸化炭素[にさんかたんそ]・空気[くうき]・気管[きかん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d424426ca362e104.png"
+    },
+    "explanation": "全身から D（肺）に運ばれた（二酸化炭素）は、D で（血液）から出され、C（気管）を通って、はなや口からはく息として出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.626a909d4988",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "養分・血液・全身"
+        },
+        {
+          "id": "c2",
+          "text": "酸素[さんそ]・血液[けつえき]・全身[ぜんしん]"
+        },
+        {
+          "id": "c3",
+          "text": "養分[ようぶん]・空気[くうき]・肺[はい]"
+        },
+        {
+          "id": "c4",
+          "text": "水分[すいぶん]・血液[けつえき]・胃[い]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小腸で吸収された（養分）は、（血液）の中に入り、（全身）に運ばれて、生きるために使われる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.6a84e9c5b4a7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "呼吸に関わる人の体のつくりについて、A〜Dに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はな・口・気管・肺"
+        },
+        {
+          "id": "c2",
+          "text": "口[くち]・はな・肺[はい]・気管[きかん]"
+        },
+        {
+          "id": "c3",
+          "text": "はな・食道[しょくどう]・胃[い]・肺[はい]"
+        },
+        {
+          "id": "c4",
+          "text": "はな・口[くち]・肺[はい]・気管[きかん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d424426ca362e104.png"
+    },
+    "explanation": "A：はな B：口 C：気管 D：肺はい"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.78dc1a684dfc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食べ物にふくまれていた養分は、消化されたあと、主にどこで吸収されるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小腸"
+        },
+        {
+          "id": "c2",
+          "text": "胃"
+        },
+        {
+          "id": "c3",
+          "text": "口"
+        },
+        {
+          "id": "c4",
+          "text": "大腸"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/65c1472541743ccb.png"
+    },
+    "explanation": "食べ物にふくまれていた養分は、消化されたあと、小腸で吸収される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.8a05528aaf87",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヨウ素液について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・青むらさき"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素[にさんかたんそ]・白[しろ]"
+        },
+        {
+          "id": "c3",
+          "text": "でんぷん・白[しろ]"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷん・赤[あか]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヨウ素液は、（でんぷん）と反応すると、（青むらさき）色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.a44466a59382",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸った空気のゆくえについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気管・肺・酸素・血液"
+        },
+        {
+          "id": "c2",
+          "text": "気管[きかん]・肺[はい]・二酸化炭素[にさんかたんそ]・血液[けつえき]"
+        },
+        {
+          "id": "c3",
+          "text": "食道[しょくどう]・胃[い]・酸素[さんそ]・血液[けつえき]"
+        },
+        {
+          "id": "c4",
+          "text": "気管[きかん]・肺[はい]・二酸化炭素[にさんかたんそ]・空気[くうき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d424426ca362e104.png"
+    },
+    "explanation": "はなや口から吸った空気は、C（気管）を通って D（肺）に送られる。D では、空気中の（酸素）の一部が（血液）中に取りこまれて、全身に運ばれる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.aa7f3ee64d92",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液によるでんぷんの変化を調べるため、次の実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Bだけが青むらさき色に変化する。"
+        },
+        {
+          "id": "c2",
+          "text": "Aだけが青むらさき色に変化する。"
+        },
+        {
+          "id": "c3",
+          "text": "AもBも青むらさき色に変化する。"
+        },
+        {
+          "id": "c4",
+          "text": "AもBも変化しない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/10ed6e53a0e2cb57.png"
+    },
+    "explanation": "でんぷんがだ液によって消化されるので、Aはヨウ素液の色が変化せず、Bだけが青むらさき色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.b4ec91450cd3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸う空気とはいた空気のちがいを調べるために、図のようにして、吸う空気とはいた空気にふくまれる酸素と二酸化炭素の体積の割合[わりあい]を気体検知管で調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はいた空気は、吸う空気よりも酸素の体積の割合[わりあい]が小さく、二酸化炭素の体積の割合[わりあい]が大きくなった。"
+        },
+        {
+          "id": "c2",
+          "text": "はいた空気は、吸う空気よりも酸素の体積の割合[わりあい]が大きく、二酸化炭素の体積の割合[わりあい]が小さくなった。"
+        },
+        {
+          "id": "c3",
+          "text": "はいた空気と吸う空気との、気体の体積の割合[わりあい]は変わらなかった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a4b9d1e1306ecb33.png"
+    },
+    "explanation": "吸う空気の酸素の体積の割合[わりあい]は 21 % なのに対し、はいた空気の酸素の体積の割合[わりあい]は 17〜18 % に減っている。また、吸う空気の二酸化炭素の体積の割合[わりあい]は 0.03 % なのに対し、はいた空気の二酸化炭素の体積の割合[わりあい]は 3 % に増えている。よって、はいた空気は、吸う空気よりも酸素の体積の割合[わりあい]が小さく、二酸化炭素の体積の割合[わりあい]が大きいことが分かる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.b7900885ecd4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "吸う空気とはいた空気のちがいを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "ちっ素"
+        },
+        {
+          "id": "c4",
+          "text": "水蒸気"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "石灰水は、二酸化炭素にふれると、白くにごる性質がある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.b8281e87c6a4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "じゅう毛・毛細血管"
+        },
+        {
+          "id": "c2",
+          "text": "食道[しょくどう]・毛細血管[もうさいけっかん]"
+        },
+        {
+          "id": "c3",
+          "text": "じゅう毛[もう]・消化管[しょうかかん]"
+        },
+        {
+          "id": "c4",
+          "text": "じゅう毛[もう]・太[ふと]い血管[けっかん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b43bfd9bb7798efd.png"
+    },
+    "explanation": "小腸の表面には、（じゅう毛）という細かいひだ がたくさんあり、そこに（毛細血管）と呼ばれる細かい血管が通っている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.c1817c2353a6",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肺のはたらきとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気中の酸素の一部を血液中にとりこみ、血液中の二酸化炭素を出す。"
+        },
+        {
+          "id": "c2",
+          "text": "血液を全身に送り出す。"
+        },
+        {
+          "id": "c3",
+          "text": "息を吸ったり、はいたりする。"
+        },
+        {
+          "id": "c4",
+          "text": "水中の酸素を取り入れ、水中に二酸化炭素を出している。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "肺では、空気中の酸素の一部を血液中にとりこみ、血液中の二酸化炭素を出している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.d0e4e8377692",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "肺ほうという小さなふくろがたくさんあることは、どのように役立っているでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "表面の面積[めんせき]・大きく・こうかん"
+        },
+        {
+          "id": "c2",
+          "text": "表面[ひょうめん]の面積[めんせき]・大[おお]きく・吸収[きゅうしゅう]"
+        },
+        {
+          "id": "c3",
+          "text": "表面[ひょうめん]の面積[めんせき]・小[ちい]さく・こうかん"
+        },
+        {
+          "id": "c4",
+          "text": "体積[たいせき]・小[ちい]さく・吸収[きゅうしゅう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/776c1ec26de7e0ca.png"
+    },
+    "explanation": "空気にふれる（表面の面積[めんせき]）が（大きく）なるので、酸素と二酸化炭素を、効率よく（こうかん）できるようになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.d6842b16bbc9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小腸の表面にじゅう毛があることは、どのように役立っているでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "表面の面積[めんせき]・大きく・吸収"
+        },
+        {
+          "id": "c2",
+          "text": "表面[ひょうめん]の面積[めんせき]・大[おお]きく・消化[しょうか]"
+        },
+        {
+          "id": "c3",
+          "text": "表面[ひょうめん]の面積[めんせき]・小[ちい]さく・吸収[きゅうしゅう]"
+        },
+        {
+          "id": "c4",
+          "text": "表面[ひょうめん]の面積[めんせき]・小[ちい]さく・消化[しょうか]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小腸の内側の（表面の面積[めんせき]）が（大きく）なるので、養分や水をよく（吸収）できるようになる。じゅう毛の表面の面積[めんせき]を合わせると、大おと人なではテニスコートぐらいの広さになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.df1353230088",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "胃・小腸・消化・吸収"
+        },
+        {
+          "id": "c2",
+          "text": "小腸[しょうちょう]・胃[い]・吸収[きゅうしゅう]・消化[しょうか]"
+        },
+        {
+          "id": "c3",
+          "text": "食道[しょくどう]・大腸[だいちょう]・消化[しょうか]・呼吸[こきゅう]"
+        },
+        {
+          "id": "c4",
+          "text": "胃[い]・肺[はい]・吸収[きゅうしゅう]・消化[しょうか]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4527bc389e673dc.png"
+    },
+    "explanation": "口で消化された食べ物は、B（胃）や C（小腸）でさらに（消化）され、（吸収）されやすい養分に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.e9aed81fb70c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大腸・水分・こう門"
+        },
+        {
+          "id": "c2",
+          "text": "小腸[しょうちょう]・水分[すいぶん]・こう門[もん]"
+        },
+        {
+          "id": "c3",
+          "text": "大腸[だいちょう]・養分[ようぶん]・口[くち]"
+        },
+        {
+          "id": "c4",
+          "text": "胃[い]・水分[すいぶん]・食道[しょくどう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4527bc389e673dc.png"
+    },
+    "explanation": "食べたもののうち、小腸で吸収されずに残ったものは、D（大腸）でさらに（水分）が吸収され、便として（こう門）から出る。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.e9ff2f399acb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素・白くにごる"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素[にさんかたんそ]・赤[あか]くなる"
+        },
+        {
+          "id": "c3",
+          "text": "酸素[さんそ]・赤[あか]くなる"
+        },
+        {
+          "id": "c4",
+          "text": "酸素[さんそ]・白[しろ]くにごる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "石灰水は、（二酸化炭素）にふれると、（白くにごる）性質がある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.eeb269615136",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "口から入った食べ物の通り道について、図のA〜Dに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食道・胃・小腸・大腸"
+        },
+        {
+          "id": "c2",
+          "text": "胃[い]・食道[しょくどう]・大腸[だいちょう]・小腸[しょうちょう]"
+        },
+        {
+          "id": "c3",
+          "text": "気管[きかん]・肺[はい]・小腸[しょうちょう]・大腸[だいちょう]"
+        },
+        {
+          "id": "c4",
+          "text": "食道[しょくどう]・胃[い]・大腸[だいちょう]・小腸[しょうちょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c4527bc389e673dc.png"
+    },
+    "explanation": "口から入った食べ物は、A（食道）、B（胃）、C（小腸）、D（大腸）を通り、残ったものがこう門から出る。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.f00a11d406bd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液のように、「消化」にかかわる液体を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消化液"
+        },
+        {
+          "id": "c2",
+          "text": "血液"
+        },
+        {
+          "id": "c3",
+          "text": "体液"
+        },
+        {
+          "id": "c4",
+          "text": "水よう液"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "だ液のように、「消化」にかかわる液体を、「消化液」という。消化液は、胃いや小しょう腸ちょうから出されるものもある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.f8c38ef686f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "わたしたちは、空気を吸すったり、はき出すことで、空気中の酸素の一部を取り入れ、二酸化炭素を体内から出している。このはたらきを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "成長"
+        },
+        {
+          "id": "c3",
+          "text": "消化"
+        },
+        {
+          "id": "c4",
+          "text": "はい出"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "わたしたちは、空気を吸ったり、はき出すことで、空気中の酸素の一部を取り入れ、二酸化炭素を体内から出している。このはたらきを呼こ吸きゅうという。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.fbdfdcfeb228",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "だ液によるでんぷんの変化を調べるため、図のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "口の中の温度と同じくらいにするため"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷんの液をやわらかくするため"
+        },
+        {
+          "id": "c3",
+          "text": "でんぷんの液とだ液が、よく混ざるようにするため"
+        },
+        {
+          "id": "c4",
+          "text": "ヨウ素液は、温度が低いと色が変化しないため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/10ed6e53a0e2cb57.png"
+    },
+    "explanation": "だ液は、温度が低いとはたらかなくなるので、口の中の温度と同じくらいにするために、40℃の湯の中で5分温める。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-2.ffda55796436",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ごはんつぶをかんでいると、あまく感じるようになった」",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だ液によって、あまく感じる別のものに変化したから。"
+        },
+        {
+          "id": "c2",
+          "text": "歯でかみくだかれて細かくなったから。"
+        },
+        {
+          "id": "c3",
+          "text": "たくさんかむと口がつかれるから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "口の中では、「だ液」という消化液が出され、よくかむことでごはんと混ざる。だ液には、ごはんにふくまれるでんぷんを、あまく感じる別のものに変化させるはたらきがある。"
+  }
+]

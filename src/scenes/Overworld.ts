@@ -16,7 +16,6 @@ import { groundOfTile, type Ground } from '../core/world/ground';
 import type { LocomotionEvent } from '../core/world/playerLocomotion';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
-import { roadmapGrandfatheredUnitIds } from '../core/state/roadmapSnapshot';
 import {
   activeEquipment,
   adjacencyBonus,
@@ -80,7 +79,8 @@ import type { RegionMiniView } from '../ui/field/RegionMiniMap';
 import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
-import { MenuOverlay, type MenuEntry, type MenuTab, type RoadmapNode } from '../ui/field/MenuOverlay';
+import { MenuOverlay, type MenuEntry, type MenuTab } from '../ui/field/MenuOverlay';
+import type { RoadmapViewModel } from '../shared/menuModel';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
 import { isImportedLocationValid } from './overworld/importedLocation';
 import { unavailableDeveloperSceneRecovery } from './overworld/developerScene';
@@ -125,7 +125,7 @@ import {
   type MapPlace,
   type TiledMapSource,
 } from './overworld/mapModels';
-import { buildGameRoadmapNodes } from './overworld/roadmap';
+import { buildRuntimeRoadmapViewModel } from './overworld/roadmap';
 import { runRoadmapPractice } from './overworld/roadmapPractice';
 import { buildMenuView, menuTabs, motifKindLabelKey } from './overworld/menuEntries';
 import { missionRows, shopRows, smithRows } from './overworld/townMenuViews';
@@ -2673,12 +2673,13 @@ export class OverworldScene extends Phaser.Scene {
     const root = this.root('travel');
     const draw = (tab: MenuTab, focusKey?: string, message: string | null = null, initialHome = true) => {
       const view = this.menuView(tab);
+      const roadmapView = this.roadmapViewModel();
       render(
         h(MenuOverlay, {
           tab,
           tabs: menuTabs(this.gs()?.learning.mistakes.length ?? 0),
           entries: view.entries,
-          roadmap: this.roadmapNodes(),
+          roadmapView,
           developerMode: this.devAll(),
           summary: view.summary,
           empty: view.empty,
@@ -2692,10 +2693,10 @@ export class OverworldScene extends Phaser.Scene {
             this.openBag(undefined, null, undefined, true);
           },
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
-          onRoadmapSelect: (unitId: string) => (
-            render(null, root),
-            void runRoadmapPractice(this, unitId).finally(() => draw('roadmap', undefined, null, false))
-          ),
+          onRoadmapSelect: (unitId: string) => {
+            render(null, root);
+            void runRoadmapPractice(this, unitId).finally(() => draw('roadmap', unitId, null, false));
+          },
           onSave: () => {
             const game = this.gs();
             if (game) this.setGame({ ...game, updatedAt: Date.now() });
@@ -2707,7 +2708,7 @@ export class OverworldScene extends Phaser.Scene {
               h(ParentOverlay, {
                 game,
                 getGame: () => this.gs() ?? game,
-                mastery: this.roadmapNodes(),
+                mastery: this.roadmapViewModel().nodes,
                 onChange: (next: GameState) => {
                   this.setGame(next);
                   drawParent();
@@ -2736,7 +2737,7 @@ export class OverworldScene extends Phaser.Scene {
         h(ParentOverlay, {
           game,
           getGame: () => this.gs() ?? game,
-          mastery: this.roadmapNodes(),
+          mastery: this.roadmapViewModel().nodes,
           onChange: (next: GameState) => {
             this.setGame(next);
             drawParent();
@@ -2783,22 +2784,16 @@ export class OverworldScene extends Phaser.Scene {
       monsterArt: (monster) => this.monsterArtUrl(monster),
     });
   }
-
-  private roadmapNodes(): RoadmapNode[] {
-    const c = this.content()!;
-    const gs = this.gs()!;
-    return buildGameRoadmapNodes({
-      units: c.units.values(),
-      mastery: gs.learning.mastery,
-      conceptStates: gs.learning.conceptStates,
-      grandfatheredUnitIds: roadmapGrandfatheredUnitIds(gs),
+  private roadmapViewModel(): RoadmapViewModel {
+    return buildRuntimeRoadmapViewModel({
+      content: this.content()!,
+      game: this.gs()!,
+      questionBank: this.registry.get('bank') as QuestionBank | undefined,
       revealAll: this.devAll(),
-      playerGrade: gs.learning.grade,
-      challengeHigher: gs.learning.challengeHigher,
-      subjectLabel: (subject) => t(`subjects.${subject}`),
+      now: Date.now(),
+      subjectLabel: (subject: string) => t(`subjects.${subject}`),
     });
   }
-
   /** どうぐ・そうびの タブで Z：つかう・そうびする・はずす。ひとことを かえす */
   private menuAct(tab: MenuTab, key: string): string | null {
     const c = this.content()!;

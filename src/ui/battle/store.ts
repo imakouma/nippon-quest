@@ -4,7 +4,6 @@
  * リアルタイム：敵の こうげきタイマー・コマンドゲージ・オトモの タイマーは 時間の 1 コマ（tick）ごとに 書きかわる。
  */
 import { useEffect, useState } from 'preact/hooks';
-import type { BattleEvent } from '../../core/battle/types';
 import type { Element } from '../../core/content/schemas';
 import type { BattleCommandBlockReason } from '../../core/battle/commandEvaluation';
 
@@ -16,44 +15,6 @@ export interface StatusEffectView {
   direction: 'up' | 'down' | 'neutral';
   turns: number;
 }
-
-export interface BattleHistoryEntry {
-  /** `BattleState.log` 内の1始まりの位置。 */
-  eventIndex: number;
-  lines: string[];
-}
-
-export interface HpChangeView {
-  before: number;
-  after: number;
-  delta: number;
-}
-
-export interface BattleTimelineEntry {
-  eventIndex: number;
-  turn: number;
-  t: BattleEvent['t'];
-  actorId?: string;
-  targetId?: string;
-  command?: 'attack' | 'skill' | 'scan' | 'defend';
-  skillId?: string;
-  side?: 'ally' | 'enemy';
-  hp?: HpChangeView;
-}
-
-export interface BattleHistoryView {
-  recent: BattleHistoryEntry[];
-  timeline: BattleTimelineEntry[];
-  totalPresentedEvents: number;
-  omittedTimelineEvents: number;
-}
-
-export const EMPTY_BATTLE_HISTORY: BattleHistoryView = {
-  recent: [],
-  timeline: [],
-  totalPresentedEvents: 0,
-  omittedTimelineEvents: 0,
-};
 
 export interface EnemyView {
   name: string;
@@ -246,7 +207,6 @@ export interface HudState {
   /** 問題の あいだに うけた こうげきの 回数（ふえるたびに 帯を ゆらして 赤く 光る） */
   shake: number;
   result: ResultView | null;
-  history: BattleHistoryView;
 }
 
 export type UiAction =
@@ -280,7 +240,6 @@ export const initialHudState = (): HudState => ({
   stripPops: [],
   shake: 0,
   result: null,
-  history: EMPTY_BATTLE_HISTORY,
 });
 
 export class HudStore {

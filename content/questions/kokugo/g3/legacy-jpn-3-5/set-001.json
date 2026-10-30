@@ -1,0 +1,722 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.079647387e2c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国語辞典で言葉を調べるとき、先に出てくる順番の正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "友だち → 友人"
+        },
+        {
+          "id": "c2",
+          "text": "友人 → 友だち"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ともだち」の「と」は「ゆうじん」の「ゆ」よりも五十音順で先です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.0bc68987f750",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あかい りんごを たべる。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あかい りんごを たべる。"
+        },
+        {
+          "id": "c2",
+          "text": "あかい りんごお たべる。"
+        },
+        {
+          "id": "c3",
+          "text": "あがい りんごを たべる。"
+        },
+        {
+          "id": "c4",
+          "text": "あかい りんごを たべる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「を」と「お」、「か」と「が」をまちがえない。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.25e63ad3cabc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国語辞典にのっている形（基本形）として正しいものはどれですか。\n\n◆遊ぶ / 遊べ",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "遊ぶ"
+        },
+        {
+          "id": "c2",
+          "text": "遊べ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国語辞典には「遊ぶ」という基本の形で載っています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.41bb7aa0da06",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国語辞典にのっている形（基本形）として正しいものはどれですか。\n\n◆ていねいに / ていねい / ていねいだ",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ていねいだ"
+        },
+        {
+          "id": "c2",
+          "text": "ていねいに"
+        },
+        {
+          "id": "c3",
+          "text": "ていねい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国語辞典には「ていねいだ」という基本の形で載っています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.49ea0cc52b29",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の言葉を国語辞典にのっている形（基本形）に直したものはどれですか。\n\n◆さわやかな",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さわやかだ"
+        },
+        {
+          "id": "c2",
+          "text": "さわやか"
+        },
+        {
+          "id": "c3",
+          "text": "さわやかなら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「さわやかな」の基本形は「さわやかだ」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.6c0982d8db5a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「お母さん」「お父さん」「おばあさん」を国語辞典にのっている順に正しく並べたものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お母さん → お父さん → おばあさん"
+        },
+        {
+          "id": "c2",
+          "text": "お母さん → おばあさん → お父さん"
+        },
+        {
+          "id": "c3",
+          "text": "お父さん → お母さん → おばあさん"
+        },
+        {
+          "id": "c4",
+          "text": "おばあさん → お母さん → お父さん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "五十音順で「おかあさん」→「おとうさん」→「おばあさん」になります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.6e6ceef6cae1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の言葉を国語辞典にのっている形（基本形）に直したものはどれですか。\n\n◆まぶしかった",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まぶしい"
+        },
+        {
+          "id": "c2",
+          "text": "まぶしかった"
+        },
+        {
+          "id": "c3",
+          "text": "まぶし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「まぶしかった」の基本形は「まぶしい」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.706c3d92b548",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "カタカナの「シャツ」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "シャツ"
+        },
+        {
+          "id": "c2",
+          "text": "シヤツ"
+        },
+        {
+          "id": "c3",
+          "text": "シャシ"
+        },
+        {
+          "id": "c4",
+          "text": "シャツ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小さい「ャ」を使う。お手本にない「。」はつけない。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.854a537622db",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「いっしょに あそぼう。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いっしょに あそぼう。"
+        },
+        {
+          "id": "c2",
+          "text": "いつしょに あそぼう。"
+        },
+        {
+          "id": "c3",
+          "text": "いっしょに あそぼお。"
+        },
+        {
+          "id": "c4",
+          "text": "いっしよに あそぼう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小さい「っ」「ょ」と「ぼう」ののばし方に気をつける。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.87891c64f7aa",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「羽」「ばね」「はねる」を国語辞典にのっている順に正しく並べたものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "羽 → はねる → ばね"
+        },
+        {
+          "id": "c2",
+          "text": "羽 → ばね → はねる"
+        },
+        {
+          "id": "c3",
+          "text": "はねる → 羽 → ばね"
+        },
+        {
+          "id": "c4",
+          "text": "ばね → 羽 → はねる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "五十音順で「はね（羽）」→「はねる」→「ばね」になります。清音は濁音（「ば」など点々がついた音）より先です。また、短い言葉が先になります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.9c786557b91f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「あめが ザーザー ふる。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あめが ザーザー ふる。"
+        },
+        {
+          "id": "c2",
+          "text": "あめが ザーザー ふる"
+        },
+        {
+          "id": "c3",
+          "text": "あめが ザアザア ふる。"
+        },
+        {
+          "id": "c4",
+          "text": "あめが さーさー ふる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カタカナの長い音は「ー」で書き、「。」も写す。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.a5d3c20b2e19",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「スケッチ」「スキー」「スキップ」を国語辞典にのっている順に正しく並べたものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "スキー → スキップ → スケッチ"
+        },
+        {
+          "id": "c2",
+          "text": "スキー → スケッチ → スキップ"
+        },
+        {
+          "id": "c3",
+          "text": "スキップ → スキー → スケッチ"
+        },
+        {
+          "id": "c4",
+          "text": "スケッチ → スキップ → スキー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "五十音順で「すきー」→「すきっぷ」→「すけっち」になります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.b967f95293c0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ちいさな いぬ」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ちいさな いぬ"
+        },
+        {
+          "id": "c2",
+          "text": "ちさな いぬ"
+        },
+        {
+          "id": "c3",
+          "text": "ちいさな いね"
+        },
+        {
+          "id": "c4",
+          "text": "ちいさな いぬ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「い」をぬかさず、「ぬ」と「ね」をまちがえず、お手本にない「。」もつけない。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.bde6734a3fb1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「切手」「きっぷ」「きつつき」を国語辞典にのっている順に正しく並べたものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "きつつき → 切手 → きっぷ"
+        },
+        {
+          "id": "c2",
+          "text": "切手 → きつつき → きっぷ"
+        },
+        {
+          "id": "c3",
+          "text": "きつつき → きっぷ → 切手"
+        },
+        {
+          "id": "c4",
+          "text": "きっぷ → 切手 → きつつき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "五十音順で「きつつき」→「きつて（切手）」→「きつぷ（きっぷ）」になります。直音は促音（小文字の「っ」）より先です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.c60e551d36ce",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ねこが、きゅうに とびだす。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ねこが、きゅうに とびだす。"
+        },
+        {
+          "id": "c2",
+          "text": "ねこが きゅうに とびだす。"
+        },
+        {
+          "id": "c3",
+          "text": "ねこが、きゆうに とびだす。"
+        },
+        {
+          "id": "c4",
+          "text": "ねこが、きゅうに とひだす。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「、」、小さい「ゅ」、「だ」のてんてんまでそのまま。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.e73fe43b49be",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の言葉を国語辞典にのっている形（基本形）に直したものはどれですか。\n\n◆早く",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "早い"
+        },
+        {
+          "id": "c2",
+          "text": "早く"
+        },
+        {
+          "id": "c3",
+          "text": "早さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「早く」の基本形は「早い」です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.edbe4b95d60f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「おおきな こえで わらう。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おおきな こえで わらう。"
+        },
+        {
+          "id": "c2",
+          "text": "おうきな こえで わらう。"
+        },
+        {
+          "id": "c3",
+          "text": "おおきな こえで わらり。"
+        },
+        {
+          "id": "c4",
+          "text": "おおきな こえで わらう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「おお」とのばし、「う」を「り」にしない。「。」も写す。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.ee5928072a7d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国語辞典にのっている形（基本形）として正しいものはどれですか。\n\n◆来た / 来る / 来い",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "来る"
+        },
+        {
+          "id": "c2",
+          "text": "来た"
+        },
+        {
+          "id": "c3",
+          "text": "来い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国語辞典には「来る」という基本の形で載っています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.ef50682f758e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ぞうは はなが ながい。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぞうは はなが ながい。"
+        },
+        {
+          "id": "c2",
+          "text": "そうは はなが ながい。"
+        },
+        {
+          "id": "c3",
+          "text": "ぞうは はなが なかい。"
+        },
+        {
+          "id": "c4",
+          "text": "ぞうわ はなが ながい。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ぞ」のてんてん、「が」、「は」を正しく写す。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.f177fc52ccda",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「がっこうへ いく。」を正しく書きうつしたものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "がっこうへ いく。"
+        },
+        {
+          "id": "c2",
+          "text": "がつこうへ いく。"
+        },
+        {
+          "id": "c3",
+          "text": "がっこうえ いく。"
+        },
+        {
+          "id": "c4",
+          "text": "がっこうへ いく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小さい「っ」、「へ」、文の終わりの「。」までそのまま写す。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-5.f9eb93232d67",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "視写（ししゃ）で気をつけることはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "「、」や「。」もそのまま写す"
+        },
+        {
+          "id": "c2",
+          "text": "「、」「。」ははぶく"
+        },
+        {
+          "id": "c3",
+          "text": "漢字をぜんぶひらがなにする"
+        },
+        {
+          "id": "c4",
+          "text": "すきなことばにかえる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "お手本のとおり、点や丸まで正しく写すのが視写。"
+  }
+]

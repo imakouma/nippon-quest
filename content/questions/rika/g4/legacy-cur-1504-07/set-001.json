@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-07.1994e8fb649f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤を使う目的はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "重さを測る"
+        },
+        {
+          "id": "c2",
+          "text": "その日その時刻に見える星座を知る"
+        },
+        {
+          "id": "c3",
+          "text": "気温を測る"
+        },
+        {
+          "id": "c4",
+          "text": "電流を測る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "見える星座の位置を知るために使います。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.1d6dd11f9a3d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の道具の名前[なまえ]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度計"
+        },
+        {
+          "id": "c2",
+          "text": "星座早見盤"
+        },
+        {
+          "id": "c3",
+          "text": "方位磁針だけ"
+        },
+        {
+          "id": "c4",
+          "text": "望遠鏡だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "星座早見盤で見える星座を調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.65a27a66840e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏の大三角が東の空にあるとき、さそり座はどちらに見られやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北"
+        },
+        {
+          "id": "c2",
+          "text": "南の空"
+        },
+        {
+          "id": "c3",
+          "text": "真下"
+        },
+        {
+          "id": "c4",
+          "text": "見えない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "さそり座は南の空に見られやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.739679e78171",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤で合わせるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日付と時刻"
+        },
+        {
+          "id": "c2",
+          "text": "日付[ひづけ]と方角[ほうがく]"
+        },
+        {
+          "id": "c3",
+          "text": "時刻[じこく]と方角[ほうがく]"
+        },
+        {
+          "id": "c4",
+          "text": "季節[きせつ]と気温[きおん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付と時刻を合わせて使います。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.a2484e68bb0b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夏の夜空で有名な3つの明るい星がつくる形を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冬の大三角"
+        },
+        {
+          "id": "c2",
+          "text": "夏の大三角"
+        },
+        {
+          "id": "c3",
+          "text": "南十字"
+        },
+        {
+          "id": "c4",
+          "text": "北斗七星だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ベガ・アルタイル・デネブなどで夏の大三角をつくります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.ae71c44d7880",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の集まりに名前[なまえ]をつけたものを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "惑星"
+        },
+        {
+          "id": "c2",
+          "text": "星座"
+        },
+        {
+          "id": "c3",
+          "text": "衛星"
+        },
+        {
+          "id": "c4",
+          "text": "彗星"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "星の集まりに名前[なまえ]をつけたものが星座です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.b10edd43678f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤で西の文字を下にして持ったとき、見ている方角はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東"
+        },
+        {
+          "id": "c2",
+          "text": "西"
+        },
+        {
+          "id": "c3",
+          "text": "北"
+        },
+        {
+          "id": "c4",
+          "text": "南"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "下にした方角の空を見ていることになります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-07.fbc04fe64e04",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-07",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-07",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の明るさの表し方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "数字[すうじ]が大[おお]きいほど明[あか]るい等級[とうきゅう]で表[あらわ]す"
+        },
+        {
+          "id": "c2",
+          "text": "1等星・2等星など等級で表す"
+        },
+        {
+          "id": "c3",
+          "text": "星[ほし]の色[いろ]だけで明[あか]るさを表[あらわ]す"
+        },
+        {
+          "id": "c4",
+          "text": "すべての星[ほし]を同[おな]じ明[あか]るさとして表[あらわ]す"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "明るい順に1等星・2等星などと表します。"
+  }
+]

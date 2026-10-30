@@ -287,7 +287,35 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g3.culture.proverbs-idioms",
+      "to": "kokugo.g3.culture.idioms",
+      "kind": "related",
+      "strength": 0.75,
+      "rationale": "ことわざと慣用句[かんようく]を、昔[むかし]から伝[つた]わる言葉[ことば]の意味[いみ]と使[つか]い方[かた]を学[まな]ぶ内容[ないよう]として結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g3.culture.proverbs-idioms",
+      "to": "kokugo.g3.culture.koji-seigo",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "ことわざ・慣用句[かんようく]と故事成語[こじせいご]を、由来[ゆらい]や文脈[ぶんみゃく]から意味[いみ]を捉[とら]える言語文化[げんごぶんか]として結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.writing.basic-format",
+      "to": "kokugo.g3.writing.accurate-copying",
+      "kind": "transfer",
+      "strength": 0.65,
+      "rationale": "句読点[くとうてん]や書式[しょしき]を整[ととの]えて書[か]く経験[けいけん]を、文章[ぶんしょう]を正確[せいかく]に書[か]き写[うつ]す活動[かつどう]へ生[い]かす。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g3.jpn-3-10.49c58f6ae5a6",

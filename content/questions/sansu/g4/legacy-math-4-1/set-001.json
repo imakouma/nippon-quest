@@ -1,0 +1,501 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-1.013789521194",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をよみましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一億二千六百五十七万三千"
+        },
+        {
+          "id": "c2",
+          "text": "十二億六千五百七十三万"
+        },
+        {
+          "id": "c3",
+          "text": "一億二万六千五百七十三万"
+        },
+        {
+          "id": "c4",
+          "text": "十二億六百五十七万三千"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。千のまとまり（数字４つ）ずつ くぎって読めばいいので 1億2657万3000 → 一億二千六百五十七万三千になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.075af8e46f90",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を数字でかきましょう。",
+      "answers": [
+        "2806000000"
+      ]
+    },
+    "explanation": "１億を28こ集めると、十億の位になる。28億 と 600万なので、2806000000 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.16d89a8b484c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を 10でわった数は、いくつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3300万"
+        },
+        {
+          "id": "c2",
+          "text": "3000万"
+        },
+        {
+          "id": "c3",
+          "text": "33000万"
+        },
+        {
+          "id": "c4",
+          "text": "3億300万"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "10でわると、１つくらいが下がる。億の位の１つ下は、千万の位だね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.2b9e14a26b41",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を10倍した数は、いくつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2億"
+        },
+        {
+          "id": "c2",
+          "text": "20000万"
+        },
+        {
+          "id": "c3",
+          "text": "200万"
+        },
+        {
+          "id": "c4",
+          "text": "1億2000万"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "10倍すると、１つくらいが上がる。千万の位の１つ上は、億の位だね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.3fb16c7f41ee",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を10でわった数は、いくつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1兆2000億"
+        },
+        {
+          "id": "c2",
+          "text": "12000億"
+        },
+        {
+          "id": "c3",
+          "text": "1200億"
+        },
+        {
+          "id": "c4",
+          "text": "12億"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "10でわると、１つくらいが下がる。兆の位の１つ下は、千億の位だね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.643593ec8d4a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 912×105456000091295760 =",
+      "answers": [
+        "95760"
+      ]
+    },
+    "explanation": "かける数 105 の 0 に注意しよう。筆算の段を しょうりゃく してもいい。 9 1 2 × 1 0 5 4 5 6 0 0 0 0 9 1 2 9 5 7 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.686f389e26ff",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をよみましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "十三億七千六百四万九千三百九十七"
+        },
+        {
+          "id": "c2",
+          "text": "百三十七億六千四十九万三百九十七"
+        },
+        {
+          "id": "c3",
+          "text": "一億三千七百六十四万九千三百九十七"
+        },
+        {
+          "id": "c4",
+          "text": "十三億七百六十万四万九千三百九十七"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。千のまとまり（数字４つ）ずつ くぎって読めばいいので 13億7604万9397 → 十三億七千六百四万九千三百九十七になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.831b4da3c036",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 456×789410436483192359784 =",
+      "answers": [
+        "359784"
+      ]
+    },
+    "explanation": "4 5 6 × 7 8 9 4 1 0 4 3 6 4 8 3 1 9 2 3 5 9 7 8 4"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.84e1a52edf99",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 123×45673861549256088 =",
+      "answers": [
+        "56088"
+      ]
+    },
+    "explanation": "1 2 3 × 4 5 6 7 3 8 6 1 5 4 9 2 5 6 0 8 8"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.8f927b44cdfb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 378×2913783402756109998 =",
+      "answers": [
+        "109998"
+      ]
+    },
+    "explanation": "3 7 8 × 2 9 1 3 7 8 3 4 0 2 7 5 6 1 0 9 9 9 8"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.94241bc795ef",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 756×20752920001512156492 =",
+      "answers": [
+        "156492"
+      ]
+    },
+    "explanation": "かける数 207の 0 に注意しよう。筆算の段を しょうりゃく してもいい。 7 5 6 × 2 0 7 5 2 9 2 0 0 0 1 5 1 2 1 5 6 4 9 2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.9a9fb0b9455b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を 数字でかきましょう。",
+      "answers": [
+        "1600000000000"
+      ]
+    },
+    "explanation": "1000億を 16こ集めると、一兆の位になる。1兆 と 6000億なので、1600000000000 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.b82b1ba984aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 403×365201524181209147095 =",
+      "answers": [
+        "147095"
+      ]
+    },
+    "explanation": "4 0 3 × 3 6 5 2 0 1 5 2 4 1 8 1 2 0 9 1 4 7 0 9 5"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.be58f162448b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を 数字でかきましょう。",
+      "answers": [
+        "1311051110"
+      ]
+    },
+    "explanation": "億、万で数字をくぎって、書いていこう。 十三億千百五万千百十 → 十三億 / 千百五万 / 千百十 「億」までを数字にすると 13、 「万」までを数字にすると 1105、のこりが 1110 これをあわせて、1311051110 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.cc5c9901b385",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を10倍した数は、いくつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9兆8000億"
+        },
+        {
+          "id": "c2",
+          "text": "98000億"
+        },
+        {
+          "id": "c3",
+          "text": "9万8000億"
+        },
+        {
+          "id": "c4",
+          "text": "98兆"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "10倍すると、１つくらいが上がる。千億の位の１つ上は、兆の位だね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.dbcca102b5a8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 408×37140828561224151368 =",
+      "answers": [
+        "151368"
+      ]
+    },
+    "explanation": "4 0 8 × 3 7 1 4 0 8 2 8 5 6 1 2 2 4 1 5 1 3 6 8"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.dd01d9cf17b5",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数をよみましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三億二千百七十七万四千九"
+        },
+        {
+          "id": "c2",
+          "text": "三十二億千七百七十四万九"
+        },
+        {
+          "id": "c3",
+          "text": "三億二万千七百七十四万九"
+        },
+        {
+          "id": "c4",
+          "text": "三億二千百七十七万九千"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。千のまとまり（数字４つ）ずつ くぎって読めばいいので 3億2177万4009 → 三億二千百七十七万四千九になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.ec4fe986ab09",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を 数字でかきましょう。",
+      "answers": [
+        "257560098"
+      ]
+    },
+    "explanation": "億、万で数字をくぎって、書いていこう。 二億五千七百五十六万九十八 → 二億 / 五千七百五十六万 / 九十八 「億」までを数字にすると 2、 「万」までを数字にすると 5756、のこりが 0098 これをあわせて、257560098 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.f09ab683a3cb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を 数字でかきましょう。",
+      "answers": [
+        "207848512"
+      ]
+    },
+    "explanation": "億、万で数字をくぎって、書いていこう。 二億七百八十四万八千五百十二 → 二億 / 七百八十四万 / 八千五百十二 「億」までを数字にすると 2、 「万」までを数字にすると 0784、のこりが 8512 これをあわせて、207848512 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-1.fe1bc5c8b7b8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 662×453310264829790 =",
+      "answers": [
+        "29790"
+      ]
+    },
+    "explanation": "そのままかけ算してもいいけど、じゅん番を入れかえると、筆算の段が少なくてすむぞ。 6 6 2 × 4 5 3 3 1 0 2 6 4 8 2 9 7 9 0"
+  }
+]

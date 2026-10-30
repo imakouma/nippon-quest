@@ -1,0 +1,620 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-2.023465108988",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの事件について、原則として３回まで裁判を受けられる三審制さんしんせいというしくみがある。三審制をとる目的として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人権を守り裁判のまちがいを防ぐため。"
+        },
+        {
+          "id": "c2",
+          "text": "国民の意見を裁判にいかすため。"
+        },
+        {
+          "id": "c3",
+          "text": "裁判官の能力を高めるため。"
+        },
+        {
+          "id": "c4",
+          "text": "国会や内閣のえいきょうを受けないようにするため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "人権を守り、裁判のまちがいを防ぐため、三審制というしくみがある。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.1d525bcc8e95",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地方自治において、「地方の時代」「住民が主人公」と呼ばれるように、都道府県や市区町村の政治（地方政治）の基本理念は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地方自治は民主主義の学校[がっこう]である（住民の意見を反映させる）"
+        },
+        {
+          "id": "c2",
+          "text": "国がすべてのルールを決める"
+        },
+        {
+          "id": "c3",
+          "text": "知事一人で何でも決定する"
+        },
+        {
+          "id": "c4",
+          "text": "税金を集めないこと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地方政治は住民の最も身近な課題を扱うため、住民自身が参加して解決を図る「民主主義の基礎（学校[がっこう]）」と位置づけられます。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.261ec29b77bd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国民が国に納め、国がおこなう仕事につかわれるお金のことを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "税金"
+        },
+        {
+          "id": "c2",
+          "text": "借金"
+        },
+        {
+          "id": "c3",
+          "text": "寄付金"
+        },
+        {
+          "id": "c4",
+          "text": "分担金"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国民が国に納め、国がおこなう仕事につかわれるお金を税金という。国だけなく、都道府県や市区町村に納める税金もある。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.2a6f6b041298",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "衆議院・参議院についての説明[せつめい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "参議院の議員は天皇に選ばれる。"
+        },
+        {
+          "id": "c2",
+          "text": "衆議院は解散がある。"
+        },
+        {
+          "id": "c3",
+          "text": "２つの議院には、任期や議員数などにちがいがある。"
+        },
+        {
+          "id": "c4",
+          "text": "政治の方針を慎重に決定するために２つの議院がある。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "衆議院と参議院には、任期や議員数などにちがいがあり、衆議院のみ解散があるという特ちょうがある。政治の方針ほうしんを慎重に決定するために２つの議院がある。 選出方法に多少のちがいはあるものの、衆議院・参議院、どちらの議員も国民による選挙で選ばれる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.38e654ff9d87",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "立法・行政・司法の３つの権力をそれぞれ別の機関が持ち、権力のバランスを保とうとするしくみを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三権分立[さんけんぶんりつ]"
+        },
+        {
+          "id": "c2",
+          "text": "三大原則"
+        },
+        {
+          "id": "c3",
+          "text": "三審制"
+        },
+        {
+          "id": "c4",
+          "text": "非核三原則"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "立法・行政・司法の３つの権力をそれぞれ別の機関が持ち、権力のバランスを保とうとするしくみを三権分立[さんけんぶんりつ]という。 ・三大原則：３つの重要な原則のことで、日本国憲法の三大原則は、国民主権、基本的人権の尊重、平和主義[へいわしゅぎ] ・非核三原則：日本がかかげている「核兵器を持たず、つくらず、持ちこませず」という原則 ・三審制：１つの事件につき原則として３回まで裁判を受けられるしくみ"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.407a76066dad",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "私たちがお店で買い物をするときに代金と一緒に支払う、購入した商品の価格に応じて国や地方に納める税金を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消費税（しょうひぜい）"
+        },
+        {
+          "id": "c2",
+          "text": "所得税"
+        },
+        {
+          "id": "c3",
+          "text": "固定資産税"
+        },
+        {
+          "id": "c4",
+          "text": "自動車税"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "消費税[しょうひぜい]は、商品やサービスの購入に対してかかる間接税で、主に社会保障（医療や福祉・年金など）の財源に使われます。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.43d9251380f4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域の政治が、その地域の住民によって行われることを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地方自治"
+        },
+        {
+          "id": "c2",
+          "text": "地方分権"
+        },
+        {
+          "id": "c3",
+          "text": "中央集権"
+        },
+        {
+          "id": "c4",
+          "text": "中央政府"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域の政治が、その地域の住民によって行われることを、地方自治という。地域によってかかえる問題[もんだい]がちがうため、よりよい生活のために、住民の意見を地域の政治に反映させることが大切になっている。 ・地方分権：権力を政府に集中させることなく、それぞれの地方に分けること ・中央集権：権力を政府に集中させること ・中央政府：国の行政府（内閣）"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.45930432a3b4",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこにあてはまる言葉をえらぼう。",
+      "answers": [
+        "立法",
+        "行政",
+        "司法"
+      ],
+      "template": "日本では、国会が {{INPUT}} 権、内閣が {{INPUT}} 権、裁判所が {{INPUT}} 権をもつ。３つの権力をそれぞれ別の機関が持って、権力のバランスを保っている。"
+    },
+    "explanation": "日本では、国会が（立法）権、内閣が（行政）権、裁判所が（司法）権をもつ。３つの権力をそれぞれ別の機関が持って、権力のバランスを保っている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.5361a5723447",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地方議会で定められる、その地方公共団体だけの決まりを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "条例"
+        },
+        {
+          "id": "c2",
+          "text": "条約"
+        },
+        {
+          "id": "c3",
+          "text": "憲法"
+        },
+        {
+          "id": "c4",
+          "text": "法律"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地方議会で定められる、その地方公共団体だけの決まりを、条例という。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.7a7347402761",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国の政治の進め方を決める機関をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国会"
+        },
+        {
+          "id": "c2",
+          "text": "内閣"
+        },
+        {
+          "id": "c3",
+          "text": "裁判所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本で、国の政治の進め方を決める機関は国会。 ・内閣ないかく：法律や予算にもとづいて政治をおこなう機関 ・裁判所さいばんしょ：法律にもとづき、事件や争いについて判断する機関"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.88f437113640",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国会の仕事として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "法律を定める。"
+        },
+        {
+          "id": "c2",
+          "text": "条例をつくる。"
+        },
+        {
+          "id": "c3",
+          "text": "争いや事件について判断する。"
+        },
+        {
+          "id": "c4",
+          "text": "外国と条約を結ぶ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国会の主な仕事には、次のようなものがある。 ・法律を定める。 ・予算を決める。 ・条約をみとめる。 外国と条約を結ぶのは内閣、法律にもとづき争いや事件について判断するのは裁判所、条例をつくるのは地方議会。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.a38e30eca4db",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "法律にもとづき、事件や争いについて判断する機関をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国会"
+        },
+        {
+          "id": "c2",
+          "text": "内閣"
+        },
+        {
+          "id": "c3",
+          "text": "裁判所"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "法律にもとづき、事件や争いについて判断するのは裁判所。 ・国会：選挙で選ばれた議員が議論をおこない、法律をつくるなど政治の方針を決める機関 ・内閣：議会が定めた法律や予算にもとづいて政治をおこなう最高機関"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.ac12aff417a7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国会を構成する２つの議院の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "衆議院・参議院"
+        },
+        {
+          "id": "c2",
+          "text": "参議院・貴族院"
+        },
+        {
+          "id": "c3",
+          "text": "貴族院・衆議院"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国会は衆議院・参議院の２つの議院で構成されている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.b2d58b2a00e9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "法律や予算にもとづいて政治をおこなう機関をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国会"
+        },
+        {
+          "id": "c2",
+          "text": "内閣"
+        },
+        {
+          "id": "c3",
+          "text": "裁判所"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "法律や予算にもとづいて政治をおこなう機関を、内閣という。 ・国会：選挙で選ばれた議員が議論をおこない、法律をつくるなど政治の方針を決める機関 ・裁判所：法律にもとづき、事件や争いについて判断する機関"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.bca85b3eb04f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国会が「唯一の立法機関（ゆいいつのりっぽうきかん）」と呼ばれる理由は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国全体の法律を作ることができるのは、国会だけだから"
+        },
+        {
+          "id": "c2",
+          "text": "裁判を行う唯一の場所だから"
+        },
+        {
+          "id": "c3",
+          "text": "税金を一人で集める場所だから"
+        },
+        {
+          "id": "c4",
+          "text": "天皇が法律を作る場所だから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国民の代表である衆議院・参議院からなる「国会」だけが、日本国の法律を制定する権限を持っています。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.bf9568dae751",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "衆議院と参議院の意見が一致しなかった場合（法律案や予算の議決など）、最終的にどちらの議院の決定が優先されますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "衆議院（衆議院の優越）"
+        },
+        {
+          "id": "c2",
+          "text": "参議院"
+        },
+        {
+          "id": "c3",
+          "text": "裁判所"
+        },
+        {
+          "id": "c4",
+          "text": "内閣"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "解散があり任期も短い（4年）衆議院は、より国民の意見を強く反映しているため、「衆議院の優越」が認められています。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.c51f5771d853",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国会・内閣・裁判所の3つの機関が互いに監視し合い、一つの機関に権力が集中して国民の権利が侵されないようにする仕組みを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三権分立（さんけんぶんりつ）"
+        },
+        {
+          "id": "c2",
+          "text": "三審制"
+        },
+        {
+          "id": "c3",
+          "text": "二院制"
+        },
+        {
+          "id": "c4",
+          "text": "直接民主制"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "立法（国会）・行政（内閣）・司法（裁判所）の3つの権力を分離し、互いに制約と均衡を保つ仕組みを三権分立[さんけんぶんりつ]といいます。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-2.cefae718936d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "税金についての説明[せつめい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "税金の使い道は裁判所で決められる。"
+        },
+        {
+          "id": "c2",
+          "text": "税金を納めることは国民の義務である。"
+        },
+        {
+          "id": "c3",
+          "text": "物を買うときにかかる消費税[しょうひぜい]は税金の１つである。"
+        },
+        {
+          "id": "c4",
+          "text": "学校教育にかかる費用に税金が使われている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "税金の使い道は、裁判所ではなく、議会で話し合って決められる。"
+  }
+]

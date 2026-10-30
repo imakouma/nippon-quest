@@ -1,0 +1,578 @@
+[
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.022ba1522c2f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "中国語由来の読み方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        },
+        {
+          "id": "c3",
+          "text": "和読み"
+        },
+        {
+          "id": "c4",
+          "text": "表読み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "音読み＝中国語由来。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.0395b517d5e6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「水」の訓読みはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "すい"
+        },
+        {
+          "id": "c2",
+          "text": "みず"
+        },
+        {
+          "id": "c3",
+          "text": "づい"
+        },
+        {
+          "id": "c4",
+          "text": "み"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「水」の訓読みは「みず」、音読みは「すい」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.2134d2ae8580",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「日記（にっき）」の「日」と「日曜日（にちようび）」の「日」。同じ漢字ですが読み方はどうですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらも同じ読み方"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう読み方をしている"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも訓読み"
+        },
+        {
+          "id": "c4",
+          "text": "どちらも特別な読み方"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「日」は「にっ（にち）」や「にち（び）」など、文脈によって違う読み方をします（同字異音）。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.42a8892e9ad5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "音読みのことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "天気（てんき）"
+        },
+        {
+          "id": "c2",
+          "text": "空（そら）"
+        },
+        {
+          "id": "c3",
+          "text": "山（やま）"
+        },
+        {
+          "id": "c4",
+          "text": "川（かわ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「てんき」は音読みの組み合わせ。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.4a763e4f4809",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「本」の訓読み（日本語の意味にあわせた読み）はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ほん"
+        },
+        {
+          "id": "c2",
+          "text": "もと"
+        },
+        {
+          "id": "c3",
+          "text": "ぽん"
+        },
+        {
+          "id": "c4",
+          "text": "ぼん"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「本」の訓読みは「もと」（木の根元の意味など）、音読みが「ほん」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.64b326126d35",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「本」の訓読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ほん"
+        },
+        {
+          "id": "c2",
+          "text": "もと"
+        },
+        {
+          "id": "c3",
+          "text": "ぽん"
+        },
+        {
+          "id": "c4",
+          "text": "ぼん"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "訓読み「もと」、音読み「ほん」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.65cf42df5ec8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "漢字の読み方で、昔の中国の発音をもとにした読み方を何と呼びますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み（おんよみ）"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み（くんよみ）"
+        },
+        {
+          "id": "c3",
+          "text": "和読み（わよみ）"
+        },
+        {
+          "id": "c4",
+          "text": "表読み（ひょうよみ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中国の発音をもとにしたのが「音読み」、日本語の意味を当てはめたのが「訓読み」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.780f6556cdd0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "訓読みのことばはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "山（やま）"
+        },
+        {
+          "id": "c2",
+          "text": "山（さん）"
+        },
+        {
+          "id": "c3",
+          "text": "本（ほん）"
+        },
+        {
+          "id": "c4",
+          "text": "校（こう）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "意味がわかる「やま」は訓読み。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.7dc0e649ccc4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「火」の訓読みはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "か"
+        },
+        {
+          "id": "c2",
+          "text": "ひ"
+        },
+        {
+          "id": "c3",
+          "text": "び"
+        },
+        {
+          "id": "c4",
+          "text": "ほ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "訓読みは「ひ」、音読みは「か」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.865662a4a644",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本語の意味に合わせた読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "略語"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "訓読み。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.9d1d4beed59a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「一石二鳥」の「石」の音読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いし"
+        },
+        {
+          "id": "c2",
+          "text": "せき"
+        },
+        {
+          "id": "c3",
+          "text": "こく"
+        },
+        {
+          "id": "c4",
+          "text": "しゃく"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音読み「せき」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.9d6bfe1d0622",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「川」を「かわ」と読むのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "訓読み"
+        },
+        {
+          "id": "c2",
+          "text": "音読み"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "略語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "意味がわかる「かわ」は訓読み。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.d81341ce2a8d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「水」の音読みはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みず"
+        },
+        {
+          "id": "c2",
+          "text": "すい"
+        },
+        {
+          "id": "c3",
+          "text": "みづ"
+        },
+        {
+          "id": "c4",
+          "text": "み"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "音読みは「すい」、訓読みは「みず」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.da85eddc692e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「風」の訓読みは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふう"
+        },
+        {
+          "id": "c2",
+          "text": "かぜ"
+        },
+        {
+          "id": "c3",
+          "text": "ぷう"
+        },
+        {
+          "id": "c4",
+          "text": "ふ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "訓読み「かぜ」。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.fa64dc3b7952",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「一石二鳥」の「石」の音読みはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いし"
+        },
+        {
+          "id": "c2",
+          "text": "せき"
+        },
+        {
+          "id": "c3",
+          "text": "こく"
+        },
+        {
+          "id": "c4",
+          "text": "しゃく"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「石」の音読みは「せき」や「しゃく」、訓読みが「いし」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-2.fb688fad750a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「学」を「がく」と読むのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "音読み"
+        },
+        {
+          "id": "c2",
+          "text": "訓読み"
+        },
+        {
+          "id": "c3",
+          "text": "外来語"
+        },
+        {
+          "id": "c4",
+          "text": "あて字"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「がく」は音読み（訓読みは「まな（ぶ）」）。"
+  }
+]

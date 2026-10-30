@@ -1,0 +1,182 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-20.4088987de6cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文中の(2)にあてはまる言葉を選ぼう。\n\n「スポーツ用のぎ手やぎ足は…力を発きできるように作られています。[ (2) ]、りく上きょうぎ用のぎ足は…」",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たとえば"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "あるいは"
+        },
+        {
+          "id": "c4",
+          "text": "つまり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "具体的な例をあげるための「たとえば」が入ります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-20.4d362455242a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文中の(1)にあてはまる言葉を選ぼう。\n\n「…事故などによってうでや足を切だんした人は、ぎ手[ (1) ]ぎ足をつけて…」",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あるいは"
+        },
+        {
+          "id": "c2",
+          "text": "たとえば"
+        },
+        {
+          "id": "c3",
+          "text": "しかし"
+        },
+        {
+          "id": "c4",
+          "text": "つまり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "前後の事柄を「または」の意味でつなぐ「あるいは」が入ります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-20.b4394c8a3140",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文中の(3)にあてはまる言葉を選ぼう。\n\n「しょうがい者も走ったりとんだりするきょうぎを行うことが[ (3) ]になっています。」",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かのう"
+        },
+        {
+          "id": "c2",
+          "text": "空想"
+        },
+        {
+          "id": "c3",
+          "text": "こんな"
+        },
+        {
+          "id": "c4",
+          "text": "困難"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "競技を行うことが「可能（かのう）」になっています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-20.b7adfb821ddb",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「こうしたぎ手・ぎ足」とは、どのようなものですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "りく上きょうぎ用にさまざまにくふうされているもの。"
+        },
+        {
+          "id": "c2",
+          "text": "日常生活を普通に送るためのもの"
+        },
+        {
+          "id": "c3",
+          "text": "誰にでも簡単に作れるもの"
+        },
+        {
+          "id": "c4",
+          "text": "高価で手に入いにくいもの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "スポーツや競技のために特別にくふうされているぎ手・ぎ足を指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-20.c7c16f373027",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-20",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_20",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「そののう力」とは、どのようなのう力ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "走る、とぶ、投げるなどののう力。"
+        },
+        {
+          "id": "c2",
+          "text": "日常生活のために作られた力"
+        },
+        {
+          "id": "c3",
+          "text": "人間本来の手や足の力"
+        },
+        {
+          "id": "c4",
+          "text": "機械のように強い力"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "直前にある「走る、とぶ、投げるなどの動き」に対応したのう力です。"
+  }
+]

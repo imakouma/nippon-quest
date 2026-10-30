@@ -505,6 +505,24 @@
   ],
   "relations": [
     {
+      "from": "sansu.g2.number.over-1000",
+      "to": "sansu.g2.number.over-1000.compose",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "1000を超[こ]える数[かず]の範囲[はんい]と表[あらわ]し方[かた]を捉[とら]えることを、位[くらい]ごとに数[かず]を構成[こうせい]する基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-sansu-g2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g2.number.over-1000.compose",
+      "to": "sansu.g2.number.over-1000.compare-order",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "十進位取記数法[じっしんくらいどりきすうほう]で数[かず]を構成[こうせい]する理解[りかい]を、大[おお]きさや順序[じゅんじょ]を比[くら]べる基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-sansu-g2"],
+      "reviewStatus": "source-checked"
+    },
+    {
       "from": "sansu.g2.add.two-one",
       "to": "sansu.g2.calculation.column-method",
       "kind": "prerequisite",

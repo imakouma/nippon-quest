@@ -1,0 +1,576 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-13.0194f6e1fbb5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.7506 ÷ 2 =",
+      "answers": [
+        "0.375"
+      ]
+    },
+    "explanation": "0. 3 7 5 3 2 ) 1 2. 0 0 0 9 6 2 4 0 2 2 4 1 6 0 1 6 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.02b381f2abf4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2.8 ÷ 4 =",
+      "answers": [
+        "0.69"
+      ]
+    },
+    "explanation": "小数点の前の数が、わる数でわれないときは、0.から答えをはじめよう。 0. 6 9 6 ) 4. 1 4 3 6 5 4 5 4 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.0860bf340cae",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.4 ÷ 4 =",
+      "answers": [
+        "0.103"
+      ]
+    },
+    "explanation": "小数点の前の数が、わる数でわれないときは、0.から答えをはじめよう。 0. 1 0 3 5 ) 0. 5 1 5 5 1 5 1 5 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.14e8dc8f5e00",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8÷4 =",
+      "answers": [
+        "0.2"
+      ]
+    },
+    "explanation": "0.8は 0.1が8つになる。これを 4でわるので、0.1が8÷4=2こで、0.2になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.295ea00af27c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 16.8 ÷ 4 =",
+      "answers": [
+        "4.2"
+      ]
+    },
+    "explanation": "まずは、小数点は 気にせずに、わり算しよう。その後、わられる数の小数点の上に、答えの小数点をつければいい。 4. 2 2 ) 8. 4 8 4 4 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.30c377ae1b81",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 10.0 ÷ 4 =",
+      "answers": [
+        "2.5"
+      ]
+    },
+    "explanation": "まずは、小数点は 気にせずに、わり算しよう。その後、わられる数の小数点の上に、答えの小数点をつければいい。 2. 5 3 ) 7. 5 6 1 5 1 5 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.354924d70bae",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 9.8 ÷ 4 =",
+      "answers": [
+        "2.45"
+      ]
+    },
+    "explanation": "2. 4 5 4 ) 9. 8 0 8 1 8 1 6 2 0 2 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.391d8693c353",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.3 ÷ 4 =",
+      "answers": [
+        "0.07"
+      ]
+    },
+    "explanation": "÷２けたでも、まずはじめは 小数点を気にせず計算する。その後に、答えを小数点につけよう。 0. 0 7 4 8 ) 3. 3 6 3 3 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.3e061d7de610",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 6.8 ÷ 4 =",
+      "answers": [
+        "1.7"
+      ]
+    },
+    "explanation": "÷２けたでも、まずはじめは 小数点を気にせず計算する。その後に、答えを小数点につけよう。 1. 7 2 9 ) 4 9. 3 2 9 2 0 3 2 0 3 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.41e217e934d3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3.8 ÷ 4 =",
+      "answers": [
+        "0.96"
+      ]
+    },
+    "explanation": "この答えを四捨五入すると、{0.96}になる。 0. 9 5 8 1 2 ) 1 1. 5 0 0 1 0 8 7 0 6 0 1 0 0 9 6 4"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.45c4e1bbd527",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.3 ÷ 4 =",
+      "answers": [
+        "0.084"
+      ]
+    },
+    "explanation": "小数点の前の数が、わる数でわれないときは、0.から答えをはじめよう。 0. 0 8 4 9 ) 0. 7 5 6 7 2 3 6 3 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.57268c97eaf3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm です。お父さんの身長を１とみたとき、さとしくんの身長はいくつにあたるでしょう。",
+      "answers": [
+        "0.8"
+      ]
+    },
+    "explanation": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm で、さとしくんのお父さんの身長がもとになる数なので、 144÷180=0.8 さとしくんのお父さんの身長が１のとき、さとしくんの身長は 0.8 にあたる。 0. 8 1 8 0 ) 1 4 4. 0 1 4 4 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.62f5d370708b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2.7 ÷ 4 =",
+      "answers": [
+        "0.67"
+      ]
+    },
+    "explanation": "この答えを四捨五入すると、{0.67}になる。 0. 6 6 6 1 8 ) 1 2. 0 0 0 1 0 8 1 2 0 1 0 8 1 2 0 1 0 8 1 2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.6705a4ad0944",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 15.008 ÷ 4 =",
+      "answers": [
+        "3.75"
+      ]
+    },
+    "explanation": "3. 7 5 2 4 ) 9 0. 0 0 7 2 1 8 0 1 6 8 1 2 0 1 2 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.6f4672994a30",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 0.5 ÷ 4 =",
+      "answers": [
+        "0.13"
+      ]
+    },
+    "explanation": "小数点の前の数が、わる数でわれないときは、0.から答えをはじめよう。 0. 1 3 7 ) 0. 9 1 7 2 1 2 1 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.744cde8937e4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 15÷5 =",
+      "answers": [
+        "0.3"
+      ]
+    },
+    "explanation": "1.5は 0.1が15こになる。これを 5でわるので、0.1が15÷5=3こで、0.3になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.78796b116824",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 56÷8 =",
+      "answers": [
+        "0.7"
+      ]
+    },
+    "explanation": "5.6は 0.1が56こになる。これを 8でわるので、0.1が56÷8=7こで、0.7になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.794e52e304fd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm です。お父さんの身長は、さとしくんの何倍あるでしょう。",
+      "answers": [
+        "1.25"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm で、さとしくんの身長がもとになる数なので、 180÷144=1.25 さとしくんのお父さんの身長は、さとしくんの身長の 1.25倍 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.83d41bf39fea",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 13.6 ÷ 4 =",
+      "answers": [
+        "3.4"
+      ]
+    },
+    "explanation": "÷２けたでも、まずはじめは 小数点を気にせず計算する。その後に、答えの小数点をつけよう。 3. 4 1 2 ) 4 0. 8 3 6 4 8 4 8 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.869fac771b5f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2.8 ÷ 4 =",
+      "answers": [
+        "0.7"
+      ]
+    },
+    "explanation": "この答えを四捨五入すると、{0.7}になる。 0. 6 6 1 8 ) 1 2. 0 0 1 0 8 1 2 0 1 0 8 1 2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.8995c27fc0c4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしくんの弟の身長は 60cm で、さとしくんの身長は、弟の2.4倍あります。さとしくんの身長は、何cm でしょう。",
+      "answers": [
+        "144"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "さとしくんの弟の身長が 60cm 、さとしくんの身長は弟の2.4倍なので、 60×2.4=144 さとしくんの身長は 144cm 。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.89d3c83cae19",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 6÷3 =",
+      "answers": [
+        "0.2"
+      ]
+    },
+    "explanation": "0.6は 0.1が6つになる。これを 3でわるので、0.1が6÷3=2こで、0.2になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.8eb5f2dc6f1b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 8.4 ÷ 4 =",
+      "answers": [
+        "2.1"
+      ]
+    },
+    "explanation": "まずは、小数点は 気にせずに、わり算しよう。その後、わられる数の小数点の上に、答えの小数点をつければいい。 2. 1 6 ) 1 2. 6 1 2 6 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.984d80fc5d7c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1.0 ÷ 4 =",
+      "answers": [
+        "0.24"
+      ]
+    },
+    "explanation": "小数点の前の数が、わる数でわれないときは、0.から答えをはじめよう。 0. 2 4 3 ) 0. 7 2 6 1 2 1 2 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.985c4ab72100",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4.0 ÷ 4 =",
+      "answers": [
+        "1"
+      ]
+    },
+    "explanation": "この答えを四捨五入すると、{1.0}→1になる。 0. 9 5 1 2 ) 1 1. 5 0 1 0 8 7 0 6 0 1 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.9fca9d1c79b2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3.6 ÷ 4 =",
+      "answers": [
+        "0.89"
+      ]
+    },
+    "explanation": "小数点の前の数が、わる数でわれないときは、0.から答えをはじめよう。 0. 8 9 4 ) 3. 5 6 3 2 3 6 3 6 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.c2e33490fbc8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 49÷7 =",
+      "answers": [
+        "0.07"
+      ]
+    },
+    "explanation": "0.49は 0.01が49こになる。これを 7でわるので、0.01が49÷7=7こで、0.07になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.c3b4ac56d738",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4.5 ÷ 6 =",
+      "answers": [
+        "0.75"
+      ]
+    },
+    "explanation": "0. 7 5 6 ) 4. 5 0 4 2 3 0 3 0 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.cd154b14b4ee",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2.4 ÷ 4 =",
+      "answers": [
+        "0.6"
+      ]
+    },
+    "explanation": "÷２けたでも、まずはじめは 小数点を気にせず計算する。その後に、答えを小数点につけよう。 0. 6 3 7 ) 2 2. 2 2 2 2 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.da067a39be9f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 20÷4 =",
+      "answers": [
+        "0.5"
+      ]
+    },
+    "explanation": "2は 0.1が20こになる。これを 4でわるので、0.1が20÷4=5こで、0.5になる。"
+  }
+]

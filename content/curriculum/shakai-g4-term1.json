@@ -95,7 +95,17 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "shakai.g3.map.skills",
+      "to": "shakai.g4.cur-1404-01",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "第[だい]3学年[がくねん]で地図[ちず]や資料[しりょう]から地域[ちいき]を読[よ]み取[と]る力[ちから]を、第[だい]4学年[がくねん]で都道府県[とどうふけん]の位置[いち]や特色[とくしょく]を調[しら]べる基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-shakai-g3", "mext-h29-shakai-g4"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.shakai.g4.cur-1404-01.23873eb36d36",

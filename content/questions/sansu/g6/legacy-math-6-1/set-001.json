@@ -1,0 +1,562 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-1.008adb6409d6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の正多角形の中から、点対称な図形[ずけい]の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6つの図形全て"
+        },
+        {
+          "id": "c2",
+          "text": "正四角形、正六角形、正八角形"
+        },
+        {
+          "id": "c3",
+          "text": "正四角形、正六角形、正七角形、正八角形"
+        },
+        {
+          "id": "c4",
+          "text": "正四角形、正五角形、正六角形、正八角形"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/157a69770fb1c7d8.png"
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形[ずけい]を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.064f0be02d26",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "線対称な図形[ずけい]の性質について、次の文のかっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "垂直・等しく"
+        },
+        {
+          "id": "c2",
+          "text": "こと"
+        },
+        {
+          "id": "c3",
+          "text": "平行"
+        },
+        {
+          "id": "c4",
+          "text": "対称"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "対応する２つの点を結ぶ直線は、対称の軸と （垂直） に交わる。その交わる点から、対応する２つの点までの長さは、（等しく） なる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.146ac196a443",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "線対称な図形[ずけい]で、折り目となる直線のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対称の軸"
+        },
+        {
+          "id": "c2",
+          "text": "対称の線"
+        },
+        {
+          "id": "c3",
+          "text": "対称の点"
+        },
+        {
+          "id": "c4",
+          "text": "対称の中心"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "線対称な図形[ずけい]で、折り目となる直線のことを、「対称の軸じく」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.23d3e3b20e6c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の線対称な図形[ずけい]において、点Bと対応する点をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点A"
+        },
+        {
+          "id": "c2",
+          "text": "点C"
+        },
+        {
+          "id": "c3",
+          "text": "点D"
+        },
+        {
+          "id": "c4",
+          "text": "点E"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/81fd1efb49cbbf27.png"
+    },
+    "explanation": "「対応する点」とは、対称の軸で折ったときに、ぴったり重なる点のこと。 点Bは、点Eと重なるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.30223149f877",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、点対称な図形[ずけい]の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "S, Z"
+        },
+        {
+          "id": "c2",
+          "text": "E, U"
+        },
+        {
+          "id": "c3",
+          "text": "L, Z"
+        },
+        {
+          "id": "c4",
+          "text": "P, S"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f2f8ea37bc31a996.png"
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形[ずけい]を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.4098b29b97d3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、点対称な図形[ずけい]の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "N, O"
+        },
+        {
+          "id": "c2",
+          "text": "A, M"
+        },
+        {
+          "id": "c3",
+          "text": "F, R"
+        },
+        {
+          "id": "c4",
+          "text": "M, O"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2e12a9d5d37e3894.png"
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形[ずけい]を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.475962ee0c94",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の四角形[しかくけい]には対称の軸が何本あるでしょう。下の表の□に当てはまる数をうめよう。ただし、線対称でない場合には０を書こう。",
+      "answers": [
+        "0",
+        "2",
+        "2",
+        "4"
+      ],
+      "template": "対称の軸 平行四辺形 {{INPUT}} ひし形 {{INPUT}} 長方形 {{INPUT}} 正方形 {{INPUT}}",
+      "promptImage": "questions/legacy/8874dbfb6ab23db4.png"
+    },
+    "explanation": "線対称な図形[ずけい]で、折り目となる直線のことを、「対称の軸」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.4f049dee0979",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、線対称な図形[ずけい]の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "E, U"
+        },
+        {
+          "id": "c2",
+          "text": "L, S"
+        },
+        {
+          "id": "c3",
+          "text": "L, Z"
+        },
+        {
+          "id": "c4",
+          "text": "E, P"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f2f8ea37bc31a996.png"
+    },
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線せん対称たいしょう」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.4f3247deb13b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の正多角形には対称の軸が何本あるでしょう。下の表の□に当てはまる数をうめよう。ただし、線対称でない場合には０を書こう。",
+      "answers": [
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "template": "対称の軸 正三角形 {{INPUT}} 正方形 {{INPUT}} 正五角形 {{INPUT}} 正六角形 {{INPUT}}",
+      "promptImage": "questions/legacy/a4d2497d9fa5f326.png"
+    },
+    "explanation": "線対称な図形[ずけい]で、折り目となる直線のことを、「対称の軸」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.5c7bc62997cc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "点対称な図形[ずけい]の性質について、次の文のかっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対称の中心・等しく"
+        },
+        {
+          "id": "c2",
+          "text": "図の中心"
+        },
+        {
+          "id": "c3",
+          "text": "２倍に"
+        },
+        {
+          "id": "c4",
+          "text": "こと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "対応する２つの点を結ぶ直線は、（対称の中心） を通る。そこから、対応する２つの点までの長さは、（等しく） なる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.5de930abf5df",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある点を中心に 180°回転させたとき、ぴったり重なる図形[ずけい]を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "線対称"
+        },
+        {
+          "id": "c2",
+          "text": "点対称"
+        },
+        {
+          "id": "c3",
+          "text": "展開図"
+        },
+        {
+          "id": "c4",
+          "text": "見取図"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ある点を中心に 180°回転させたとき、ぴったり重なる図形[ずけい]を、「点対称」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.628778091ecb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "線対称"
+        },
+        {
+          "id": "c2",
+          "text": "点対称"
+        },
+        {
+          "id": "c3",
+          "text": "展開図"
+        },
+        {
+          "id": "c4",
+          "text": "見取図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線せん対称たいしょう」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.6452a798c984",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の点対称な図形[ずけい]において、点Aと対応する点をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点F"
+        },
+        {
+          "id": "c2",
+          "text": "点E"
+        },
+        {
+          "id": "c3",
+          "text": "点B"
+        },
+        {
+          "id": "c4",
+          "text": "点G"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2c933078254927a9.png"
+    },
+    "explanation": "「対応する点」とは、対称の中で回転させたときに、ぴったり重なる点のこと。 点Aは、点Fと重なるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.7b43764bb9a2",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "点対称な図形[ずけい]で、回転の中心となる点のことを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "対称の軸"
+        },
+        {
+          "id": "c2",
+          "text": "対称の線"
+        },
+        {
+          "id": "c3",
+          "text": "対称の点"
+        },
+        {
+          "id": "c4",
+          "text": "対称の中心"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "点対称な図形[ずけい]で、回転の中心となる点のことを、「対称の中心」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.e138da301bd3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のアルファベットの中から、線対称な図形[ずけい]の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A, M, O"
+        },
+        {
+          "id": "c2",
+          "text": "M, N, O"
+        },
+        {
+          "id": "c3",
+          "text": "A, F, R"
+        },
+        {
+          "id": "c4",
+          "text": "F, N, R"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2e12a9d5d37e3894.png"
+    },
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線せん対称たいしょう」という。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-1.e71e9c63b60e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の線対称な図形[ずけい]において、点Bと対応する点をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点J"
+        },
+        {
+          "id": "c2",
+          "text": "点C"
+        },
+        {
+          "id": "c3",
+          "text": "点I"
+        },
+        {
+          "id": "c4",
+          "text": "点K"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/173127d3dd8de61d.png"
+    },
+    "explanation": "「対応する点」とは、対称の軸で折ったときに、ぴったり重なる点のこと。 点Bは、点Jと重なるね。"
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "eigo.g1.fruits.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": [
+      "theme:fruits",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、くだものの えを えらぼう。",
+      "promptSpeech": "Apple",
+      "choices": [
+        {
+          "id": "apple",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "grape",
+          "image": "questions/eigo/grape.png"
+        },
+        {
+          "id": "peach",
+          "image": "questions/eigo/peach.png"
+        }
+      ],
+      "answer": "apple",
+      "shuffle": true
+    },
+    "explanation": "『アップル』の おとに あうのは、りんごの えだよ。"
+  },
+  {
+    "id": "eigo.g1.fruits.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": [
+      "theme:fruits",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、くだものの えを えらぼう。",
+      "promptSpeech": "Grape",
+      "choices": [
+        {
+          "id": "apple",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "grape",
+          "image": "questions/eigo/grape.png"
+        },
+        {
+          "id": "peach",
+          "image": "questions/eigo/peach.png"
+        }
+      ],
+      "answer": "grape",
+      "shuffle": true
+    },
+    "explanation": "『グレープ』の おとに あうのは、ぶどうの えだよ。"
+  },
+  {
+    "id": "eigo.g1.fruits.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": [
+      "theme:fruits",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "おとを きいて、くだものの えを えらぼう。",
+      "promptSpeech": "Peach",
+      "choices": [
+        {
+          "id": "apple",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "grape",
+          "image": "questions/eigo/grape.png"
+        },
+        {
+          "id": "peach",
+          "image": "questions/eigo/peach.png"
+        }
+      ],
+      "answer": "peach",
+      "shuffle": true
+    },
+    "explanation": "『ピーチ』の おとに あうのは、ももの えだよ。"
+  },
+  {
+    "id": "eigo.g1.fruits.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": [
+      "theme:fruits",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "もう いちど おとを きいて、あう えを えらぼう。",
+      "promptSpeech": "Apple",
+      "choices": [
+        {
+          "id": "peach",
+          "image": "questions/eigo/peach.png"
+        },
+        {
+          "id": "apple",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "grape",
+          "image": "questions/eigo/grape.png"
+        }
+      ],
+      "answer": "apple",
+      "shuffle": true
+    },
+    "explanation": "『アップル』の はじめの おとを よく きくと、りんごの えを えらべるよ。"
+  },
+  {
+    "id": "eigo.g1.fruits.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": [
+      "theme:fruits",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "もう いちど おとを きいて、あう えを えらぼう。",
+      "promptSpeech": "Grape",
+      "choices": [
+        {
+          "id": "peach",
+          "image": "questions/eigo/peach.png"
+        },
+        {
+          "id": "apple",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "grape",
+          "image": "questions/eigo/grape.png"
+        }
+      ],
+      "answer": "grape",
+      "shuffle": true
+    },
+    "explanation": "『グレープ』の おとを さいごまで きくと、ぶどうの えを えらべるよ。"
+  },
+  {
+    "id": "eigo.g1.fruits.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 1,
+    "unit": "eigo.g1.fruits",
+    "tags": [
+      "theme:fruits",
+      "skill:listening"
+    ],
+    "payload": {
+      "prompt": "もう いちど おとを きいて、あう えを えらぼう。",
+      "promptSpeech": "Peach",
+      "choices": [
+        {
+          "id": "peach",
+          "image": "questions/eigo/peach.png"
+        },
+        {
+          "id": "apple",
+          "image": "questions/eigo/apple.png"
+        },
+        {
+          "id": "grape",
+          "image": "questions/eigo/grape.png"
+        }
+      ],
+      "answer": "peach",
+      "shuffle": true
+    },
+    "explanation": "『ピーチ』の おとを よく きくと、ももの えを えらべるよ。"
+  }
+]

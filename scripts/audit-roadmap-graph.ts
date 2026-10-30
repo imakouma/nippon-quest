@@ -54,6 +54,14 @@ const report = buildCurriculumGraphQuality({ units, graph: merged.graph, grades 
 
 if (grades) console.log(`scope: grade ${grades.join(', ')}`);
 
+console.log(
+  `concepts: ${report.conceptGraph.concepts} concepts / ${report.conceptGraph.relations} relations / ${Object.entries(
+    report.conceptGraph.relationKinds,
+  )
+    .map(([kind, count]) => `${count} ${kind}`)
+    .join(' / ')} / ${report.conceptGraph.isolated.length} isolated`,
+);
+
 for (const [subject, quality] of Object.entries(report.bySubject))
   console.log(
     `${subject}: ${quality.units} units / ${quality.edges} edges / ${quality.branches} branches / ${quality.merges} merges / ${quality.isolated.length} isolated / ${quality.roots.length} roots`,
@@ -66,6 +74,10 @@ if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2)
 
 if (process.argv.includes('--strict')) {
   const failures: string[] = [];
+  if (report.conceptGraph.isolated.length)
+    failures.push(
+      `孤立概念 ${report.conceptGraph.isolated.length}件 (${report.conceptGraph.isolated.join(', ')})`,
+    );
   for (const [subject, quality] of Object.entries(report.bySubject)) {
     if (quality.isolated.length)
       failures.push(`${subject}: 孤立単元 ${quality.isolated.length}件 (${quality.isolated.join(', ')})`);

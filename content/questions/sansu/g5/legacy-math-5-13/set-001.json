@@ -1,0 +1,404 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-13.1a69ed2e7519",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "240÷0.6"
+        },
+        {
+          "id": "c2",
+          "text": "240×0.6"
+        },
+        {
+          "id": "c3",
+          "text": "0.6÷240"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 240÷0.6=400 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.21982a371d8b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "もとにする数を求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "もとにする数 ＝ くらべる数 ÷ 割合[わりあい]"
+        },
+        {
+          "id": "c2",
+          "text": "もとにする数 ＝ くらべる数 × 割合[わりあい]"
+        },
+        {
+          "id": "c3",
+          "text": "もとにする数 ＝ くらべる数 × (1-割合[わりあい])"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "くらべる数が「もとにする数 × 割合[わりあい]」で求められるので、もとにする数は、わり算で求めることができる。「もとにする数 ＝ くらべる数 ÷ 割合[わりあい]」が正しい。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.329fceb01942",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある中学校の入学定員は、200名 です。今年は、定員の 0.95倍 の希望者がありました。今年の入学希望者は、何人だったでしょう。",
+      "answers": [
+        "190"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 200×0.95=190人"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.332dc9ecf4e1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あきさんの家から学校[がっこう]までのきょりは 2.4km、駅までのきょりは 6km あります。あきさんの家から学校[がっこう]までのきょりは、駅までのきょりの何倍でしょう。",
+      "answers": [
+        "0.4"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：あきさんの家から駅までのきょり（6km） くらべる数：あきさんの家から学校[がっこう]までのきょり（2.4km）なので、 2.4÷6=0.4倍"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.362318fb18b8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "去年のレタス１玉の平均価格は 180円でしたが、今年は 252円まで値上がりしました。今年のレタスの平均価格は、去年の平均価格の何倍になったといえるでしょう。",
+      "answers": [
+        "1.4"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：去年の平均価格（180円） くらべる数：今年の平均価格（252円）なので、 252÷180=1.4倍"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.4712d83d0dd6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いつもの半額（0.5倍）で 1480 円で売られている服があります。この服は、いつもはいくらで売られているでしょう。",
+      "answers": [
+        "2960"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 1480÷0.5=2960円"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.479976e6acb0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある遊園地の今年の入場者数は、去年の 1.5倍 にあたる 約1050万人になりました。この遊園地の去年の入場者数は、何人だったでしょう。",
+      "answers": [
+        "700"
+      ],
+      "template": "約{{INPUT}}万人",
+      "suffix": "万人"
+    },
+    "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 1050÷1.5=700万人"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.4aadd29bfe30",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "私は 150円、弟は 60円 持っています。弟は、私の何倍 お金を持っているでしょう。",
+      "answers": [
+        "0.4"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：私のお金（150円）、くらべる数：弟のお金（60円）なので、 60÷150=0.4倍"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.7377bc97226a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "さとしさんは、今日4560歩 歩きましたが、お父さんは さとしさんのちょうど 2倍の歩数を歩きました。お父さんは、今日何歩歩いていたでしょう。",
+      "answers": [
+        "9120"
+      ],
+      "template": "{{INPUT}} 歩",
+      "suffix": "歩"
+    },
+    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 45600×2=9120歩"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.768dc2c0e922",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "割合[わりあい]を求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "割合[わりあい] ＝ くらべる数 ÷ もとにする数"
+        },
+        {
+          "id": "c2",
+          "text": "割合[わりあい] ＝ もとにする数 ÷ くらべる数"
+        },
+        {
+          "id": "c3",
+          "text": "割合[わりあい] ＝ もとにする数 × くらべる数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "割合[わりあい]は、言いかえれば「くらべる数」が「もとになる数」の何倍か、何こ分かということ。「割合[わりあい]＝くらべる数÷もとにする数」で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.b0a6a8e98e73",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "くらべる数を求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くらべる数 ＝ もとにする数 × 割合[わりあい]"
+        },
+        {
+          "id": "c2",
+          "text": "くらべる数 ＝ もとにする数 ÷ 割合[わりあい]"
+        },
+        {
+          "id": "c3",
+          "text": "くらべる数 ＝ 割合[わりあい] ÷ もとにする数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "くらべる数は、「もとにする数」の◯倍（割合[わりあい]）になっているので、かけ算で求めることができる。「くらべる数 ＝ もとにする数 × 割合[わりあい]」が正しい。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.c0bf1cf42a4d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12×1.5"
+        },
+        {
+          "id": "c2",
+          "text": "12÷1.5"
+        },
+        {
+          "id": "c3",
+          "text": "1.5÷12"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 12×1.5=18 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.c92a6edc8675",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "大阪府の人口は、約880万人 です。これは、宮崎県の人口の 約8倍 に当たるそうです。宮崎県の人口は、約何万人でしょう。",
+      "answers": [
+        "110"
+      ],
+      "template": "約{{INPUT}}万人",
+      "suffix": "万人"
+    },
+    "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 880÷8=110万人"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.e078e3807ff7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "48÷12"
+        },
+        {
+          "id": "c2",
+          "text": "12÷48"
+        },
+        {
+          "id": "c3",
+          "text": "12×48"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "この問題[もんだい]では、「割合[わりあい]」が求められている。「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができるので、 48÷12=4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.e82459fd4e2d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "動物園に、土曜日には 400人、日曜日[にちようび]には 320人 来ました。日曜日[にちようび]には、土曜日の何倍 人が来たでしょう。",
+      "answers": [
+        "0.8"
+      ],
+      "template": "{{INPUT}}倍",
+      "suffix": "倍"
+    },
+    "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：土曜日に来た人（400人）、くらべる数：日曜日[にちようび]に来た人（320人）なので、 320÷400=0.8倍"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-13.ff64e7fab1d2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "650mLのジュースが、期間限定で 1.2倍 に増量されています。増量後のジュースの量は、何mL でしょう。",
+      "answers": [
+        "780"
+      ],
+      "template": "{{INPUT}} mL",
+      "suffix": "mL"
+    },
+    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 650×1.2=780mL"
+  }
+]

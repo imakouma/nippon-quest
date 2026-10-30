@@ -8,6 +8,7 @@ import {
 } from '../../core/progression/storyCompanion';
 import type { GameState } from '../../core/state/schema';
 import {
+  BATTLE_TUTORIAL_EVENT,
   completeBattleTutorial,
   queueBattleTutorial,
   shouldShowBattleTutorial,
@@ -205,7 +206,9 @@ export function applyHeroIdentity(game: GameState, identity: HeroIdentity, now =
 export function mapArrivalStory(mapKey: string, game: GameState, now = Date.now()): MapStory | null {
   const identityInterrupted =
     game.player.name === UNNAMED_HERO && !game.progress.counters[HERO_IDENTITY_COUNTER];
-  if (mapKey === 'aomori-field' && (!game.progress.counters[PROLOGUE_COUNTER] || identityInterrupted)) {
+  const prologueCompleted =
+    !!game.progress.counters[PROLOGUE_COUNTER] || game.progress.eventsDone.includes(BATTLE_TUTORIAL_EVENT);
+  if (mapKey === 'aomori-field' && (!prologueCompleted || identityInterrupted)) {
     return {
       state: {
         ...game,

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-13.e310c7ff8e55",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 46.4 ÷ 4 =",
+      "answers": [
+        "11.6"
+      ]
+    },
+    "explanation": "まずは、小数点は 気にせずに、わり算しよう。その後、わられる数の小数点の上に、答えの小数点をつければいい。 1 1. 6 8 ) 9 2. 8 8 1 2 8 4 8 4 8 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.f44d52606402",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5.6 ÷ 4 =",
+      "answers": [
+        "1.4"
+      ]
+    },
+    "explanation": "まずは、小数点は 気にせずに、わり算しよう。その後、わられる数の小数点の上に、答えの小数点をつければいい。 1. 4 3 ) 4. 2 3 1 2 1 2 0"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-13.f8bc867b010f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 90÷10 =",
+      "answers": [
+        "0.09"
+      ]
+    },
+    "explanation": "0.9は 0.01が90こになる。これを 10でわるので、0.01が90÷10=9こで、0.09になる。"
+  }
+]

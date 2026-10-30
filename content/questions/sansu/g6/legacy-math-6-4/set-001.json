@@ -1,0 +1,371 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-4.05cb6d155eb3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/8÷3/4 =",
+      "answers": [
+        "1,2"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{3}{8}÷\\dfrac{3}{4}=\\dfrac{\\bcancel{3}1}{\\bcancel{8}2}×\\dfrac{\\bcancel{4}1}{\\bcancel{3}1}=\\dfrac{1}{2}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.16f378313dac",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/2÷2 =",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。 \\dfrac{1}{2}÷2=\\dfrac{1}{2×2}=\\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.1d72e231155c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で、正しく表そう。",
+      "answers": [
+        "15"
+      ],
+      "template": "\\dfrac{1}{4} 分（秒） {{INPUT}}秒",
+      "suffix": "秒"
+    },
+    "explanation": "分数で表された「分」を「秒」に直すときは、１分＝６０秒なので、60をかければいい。 \\dfrac{1}{4}×60=15秒 ２分＝60×2=120秒、３分＝60×3=180秒など、整数のときと同じように考えればいい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.1e510081ff3f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7/12÷5 =",
+      "answers": [
+        "7,60"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。 \\dfrac{7}{12}÷5=\\dfrac{7}{12×5}=\\dfrac{7}{60}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.2b4dd3693c57",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で、正しく表そう。",
+      "answers": [
+        "40"
+      ],
+      "template": "\\dfrac{2}{3} 時間（分） {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "分数で表された「時間」を「分」に直すときは、１時間＝６０分なので、60をかければいい。 \\dfrac{2}{3}×60=40分 ２時間＝60×2=120分、３時間＝60×3=180分など、整数のときと同じように考えればいい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.3f37cc35e0f6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 17/8÷34/7÷7/16 =",
+      "answers": [
+        "6,5"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} 1\\dfrac{7}{8}÷3\\dfrac{4}{7}÷\\dfrac{7}{16}=\\dfrac{\\bcancel{15}3}{\\bcancel{8}1}×\\dfrac{\\bcancel{7}1}{\\bcancel{25}5}×\\dfrac{\\bcancel{16}2}{\\bcancel{7}1}=\\dfrac{6}{5}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.50ef96afb265",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "9"
+      ],
+      "template": "\\dfrac{5}{6} ÷ \\dfrac{2}{9} ÷ \\dfrac{5}{12} = {{INPUT}}"
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{5}{6}÷\\dfrac{2}{9}÷\\dfrac{5}{12}=\\dfrac{\\bcancel{5}1}{\\bcancel{6}1}×\\dfrac{9}{\\bcancel{2}1}×\\dfrac{\\bcancel{12}1}{\\bcancel{5}1}=9"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.60aaa7d61cf6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/6÷1/4 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{1}{6}÷\\dfrac{1}{4}=\\dfrac{1}{\\bcancel{6}3}×\\dfrac{\\bcancel{4}2}{1}=\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.763c0aa897df",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1.1÷11/15×0.6 =",
+      "answers": [
+        "9,10"
+      ]
+    },
+    "explanation": "\\require{cancel} まずは 1.1と0.6を分数にしよう。1.1=1\\dfrac{1}{10}=\\dfrac{11}{10} となる。また、0.6=\\dfrac{6}{10}=\\dfrac{3}{5} になる。 1.1÷\\dfrac{11}{15}×0.6=\\dfrac{11}{10}÷\\dfrac{11}{15}×\\dfrac{3}{5}=\\dfrac{\\bcancel{11}1}{10}×\\dfrac{\\bcancel{15}3}{\\bcancel{11}1}×\\dfrac{3}{\\bcancel{5}1}=\\dfrac{9}{10}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.7af63ede6c3e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "１時間は ６０分なので、これを分母にし、１５分を分子にして分数をつくる。 \\dfrac{15}{60}=\\dfrac{1}{4} 時間"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.7dc9333fa16f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしよう。",
+      "answers": [
+        "2"
+      ],
+      "template": "\\dfrac{3}{5} ÷ 0.3 = {{INPUT}}"
+    },
+    "explanation": "\\require{cancel} まずは 0.3を分数にしよう。0.1=\\dfrac{1}{10} なので、0.3=\\dfrac{3}{10} になる。 \\dfrac{3}{5}÷0.3= \\dfrac{3}{5}÷\\dfrac{3}{10}=\\dfrac{\\bcancel{3}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{10}2}{\\bcancel{3}1}=2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.9683fdb57e2f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 2/5÷4 =",
+      "answers": [
+        "1,10"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{2}{5}÷4=\\dfrac{\\bcancel{2}1}{5×\\bcancel{4}2}=\\dfrac{1}{10}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.9d3dd713ec78",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 3/4÷3 =",
+      "answers": [
+        "1,4"
+      ]
+    },
+    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{4}÷3=\\dfrac{\\bcancel{3}1}{4×\\bcancel{3}1}=\\dfrac{1}{4}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.a67f18d54eb4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で、正しく表そう。",
+      "answers": [
+        "30"
+      ],
+      "template": "\\dfrac{1}{2} 時間（分） {{INPUT}}分",
+      "suffix": "分"
+    },
+    "explanation": "分数で表された「時間」を「分」に直すときは、１時間＝６０分なので、60をかければいい。 \\dfrac{1}{2}×60=30分 ２時間＝60×2=120分、３時間＝60×3=180分など、整数のときと同じように考えればいい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.b1f05e9a9a83",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7/8÷0.4×0.25 =",
+      "answers": [
+        "35,64"
+      ]
+    },
+    "explanation": "まずは 0.4と0.25を分数にしよう。0.1=\\dfrac{1}{10} なので、0.4=\\dfrac{4}{10}=\\dfrac{2}{5} になる。また、0.01=\\dfrac{1}{100}なので、0.25=\\dfrac{25}{100}=\\dfrac{1}{4}になる。 \\dfrac{7}{8}÷0.4×0.25=\\dfrac{7}{8}÷\\dfrac{2}{5}×\\dfrac{1}{4}=\\dfrac{7}{8}×\\dfrac{5}{2}×\\dfrac{1}{4}=\\dfrac{35}{64}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.b46ba27c2b46",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "answers": [
+        "1,6"
+      ]
+    },
+    "explanation": "１時間は ６０分なので、これを分母にし、１０分を分子にして分数をつくる。 \\dfrac{10}{60}=\\dfrac{1}{6} 時間"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.ba6d3d429270",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 12/5÷21/10 =",
+      "answers": [
+        "2,3"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} 1\\dfrac{2}{5}÷2\\dfrac{1}{10}=\\dfrac{\\bcancel{7}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{10}2}{\\bcancel{21}3}=\\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.c7e70d5bef36",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "answers": [
+        "2,5"
+      ]
+    },
+    "explanation": "１時間は ６０分なので、これを分母にし、２４分を分子にして分数をつくる。 \\dfrac{24}{60}=\\dfrac{2}{5} 時間"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-4.d7653c3482cc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 7/10÷5/14 =",
+      "answers": [
+        "49,25"
+      ]
+    },
+    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{7}{10}÷\\dfrac{5}{14}=\\dfrac{7}{\\bcancel{10}5}×\\dfrac{\\bcancel{14}7}{5}=\\dfrac{49}{25}"
+  }
+]

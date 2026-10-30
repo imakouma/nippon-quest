@@ -8,10 +8,10 @@ import {
 const root = resolve('.');
 
 describe('東北公開対象教材の監査', () => {
-  it('県タグから18問・5ファイルの母集団を再現する', async () => {
+  it('県タグから18問・4セットの母集団を再現する', async () => {
     const audit = await collectTohokuAcademicPopulation(root);
     expect(audit.questions).toHaveLength(18);
-    expect(audit.files.size).toBe(5);
+    expect(audit.files.size).toBe(4);
     expect(new Set(audit.questions.flatMap((question) => question.prefectureTags))).toEqual(
       new Set([
         'prefecture:aomori',

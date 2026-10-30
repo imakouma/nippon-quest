@@ -7,6 +7,8 @@ import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { contentKinds, type ContentKind } from '../src/core/content/schemas';
+import { questionBaseSchema, type QuestionBase } from '../src/questions/contracts';
+import { buildQuestionCatalog, type QuestionSourceFile } from './question-layout';
 
 const ROOT = fileURLToPath(new URL('../content/', import.meta.url));
 
@@ -40,17 +42,22 @@ for (const [kind, def] of Object.entries(contentKinds) as [ContentKind, { glob: 
 const questions = all.filter((f) => f.startsWith('questions/'));
 const questionIndex: Record<string, string> = {};
 const questionFilesByGrade: Record<string, string[]> = {};
+const isGameQuestionForGrade = (item: { grade?: unknown; subject?: unknown }, playerGrade: number) =>
+  typeof item.grade === 'number' && item.grade <= playerGrade && !(item.subject === 'eigo' && item.grade < 3);
+const questionSources: QuestionSourceFile[] = [];
 for (const file of questions) {
   const raw = JSON.parse(readFileSync(join(ROOT, file), 'utf8')) as unknown;
   if (!Array.isArray(raw)) continue;
-  const grades = new Set<number>();
   for (const item of raw) {
     const id = (item as { id?: unknown })?.id;
     if (typeof id === 'string' && !(id in questionIndex)) questionIndex[id] = file;
-    const grade = (item as { grade?: unknown })?.grade;
-    if (typeof grade === 'number' && grade >= 1 && grade <= 6) grades.add(grade);
   }
-  for (const grade of grades) (questionFilesByGrade[String(grade)] ??= []).push(file);
+  for (let playerGrade = 1; playerGrade <= 6; playerGrade += 1)
+    if (raw.some((item) => isGameQuestionForGrade(item, playerGrade)))
+      (questionFilesByGrade[String(playerGrade)] ??= []).push(file);
+  if (!file.startsWith('questions/_samples/')) {
+    questionSources.push({ file, questions: questionBaseSchema.array().parse(raw) as QuestionBase[] });
+  }
 }
 
 const manifest = {
@@ -59,6 +66,7 @@ const manifest = {
   questions,
   questionIndex,
   questionFilesByGrade,
+  questionCatalog: buildQuestionCatalog(questionSources),
 };
 writeFileSync(join(ROOT, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 const readEntries = (paths: string[]) =>
@@ -72,7 +80,9 @@ for (let grade = 1; grade <= 6; grade += 1) {
     Object.entries(questionBundle)
       .map(([file, entries]) => [
         file,
-        (entries as { grade?: unknown }[]).filter((entry) => entry.grade === grade),
+        (entries as { grade?: unknown; subject?: unknown }[]).filter((entry) =>
+          isGameQuestionForGrade(entry, grade),
+        ),
       ])
       .filter(([, entries]) => (entries as unknown[]).length > 0),
   );

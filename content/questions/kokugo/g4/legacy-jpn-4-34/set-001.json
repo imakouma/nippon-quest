@@ -1,0 +1,138 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-34.48e2a9db060c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-34",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_34",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "五島高資の俳句「熱帯夜コンクリートは熱を吐く」の季語（季節）はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱帯夜（夏）"
+        },
+        {
+          "id": "c2",
+          "text": "コンクリート（冬）"
+        },
+        {
+          "id": "c3",
+          "text": "熱（春）"
+        },
+        {
+          "id": "c4",
+          "text": "吐く（秋）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「熱帯夜」が夏の季語です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-34.8e9fc1503020",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-34",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_34",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "山口誓子の俳句「夏の河赤き鉄橋架けわたす」の季語（季節）はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夏の河（夏）"
+        },
+        {
+          "id": "c2",
+          "text": "鉄橋（秋）"
+        },
+        {
+          "id": "c3",
+          "text": "架けわたす（春）"
+        },
+        {
+          "id": "c4",
+          "text": "赤き（冬）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「夏の河」が夏の季語です。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-34.a94e12e7a508",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-34",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_34",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "短歌「白き鳥おのが羽ばたきにのりて去る…」（木下利玄）や、持統天皇、良寛の歌の読解について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "白き鳥が自分の羽ばたきで飛んでいく様子を詠んでいる"
+        },
+        {
+          "id": "c2",
+          "text": "鳥が地面を歩いている様子を詠んでいる"
+        },
+        {
+          "id": "c3",
+          "text": "鳥が巣の中でじっとしている様子を詠んでいる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「おのが羽ばたきにのりて去る」という、鳥自身の羽ばたきと一体化して飛び去る力強さが詠まれています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-34.e66191a2dde2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-34",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_34",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "俳句や短歌において、意味やリズムの切れ目を示す「切れ字」や「句切れ」の確認について、正しい説明はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "「かな」「けり」「や」などの切れ字や、文末の終止形でリズムや意味が切れる部分を句切れという。"
+        },
+        {
+          "id": "c2",
+          "text": "すべての句の終わりで必ず切れること"
+        },
+        {
+          "id": "c3",
+          "text": "季語が二つ以上入ること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「かな」「けり」「や」などの切れ字や終止形の後で意味が切れる部分を句切れと呼びます。"
+  }
+]

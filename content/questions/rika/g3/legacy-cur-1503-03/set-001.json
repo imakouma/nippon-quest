@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-03.09857a7b399f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫がすみかをえらぶ理由[りゆう]として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食べ物がある・身をかくせる"
+        },
+        {
+          "id": "c2",
+          "text": "食[た]べ物[もの]はあるが、身[み]をかくせない場所[ばしょ]"
+        },
+        {
+          "id": "c3",
+          "text": "身[み]はかくせるが、食[た]べ物[もの]がない場所[ばしょ]"
+        },
+        {
+          "id": "c4",
+          "text": "日当[ひあ]たりはよいが、食[た]べ物[もの]もかくれ場所[ばしょ]もない所[ところ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食べ物があり、身をかくせる場所をすみかにします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.130d28eef4b2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たまごから出てくる細長いこん虫を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "せい虫"
+        },
+        {
+          "id": "c2",
+          "text": "よう虫"
+        },
+        {
+          "id": "c3",
+          "text": "さなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "成虫の羽"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "たまごから出た細長いこん虫をよう虫といいます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.1c594877ab32",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トンボの育ち方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "よう虫→せい虫（さなぎがない）"
+        },
+        {
+          "id": "c2",
+          "text": "よう虫→さなぎ→せい虫"
+        },
+        {
+          "id": "c3",
+          "text": "せい虫→よう虫"
+        },
+        {
+          "id": "c4",
+          "text": "たまご→せい虫だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "トンボはさなぎの段階がなく、よう虫からせい虫になります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.466eeb823e9e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トンボのよう虫はどこでくらしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土の中"
+        },
+        {
+          "id": "c2",
+          "text": "葉の上"
+        },
+        {
+          "id": "c3",
+          "text": "水の中"
+        },
+        {
+          "id": "c4",
+          "text": "氷の中"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "トンボのよう虫は水の中でくらします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.4beecd4f35d9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "よう虫が大きくなるときにくり返すことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だつ皮"
+        },
+        {
+          "id": "c2",
+          "text": "花をさかせる"
+        },
+        {
+          "id": "c3",
+          "text": "電気を通す"
+        },
+        {
+          "id": "c4",
+          "text": "磁石になる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "よう虫はだつ皮をくり返して大きくなります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.61e7fc9e66a8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫の足は何本ありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4本"
+        },
+        {
+          "id": "c2",
+          "text": "6本"
+        },
+        {
+          "id": "c3",
+          "text": "8本"
+        },
+        {
+          "id": "c4",
+          "text": "100本"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "こん虫の足は6本です。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.6b5fef5033f0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫の足や羽がついている部分はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭"
+        },
+        {
+          "id": "c2",
+          "text": "胸"
+        },
+        {
+          "id": "c3",
+          "text": "腹"
+        },
+        {
+          "id": "c4",
+          "text": "触角の先"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "足や羽は胸の部分についています。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.6e5324aa1379",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "カブトムシのよう虫はどこでくらしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "土の中"
+        },
+        {
+          "id": "c2",
+          "text": "花[はな]や葉[は]の上[うえ]"
+        },
+        {
+          "id": "c3",
+          "text": "池[いけ]の水[みず]の中[なか]"
+        },
+        {
+          "id": "c4",
+          "text": "木[き]の幹[みき]の表面[ひょうめん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カブトムシのよう虫は土の中でくらします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.992fe0cc2ba0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こん虫のせい虫の体は、どの部分からできていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "頭[あたま]・むね"
+        },
+        {
+          "id": "c2",
+          "text": "頭・胸・腹"
+        },
+        {
+          "id": "c3",
+          "text": "頭[あたま]・はら"
+        },
+        {
+          "id": "c4",
+          "text": "むね・はら"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "こん虫のせい虫の体は頭・胸・腹の3つに分かれます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.c86850339a50",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "チョウの育ち方の順として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たまご→よう虫→さなぎ→せい虫"
+        },
+        {
+          "id": "c2",
+          "text": "せい虫→たまご→さなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "よう虫→せい虫だけ"
+        },
+        {
+          "id": "c4",
+          "text": "さなぎ→たまご→よう虫"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "チョウはたまご→よう虫→さなぎ→せい虫の順に育ちます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.dbd37e9cd9c9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "モンシロチョウのたまごは、どの葉によく産みつけられますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "キャベツ"
+        },
+        {
+          "id": "c2",
+          "text": "ミカン"
+        },
+        {
+          "id": "c3",
+          "text": "サンショウ"
+        },
+        {
+          "id": "c4",
+          "text": "マツ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "モンシロチョウのたまごはキャベツなどの葉に産みつけられます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-03.e47faa3b789a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クワガタムシやバッタはこん虫ですが、クモやダンゴムシはどうですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらもこん虫"
+        },
+        {
+          "id": "c2",
+          "text": "こん虫ではない"
+        },
+        {
+          "id": "c3",
+          "text": "クモだけこん虫"
+        },
+        {
+          "id": "c4",
+          "text": "ダンゴムシだけこん虫"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "クモは足が8本、ダンゴムシも体のつくりがちがい、こん虫ではありません。"
+  }
+]

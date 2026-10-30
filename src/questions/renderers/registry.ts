@@ -5,10 +5,12 @@
 import type { QuestionRenderer } from '../contracts';
 import { choiceRenderer } from './choice';
 import { experimentRenderer } from './experiment';
+import { kanjiTraceRenderer } from './kanji-trace';
 import { numberBuildRenderer } from './number-build';
 import { pictureWordRenderer } from './picture-word';
 import { textInputRenderer } from './text-input';
 import { mapTapRenderer } from './map-tap';
+import { pairMatchRenderer } from './pair-match';
 import { sortOrderRenderer } from './sort-order';
 
 const registry = new Map<string, QuestionRenderer>();
@@ -41,5 +43,5 @@ registerRenderer(mapTapRenderer);
 registerRenderer(sortOrderRenderer);
 // registerRenderer(mapTapRenderer);
 registerRenderer(experimentRenderer);
-// registerRenderer(kanjiTraceRenderer);
-// registerRenderer(pairMatchRenderer);
+registerRenderer(kanjiTraceRenderer);
+registerRenderer(pairMatchRenderer);

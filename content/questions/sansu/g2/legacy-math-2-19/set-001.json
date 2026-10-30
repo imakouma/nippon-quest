@@ -1,0 +1,506 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-19.1ea0d324882c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえを もとめる「しき」として、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12-3"
+        },
+        {
+          "id": "c2",
+          "text": "9+3"
+        },
+        {
+          "id": "c3",
+          "text": "12-9"
+        },
+        {
+          "id": "c4",
+          "text": "12+3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dbfe5fc8d4c5e9cd.png"
+    },
+    "explanation": "図の □ の ぶぶんが、もんだいで きかれているところなので、12-3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.21b3a867410a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえを もとめる「しき」として、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "120-30-50"
+        },
+        {
+          "id": "c2",
+          "text": "120-30+50"
+        },
+        {
+          "id": "c3",
+          "text": "120+30-50"
+        },
+        {
+          "id": "c4",
+          "text": "120+30+50"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ものを かったときには、お金はへるので、-30, -50 とひき算をすればいい。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.23b8993c1b39",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かなさんの すいとうは、500mL 入ります。ひかるくんの すいとうは、それより 100mL おおく入るそうです。ひかるくんの すいとうには、何mL 入りますか。",
+      "answers": [
+        "600"
+      ],
+      "template": "{{INPUT}}mL",
+      "suffix": "mL"
+    },
+    "explanation": "「100mL おおく入る」といっているので、たし算をすればいいね。 500+100=600"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.3807e869ad38",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あきさんの がっこうには、150人の せいとがいます。となりの がっこうは、20人 おおいそうです。となりのがっこうには、何人のせいとが いるでしょう。",
+      "answers": [
+        "170"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "「20人 おおい」といっているので、たし算をすればいいね。 150+20=170"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.3efcab6542a2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "グミを 30こ もっていました。おとうとに 10こ、いもうとに 8こ あげました。グミは、いくつになったでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "「あげた」ので、ひき算で かんがえればいい。 30-10-8=12"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.597c9e9feea8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえを もとめる「しき」として、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "18-5+6"
+        },
+        {
+          "id": "c2",
+          "text": "18+5+6"
+        },
+        {
+          "id": "c3",
+          "text": "18-5-6"
+        },
+        {
+          "id": "c4",
+          "text": "18+5-6"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「5こ あげた」ので -5、「6こ もらいました」なので、+6 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.5a00d142127a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おとといは、雪が15cm つもっていました。きのう、6cmとけて、今日8cmつもりました。つもっている雪は、何cm になったでしょう。",
+      "answers": [
+        "17"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "「6cm とけた」ので -6、「8cm つもった」ので、+8 になるね。 15-6+8=17"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.5b5e4894a82d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "チョコを 20こ もっていました。子どもたちに あげると、のこりが 6こになりました。チョコをいくつ あげたでしょう。",
+      "answers": [
+        "14"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "20こ からあげた のこりが、6こになるので、引き算をすればいいね。 20-6=14"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.6082693fbe5e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "200円 もっていました。80円 のチョコをかったあと、50円の おこづかいをもらいました。もっているのは、何円になったでしょう。",
+      "answers": [
+        "170"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "「80円 かった」ので -80、「50円 もらいました」なので、+50 になるね。 200-80+50=170"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.7e411d3d2b14",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえを もとめる「しき」として、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "175-56"
+        },
+        {
+          "id": "c2",
+          "text": "175+56"
+        },
+        {
+          "id": "c3",
+          "text": "56-175"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「せがひくい」といっているので、ひき算をすればいいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.8ba020917a6a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "4人のりの くるまが、あります。このくるまが 3台 あると、何人がくるまにのれますか。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}人",
+      "suffix": "人"
+    },
+    "explanation": "4人のりの くるまが、3台あるので、かけ算をすればいい。 4×3=12"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.9cdeb26c6ef4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１年生のとき、しん長は 100cmでした。２年生では、110cmに なっていました。しん長は、何cm のびたでしょう。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "100 から 110 にふえた分を もとめたいので、引き算をすればいいね。 110-100=10"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.a52da8f480a5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はやとさんの いもうとは、3さい です。はやとさんの としは、いもうとの 3ばい です。はやとさんは、何さいですか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}さい",
+      "suffix": "さい"
+    },
+    "explanation": "「3ばい」は、「3つ分」ということなので、かけ算をすればいい。 3×3=9"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.d1488ab9023c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "お母さんの しん長は、160cm です。まなさんは、お母さんより、53cm せがひくいです。まなさんの しん長は、何cm でしょう。",
+      "answers": [
+        "107"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "「せがひくい」といっているので、ひき算をすればいいね。 160-53=107"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.d44344cec574",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえを もとめる「しき」として、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "25-8"
+        },
+        {
+          "id": "c2",
+          "text": "25+8"
+        },
+        {
+          "id": "c3",
+          "text": "25-17"
+        },
+        {
+          "id": "c4",
+          "text": "8+17"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d1e2067803d8a8da.png"
+    },
+    "explanation": "図の □ の ぶぶんが、もんだいで きかれているところなので、25-8 になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.dad5e5ef231f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "にわに ありが 16ひき いました。つぎの日には、25ひきに なっていました。ありは、なんびき ふえたでしょう。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}ひき",
+      "suffix": "ひき"
+    },
+    "explanation": "16 から 25 にふえた分を もとめたいので、引き算をすればいいね。 25-16=9"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.dbee8038ebff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "200円の ペンをかいました。ところが、となりの おみせでは、50円 やすくうっていました。いくらで、うっていた でしょう。",
+      "answers": [
+        "150"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "「やすくうっていました」といっているので、ひき算をすればいいね。 200-50=150"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.f23f64530705",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１ふくろ 8こ入りの あめが あります。5ふくろ かうと、あめは いくつになるでしょう。",
+      "answers": [
+        "40"
+      ],
+      "template": "{{INPUT}}こ",
+      "suffix": "こ"
+    },
+    "explanation": "8こ入りの あめが、5ふくろあるので、かけ算をすればいい。 8×5=40"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.fa1d177a5285",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえを もとめる「しき」として、正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "130-20"
+        },
+        {
+          "id": "c2",
+          "text": "130+20"
+        },
+        {
+          "id": "c3",
+          "text": "20-130"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「やすくうっていました」といっているので、ひき算をすればいいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-19.fdb899f8ad22",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "150円 もっていました。チョコとあめをかうと、のこりが 60円 になりました。チョコとあめは、あわせていくらだったでしょう。",
+      "answers": [
+        "90"
+      ],
+      "template": "{{INPUT}}円",
+      "suffix": "円"
+    },
+    "explanation": "150円から お金をつかったのこりが、60円 になるので、引き算をすればいいね。 150-60=90"
+  }
+]

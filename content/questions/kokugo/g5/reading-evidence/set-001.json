@@ -1,0 +1,194 @@
+[
+  {
+    "id": "kokugo.g5.reading-evidence.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.reading-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-evidence",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「雨[あめ]が強[つよ]くなった。美咲[みさき]は弟[おとうと]に傘[かさ]を渡[わた]し、自分[じぶん]は走[はし]り出[だ]した。」美咲[みさき]の人物像[じんぶつぞう]を、叙述[じょじゅつ]を根拠[こんきょ]に説明[せつめい]したものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "弟[おとうと]を気[き]づかう人[ひと]。自分[じぶん]の傘[かさ]を渡[わた]したから。"
+        },
+        {
+          "id": "b",
+          "text": "雨[あめ]が好[す]きな人[ひと]。走[はし]ったから。"
+        },
+        {
+          "id": "c",
+          "text": "忘[わす]れ物[もの]が多[おお]い人[ひと]。傘[かさ]が出[で]てくるから。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "人物像[じんぶつぞう]は、行動[こうどう]や会話[かいわ]など本文[ほんぶん]の叙述[じょじゅつ]を根拠[こんきょ]に考[かんが]える。"
+  },
+  {
+    "id": "kokugo.g5.reading-evidence.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.reading-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-evidence",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「校庭[こうてい]の気温[きおん]は、午前[ごぜん]9時[じ]に18度[ど]、正午[しょうご]に24度[ど]、午後[ごご]3時[じ]に21度[ど]だった。」要旨[ようし]として最[もっと]も適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "気温[きおん]は正午[しょうご]に最[もっと]も高[たか]く、その後[ご]下[さ]がった。"
+        },
+        {
+          "id": "b",
+          "text": "校庭[こうてい]には人[ひと]が多[おお]かった。"
+        },
+        {
+          "id": "c",
+          "text": "毎日[まいにち]24度[ど]だった。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "数値[すうち]の変化[へんか]を比[くら]べ、文章全体[ぶんしょうぜんたい]の中心[ちゅうしん]をまとめる。"
+  },
+  {
+    "id": "kokugo.g5.reading-evidence.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.reading-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-evidence",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "文章[ぶんしょう]に「水[みず]の使用量[しようりょう]」の折[お]れ線[せん]グラフがある。本文[ほんぶん]と図表[ずひょう]を結[むす]び付[つ]けて確[たし]かめるべきことはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "本文[ほんぶん]の主張[しゅちょう]を、グラフの数値[すうち]が支[ささ]えているか。"
+        },
+        {
+          "id": "b",
+          "text": "グラフの色[いろ]が好[す]きか。"
+        },
+        {
+          "id": "c",
+          "text": "文字[もじ]が大[おお]きいかだけ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "文章[ぶんしょう]と図表[ずひょう]は、情報[じょうほう]が対応[たいおう]しているか確[たし]かめて読[よ]む。"
+  },
+  {
+    "id": "kokugo.g5.reading-evidence.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.reading-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-evidence",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「そのとき、健太[けんた]は返事[へんじ]をせず、窓[まど]の外[そと]を見[み]た。」健太[けんた]の心情[しんじょう]を考[かんが]えるとき、最[もっと]も大切[たいせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "前後[ぜんご]の出来事[できごと]と、返事[へんじ]をしなかった行動[こうどう]。"
+        },
+        {
+          "id": "b",
+          "text": "自分[じぶん]なら何色[なにいろ]の服[ふく]を着[き]るか。"
+        },
+        {
+          "id": "c",
+          "text": "作者[さくしゃ]の年齢[ねんれい]だけ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "心情[しんじょう]は前後[ぜんご]の展開[てんかい]と人物[じんぶつ]の行動[こうどう]・会話[かいわ]から捉[とら]える。"
+  },
+  {
+    "id": "kokugo.g5.reading-evidence.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.reading-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-evidence",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "説明文[せつめいぶん]で「しかし」が使[つか]われた後[あと]には、どのような内容[ないよう]が続[つづ]くことが多[おお]い？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "前[まえ]の内容[ないよう]と対立[たいりつ]・逆転[ぎゃくてん]する内容[ないよう]。"
+        },
+        {
+          "id": "b",
+          "text": "前[まえ]とまったく同[おな]じ内容[ないよう]。"
+        },
+        {
+          "id": "c",
+          "text": "文章[ぶんしょう]と関係[かんけい]のない内容[ないよう]。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "接続語[せつぞくご]から文[ぶん]と文[ぶん]の関係[かんけい]を捉[とら]えると、論[ろん]の進[すす]み方[かた]が分[わ]かる。"
+  },
+  {
+    "id": "kokugo.g5.reading-evidence.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.reading-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-evidence",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "文章[ぶんしょう]を読[よ]んだ後[あと]の自分[じぶん]の考[かんが]えとして、最[もっと]も根拠[こんきょ]が明確[めいかく]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "筆者[ひっしゃ]の例[れい]から、節水[せっすい]には小[ちい]さな工夫[くふう]の積[つ]み重[かさ]ねが必要[ひつよう]だと考[かんが]えた。"
+        },
+        {
+          "id": "b",
+          "text": "なんとなくよいと思[おも]った。"
+        },
+        {
+          "id": "c",
+          "text": "理由[りゆう]はないが反対[はんたい]だ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "読[よ]んで考[かんが]えたことは、本文[ほんぶん]の内容[ないよう]を根拠[こんきょ]にしてまとめる。"
+  }
+]

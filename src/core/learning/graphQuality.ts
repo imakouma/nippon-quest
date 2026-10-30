@@ -1,5 +1,5 @@
 import type { Unit } from '../content/schemas';
-import type { CurriculumGraph } from './model';
+import type { ConceptRelation, CurriculumGraph } from './model';
 import { isRequiredCourse } from './placement';
 import { canonicalUnitId } from './unitAliases';
 
@@ -19,6 +19,13 @@ export interface SubjectGraphQuality {
   roots: string[];
 }
 
+export interface ConceptGraphQuality {
+  concepts: number;
+  relations: number;
+  relationKinds: Partial<Record<ConceptRelation['kind'], number>>;
+  isolated: string[];
+}
+
 /** 前提関係を単元へ集約し、ロードマップとしての構造品質を測る。 */
 export function buildCurriculumGraphQuality(input: {
   units: readonly Unit[];
@@ -26,6 +33,27 @@ export function buildCurriculumGraphQuality(input: {
   grades?: readonly number[];
 }) {
   const gradeScope = input.grades ? new Set(input.grades) : undefined;
+  const concepts = new Map(
+    input.graph.concepts
+      .filter((concept) => !gradeScope || gradeScope.has(concept.grade))
+      .map((concept) => [concept.id, concept] as const),
+  );
+  const conceptRelations = input.graph.relations.filter(
+    (relation) => concepts.has(relation.from) && concepts.has(relation.to),
+  );
+  const connectedConcepts = new Set<string>();
+  const relationKinds: ConceptGraphQuality['relationKinds'] = {};
+  for (const relation of conceptRelations) {
+    connectedConcepts.add(relation.from);
+    connectedConcepts.add(relation.to);
+    relationKinds[relation.kind] = (relationKinds[relation.kind] ?? 0) + 1;
+  }
+  const conceptGraph: ConceptGraphQuality = {
+    concepts: concepts.size,
+    relations: conceptRelations.length,
+    relationKinds,
+    isolated: [...concepts.keys()].filter((id) => !connectedConcepts.has(id)).sort(),
+  };
   const allUnitIds = new Set(input.units.map((unit) => unit.id));
   const requiredUnits = new Map<string, Unit>();
   for (const unit of input.units) {
@@ -105,6 +133,7 @@ export function buildCurriculumGraphQuality(input: {
   }
 
   return {
+    conceptGraph,
     bySubject,
     edges: [...unitEdges.values()],
     duplicateRelations,

@@ -1,0 +1,794 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.09ad38ab9bb6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆ボールが（ころ）がる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "転"
+        },
+        {
+          "id": "c2",
+          "text": "倒"
+        },
+        {
+          "id": "c3",
+          "text": "落"
+        },
+        {
+          "id": "c4",
+          "text": "回"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「転（ころ）がる」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.152dd7b50c2c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（短い）えん筆を持つ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みじかい"
+        },
+        {
+          "id": "c2",
+          "text": "ちいさい"
+        },
+        {
+          "id": "c3",
+          "text": "みじかいら"
+        },
+        {
+          "id": "c4",
+          "text": "みじか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「短い」は「みじかい」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.297a2436c34e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆お茶を（飲む）。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "のむ"
+        },
+        {
+          "id": "c2",
+          "text": "のむむ"
+        },
+        {
+          "id": "c3",
+          "text": "いむ"
+        },
+        {
+          "id": "c4",
+          "text": "のう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「飲む」は「のむ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.327b0add24ba",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆計算の（もんだい）をとく。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "問題"
+        },
+        {
+          "id": "c2",
+          "text": "問第"
+        },
+        {
+          "id": "c3",
+          "text": "門題"
+        },
+        {
+          "id": "c4",
+          "text": "悶題"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「問題（もんだい）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.3e8d2015f7e4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（さかみち）を歩く。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "坂道"
+        },
+        {
+          "id": "c2",
+          "text": "板道"
+        },
+        {
+          "id": "c3",
+          "text": "坂路"
+        },
+        {
+          "id": "c4",
+          "text": "坂道う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「坂道（さかみち）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.3f3ffdd7336d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（むかしばなし）を読む。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "昔話"
+        },
+        {
+          "id": "c2",
+          "text": "昔語"
+        },
+        {
+          "id": "c3",
+          "text": "古話"
+        },
+        {
+          "id": "c4",
+          "text": "昔話う"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「昔話（むかしばなし）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.4741b7b874ba",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆漢字の（きゅう）のテスト。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "級"
+        },
+        {
+          "id": "c2",
+          "text": "九"
+        },
+        {
+          "id": "c3",
+          "text": "急"
+        },
+        {
+          "id": "c4",
+          "text": "球"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「級（きゅう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.5be5d61f0e8d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆草で（笛）をつくってふく。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ふえ"
+        },
+        {
+          "id": "c2",
+          "text": "ぶえ"
+        },
+        {
+          "id": "c3",
+          "text": "てき"
+        },
+        {
+          "id": "c4",
+          "text": "くさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「笛」は「ふえ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.5dec350cf7f6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆のこさず（全部）食べる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぜんぶ"
+        },
+        {
+          "id": "c2",
+          "text": "せんぶ"
+        },
+        {
+          "id": "c3",
+          "text": "ぜんぽ"
+        },
+        {
+          "id": "c4",
+          "text": "ぜんぶう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「全部」は「ぜんぶ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.5e54c6a179af",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「河」のつくりは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "可"
+        },
+        {
+          "id": "c2",
+          "text": "何"
+        },
+        {
+          "id": "c3",
+          "text": "哥"
+        },
+        {
+          "id": "c4",
+          "text": "奇"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "河＝さんずい＋可。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.6ed389420e5e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆重い（荷物）をかかえる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "にもつ"
+        },
+        {
+          "id": "c2",
+          "text": "かもつ"
+        },
+        {
+          "id": "c3",
+          "text": "にかぶ"
+        },
+        {
+          "id": "c4",
+          "text": "にもつん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「荷物」は「にもつ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.6f456e59a1b4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（おうきゅう）を見学する。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "王宮"
+        },
+        {
+          "id": "c2",
+          "text": "王九"
+        },
+        {
+          "id": "c3",
+          "text": "王急"
+        },
+        {
+          "id": "c4",
+          "text": "横宮"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「王宮（おうきゅう）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.78d3f2005771",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「森」の構成は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "木が3つ"
+        },
+        {
+          "id": "c2",
+          "text": "木が2つ"
+        },
+        {
+          "id": "c3",
+          "text": "水へん"
+        },
+        {
+          "id": "c4",
+          "text": "火へん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "木が3つ＝森。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.8a6a7c473f13",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆そうじの（係）をきめる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かかり"
+        },
+        {
+          "id": "c2",
+          "text": "かかりり"
+        },
+        {
+          "id": "c3",
+          "text": "けい"
+        },
+        {
+          "id": "c4",
+          "text": "かあり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「係」は「かかり」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.949edfb26cde",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（平等）な社会をめざす。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "びょうどう"
+        },
+        {
+          "id": "c2",
+          "text": "へいとう"
+        },
+        {
+          "id": "c3",
+          "text": "ひょうどう"
+        },
+        {
+          "id": "c4",
+          "text": "びょうとう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「平等」は「びょうどう」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.a9ba2fcfebd7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆（す）む家をさがす。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "住"
+        },
+        {
+          "id": "c2",
+          "text": "主"
+        },
+        {
+          "id": "c3",
+          "text": "十"
+        },
+        {
+          "id": "c4",
+          "text": "重"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「住（す）む」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.ba1895c7a99f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（じめん）をしっかり踏みしめる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地面"
+        },
+        {
+          "id": "c2",
+          "text": "床面"
+        },
+        {
+          "id": "c3",
+          "text": "底面"
+        },
+        {
+          "id": "c4",
+          "text": "地表"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「地面（じめん）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.c57805e78947",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「氷」のへんは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "にすい"
+        },
+        {
+          "id": "c2",
+          "text": "さんずい"
+        },
+        {
+          "id": "c3",
+          "text": "きへん"
+        },
+        {
+          "id": "c4",
+          "text": "にんべん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "氷＝にすいへん。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.ce7c517989a5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆（温かい）食事をとる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あたたかい"
+        },
+        {
+          "id": "c2",
+          "text": "ぬくかい"
+        },
+        {
+          "id": "c3",
+          "text": "あたたかいら"
+        },
+        {
+          "id": "c4",
+          "text": "あだだかい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「温かい」は「あたたかい」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.d7c150338e90",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆（けつい）をかためる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "決意"
+        },
+        {
+          "id": "c2",
+          "text": "結意"
+        },
+        {
+          "id": "c3",
+          "text": "決心"
+        },
+        {
+          "id": "c4",
+          "text": "血意"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「決意（けつい）」と書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.e629fb824495",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆新しい（商品）を買う。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しょうひん"
+        },
+        {
+          "id": "c2",
+          "text": "しょひん"
+        },
+        {
+          "id": "c3",
+          "text": "じょうひん"
+        },
+        {
+          "id": "c4",
+          "text": "せいひん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「商品」は「しょうひん」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-2.f5d6ea8e258f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "（　）に入る正しい漢字の組み合わせを選ぼう。\n\n◆お金を（ぎんこう）にあずける。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "銀行"
+        },
+        {
+          "id": "c2",
+          "text": "金行"
+        },
+        {
+          "id": "c3",
+          "text": "銀好"
+        },
+        {
+          "id": "c4",
+          "text": "ぎん行"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「銀行（ぎんこう）」と書きます。"
+  }
+]

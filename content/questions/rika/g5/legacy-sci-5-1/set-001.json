@@ -1,0 +1,765 @@
+[
+  {
+    "id": "legacy.rika.g5.sci-5-1.01912a22da6a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北と南・水平・北"
+        },
+        {
+          "id": "c2",
+          "text": "北[きた]と南[みなみ]・垂直[すいちょく]・南[みなみ]"
+        },
+        {
+          "id": "c3",
+          "text": "東[ひがし]と西[にし]・水平[すいへい]・東[ひがし]"
+        },
+        {
+          "id": "c4",
+          "text": "東[ひがし]と西[にし]・垂直[すいちょく]・西[にし]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/778f47e643ee641f.png"
+    },
+    "explanation": "方位磁針の針は、（北と南）を指して止まる。方位磁針を使うときは（水平）にして持ち、針の動きが止まったら、文字ばんをゆっくり回して（北）の文字を針の色のついたほうに合わせてから、方位を調べる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.0813b779a6df",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "天気[てんき]の決め方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ・くもり・快晴"
+        },
+        {
+          "id": "c2",
+          "text": "雨[あめ]・くもり・晴[は]れ"
+        },
+        {
+          "id": "c3",
+          "text": "晴[は]れ・快晴[かいせい]・くもり"
+        },
+        {
+          "id": "c4",
+          "text": "くもり・晴[は]れ・快晴[かいせい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ee5340112a1be4e6.png"
+    },
+    "explanation": "空全体の広さを10としたとき、雲の量が ０〜８のときは（晴れ）、９〜10 のときは（くもり）になる。晴れの中でも、雲の量が０〜１のときを特に（快晴）という。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.27b0e87f79ba",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲にはいろいろな種類があり、雲ができる高さや形、雨をふらせるかどうかによって、10種類に分けられる。図を見ながら、次の雲のできる高さをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "上空の高い位置にできる・中くらいの高さにできる・地上に近いところにできる・高さが一定ではない"
+        },
+        {
+          "id": "c2",
+          "text": "中[なか]くらいの高[たか]さにできる・上空[じょうくう]の高[たか]い位置[いち]にできる・地上[ちじょう]に近[ちか]いところにできる・高[たか]さが一定[いってい]ではない"
+        },
+        {
+          "id": "c3",
+          "text": "上空[じょうくう]の高[たか]い位置[いち]にできる・地上[ちじょう]に近[ちか]いところにできる・中[なか]くらいの高[たか]さにできる・高[たか]さが一定[いってい]ではない"
+        },
+        {
+          "id": "c4",
+          "text": "地上[ちじょう]に近[ちか]いところにできる・中[なか]くらいの高[たか]さにできる・上空[じょうくう]の高[たか]い位置[いち]にできる・高[たか]さが一定[いってい]ではない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c0156f8917246cf0.png"
+    },
+    "explanation": "上空の高いところにできる雲には「巻」の文字がつき、その次に高い所にできる雲には「高」の文字がつく。それよりも下にできる雲や、高さが一定でない雲には「巻」も「高」もつかない。 巻雲：上空の高い位置にできる 高積雲：中くらいの高さにできる 層雲：地上に近いところにできる 積乱雲：高さが一定ではない"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.5724d56a50ad",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "天気[てんき]の決め方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くもり・雲の量"
+        },
+        {
+          "id": "c2",
+          "text": "晴[は]れ・空[そら]の色[いろ]"
+        },
+        {
+          "id": "c3",
+          "text": "雨[あめ]・気温[きおん]"
+        },
+        {
+          "id": "c4",
+          "text": "くもり・気温[きおん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "晴れと（くもり）の天気[てんき]は、（雲の量）で決まる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.576a09546384",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "天気[てんき]の決め方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲の量・雨・雪"
+        },
+        {
+          "id": "c2",
+          "text": "気温[きおん]・雨[あめ]・雪[ゆき]"
+        },
+        {
+          "id": "c3",
+          "text": "雲[くも]の量[りょう]・雪[ゆき]・雨[あめ]"
+        },
+        {
+          "id": "c4",
+          "text": "気温[きおん]・雪[ゆき]・雨[あめ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "晴れとくもり以外の天気[てんき]は、（雲の量）に関係なく、雨が降っているときの天気[てんき]は（雨）、雪が降っているときの天気[てんき]は（雪）となる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.604cd3742a5f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ある日の午前９時から午後３時に雲と天気[てんき]の様子[ようす]を観察し、記録した。この記録から分かることについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたのような・晴れ・黒っぽい・くもり"
+        },
+        {
+          "id": "c2",
+          "text": "黒[くろ]っぽい・晴[は]れ・わたのような・くもり"
+        },
+        {
+          "id": "c3",
+          "text": "わたのような・くもり・黒[くろ]っぽい・晴[は]れ"
+        },
+        {
+          "id": "c4",
+          "text": "すじのような・晴[は]れ・白[しろ]っぽい・雨[あめ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d411886c43858202.png"
+    },
+    "explanation": "正午には、（わたのような）雲が、西から東にゆっくり動いていた。天気[てんき]は（晴れ）だった。午後３時になると、（黒っぽい）雲が空一面に広がり、あまり動かなかった。天気[てんき]は（くもり）になった。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.871a68d3f600",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本での雲の動きについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西・東・する・する"
+        },
+        {
+          "id": "c2",
+          "text": "東[ひがし]・西[にし]・しない・する"
+        },
+        {
+          "id": "c3",
+          "text": "東[ひがし]・西[にし]・する・する"
+        },
+        {
+          "id": "c4",
+          "text": "西[にし]・東[ひがし]・しない・しない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雲は、おおよそ（西）から（東）のほうへ動き、時こくによって、雲の色や形、量などは変化（する）。また、雲は新しくできたり消えたり（する）。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.9369170b9211",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の説明[せつめい]のうち、雲のようすと天気[てんき]の変化について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲のようすと天気[てんき]の変化には関係がない。"
+        },
+        {
+          "id": "c2",
+          "text": "雲の量は増えたり減ったりしない。"
+        },
+        {
+          "id": "c3",
+          "text": "雲のようすが変わることによって、天気[てんき]は変化している。"
+        },
+        {
+          "id": "c4",
+          "text": "雲は一日中ほとんど動かずに止まっている。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "雲はだんだん移動しながら、色や形、量などが変化する。雲の量が増えると「くもり」になったり、「雨」がふることもあり、雲のようすが変化することによって、天気[てんき]は変化する。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.9bc0d69532f3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲が動く方位は、図のような８方位を用いて表す。図のA〜Dに当てはまる方位をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西・南・東・北東"
+        },
+        {
+          "id": "c2",
+          "text": "東[ひがし]・南[みなみ]・西[にし]・北東[ほくとう]"
+        },
+        {
+          "id": "c3",
+          "text": "西[にし]・北[きた]・東[ひがし]・南東[なんとう]"
+        },
+        {
+          "id": "c4",
+          "text": "北[きた]・東[ひがし]・南[みなみ]・北西[ほくせい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6ef3e6d6f0b92098.png"
+    },
+    "explanation": "A：西 B：南 C：東 D：北東"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.a8e742b7452f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、ある連続した３日間の気象情報です。この天気[てんき]の変化からわかることとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6月18日に大阪に雨をふらせた雲は、このまま東に動き東京に雨をふらせた。"
+        },
+        {
+          "id": "c2",
+          "text": "6月19日に東京に雨をふらせた雲は、このまま西に動き大阪に雨をふらせる。"
+        },
+        {
+          "id": "c3",
+          "text": "くもりの次の日の天気[てんき]は、いつも雨になる。"
+        },
+        {
+          "id": "c4",
+          "text": "東京がくもりになると、次の日の福岡の天気[てんき]はくもりになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8415f38293f331ae.png"
+    },
+    "explanation": "日本付近では、雲はおおよそ西から東へ動き、雲の動きに合わせて天気[てんき]も西から東へ変化していく。 6月17日に福岡をくもらせた雲は、西から東へ動き、6月18日に大阪、6月19日には東京に雨をふらせた。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.aaf2066e055b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲画像とアメダスの雨量情報を見くらべることで、天気[てんき]のようすを知ることができる。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲がある地いきで、雨が降っている。"
+        },
+        {
+          "id": "c2",
+          "text": "雲がない地いきでは、晴れている。"
+        },
+        {
+          "id": "c3",
+          "text": "雲がある地いきと、雨が降っている地いきには関係がない。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/22014aee02685d82.png"
+    },
+    "explanation": "雲画像とアメダスの気象情報を見比くらべると、雲がある地いきでは雨が降り、雲がない地いきでは晴れているなど、雲のようすと天気[てんき]との関係が分かる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.ab0c8b85ca1d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、ある連続した３日間の気象衛星の雲画像です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雨"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "晴れ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e2466d9810ba4f53.png"
+    },
+    "explanation": "日本付近では、雲はおおよそ西から東へ動き、雲の動きに合わせて天気[てんき]も変化していく。６月１９日には、日本列島の西側にはほとんど雲が見られないので、次の日は晴れになると予想できる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.ae49d537dd09",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、このときの天気[てんき]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "雪"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3b798a73e15be358.png"
+    },
+    "explanation": "空全体の広さを10としたとき、雲の量が 0 〜8のときは「晴れ」、9〜 10のときは「くもり」になる。この写真では、雲の量が３くらいなので、天気[てんき]は「晴れ」になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.b3d8a89df8aa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アメダス・雨の量"
+        },
+        {
+          "id": "c2",
+          "text": "雲画像[くもがぞう]・雲[くも]の位置[いち]"
+        },
+        {
+          "id": "c3",
+          "text": "アメダス・雲[くも]の位置[いち]"
+        },
+        {
+          "id": "c4",
+          "text": "雲画像[くもがぞう]・雨[あめ]の量[りょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c73191cface2249a.png"
+    },
+    "explanation": "この画像は、（アメダス）（地いき気象観測システム）によって観測される雨量情報で、それぞれの地域に降った（雨の量）を知ることができる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.b61a9fd48f65",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲のようすと天気[てんき]の変化について調べるために、ある日の午前１０時と午後２時に雲と天気[てんき]の様子[ようす]を観察し、記録した。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲の動きを観察するために、動かない木を目印としていっしょに記録した。"
+        },
+        {
+          "id": "c2",
+          "text": "そのときの雲の形や色だけではなく、雲の動いている方向や速さもいっしょに記録した。"
+        },
+        {
+          "id": "c3",
+          "text": "１回目と２回目の観察は、それぞれ雲が多い方位を選んで観察した。"
+        },
+        {
+          "id": "c4",
+          "text": "観察した方位を方位磁針を使って調べ、記録した。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "時間ごとの変化や、日ごとの変化を調べるためには、毎回決まった場所や方位で調べるよ。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.c393bfd65a25",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨をふらせる雲について、かっこに当てはまる言葉を答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "積乱雲・夏・かみなり"
+        },
+        {
+          "id": "c2",
+          "text": "乱層雲[らんそううん]・冬[ふゆ]・雪[ゆき]"
+        },
+        {
+          "id": "c3",
+          "text": "積乱雲[せきらんうん]・春[はる]・雨[あめ]"
+        },
+        {
+          "id": "c4",
+          "text": "積乱雲[せきらんうん]・冬[ふゆ]・雪[ゆき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9f9dd6fff5744461.png"
+    },
+    "explanation": "雨を降らせる雲は２つあり、どちらも「乱」の文字がつく。図の雲は（積乱雲）といい、にゅうどうぐも ともよばれる。（夏）によく見られる、たて方向に厚い雲で、（かみなり）をともなった大雨を降らせることもある。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.c8a5a4f3522b",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いろいろな雲について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "高さ・形・雨"
+        },
+        {
+          "id": "c2",
+          "text": "大[おお]きさ・形[かたち]・雨[あめ]"
+        },
+        {
+          "id": "c3",
+          "text": "高[たか]さ・風[かぜ]・雨[あめ]"
+        },
+        {
+          "id": "c4",
+          "text": "高[たか]さ・大[おお]きさ・風[かぜ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雲には、いろいろな種類があり、雲ができる（高さ）や、雲の（形）、（雨）を降らせるかどうかによって、10種類に分けられる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.d938a737f163",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雨を降らせる雲について、かっこに当てはまる言葉を答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "乱層雲・黒・雪"
+        },
+        {
+          "id": "c2",
+          "text": "積乱雲[せきらんうん]・黒[くろ]・かみなり"
+        },
+        {
+          "id": "c3",
+          "text": "乱層雲[らんそううん]・白[しろ]・雨[あめ]"
+        },
+        {
+          "id": "c4",
+          "text": "乱層雲[らんそううん]・白[しろ]・かみなり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/82526292e51e492b.png"
+    },
+    "explanation": "雨を降らせる雲は２つあり、どちらも「乱」の文字がつく。図の雲は（乱層雲）といい、低い空に広がり（黒）っぽい色をしている。雨や（雪）を降らせることが多い。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.d9404d460166",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、このときの天気[てんき]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "晴れ"
+        },
+        {
+          "id": "c2",
+          "text": "くもり"
+        },
+        {
+          "id": "c3",
+          "text": "雨"
+        },
+        {
+          "id": "c4",
+          "text": "雪"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d02b9b3685c444ba.png"
+    },
+    "explanation": "空全体の広さを10としたとき、雲の量が 0 〜8のときは「晴れ」、9〜 10のときは「くもり」になる。この写真では、雲の量が９くらいなので、天気[てんき]は「くもり」になる。"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.e9d5bc436bf5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲のなまえに 次の文字がつく雲には、どのようなとくちょうがあるでしょう。正しいものをそれぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雲のかたまりが集まったような形をしている。・雲が空全体をおおうように広がる。"
+        },
+        {
+          "id": "c2",
+          "text": "すじのような形[かたち]をしている。・雲[くも]が空全体[そらぜんたい]をおおうように広[ひろ]がる。"
+        },
+        {
+          "id": "c3",
+          "text": "雲[くも]のかたまりが集[あつ]まったような形[かたち]をしている。・黒[くろ]っぽい色[いろ]で空一面[そらいちめん]に広[ひろ]がり、雨[あめ]をふらせる。"
+        },
+        {
+          "id": "c4",
+          "text": "雲[くも]が空全体[そらぜんたい]をおおうように広[ひろ]がる。・雲[くも]のかたまりが集[あつ]まったような形[かたち]をしている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d4838c27a87c67fe.png"
+    },
+    "explanation": "「積」がつく雲：雲のかたまりが集まったような形をしている。 「層」がつく雲：雲が空全体をおおうように広がる"
+  },
+  {
+    "id": "legacy.rika.g5.sci-5-1.fac318519353",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 5,
+    "unit": "rika.g5.legacy-sci-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "雲のでき方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水・水じょう気・水や氷・雲"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]・水[みず]や氷[こおり]・水[みず]じょう気[き]・雲[くも]"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]じょう気[き]・水[みず]・水[みず]や氷[こおり]・雲[くも]"
+        },
+        {
+          "id": "c4",
+          "text": "水[みず]・水[みず]じょう気[き]・空気[くうき]・雨[あめ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/09180b0114f460e9.png"
+    },
+    "explanation": "海や地面[じめん]の（水）が太陽[たいよう]の光であたためられると、じょう発して（水じょう気）になり、上空へ運ばれる。そして上空で空気が冷えると（水や氷）のつぶができる。この小さなつぶがたくさん集まったものを、（雲）という。"
+  }
+]

@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-04.0367036b43cd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路図で豆電球を表す記号[きごう]の例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "⊗のような記号[きごう]"
+        },
+        {
+          "id": "c2",
+          "text": "長い直線だけ"
+        },
+        {
+          "id": "c3",
+          "text": "三角だけ"
+        },
+        {
+          "id": "c4",
+          "text": "波線だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "豆電球は丸に×などの記号[きごう]で表します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.044c9f542b2d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池2こを並列につなぐと、1ことのときにくらべてモーターの速さはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とても速くなる"
+        },
+        {
+          "id": "c2",
+          "text": "ほぼ同じ"
+        },
+        {
+          "id": "c3",
+          "text": "必ず止まる"
+        },
+        {
+          "id": "c4",
+          "text": "逆回転だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "並列では速さは1ことのときとほぼ同じです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.282ab00710d1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回路図でスイッチを表す記号[きごう]の例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "開閉できる線の記号[きごう]"
+        },
+        {
+          "id": "c2",
+          "text": "丸だけ"
+        },
+        {
+          "id": "c3",
+          "text": "四角だけ"
+        },
+        {
+          "id": "c4",
+          "text": "星印"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "スイッチは開閉できる線の記号[きごう]で表します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.34a0265e47c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池2こを並列につないだとき、豆電球の明るさは1ことのくらべてどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とても明るくなる"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど同じ"
+        },
+        {
+          "id": "c3",
+          "text": "必ず消える"
+        },
+        {
+          "id": "c4",
+          "text": "点滅する"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "並列では明るさは1ことのときとほぼ同じです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.6aa7c715e72c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "直列つなぎで電流はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小さくなる"
+        },
+        {
+          "id": "c2",
+          "text": "大きくなる"
+        },
+        {
+          "id": "c3",
+          "text": "0になる"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "直列では電流が大きくなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.e6b07deb3339",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池2こを直列につなぐと、1ことのときにくらべてモーターはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "遅く回る"
+        },
+        {
+          "id": "c2",
+          "text": "速く回る"
+        },
+        {
+          "id": "c3",
+          "text": "止まらないと回らない"
+        },
+        {
+          "id": "c4",
+          "text": "向きだけ変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "直列では電流が大きくなり、モーターは速く回りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.eec98d250b09",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池の＋どうし、−どうしをつなぐつなぎ方を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "直列つなぎ"
+        },
+        {
+          "id": "c2",
+          "text": "並列つなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "交差[こうさ]つなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "開回路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "＋どうし・−どうしをつなぐのが並列つなぎです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-04.f4c0d08b8776",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "電池を一列につなぐつなぎ方を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "並列つなぎ"
+        },
+        {
+          "id": "c2",
+          "text": "直列つなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "交差[こうさ]つなぎ"
+        },
+        {
+          "id": "c4",
+          "text": "短路"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "＋と−を一列につなぐのが直列つなぎです。"
+  }
+]

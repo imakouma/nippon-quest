@@ -1,0 +1,511 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-6.04898192d0fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "六角形のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
+      "answers": [
+        "720"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°"
+    },
+    "explanation": "六角形のすべての角の大きさを合わせた 内角の和は、720° になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.07a0079e5969",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
+      "answers": [
+        "80"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/50c113e33b7a99bf.png"
+    },
+    "explanation": "三角形[さんかくけい]の３つの角の大きさを足した「内角の和」は、180° になる。しるしのとなりの角は、 180-(50+30)=100° この 100°としるしをつけた角で 180° になるので 180-100=80°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.38428eb9a984",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、平行四辺形に対角線をひきました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①と③、②と④"
+        },
+        {
+          "id": "c2",
+          "text": "①と③"
+        },
+        {
+          "id": "c3",
+          "text": "②と③"
+        },
+        {
+          "id": "c4",
+          "text": "①と②、③と④"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1e067902b3082fac.png"
+    },
+    "explanation": "平行四辺形には、次のきまりがあるので、①と③、②と④がそれぞれ合同になる。 ・向かいあう辺の長さは、それぞれ等しい。 ・対角線は、それぞれの真ん中で交わる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.524c39995cb1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "七角形のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
+      "answers": [
+        "900"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°"
+    },
+    "explanation": "七角形のすべての角の大きさを合わせた 内角の和は、900° になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.565f87f7263b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの平行四辺形は、合同です。",
+      "answers": [
+        "120"
+      ],
+      "template": "角E の大きさは、何度になるでしょう。 {{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/121613ee24633496.png"
+    },
+    "explanation": "合同な図形[ずけい]の対応する角は、等しくなるので、角Aと角Eの大きさは等しくなる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.5dcbce6cda0e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四角形[しかくけい]のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
+      "answers": [
+        "360"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°"
+    },
+    "explanation": "四角形[しかくけい]のすべての角の大きさを合わせた 内角の和は、360° になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.5f9462be820b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
+      "answers": [
+        "125"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/bdee144e6c14f1cc.png"
+    },
+    "explanation": "三角形[さんかくけい]の３つの角の大きさを足した「内角の和」は、180° になる。しるしのとなりの角は、 180-(50+75)=55° この 55°としるしをつけた角で 180° になるので 180-55=125°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.691d9de56dc4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の四角形[しかくけい]で、しるしをつけた角の大きさを求めよう。",
+      "answers": [
+        "100"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/482c6b6e36c276d4.png"
+    },
+    "explanation": "四角形[しかくけい]の内角の和は、360° になるので、しるしをつけた角は、 360-(100+95+65)=100°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.83ab4f5e9b88",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "三角形[さんかくけい]のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
+      "answers": [
+        "180"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°"
+    },
+    "explanation": "三角形[さんかくけい]のすべての角の大きさを合わせた 内角の和は、180° になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.8869b0ba4284",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正三角形と二等辺三角形についての説明[せつめい]として正しいものを、それぞれえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "３つの角の大きさが等しい・２つの角の大きさが等しい"
+        },
+        {
+          "id": "c2",
+          "text": "１つの角が 90°"
+        },
+        {
+          "id": "c3",
+          "text": "すべての角の大きさが異なる"
+        },
+        {
+          "id": "c4",
+          "text": "正三角形[せいさんかくけい]は2つ・二等辺三角形[にとうへんさんかくけい]は3つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正三角形：すべての角の大きさが等しい 二等辺三角形：２つの角の大きさが等しい"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.92647909e66a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、五角形に対角線を引いた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三角形[さんかくけい]・180°"
+        },
+        {
+          "id": "c2",
+          "text": "360°"
+        },
+        {
+          "id": "c3",
+          "text": "四角形[しかくけい]"
+        },
+        {
+          "id": "c4",
+          "text": "四角形[しかくけい]・360°"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6281eb33c3ac5c40.png"
+    },
+    "explanation": "このとき、五角形の中には ３つの（三角形[さんかくけい]）ができる。このように、角が１つ増えると 中にできる三角形[さんかくけい]の数も増えるので、内角の和は、（180°）ずつ大きくなっていく。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.b045ae67d5a4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の二等辺三角形で、しるしをつけた角の大きさを求めよう。",
+      "answers": [
+        "100"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/b1ed0c4be399e209.png"
+    },
+    "explanation": "二等辺三角形では、２つの角の大きさが同じになる。しるしをつけた角以外の２つの大きさは 40×2 = 80° しるしをつけた角は、180-80=100°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.b060b61586a5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの平行四辺形は、合同です。",
+      "answers": [
+        "5"
+      ],
+      "template": "辺EF の長さは、何cm になるでしょう。 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/121613ee24633496.png"
+    },
+    "explanation": "合同な図形[ずけい]の対応する辺は、等しくなるので、辺ABと辺EFの長さは等しくなる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.b5da93e52a30",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの平行四辺形は、合同です。",
+      "answers": [
+        "9"
+      ],
+      "template": "辺EH の長さは、何cm になるでしょう。 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/121613ee24633496.png"
+    },
+    "explanation": "合同な図形[ずけい]の対応する辺は、等しくなるので、辺ADと辺EHの長さは等しくなる。平行四辺形は、向かい合う辺の長さが等しいので、辺ADと辺BCも等しい。よって、辺EHは 9cm。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.c74bdd367c6b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正三角形の１つの角の大きさは、いくらになるでしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°"
+    },
+    "explanation": "正三角形では、すべての角が同じ大きさになる。３つの同じ大きさの角を合わせると、180° になるので、１つ分の角の大きさは 180÷3 = 60°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.c98fcfd995ad",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、ひし形に対角線をひきました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①〜④すべて"
+        },
+        {
+          "id": "c2",
+          "text": "①と②、③と④"
+        },
+        {
+          "id": "c3",
+          "text": "①と③、②と④"
+        },
+        {
+          "id": "c4",
+          "text": "①と④、②と③"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6d15f0abae94e35b.png"
+    },
+    "explanation": "ひし形には、次のようなきまりがあるので、①〜④すべてが合同になる。 ・すべての辺が等しい。 ・対角線は、垂直に交わる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.d0c68cb51268",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
+      "answers": [
+        "65"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/d6cefa8c56732999.png"
+    },
+    "explanation": "三角形[さんかくけい]の３つの角の大きさを足した「内角の和」は、180° になる。しるしをつけた角は、 180-(70+45)=65°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.e03446bd4d41",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の２つの平行四辺形は、合同です。",
+      "answers": [
+        "60"
+      ],
+      "template": "角H の大きさは、何度になるでしょう。 {{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/121613ee24633496.png"
+    },
+    "explanation": "合同な図形[ずけい]の対応する角は、等しくなるので、角Dと角Hの大きさは等しくなる。平行四辺形は、向かい合う角が等しいので、角Dと角Bは等しい。よって、角Hは 60°。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.e2f2ee1e68a0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
+      "answers": [
+        "85"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/16e567bc3c24aa2b.png"
+    },
+    "explanation": "三角形[さんかくけい]の３つの角の大きさを足した「内角の和」は、180° になる。しるしをつけた角は、 180-(50+45)=85°"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-6.fbb2ad048fb6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "合同・対応する"
+        },
+        {
+          "id": "c2",
+          "text": "関係する"
+        },
+        {
+          "id": "c3",
+          "text": "同一"
+        },
+        {
+          "id": "c4",
+          "text": "相似[そうじ]・対応[たいおう]する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/16b62609591c7cc2.png"
+    },
+    "explanation": "図形[ずけい]の形や大きさが同じであることを、（合同）であるといい、下の２つの三角形[さんかくけい]の辺ABと辺DEのように、合同な図形[ずけい]では（対応する）辺が等しくなります。"
+  }
+]

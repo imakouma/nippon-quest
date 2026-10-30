@@ -1,0 +1,1094 @@
+[
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.07eb94321124",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図はふつう、どの方角を上にして表すのがきまりですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北"
+        },
+        {
+          "id": "c2",
+          "text": "南"
+        },
+        {
+          "id": "c3",
+          "text": "東"
+        },
+        {
+          "id": "c4",
+          "text": "西"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図は原則として、上の方向を「北」にして描かれます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.08b1cf7ecc80",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "昔から地域に伝わるお話（民話や伝説）を調べるために、最も適した調べ方はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域のお年寄りから話を聞き取る"
+        },
+        {
+          "id": "c2",
+          "text": "インターネットでゲームの裏技を検索する"
+        },
+        {
+          "id": "c3",
+          "text": "デパートに行って買い物をする"
+        },
+        {
+          "id": "c4",
+          "text": "電柱の数を数える"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域に伝わる民話や口伝を調べるには、その土地に長く住んでいるお年寄りの方にインタビューをする（聞き取り調査）のが効果的です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.13fd4c7dc71f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横浜市の「中山駅」を通っている、横浜駅と八王子駅を結ぶJR東日本の路線名は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横浜線"
+        },
+        {
+          "id": "c2",
+          "text": "東海道線"
+        },
+        {
+          "id": "c3",
+          "text": "根岸線"
+        },
+        {
+          "id": "c4",
+          "text": "横須賀線"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中山駅を通っているJRの路線[ろせん]は「横浜線」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.193edc441194",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古くから地域に残るお祭りや行事（伝統行事）は、どのような目的で続けられていることが多いですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域のつながりを深め、安全や豊作を願うため"
+        },
+        {
+          "id": "c2",
+          "text": "外国のお祭りをまねするため"
+        },
+        {
+          "id": "c3",
+          "text": "新しいおもちゃを売るため"
+        },
+        {
+          "id": "c4",
+          "text": "ゲームの時間を増やすため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域の伝統行事やお祭りは、災害から身を守ることや豊かな実りを祈り、人々の連帯感を深めるために受け継がれています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.205f0d28f7ab",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡空港と博多駅、天神などを結び、地下を通って多くの人を運ぶ交通機関は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地下鉄"
+        },
+        {
+          "id": "c2",
+          "text": "モノレール"
+        },
+        {
+          "id": "c3",
+          "text": "新幹線"
+        },
+        {
+          "id": "c4",
+          "text": "高速道路"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡空港から博多駅や天神などの都心部へは、地下鉄が直接結んでいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.22b761f19559",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実際の距離を地図上に縮めて表した割合を「縮尺（しゅくしゃく）」といいますが、1万分の1の縮尺の地図で、地図上の1cmは実際には何mですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100m"
+        },
+        {
+          "id": "c2",
+          "text": "10m"
+        },
+        {
+          "id": "c3",
+          "text": "1000m"
+        },
+        {
+          "id": "c4",
+          "text": "1m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1cm の 10000倍は 10000cm。100cm = 1m なので、10000cm = 100m となります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.291a649587ad",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "丸の中に小さな点がある記号[きごう]（リンゴやナシなどをイメージした記号[きごう]）は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "かじゅ園"
+        },
+        {
+          "id": "c2",
+          "text": "畑"
+        },
+        {
+          "id": "c3",
+          "text": "田"
+        },
+        {
+          "id": "c4",
+          "text": "茶畑"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "果物の形や木の形をデザインした記号[きごう]は「かじゅ園」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.2c26f6553f25",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "海沿いの工業地域などで、大量[たいりょう]の重い原材料や製品を運ぶために、最もよく使われる便利な乗り物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "船（貨物船）"
+        },
+        {
+          "id": "c2",
+          "text": "ひこうき"
+        },
+        {
+          "id": "c3",
+          "text": "バス"
+        },
+        {
+          "id": "c4",
+          "text": "タクシー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "臨海部の工場では、大量[たいりょう]で重量のある物資を効率的に運ぶために「船（貨物船）」が広く使われています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.2f3c02205777",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡市のように、政令指定都市などに置かれている、行政の事務を行うための区域を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "区"
+        },
+        {
+          "id": "c2",
+          "text": "市"
+        },
+        {
+          "id": "c3",
+          "text": "町"
+        },
+        {
+          "id": "c4",
+          "text": "村"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡市や横浜市などの大きな市（政令指定都市）は、行政事務を分担するために複数の「区」に分かれています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.3be4ca603a4f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "神奈川県にある「横浜市」の中心的な駅である横浜駅には多くの鉄道が乗り入れていますが、次のうち「新幹線（東海道新幹線）」が止まる駅はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "新横浜駅"
+        },
+        {
+          "id": "c2",
+          "text": "横浜駅"
+        },
+        {
+          "id": "c3",
+          "text": "桜木町駅"
+        },
+        {
+          "id": "c4",
+          "text": "関内駅"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "横浜駅には新幹線は通っておらず、新幹線の乗り入れ駅は「新横浜駅」になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.3cfe2d4e2ce6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図をかくときに、文字を使わずに「地図記号」を使う理由[りゆう]として、正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どのような建物があるかひと目でわかり、文字を書かずに表せるから"
+        },
+        {
+          "id": "c2",
+          "text": "だれの家があるかわかるようにするため"
+        },
+        {
+          "id": "c3",
+          "text": "住んでいる人の数を表すため"
+        },
+        {
+          "id": "c4",
+          "text": "文字を書くのが面倒だから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図記号を使うことで、限られた地図のスペースにどんな施設があるかをひと目でわかりやすく表すことができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.40da26785a52",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡県にある「福岡市」は、いくつかの「区」に分かれています。福岡市には区がいくつありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7つ"
+        },
+        {
+          "id": "c2",
+          "text": "5つ"
+        },
+        {
+          "id": "c3",
+          "text": "3つ"
+        },
+        {
+          "id": "c4",
+          "text": "10つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "福岡市は東区、博多区、中央区、南区、城南区、早良区、西区の7つの行政区からできています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.44333ef233ac",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自分たちの住む市全体の様子[ようす]を調べる際、高い場所から見渡すのによく使われる、市内にある非常に背の高い建造物や展望台のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "タワーや市役所の展望台"
+        },
+        {
+          "id": "c2",
+          "text": "郵便局"
+        },
+        {
+          "id": "c3",
+          "text": "小学校の体育館"
+        },
+        {
+          "id": "c4",
+          "text": "消防署"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "高いタワーや市役所の展望ロビーなどに登ると、市の全体的な広がりや土地の使われ方を遠くまで見渡すことができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.46ad02633c75",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古い道具や昔のくらしの様子[ようす]が展示されており、実際に見学して調べることができる施設を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "郷土資料館（歴史民俗資料館）"
+        },
+        {
+          "id": "c2",
+          "text": "市役所"
+        },
+        {
+          "id": "c3",
+          "text": "消防署"
+        },
+        {
+          "id": "c4",
+          "text": "温水プール"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地域に古くから残る道具や生活の歴史を展示し、人々のくらしの移り変わりを学べる場所を「郷土資料館」などと呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.4af2188854f6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「東」と「北」の間の方向を「北東」といいますが、「西」と「北」の間の方向は何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北西"
+        },
+        {
+          "id": "c2",
+          "text": "南東"
+        },
+        {
+          "id": "c3",
+          "text": "南西"
+        },
+        {
+          "id": "c4",
+          "text": "北東"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北と西の間の方向を「北西」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.51fd5ed2e9d2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位じしんを使うとき、色のついた針の先が指ししめすのは、東・西・南・北のどの方位ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北"
+        },
+        {
+          "id": "c2",
+          "text": "南"
+        },
+        {
+          "id": "c3",
+          "text": "東"
+        },
+        {
+          "id": "c4",
+          "text": "西"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位じしんの色のついた針（多くは赤や青）は、地球の磁力によって常に「北」を指すようになっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.5375e3b3eff6",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "海沿いの工業地域などで、海岸線が不自然にまっすぐになっている場所があります。これはなぜですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "海をうめ立てて作った土地だから"
+        },
+        {
+          "id": "c2",
+          "text": "波が海岸を削ったから"
+        },
+        {
+          "id": "c3",
+          "text": "自然にまっすぐになったから"
+        },
+        {
+          "id": "c4",
+          "text": "川から砂が流れてきたから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "海を人工的にうめ立てて工場用地などを造成したため、海岸線が直線のようになっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.58d1652d94bf",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、古くから残る建造物として正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "昔のくらしを伝える建造物"
+        },
+        {
+          "id": "c2",
+          "text": "今日できたばかりのビル"
+        },
+        {
+          "id": "c3",
+          "text": "遊園地の乗り物"
+        },
+        {
+          "id": "c4",
+          "text": "自動販売機"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/533789e8fd964f3d.png"
+    },
+    "explanation": "古い家や橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.688c06cbfddc",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「古くから残る建造物と地域の特色」の学習[がくしゅう]で、社会科の調べ方として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地図帳や調査を使って、身近な地域の様子[ようす]を調べ、まとめる"
+        },
+        {
+          "id": "c2",
+          "text": "調べたことを記録せずに終わる"
+        },
+        {
+          "id": "c3",
+          "text": "地図帳を使わずに位置を決める"
+        },
+        {
+          "id": "c4",
+          "text": "見学や聞き取りのルールを守らない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図帳や調査を使って、身近な地域の様子[ようす]を調べ、まとめることが、学習指導要領で求められる社会科の調べ方です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.6d0e031ce36a",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「郵便局（〒）」の記号[きごう]がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "交番"
+        },
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        },
+        {
+          "x": 50,
+          "y": 48,
+          "label": "学校[がっこう]"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "郵便局は「〒」の記号[きごう]です。地図の下側の道路沿いにあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.724a8d4e1aab",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「古い建造物から読み取ること」の説明[せつめい]として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "なぜその場所に建てられたのか、どんな役割を果たしてきたのかを考えてみましょう。"
+        },
+        {
+          "id": "c2",
+          "text": "中心部と郊外では、建物の様子[ようす]や交通の便利さがちがう"
+        },
+        {
+          "id": "c3",
+          "text": "海の近く、山の近く、平野など自然条件によってくらし方がちがう"
+        },
+        {
+          "id": "c4",
+          "text": "見学や聞き取りで集めた情報を白地図などにまとめる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「なぜその場所に建てられたのか、どんな役割を果たしてきたのかを考えてみましょう。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.75c3216e20e0",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横浜市の有名な観光地である「中華街」の特色として、最もあてはまるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "多くの店が集まり、にぎわっている"
+        },
+        {
+          "id": "c2",
+          "text": "田んぼが一面に広がっている"
+        },
+        {
+          "id": "c3",
+          "text": "大きな工場が立ち並んでいる"
+        },
+        {
+          "id": "c4",
+          "text": "人がほとんど住んでいない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "横浜中華街は飲食店や雑貨店など多くの店舗が集まるにぎやかな商業地です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.76859e05e756",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "学校[がっこう]や公園、図書館など、みんなの生活のために国や地方自治体によってつくられた建物や場所をまとめて何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公共施設（公共しせつ）"
+        },
+        {
+          "id": "c2",
+          "text": "商業施設"
+        },
+        {
+          "id": "c3",
+          "text": "工業施設"
+        },
+        {
+          "id": "c4",
+          "text": "私有地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "みんなのために作られた施設を「公共施設」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.7b6c4853f03d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図中の右上などに「1:10000」や「1:25000」のように書かれている、実際の距離を縮めた割合[わりあい]のことを何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縮尺（しゅくしゃく）"
+        },
+        {
+          "id": "c2",
+          "text": "方位"
+        },
+        {
+          "id": "c3",
+          "text": "標高"
+        },
+        {
+          "id": "c4",
+          "text": "地図記号"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "実際の距離を地図上に縮めて表した割合[わりあい]を「縮尺[しゅくしゃく]」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.81acd887d97b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "市の中心部で、市役所や銀行[ぎんこう]、デパートなどが多く集まり、たくさんの人が働く場所を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中心業務地区（都心）"
+        },
+        {
+          "id": "c2",
+          "text": "工業地帯"
+        },
+        {
+          "id": "c3",
+          "text": "農村地帯"
+        },
+        {
+          "id": "c4",
+          "text": "住宅地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "市の行政や経済の中心であり、高いビルやデパートが立ち並ぶ場所を「中心業務地区（都心）」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.922823c35ea1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "船がいかりを下ろしているマーク（⚓の形）の地図記号は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "おもな港"
+        },
+        {
+          "id": "c2",
+          "text": "空港"
+        },
+        {
+          "id": "c3",
+          "text": "フェリー乗り場"
+        },
+        {
+          "id": "c4",
+          "text": "海水浴場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "船のいかりのマークは「港（おもな港）」を表す地図記号です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.94fc1dc9ee91",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「古い建造物から読み取ること」について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "神社やお寺、古い家、橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。"
+        },
+        {
+          "id": "c2",
+          "text": "なぜその場所に建てられたのか、どんな役割を果たしてきたのかを考えてみましょう。"
+        },
+        {
+          "id": "c3",
+          "text": "中心部と郊外では、建物の様子[ようす]や交通の便利さがちがう"
+        },
+        {
+          "id": "c4",
+          "text": "海の近く、山の近く、平野など自然条件によってくらし方がちがう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "正解は「神社やお寺、古い家、橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。」です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.9fb867645f85",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、この建造物から読み取れることとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "昔の人々のくらしや交通の様子[ようす]"
+        },
+        {
+          "id": "c2",
+          "text": "明日の天気[てんき]"
+        },
+        {
+          "id": "c3",
+          "text": "外国の言葉"
+        },
+        {
+          "id": "c4",
+          "text": "数学の公式"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/708c6eb390697301.png"
+    },
+    "explanation": "古い建造物や橋は、なぜその場所に作られたのか、どんな役割があったのかを考える手がかりになります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.ac17d998e6b9",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「卍（寺）」の記号[きごう]がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        },
+        {
+          "x": 68,
+          "y": 25,
+          "label": "神社"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 75,
+          "y": 75,
+          "label": "交番"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "「卍（まんじ）」は寺（仏教の寺院）の地図記号です。地図の左上の位置にあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.ae49967b82b5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、消火栓[しょうかせん]や消防署など「消防（火事の防止や消火）」に関係する古い地図記号（Yの形に似た記号[きごう]）が表す建物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消防署"
+        },
+        {
+          "id": "c2",
+          "text": "警察署"
+        },
+        {
+          "id": "c3",
+          "text": "市役所"
+        },
+        {
+          "id": "c4",
+          "text": "郵便局"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "Y字型の記号[きごう]は、昔の消火道具である「さすまた（刺又）」の形から作られた「消防署」の地図記号です。"
+  }
+]

@@ -1,7 +1,7 @@
 import type { Grade } from '../content/schemas';
 import { freshSeed } from '../rng';
 import { SCHEMA_VERSION, type GameState } from './schema';
-import { STARTER_EQUIPMENT_ID } from './starter';
+import { STARTER_EQUIPMENT_ID, STARTER_SKILL_IDS } from './starter';
 import { ensureRoadmapMasterySnapshot } from './roadmapSnapshot';
 
 export interface NewGameOptions {
@@ -37,7 +37,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
         wis: 3,
       },
       bonusWis: 0,
-      skills: ['sk-tashizan-giri'],
+      skills: [...STARTER_SKILL_IDS],
       equipment: {},
       hp: 24,
       mp: 6,

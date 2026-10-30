@@ -1,0 +1,182 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-11.0717e990d3d6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "③の俳句「月の夜や石に出て鳴くきりぎりす」の季節を、漢字一字で書きましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "秋"
+        },
+        {
+          "id": "c2",
+          "text": "春"
+        },
+        {
+          "id": "c3",
+          "text": "夏"
+        },
+        {
+          "id": "c4",
+          "text": "冬"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「きりぎりす」は秋の季語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-11.339fa6225e76",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "②の俳句「名月をとってくれろと泣く子かな」から、季節を表すことば（季語）はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "名月"
+        },
+        {
+          "id": "c2",
+          "text": "泣く子"
+        },
+        {
+          "id": "c3",
+          "text": "とってくれろ"
+        },
+        {
+          "id": "c4",
+          "text": "子かな"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「名月」は秋の季語です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-11.5b85d888629e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "①の俳句「赤とんぼ筑波に雲もなかりけり」を五・七・五で区切るとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "赤とんぼ 筑波に 雲もなかりけり"
+        },
+        {
+          "id": "c2",
+          "text": "赤とんぼ筑波に 雲も なかりけり"
+        },
+        {
+          "id": "c3",
+          "text": "赤とんぼ / 筑波に / 雲もなかりけり"
+        },
+        {
+          "id": "c4",
+          "text": "赤とんぼ筑波に / 雲もなかりけり"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「赤とんぼ」「筑波に」「雲もなかりけり」に区切ることができます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-11.764763e0fbc1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "⑤の俳句「雪の朝二の字二の字の下駄の跡」は、どのようなことを表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雪の朝にのこった下駄の跡が、まるで二の字のように見えるということ。"
+        },
+        {
+          "id": "c2",
+          "text": "下駄を二足並べて置いた様子"
+        },
+        {
+          "id": "c3",
+          "text": "雪の上に二つの下駄が落ちている様子"
+        },
+        {
+          "id": "c4",
+          "text": "雪の朝に二つの文字を書いた様子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雪の上に残った下駄の跡が「ニ」の文字に見える様子を詠んだ句です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-11.b8fc2f359213",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "④の俳句「ゆさゆさと大枝ゆるる桜かな」の季節を、漢字一字で書きましょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "春"
+        },
+        {
+          "id": "c2",
+          "text": "秋"
+        },
+        {
+          "id": "c3",
+          "text": "夏"
+        },
+        {
+          "id": "c4",
+          "text": "冬"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「桜」は春の季語です。"
+  }
+]

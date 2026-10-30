@@ -1,0 +1,809 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-5.05331a4cc637",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人と空気との関わりについて、次の説明[せつめい]のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "石油や石炭[せきたん]、天然ガスなどの燃料を燃やすことで、電気をつくっている。"
+        },
+        {
+          "id": "c2",
+          "text": "燃料を燃やすと、呼吸と同じように、酸素が使われ、二酸化炭素が出る。"
+        },
+        {
+          "id": "c3",
+          "text": "大気中の二酸化炭素の増加は、地球温暖化の原因の一つといわれている。"
+        },
+        {
+          "id": "c4",
+          "text": "山の森が減ると、空気中の二酸化炭素が減ることになる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "植物は、光合成によって酸素を出している。よって、山の森が減ると、空気中の二酸化炭素はどんどん増えることになる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.212a7dc95af9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡について、A〜Dを何というでしょう。それぞれ正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接眼レンズ・対物レンズ・調節ねじ・反しゃ鏡"
+        },
+        {
+          "id": "c2",
+          "text": "対物[たいぶつ]レンズ・接眼[せつがん]レンズ・反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ"
+        },
+        {
+          "id": "c3",
+          "text": "接眼[せつがん]レンズ・反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ・対物[たいぶつ]レンズ"
+        },
+        {
+          "id": "c4",
+          "text": "反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ・接眼[せつがん]レンズ・対物[たいぶつ]レンズ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/27c50ff69f5df845.png"
+    },
+    "explanation": "A：接眼レンズ B：対物レンズ C：調節ねじ D：反しゃ鏡"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.35761fe4fd2f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、空気を通した生物のつながりを表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "植物が光合成によって出した酸素を、動物が呼吸によって取り入れている。"
+        },
+        {
+          "id": "c2",
+          "text": "植物も動物も、呼吸によって酸素を取り入れ、二酸化炭素を出している。"
+        },
+        {
+          "id": "c3",
+          "text": "日中は、植物が出す二酸化炭素よりも、植物が取り入れる二酸化炭素のほうが多い。"
+        },
+        {
+          "id": "c4",
+          "text": "動物は酸素を出すことができるので、植物がなくても生きていくことができる。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/73499ac9da902339.png"
+    },
+    "explanation": "動物は酸素を出すことができないので、植物がなくなると、呼吸に必要な酸素がなくなってしまう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.36715b75511a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、海の中の食物れんさを表している。このつながりの説明[せつめい]について、かっこに当てはまる生物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オキアミ・イワシ・カツオ・マグロ"
+        },
+        {
+          "id": "c2",
+          "text": "イワシ・オキアミ・マグロ・カツオ"
+        },
+        {
+          "id": "c3",
+          "text": "オキアミ・カツオ・イワシ・マグロ"
+        },
+        {
+          "id": "c4",
+          "text": "マグロ・カツオ・イワシ・オキアミ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/00481d934df106c5.png"
+    },
+    "explanation": "海の中の小さな生物は A（オキアミ）に食べられる。 A は B（イワシ）に食べられる。B は C（カツオ）に食べられる。C は（マグロ）に食べられる。 水中では、小さな生物を出発点とする食物れんさでつながっている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.3bf796865edb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川の中には、次の図のような生物がすんでいる。これらの生物の食物れんさのつながりを、やじるし→を使って表そう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ミカヅキモ・ミジンコ・メダカ・ザリガニ"
+        },
+        {
+          "id": "c2",
+          "text": "ミジンコ・ミカヅキモ・ザリガニ・メダカ"
+        },
+        {
+          "id": "c3",
+          "text": "ミカヅキモ・メダカ・ミジンコ・ザリガニ"
+        },
+        {
+          "id": "c4",
+          "text": "ザリガニ・メダカ・ミジンコ・ミカヅキモ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/88a86e56d3f9a14b.png"
+    },
+    "explanation": "ミカヅキモ → ミジンコ → メダカ → ザリガニ 水中では、小さな生物を出発点とする食物れんさでつながっているね。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.5194d5099a51",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水中の生物をけんび鏡で観察すると、図のように見えた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4c6f0194a87d04df.png"
+    },
+    "explanation": "ふつう、けんび鏡では、上下左右が逆ぎゃくに見えている。見たいものを右下に動かしたいときには、プレパラートを上下左右が逆の、A（左上）の方向に動かす。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.51eef29164bc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "持続可能な社会に向けたとりくみについて、次の説明[せつめい]のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "燃料電池自動車や太陽光発電など、二酸化炭素や有害な気体が発生しないエネルギーを使う。"
+        },
+        {
+          "id": "c2",
+          "text": "ごみが海岸にたまることのないよう、プラスチックなどのごみはすべて燃やす。"
+        },
+        {
+          "id": "c3",
+          "text": "植林によって、森を再生する。"
+        },
+        {
+          "id": "c4",
+          "text": "下水処理場でよごれた水をきれいにしてから川に流す。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "二酸化炭素を出さないようにするために、ごみを分別して燃やす量を少なくする工夫が行われている。ごみが海岸などにたまることのないよう、ごみを分別して出したり、清そう活動に参加するなど、ふだんの生活の中でもできる取り組みがある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.59bdebca3064",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水中の生物をけんび鏡で観察した。もっと大きくして見たいときは、どうすればいいでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "レボルバーを回して、高い倍率のレンズにかえる。"
+        },
+        {
+          "id": "c2",
+          "text": "反しゃ鏡を動かして、明るく見えるようにする。"
+        },
+        {
+          "id": "c3",
+          "text": "調節ねじを回して、対物レンズをプレパラートに近づける。"
+        },
+        {
+          "id": "c4",
+          "text": "プレパラートを動かして、見たいものが視野の中央にくるようにする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/485fbf381a6e2696.png"
+    },
+    "explanation": "けんび鏡で観察しているものを、もっと大きくして見たいときは、レボルバーを回して、高い倍率りつのレンズにかえて観察する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.5ca94bf37164",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水中の生物をけんび鏡で観察すると、次のように見えた。実際の大きさが小さい順に並べよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B・C・D・A"
+        },
+        {
+          "id": "c2",
+          "text": "A・D・C・B"
+        },
+        {
+          "id": "c3",
+          "text": "B・D・C・A"
+        },
+        {
+          "id": "c4",
+          "text": "C・B・D・A"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ec5314c3954aba34.png"
+    },
+    "explanation": "小さいものを観察する時ほど、けんび鏡の倍率りつを高くする。けんび鏡で見たときの大きさが同じくらいなら、倍率りつが高いほど、実際の大きさは小さい。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.7497123839a5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽[たいよう]・水蒸気・雲・雨"
+        },
+        {
+          "id": "c2",
+          "text": "月[つき]・水蒸気[すいじょうき]・雲[くも]・雨[あめ]"
+        },
+        {
+          "id": "c3",
+          "text": "太陽[たいよう]・雲[くも]・水蒸気[すいじょうき]・雨[あめ]"
+        },
+        {
+          "id": "c4",
+          "text": "風[かぜ]・水蒸気[すいじょうき]・雨[あめ]・雲[くも]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "海や地面[じめん]の水は、（太陽[たいよう]）の光によってあたためられて、（水蒸気）となって上空にはこばれる。上空にはこばれた水はやがて（雲）になり、（雨）や雪として地上にもどってくる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.8088d7eeaa7c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生物どうしは、「食べる・食べられる」の関係でつながっている。このつながりを何と言うでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食物れんさ"
+        },
+        {
+          "id": "c2",
+          "text": "弱肉強食[じゃくにくきょうしょく]"
+        },
+        {
+          "id": "c3",
+          "text": "生態系"
+        },
+        {
+          "id": "c4",
+          "text": "じゅんかん型社会"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生物どうしは、「食べる・食べられる」の関係でつながっている。このつながりを食しょく物もつれんさという。食物れんさは、陸上や水中、土中など、生物が生活しているいろいろな場所で見られる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.995ef767a2e1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人と生物との関わりについて、次の説明[せつめい]のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたしたちは、植物や動物を育てたり、魚をとって食べている。"
+        },
+        {
+          "id": "c2",
+          "text": "その地域には住んでいない生物を人間が放してしまうと、もともと住んでいた生物が食べられたり、すみかをうばわれることがある。"
+        },
+        {
+          "id": "c3",
+          "text": "山の森が減ると、生物がすみかや食べ物を探して、人間が生活している場所に出てくることがある。"
+        },
+        {
+          "id": "c4",
+          "text": "生物をたくさんとりすぎたり、海岸をうめ立てたりしても、生物の数が減ることはない。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "生物をたくさんとりすぎると、生物の数は減ってしまう。また、海岸をうめ立てると、生物のすみかや産さん卵らん場所がなくなるので、生物の数が減ってしまう。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.a7a375415803",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水は、植物や動物の体を出たり入ったりしている。"
+        },
+        {
+          "id": "c2",
+          "text": "地面[じめん]にしみこんだ水は、植物に吸収されたり、川や地下水として海や湖に流れこむ。"
+        },
+        {
+          "id": "c3",
+          "text": "蒸発や蒸散によって上空にはこばれた水は、地上にはもどってこない。"
+        },
+        {
+          "id": "c4",
+          "text": "ヒトの体の中にとりこまれた水は、にょうやあせとして体の外へ出ていく。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "蒸発や蒸散によって上空にはこばれた水は、やがて雲になり、雨や雪として地上にもどってくる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.a9657386e70c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、陸上の食物れんさを表している。このつながりの説明[せつめい]について、かっこに当てはまる生物をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バッタ・カエル・ヘビ・タカ"
+        },
+        {
+          "id": "c2",
+          "text": "カエル・バッタ・タカ・ヘビ"
+        },
+        {
+          "id": "c3",
+          "text": "バッタ・ヘビ・カエル・タカ"
+        },
+        {
+          "id": "c4",
+          "text": "タカ・ヘビ・カエル・バッタ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/795a475aab596c27.png"
+    },
+    "explanation": "イネは A（バッタ）に食べられる。 A は B（カエル）に食べられる。Bは C（ヘビ）に食べられる。C は（タカ）に食べられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.b4b5e6710b3a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根・蒸散・水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "葉[は]・蒸散[じょうさん]・水蒸気[すいじょうき]"
+        },
+        {
+          "id": "c3",
+          "text": "葉[は]・呼吸[こきゅう]・水[みず]"
+        },
+        {
+          "id": "c4",
+          "text": "根[ね]・蒸散[じょうさん]・酸素[さんそ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "植物は、（根）から水をとりいれ、体のすみずみまで運んでいる。植物のからだの中の水分は、（蒸じょう散さん）によって（水すい蒸じょう気き）として体の外に出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.c7d92e830503",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人と水との関わりについて、次の説明[せつめい]のうち、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "わたしたちは、生活の中や、農業や工業などのさまざまな場面で、水を利用している。"
+        },
+        {
+          "id": "c2",
+          "text": "家庭や工場などから出るよごれた水は、下水処理場できれいな水にしている。"
+        },
+        {
+          "id": "c3",
+          "text": "家庭や工場などから出るよごれた水によって川や海がよごれると、生物がすめなくなる。"
+        },
+        {
+          "id": "c4",
+          "text": "ダムの水が流れ落ちる力を利用して水車を回し、発電する方法を風力発電という。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "ダムの水が流れ落ちる力を利用して水車を回し、発電する方法を 水力発電 という。他に、風のはたらきで発電する方法を風力発電、日光のはたらきで発電する方法を太陽光発電といい、燃料を燃やすことなく発電している。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.c85c10364f5a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、生物と<ruby>環<rt>かん</rt>境<rt>きょう</rt></ruby>とのつながりを表している。A〜D の矢印が表しているものをそれぞれえらぼう。<br> A：___<br> B：___<br> C：___<br> D：___",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素・二酸化炭素・水・養分（食べ物）"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素[にさんかたんそ]・酸素[さんそ]・養分[ようぶん]・水[みず]"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]・養分[ようぶん]・酸素[さんそ]・二酸化炭素[にさんかたんそ]"
+        },
+        {
+          "id": "c4",
+          "text": "養分[ようぶん]・水[みず]・二酸化炭素[にさんかたんそ]・酸素[さんそ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/009505fc6a733fcb.png"
+    },
+    "explanation": "A：酸素 B：二酸化炭素 C：水 D：養分（食べ物）"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.cb597db6c31f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、水を通した生物のつながりを表している。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "口・全身・にょう"
+        },
+        {
+          "id": "c2",
+          "text": "肺[はい]・全身[ぜんしん]・にょう"
+        },
+        {
+          "id": "c3",
+          "text": "肺[はい]・胃[い]・二酸化炭素[にさんかたんそ]"
+        },
+        {
+          "id": "c4",
+          "text": "口[くち]・全身[ぜんしん]・水蒸気[すいじょうき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7f150fde0d0d2908.png"
+    },
+    "explanation": "動物は、（口）から水をとりいれる。養分とともに体内に吸収された水は、（全身）に運ばれる。からだの中の水分の一部は、不要物とともに（にょう）として体の外に出される。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.cd7415be64e8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食物れんさと生物の数について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食べる・食べられる・ピラミッド"
+        },
+        {
+          "id": "c2",
+          "text": "食[た]べる・食[た]べられる・正方形[せいほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "食[た]べられる・食[た]べる・円[えん]"
+        },
+        {
+          "id": "c4",
+          "text": "食[た]べる・食[た]べられる・直線[ちょくせん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/320352771223dcdd.png"
+    },
+    "explanation": "食物れんさによってつながっている１つの地域に注目すると、ふつう（食べる）生物よりも、（食べられる）生物のほうが多い。この関係は、図のように（ピラミッド）で表すことができる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.e21df8501954",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "カレーや牛乳[ぎゅうにゅう]を例に、私たちが食べるものがどんな生物にいきつくか、考えてみましょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "野菜・牛肉[ぎゅうにく]・牛乳[ぎゅうにゅう]・牧草"
+        },
+        {
+          "id": "c2",
+          "text": "牛肉[ぎゅうにく]・野菜[やさい]・牧草[ぼくそう]・牛乳[ぎゅうにゅう]"
+        },
+        {
+          "id": "c3",
+          "text": "野菜[やさい]・牛乳[ぎゅうにゅう]・牛肉[ぎゅうにく]・魚[さかな]"
+        },
+        {
+          "id": "c4",
+          "text": "牧草[ぼくそう]・牛肉[ぎゅうにく]・野菜[やさい]・牛乳[ぎゅうにゅう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "カレーには、ジャガイモやニンジンなどの（野菜）や、A（牛肉[ぎゅうにく]）が入っている。A や（牛ぎゅう乳にゅう）のもとになるウシは、（牧草）を食べて育つ。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.edd5b3f58445",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "けんび鏡の使い方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "反しゃ鏡・ステージ・横・接眼レンズ・調節ねじ"
+        },
+        {
+          "id": "c2",
+          "text": "接眼[せつがん]レンズ・ステージ・上[うえ]・反射鏡[はんしゃきょう]・調節[ちょうせつ]ねじ"
+        },
+        {
+          "id": "c3",
+          "text": "反射鏡[はんしゃきょう]・ステージ・横[よこ]・対物[たいぶつ]レンズ・クリップ"
+        },
+        {
+          "id": "c4",
+          "text": "調節[ちょうせつ]ねじ・接眼[せつがん]レンズ・横[よこ]・ステージ・反射鏡[はんしゃきょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "①（反しゃ鏡）を動かして、明るく見えるようにする。 ② プレパラートを（ステージ）にのせ、クリップでとめる。 ③（横）から見ながら調節ねじを回し、対物レンズとプレパラートをできるだけ近づける。 ④（接眼レンズ）をのぞきながら（調節ねじ）を回して対物レンズとプレパラートをはなしていき、ピントを合わせる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-5.efb8a53ef841",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図は、陸上の食物れんさを表している。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ライオンはシマウマを食べる・シマウマは草を食べる・草はシマウマに食べられる・シマウマはライオンに食べられる"
+        },
+        {
+          "id": "c2",
+          "text": "ライオンは草[くさ]を食[た]べる・シマウマはライオンを食[た]べる・草[くさ]はライオンに食[た]べられる・ライオンはシマウマに食[た]べられる"
+        },
+        {
+          "id": "c3",
+          "text": "ライオンはシマウマを食[た]べる・シマウマは草[くさ]を食[た]べる・草[くさ]はライオンに食[た]べられる・シマウマは草[くさ]に食[た]べられる"
+        },
+        {
+          "id": "c4",
+          "text": "シマウマはライオンを食[た]べる・ライオンは草[くさ]を食[た]べる・草[くさ]はシマウマに食[た]べられる・ライオンはシマウマに食[た]べられる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e5ef7d52586e3543.png"
+    },
+    "explanation": "A：ライオンはシマウマを食べる B：シマウマは草を食べる C：草はシマウマに食べられる D：シマウマはライオンに食べられる"
+  }
+]

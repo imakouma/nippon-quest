@@ -12,6 +12,8 @@
   color: #fff;
   font-family: var(--nq-font, 'PixelMplus12', monospace);
   font-size: 24px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .nq-q ruby > rt {
   font-size: 12px;
@@ -162,6 +164,74 @@
 .nq-choice-dim {
   opacity: 0.45;
 }
+
+/* kanji-trace：お手本を なぞる／読みを えらぶ */
+.nq-kt-canvas {
+  align-self: center;
+  width: clamp(120px, min(240px, 60vw, calc(100dvh - 220px)), 240px);
+  aspect-ratio: 1;
+  background: #fff8e6;
+  border: 4px solid #f6e7c1;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent calc(50% - 1px),
+      rgba(42, 26, 5, 0.15) 50%,
+      transparent calc(50% + 1px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(50% - 1px),
+      rgba(42, 26, 5, 0.15) 50%,
+      transparent calc(50% + 1px)
+    );
+  cursor: crosshair;
+  touch-action: none;
+}
+.nq-kt-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+.nq-kt-submit {
+  min-width: 160px;
+  background: #6cc070;
+}
+.nq-kt-strokes {
+  margin-left: 12px;
+  opacity: 0.8;
+}
+.nq-kt-hint {
+  margin: 0;
+  text-align: center;
+}
+.nq-kt-big {
+  align-self: center;
+  font-size: 96px;
+  line-height: 1;
+}
+@media (max-height: 420px) {
+  .nq-q-kanji-trace {
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+  }
+  .nq-kt-actions {
+    gap: 8px;
+  }
+  .nq-kt-actions .nq-btn {
+    white-space: nowrap;
+  }
+  .nq-kt-submit {
+    min-width: 140px;
+  }
+  .nq-kt-canvas {
+    width: min(120px, 34dvh);
+  }
+  .nq-kt-hint {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
 /* アルファベット 1 もじの 選択肢は 大きく */
 .nq-q-choices-big .nq-choice {
   font-size: 48px;
@@ -228,7 +298,7 @@
   position: relative;
   align-self: center;
   flex: 1;
-  min-height: 0;
+  min-height: 48px;
   padding: 0;
   border: 4px solid #f6e7c1;
   background: #111;
@@ -600,6 +670,80 @@
 }
 .nq-feedback-correct .nq-feedback-text {
   color: #ffe66d;
+}
+.nq-pm-prompt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nq-pm-prompt .nq-q-prompt {
+  flex: 1;
+}
+.nq-pm-retry {
+  flex: none;
+}
+.nq-pm-grid {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.nq-pm-grid-4,
+.nq-pm-grid-6 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.nq-pm-columns {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: 1fr 1fr;
+}
+.nq-pm-column {
+  display: grid;
+  gap: 8px;
+}
+.nq-pm-card {
+  min-height: 56px;
+  padding: 8px;
+  border: 4px solid #f6e7c1;
+  border-radius: 0;
+  background: #172448;
+  color: #fff;
+  font: inherit;
+  display: grid;
+  gap: 4px;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.nq-pm-card img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-pm-card:focus-visible {
+  outline: 4px solid #fff;
+  outline-offset: 2px;
+}
+.nq-pm-back {
+  background: #f4a53a;
+  color: #2a1a05;
+  font-size: 36px;
+}
+.nq-pm-open {
+  border-color: #6aa9ff;
+}
+.nq-pm-matched {
+  border-color: #ffe66d;
+  opacity: 0.75;
+}
+.nq-pm-miss {
+  border-color: #ff9f6d;
 }
 @keyframes nq-pop {
   from {

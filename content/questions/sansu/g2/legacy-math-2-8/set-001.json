@@ -1,0 +1,512 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-8.0785f6726328",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1リットルは、何デシリットル でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10dL"
+        },
+        {
+          "id": "c2",
+          "text": "100dL"
+        },
+        {
+          "id": "c3",
+          "text": "1000dL"
+        },
+        {
+          "id": "c4",
+          "text": "5dL"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "デシリットルが 10こで、1Lになるよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.19e6090c5ea8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "デシリットルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "L"
+        },
+        {
+          "id": "c2",
+          "text": "mL"
+        },
+        {
+          "id": "c3",
+          "text": "dL"
+        },
+        {
+          "id": "c4",
+          "text": "D"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "デシリットルは、「dL」とあらわす。1L は、10dL になるんだ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.3f861efa7bf3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を こたえよう。",
+      "answers": [
+        "2000"
+      ],
+      "template": "2L = {{INPUT}}mL",
+      "suffix": "mL"
+    },
+    "explanation": "1L = 1000mL なので、2L = 2000mL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.4e25eb445a04",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ミリリットルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "L"
+        },
+        {
+          "id": "c2",
+          "text": "mL"
+        },
+        {
+          "id": "c3",
+          "text": "dL"
+        },
+        {
+          "id": "c4",
+          "text": "M"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ミリリットルは、「mL」とあらわす。1L は、1000mL になるんだ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.5abc6e9bf66d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "2L 5dL + 1L 5dL = {{INPUT}}L",
+      "suffix": "L"
+    },
+    "explanation": "L と dL をそれぞれ たし算すればいい。 2L5dL + 1L5dL = 3L10dL 10dL = 1Lになるので、4L とこたえよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.5d270d7067a9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "2",
+        "8"
+      ],
+      "template": "3L 2dL - 4dL = {{INPUT}}L {{INPUT}}dL"
+    },
+    "explanation": "2dL-4dL は、けいさんできない。3L のうち、1L=10dL をくずして、けい算しよう。 3L2dL - 4dL = 2L12dL - 4dL = 2L8dL"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.5ed8d8000ee2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "1",
+        "5"
+      ],
+      "template": "1L 3dL + 2dL = {{INPUT}}L {{INPUT}}dL"
+    },
+    "explanation": "dLだけ たし算すればいいので、1L 5dL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.65e8475445ff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を こたえよう。",
+      "answers": [
+        "4"
+      ],
+      "template": "40dL = {{INPUT}}L",
+      "suffix": "L"
+    },
+    "explanation": "1L = 10dL なので、40dL = 4L になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.66139cd00d0a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "110"
+      ],
+      "template": "90dL + 20dL = {{INPUT}}dL",
+      "suffix": "dL"
+    },
+    "explanation": "十のくらいだけ、たし算して、110dL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.71c82bb90ecb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を こたえよう。",
+      "answers": [
+        "10"
+      ],
+      "template": "1L = {{INPUT}} dL",
+      "suffix": "dL"
+    },
+    "explanation": "デシリットルが 10こで、1Lになるよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.7450bd5585db",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を こたえよう。",
+      "answers": [
+        "100"
+      ],
+      "template": "1dL = {{INPUT}}mL",
+      "suffix": "mL"
+    },
+    "explanation": "1L = 10dL、1L = 1000mL になっているので、1dL = 100mL だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.7ad53f3a21f5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を こたえよう。",
+      "answers": [
+        "1000"
+      ],
+      "template": "1L = {{INPUT}}mL",
+      "suffix": "mL"
+    },
+    "explanation": "ミリリットルが 1000こで、1Lになるよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.7b1b62a1204d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "1",
+        "8"
+      ],
+      "template": "2L 6dL - 8dL = {{INPUT}}L {{INPUT}}dL"
+    },
+    "explanation": "6dL-8dL は、けいさんできない。2L のうち、1L=10dL をくずして、けい算しよう。 2L6dL - 8dL = 1L16dL - 8dL = 1L8dL"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.8bbb919d843b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのうち、１リットルの「かさ」になるものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きな牛にゅうパック"
+        },
+        {
+          "id": "c2",
+          "text": "きゅうしょくの牛にゅう"
+        },
+        {
+          "id": "c3",
+          "text": "じどうはんばいきの かんジュース"
+        },
+        {
+          "id": "c4",
+          "text": "コンビニの小さなペットボトル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１リットルは、スーパーなどでうっている 大きな牛にゅうパック１本分の 「かさ」になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.8f3a71f01a85",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1リットルは、何ミリリットル でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1000mL"
+        },
+        {
+          "id": "c2",
+          "text": "100mL"
+        },
+        {
+          "id": "c3",
+          "text": "10000mL"
+        },
+        {
+          "id": "c4",
+          "text": "500mL"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ミリリットルが 1000 こで、1Lになるよ。 1Lは 10dLなので、100mLで 1dL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.a722bfa87853",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "3",
+        "8"
+      ],
+      "template": "2L 5dL + 1L 3dL = {{INPUT}}L {{INPUT}}dL"
+    },
+    "explanation": "L と dL をそれぞれ たし算して、3L 8dL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.cb316f5ed97d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "400"
+      ],
+      "template": "500mL - 100mL = {{INPUT}}mL",
+      "suffix": "mL"
+    },
+    "explanation": "百のくらいだけ、ひき算して、400mL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.d897207aa07b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□にあてはまる数を こたえよう。",
+      "answers": [
+        "5"
+      ],
+      "template": "500mL = {{INPUT}}dL",
+      "suffix": "dL"
+    },
+    "explanation": "1dL = 100mL なので、500mL = 5dL になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.dcd5050492eb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "リットルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "L"
+        },
+        {
+          "id": "c2",
+          "text": "m"
+        },
+        {
+          "id": "c3",
+          "text": "l"
+        },
+        {
+          "id": "c4",
+          "text": "M"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「かさ」をあらわすリットルは、「L」とあらわす。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-8.f906ef5fae69",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの かさ のけい算をしましょう。",
+      "answers": [
+        "1",
+        "4"
+      ],
+      "template": "6dL + 8dL = {{INPUT}}L {{INPUT}}dL"
+    },
+    "explanation": "6dL + 8dL = 14dL 10dL = 1Lになるので、1L4dL とこたえよう。"
+  }
+]

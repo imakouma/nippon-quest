@@ -1,0 +1,688 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-4.037d8afce6ff",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉のでんぷんを調べる方法について、正しい順番になるよう A〜D をならべかえよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "D・B・A・C"
+        },
+        {
+          "id": "c2",
+          "text": "D・B・C・A"
+        },
+        {
+          "id": "c3",
+          "text": "B・D・A・C"
+        },
+        {
+          "id": "c4",
+          "text": "D・A・B・C"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5377452a5f9c8918.png"
+    },
+    "explanation": "D → B → A → C 葉を湯につけてやわらかくした後、ろ紙にはさんで木づちでたたき、ろ紙をうすめたヨウ素液につけてでんぷんを調べる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.086af74e9588",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気こう・水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "気孔[きこう]・水[みず]"
+        },
+        {
+          "id": "c3",
+          "text": "道管[どうかん]・水蒸気[すいじょうき]"
+        },
+        {
+          "id": "c4",
+          "text": "道管[どうかん]・水[みず]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2bef13daa02a11bd.png"
+    },
+    "explanation": "葉の表面の皮をけんび鏡で見ると、図のように小さな穴 A（気こう）があった。根から取り入れられた水は、この小さな穴 A から（水蒸気）となって植物の体の外に出ていく。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.14d11bba72f4",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉のはたらきを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉を日光に当てないようにするため。"
+        },
+        {
+          "id": "c2",
+          "text": "葉によりたくさん日光を当てるため。"
+        },
+        {
+          "id": "c3",
+          "text": "実験に使う葉を虫に食べられないようにするため。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6662264df8e8a9c4.png"
+    },
+    "explanation": "葉をアルミニウムはくでおおい、日光を当てないようにする。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.167628db3ac9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "蒸散・根・体全体"
+        },
+        {
+          "id": "c2",
+          "text": "蒸散[じょうさん]・葉[は]・体全体[からだぜんたい]"
+        },
+        {
+          "id": "c3",
+          "text": "呼吸[こきゅう]・根[ね]・葉[は]"
+        },
+        {
+          "id": "c4",
+          "text": "蒸散[じょうさん]・葉[は]・根[ね]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の水の通り道では、水はとぎれることなく運ばれている。そのため、葉などで（蒸散）が起こると、次々と（根）から水が吸い上げられる。このように、蒸散は植物の（体全体）に水を届とどけるために大切なはたらきをしている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.226ca88a6c0a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・光合成・養分"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷん・呼吸[こきゅう]・養分[ようぶん]"
+        },
+        {
+          "id": "c3",
+          "text": "酸素[さんそ]・呼吸[こきゅう]・養分[ようぶん]"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷん・蒸散[じょうさん]・水分[すいぶん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物の葉に日光が当たると、（でんぷん）などの養分がつくられる。このはたらきを（光こう合ごう成せい）という。このように、植物は、生きるための（養分）を自分で作っている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.2bb2dff9932a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物は１日中、酸素を取り入れて、二酸化炭素を出している。このはたらきを、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "呼吸"
+        },
+        {
+          "id": "c2",
+          "text": "光合成"
+        },
+        {
+          "id": "c3",
+          "text": "成長"
+        },
+        {
+          "id": "c4",
+          "text": "蒸散"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物は１日中、酸素を取り入れて、二酸化炭素を出している。このはたらきを、呼吸という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.31409ffaea03",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、植物（ホウセンカ）の根を色水にひたし、数時間後の様子を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "染まっている部分があった・根・水"
+        },
+        {
+          "id": "c2",
+          "text": "全体[ぜんたい]が染[そ]まっていた・根[ね]・水[みず]"
+        },
+        {
+          "id": "c3",
+          "text": "染[そ]まらなかった・葉[は]・養分[ようぶん]"
+        },
+        {
+          "id": "c4",
+          "text": "葉[は]だけ染[そ]まった・くき・空気[くうき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1a5ccc38dd305c8d.png"
+    },
+    "explanation": "数時間後、根、くき、葉の断面を観察すると、図のように色水によって（染そまっている部分があった） 。このことから、根、くき、葉には、（根）から取り入れられた（水）が通る管があることが分かった。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.35b9b82c5e34",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "葉のはたらきを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/6662264df8e8a9c4.png"
+    },
+    "explanation": "ヨウ素液は、でんぷんがあると青むらさき色に変化する。日光によく当てた B の葉にはでんぷんができるので、ヨウ素液が青むらさき色に変化する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.46a13945bbb5",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・水・養分・いもや種子"
+        },
+        {
+          "id": "c2",
+          "text": "水[みず]・でんぷん・養分[ようぶん]・根[ね]"
+        },
+        {
+          "id": "c3",
+          "text": "でんぷん・空気[くうき]・水分[すいぶん]・葉[は]"
+        },
+        {
+          "id": "c4",
+          "text": "養分[ようぶん]・水[みず]・でんぷん・花[はな]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "光合成によって葉にできた（でんぷん）は、（水）にとけやすいものに変化して、体の各部分に運ばれ、生きていくための（養分）として使われたり、（いもや種子）にたくわえられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.49e138f4f00f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日光によく当てたジャガイモの葉をヨウ素液で調べると、青むらさき色に変わった。このことから、日光によく当てた葉には何があることがわかるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん"
+        },
+        {
+          "id": "c2",
+          "text": "水"
+        },
+        {
+          "id": "c3",
+          "text": "酸素"
+        },
+        {
+          "id": "c4",
+          "text": "二酸化炭素"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヨウ素液で調べると、青むらさき色に変わったことから、でんぷんがあることがわかる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.5354ddf190dc",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "根から取り入れられた水のゆくえを調べるために、以下のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根"
+        },
+        {
+          "id": "c2",
+          "text": "くき"
+        },
+        {
+          "id": "c3",
+          "text": "葉"
+        },
+        {
+          "id": "c4",
+          "text": "花"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/040ca26cd94013b4.png"
+    },
+    "explanation": "葉のついた植物 A のふくろの内側は、くもって水てきがついていたが、葉を取った植物 B のふくろの内側にはほとんど水てきがついていなかった。このことから、根から取り入れられた水は、おもに葉から体の外に出たと考えられる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.93e2ed045ae8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の気体の出入りについて、まちがっている ものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "植物は夜の間だけ、酸素を取り入れて、二酸化炭素を出している。"
+        },
+        {
+          "id": "c2",
+          "text": "日光が当たっているとき、植物は酸素を出している。"
+        },
+        {
+          "id": "c3",
+          "text": "日光が当たっているとき、植物は二酸化炭素を取り入れている。"
+        },
+        {
+          "id": "c4",
+          "text": "植物が生きていくためには、二酸化炭素が必要である。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "植物は夜の間だけではなく、昼も夜も１日中、酸素を取り入れて、二酸化炭素を出している。このはたらきを、呼吸という。呼吸のほかに、日光が当たっているとき、植物は二酸化炭素を取り入れて、酸素を出している。このように、植物が生きていくためには、二酸化炭素が必要である。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.97f13d6c3daa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の成長について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "でんぷん・日光"
+        },
+        {
+          "id": "c2",
+          "text": "でんぷん・風[かぜ]"
+        },
+        {
+          "id": "c3",
+          "text": "水[みず]・日光[にっこう]"
+        },
+        {
+          "id": "c4",
+          "text": "でんぷん・水[みず]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "発芽した植物は、しばらくの間、種子の中の（でんぷん）をつかって成長する。また、植物は、肥料をあたえたり、（日光）を当てるとよく成長する。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.9da3b60d3416",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "植物の気体の出入りを調べるために、次のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素が増えて、二酸化炭素が減った。"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素が増えて、酸素が減った。"
+        },
+        {
+          "id": "c3",
+          "text": "酸素も二酸化炭素も減った。"
+        },
+        {
+          "id": "c4",
+          "text": "酸素も二酸化炭素も増えた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e54c4708dc3d5986.png"
+    },
+    "explanation": "酸素が 17 %から 19 %に増えて、二酸化炭素が 4 %から 2 %に減った。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.9ff0cb574b4e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一度しおれた植物でも、水をあたえると元にもどることがある。この理由[りゆう]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "根から取り入れられた水が、植物全体に運ばれたから。"
+        },
+        {
+          "id": "c2",
+          "text": "植物全体の表面から、水を吸収したから。"
+        },
+        {
+          "id": "c3",
+          "text": "葉で水を作り出したから。"
+        },
+        {
+          "id": "c4",
+          "text": "日光に当たって元気になったから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水は、植物の根から取り入れられる。根から取り入れられた水は、くき、葉へとつながる細い管を通って、植物全体に運ばれる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.bce0a4e99162",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように植物にふくろをかぶせ、ふくろの中にはいた空気を入れた。この植物を日光に当てずに４時間おいた後、ふくろの中の気体の割合[わりあい]の変化を気体検知管を使って調べたところ、表のような結果になった。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "酸素が増えて、二酸化炭素が減った。"
+        },
+        {
+          "id": "c2",
+          "text": "二酸化炭素が増えて、酸素が減った。"
+        },
+        {
+          "id": "c3",
+          "text": "酸素も二酸化炭素も減った。"
+        },
+        {
+          "id": "c4",
+          "text": "酸素も二酸化炭素も増えた。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a49f1e0bb7778ff1.png"
+    },
+    "explanation": "二酸化炭素が 4 %から 5 %に増えて、酸素が 17 %から 16 %に減った。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.d156086c85c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "葉・水蒸気・蒸散"
+        },
+        {
+          "id": "c2",
+          "text": "くき・水蒸気[すいじょうき]・蒸散[じょうさん]"
+        },
+        {
+          "id": "c3",
+          "text": "葉[は]・水蒸気[すいじょうき]・呼吸[こきゅう]"
+        },
+        {
+          "id": "c4",
+          "text": "葉[は]・酸素[さんそ]・呼吸[こきゅう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "根から取り入れられた水は、おもに（葉）から A（水蒸気）となって出ていく。このように、植物の体から、水が A となって出ていくことを（蒸じょう散さん）という。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.e377db731da2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "根から取り入れられた水のゆくえを調べるために、以下のような実験を行った。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水蒸気"
+        },
+        {
+          "id": "c2",
+          "text": "酸素"
+        },
+        {
+          "id": "c3",
+          "text": "二酸化炭素"
+        },
+        {
+          "id": "c4",
+          "text": "ちっ素"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2f87a7a677974093.png"
+    },
+    "explanation": "ふくろの内側がくもって、水てきがついていたことから、植物から、水が水すい蒸じょう気きとして出ていたことが分かる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-4.fbc703b6b9d0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図のように、植物（ホウセンカ）の根を色水にひたし、数時間後の様子を調べた。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下がった・根"
+        },
+        {
+          "id": "c2",
+          "text": "下[さ]がった・葉[は]"
+        },
+        {
+          "id": "c3",
+          "text": "上[あ]がった・根[ね]"
+        },
+        {
+          "id": "c4",
+          "text": "上[あ]がった・葉[は]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9581cd1266362f88.png"
+    },
+    "explanation": "数時間後、水面の位置は（下がった）。このことから、植物は、（根）から水を取り入れることが分かった。"
+  }
+]

@@ -1,0 +1,416 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-16.2da36170f284",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正三角形 とは、どんな三角形[さんかくけい]ですか。正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2つの辺の長さが同じ三角形[さんかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "3つの辺の長さが同じ三角形[さんかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "3つの辺が正しい形の三角形[さんかくけい]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "3つの辺の長さが同じ三角形[さんかくけい] を、正三角形 という。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.2f5fcd2f6e37",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "二等辺三角形 とは、どんな三角形[さんかくけい]ですか。正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2つの辺の長さが同じ三角形[さんかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "3つの辺の長さが同じ三角形[さんかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "2つの辺のむきが同じ三角形[さんかくけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2つの辺の長さが同じ三角形[さんかくけい] を、二等辺三角形 という。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.773621764c49",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、二等辺三角形です。角ア と同じ大きさの角は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角ウ"
+        },
+        {
+          "id": "c2",
+          "text": "角イ"
+        },
+        {
+          "id": "c3",
+          "text": "角イ と 角ウ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/14347e2a8dc876b4.png"
+    },
+    "explanation": "二等辺三角形 は、２つの角が 同じ大きさになるので、角ア と 角ウ が同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.87cf6567eb50",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の中から、正三角形の 組み合わせ として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イ、エ"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "エ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f099216bea282065.png"
+    },
+    "explanation": "３つの辺の長さが同じ三角形[さんかくけい] を、正三角形 という。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.8825dcb5bb9a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、二等辺三角形です。辺ア と同じ長さの 辺は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺イ"
+        },
+        {
+          "id": "c2",
+          "text": "辺ウ"
+        },
+        {
+          "id": "c3",
+          "text": "辺イ と 辺ウ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/815e57bfb9cd8ef9.png"
+    },
+    "explanation": "二等辺三角形 は、２つの辺が同じ長さなので、辺ア と 辺イ が 同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.8a202fcf0be8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、二等辺三角形です。辺イ の長さは、いくらになるでしょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/a8c95f0e0b5a4bfc.png"
+    },
+    "explanation": "二等辺三角形 は、２つの辺が 同じ長さになる。辺イ と 辺ウ が 同じなので、イの長さは 5cmだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.8fbd2539f19b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、正三角形です。辺イ の長さは、いくらになるでしょう。",
+      "answers": [
+        "7"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/6dd9ebb3dc06e08a.png"
+    },
+    "explanation": "正三角形 は、３つの辺が 同じ長さになるので、イの長さは、7cm だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.93a68da9a516",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正三角形 の角について、どんなことが いえますか。正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2つの角の大きさが同じ"
+        },
+        {
+          "id": "c2",
+          "text": "3つの角の大きさが同じ"
+        },
+        {
+          "id": "c3",
+          "text": "3つの角の形が同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "正三角形 は、3つの角が 同じ大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.9c9ecd05ef31",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、正三角形です。角ア の大きさは、いくらになるでしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}°",
+      "suffix": "°",
+      "promptImage": "questions/legacy/e39ae15a6641c4b2.png"
+    },
+    "explanation": "正三角形 は、３つの辺が 同じ大きさになるので、アの大きさは、60° だ。正三角形では、いつでも すべての角が、60°になるよ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.a994d16f7056",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "二等辺三角形 の角について、どんなことが いえますか。正しいものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2つの角の大きさが同じ"
+        },
+        {
+          "id": "c2",
+          "text": "3つの角の大きさが同じ"
+        },
+        {
+          "id": "c3",
+          "text": "2つの角の形が同じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "二等辺三角形 は、2つの角が 同じ大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.ad7e2d83c1a7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、二等辺三角形です。角イ の大きさは、いくらになるでしょう。",
+      "answers": [
+        "73"
+      ],
+      "template": "{{INPUT}}°",
+      "suffix": "°",
+      "promptImage": "questions/legacy/d3dec304487bcbb8.png"
+    },
+    "explanation": "二等辺三角形 は、２つの角が 同じ大きさになる。角イ と 角ウ が 同じなので、イの大きさは 73°だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.b0ea6273aec9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、正三角形です。角ア と同じ大きさの角は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "角ウ"
+        },
+        {
+          "id": "c2",
+          "text": "角イ"
+        },
+        {
+          "id": "c3",
+          "text": "角イ と 角ウ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f4e0a177195c2323.png"
+    },
+    "explanation": "正三角形 は、３つの角が 同じ大きさになるので、すべての角が 同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.b468246a3361",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角形[さんかくけい]は、正三角形です。辺ア と同じ長さの 辺は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺イ"
+        },
+        {
+          "id": "c2",
+          "text": "辺ウ"
+        },
+        {
+          "id": "c3",
+          "text": "辺イ と 辺ウ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5b27a19cc6f34d8.png"
+    },
+    "explanation": "正三角形 は、３つの辺が同じ長さなので、すべての辺が 同じになる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-16.dc5ffaf17483",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の中から、二等辺三角形の 組み合わせ として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア、オ、カ"
+        },
+        {
+          "id": "c2",
+          "text": "ア、オ"
+        },
+        {
+          "id": "c3",
+          "text": "ア、カ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f099216bea282065.png"
+    },
+    "explanation": "２つの辺の長さが同じ三角形[さんかくけい] を、二等辺三角形 という。"
+  }
+]

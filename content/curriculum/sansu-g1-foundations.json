@@ -214,6 +214,21 @@
       }
     },
     {
+      "id": "sansu.g1.misconception.tens-ones-reversed",
+      "subject": "sansu",
+      "grade": 1,
+      "unit": "sansu.g1.kazu-100",
+      "name": "10のまとまりとばらを逆[ぎゃく]に対応[たいおう]させる",
+      "description": "二位数[にいすう]で、10のまとまりとばらの個数[こすう]を逆[ぎゃく]に対応[たいおう]させる誤[あやま]り方[かた]。単一[たんいつ]の誤答[ごとう]だけでは断定[だんてい]しない。",
+      "kind": "misconception",
+      "memoryType": "concept",
+      "curriculumCodes": [],
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "review": {
+        "status": "draft"
+      }
+    },
+    {
       "id": "sansu.g1.subtraction.meaning",
       "subject": "sansu",
       "grade": 1,
@@ -347,6 +362,42 @@
     }
   ],
   "relations": [
+    {
+      "from": "sansu.g1.addition.meaning",
+      "to": "sansu.g1.addition.within-ten",
+      "kind": "prerequisite",
+      "strength": 0.9,
+      "rationale": "合併[がっぺい]や増加[ぞうか]として加法[かほう]の意味[いみ]を捉[とら]えることを、10までの加法[かほう]を計算[けいさん]する基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.misconception.add-instead-difference",
+      "to": "sansu.g1.addition.meaning",
+      "kind": "contrast",
+      "strength": 0.9,
+      "rationale": "差[さ]を求[もと]める場面[ばめん]でも加法[かほう]を選[えら]ぶ誤[あやま]りと、加法[かほう]を用[もち]いる場面[ばめん]の意味[いみ]を対比[たいひ]する。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.misconception.make-ten-arbitrary-split",
+      "to": "sansu.g1.operation.make-ten-strategy",
+      "kind": "contrast",
+      "strength": 0.9,
+      "rationale": "数[かず]を根拠[こんきょ]なく分[わ]ける誤[あやま]りと、10のまとまりを作[つく]る合成[ごうせい]・分解[ぶんかい]の方略[ほうりゃく]を対比[たいひ]する。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "sansu.g1.misconception.tens-ones-reversed",
+      "to": "sansu.g1.number.two-digit-place-value",
+      "kind": "contrast",
+      "strength": 0.9,
+      "rationale": "十[じゅう]の位[くらい]と一[いち]の位[くらい]を逆[ぎゃく]に捉[とら]える誤[あやま]りと、2桁[けた]の数[かず]の正[ただ]しい位取[くらいど]りを対比[たいひ]する。",
+      "sourceIds": ["mext-h29-sansu-commentary"],
+      "reviewStatus": "source-checked"
+    },
     {
       "from": "sansu.g1.number.one-to-one",
       "to": "sansu.g1.number.count-represent",
@@ -747,8 +798,15 @@
       "questionId": "sansu.g1.kazu-100.place-value-0001",
       "concepts": [{ "conceptId": "sansu.g1.number.two-digit-place-value", "weight": 1, "role": "primary" }],
       "diagnosticValue": 0.8,
-      "reviewStatus": "source-checked",
-      "misconceptionSignals": []
+      "reviewStatus": "draft",
+      "misconceptionSignals": [
+        {
+          "answerId": "b",
+          "conceptId": "sansu.g1.misconception.tens-ones-reversed",
+          "confidence": 0.7,
+          "rationale": "10のまとまりとばらの個数を逆に対応させている可能性がある。ただし一度だけでは断定しない。"
+        }
+      ]
     },
     {
       "questionId": "sansu.g1.kazu-100.place-value-0002",

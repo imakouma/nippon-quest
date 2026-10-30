@@ -1,0 +1,596 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-1.05c86df72396",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "憲法改正についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "憲法改正の手続きとして国民投票がおこなわれる。"
+        },
+        {
+          "id": "c2",
+          "text": "天皇が必要だと判断した時に憲法が改正される。"
+        },
+        {
+          "id": "c3",
+          "text": "憲法改正の手続きとして裁判員制度が定められている。"
+        },
+        {
+          "id": "c4",
+          "text": "10年に１度、憲法が改正される。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国の政治の基本を定める憲法の改正は、慎しん重ちょうにおこなわれなければならず、特別な手続きが決められている。国の政治について話し合いをおこなう国会で議ぎ論ろんされた後、国民投票がおこなわれる。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.061bbef97863",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本国憲法の三大原則の１つである、国民主権の意味として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "政治のあり方を決める最終的な権限は、国民にある。"
+        },
+        {
+          "id": "c2",
+          "text": "政治家は、政治を進めるときに、国民の意見を聞くことができる。"
+        },
+        {
+          "id": "c3",
+          "text": "天皇は、国民の意見を聞いて、政治を進めなければならない。"
+        },
+        {
+          "id": "c4",
+          "text": "日本国憲法は、国民のものである。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国民主権とは、政治のあり方を決める最終的な権限は、国民にあるということ。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.09337f8f3d92",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、日本国憲法の三大原則に ふくまれないもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平和主義[へいわしゅぎ]"
+        },
+        {
+          "id": "c2",
+          "text": "国民主権"
+        },
+        {
+          "id": "c3",
+          "text": "基本的人権の尊重"
+        },
+        {
+          "id": "c4",
+          "text": "象徴天皇制"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "日本国憲法の三大原則は、国民主権しゅけん、基本的人権の尊そん重ちょう、平和主義[へいわしゅぎ]しゅぎの３つ。 ・政治のあり方を決める権限は、国民にある：国民主権 ・人が生まれながらにして持っている基本的な権利を大切にする：基本的人権の尊重 ・戦争と武力の行使をしない：平和主義[へいわしゅぎ]"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.0cf99f10ef1b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "核かく兵器の被ひ害がいを受けた被ひ爆ばく国として、日本は非核三原則をかかげている。非核三原則として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "核兵器を持たず、つくらず、持ちこませず"
+        },
+        {
+          "id": "c2",
+          "text": "核兵器を持たず、つくらず、持ちこまず"
+        },
+        {
+          "id": "c3",
+          "text": "核兵器を持たず、みとめず、持ちこませず"
+        },
+        {
+          "id": "c4",
+          "text": "核兵器を持たず、みとめず、持ちこまず"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本は「核兵器を持たず、つくらず、持ちこませず」という非核三原則をかかげている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.1677b0f61c03",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本国憲法に定められた「国民の三大義務」の組み合わせとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "教育を受けさせる義務・勤労の義務・納税の義務"
+        },
+        {
+          "id": "c2",
+          "text": "防衛の義務・納税の義務・労働の義務"
+        },
+        {
+          "id": "c3",
+          "text": "投票する義務・教育を受けさせる義務・納税の義務"
+        },
+        {
+          "id": "c4",
+          "text": "裁判に参加する義務・勤労の義務・保護の義務"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国民の三大義務は、①子供に普通教育を受けさせる義務、②勤労（働く）の義務、③納税（税金を納める）の義務の3つです。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.17758e7d3e62",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "選挙で投票する権利のほかに、政治に参加する権利にはどのようなものがあるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "選挙に立候補する権利"
+        },
+        {
+          "id": "c2",
+          "text": "代表をやめさせる権利"
+        },
+        {
+          "id": "c3",
+          "text": "裁判を受ける権利"
+        },
+        {
+          "id": "c4",
+          "text": "裁判に参加する権利"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "政治に参加する権利には、選挙で投票する権利のほかに、選挙に立候補する権利がある。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.3bd5c7e5f513",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国の政治に参加する権利である「参政権（さんせいけん）」に含まれる具体的な権利はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "選挙で投票する権利と、自ら立候補する権利"
+        },
+        {
+          "id": "c2",
+          "text": "裁判官を選ぶ権利だけ"
+        },
+        {
+          "id": "c3",
+          "text": "税金を納めない権利"
+        },
+        {
+          "id": "c4",
+          "text": "法律を自分一人で作る権利"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "参政権[さんせいけん]には、代表者を選ぶ「選挙権（投票する権利）」と、自ら選挙に出る「被選挙権（立候補する権利）」が含まれます。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.5cf62cb3ce36",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "すべての人が使いやすいように考えてつくられた製品や施設、生活環境などのことを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ユニバーサルデザイン"
+        },
+        {
+          "id": "c2",
+          "text": "バリアフリー"
+        },
+        {
+          "id": "c3",
+          "text": "トレーサビリティ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "障がいの有無や、年れい、性別、国せきなどに関係なく、すべての人が使いやすいように考えてつくられた製品や施設、生活環境などのことをユニバーサルデザインという。 ・バリアフリーは、さまたげとなるものを取りのぞいていくこと。 ・トレーサビリティとは、食品がどこでどのように生産[せいさん]されたか、分かるようにすること。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.82343b38c758",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本国憲法第25条に定められている「健康で文化的な最低限度の生活を営む権利」を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生存権（せいぞんけん）"
+        },
+        {
+          "id": "c2",
+          "text": "参政権[さんせいけん]"
+        },
+        {
+          "id": "c3",
+          "text": "請求権"
+        },
+        {
+          "id": "c4",
+          "text": "自由権"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "第25条の「生存権[せいぞんけん]」は、国が社会保障（生活保護や医療保険など）を通じて国民の健康で文化的な生活を保証する根拠となっています。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.99298635c844",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本国憲法で、基本的人権として定められていないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "法の下の平等を定めた 平等権"
+        },
+        {
+          "id": "c2",
+          "text": "表現の自由、学問の自由などの 自由権"
+        },
+        {
+          "id": "c3",
+          "text": "人間らしく生きる権利である 社会権"
+        },
+        {
+          "id": "c4",
+          "text": "国の政治に関する情報を 知る権利"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "日本国憲法では、平等権、自由権、人間らしく生きる権利（社会権）、基本的人権を守るための権利が、基本的人権として定められている。 国の政治に関する情報など必要な情報を知る権利は、新しい人権として知られているが、日本国憲法には定められていない。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.a2d1ee6dc5d8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日に本国憲法ほんこくけんぽうの公布日と施し行こう日の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公布：1946年11月3日 施行：1947年5月3日"
+        },
+        {
+          "id": "c2",
+          "text": "公布：1946年5月3日 施行：1947年11月3日"
+        },
+        {
+          "id": "c3",
+          "text": "公布：1946年8月15日 施行：1947年11月3日"
+        },
+        {
+          "id": "c4",
+          "text": "公布：1946年11月3日 施行：1947年8月15日"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本国憲法は、1946年11月3日に公布され、1947年5月3日に施行された。 8月15日は、1945年8月15日に昭和天皇が太平洋戦争の終わりを伝えるラジオ放送をおこなったことから、終戦の日とされている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.ae1796f3b410",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本国憲法が「国の最高法規（さいこうほうき）」とされる理由として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いかなる法律や命令も、憲法の条文に反することはできないから"
+        },
+        {
+          "id": "c2",
+          "text": "一番分厚い本だから"
+        },
+        {
+          "id": "c3",
+          "text": "大昔から伝わる本だから"
+        },
+        {
+          "id": "c4",
+          "text": "外国の法律と同じだから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "憲法は国の最高法規[さいこうほうき]であり、国会が作る法律や命令も憲法に反することはできません（違憲審査制）。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.b835402b0923",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "憲法には定められていないものの、新しい人権として認められるようになった人権がある。かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "プライバシーの権利",
+        "知る権利",
+        "環境権"
+      ],
+      "template": "・他人に知られたくない個人情報を公開されない権利： {{INPUT}} ・国の政治に関する情報などを手に入れる権利： {{INPUT}} ・快適な環かん境きょうを求める権利： {{INPUT}}"
+    },
+    "explanation": "・他人に知られたくない個人情報を公開されない権利：（プライバシーの権利） ・国の政治に関する情報などを手に入れる権利：（知る権利） ・快適な環境を求める権利：（環境権）"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.cc681964e4e8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国民の３つの義務として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "子どもに教育を受けさせる義務"
+        },
+        {
+          "id": "c2",
+          "text": "働く義務"
+        },
+        {
+          "id": "c3",
+          "text": "税金を納める義務"
+        },
+        {
+          "id": "c4",
+          "text": "政治に参加する義務"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "日本国憲法では、さまざまな権利とともに国民の義務も定めている。国民が守るべき３つの義務は、子どもに教育を受けさせる義務、働く義務、税金を納おさめる義務。 政治に参加することは、権利として定められているが、義務ではない。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.e5de3bc9d43f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "自衛隊についての説明[せつめい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国民は自衛隊員として活動する義務がある。"
+        },
+        {
+          "id": "c2",
+          "text": "日本の平和と独立を守るためにつくられた。"
+        },
+        {
+          "id": "c3",
+          "text": "災害時に救助活動などをおこなう。"
+        },
+        {
+          "id": "c4",
+          "text": "外国で国際協力をおこなう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自衛隊は、日本の平和と独立を守るためにつくられ、災害時には救助活動などをおこなう。また、外国で国際協力をおこなうこともある。 国民に自衛隊員として活動する義務はない。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.efdd08d20190",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "平和主義[へいわしゅぎ]を定めているのは、日本国憲法の第何条でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "第九条"
+        },
+        {
+          "id": "c2",
+          "text": "第七条"
+        },
+        {
+          "id": "c3",
+          "text": "第八条"
+        },
+        {
+          "id": "c4",
+          "text": "第十条"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本国憲法の第九条で、平和主義[へいわしゅぎ]について定めている。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-1.fafd4de23b08",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「日本国民は、恒久の平和を希求し…」で始まる、戦争の放棄や戦力の不保持を定めた日本国憲法の原則は何ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平和主義（へいわしゅぎ）"
+        },
+        {
+          "id": "c2",
+          "text": "国民主権"
+        },
+        {
+          "id": "c3",
+          "text": "基本的人権の尊重"
+        },
+        {
+          "id": "c4",
+          "text": "国際連帯主義"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "憲法第9条には、戦争の放棄、戦力の不保持、交戦権の否認という「平和主義[へいわしゅぎ]」の原則が定められています。"
+  }
+]

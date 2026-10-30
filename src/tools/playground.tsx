@@ -12,7 +12,7 @@ import {
   type QuestionResult,
 } from '../questions/contracts';
 import { allRenderers, getRenderer } from '../questions/renderers/registry';
-import { fetchReader, parseContentManifest } from '../core/content/loader';
+import { fetchReader, parseContentManifest, type QuestionCatalog } from '../core/content/loader';
 import { setDictionary, tOpt, type I18nDict } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel, type KanjiGradeTable } from '../ui/ruby';
@@ -22,6 +22,7 @@ import './playground.css';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const read = fetchReader(`${base}/content`);
+const QUESTION_FILE_CONCURRENCY = 8;
 const assets = { image: (p: string) => `${base}/assets/${p}`, audio: (p: string) => `${base}/assets/${p}` };
 // ゲームと同じ 読み上げ（英語だけの 文は 英語の 声）
 const speak = createSpeaker();
@@ -57,6 +58,21 @@ function toEntries(files: { file: string; raw: unknown }[]): QuestionEntry[] {
   );
 }
 
+async function readQuestionFiles(files: string[]) {
+  const loaded = new Array<{ file: string; raw: unknown }>(files.length);
+  let next = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(QUESTION_FILE_CONCURRENCY, files.length) }, async () => {
+      while (next < files.length) {
+        const index = next++;
+        const file = files[index]!;
+        loaded[index] = { file, raw: await read(file) };
+      }
+    }),
+  );
+  return loaded;
+}
+
 function App() {
   const [files, setFiles] = useState<string[]>([]);
   const [file, setFile] = useState('');
@@ -64,6 +80,7 @@ function App() {
   const [entries, setEntries] = useState<QuestionEntry[]>([]);
   const [units, setUnits] = useState<ReadonlyMap<string, string>>(new Map());
   const [subjects, setSubjects] = useState<ReadonlyMap<string, string>>(new Map());
+  const [catalog, setCatalog] = useState<QuestionCatalog>();
   const [kanji, setKanji] = useState<{ table: KanjiGradeTable; names: ReadonlySet<string> } | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [selectedItemId, setSelectedItemId] = useState('');
@@ -86,17 +103,20 @@ function App() {
     try {
       const m = parseContentManifest(await read('manifest.json'));
       setFiles(m.questions);
+      setCatalog(m.questionCatalog);
       const requestedId = new URLSearchParams(location.search).get('q');
       const directFile = requestedId ? m.questionIndex?.[requestedId] : undefined;
       if (requestedId && directFile) {
         const raw = await read(directFile);
         setEntries(toEntries([{ file: directFile, raw }]));
+        setItems(
+          (Array.isArray(raw) ? raw : []).filter(
+            (q) => questionBaseSchema.safeParse(q).success,
+          ) as QuestionBase[],
+        );
         setFile(directFile);
-        return;
       }
-      setEntries(
-        toEntries(await Promise.all(m.questions.map(async (f) => ({ file: f, raw: await read(f) })))),
-      );
+      setEntries(toEntries(await readQuestionFiles(m.questions)));
     } catch (e) {
       setError(String(e));
     }
@@ -322,6 +342,7 @@ function App() {
           entries={entries}
           units={units}
           subjects={subjects}
+          catalog={catalog}
           selected={selected}
           onPick={pick}
           onReload={() => void loadAll()}

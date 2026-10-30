@@ -1,0 +1,423 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-6.086798183ca3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチ なんミリメートルになりますか。",
+      "answers": [
+        "8",
+        "2"
+      ],
+      "template": "{{INPUT}}cm {{INPUT}}mm",
+      "promptImage": "questions/legacy/2cd975a4385406b6.png"
+    },
+    "explanation": "大きなめもり ８つ、そこから 小さなめもりが、２つ分あるので、8cm2mm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.166d0b93d61a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ものさし の大きなめもり１つ分は、なんセンチメートル になるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1cm"
+        },
+        {
+          "id": "c2",
+          "text": "10cm"
+        },
+        {
+          "id": "c3",
+          "text": "5cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1945cd296ba5ad09.png"
+    },
+    "explanation": "ものさしの 大[おお]きな めもり 1つ分[ぶん]は、1cmです。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.2f703d3a8754",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチメートルになりますか。",
+      "answers": [
+        "5"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/561ca3e950c07c30.png"
+    },
+    "explanation": "大きなめもり ５こ ぶんなので、5cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.3361c5e16b1a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチメートルになりますか。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/e7f2cbd5ba4fdcce.png"
+    },
+    "explanation": "大きなめもり １２こ ぶんなので、12cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.3a12ffba0ada",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さの けいさんをしましょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "1cm 2mm + 8mm = {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "2mm + 8mm = 10mm になるので、10mm = 1cm ができる。これと さいしょからある 1cm をあわせるので、こたえは 2cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.41a4aebc59e0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さの けいさんをしましょう。",
+      "answers": [
+        "5"
+      ],
+      "template": "3cm 4mm + 1cm 6mm = {{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "4mm+6mm=10mm になるので、10mm=1cm ができる。これと さいしょからある 3cm+1cm=4cm をあわせるので、こたえは 5cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.44ca21730e41",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ものさしの いちばん小さな めもり１つ分の ながさを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ミリメートル"
+        },
+        {
+          "id": "c2",
+          "text": "センチメートル"
+        },
+        {
+          "id": "c3",
+          "text": "メートル"
+        },
+        {
+          "id": "c4",
+          "text": "メモリメートル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ものさしの いちばん小さな めもりのながさは、「ミリメートル」だね。それが 10こあつまると、「センチメートル」になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.7406b63129ee",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ミリメートルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "cm"
+        },
+        {
+          "id": "c2",
+          "text": "mm"
+        },
+        {
+          "id": "c3",
+          "text": "mL"
+        },
+        {
+          "id": "c4",
+          "text": "m"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ミリメートルは、「mm」とあらわす。センチメートルは、「cm」だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.74c86f43b7f9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さの けいさんをしましょう。",
+      "answers": [
+        "8",
+        "2"
+      ],
+      "template": "5cm 3mm + 2cm 9mm = {{INPUT}}cm {{INPUT}}mm"
+    },
+    "explanation": "3mm + 9mm = 12mm になるので、12mm = 1cm 2mm ができる。これと さいしょからある 5cm + 2cm = 7cm をあわせるので、こたえは 8cm 2mm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.90906df36f75",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチメートルになりますか。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/60362a4692ebaf2d.png"
+    },
+    "explanation": "大きなめもり １０こ ぶんなので、10cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.94732f703b66",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さの けいさんをしましょう。",
+      "answers": [
+        "6",
+        "8"
+      ],
+      "template": "6cm 3mm + 5mm = {{INPUT}}cm {{INPUT}}mm"
+    },
+    "explanation": "+5mm なので、mm だけ けいさんして、3mm+5mm=8mm になる。こたえは、6cm 8mm だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.a4af9cbff955",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "センチメートルを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "cm"
+        },
+        {
+          "id": "c2",
+          "text": "mm"
+        },
+        {
+          "id": "c3",
+          "text": "mL"
+        },
+        {
+          "id": "c4",
+          "text": "m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "センチメートルは「cm」、ミリメートルは「mm」と表[あらわ]すよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.d5ed5472e2c6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチ なんミリメートルになりますか。",
+      "answers": [
+        "4",
+        "8"
+      ],
+      "template": "{{INPUT}}cm {{INPUT}}mm",
+      "promptImage": "questions/legacy/f831ba7837ec9e2e.png"
+    },
+    "explanation": "大きなめもり ４つ、そこから 小さなめもりが、８つ分あるので、4cm8mm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.d608bbd045a9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの長さの けいさんをしましょう。",
+      "answers": [
+        "5",
+        "2"
+      ],
+      "template": "9cm 5mm - 4cm 3mm = {{INPUT}}cm {{INPUT}}mm"
+    },
+    "explanation": "cm と mm を、それぞれ けいさんしよう。9cm-4cm=5cm、5mm-3mm =2mm なので、こたえは 5cm 2mm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.e4c5a73b29ff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチメートルになりますか。",
+      "answers": [
+        "7"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/78ea8069323a3e04.png"
+    },
+    "explanation": "大きなめもり ７つ ぶんなので、7cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.f6a41e8cca46",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1センチメートルは、何ミリメートルでしょう。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}}ミリメートル",
+      "suffix": "ミリメートル"
+    },
+    "explanation": "ものさしの めもりを、かぞえてみよう。小さなミリメートルの めもりが 10こで、大きなめもりの センチメートルに なっているね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-6.f85eb015c933",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の直線は、なんセンチ なんミリメートルになりますか。",
+      "answers": [
+        "1",
+        "4"
+      ],
+      "template": "{{INPUT}}cm {{INPUT}}mm",
+      "promptImage": "questions/legacy/3d78c977acc8867d.png"
+    },
+    "explanation": "大きなめもり １つ、そこから 小さなめもりが、４つ分あるので、1cm4mm になる。"
+  }
+]

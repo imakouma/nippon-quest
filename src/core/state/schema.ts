@@ -14,7 +14,7 @@ import {
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 import { battleResumeStateSchema } from './battleResume';
 
-export const SCHEMA_VERSION = 13;
+export const SCHEMA_VERSION = 14;
 
 export const fieldFacingSchema = z.enum(['down', 'left', 'right', 'up']);
 

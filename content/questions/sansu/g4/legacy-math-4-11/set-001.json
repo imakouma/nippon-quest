@@ -1,0 +1,751 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-11.0168ef7a0ae7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この正方形[せいほうけい]の面積[めんせき]は、何cm^2ですか。",
+      "answers": [
+        "16"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/b88e43762b3ab021.png"
+    },
+    "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができます。 4cm × 4cm=16cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.0dba370b8cdf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積の単位「1ha」は、なんとよむでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1アール"
+        },
+        {
+          "id": "c2",
+          "text": "1ヘクタール"
+        },
+        {
+          "id": "c3",
+          "text": "1メートル"
+        },
+        {
+          "id": "c4",
+          "text": "1ハ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "面積[めんせき]の単位 1haは、「1ヘクタール」とよみます。1haは、一辺が 100m の正方形[せいほうけい]の面積[めんせき]になります。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.120d075f4369",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]の面積[めんせき]を 求めよう。",
+      "answers": [
+        "28"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/3ceb92134a26347a.png"
+    },
+    "explanation": "下の図のように、直線を２本引いて、３つの長方形[ちょうほうけい]に分けて考えてみよう。 真ん中の細長い長方形[ちょうほうけい]の面積[めんせき]は、(3+2+3)×2=16cm^2 のこり２つの長方形[ちょうほうけい]の面積[めんせき]は、2×3=6cm^2 これを合わせて、16+6+6=28cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.1a320db1d80d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて 6cm、横 2cmの長方形[ちょうほうけい]の面積[めんせき]は、いくらになるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 6cm × 2cm = 12cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.1f3170213999",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1aは、何m^2ですか。",
+      "answers": [
+        "100"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "1aは、一辺が 10m の正方形[せいほうけい]の面積[めんせき]になる。 10m × 10m = 100m^2 = 1a"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.2312d69102dc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1km^2は、何m^2ですか。",
+      "answers": [
+        "1000000"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "1km^2 の面積[めんせき]は、1km×1kmの正方形[せいほうけい]で考えることができる。 1km = 1000cm なので、1000m × 1000m = 1000000m^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.38f46e71ac72",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1haは、何m^2ですか。",
+      "answers": [
+        "10000"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "1haは、一辺が 100m の正方形[せいほうけい]の面積[めんせき]になる。 100m × 100m = 10000m^2 = 1ha"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.53c680ff734b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積[めんせき]が60cm^2の長方形[ちょうほうけい]があります。たての長さが、5cmのとき、横の長さは、いくらになるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。きかれている横の長さを □cm とすると、次の式をたてられます。 5 × □ = 60cm^2 □ には、12が入るね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.55f99035d13f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小さな正方形[せいほうけい]ひとつ分が、1cm^2です。この図の面積[めんせき]は、何cm^2ですか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/5f3e991f2425b055.png"
+    },
+    "explanation": "1 cm^2の大きさの正方形[せいほうけい]が、9こ あるので、この図の面積[めんせき]は 9 cm^2 です。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.5cf02756f995",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この長方形[ちょうほうけい]の面積[めんせき]は、何cm^2ですか。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/1d3cf786d496c505.png"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 3cm × 5cm = 15cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.5ea681f7e68c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積[めんせき]が 24cm^2の長方形[ちょうほうけい]があります。たての長さが、3cmのとき、横の長さは、いくらになるでしょう。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。きかれている横の長さを □cm とすると、次の式をたてられます。 3cm × □ = 24cm^2 □ には、8が入るね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.7776587c13f9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "算数では、「広さ」のことを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面積[めんせき]"
+        },
+        {
+          "id": "c2",
+          "text": "大きさ"
+        },
+        {
+          "id": "c3",
+          "text": "体積"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "算数では、「広さ」のことを「面積[めんせき]」といいます。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.78f738c85945",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が 4cm の正方形[せいほうけい]の面積[めんせき]は、何 cm^2 ですか。",
+      "answers": [
+        "16"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができます。 4cm × 4cm = 16cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.8c37d78e0ab8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の面積の単位の、読み方を答えよう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平方[へいほう]センチメートル"
+        },
+        {
+          "id": "c2",
+          "text": "立方センチメートル"
+        },
+        {
+          "id": "c3",
+          "text": "センチメートル２"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "cm^2 は、平方（へいほう）センチメートルとよむ。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.912648290299",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて 10m、横 15mの田んぼがあります。この田んぼの面積[めんせき]を求めましょう。",
+      "answers": [
+        "150"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "大きな面積[めんせき]でも、長方形[ちょうほうけい]の面積[めんせき]は「たて × 横」で求めることができます。 10m × 15m = 150m^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.94ab69ca5981",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たてが5cm、横が8cmの長方形[ちょうほうけい]の面積[めんせき]はいくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "13㎠"
+        },
+        {
+          "id": "c2",
+          "text": "26㎠"
+        },
+        {
+          "id": "c3",
+          "text": "40㎠"
+        },
+        {
+          "id": "c4",
+          "text": "45㎠"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は「たて × 横」で計算します。「5 × 8 = 40」なので、40㎠が正解です。（※選択肢1はたてと横を足した数、選択肢2は長方形[ちょうほうけい]の周りの長さを計算した引っかけ問題[もんだい]になっています）"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.9c74f9f488de",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "長方形[ちょうほうけい]の面積[めんせき]の求め方として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たて × 横"
+        },
+        {
+          "id": "c2",
+          "text": "一辺 × 一辺"
+        },
+        {
+          "id": "c3",
+          "text": "たて + 横"
+        },
+        {
+          "id": "c4",
+          "text": "たて ÷ 横"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.c50eca8e3f2a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて 80cm、横 5mの黒板の面積[めんせき]は、何m^2ですか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "「たて 80cm、横 5m」と単位がそろっていないので、cm に単位をそろえてから、面積[めんせき]を出そう。 5m=500cm、長方形[ちょうほうけい]の面積[めんせき]は「たて×横」で求められるので 80cm × 500cm = 40000cm^2 1m^2=10000cm^2 なので、40000cm^2=4m^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.c871318a6d0e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1m^2は何cm^2ですか。",
+      "answers": [
+        "10000"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "1m^2 の面積[めんせき]は、1m×1mの正方形[せいほうけい]で考えることができる。 1m = 100cm なので、100cm × 100cm = 10000cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.c98d826e791f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図形[ずけい]の面積[めんせき]を 求めよう。",
+      "answers": [
+        "95"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/d73b6f5751989aba.png"
+    },
+    "explanation": "下の図のように、直線を１本引いて、２つの長方形[ちょうほうけい]に分けて考えてみよう。 左がわの長方形[ちょうほうけい]の面積[めんせき]は、10×7=70cm^2 右がわの正方形[せいほうけい]の面積[めんせき]は、5×5=25cm^2 これを合わせて、70+25=95cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.cc8446383e1d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて 6cm、横 10cmの長方形[ちょうほうけい]の面積[めんせき]は、いくらになるでしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 6cm × 10cm = 60cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.d399834aaf20",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "正方形[せいほうけい]の面積[めんせき]の求め方として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たて ÷ 横"
+        },
+        {
+          "id": "c2",
+          "text": "一辺 × 一辺"
+        },
+        {
+          "id": "c3",
+          "text": "たて + 横"
+        },
+        {
+          "id": "c4",
+          "text": "一辺 + 一辺"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.da719cf6095b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はば 60cm、横 2mのテーブルの面積[めんせき]は、何m^2ですか。",
+      "answers": [
+        "1.2"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "「はば 60cm、横 2m」と単位がそろっていないので、cm に単位をそろえてから、面積[めんせき]を出そう。 2m=200cm、長方形[ちょうほうけい]の面積[めんせき]は「たて×横」で求められるので 60cm × 200cm = 12000cm^2 1m^2=10000cm^2 なので、12000cm^2=1.2m^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.de68528172a3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小さな正方形[せいほうけい]ひとつ分が、1cm^2です。この図の面積[めんせき]は、何cm^2ですか。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/e1b00a5a492324d4.png"
+    },
+    "explanation": "1 cm^2の大きさの正方形[せいほうけい]が、10こ あるので、この図の面積[めんせき]は 10 cm^2 です。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.e0a02117aada",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "面積の単位「1a」は、なんとよむでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1アール"
+        },
+        {
+          "id": "c2",
+          "text": "1ヘクタール"
+        },
+        {
+          "id": "c3",
+          "text": "1メートル"
+        },
+        {
+          "id": "c4",
+          "text": "1エー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "面積[めんせき]の単位 1aは、「1アール」とよみます。1aは、一辺が 10m の正方形[せいほうけい]の面積[めんせき]になります。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.ead9a402a91a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が 9cmの正方形[せいほうけい]の面積[めんせき]は、いくらになるでしょう。",
+      "answers": [
+        "81"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができます。 9cm × 9cm = 81cm^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.ee8ac93c6894",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１辺が 12mの、正方形[せいほうけい]の教室があります。この教室の面積[めんせき]を求めましょう。",
+      "answers": [
+        "144"
+      ],
+      "template": "{{INPUT}}m^2",
+      "suffix": "m^2"
+    },
+    "explanation": "大きな面積[めんせき]でも、正方形[せいほうけい]の面積[めんせき]は「一辺 × 一辺」で求めることができます。 12m × 12m = 144m^2"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.eea90ab3ac64",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小さな正方形[せいほうけい]ひとつ分が、1cm^2です。この図の面積[めんせき]は、何cm^2ですか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/3e9e9163e7937568.png"
+    },
+    "explanation": "1 cm^2の大きさの正方形[せいほうけい]が、4こ あるので、この図の面積[めんせき]は 4 cm^2 です。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.effd3c27a99b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の中から、面積[めんせき]が小さいじゅんになっているものを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1m^2 1a 1ha 1km^2"
+        },
+        {
+          "id": "c2",
+          "text": "1m^2 1ha 1a 1km^2"
+        },
+        {
+          "id": "c3",
+          "text": "1m^2 1a 1km^2 1ha"
+        },
+        {
+          "id": "c4",
+          "text": "1m^2 1km^2 1a 1ha"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれ、m^2 にそろえて表すと、 1a = 100m^2 1ha = 10000m^2 1km^2 = 1000000m^2 小さいものから順にならべると、 1m^2、1a、1ha、1km^2になるよ。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-11.fafab2f4791d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて 4cm、横 9cmの長方形[ちょうほうけい]の面積[めんせき]は、いくらになるでしょう。",
+      "answers": [
+        "36"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 4cm × 9cm = 36 cm^2"
+  }
+]

@@ -1,0 +1,444 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-7.02b939b26c8c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "160"
+      ],
+      "template": "底面積が 20cm^2、高さが 8cm の六角柱の体積 {{INPUT}}cm^3",
+      "suffix": "cm^3"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 20×8=160cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.04668d8907ed",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円の面積[めんせき]を求めよう。",
+      "answers": [
+        "12.56"
+      ],
+      "template": "半径が 2cm の円の面積 {{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができるので、 2×2×3.14=12.56 cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.1d6063fc7679",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "北海道[ほっかいどう]のサロマ湖について、およその面積[めんせき]をもとめるため、下の地図中の長方形[ちょうほうけい]の実際の長さをもとめた。サロマ湖のおよその面積[めんせき]をこの長方形[ちょうほうけい]の面積[めんせき]として、もとめよう。",
+      "answers": [
+        "170.1"
+      ],
+      "template": "{{INPUT}} km^2",
+      "suffix": "km^2",
+      "promptImage": "questions/legacy/1e6602406f94ea81.png"
+    },
+    "explanation": "地図中の長方形[ちょうほうけい]の面積[めんせき]は、27×6.3=170.1km^2 地図などを利用することで、大きく複雑な形の面積[めんせき]についても、およその面積[めんせき]をもとめることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.35928a01856e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。",
+      "answers": [
+        "14.13"
+      ],
+      "template": "直径が 6cm の半円の面積 {{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができる。直径[ちょっけい]が 6cm なので、半径[はんけい]は 3cm。半円の面積[めんせき]なので、円の面積[めんせき]を 2 でわればいい。 3×3×3.14÷2=14.13cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.5a221514122d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円の面積[めんせき]の求め方（公式）として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半径[はんけい] × 半径[はんけい] × 3.14"
+        },
+        {
+          "id": "c2",
+          "text": "直径[ちょっけい] × 3.14"
+        },
+        {
+          "id": "c3",
+          "text": "直径[ちょっけい] × 直径[ちょっけい] × 3.14"
+        },
+        {
+          "id": "c4",
+          "text": "半径[はんけい] × 3.14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "円を半径[はんけい]で切ってばらばらにしたものを集めると、長方形[ちょうほうけい]のような形になる。これの面積[めんせき]を考えればいい（くわしくは、動画を見てみよう）。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.7229b5c9cf55",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "20"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/77158f155713a4f1.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 2×2×5=20cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.755efc4b9f2b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "180"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/a828ca20a0109eb2.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 (4+8)×5÷2×6=180cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.77c6510e6886",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形[ずけい]の色をつけた部分の面積[めんせき]を求めよう。",
+      "answers": [
+        "7.74"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/48387dc759c96677.png"
+    },
+    "explanation": "正方形[せいほうけい]の面積[めんせき]から、円の面積[めんせき]を引くと、色をつけた部分の面積[めんせき]になる。 6×6-3×3×3.14=7.74cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.7ad87c805251",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角柱の体積を求めよう。",
+      "answers": [
+        "42"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/cbb3fbd8872d272c.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 3×4÷2×7=42cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.81a708a1f2fc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "300"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/d896c76c3078f0f9.png"
+    },
+    "explanation": "ふくざつな形だけど、底面が八角形の八角柱なので、底面積×高さで 体積を求めることができる。 底面積は、大きな長方形[ちょうほうけい]から空いている部分の長方形[ちょうほうけい]の面積[めんせき]を引けばいい。 9×10-(9-3-3)×5=90-15=75cm^2 これに高さをかけて、75×4=300cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.857c96a7256b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "1400"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/5a2a5162be65b77f.png"
+    },
+    "explanation": "横向きになっているけど、底面が六角形の六角柱なので、底面積×高さで 体積を求めることができる。 底面積は、２つの長方形[ちょうほうけい]の面積[めんせき]の合計なので 7×10+(12-7)×6=70+30=100cm^2 これに高さをかけて、100×14=1400cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.95e14bdf631a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。",
+      "answers": [
+        "6.28"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/df47435e8506b342.png"
+    },
+    "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができる。求めるのは、円の半分の面積[めんせき]なので、 2×2×3.14÷2=6.28cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.98d084136040",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形[ずけい]の色をつけた部分の面積[めんせき]を求めよう。",
+      "answers": [
+        "20.52"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/e7d779b7e8b789f1.png"
+    },
+    "explanation": "色をつけた部分の「半分の面積[めんせき]」を求めてみよう。おうぎ形から、三角形[さんかくけい]の面積[めんせき]を引けばいい。 おうぎ形の面積[めんせき]は、6×6×3.14÷4=28.26cm^2 この正方形[せいほうけい]の半分の直角三角形の面積[めんせき]は、 6×6÷2=18cm^2 色をつけた部分の半分の面積[めんせき]は、28.26-18=10.26cm^2 この２つ分の面積[めんせき]になるので、10.26×2=20.52cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.a2e929d32d94",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円の面積[めんせき]を求めよう。",
+      "answers": [
+        "78.5"
+      ],
+      "template": "半径が 5cm の円の面積 {{INPUT}}cm^2",
+      "suffix": "cm^2"
+    },
+    "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができるので、 5×5×3.14=78.5cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.a379e74a3880",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。",
+      "answers": [
+        "19.625"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/61262904d814a6c9.png"
+    },
+    "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができる。求めるのは、円の\\dfrac{1}{4}の面積[めんせき]なので、 5×5×3.14÷4=19.625cm^2"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.b61154d1a9aa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円柱の体積を求めよう。",
+      "answers": [
+        "282.6"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/eed1d86b8c85290e.png"
+    },
+    "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 3×3×3.14×10=282.6cm^3"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.dee58a26fb21",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ボトルに入る水の量を知るため、ボトルの高さと はばを測った。高さが 22cm、底面が１辺10cm の正方形[せいほうけい]の直方体と考えて、ボトルに入る およその水の量をもとめよう。",
+      "answers": [
+        "2200"
+      ],
+      "template": "{{INPUT}} mL",
+      "suffix": "mL",
+      "promptImage": "questions/legacy/2d57c67d109a36e7.png"
+    },
+    "explanation": "高さが 22cm、底面が１辺10cm の正方形[せいほうけい]の直方体の体積は、10×10×22=2200cm^3=2200mL およその長さを測ることで、複雑な形の体積についても、およその体積をもとめることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.e5da9f91183c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "角柱の体積の求め方について、下の文のかっこにあてはまる語をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "底面積・高さ"
+        },
+        {
+          "id": "c2",
+          "text": "側面積"
+        },
+        {
+          "id": "c3",
+          "text": "3.14"
+        },
+        {
+          "id": "c4",
+          "text": "側面積[そくめんせき]・高[たか]さ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "角柱や円柱の体積は、面積[めんせき]が積み上がったものと考えることができるので、「底面積 × 高さ」で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-7.fdbe4660375b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の円の面積[めんせき]を求めよう。",
+      "answers": [
+        "314"
+      ],
+      "template": "{{INPUT}}cm^2",
+      "suffix": "cm^2",
+      "promptImage": "questions/legacy/82804e8061c7a2ff.png"
+    },
+    "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができるので、 10×10×3.14=314cm^2"
+  }
+]

@@ -1,4 +1,5 @@
 import type Phaser from 'phaser';
+import { playHeroBattleAnimation } from './heroAnimation';
 import { playMonsterIdle, stopMonsterAnimation } from './monsterAnimation';
 
 type BattleImage = Phaser.GameObjects.Image;
@@ -25,6 +26,7 @@ export class BattleIdleMotion {
   start(sprite: BattleImage, baseY: number): void {
     this.bobs.get(sprite)?.stop();
     sprite.y = baseY;
+    if (playHeroBattleAnimation(sprite, 'idle')) return;
     if (sprite.alpha <= 0.35 || playMonsterIdle(sprite)) return;
     this.bobs.set(
       sprite,

@@ -1,0 +1,595 @@
+[
+  {
+    "id": "legacy.shakai.g6.soc-6-10.43e63b0ea476",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "戦後の民主化政策として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "民主化の基本を定めた治安維持法が出された。"
+        },
+        {
+          "id": "c2",
+          "text": "20才以上の男女が選挙権をもつようになった。"
+        },
+        {
+          "id": "c3",
+          "text": "小学校・中学校のあわせて９年間が義務教育となった。"
+        },
+        {
+          "id": "c4",
+          "text": "政府が農地を買い上げ、小作人に売りわたす農地改革がおこなわれた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "治安維持法は、政治や社会のしくみを変える動きを取りしまるための法。1925年に普通選挙法と同時に定められたが、戦後の1945年にはい止された。 ・1945年に選挙法が改正され、20才以上の男女が選挙権をもつようになった。 ・小学校６年間、中学校３年間の合計９年間が義務教育となった。 ・政府が農地を買い上げ、小作人に売りわたす農地改革は、地主制をなくすための重要な政策であった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.474699fbf694",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "高度経済成長期におこった問題[もんだい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気や水がよごれ、公害問題が発生した。"
+        },
+        {
+          "id": "c2",
+          "text": "多くの人が都市部から農村に移り住み、農村に人が増えすぎた。"
+        },
+        {
+          "id": "c3",
+          "text": "出生率が急に下がり、少子高齢化[しょうしこうれいか]が深刻になった。"
+        },
+        {
+          "id": "c4",
+          "text": "企業の海外進出が進み、国内の産業[さんぎょう]がおとろえた。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "高度経済成長期には、産業[さんぎょう]の発展が最優先されたため、さまざまな問題[もんだい]がおこった。問題[もんだい]の１つとしてあげられるのが、水俣みなまた病やイタイイタイ病などの公害問題である。工場からのはい水やけむりによって、空気や水がよごれ、人びとの健康にひ害をもたらした。 多くの人が移り住んだのは、農村から都市部であった。そのため、農村では過そ化が進み、都市部では住宅の不足や過か密みつなどの問題[もんだい]がおこった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.5067bb562073",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1945年のできごとについて、かっこに当てはまる言葉をえらぼう。",
+      "answers": [
+        "広島",
+        "長崎",
+        "原子爆弾",
+        "ソ連（ソビエト連邦）"
+      ],
+      "template": "1945年8月6日に {{INPUT}} 、8月9日には {{INPUT}} へと {{INPUT}} が投下され、多くの人の命がうばわれた。また8月8日に、満州などに {{INPUT}} がせめこんだ。"
+    },
+    "explanation": "1945年8月6日に（広島）、8月9日には（長崎）へと（原子爆弾）が投下され、多くの人の命がうばわれた。また8月8日に、満州などに（ソ連（ソビエト連邦れんぽう））がせめこんだ。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.53a9769eb095",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "第二次世界大戦後、アメリカを中心とした資本主義の国と、ソ連を中心とした社会主義の国が対立した。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "冷たい戦争（冷戦）"
+        },
+        {
+          "id": "c2",
+          "text": "朝鮮戦争"
+        },
+        {
+          "id": "c3",
+          "text": "第一次世界大戦"
+        },
+        {
+          "id": "c4",
+          "text": "第二次世界大戦"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "第二次世界大戦後、アメリカを中心とした資本主義の国と、ソ連を中心とした社会主義の国が対立した。これを、冷たい戦争（冷戦）という。 ・朝鮮戦争：1950年に北朝鮮（朝鮮民主主義人民共和国）が韓国（大韓民国）にせめこんで始まった戦争 ・第一次世界大戦：主な戦場はヨーロッパであったが、世界の大国が参加した1914～1918年の戦争 ・第二次世界大戦：1939～1945年におこなわれた世界規模の戦争"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.73b4f10676f8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本や東アジアの平和と安全を守ることを理由[りゆう]に、日米安全保障条約で定められたことをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アメリカ軍の基地を日本に残すこと"
+        },
+        {
+          "id": "c2",
+          "text": "ハワイを日本の領土とすること"
+        },
+        {
+          "id": "c3",
+          "text": "日本全土をアメリカが統治し続けること"
+        },
+        {
+          "id": "c4",
+          "text": "一定数の日本人をアメリカ軍にいれること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日本や東アジアの平和と安全を守ることを理由[りゆう]に、日米安全保障条約では、日本の独立後もアメリカ軍の基地を日本に残すことが定められた。平和条約を結んだ後も、沖縄など日本の一部ではアメリカの統治が続いたが、日本全土が統治され続けたということはない。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.8122a8c75683",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1937年に北京ペキンの近くで日本軍と中国軍がしょうとつし、始まった戦争を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日中戦争"
+        },
+        {
+          "id": "c2",
+          "text": "日清戦争"
+        },
+        {
+          "id": "c3",
+          "text": "日露戦争"
+        },
+        {
+          "id": "c4",
+          "text": "太平洋戦争"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1937年に北京の近くで日本軍と中国軍がしょうとつして、日中戦争が始まった。 ・日清戦争：1894年に始まった日本と清（中国）の戦争 ・日露戦争：1904年に始まった日本とロシアの戦争 ・太平洋戦争：アジアや太平洋が戦場となった1941年～1945年の戦争"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.8e8c46883f86",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "第二次世界大戦が始まったころの、ドイツの指導者をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ヒトラー"
+        },
+        {
+          "id": "c2",
+          "text": "ムッソリーニ"
+        },
+        {
+          "id": "c3",
+          "text": "マッカーサー"
+        },
+        {
+          "id": "c4",
+          "text": "ペリー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/434aec636c3008d1.jpg"
+    },
+    "explanation": "第二次世界大戦が始まったころの、ドイツの指導者はヒトラー。 ・ムッソリーニ：第二次世界大戦が始まったころの、イタリアの指導者 ・マッカーサー：第二次世界大戦後の日本をせん領した連合国軍最高司令官総司令部（GHQ）の司令官 ・ペリー：江戸時代の終わりごろ、アメリカから日本に来航して開国を求めた人物"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.98ce3ba13f6c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1938年に定められた国家総動員法によって、日本はどうなったでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国民を戦争に協力させる体制が整った。"
+        },
+        {
+          "id": "c2",
+          "text": "年齢や性別に関係なく全国民が軍隊に入った。"
+        },
+        {
+          "id": "c3",
+          "text": "全ての人から選挙権がうばわれた。"
+        },
+        {
+          "id": "c4",
+          "text": "政治や社会のしくみを変える動きが禁止された。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1938年、国家総動員法が制定され、政府は議会の承しょう認にんを得ずに戦争に必要な物や労働力を動員できるようになった。これにより、国民を戦争に協力させる体制が整った。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.9b1b88f9aca8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "第二次世界大戦開始後の1940年に、日本が手を結んだヨーロッパの国の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ドイツ・イタリア"
+        },
+        {
+          "id": "c2",
+          "text": "イタリア・フランス"
+        },
+        {
+          "id": "c3",
+          "text": "フランス・オランダ"
+        },
+        {
+          "id": "c4",
+          "text": "オランダ・ドイツ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1940年、日本はドイツ・イタリアと手を結び、ヨーロッパとアジアでの指導権をたがいに認め、協力し合うことを約束した。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.a1cdaaf35c0b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の地図の赤い丸で囲まれた地域は、日本の領土であるが、ある国に支配されている。この地域を支配している国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ロシア"
+        },
+        {
+          "id": "c2",
+          "text": "韓国"
+        },
+        {
+          "id": "c3",
+          "text": "アメリカ"
+        },
+        {
+          "id": "c4",
+          "text": "中国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/42b1390dbdd7d59e.png"
+    },
+    "explanation": "択捉えとろふ島、国後くなしり島、色丹しこたん島、歯舞群島はぼまいぐんとうを北方領土という。第二次世界大戦後、ソ連が北方領土を占領し、ソ連がなくなった現在は、ロシア が支配している。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.b8dfd929213c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1945年4月にアメリカ軍が上陸し、民間の人たちを巻まきこんで戦いがおこなわれた場所をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "沖縄"
+        },
+        {
+          "id": "c2",
+          "text": "北海道[ほっかいどう]"
+        },
+        {
+          "id": "c3",
+          "text": "東京"
+        },
+        {
+          "id": "c4",
+          "text": "京都"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1945年4月にはアメリカ軍が沖縄に上陸し、民間の人を巻きこんで戦いがおこなわれた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.cbc3c8ea9fc2",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "二度の大戦を反省し、1945年に設立された国際的な平和機関をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国際連合"
+        },
+        {
+          "id": "c2",
+          "text": "国際連盟"
+        },
+        {
+          "id": "c3",
+          "text": "NGO（非政府組織）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "二度の大戦を反省し、1945年に国際連合が設立された。 ・国際連盟は、第一次世界大戦後に設立された国際的な平和機関。 ・NGO（非政府組織）は、政府から独立した、民間の団体。人権問題や環かん境きょう保全など、さまざまな分野で活動している。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.db5df1b82af5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1956年、日本が国際社会に復帰したといえる出来事がおこった。この年におこった出来事として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "国際連合への加入"
+        },
+        {
+          "id": "c2",
+          "text": "東京オリンピック・パラリンピックの開さい"
+        },
+        {
+          "id": "c3",
+          "text": "サンフランシスコ平和条約の調印"
+        },
+        {
+          "id": "c4",
+          "text": "日本国憲法の公布"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1956年、日本はソ連との国交を正常化した。ソ連の支持を得て、同じ年に日本は国際連合に加入した。 ・日本国憲法は1946年に公布された。 ・サンフランシスコ平和条約は1951年に結ばれた。 ・東京オリンピック・パラリンピックは1964年に開かれた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.e476f92c4eeb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1931年に始まった満州事変についての説明[せつめい]として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鉄道ばく破をきっかけとして日本が始めた満州のしん略"
+        },
+        {
+          "id": "c2",
+          "text": "満州をめぐる日本とソ連の戦争"
+        },
+        {
+          "id": "c3",
+          "text": "満州の人たちが日本に反発しておこした、ていこう運動"
+        },
+        {
+          "id": "c4",
+          "text": "中国が日本から満州を取り返したできごと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1931年、満州にいた日本軍は鉄道ばく破事件をおこし、これを中国軍のしわざだとして満州のしん略を始めた。これを満州事変という。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.ef93979083de",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "満州事変の後に、日本がおこなったこととして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本のおこないを認めなかった国際連盟をぬけた。"
+        },
+        {
+          "id": "c2",
+          "text": "満州の返かんを求めたロシアと、日露戦争をおこなった。"
+        },
+        {
+          "id": "c3",
+          "text": "日本の味方をしたアメリカと、手を結んだ。"
+        },
+        {
+          "id": "c4",
+          "text": "満州の支配をめぐり、日清戦争をおこした。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国際連盟れんめいによる満州事変の調査がおこなわれ、日本は満州から兵を引き上げるよう求められた。日本はこれに従うことなく、国際連盟をぬけた。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.f869cc1a6ad1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "敗戦直後の日本について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アメリカを中心とする連合国軍にせん領された。"
+        },
+        {
+          "id": "c2",
+          "text": "東日本はソ連、西日本はアメリカにせん領された。"
+        },
+        {
+          "id": "c3",
+          "text": "中国の領土に組み込まれた。"
+        },
+        {
+          "id": "c4",
+          "text": "戦争に負けたものの、独立を保った。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "第二次世界大戦後、日本はアメリカを中心とする連合国軍にせん領された。連合国軍の指示に従い、日本政府は非軍事化・民主化をめざしてさまざまな改革をおこなった。"
+  },
+  {
+    "id": "legacy.shakai.g6.soc-6-10.f8e146e9cd0a",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 6,
+    "unit": "shakai.g6.legacy-soc-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1980年代後半、経済の中身の成長がないのに、株価や土地の価格が高くなった。これを何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バブル経済"
+        },
+        {
+          "id": "c2",
+          "text": "高度経済成長"
+        },
+        {
+          "id": "c3",
+          "text": "石油危機"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1980年代後半、経済の中身の成長がないのに、株価や土地の価格が高くなるバブル経済によって、日本は好景気となった。1990年代初めにバブル経済が終わりをむかえると、その後不景気が長く続いた。 1950年代中ごろから1970年代初めにかけて、経済が急激に発展したことを高度経済成長という。1973年の石油危機をきっかけに高度経済成長が終わった。"
+  }
+]

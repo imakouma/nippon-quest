@@ -1,0 +1,146 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-7.3397886944fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の（ ）にあてはまる言葉はどれですか。\n\n「ヤマネは何も食べずに半年も眠りつづけます。（　）、秋にはいっぱい食べて太ることが、生きのびるための条件です。」",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だから"
+        },
+        {
+          "id": "c2",
+          "text": "しかし"
+        },
+        {
+          "id": "c3",
+          "text": "または"
+        },
+        {
+          "id": "c4",
+          "text": "たとえば"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "原因と結果をつなぐ順接の接続詞「だから」が入ります。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-7.51a081fff200",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この説明文における「■だん落（問いかける部分）」の役わりはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぎ問を投げかけている。"
+        },
+        {
+          "id": "c2",
+          "text": "具体例をあげている。"
+        },
+        {
+          "id": "c3",
+          "text": "前の内容をまとめている。"
+        },
+        {
+          "id": "c4",
+          "text": "かんそうを述べている。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "読者に「ぎ問を投げかける」ことで、興味を引く役わりをしています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-7.530cc8361ed8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬みんするエゾシマリスとヤマネには、どのようなちがいがありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "エゾシマリスはときどきえさを食べて冬をすごし、ヤマネは冬の間何も食べずにすごす。"
+        },
+        {
+          "id": "c2",
+          "text": "エゾシマリスは冬の間何も食べずにすごし、ヤマネはときどきえさを食べて冬をすごす。"
+        },
+        {
+          "id": "c3",
+          "text": "エゾシマリスは土の中で冬みんし、ヤマネは木の上で冬みんする。"
+        },
+        {
+          "id": "c4",
+          "text": "エゾシマリスは冬みんしないが、ヤマネは長い冬みんをする。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "エゾシマリスは貯めておいたえさをときどき起きて食べますが、ヤマネは何も食べずに眠りつづけます。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-7.98feb53edf80",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ヤマネのチッチは何と何を調せつして冬みんしていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体温と心ばく数"
+        },
+        {
+          "id": "c2",
+          "text": "呼吸と体重"
+        },
+        {
+          "id": "c3",
+          "text": "睡眠と水分"
+        },
+        {
+          "id": "c4",
+          "text": "えさの量と体温"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ヤマネは「体温」と「心ばく数（心拍数）」を下げてエネルギーを節約します。"
+  }
+]

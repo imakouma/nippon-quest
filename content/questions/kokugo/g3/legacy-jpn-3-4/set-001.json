@@ -1,0 +1,758 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.074158cf2ae4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「白い 犬が ねる。」で「白い」がくわしくしているのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "犬"
+        },
+        {
+          "id": "c2",
+          "text": "ねる"
+        },
+        {
+          "id": "c3",
+          "text": "白い"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どんな犬か」を説明している。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.0c2791c7cc12",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "聞き手（相手）の近くのものを指すのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "それ"
+        },
+        {
+          "id": "c2",
+          "text": "これ"
+        },
+        {
+          "id": "c3",
+          "text": "あれ"
+        },
+        {
+          "id": "c4",
+          "text": "どれ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "相手の近くは「それ」。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.14ca2ec84d2e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「弟が 本を 読む。」の主語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "弟が"
+        },
+        {
+          "id": "c2",
+          "text": "本を"
+        },
+        {
+          "id": "c3",
+          "text": "読む"
+        },
+        {
+          "id": "c4",
+          "text": "本"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「だれが」にあたる「弟が」が主語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.1bc2578e027c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「うれしくて、うれしくて」とありますが、かっちゃんは何がうれしかったのですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "もじをよむことやかくことができること。"
+        },
+        {
+          "id": "c2",
+          "text": "さむらいにぶつかったこと"
+        },
+        {
+          "id": "c3",
+          "text": "おいしいお菓子をもらったこと"
+        },
+        {
+          "id": "c4",
+          "text": "新しい服を買ってもらったこと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "文字を自分でよみ書きできるようになったのがうれしかったのです。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.2cca79eaec89",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "話し手の近くのものを指すこそあど言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "これ"
+        },
+        {
+          "id": "c2",
+          "text": "それ"
+        },
+        {
+          "id": "c3",
+          "text": "あれ"
+        },
+        {
+          "id": "c4",
+          "text": "どれ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "自分の近くは「これ」。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.3db9ddb200e1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "前の文と後の文をつなぐ「だから・しかし」などを何という？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接続語"
+        },
+        {
+          "id": "c2",
+          "text": "指示語"
+        },
+        {
+          "id": "c3",
+          "text": "修飾語"
+        },
+        {
+          "id": "c4",
+          "text": "主語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "文と文をつなぐ接続語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.40b3091c6c85",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「弟が 本を 読む。」の述語はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "読む"
+        },
+        {
+          "id": "c2",
+          "text": "弟が"
+        },
+        {
+          "id": "c3",
+          "text": "本を"
+        },
+        {
+          "id": "c4",
+          "text": "弟"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "動作を表す「読む」が述語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.420d054cb245",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ゆっくり 歩く。」で「ゆっくり」がくわしくしている言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "歩く"
+        },
+        {
+          "id": "c2",
+          "text": "ゆっくり"
+        },
+        {
+          "id": "c3",
+          "text": "なし"
+        },
+        {
+          "id": "c4",
+          "text": "犬"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どのように歩くか」を説明する修飾語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.438b4fa86d44",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「赤い花」の「赤い」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "修飾語"
+        },
+        {
+          "id": "c2",
+          "text": "主語"
+        },
+        {
+          "id": "c3",
+          "text": "接続詞"
+        },
+        {
+          "id": "c4",
+          "text": "助詞"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "修飾語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.479541341ee4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "新しい段落のはじめは、ふつうどう書く？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一マス下げて書く"
+        },
+        {
+          "id": "c2",
+          "text": "つめて書く"
+        },
+        {
+          "id": "c3",
+          "text": "行をあける"
+        },
+        {
+          "id": "c4",
+          "text": "下から書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "段落のはじめは一字下げる。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.4bdf61e5b96a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "前に出たことばのかわりに使う「それ・これ」などを何という？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "指示語（こそあど言葉）"
+        },
+        {
+          "id": "c2",
+          "text": "修飾語"
+        },
+        {
+          "id": "c3",
+          "text": "主語"
+        },
+        {
+          "id": "c4",
+          "text": "述語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "物事を指し示す指示語（こそあど言葉）。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.4c8df79b8846",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「青い 鳥が 鳴く。」で「青い」がくわしくしている言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鳥"
+        },
+        {
+          "id": "c2",
+          "text": "鳴く"
+        },
+        {
+          "id": "c3",
+          "text": "青い"
+        },
+        {
+          "id": "c4",
+          "text": "が"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どんな鳥か」を説明する修飾語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.5bf662198370",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文章の中で、いくつかの文をまとめたまとまりを何という？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "段落"
+        },
+        {
+          "id": "c2",
+          "text": "句点"
+        },
+        {
+          "id": "c3",
+          "text": "見出し"
+        },
+        {
+          "id": "c4",
+          "text": "題名"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話のまとまりが段落。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.5f25b1d326fa",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "場所をたずねるこそあど言葉は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どこ"
+        },
+        {
+          "id": "c2",
+          "text": "ここ"
+        },
+        {
+          "id": "c3",
+          "text": "そこ"
+        },
+        {
+          "id": "c4",
+          "text": "あそこ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "わからない場所は「どこ」。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.6c6faa38d290",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「まえをみてあるけ」とさむらいに言われましたが、なぜかっちゃんは前を見ていなかったのですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "もじをいっしょうけんめいおぼえながらあるいていたから。"
+        },
+        {
+          "id": "c2",
+          "text": "上を向いて歩いていたから"
+        },
+        {
+          "id": "c3",
+          "text": "目を閉じて走っていたから"
+        },
+        {
+          "id": "c4",
+          "text": "お菓子を食べていたから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "覚えた文字を忘れないように一生懸命覚えながら歩いていたからです。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.72fbcbc2c72f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっちゃんがぶつかった「なにか」とは何でしたか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さむらい"
+        },
+        {
+          "id": "c2",
+          "text": "いぬ"
+        },
+        {
+          "id": "c3",
+          "text": "大きな石"
+        },
+        {
+          "id": "c4",
+          "text": "木の枝"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "目の前にいた「さむらい」にぶつかってしまいました。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.7c9cab4b60ba",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ゆっくり 歩く。」で「ゆっくり」がくわしくしているのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "歩く"
+        },
+        {
+          "id": "c2",
+          "text": "ゆっくり"
+        },
+        {
+          "id": "c3",
+          "text": "なし"
+        },
+        {
+          "id": "c4",
+          "text": "犬"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どのように歩くか」を説明。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.8ed59cbbaedd",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「とても大きい」の「とても」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "副詞"
+        },
+        {
+          "id": "c2",
+          "text": "名詞"
+        },
+        {
+          "id": "c3",
+          "text": "助詞"
+        },
+        {
+          "id": "c4",
+          "text": "接続詞"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "程度を表す副詞。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.b36c319022c5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「これ・それ・あれ」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "指示語"
+        },
+        {
+          "id": "c2",
+          "text": "接続詞"
+        },
+        {
+          "id": "c3",
+          "text": "助詞"
+        },
+        {
+          "id": "c4",
+          "text": "述語"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "指示語。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.b75eb9f7aa8c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「妹が 走る。」と主語・述語の組み立てが同じ文はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "鳥が 飛ぶ。"
+        },
+        {
+          "id": "c2",
+          "text": "赤い 花。"
+        },
+        {
+          "id": "c3",
+          "text": "とても 速い。"
+        },
+        {
+          "id": "c4",
+          "text": "山と 川。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「何が どうする」の形が同じ。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-4.d2c8f30eef1d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かっちゃんはさむらいのことを、このように思いましたか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "らんぼうだと思った。"
+        },
+        {
+          "id": "c2",
+          "text": "優しいと思った"
+        },
+        {
+          "id": "c3",
+          "text": "かっこいいと思った"
+        },
+        {
+          "id": "c4",
+          "text": "おもしろいと思った"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "さむらいのことを「らんぼうだ」と思いました。"
+  }
+]

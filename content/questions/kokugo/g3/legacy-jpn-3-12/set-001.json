@@ -1,0 +1,578 @@
+[
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.26cc8b76148a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こそあど言葉「これ」が指す説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "自分に近い"
+        },
+        {
+          "id": "c2",
+          "text": "相手に近い"
+        },
+        {
+          "id": "c3",
+          "text": "自分からも相手からも遠い"
+        },
+        {
+          "id": "c4",
+          "text": "はっきりしない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「これ」は話し手（自分）に近いものを指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.2ad89a620226",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のこそあど言葉の選択で、相手に近いものを指す言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "それ"
+        },
+        {
+          "id": "c2",
+          "text": "この"
+        },
+        {
+          "id": "c3",
+          "text": "あれ"
+        },
+        {
+          "id": "c4",
+          "text": "どの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「それ」は相手に近いものを指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.374a54969b35",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のこそあど言葉の選択で、様子を表す言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こんな"
+        },
+        {
+          "id": "c2",
+          "text": "どこ"
+        },
+        {
+          "id": "c3",
+          "text": "そう"
+        },
+        {
+          "id": "c4",
+          "text": "あの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「こんな」は様子や状態を表す言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.4766bdac496b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「母が育てたイチゴがあります。今日はこれを食べましょう。」の「これ」は何を指していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イチゴ"
+        },
+        {
+          "id": "c2",
+          "text": "母"
+        },
+        {
+          "id": "c3",
+          "text": "今日"
+        },
+        {
+          "id": "c4",
+          "text": "食べる動作"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「これ」は直前の「イチゴ」を指しています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.522864cccce5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中にある「こそあど言葉」はどれですか。\n\n◆どの服がいいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どの"
+        },
+        {
+          "id": "c2",
+          "text": "服"
+        },
+        {
+          "id": "c3",
+          "text": "いい"
+        },
+        {
+          "id": "c4",
+          "text": "ですか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "不特定のものを尋ねる「どの」がこそあど言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.5d75237f271f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「本にしおりがはさまっていました。あれはだれのものだったのでしょうか。」の「あれ」は何を指していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "しおり"
+        },
+        {
+          "id": "c2",
+          "text": "本"
+        },
+        {
+          "id": "c3",
+          "text": "だれのもの"
+        },
+        {
+          "id": "c4",
+          "text": "はさまっていた状態"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あれ」は直前の「しおり」を指しています。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.66cc24046804",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のこそあど言葉の選択で、遠くのものを指す言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あの"
+        },
+        {
+          "id": "c2",
+          "text": "こんな"
+        },
+        {
+          "id": "c3",
+          "text": "そう"
+        },
+        {
+          "id": "c4",
+          "text": "どこ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あの」は遠くの事物・人を指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.6f6f7f9b3adc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のこそあど言葉の選択で、相手の意見や状態に同意する言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そう"
+        },
+        {
+          "id": "c2",
+          "text": "こんな"
+        },
+        {
+          "id": "c3",
+          "text": "どこ"
+        },
+        {
+          "id": "c4",
+          "text": "あの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「そう」は前の話の内容などに同意・指し示す言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.7c6be7f6e047",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中にある「こそあど言葉」はどれですか。\n\n◆あそこは入れません。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あそこ"
+        },
+        {
+          "id": "c2",
+          "text": "入れません"
+        },
+        {
+          "id": "c3",
+          "text": "は"
+        },
+        {
+          "id": "c4",
+          "text": "入れ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "遠くの場所を指し示す「あそこ」がこそあど言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.8c9347167f54",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のこそあど言葉の選択で、場所を尋ねる言葉はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どこ"
+        },
+        {
+          "id": "c2",
+          "text": "こんな"
+        },
+        {
+          "id": "c3",
+          "text": "そう"
+        },
+        {
+          "id": "c4",
+          "text": "あの"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どこ」は場所を尋ねる言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.a6de11d04f1e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こそあど言葉「それ」が指す説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "相手に近い"
+        },
+        {
+          "id": "c2",
+          "text": "自分に近い"
+        },
+        {
+          "id": "c3",
+          "text": "自分からも相手からも遠い"
+        },
+        {
+          "id": "c4",
+          "text": "はっきりしない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「それ」は聞き手（相手）に近いものを指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.b51a5a6f365c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こそあど言葉「あれ」が指す説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "自分からも相手からも遠い"
+        },
+        {
+          "id": "c2",
+          "text": "自分に近い"
+        },
+        {
+          "id": "c3",
+          "text": "相手に近い"
+        },
+        {
+          "id": "c4",
+          "text": "はっきりしない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「あれ」は自分からも相手からも遠いものを指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.b5a6bb2a6214",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中にある「こそあど言葉」はどれですか。\n\n◆こちらへどうぞ。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こちら"
+        },
+        {
+          "id": "c2",
+          "text": "どうぞ"
+        },
+        {
+          "id": "c3",
+          "text": "へ"
+        },
+        {
+          "id": "c4",
+          "text": "どうぞ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方向を指し示す「こちら」がこそあど言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.dcc146f94a30",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中にある「こそあど言葉」はどれですか。\n\n◆そちらもおいしそうです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そちら"
+        },
+        {
+          "id": "c2",
+          "text": "おいしそう"
+        },
+        {
+          "id": "c3",
+          "text": "も"
+        },
+        {
+          "id": "c4",
+          "text": "です"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "相手に近い方を指し示す「そちら」がこそあど言葉です。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.f745284e1ae6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こそあど言葉「どれ」が指す説明として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はっきりしない"
+        },
+        {
+          "id": "c2",
+          "text": "自分に近い"
+        },
+        {
+          "id": "c3",
+          "text": "相手に近い"
+        },
+        {
+          "id": "c4",
+          "text": "自分からも相手からも遠い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「どれ」は特定できず、はっきりしないものを指します。"
+  },
+  {
+    "id": "legacy.kokugo.g3.jpn-3-12.fc9010690881",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 3,
+    "unit": "kokugo.g3.legacy-jpn-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の中にある「こそあど言葉」はどれですか。\n\n◆どうすればいいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どう"
+        },
+        {
+          "id": "c2",
+          "text": "すれば"
+        },
+        {
+          "id": "c3",
+          "text": "いい"
+        },
+        {
+          "id": "c4",
+          "text": "ですか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方法を尋ねる「どう」がこそあど言葉です。"
+  }
+]

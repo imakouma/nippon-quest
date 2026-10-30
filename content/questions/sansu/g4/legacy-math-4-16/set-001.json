@@ -1,0 +1,769 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-16.07b8325a318c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような、立体を正面から見て、えがいた図のことを 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見取図"
+        },
+        {
+          "id": "c2",
+          "text": "展開図"
+        },
+        {
+          "id": "c3",
+          "text": "正面図"
+        },
+        {
+          "id": "c4",
+          "text": "立体図"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5cdfb936492091dd.png"
+    },
+    "explanation": "下の図のような、立体を正面から見て、えがいた図のことを「見取図みとりず」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.0e099e47c9af",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の直方体で、面ABCDと平行な面の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面EFGH"
+        },
+        {
+          "id": "c2",
+          "text": "面EFGH、面CDHG"
+        },
+        {
+          "id": "c3",
+          "text": "面CDHG、面ADHE"
+        },
+        {
+          "id": "c4",
+          "text": "面ABFE"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c524bfd814b27375.png"
+    },
+    "explanation": "平行はどこまでのばしても、交わらない関係のこと。面ABCDと平行な面は、面EFGHになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.14eb03a2f887",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の直方体で、面ABCDと垂直な面の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面EFGH"
+        },
+        {
+          "id": "c2",
+          "text": "面ABFE、面CDHG"
+        },
+        {
+          "id": "c3",
+          "text": "面ABFE、面BCGF、面CDHG、面ADHE"
+        },
+        {
+          "id": "c4",
+          "text": "面ABFE、面ADHE、面EFGH"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c524bfd814b27375.png"
+    },
+    "explanation": "垂直は直角[ちょっかく]（90度）をつくって、交わる関係のこと。面ABCDと垂直な面は、面ABFE、面BCGF、面CDHG、面ADHEになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.159a3cffbca9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "立方体や直方体の頂点の数は、いくつになるでしょう。",
+      "answers": [
+        "8"
+      ],
+      "promptImage": "questions/legacy/994afa11348e8e10.png"
+    },
+    "explanation": "立方体や直方体の頂点の数は、いつでも 8 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.28c3b1012165",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、長方形[ちょうほうけい]や 長方形[ちょうほうけい]と正方形[せいほうけい]で囲まれた立体を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "直方体"
+        },
+        {
+          "id": "c2",
+          "text": "立方体"
+        },
+        {
+          "id": "c3",
+          "text": "長方体"
+        },
+        {
+          "id": "c4",
+          "text": "正方体"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5cdfb936492091dd.png"
+    },
+    "explanation": "長方形[ちょうほうけい]や 長方形[ちょうほうけい]と正方形[せいほうけい]で囲まれた立体を、「直方体」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.3b1aeb6d4848",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "えりさんの家を点B、はなさんの家を点Cとします。",
+      "answers": [
+        "200",
+        "500"
+      ],
+      "template": "点Aをもとにして、点Cの位置を表すと、どうなるでしょう。 点C（北に{{INPUT}}m , 東に{{INPUT}}m）",
+      "promptImage": "questions/legacy/83ac435bb3df9d89.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.3d304219e5bb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある直方体の見取図と展開図です。",
+      "answers": [
+        "2"
+      ],
+      "template": "展開図の辺CDの長さは、何cm になるでしょう。 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/15ad5d3dec9a0b9a.png"
+    },
+    "explanation": "辺CDは、組み立てた時に 見取り図の「高さ」になるところなので、2cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.41bdb487b8c7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような、立体を切り開いた図のことを 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見取図"
+        },
+        {
+          "id": "c2",
+          "text": "展開図"
+        },
+        {
+          "id": "c3",
+          "text": "正面図"
+        },
+        {
+          "id": "c4",
+          "text": "立体図"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2d332614c46acff4.png"
+    },
+    "explanation": "下の図のような、立体を切り開いた図のことを 「展開図」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.456c85f1bcb4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の直方体で、辺BCと垂直な辺の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺AE、辺BF"
+        },
+        {
+          "id": "c2",
+          "text": "辺DC、辺EF、辺GG"
+        },
+        {
+          "id": "c3",
+          "text": "辺AB、辺CD、辺CG、辺BF"
+        },
+        {
+          "id": "c4",
+          "text": "辺CG、辺DH、辺EH、辺FG"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c524bfd814b27375.png"
+    },
+    "explanation": "垂直は直角[ちょっかく]（90度）をつくって、交わる関係のこと。辺ABと垂直な辺は、辺AB、辺CD、辺CG、辺BFになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.49caee8f6886",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、正方形[せいほうけい]で囲まれた立体を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "直方体"
+        },
+        {
+          "id": "c2",
+          "text": "立方体"
+        },
+        {
+          "id": "c3",
+          "text": "長方体"
+        },
+        {
+          "id": "c4",
+          "text": "正方体"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3463e7519bbe5ed5.png"
+    },
+    "explanation": "正方形[せいほうけい]で囲まれた立体を、「立方体」という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.63035ed0d4c0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある立方体の展開図です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺MN"
+        },
+        {
+          "id": "c2",
+          "text": "辺ML"
+        },
+        {
+          "id": "c3",
+          "text": "辺LK"
+        },
+        {
+          "id": "c4",
+          "text": "辺EF"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e829f68485991c3a.png"
+    },
+    "explanation": "展開図を辺NC、辺NE、辺MFで順番におりまげると、辺ABは辺MLと重なる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.6ffcff525c34",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の直方体で、辺ABと垂直な辺の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺AE、辺BF"
+        },
+        {
+          "id": "c2",
+          "text": "辺DC、辺EF、辺GG"
+        },
+        {
+          "id": "c3",
+          "text": "辺AD、辺BC、辺AE、辺BF"
+        },
+        {
+          "id": "c4",
+          "text": "辺CG、辺DH、辺EH、辺FG"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c524bfd814b27375.png"
+    },
+    "explanation": "垂直は直角[ちょっかく]（90度）をつくって、交わる関係のこと。辺ABと垂直な辺は、辺AD、辺BC、辺AE、辺BFになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.72d57bf34db9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある立方体の展開図です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺ED"
+        },
+        {
+          "id": "c2",
+          "text": "辺HI"
+        },
+        {
+          "id": "c3",
+          "text": "辺KJ"
+        },
+        {
+          "id": "c4",
+          "text": "辺GH"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e829f68485991c3a.png"
+    },
+    "explanation": "展開図を辺JG、辺LG、辺MF、辺NE で順番におりまげると、辺IJは辺EDと重なる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.7944f4e6d0dd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "えりさんの家を点B、はなさんの家を点Cとします。",
+      "answers": [
+        "600",
+        "200"
+      ],
+      "template": "点Aをもとにして、点Bの位い置ちを表すと、どうなるでしょう。 点B（北に{{INPUT}}m , 東に{{INPUT}}m）",
+      "promptImage": "questions/legacy/83ac435bb3df9d89.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.88d817825821",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある立方体の展開図です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点M"
+        },
+        {
+          "id": "c2",
+          "text": "点N"
+        },
+        {
+          "id": "c3",
+          "text": "点L"
+        },
+        {
+          "id": "c4",
+          "text": "点E"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e829f68485991c3a.png"
+    },
+    "explanation": "展開図を辺NC、辺NEで おりまげると、点Aは点Mと重なる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.8a4cfa3d4394",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の直方体で、辺BCと平行な辺の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺AD、辺EH"
+        },
+        {
+          "id": "c2",
+          "text": "辺AD、辺EH、辺FG"
+        },
+        {
+          "id": "c3",
+          "text": "辺AD、辺BC、辺AE、辺BF"
+        },
+        {
+          "id": "c4",
+          "text": "辺CG、辺DH、辺EH、辺FG"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c524bfd814b27375.png"
+    },
+    "explanation": "平行はどこまでのばしても、交わらない関係のこと。辺BCと平行な辺は、辺AD、辺EH、辺FGになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.8fe6bebecf91",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "立方体や直方体の辺の数は、いくつになるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "promptImage": "questions/legacy/994afa11348e8e10.png"
+    },
+    "explanation": "立方体や直方体の辺の数は、いつでも 12 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.a49928d76b16",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横が10cm、たてが7cm、高さ6cmの直方体があります。",
+      "answers": [
+        "10",
+        "7",
+        "0"
+      ],
+      "template": "点Aをもとにして、点Hの位置を表すと、どうなるでしょう。 点H（横{{INPUT}}cm , たて{{INPUT}}cm , 高さ{{INPUT}}cm）",
+      "promptImage": "questions/legacy/0bf08d307a773e9d.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.b583ad0cf978",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある立方体の展開図です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "点D"
+        },
+        {
+          "id": "c2",
+          "text": "点G"
+        },
+        {
+          "id": "c3",
+          "text": "点K"
+        },
+        {
+          "id": "c4",
+          "text": "点E"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e829f68485991c3a.png"
+    },
+    "explanation": "展開図を辺JG、辺LG、辺MFと順番におりまげると、点Jは点Dと重なる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.c5ae4b063275",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある直方体の展開図です。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺IH"
+        },
+        {
+          "id": "c2",
+          "text": "辺NC"
+        },
+        {
+          "id": "c3",
+          "text": "辺KF"
+        },
+        {
+          "id": "c4",
+          "text": "辺JG"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/12a97f7842db7f09.png"
+    },
+    "explanation": "辺ABは、組み立てたとき、展開図でちょうど反対側にある 辺IHと重なる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.c5c2dd7f3dad",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "立方体や直方体の面の数は、いくつになるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "promptImage": "questions/legacy/994afa11348e8e10.png"
+    },
+    "explanation": "立方体や直方体の面の数は、いつでも 6 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.d50693376ddd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図は、ある直方体の見取図と展開図です。",
+      "answers": [
+        "4"
+      ],
+      "template": "展開図の辺GHの長さは、何cm になるでしょう。 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/15ad5d3dec9a0b9a.png"
+    },
+    "explanation": "辺GHは、組み立てた時に 見取り図の「横」になるところなので、4cm になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.d802a90b9ad7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の直方体で、辺ABと平行な辺の組み合わせとして、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "辺DC、辺EF"
+        },
+        {
+          "id": "c2",
+          "text": "辺DC、辺EF、辺HG"
+        },
+        {
+          "id": "c3",
+          "text": "辺AD、辺BC、辺AE、辺BF"
+        },
+        {
+          "id": "c4",
+          "text": "辺CG、辺DH、辺EH、辺FG"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c524bfd814b27375.png"
+    },
+    "explanation": "平行はどこまでのばしても、交わらない関係のこと。辺ABと平行な辺は、辺DC、辺EF、辺HGになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.dc71c1938af3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横が10cm、たてが7cm、高さ6cmの直方体があります。",
+      "answers": [
+        "10",
+        "0",
+        "6"
+      ],
+      "template": "点Aをもとにして、点Cの位置を表すと、どうなるでしょう。 点C（横{{INPUT}}cm , たて{{INPUT}}cm , 高さ{{INPUT}}cm）",
+      "promptImage": "questions/legacy/503859bc658fb6e3.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-16.e595ac1d1b6a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横が10cm、たてが7cm、高さ6cmの直方体があります。",
+      "answers": [
+        "10",
+        "7",
+        "6"
+      ],
+      "template": "点Aをもとにして、点Gの位置を表すと、どうなるでしょう。 点G（横{{INPUT}}cm , たて{{INPUT}}cm , 高さ{{INPUT}}cm）",
+      "promptImage": "questions/legacy/e5f3edbf56eae5ea.png"
+    }
+  }
+]

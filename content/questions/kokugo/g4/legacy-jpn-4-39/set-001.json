@@ -1,0 +1,100 @@
+[
+  {
+    "id": "kokugo.g4.supplemental.story-b.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-39",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「ミカは発表[はっぴょう]の前[まえ]は手[て]が震[ふる]えていた。発表[はっぴょう]の後[あと]、笑顔[えがお]で席[せき]に戻[もど]った。」気持[きも]ちはどう変[か]わった？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "不安[ふあん]から安心[あんしん]へ"
+        },
+        {
+          "id": "b",
+          "text": "安心[あんしん]から怒[いか]りへ"
+        },
+        {
+          "id": "c",
+          "text": "喜[よろこ]びから悲[かな]しみへ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "手[て]の震[ふる]えと笑顔[えがお]を根拠[こんきょ]に気持[きも]ちの変化[へんか]を考[かんが]える。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.story-b.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-39",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「ケンは失敗[しっぱい]して下[した]を向[む]いた。友[とも]だちの言葉[ことば]を聞[き]くと、もう一度[いちど]やってみようと立[た]ち上[あ]がった。」ケンの変化[へんか]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "落[お]ち込[こ]んだ気持[きも]ちから意欲[いよく]へ"
+        },
+        {
+          "id": "b",
+          "text": "喜[よろこ]びから退屈[たいくつ]へ"
+        },
+        {
+          "id": "c",
+          "text": "驚[おどろ]きから怒[いか]りへ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "人物[じんぶつ]の行動[こうどう]の変化[へんか]を比[くら]べて気持[きも]ちを捉[とら]える。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-39.6d99d371877a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-39",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_39",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "物語「牛のリオと陸」で、リオの体調回復に対する「陸」の気持ちの変化を表すものとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "不安から安心、そして歓喜へ"
+        },
+        {
+          "id": "c2",
+          "text": "うれしさから悲しみ、そして怒りへ"
+        },
+        {
+          "id": "c3",
+          "text": "驚きから怒り、そしてあきれへ"
+        },
+        {
+          "id": "c4",
+          "text": "最初から心配な気持ち"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "リオの体調が回復するにつれて、陸の心境が「不安」から「安心」、そして「歓喜（大きな喜び）」へと変化していく様子が描かれています。"
+  }
+]

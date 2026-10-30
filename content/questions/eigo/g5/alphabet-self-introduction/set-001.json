@@ -1,0 +1,332 @@
+[
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0001",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "大文字[おおもじ]の「B」に対応[たいおう]する小文字[こもじ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "b"
+        },
+        {
+          "id": "b",
+          "text": "d"
+        },
+        {
+          "id": "c",
+          "text": "p"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "Bの小文字[こもじ]はb。向[む]きや形[かたち]の違[ちが]いにも注意[ちゅうい]する。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0002",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "小文字[こもじ]の「q」に対応[たいおう]する大文字[おおもじ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Q"
+        },
+        {
+          "id": "b",
+          "text": "G"
+        },
+        {
+          "id": "c",
+          "text": "P"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "qの大文字[おおもじ]はQ。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0003",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「My name is Sora.」が伝[つた]えていることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "自分[じぶん]の名前[なまえ]"
+        },
+        {
+          "id": "b",
+          "text": "自分[じぶん]の年齢[ねんれい]"
+        },
+        {
+          "id": "c",
+          "text": "好[す]きな食[た]べ物[もの]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "My name is ... は名前[なまえ]を伝[つた]える表現[ひょうげん]。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0004",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I like soccer.」への自然[しぜん]な質問[しつもん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Do you like soccer?"
+        },
+        {
+          "id": "b",
+          "text": "Where is soccer?"
+        },
+        {
+          "id": "c",
+          "text": "How old is soccer?"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "好[この]みをたずねるときは Do you like ...? を使[つか]う。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0005",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「What do you like?」への答[こた]えとして適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "I like music."
+        },
+        {
+          "id": "b",
+          "text": "I am ten o'clock."
+        },
+        {
+          "id": "c",
+          "text": "It is a library."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "好[この]みをたずねられたら I like ... で答[こた]えられる。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0006",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「I can swim.」の意味[いみ]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "わたしは泳[およ]げます。"
+        },
+        {
+          "id": "b",
+          "text": "わたしは泳[およ]ぎません。"
+        },
+        {
+          "id": "c",
+          "text": "泳[およ]いでください。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "can は「できる」を表[あらわ]す。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0007",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "初対面[しょたいめん]の自己紹介[じこしょうかい]の始[はじ]めに適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hello. My name is Hana."
+        },
+        {
+          "id": "b",
+          "text": "Good night. Sit down."
+        },
+        {
+          "id": "c",
+          "text": "Turn right. Thank you."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "挨拶[あいさつ]の後[あと]に名前[なまえ]を伝[つた]えると自然[しぜん]な自己紹介[じこしょうかい]になる。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0008",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "名前[なまえ]「Riku」を活字体[かつじたい]で書[か]くとき適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Riku"
+        },
+        {
+          "id": "b",
+          "text": "rIKU"
+        },
+        {
+          "id": "c",
+          "text": "RIKu"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "名前[なまえ]は最初[さいしょ]の文字[もじ]を大文字[おおもじ]にし、続[つづ]きは小文字[こもじ]で書[か]く。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0009",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「Nice to meet you.」への応答[おうとう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Nice to meet you, too."
+        },
+        {
+          "id": "b",
+          "text": "Here you are."
+        },
+        {
+          "id": "c",
+          "text": "You're ten."
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "too を添[そ]えて同[おな]じ気持[きも]ちを返[かえ]す。"
+  },
+  {
+    "id": "eigo.g5.alphabet-self-introduction.0010",
+    "type": "choice",
+    "subject": "eigo",
+    "grade": 5,
+    "unit": "eigo.g5.alphabet-self-introduction",
+    "tags": [
+      "source:codex-supplemental",
+      "theme:communication",
+      "skill:integrated-language-use",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "自己紹介[じこしょうかい]に必要[ひつよう]な情報[じょうほう]を選[えら]ぶならどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "名前[なまえ]や好[す]きなこと"
+        },
+        {
+          "id": "b",
+          "text": "関係[かんけい]のない人[ひと]の住所[じゅうしょ]"
+        },
+        {
+          "id": "c",
+          "text": "答[こた]えたくない秘密[ひみつ]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目的[もくてき]に合[あ]う身近[みぢか]な情報[じょうほう]を選[えら]び、安全[あんぜん]にも配慮[はいりょ]する。"
+  }
+]

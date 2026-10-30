@@ -3,8 +3,8 @@ import type { Element, Monster, Skill } from '../../core/content/schemas';
 import type { BattleEvent, BattleState } from '../../core/battle/types';
 import type { EnemyView, PopupView } from '../../ui/battle/store';
 import type { SfxName } from '../../ui/sfx';
-import { BATTLE_POSE } from '../../rendering/characters';
 import { ELEMENT_FX } from '../../rendering/battle/pixelArt';
+import { playHeroBattleAnimation } from './heroAnimation';
 import { BATTLE_SCALE as S, OFF_RIGHT, type BattleLayout } from './layout';
 import type { EnemyStyle, MotifFx, Motions } from './motions';
 
@@ -169,9 +169,9 @@ export class BattleEventAnimator {
           p.hud.patchAllyHp(event.targetId, -event.amount);
           if (target) {
             const isHero = target === hero;
-            if (isHero) target.setFrame(BATTLE_POSE.hurt);
+            if (isHero) playHeroBattleAnimation(target, 'hurt');
             await Promise.all([p.sprites.blink(target), p.sprites.knock(target, 12)]);
-            if (isHero && state.ally.hero.hp > 0) target.setFrame(BATTLE_POSE.idle);
+            if (isHero && state.ally.hero.hp > 0) playHeroBattleAnimation(target, 'idle');
           }
         }
         await p.clock.wait(big ? 300 : 220);
@@ -278,7 +278,7 @@ export class BattleEventAnimator {
         p.effects.burst(anchor.x, anchor.y, 0xff8fb1, 'bt.fx.heart', 18, -120);
         await p.sprites.tween({
           targets: enemy,
-          y: layout.enemy.y - 26,
+          y: enemy.y - 26,
           duration: 160,
           yoyo: true,
           repeat: 1,
@@ -319,7 +319,7 @@ export class BattleEventAnimator {
           if (!sprite) return;
           const isHero = sprite === hero;
           p.sprites.stopBob(sprite, isHero ? layout.hero.y : layout.partner.y);
-          if (isHero) sprite.setFrame(BATTLE_POSE.hurt);
+          if (isHero) playHeroBattleAnimation(sprite, 'knockout');
           sprite.setTint(0x6b6f80);
           await p.sprites.tween({
             targets: sprite,

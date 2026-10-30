@@ -1,0 +1,194 @@
+[
+  {
+    "id": "kokugo.g5.writing-with-evidence.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.writing-with-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-structure",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「学校[がっこう]に読書時間[どくしょじかん]を増[ふ]やすべきだ」という意見文[いけんぶん]の材料[ざいりょう]として最[もっと]も適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "読書時間[どくしょじかん]と読書冊数[どくしょさっすう]の調査結果[ちょうさけっか]。"
+        },
+        {
+          "id": "b",
+          "text": "好[す]きな給食[きゅうしょく]の献立[こんだて]。"
+        },
+        {
+          "id": "c",
+          "text": "校庭[こうてい]の木[き]の本数[ほんすう]。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "目的[もくてき]と意見[いけん]に直接[ちょくせつ]関係[かんけい]する材料[ざいりょう]を選[えら]ぶ。"
+  },
+  {
+    "id": "kokugo.g5.writing-with-evidence.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.writing-with-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-structure",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "意見文[いけんぶん]の構成[こうせい]として分[わ]かりやすい順番[じゅんばん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "意見[いけん]→理由[りゆう]・事実[じじつ]→まとめ。"
+        },
+        {
+          "id": "b",
+          "text": "まとめ→関係[かんけい]のない話[はなし]→題名[だいめい]。"
+        },
+        {
+          "id": "c",
+          "text": "理由[りゆう]だけ→意見[いけん]なし。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "意見[いけん]と根拠[こんきょ]の関係[かんけい]が伝[つた]わるよう、文章全体[ぶんしょうぜんたい]を構成[こうせい]する。"
+  },
+  {
+    "id": "kokugo.g5.writing-with-evidence.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.writing-with-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-structure",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "事実[じじつ]と意見[いけん]を区別[くべつ]して書[か]いている文[ぶん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "調査[ちょうさ]では30人中[にんちゅう]20人が賛成[さんせい]した。この結果[けっか]から、実施[じっし]する価値[かち]があると考[かんが]える。"
+        },
+        {
+          "id": "b",
+          "text": "絶対[ぜったい]によい。とにかくよい。"
+        },
+        {
+          "id": "c",
+          "text": "20人だから30人である。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "調査結果[ちょうさけっか]という事実[じじつ]と、書[か]き手[て]の意見[いけん]を分[わ]けて示[しめ]している。"
+  },
+  {
+    "id": "kokugo.g5.writing-with-evidence.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.writing-with-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-structure",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "資料[しりょう]を引用[いんよう]するときに必要[ひつよう]なことはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "引用部分[いんようぶぶん]を区別[くべつ]し、出典[しゅってん]を示[しめ]す。"
+        },
+        {
+          "id": "b",
+          "text": "自分[じぶん]の文[ぶん]として書[か]き換[か]えずに使[つか]うだけ。"
+        },
+        {
+          "id": "c",
+          "text": "都合[つごう]のよい数値[すうち]に変[か]える。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "引用[いんよう]は自分[じぶん]の考[かんが]えと区別[くべつ]し、どこから得[え]た情報[じょうほう]か明[あき]らかにする。"
+  },
+  {
+    "id": "kokugo.g5.writing-with-evidence.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.writing-with-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-structure",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "文章[ぶんしょう]を推敲[すいこう]するとき、まず確[たし]かめたいことはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "主張[しゅちょう]と理由[りゆう]が結[むす]び付[つ]き、構成[こうせい]が明確[めいかく]か。"
+        },
+        {
+          "id": "b",
+          "text": "同[おな]じ言葉[ことば]をできるだけ何度[なんど]も使[つか]ったか。"
+        },
+        {
+          "id": "c",
+          "text": "一文[いちぶん]をできるだけ長[なが]くしたか。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "文章全体[ぶんしょうぜんたい]の構成[こうせい]と、意見[いけん]・根拠[こんきょ]の関係[かんけい]を見直[みなお]す。"
+  },
+  {
+    "id": "kokugo.g5.writing-with-evidence.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.writing-with-evidence",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:writing-structure",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「公園[こうえん]にごみ箱[ばこ]を増[ふ]やす」という提案[ていあん]の結[むす]びとして適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "以上[いじょう]の調査結果[ちょうさけっか]から、場所[ばしょ]を選[えら]んでごみ箱[ばこ]を増[ふ]やすことを提案[ていあん]する。"
+        },
+        {
+          "id": "b",
+          "text": "ところで、昨日[きのう]は晴[は]れていた。"
+        },
+        {
+          "id": "c",
+          "text": "理由[りゆう]は書[か]かない。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "結[むす]びでは、示[しめ]した事実[じじつ]や理由[りゆう]を受[う]けて提案[ていあん]をまとめる。"
+  }
+]
