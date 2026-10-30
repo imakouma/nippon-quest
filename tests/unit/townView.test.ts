@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { townView } from '../../src/rendering/overworld/townView';
+import { TOWN_ROOF_START, townView } from '../../src/rendering/overworld/townView';
 
 const grid = (rows: number[][]) => rows.flat();
 
@@ -88,9 +88,39 @@ describe('町の地面の表示写像', () => {
       3,
       3,
     );
-    expect(view[3]).not.toBe(view[4]);
-    expect(view[4]).not.toBe(view[5]);
-    expect(view[4]).toBeGreaterThanOrEqual(19);
+    expect(view[3]).toBe(TOWN_ROOF_START + 2);
+    expect(view[4]).toBe(TOWN_ROOF_START + 8);
+    expect(view[5]).toBe(TOWN_ROOF_START + 16);
+  });
+
+  it('単独と2×2屋根の四辺を正しく判定する', () => {
+    expect(
+      townView(
+        grid([
+          [1, 1, 1],
+          [1, 6, 1],
+          [1, 1, 1],
+        ]),
+        3,
+        3,
+      )[4],
+    ).toBe(TOWN_ROOF_START);
+    const view = townView(
+      grid([
+        [1, 1, 1, 1],
+        [1, 6, 6, 1],
+        [1, 6, 6, 1],
+        [1, 1, 1, 1],
+      ]),
+      4,
+      4,
+    );
+    expect([view[5], view[6], view[9], view[10]]).toEqual([
+      TOWN_ROOF_START + 6,
+      TOWN_ROOF_START + 12,
+      TOWN_ROOF_START + 3,
+      TOWN_ROOF_START + 9,
+    ]);
   });
 
   it('屋根の切り欠きは街の地面に応じて変わる', () => {
