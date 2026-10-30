@@ -12,6 +12,10 @@ interface QuestionTreeProps {
 
 const fileName = (file: string) => file.slice(file.lastIndexOf('/') + 1);
 const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
+const closeChildren = (folder: HTMLDetailsElement) => {
+  if (!folder.open)
+    folder.querySelectorAll('details[open]').forEach((child) => child.removeAttribute('open'));
+};
 
 export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectFile }: QuestionTreeProps) {
   return (
@@ -41,6 +45,7 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
             name="question-tree-subject"
             data-subject={subject.subject}
             onToggle={(event) => {
+              closeChildren(event.currentTarget as HTMLDetailsElement);
               if (
                 !(event.currentTarget as HTMLDetailsElement).open &&
                 selectedFile?.startsWith(`questions/${subject.subject}/`)
@@ -62,6 +67,7 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                 name="question-tree-grade"
                 data-grade={grade.grade}
                 onToggle={(event) => {
+                  closeChildren(event.currentTarget as HTMLDetailsElement);
                   if (
                     !(event.currentTarget as HTMLDetailsElement).open &&
                     selectedFile?.startsWith(`questions/${subject.subject}/g${grade.grade}/`)

@@ -249,6 +249,24 @@ test('Playground の問題ツリー：教科と学年はそれぞれ一つずつ
   await expect(sansuGrade).toHaveAttribute('open', '');
 });
 
+test('親フォルダを閉じると子フォルダの開閉状態をリセットする', async ({ page }) => {
+  await page.goto('/playground.html');
+  const subject = page.locator('details[data-subject="kokugo"]');
+  const grade = subject.locator('details[data-grade="2"]');
+  const unit = grade.locator('details[data-unit="kokugo.g2.bun-no-kimari"]');
+  await subject.locator(':scope > summary').click();
+  await grade.locator(':scope > summary').click();
+  await unit.locator(':scope > summary').click();
+  await grade.locator(':scope > summary').click();
+  await grade.locator(':scope > summary').click();
+  await expect(unit).not.toHaveAttribute('open', '');
+  await unit.locator(':scope > summary').click();
+  await subject.locator(':scope > summary').click();
+  await subject.locator(':scope > summary').click();
+  await expect(grade).not.toHaveAttribute('open', '');
+  await expect(unit).not.toHaveAttribute('open', '');
+});
+
 test('Playground の問題ツリー：狭い画面では表の上に並ぶ', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('/playground.html');
