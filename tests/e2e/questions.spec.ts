@@ -15,12 +15,7 @@ test('choice：旧版の横長画像を正方形へ潰さず表示する', async
 
 /** Playground で picture-word のサンプル（1 問目：りんごの絵）を出す */
 async function showPictureWord(page: Page) {
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/_samples/picture-word.json');
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.picture-word\.0001/, {
-    timeout: 10_000,
-  });
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sample.picture-word.0001');
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
   await expect(page.locator('.nq-pw-picture')).toBeVisible();
   await expect(page.locator('.nq-pw-card').first()).toHaveAttribute('aria-describedby', 'nq-question-prompt');
@@ -42,12 +37,7 @@ test('picture-word：1 回まちがえてから 正解すると score 0.5', asyn
 });
 
 test('sort-order：カードの順位と移動ボタンの意味を読み上げ用に持つ', async ({ page }) => {
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/_samples/sort-order.json');
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.sort-order\.0001/, {
-    timeout: 10_000,
-  });
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sample.sort-order.0001');
   const cards = page.getByRole('listitem');
   await expect(cards.first()).toHaveAttribute('aria-posinset', '1');
   await expect(cards.first()).toHaveAttribute('aria-setsize', String(await cards.count()));
@@ -56,10 +46,7 @@ test('sort-order：カードの順位と移動ボタンの意味を読み上げ�
 });
 
 test('pair-match：やりなおし後にキーボードで合わせると score 1', async ({ page }) => {
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
-  await page.locator('select#pg-question').selectOption('1');
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sample.pair-match.0002');
 
   const card = (text: string) => page.locator('.nq-pm-card', { hasText: text });
   await expect(card('秋田')).toHaveAttribute('aria-describedby', 'nq-question-prompt');
@@ -81,10 +68,7 @@ test('pair-match：やりなおし後にキーボードで合わせると score 
 
 test('pair-match：最大6ペアが960×540の問題枠に収まる', async ({ page }) => {
   await page.setViewportSize({ width: 960, height: 540 });
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
-  await page.locator('select#pg-question').selectOption('2');
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sample.pair-match.0003');
 
   const cards = page.locator('.nq-pm-card');
   await expect(cards).toHaveCount(12);
@@ -104,12 +88,7 @@ test('pair-match：最大6ペアが960×540の問題枠に収まる', async ({ p
 });
 
 test('number-build：現在値と操作部から設問を読み上げで参照できる', async ({ page }) => {
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/_samples/number-build.json');
-  await expect(page.locator('textarea')).toHaveValue(/sample\.number-build\.blocks\.0001/, {
-    timeout: 10_000,
-  });
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sample.number-build.blocks.0001');
   const value = page.locator('.nq-nb-value');
   await expect(value).toHaveAttribute('aria-label', 'いまの すうじ 0');
   await expect(page.locator('.nq-nb-block').first()).toHaveAttribute(
@@ -124,10 +103,7 @@ test('number-build：現在値と操作部から設問を読み上げで参照�
 });
 
 test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page }) => {
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/sansu/g1/kazu-100/set-001.json');
-  await page.locator('select#pg-question').selectOption('20');
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sansu.g1.kazu-100.ringo-numberline-0001');
   const numberline = page.getByRole('slider');
   await expect(numberline).toHaveValue('0');
   await numberline.press('ArrowRight');
@@ -136,12 +112,7 @@ test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page
 });
 
 test('experiment：予想・操作・結果の状態を読み上げ用に持つ', async ({ page }) => {
-  await page.goto('/playground.html');
-  await page.locator('select#pg-file').selectOption('questions/_samples/experiment.json');
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/sample\.experiment\.water\.0001/, {
-    timeout: 10_000,
-  });
-  await page.click('button.pg-run');
+  await page.goto('/playground.html?q=sample.experiment.water.0001');
   const choice = page.locator('.nq-exp-choices button').first();
   await expect(choice).toHaveAttribute('aria-describedby', 'nq-exp-predict-prompt');
   await choice.click();

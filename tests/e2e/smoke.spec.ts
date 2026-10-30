@@ -48,35 +48,29 @@ test('タイトル画面は全ゲームコンテンツの読込を待たない',
 });
 
 test('Playground で choice 問題を解くと QuestionResult が返る', async ({ page }) => {
-  await page.goto('/playground.html');
-  await expect(page.getByLabel('学年', { exact: true })).toBeVisible();
-  await expect(page.getByLabel('制限(秒)', { exact: true })).toBeVisible();
-  await expect(page.getByLabel('問題ファイル', { exact: true })).toBeVisible();
-  await expect(page.getByLabel('問題 JSON（直接編集して試せます）', { exact: true })).toBeVisible();
-  // 問題ファイルを選ぶ → 最初の問題が JSON 欄に入る
-  await page.locator('select#pg-file').selectOption({ index: 1 });
-  await expect(page.locator('textarea#pg-json')).not.toBeEmpty({ timeout: 10_000 });
-  await page.click('button.pg-run');
-  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 10_000 });
+  test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await page.locator('.nq-choice').first().click();
   await expect(page.locator('.pg-result')).toContainText('"score"', { timeout: 10_000 });
 });
 
-test('問題Webエディタの主要入力と選択肢操作に名前がある', async ({ page }) => {
-  await page.goto('/editor.html');
+test('問題レビュー内の編集フォームに主要入力と選択肢操作の名前がある', async ({ page }) => {
+  test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   for (const label of [
     '問題 ID',
-    '問題タイプ (type)',
-    '教科 (subject)',
-    '学年 (grade)',
-    '単元コード (unit)',
-    '制限時間 (秒)',
-    '解説文 (RubyText)',
-    '問題文 (prompt)',
+    '問題タイプ',
+    '教科',
+    '学年',
+    '単元コード',
+    '制限時間・秒',
+    '解説文',
+    '問題文',
     '選択肢 1',
     '選択肢 1を正解にする',
   ]) {
-    await expect(page.getByLabel(label, { exact: true })).toBeVisible();
+    await expect(page.getByLabel(label, { exact: true })).toBeVisible({ timeout: 20_000 });
   }
   await expect(page.getByRole('button', { name: '選択肢 1を削除' })).toBeVisible();
 });

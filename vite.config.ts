@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { relative, resolve } from 'node:path';
 import { existsSync, statSync, createReadStream, cpSync } from 'node:fs';
 import { isGameAssetPath } from './scripts/game-asset-policy';
+import { questionSaveMiddleware } from './scripts/question-save-server';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -51,10 +52,40 @@ function serveRootDirs(dirs: string[]): Plugin {
   };
 }
 
+const includeDeveloperTools = process.env.VITE_NQ_DEV_TOOLS === '1';
+
+function questionSave(): Plugin {
+  return {
+    name: 'nihonquest:question-save',
+    configureServer(server) {
+      server.middlewares.use(questionSaveMiddleware(root));
+    },
+    configurePreviewServer(server) {
+      if (includeDeveloperTools) {
+        server.middlewares.use(questionSaveMiddleware(root));
+        server.middlewares.use((req, res, next) => {
+          const path = (req.url ?? '').split('?')[0] ?? '';
+          if (
+            !/^\/content\/questions\/(kokugo|sansu|rika|shakai|seikatsu|eigo)\/g[1-6]\/(?:[a-z0-9-]+\/set-\d{3}|kanji-trace)\.json$/.test(
+              path,
+            )
+          )
+            return next();
+          const file = resolve(root, path.slice(1));
+          if (!existsSync(file) || !statSync(file).isFile()) return next();
+          res.setHeader('Content-Type', 'application/json');
+          res.setHeader('Cache-Control', 'no-cache');
+          createReadStream(file).pipe(res);
+        });
+      }
+    },
+  };
+}
+
 export default defineConfig({
   base: process.env.BASE_PATH ?? '/',
   esbuild: { sourcemap: false },
-  plugins: [preact(), serveRootDirs(['content', 'assets', 'schemas', 'maps'])],
+  plugins: [preact(), questionSave(), serveRootDirs(['content', 'assets', 'schemas', 'maps'])],
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',
@@ -64,10 +95,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
-        playground: resolve(root, 'playground.html'),
         battleQuestionAudit: resolve(root, 'battle-question-audit.html'),
         contextActionAudit: resolve(root, 'context-action-audit.html'),
-        editor: resolve(root, 'editor.html'),
+        ...(includeDeveloperTools
+          ? {
+              playground: resolve(root, 'playground.html'),
+            }
+          : {}),
       },
       output: {
         // Phaser は大きく更新頻度が低い。ゲーム本体と分離して、更新時にブラウザキャッシュを再利用する。

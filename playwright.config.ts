@@ -27,7 +27,7 @@ export default defineConfig({
   webServer: {
     command: useDevServer
       ? `pnpm exec vite --host 127.0.0.1 --port ${port} --strictPort`
-      : `pnpm build && pnpm exec vite preview --host 127.0.0.1 --port ${port} --strictPort`,
+      : `VITE_NQ_DEV_TOOLS=1 pnpm build && pnpm exec vite preview --host 127.0.0.1 --port ${port} --strictPort`,
     port,
     // 通常は検査ごとに本番previewを作り直す。手元で既に最新版を起動済みの場合だけ明示的に再利用する。
     reuseExistingServer: process.env.E2E_REUSE_SERVER === '1',

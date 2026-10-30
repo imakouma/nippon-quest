@@ -280,7 +280,7 @@
   color: var(--nq-yellow);
   border-color: var(--nq-yellow);
 }
-/* 開発者モードの ボタン（開発サーバー・?dev のときだけ）。ON は むらさきに 光る */
+/* 開発者モードの ボタン（ローカル開発環境だけ）。ON は むらさきに 光る */
 .nq-fhud-dev {
   color: var(--nq-yellow);
 }

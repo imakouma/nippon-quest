@@ -236,8 +236,10 @@ async function showRoadmap(
   developerMode = false,
   options: {
     container?: HTMLElement;
+    developerTools?: { questionsHref: string; editorHref: string };
     focusKey?: string;
     roadmapView?: RoadmapViewModel;
+    stayHome?: boolean;
   } = {},
 ): Promise<HTMLElement> {
   const container = options.container ?? document.createElement('div');
@@ -251,6 +253,7 @@ async function showRoadmap(
         roadmap: nodes,
         roadmapView: options.roadmapView,
         developerMode,
+        developerTools: options.developerTools,
         empty: '',
         message: null,
         focusKey: options.focusKey,
@@ -267,7 +270,7 @@ async function showRoadmap(
       container,
     ),
   );
-  if (initialHome)
+  if (initialHome && !options.stayHome)
     await act(async () => container.querySelector<HTMLButtonElement>('.nq-menu-card')!.click());
   return container;
 }
@@ -323,6 +326,25 @@ describe('きょうの3つ', () => {
 
     expect(container.querySelector('.nq-roadmap-today')).toBeNull();
     expect(container.textContent).not.toContain('きょうの 3つ');
+  });
+});
+
+describe('開発者ツール', () => {
+  it('開発者ツールを渡したメニューだけに問題一覧と問題編集を表示する', async () => {
+    const regular = await showRoadmap(vi.fn());
+    expect(regular.querySelector('.nq-menu-dev-tools')).toBeNull();
+
+    const developer = await showRoadmap(vi.fn(), true, true, {
+      developerTools: {
+        questionsHref: '/playground.html',
+        editorHref: '/playground.html',
+      },
+      stayHome: true,
+    });
+    const links = [...developer.querySelectorAll<HTMLAnchorElement>('.nq-menu-dev-tools a')];
+
+    expect(links.map((link) => link.getAttribute('aria-label'))).toEqual(['問題一覧', '問題編集']);
+    expect(links.map((link) => link.getAttribute('href'))).toEqual(['/playground.html', '/playground.html']);
   });
 });
 

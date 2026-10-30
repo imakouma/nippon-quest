@@ -12,26 +12,130 @@ test('Playground は翻訳辞書の読込前に欠落警告を出さない', asy
   expect(warnings.filter((message) => message.includes('[i18n] キーがありません'))).toEqual([]);
 });
 
+test('Playground は問題を探して試すレビュー画面として表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+
+  await expect(page.getByRole('heading', { name: '問題レビュー' })).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole('navigation', { name: '問題を探す' })).toBeVisible();
+  const filters = page.locator('details.pg-filter-details');
+  await expect(filters).not.toHaveAttribute('open', '');
+  await expect(page.locator('input#pg-f-text')).toBeHidden();
+  await expect(page.getByRole('region', { name: '問題フォルダ' })).toBeVisible();
+  await filters.locator('summary').click();
+  await expect(page.locator('input#pg-f-text')).toBeVisible();
+  await expect(page.getByRole('region', { name: '問題プレビュー' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText(
+    /まだ結果はありません|回答中です/,
+  );
+
+  const technical = page.locator('details.pg-technical');
+  await expect(technical).toBeHidden();
+  await expect(page.locator('select#pg-file')).toBeHidden();
+  await expect(page.locator('textarea#pg-json')).toHaveCount(0);
+});
+
+test('Playground は選択中の実問題を同じ画面でフォーム編集できる', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
+
+  await expect(page.getByRole('region', { name: '問題を編集' })).toBeVisible();
+  await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g1.alphabet.0002');
+  await expect(page.getByLabel('問題 ID', { exact: true })).toHaveAttribute('readonly', '');
+  await expect(page.getByLabel('単元コード', { exact: true })).toHaveAttribute('readonly', '');
+  await expect(page.getByRole('button', { name: /問題を編集する|問題を確認する/ })).toHaveCount(0);
+  await expect(page.locator('textarea#pg-json')).toHaveCount(0);
+
+  const prompt = page.getByLabel('問題文', { exact: true });
+  await prompt.fill('へんしゅうした もんだい');
+  await expect(page.getByRole('heading', { name: 'へんしゅうした もんだい' })).toBeVisible();
+  await expect(prompt).toHaveValue('へんしゅうした もんだい');
+});
+
+test('Playground は編集を一つもどせ、問題を切り替えると履歴が消える', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const prompt = page.getByLabel('問題文', { exact: true });
+  await expect(prompt).toBeVisible({ timeout: 20_000 });
+  const original = await prompt.inputValue();
+  const undo = page.getByRole('button', { name: '一つもどる' });
+  await expect(undo).toBeDisabled();
+  await prompt.fill('変更した問題文');
+  await expect(undo).toBeEnabled();
+  await undo.click();
+  await expect(prompt).toHaveValue(original);
+  await expect(undo).toBeDisabled();
+  await prompt.fill('別の変更');
+  await page.locator('details.pg-tree-details > summary').click();
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.locator('.pg-question-row').first().click();
+  await expect(undo).toBeDisabled();
+});
+
+test('Playground は保存操作で編集内容を送信し、成功を表示する', async ({ page }) => {
+  await page.route('**/__nq/save-question', async (route) => {
+    const body = route.request().postDataJSON() as {
+      expected: { id: string }[];
+      id: string;
+      question: unknown;
+    };
+    const questions = body.expected.map((question) => (question.id === body.id ? body.question : question));
+    await route.fulfill({ json: { questions } });
+  });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const prompt = page.getByLabel('問題文', { exact: true });
+  await expect(prompt).toBeVisible({ timeout: 20_000 });
+  await prompt.fill('保存する問題文');
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('保存しました');
+  await expect(page.getByRole('button', { name: '保存', exact: true })).toBeDisabled();
+});
+
+test('Playground は編集欄の学年と制限時間で問題を試す', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('#pg-grade, #pg-time-limit')).toHaveCount(0);
+  await page.getByLabel('学年', { exact: true }).selectOption('2');
+  await page.getByLabel('制限時間・秒', { exact: true }).fill('3');
+  await page.getByRole('button', { name: '中断', exact: true }).click();
+  await page.getByRole('button', { name: '再生', exact: true }).click();
+  await expect(page.getByLabel('学年', { exact: true })).toHaveValue('2');
+  await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText('時間切れ', {
+    timeout: 8_000,
+  });
+});
+
+test('Playground は choice 以外も JSON を使わず項目ごとに編集できる', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g3.sea.0006');
+
+  const word = page.locator('#ed-payload-words-0-text');
+  await expect(word).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('.nq-q-pw')).toBeVisible();
+  const original = await word.inputValue();
+  await word.fill(`${original}-edited`);
+  await expect(word).toHaveValue(`${original}-edited`);
+  await expect(page.locator('textarea#pg-json')).toHaveCount(0);
+});
+
 test('Playground の問題いちらん：全件数と先頭200問が出て、しぼりこめる', async ({ page }) => {
   await page.goto('/playground.html');
-  const rows = page.locator('.pg-table tbody tr');
+  const rows = page.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
   const allQuestionCount = await rows.count();
   expect(allQuestionCount).toBe(200);
-  await expect(page.locator('.pg-count')).toContainText('ぜんぶで 4832');
+  await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問');
   await expect(page.locator('.pg-empty')).toContainText('先頭 200 問');
-  await expect(page.locator('.pg-table tr.pg-bad')).toHaveCount(0);
+  await expect(page.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 
+  await page.locator('details.pg-filter-details > summary').click();
   await page.locator('select#pg-f-type').selectOption('picture-word');
   await expect(rows.first()).toBeVisible();
-  expect(await rows.locator('td:nth-child(5)').allTextContents()).toEqual(
-    Array(await rows.count()).fill('picture-word'),
-  );
+  expect(
+    await rows.evaluateAll((items) => items.map((item) => item.getAttribute('data-question-type'))),
+  ).toEqual(Array(await rows.count()).fill('picture-word'));
   await page.locator('input#pg-f-text').fill('eigo.g3.sea.0006');
   await expect(rows).toHaveCount(1);
-  await rows.first().click();
+  await rows.first().focus();
+  await page.keyboard.press('Enter');
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g3\.sea\.0006/);
   await expect(page.locator('select#pg-file')).toHaveValue('questions/eigo/g3/sea/set-001.json');
   await expect(page.locator('select#pg-question option:checked')).toContainText('eigo.g3.sea.0006');
   await expect(page).toHaveURL(/\?q=eigo\.g3\.sea\.0006/);
@@ -49,16 +153,24 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
   });
 
   await page.goto('/playground.html');
-  await expect(page.locator('.pg-count')).toContainText('ぜんぶで 4832', { timeout: 30_000 });
+  await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問', { timeout: 30_000 });
   expect(maximum).toBeLessThanOrEqual(8);
 });
 
 test('Playground の問題ツリー：教科からセットを選び、キーボードで全件へ戻せる', async ({ page }) => {
   await page.goto('/playground.html');
-  const rows = page.locator('.pg-table tbody tr');
+  const rows = page.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
 
-  const tree = page.getByRole('navigation', { name: '問題フォルダ' });
+  const treeDetails = page.locator('details.pg-tree-details');
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
+  await expect(treeDetails).toHaveAttribute('open', '');
+  expect((await tree.boundingBox())!.height).toBeGreaterThan(300);
+  await treeDetails.locator(':scope > summary').click();
+  await expect(tree).toBeHidden();
+  await treeDetails.locator(':scope > summary').click();
+  await expect(tree).toBeVisible();
+
   const all = tree.getByRole('button', { name: /すべて.*4832/ });
   await expect(all).toHaveAttribute('aria-pressed', 'true');
 
@@ -90,22 +202,96 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   expect(await rows.count()).toBeGreaterThan(100);
 });
 
+test('Playground の問題ツリー：教科と学年はそれぞれ一つずつ開く', async ({ page }) => {
+  await page.goto('/playground.html');
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
+  const kokugo = tree.locator('details[data-subject="kokugo"]');
+  const sansu = tree.locator('details[data-subject="sansu"]');
+  await kokugo.locator(':scope > summary').click();
+  const grade1 = kokugo.locator('details[data-grade="1"]');
+  const grade2 = kokugo.locator('details[data-grade="2"]');
+  await grade1.locator(':scope > summary').click();
+  await grade2.locator(':scope > summary').click();
+  await expect(grade1).not.toHaveAttribute('open', '');
+  await expect(grade2).toHaveAttribute('open', '');
+  await sansu.locator(':scope > summary').click();
+  await expect(kokugo).not.toHaveAttribute('open', '');
+  await expect(sansu).toHaveAttribute('open', '');
+  const sansuGrade = sansu.locator('details[data-grade="1"]');
+  await sansuGrade.locator(':scope > summary').click();
+  await expect(grade2).not.toHaveAttribute('open', '');
+  await expect(sansuGrade).toHaveAttribute('open', '');
+});
+
 test('Playground の問題ツリー：狭い画面では表の上に並ぶ', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('/playground.html');
 
-  const tree = page.getByRole('navigation', { name: '問題フォルダ' });
-  const table = page.locator('.pg-table-wrap');
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
+  const results = page.locator('.pg-results');
   await expect(tree).toBeVisible({ timeout: 20_000 });
-  await expect(table).toBeVisible();
+  await expect(results).toBeVisible();
 
   const treeBox = await tree.boundingBox();
-  const tableBox = await table.boundingBox();
+  const resultsBox = await results.boundingBox();
   expect(treeBox).not.toBeNull();
-  expect(tableBox).not.toBeNull();
-  expect(tableBox!.y).toBeGreaterThanOrEqual(treeBox!.y + treeBox!.height);
-  expect(await table.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
+  expect(resultsBox).not.toBeNull();
+  expect(resultsBox!.y).toBeGreaterThanOrEqual(treeBox!.y + treeBox!.height);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
+});
+
+test('Playground は中幅の画面でも問題一覧とレビューを横に並べる', async ({ page }) => {
+  await page.setViewportSize({ width: 960, height: 900 });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
+
+  const list = page.locator('.pg-list');
+  const review = page.locator('.pg-review');
+  await expect(list).toBeVisible({ timeout: 20_000 });
+  await expect(review).toBeVisible();
+  const heading = await page.locator('.pg-question-heading').boundingBox();
+  const play = await page.getByRole('button', { name: '再生', exact: true }).boundingBox();
+  expect(heading).not.toBeNull();
+  expect(play).not.toBeNull();
+  expect(play!.x).toBeGreaterThanOrEqual(heading!.x + heading!.width);
+
+  const listBox = await list.boundingBox();
+  const reviewBox = await review.boundingBox();
+  expect(listBox).not.toBeNull();
+  expect(reviewBox).not.toBeNull();
+  expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(reviewBox!.width / listBox!.width).toBeGreaterThanOrEqual(1.99);
+  await page.locator('details[data-subject="sansu"] > summary').click();
+  await expect(page.locator('details[data-subject="sansu"] details[data-grade="1"]')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
+});
+
+test('Playground は広い画面でプレビューを編集の上に表示し、基本情報を横に並べる', async ({ page }) => {
+  await page.setViewportSize({ width: 1600, height: 900 });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
+
+  const list = page.locator('.pg-list');
+  const editor = page.locator('.pg-editor');
+  const preview = page.locator('.pg-preview');
+  await expect(editor).toBeVisible({ timeout: 20_000 });
+  await expect(preview).toBeVisible();
+
+  const listBox = await list.boundingBox();
+  const editorBox = await editor.boundingBox();
+  const previewBox = await preview.boundingBox();
+  expect(listBox).not.toBeNull();
+  expect(editorBox).not.toBeNull();
+  expect(previewBox).not.toBeNull();
+  expect(previewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(editorBox!.y).toBeGreaterThanOrEqual(previewBox!.y + previewBox!.height);
+  const fields = await page
+    .locator('.ed-metadata-row .ed-field')
+    .evaluateAll((items) =>
+      items.map((item) => ({ x: item.getBoundingClientRect().x, y: item.getBoundingClientRect().y })),
+    );
+  expect(fields).toHaveLength(4);
+  expect(new Set(fields.map((field) => field.y)).size).toBe(1);
+  expect(fields[3]!.x).toBeGreaterThan(fields[0]!.x);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1600);
 });
 
 test('Playground は旧 manifest でも問題表を全幅で表示する', async ({ page }) => {
@@ -117,20 +303,19 @@ test('Playground は旧 manifest でも問題表を全幅で表示する', async
   });
   await page.goto('/playground.html');
 
-  const table = page.locator('.pg-table-wrap');
-  await expect(table.locator('tbody tr').first()).toBeVisible({ timeout: 20_000 });
-  await expect(page.getByRole('navigation', { name: '問題フォルダ' })).toHaveCount(0);
+  const results = page.locator('.pg-results');
+  await expect(results.locator('.pg-question-row').first()).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByRole('region', { name: '問題フォルダ' })).toHaveCount(0);
   const widths = await page.locator('.pg-browser').evaluate((browser) => ({
     browser: browser.getBoundingClientRect().width,
-    table: browser.querySelector('.pg-table-wrap')!.getBoundingClientRect().width,
+    results: browser.querySelector('.pg-results')!.getBoundingClientRect().width,
   }));
-  expect(widths.table).toBe(widths.browser);
+  expect(widths.results).toBe(widths.browser);
 });
 
 test('Playground：?q=<問題 id> で ひらくと その問題が出る', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
-  await expect(page.locator('.pg-table tr.pg-sel')).toContainText('eigo.g1.alphabet.0002');
-  await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g1\.alphabet\.0002/);
+  await expect(page.locator('.pg-question-row.pg-sel')).toContainText('eigo.g1.alphabet.0002');
   await expect(page.locator('select#pg-question')).toHaveValue('1');
 });

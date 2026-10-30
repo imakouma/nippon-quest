@@ -8,9 +8,11 @@ const preinstalled = [
   '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
 ].find((path) => existsSync(path));
 const port = Number(process.env.E2E_PORT ?? 4174);
+process.env.E2E_PRODUCTION_BUILD = '1';
 
 export default defineConfig({
   testDir: '.',
+  testIgnore: ['playground-list.spec.ts', 'questions.spec.ts'],
   timeout: 30_000,
   workers: 1,
   reporter: process.env.CI ? [['line'], ['html', { open: 'never' }]] : 'list',

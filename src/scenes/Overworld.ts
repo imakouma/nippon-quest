@@ -2633,6 +2633,13 @@ export class OverworldScene extends Phaser.Scene {
     return isLocalDevelopmentUrl(new URL(location.href), import.meta.env.DEV);
   }
 
+  private developerTools(): { questionsHref: string; editorHref: string } | undefined {
+    if (!this.devAvailable() || !this.devAll()) return undefined;
+    if (!import.meta.env.DEV && import.meta.env.VITE_NQ_DEV_TOOLS !== '1') return undefined;
+    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+    return { questionsHref: `${base}/playground.html`, editorHref: `${base}/playground.html` };
+  }
+
   /** 開発者モード中：全地域へ移動でき、教材ロードマップも全開放する（counters の dev:all）。 */
   devAll(): boolean {
     return developerTravelActive(this.gs(), this.devAvailable());
@@ -2681,6 +2688,7 @@ export class OverworldScene extends Phaser.Scene {
           entries: view.entries,
           roadmapView,
           developerMode: this.devAll(),
+          developerTools: this.developerTools(),
           summary: view.summary,
           empty: view.empty,
           message,

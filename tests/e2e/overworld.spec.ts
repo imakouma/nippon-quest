@@ -652,3 +652,23 @@ test('scripted battle→warp は encounter lifecycle と transition pipeline を
     ),
   ).toBe(1);
 });
+
+test('開発者モードのメニューから問題一覧と問題編集を開ける', async ({ page }) => {
+  test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
+  test.setTimeout(90_000);
+  await startField(page);
+
+  await page.getByRole('button', { name: 'かいはつしゃ', exact: true }).click();
+  await finishDialogue(page);
+  await page.getByRole('button', { name: 'メニュー', exact: true }).click();
+
+  const menu = page.getByRole('dialog', { name: 'メニュー' });
+  await expect(menu.getByRole('link', { name: 'もんだいいちらん' })).toHaveAttribute(
+    'href',
+    '/playground.html',
+  );
+  await expect(menu.getByRole('link', { name: 'もんだいへんしゅう' })).toHaveAttribute(
+    'href',
+    '/playground.html',
+  );
+});
