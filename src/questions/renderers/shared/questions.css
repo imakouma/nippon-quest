@@ -601,6 +601,17 @@
 .nq-feedback-correct .nq-feedback-text {
   color: #ffe66d;
 }
+.nq-pm-prompt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nq-pm-prompt .nq-q-prompt {
+  flex: 1;
+}
+.nq-pm-retry {
+  flex: none;
+}
 .nq-pm-grid {
   display: grid;
   gap: 12px;

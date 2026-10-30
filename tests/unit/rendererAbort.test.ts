@@ -140,6 +140,7 @@ describe('question renderer cancellation', () => {
         experimentPredict: 'よそう',
         experimentTry: 'ためす',
         pairMatchBack: 'ふせてある カード',
+        pairMatchRetry: 'やりなおす',
         sortMoveEarlier: '{name}を まえへ',
         sortMoveLater: '{name}を うしろへ',
       },

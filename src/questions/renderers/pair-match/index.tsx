@@ -42,6 +42,7 @@ function PairMatchView({
   const [open, setOpen] = useState<string[]>([]);
   const [missFlash, setMissFlash] = useState(false);
   const [done, setDone] = useState<Done | null>(null);
+  const [round, setRound] = useState(0);
   const misses = useRef(0);
   const attempts = useRef(0);
   const ended = useRef(false);
@@ -120,6 +121,18 @@ function PairMatchView({
     }, 800);
   };
 
+  const retry = () => {
+    if (ended.current) return;
+    clearTimers();
+    misses.current = 0;
+    attempts.current = 0;
+    setMatched([]);
+    setOpen([]);
+    setMissFlash(false);
+    setRound((value) => value + 1);
+    ctx.onProgress?.({ attempts: 0 });
+  };
+
   const card = (id: string) => {
     const pair = payload.pairs[Number(pairOf(id))]!;
     const face = sideOf(id) === 'a' ? pair.a : pair.b;
@@ -147,8 +160,19 @@ function PairMatchView({
 
   return (
     <div class="nq-q nq-q-pair-match">
-      <TimerBar ms={ctx.timeLimitMs} running={done === null} onTimeout={() => complete(true)} />
-      <RubyLabel id="nq-question-prompt" class="nq-q-prompt" text={payload.prompt} grade={ctx.grade} as="p" />
+      <TimerBar key={round} ms={ctx.timeLimitMs} running={done === null} onTimeout={() => complete(true)} />
+      <div class="nq-pm-prompt">
+        <RubyLabel
+          id="nq-question-prompt"
+          class="nq-q-prompt"
+          text={payload.prompt}
+          grade={ctx.grade}
+          as="p"
+        />
+        <button type="button" class="nq-btn nq-pm-retry" disabled={done !== null} onClick={retry}>
+          {t('question.pairMatchRetry')}
+        </button>
+      </div>
       {payload.faceDown ? (
         <div
           class={`nq-pm-grid nq-pm-grid-${order.length}`}

@@ -55,7 +55,7 @@ test('sort-order：カードの順位と移動ボタンの意味を読み上げ�
   await expect(cards.first().getByRole('button').nth(1)).toHaveAttribute('aria-label', /ひとつ うしろへ/);
 });
 
-test('pair-match：見えているカードをキーボードで合わせると score 1', async ({ page }) => {
+test('pair-match：やりなおし後にキーボードで合わせると score 1', async ({ page }) => {
   await page.goto('/playground.html');
   await page.locator('select#pg-file').selectOption('questions/_samples/pair-match.json');
   await page.locator('select#pg-question').selectOption('1');
@@ -63,6 +63,14 @@ test('pair-match：見えているカードをキーボードで合わせると 
 
   const card = (text: string) => page.locator('.nq-pm-card', { hasText: text });
   await expect(card('秋田')).toHaveAttribute('aria-describedby', 'nq-question-prompt');
+  for (const text of ['秋田', 'きりたんぽ']) {
+    await card(text).focus();
+    await page.keyboard.press('Enter');
+  }
+  await expect(page.locator('.nq-pm-matched')).toHaveCount(2);
+  await page.getByRole('button', { name: 'やりなおす' }).click();
+  await expect(page.locator('.nq-pm-matched')).toHaveCount(0);
+
   for (const text of ['秋田', 'きりたんぽ', '岩手', 'わんこそば']) {
     await card(text).focus();
     await page.keyboard.press('Enter');

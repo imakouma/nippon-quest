@@ -66,7 +66,11 @@ describe('pair-match schema', () => {
 describe('pair-match renderer', () => {
   beforeEach(() =>
     setDictionary({
-      question: { pairMatchBack: 'ふせてある カード', remainingTime: 'のこり {n} びょう' },
+      question: {
+        pairMatchBack: 'ふせてある カード',
+        pairMatchRetry: 'やりなおす',
+        remainingTime: 'のこり {n} びょう',
+      },
     }),
   );
 
@@ -135,6 +139,63 @@ describe('pair-match renderer', () => {
     expect(cards.every((card) => card.getAttribute('aria-label') === 'ふせてある カード')).toBe(true);
     act(() => cards[0]!.click());
     expect(cards[0]!.textContent).not.toBe('？');
+  });
+
+  it('やりなおすと揃えたカードと採点を初期化する', async () => {
+    vi.useFakeTimers();
+    const container = document.createElement('div');
+    document.body.append(container);
+    let result!: Promise<QuestionResult>;
+    act(() => {
+      result = pairMatchRenderer.mount(context(container, false));
+    });
+    const byText = (text: string) =>
+      [...container.querySelectorAll<HTMLButtonElement>('.nq-pm-card')].find(
+        (card) => card.textContent === text,
+      )!;
+
+    act(() => byText('A').click());
+    act(() => byText('b').click());
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(900);
+    });
+    act(() => byText('A').click());
+    act(() => byText('a').click());
+    expect(container.querySelectorAll('.nq-pm-matched')).toHaveLength(2);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(30_000);
+    });
+
+    act(() => {
+      container.querySelector<HTMLButtonElement>('.nq-pm-retry')!.click();
+    });
+    expect(container.querySelectorAll('.nq-pm-matched')).toHaveLength(0);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(31_000);
+    });
+    let settled = false;
+    void result.then(() => {
+      settled = true;
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(settled).toBe(false);
+
+    act(() => byText('A').click());
+    act(() => byText('a').click());
+    act(() => byText('B').click());
+    act(() => byText('b').click());
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(900);
+    });
+
+    await expect(result).resolves.toMatchObject({
+      score: 1,
+      attempts: 2,
+      timedOut: false,
+      detail: { misses: 0 },
+    });
   });
 
   it('完了演出中の abort は待機 timer を残さず score 0 で即時完了する', async () => {
