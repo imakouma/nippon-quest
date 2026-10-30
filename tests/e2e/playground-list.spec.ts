@@ -53,7 +53,8 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   ).toEqual(Array(await rows.count()).fill('picture-word'));
   await page.locator('input#pg-f-text').fill('eigo.g3.sea.0006');
   await expect(rows).toHaveCount(1);
-  await rows.first().click();
+  await rows.first().focus();
+  await page.keyboard.press('Enter');
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
   await expect(page.locator('textarea#pg-json')).toHaveValue(/eigo\.g3\.sea\.0006/);
   await expect(page.locator('select#pg-file')).toHaveValue('questions/eigo/g3/sea/set-001.json');
@@ -137,6 +138,23 @@ test('Playground の問題ツリー：狭い画面では表の上に並ぶ', asy
   expect(resultsBox).not.toBeNull();
   expect(resultsBox!.y).toBeGreaterThanOrEqual(treeBox!.y + treeBox!.height);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
+});
+
+test('Playground は中幅の画面でも問題一覧とレビューを横に並べる', async ({ page }) => {
+  await page.setViewportSize({ width: 960, height: 900 });
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
+
+  const list = page.locator('.pg-list');
+  const review = page.locator('.pg-review');
+  await expect(list).toBeVisible({ timeout: 20_000 });
+  await expect(review).toBeVisible();
+
+  const listBox = await list.boundingBox();
+  const reviewBox = await review.boundingBox();
+  expect(listBox).not.toBeNull();
+  expect(reviewBox).not.toBeNull();
+  expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
 });
 
 test('Playground は旧 manifest でも問題表を全幅で表示する', async ({ page }) => {
