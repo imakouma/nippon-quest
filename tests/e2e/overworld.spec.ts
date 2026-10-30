@@ -654,6 +654,7 @@ test('scripted battle→warp は encounter lifecycle と transition pipeline を
 });
 
 test('開発者モードのメニューから問題一覧と問題編集を開ける', async ({ page }) => {
+  test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
   test.setTimeout(90_000);
   await startField(page);
 

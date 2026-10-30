@@ -71,6 +71,21 @@ jobs:
             test-results
           if-no-files-found: ignore
           retention-days: 7
+  developer-tools:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - name: Verify development tools in Chromium
+        run: >-
+          pnpm exec playwright test
+          tests/e2e/playground-list.spec.ts tests/e2e/questions.spec.ts tests/e2e/smoke.spec.ts tests/e2e/overworld.spec.ts
+          --grep 'Playground|問題レビュー内|開発者モードのメニュー|choice：|picture-word：|sort-order：|pair-match：|number-build：|experiment：|旧版の|地図問題：'
   deploy-pages:
     if: github.ref == 'refs/heads/main'
     needs: [check, e2e]

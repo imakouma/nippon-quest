@@ -48,6 +48,7 @@ test('タイトル画面は全ゲームコンテンツの読込を待たない',
 });
 
 test('Playground で choice 問題を解くと QuestionResult が返る', async ({ page }) => {
+  test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await page.locator('.nq-choice').first().click();
@@ -55,6 +56,7 @@ test('Playground で choice 問題を解くと QuestionResult が返る', async 
 });
 
 test('問題レビュー内の編集フォームに主要入力と選択肢操作の名前がある', async ({ page }) => {
+  test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   for (const label of [
     '問題 ID',

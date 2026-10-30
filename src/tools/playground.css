@@ -725,6 +725,30 @@ button:disabled {
   box-shadow: 0 12px 28px rgba(16, 27, 24, 0.18);
 }
 
+.pg-stage .nq-q-pair-match {
+  gap: 4px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.pg-stage .nq-q-pair-match .nq-q-prompt {
+  min-height: 0;
+}
+
+.pg-stage .nq-pm-grid {
+  gap: 4px;
+}
+
+.pg-stage .nq-pm-card {
+  min-height: 32px;
+  padding: 4px;
+}
+
+.pg-stage .nq-pm-card img {
+  width: 24px;
+  height: 24px;
+}
+
 .pg-stage-empty {
   position: absolute;
   max-width: 320px;
