@@ -1,5 +1,5 @@
 import type { Grade, QuestionBase, Subject } from '../questions/contracts';
-import { useRef } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 
 type EditorQuestionFormProps = {
   question: QuestionBase;
@@ -95,6 +95,7 @@ export function EditorQuestionForm({
   onPayloadChange,
 }: EditorQuestionFormProps) {
   const draggedChoice = useRef<string | null>(null);
+  const [dropTarget, setDropTarget] = useState<string | null>(null);
   const rawChoices = (question.payload as Record<string, unknown>)?.choices;
   const choices = Array.isArray(rawChoices)
     ? rawChoices.filter(
@@ -167,31 +168,47 @@ export function EditorQuestionForm({
               {choices.map((choice, index) => (
                 <div
                   key={choice.id}
-                  class="ed-choice-row"
+                  class={`ed-choice-row${dropTarget === choice.id ? ' ed-choice-drop-target' : ''}`}
                   onDragOver={(event) => {
-                    if (draggedChoice.current) event.preventDefault();
+                    if (draggedChoice.current) {
+                      event.preventDefault();
+                      setDropTarget(draggedChoice.current === choice.id ? null : choice.id);
+                    }
+                  }}
+                  onDragLeave={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget as Node | null))
+                      setDropTarget(null);
                   }}
                   onDrop={(event) => {
                     event.preventDefault();
                     if (draggedChoice.current) moveChoice(draggedChoice.current, index);
                     draggedChoice.current = null;
+                    setDropTarget(null);
                   }}
                 >
-                  <span
+                  <button
+                    type="button"
                     class="ed-drag-handle"
                     draggable
                     aria-label={`選択肢 ${index + 1}をドラッグして並べ替え`}
-                    title="ドラッグして並べ替え"
+                    title="ドラッグ、または上下の矢印キーで並べ替え"
+                    onKeyDown={(event) => {
+                      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        moveChoice(choice.id, index + (event.key === 'ArrowUp' ? -1 : 1));
+                      }
+                    }}
                     onDragStart={(event) => {
                       draggedChoice.current = choice.id;
                       event.dataTransfer?.setData('text/plain', choice.id);
                     }}
                     onDragEnd={() => {
                       draggedChoice.current = null;
+                      setDropTarget(null);
                     }}
                   >
                     ⠿
-                  </span>
+                  </button>
                   <input
                     type="radio"
                     name="correct"
@@ -201,24 +218,6 @@ export function EditorQuestionForm({
                     onChange={() => onPayloadChange('answer', choice.id)}
                     title="正解の選択肢として指定"
                   />
-                  <div class="ed-choice-move">
-                    <button
-                      type="button"
-                      aria-label={`選択肢 ${index + 1}を上に移動`}
-                      disabled={index === 0}
-                      onClick={() => moveChoice(choice.id, index - 1)}
-                    >
-                      ▲
-                    </button>
-                    <button
-                      type="button"
-                      aria-label={`選択肢 ${index + 1}を下に移動`}
-                      disabled={index === choices.length - 1}
-                      onClick={() => moveChoice(choice.id, index + 1)}
-                    >
-                      ▼
-                    </button>
-                  </div>
                   <input
                     class="ed-input"
                     aria-label={`選択肢 ${index + 1}`}

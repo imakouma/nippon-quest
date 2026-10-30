@@ -123,7 +123,15 @@ test('選択肢をドラッグで並べ替えても正解を保持し、一つ�
     .filter({ has: page.locator('input[type="radio"]:checked') })
     .locator('.ed-input')
     .inputValue();
-  await page.getByLabel('選択肢 1をドラッグして並べ替え').dragTo(page.locator('.ed-choice-row').nth(1));
+  const handle = page.getByLabel('選択肢 1をドラッグして並べ替え');
+  const target = page.locator('.ed-choice-row').nth(1);
+  const dataTransfer = await page.evaluateHandle(() => new DataTransfer());
+  await handle.dispatchEvent('dragstart', { dataTransfer });
+  await target.dispatchEvent('dragover', { dataTransfer });
+  await expect(target).toHaveClass(/ed-choice-drop-target/);
+  await handle.dispatchEvent('dragend', { dataTransfer });
+  await expect(target).not.toHaveClass(/ed-choice-drop-target/);
+  await handle.dragTo(target);
   await expect(first).toHaveValue(secondValue);
   await expect(second).toHaveValue(firstValue);
   await expect(
@@ -137,7 +145,7 @@ test('選択肢をドラッグで並べ替えても正解を保持し、一つ�
   await expect(second).toHaveValue(secondValue);
 });
 
-test('選択肢をボタンで移動し、その順番を保存できる', async ({ page }) => {
+test('選択肢をキーボードで移動し、その順番を保存できる', async ({ page }) => {
   let savedChoices: string[] = [];
   await page.route('**/__nq/save-question', async (route) => {
     const body = route.request().postDataJSON();
@@ -150,7 +158,9 @@ test('選択肢をボタンで移動し、その順番を保存できる', async
   const first = page.getByLabel('選択肢 1', { exact: true });
   await expect(first).toBeVisible();
   const value = await first.inputValue();
-  await page.getByRole('button', { name: '選択肢 1を下に移動' }).click();
+  await expect(page.getByRole('button', { name: /選択肢 .*を(上|下)に移動/ })).toHaveCount(0);
+  await page.getByLabel('選択肢 1をドラッグして並べ替え').focus();
+  await page.keyboard.press('ArrowDown');
   await expect(page.getByLabel('選択肢 2', { exact: true })).toHaveValue(value);
   await page.getByRole('button', { name: '保存', exact: true }).click();
   await expect(page.getByRole('status')).toHaveText('保存しました');

@@ -724,10 +724,19 @@ button:disabled {
   align-items: center;
   gap: 8px;
   margin-bottom: 7px;
+  border-radius: 7px;
+}
+
+.pg-editor .ed-choice-drop-target {
+  background: #dcf3fa;
+  outline: 2px solid #76c9dd;
 }
 
 .pg-editor .ed-drag-handle {
   flex: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: #60736e;
   cursor: grab;
   font-size: 22px;
@@ -736,25 +745,6 @@ button:disabled {
 
 .pg-editor .ed-drag-handle:active {
   cursor: grabbing;
-}
-
-.pg-editor .ed-choice-move {
-  display: flex;
-  flex: none;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.pg-editor .ed-choice-move button {
-  width: 27px;
-  height: 20px;
-  padding: 0;
-  border: 1px solid #c9d2ce;
-  border-radius: 4px;
-  color: #43534f;
-  background: #fff;
-  cursor: pointer;
-  font-size: 10px;
 }
 
 .pg-editor .ed-radio {
