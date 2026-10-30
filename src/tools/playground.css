@@ -334,7 +334,23 @@ button:disabled {
 }
 
 .pg-tree > details > summary {
+  color: #174f47;
+  background: #e3f1ec;
   font-weight: 700;
+}
+
+.pg-tree details[data-grade] > summary {
+  color: #43563e;
+  background: #f0f4e9;
+}
+
+.pg-tree details[data-unit] > summary {
+  color: #345663;
+  background: #edf4f6;
+}
+
+.pg-tree details > summary:hover {
+  filter: brightness(0.96);
 }
 
 .pg-tree-label {
