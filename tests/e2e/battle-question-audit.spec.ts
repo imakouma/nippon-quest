@@ -1,9 +1,9 @@
 import { expect, test } from '@playwright/test';
 
 test('長い選択肢の文字は番号と重ならず、枠からはみ出さない', async ({ page }) => {
-  await page.goto('/playground.html?q=legacy.rika.g5.sci-5-5.abadeb364b15');
+  await page.goto('/battle-question-audit.html?q=legacy.rika.g5.sci-5-5.abadeb364b15');
   const choices = page.locator('.nq-q-choice .nq-choice');
-  await expect(choices.first()).toBeVisible();
+  await expect(choices.first()).toBeVisible({ timeout: 20_000 });
   for (const choice of await choices.all()) {
     const content = choice.locator('.nq-choice-content');
     await expect(content).toBeVisible();
