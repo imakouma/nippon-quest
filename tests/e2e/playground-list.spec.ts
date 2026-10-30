@@ -181,6 +181,9 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   expect(listBox).not.toBeNull();
   expect(reviewBox).not.toBeNull();
   expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(reviewBox!.width / listBox!.width).toBeGreaterThanOrEqual(1.99);
+  await page.locator('details[data-subject="sansu"] > summary').click();
+  await expect(page.locator('details[data-subject="sansu"] details[data-grade="1"]')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
 });
 
