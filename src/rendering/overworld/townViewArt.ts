@@ -1,7 +1,7 @@
 import type Phaser from 'phaser';
 import { NQ } from '../palette';
 import { addImage } from '../sheet';
-import { TOWN_GROUND_COUNT, TOWN_ROOFS, TOWN_ROOF_START } from './townView';
+import { TOWN_FARM_TILE, TOWN_GROUND_COUNT, TOWN_ROOF_START, TOWN_SHOP_START } from './townView';
 
 export const TOWN_VIEW_TEXTURE = 'town-view';
 
@@ -10,7 +10,7 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
   if (scene.textures.exists(TOWN_VIEW_TEXTURE)) return;
   const canvas = document.createElement('canvas');
   canvas.width = 8 * 16;
-  canvas.height = Math.ceil((TOWN_ROOF_START + TOWN_GROUND_COUNT * TOWN_ROOFS.length * 16) / 8) * 16;
+  canvas.height = Math.ceil((TOWN_FARM_TILE + 1) / 8) * 16;
   const ctx = canvas.getContext('2d')!;
   for (let tile = 0; tile < 19; tile++) {
     const x = (tile % 8) * 16;
@@ -82,5 +82,26 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
       }
     }
   }
+  for (let mask = 0; mask < 16; mask++) {
+    const tile = TOWN_SHOP_START + mask;
+    const x = (tile % 8) * 16;
+    const y = Math.floor(tile / 8) * 16;
+    ctx.fillStyle = NQ.beige;
+    ctx.fillRect(x, y, 16, 16);
+    ctx.fillStyle = NQ.sand;
+    if (!(mask & 1)) ctx.fillRect(x, y, 16, 1);
+    if (!(mask & 2)) ctx.fillRect(x + 15, y, 1, 16);
+    if (!(mask & 4)) ctx.fillRect(x, y + 15, 16, 1);
+    if (!(mask & 8)) ctx.fillRect(x, y, 1, 16);
+    ctx.fillRect(x + 3, y + 5, 10, 1);
+    ctx.fillRect(x + 5, y + 10, 6, 1);
+  }
+  const x = (TOWN_FARM_TILE % 8) * 16;
+  const y = Math.floor(TOWN_FARM_TILE / 8) * 16;
+  ctx.fillStyle = NQ.lime;
+  ctx.fillRect(x, y, 16, 16);
+  ctx.fillStyle = NQ.tan;
+  ctx.fillRect(x + 1, y + 13, 4, 1);
+  ctx.fillRect(x + 11, y + 13, 4, 1);
   addImage(scene.textures, TOWN_VIEW_TEXTURE, canvas);
 }

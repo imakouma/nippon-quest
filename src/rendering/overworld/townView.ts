@@ -3,9 +3,16 @@ import { CITY_ROAD_TILES } from '../../shared/cityRoadTiles';
 export const TOWN_ROOFS = [6, 16, 17, 18, 65, 66, 67, 68] as const;
 export const TOWN_ROOF_START = 19;
 export const TOWN_GROUND_COUNT = 6;
+export const TOWN_SHOP_START = TOWN_ROOF_START + TOWN_GROUND_COUNT * TOWN_ROOFS.length * 16;
+export const TOWN_FARM_TILE = TOWN_SHOP_START + 16;
 
 /** Town-only display indices; -1 keeps the original background tile. */
-export function townView(background: readonly number[], width: number, height: number): number[] {
+export function townView(
+  background: readonly number[],
+  width: number,
+  height: number,
+  decor?: readonly number[],
+): number[] {
   const stone = (tile: number | undefined) => tile === 5 || tile === 15;
   const groundType = (tile: number | undefined) => {
     if (tile === 1 || tile === 13 || tile === 14) return 0;
@@ -58,14 +65,15 @@ export function townView(background: readonly number[], width: number, height: n
         const ny = y + dy;
         return nx < 0 || ny < 0 || nx >= width || ny >= height || stone(background[ny * width + nx]);
       };
-      return (
+      const mask =
         (adjacent(0, -1) ? 1 : 0) |
         (adjacent(1, 0) ? 2 : 0) |
         (adjacent(0, 1) ? 4 : 0) |
-        (adjacent(-1, 0) ? 8 : 0)
-      );
+        (adjacent(-1, 0) ? 8 : 0);
+      return y > 0 && background[index - width] === 21 ? TOWN_SHOP_START + mask : mask;
     }
     if (tile === 1 || tile === 13 || tile === 14) {
+      if ([31, 74, 75, 76, 77].includes(decor?.[index] ?? -1)) return TOWN_FARM_TILE;
       return 16 + (((Math.imul(x, 73856093) ^ Math.imul(y, 19349663)) >>> 0) % 3);
     }
     return -1;

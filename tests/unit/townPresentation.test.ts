@@ -2,10 +2,27 @@ import { describe, expect, it, vi } from 'vitest';
 
 vi.mock('phaser', () => ({ default: { Scenes: { Events: { SHUTDOWN: 'shutdown' } } } }));
 vi.mock('../../src/rendering/overworld/townTreeArt', () => ({ buildTownTreeTexture: vi.fn() }));
+vi.mock('../../src/rendering/overworld/townViewArt', () => ({
+  buildTownViewTexture: vi.fn(),
+  TOWN_VIEW_TEXTURE: 'town-view',
+}));
 
-import { addTownDecor } from '../../src/scenes/overworld/townPresentation';
+import { TOWN_FARM_TILE } from '../../src/rendering/overworld/townView';
+import { addTownDecor, addTownViewLayer } from '../../src/scenes/overworld/townPresentation';
 
 describe('町の decor 表示', () => {
+  it('背景とdecorを読み取り果樹の地面だけを表示写像に渡す', () => {
+    const putTilesAt = vi.fn();
+    const copy = { addTilesetImage: () => ({}), createBlankLayer: () => ({ putTilesAt }), destroy: vi.fn() };
+    const scene = { make: { tilemap: () => copy }, events: { once: vi.fn() } };
+    const layers = { background: { data: [[{ index: 1 }]] }, decor: { data: [[{ index: 31 }]] } };
+    const map = { width: 1, height: 1, getLayer: (name: keyof typeof layers) => layers[name] };
+    addTownViewLayer(scene as never, map as never, 16);
+    expect(putTilesAt).toHaveBeenCalledWith([[TOWN_FARM_TILE]], 0, 0);
+    expect(layers.background.data[0]![0]!.index).toBe(1);
+    expect(layers.decor.data[0]![0]!.index).toBe(31);
+  });
+
   it('コピーから木だけを除外し、接地点・depth・破棄を保つ', () => {
     const data = [[{ index: 32 }, { index: 34 }]];
     const original = structuredClone(data);

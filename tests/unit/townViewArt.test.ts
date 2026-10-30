@@ -1,6 +1,12 @@
 import { afterEach, expect, it, vi } from 'vitest';
 import { NQ, NQ48 } from '../../src/rendering/palette';
-import { TOWN_GROUND_COUNT, TOWN_ROOFS, TOWN_ROOF_START } from '../../src/rendering/overworld/townView';
+import {
+  TOWN_FARM_TILE,
+  TOWN_GROUND_COUNT,
+  TOWN_ROOFS,
+  TOWN_ROOF_START,
+  TOWN_SHOP_START,
+} from '../../src/rendering/overworld/townView';
 import { buildTownViewTexture } from '../../src/rendering/overworld/townViewArt';
 
 afterEach(() => vi.unstubAllGlobals());
@@ -40,6 +46,10 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
   };
   const stoneTile = 15;
   expect(pixels.get(`${(stoneTile % 8) * 16 + 3},${Math.floor(stoneTile / 8) * 16 + 5}`)).toBe(NQ.sand);
+  const pixel = (tile: number, x: number, y: number) =>
+    pixels.get(`${(tile % 8) * 16 + x},${Math.floor(tile / 8) * 16 + y}`);
+  expect(pixel(TOWN_SHOP_START + 15, 4, 5)).toBe(NQ.sand);
+  expect(pixel(TOWN_FARM_TILE, 1, 13)).toBe(NQ.tan);
   expect(roofPixel(5, 3, 2)).toBe(NQ.brick);
   expect(roofPixel(0, 4, 5)).toBe(NQ.brick);
   expect(roofPixel(1, 4, 5)).toBe(NQ.blue);

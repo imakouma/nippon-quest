@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { TOWN_ROOF_START, townView } from '../../src/rendering/overworld/townView';
+import {
+  TOWN_FARM_TILE,
+  TOWN_ROOF_START,
+  TOWN_SHOP_START,
+  townView,
+} from '../../src/rendering/overworld/townView';
 
 const grid = (rows: number[][]) => rows.flat();
 
@@ -141,5 +146,25 @@ describe('町の地面の表示写像', () => {
     const paved = townView(background, 5, 5)[12];
     const grass = townView([1, 6, 1], 3, 1)[1];
     expect(paved).not.toBe(grass);
+  });
+
+  it('入口の直南の石畳だけを店先にする', () => {
+    const background = Object.freeze([1, 21, 1, 5, 5, 5, 1, 1, 1]);
+    const decor = Object.freeze([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    const result = townView(background, 3, 3, decor);
+    expect(result[4]).toBe(TOWN_SHOP_START + 10);
+    expect(result[3]).toBeLessThan(TOWN_SHOP_START);
+    expect(background[4]).toBe(5);
+    expect(decor[4]).toBe(0);
+  });
+
+  it('透過の果樹とぶどう棚の下だけに畑の地面を表示する', () => {
+    const background = Object.freeze([1, 1, 1, 1]);
+    const decor = Object.freeze([31, 77, 78, 129]);
+    const result = townView(background, 4, 1, decor);
+    expect(result.slice(0, 2)).toEqual([TOWN_FARM_TILE, TOWN_FARM_TILE]);
+    expect(result[2]).not.toBe(TOWN_FARM_TILE);
+    expect(result[3]).not.toBe(TOWN_FARM_TILE);
+    expect(decor).toEqual([31, 77, 78, 129]);
   });
 });

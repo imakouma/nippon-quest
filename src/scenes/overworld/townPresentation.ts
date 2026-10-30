@@ -25,6 +25,7 @@ export function addTownViewLayer(scene: Phaser.Scene, map: Phaser.Tilemaps.Tilem
     background.data.flatMap((row) => row.map((tile) => tile.index)),
     map.width,
     map.height,
+    map.getLayer('decor')?.data.flatMap((row) => row.map((tile) => tile.index)),
   );
   layer.putTilesAt(
     Array.from({ length: map.height }, (_, y) => ids.slice(y * map.width, (y + 1) * map.width)),
