@@ -48,6 +48,25 @@
   color: var(--nq-mint);
   font-size: 16px;
 }
+.nq-menu-dev-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--nq-yellow);
+  font-size: 12px;
+}
+.nq-menu-dev-tools .nq-opt {
+  min-height: 44px;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+.nq-menu-dev-tools .nq-opt:focus-visible {
+  color: var(--nq-yellow);
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: 2px;
+}
 .nq-menu-save {
   display: inline-flex;
   align-items: center;

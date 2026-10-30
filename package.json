@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "dev": "pnpm build && vite preview --host 127.0.0.1 --port 5173 --strictPort",
+    "dev": "VITE_NQ_DEV_TOOLS=1 pnpm build && vite preview --host 127.0.0.1 --port 5173 --strictPort",
     "dev:hmr": "pnpm gen:manifest && vite --host 127.0.0.1 --port 5173 --strictPort",
     "nrd": "npm run dev",
     "prebuild": "pnpm gen:manifest && pnpm gen:schemas && pnpm validate:content",

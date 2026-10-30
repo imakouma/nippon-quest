@@ -24,7 +24,7 @@ export interface FieldHudProps {
   onMove: (direction: VirtualStickDirection | null) => void;
   /** Scene が一度だけ解決した、キーボード操作と共通のアクション。 */
   action?: ContextActionView | null;
-  /** 開発者モード（ぜんぶの 場所へ ワープ）。開発サーバーか ?dev のときだけ ボタンを出す */
+  /** 開発者モード（ぜんぶの 場所へ ワープ）。ローカル開発環境だけボタンを出す */
   dev?: { label: string; on: boolean; onToggle: () => void };
 }
 

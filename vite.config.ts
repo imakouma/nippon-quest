@@ -51,6 +51,8 @@ function serveRootDirs(dirs: string[]): Plugin {
   };
 }
 
+const includeDeveloperTools = process.env.VITE_NQ_DEV_TOOLS === '1';
+
 export default defineConfig({
   base: process.env.BASE_PATH ?? '/',
   esbuild: { sourcemap: false },
@@ -64,10 +66,14 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, 'index.html'),
-        playground: resolve(root, 'playground.html'),
         battleQuestionAudit: resolve(root, 'battle-question-audit.html'),
         contextActionAudit: resolve(root, 'context-action-audit.html'),
-        editor: resolve(root, 'editor.html'),
+        ...(includeDeveloperTools
+          ? {
+              playground: resolve(root, 'playground.html'),
+              editor: resolve(root, 'editor.html'),
+            }
+          : {}),
       },
       output: {
         // Phaser は大きく更新頻度が低い。ゲーム本体と分離して、更新時にブラウザキャッシュを再利用する。

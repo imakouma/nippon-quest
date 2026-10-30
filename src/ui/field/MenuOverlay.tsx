@@ -29,6 +29,8 @@ export interface MenuOverlayProps {
   roadmapView?: RoadmapViewModel;
   /** 開発者向けの教材フィルタと未解放教科を表示する。 */
   developerMode?: boolean;
+  /** ローカル開発用ビルドで、開発者モードを ON にしたときだけ渡す。 */
+  developerTools?: { questionsHref: string; editorHref: string };
   /** リストの上に出す 行（そうびの タブの ステータス など） */
   summary?: string;
   empty: string;
@@ -97,6 +99,7 @@ export function MenuOverlay({
   roadmap = [],
   roadmapView,
   developerMode = false,
+  developerTools,
   summary,
   empty,
   message,
@@ -407,6 +410,25 @@ export function MenuOverlay({
                 <PixelIcon name="star" scale={2} /> {t('menu.save')}
               </button>
               {saved && <span class="nq-menu-saved">{t('field.saveDone')}</span>}
+              {developerTools && (
+                <div class="nq-menu-dev-tools" aria-label={displayText(t('field.devTools'))}>
+                  <RubyLabel text={t('field.devTools')} />
+                  <a
+                    class="nq-opt"
+                    href={developerTools.questionsHref}
+                    aria-label={displayText(t('field.devQuestionList'))}
+                  >
+                    <RubyLabel text={t('field.devQuestionList')} />
+                  </a>
+                  <a
+                    class="nq-opt"
+                    href={developerTools.editorHref}
+                    aria-label={displayText(t('field.devQuestionEdit'))}
+                  >
+                    <RubyLabel text={t('field.devQuestionEdit')} />
+                  </a>
+                </div>
+              )}
               <button type="button" class="nq-opt nq-parent-open" onClick={onParent}>
                 ⚙ {t('menu.parent')}
               </button>
