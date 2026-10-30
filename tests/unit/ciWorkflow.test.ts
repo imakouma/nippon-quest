@@ -15,11 +15,11 @@ describe('CI workflow', () => {
     );
   });
 
-  it('cancels stale runs and splits full E2E coverage across four runners', () => {
+  it('cancels stale runs and splits full E2E coverage across six runners', () => {
     expect(workflow).toContain('cancel-in-progress: true');
     expect(workflow).toMatch(/\n {2}e2e:\n/);
-    expect(workflow).toContain('shard: [1, 2, 3, 4]');
-    expect(workflow).toContain('--shard=${{ matrix.shard }}/4');
+    expect(workflow).toContain('shard: [1, 2, 3, 4, 5, 6]');
+    expect(workflow).toContain('--shard=${{ matrix.shard }}/6');
   });
 
   it('reuses one production build and preserves shard diagnostics', () => {
