@@ -172,6 +172,7 @@ export interface QuestionQuery {
   subject: Subject;
   gradeRange: [Grade, Grade];
   tags?: string[];             // 県イベントなどで指定
+  units?: string[];            // 技ごとの対象単元を指定
   excludeIds?: string[];       // 直近出題の除外
   preferUnits?: string[];      // 習熟度の低い単元
 }

@@ -195,6 +195,19 @@ describe('pick（出題選択・GDD §5.4）', () => {
     expect(filterCandidates(bank, baseQuery).map((x) => x.id)).toEqual(['a.0001']);
   });
 
+  it('units 指定では、その技の単元だけが出る', () => {
+    const bank = bankOf([
+      q('kanji.0001', { subject: 'kokugo', unit: 'kokugo.g1.kanji' }),
+      q('shiritori.0001', { subject: 'kokugo', unit: 'kokugo.g1.kotoba-asobi' }),
+    ]);
+    const got = filterCandidates(bank, {
+      subject: 'kokugo',
+      gradeRange: [1, 1],
+      units: ['kokugo.g1.kanji'],
+    });
+    expect(got.map((x) => x.id)).toEqual(['kanji.0001']);
+  });
+
   it('excludeIds（直近出題）は除外される', () => {
     const bank = bankOf([q('a.0001'), q('a.0002')]);
     const got = filterCandidates(bank, { ...baseQuery, excludeIds: ['a.0001'] });
