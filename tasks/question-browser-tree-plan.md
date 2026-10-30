@@ -32,22 +32,22 @@ QuestionTree UI    file scope filter
 
 ### Phase 1: Regression contract
 
-- [ ] Task 1: ツリー操作の失敗するE2E契約を追加する
+- [x] Task 1: ツリー操作の失敗するE2E契約を追加する
 
 ### Checkpoint: RED
 
-- [ ] 追加したPlaywrightテストが、ツリー未実装の理由で失敗する
-- [ ] 既存Playgroundテストは変更前の挙動で通る
+- [x] 追加したPlaywrightテストが、ツリー未実装の理由で失敗する
+- [x] 既存Playgroundテストは変更前の挙動で通る
 
 ### Phase 2: Vertical slice
 
-- [ ] Task 2: カタログツリーとセット絞り込みを実装する
+- [x] Task 2: カタログツリーとセット絞り込みを実装する
 
 ### Checkpoint: Behavior
 
-- [ ] 教科→学年→単元→セットを開き、セット選択と全件復帰が動く
-- [ ] 既存検索・行選択・ID直リンクが通る
-- [ ] カタログがない場合に既存表が表示される
+- [x] 教科→学年→単元→セットを開き、セット選択と全件復帰が動く
+- [x] 既存検索・行選択・ID直リンクが通る
+- [x] カタログがない場合に既存表が表示される
 
 ### Phase 3: Documentation and verification
 

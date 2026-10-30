@@ -4,33 +4,33 @@
 
 **Acceptance criteria:**
 
-- [ ] 教科・学年・単元・セットと各件数をたどれる。
-- [ ] セット選択で既存表が対象ファイルだけになる。
-- [ ] 「すべて」とキーボード操作で表示範囲を切り替えられる。
+- [x] 教科・学年・単元・セットと各件数をたどれる。
+- [x] セット選択で既存表が対象ファイルだけになる。
+- [x] 「すべて」とキーボード操作で表示範囲を切り替えられる。
 
 **Verification:**
 
-- [ ] focused E2Eが実装前に失敗する。
-- [ ] 既存Playground E2Eは通る。
+- [x] focused E2Eが実装前に失敗する。
+- [x] 既存Playground E2Eは通る。
 
 ## Task 2: カタログツリーとセット絞り込み
 
 **Acceptance criteria:**
 
-- [ ] `QuestionCatalog` だけから階層を描画する。
-- [ ] セット条件を既存フィルターへ合成し、選択状態を支援技術へ伝える。
-- [ ] カタログ省略、サンプル、検索、エラー表示、問題実行を壊さない。
+- [x] `QuestionCatalog` だけから階層を描画する。
+- [x] セット条件を既存フィルターへ合成し、選択状態を支援技術へ伝える。
+- [x] カタログ省略、サンプル、検索、エラー表示、問題実行を壊さない。
 
 **Verification:**
 
-- [ ] focused E2Eが実装後に通る。
-- [ ] related tests、tools typecheck、architecture checkが通る。
+- [x] focused E2Eが実装後に通る。
+- [x] related tests、tools typecheck、architecture checkが通る。
 
 ## Checkpoint: Behavior
 
-- [ ] セットを選択・解除できる。
-- [ ] 既存検索・行選択・ID直リンクが通る。
-- [ ] 960px幅と320px幅で操作できる。
+- [x] セットを選択・解除できる。
+- [x] 既存検索・行選択・ID直リンクが通る。
+- [x] 960px幅と320px幅で操作できる。
 
 ## Task 3: 文書・全体検証・レビュー
 

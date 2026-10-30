@@ -5,10 +5,12 @@
  * 問題タイプごとの 分岐は しない（prompt・choices / words / cards・answer という よくある 形から 拾う）。
  */
 import { useMemo, useState } from 'preact/hooks';
+import type { QuestionCatalog } from '../core/content/manifest';
 import type { QuestionBase } from '../questions/contracts';
 import { PICTURE_KEYS, pictureUrl, type PictureKey } from '../questions/renderers/shared/pictures';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
+import { QuestionTree } from './QuestionTree';
 
 export interface QuestionEntry {
   /** "<ファイル>#<何番目>" */
@@ -29,6 +31,7 @@ export interface QuestionListProps {
   units: ReadonlyMap<string, string>;
   /** 教科コード → 名前（i18n の subjects） */
   subjects: ReadonlyMap<string, string>;
+  catalog?: QuestionCatalog;
   selected: string | null;
   onPick: (e: QuestionEntry) => void;
   onReload: () => void;
@@ -94,6 +97,7 @@ export function QuestionList({
   entries,
   units,
   subjects,
+  catalog,
   selected,
   onPick,
   onReload,
@@ -103,9 +107,10 @@ export function QuestionList({
   const [text, setText] = useState('');
   const [samples, setSamples] = useState(false);
   const [onlyBad, setOnlyBad] = useState(false);
+  const [scopeFile, setScopeFile] = useState<string | null>(null);
   const search = useMemo(() => new Map(entries.map((e) => [e.key, haystack(e)])), [entries]);
 
-  const pool = entries.filter((e) => samples || !isSample(e));
+  const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeFile || e.file === scopeFile));
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
   const needle = text.trim().toLowerCase();
   /** skip の しぼりこみ だけ 外して あてはまるか（えらぶ ところの 件数に つかう） */
@@ -193,34 +198,47 @@ export function QuestionList({
           ↻ よみなおす
         </button>
       </div>
-      <table class="pg-table">
-        <thead>
-          <tr>
-            <th />
-            <th>id</th>
-            <th>教科・学年</th>
-            <th>単元</th>
-            <th>タイプ</th>
-            <th>問題</th>
-            <th>選択肢（緑が正解）</th>
-            <th>解説</th>
-          </tr>
-        </thead>
-        <tbody>
-          {shown.map((e) => (
-            <Row
-              key={e.key}
-              e={e}
-              unitName={e.q ? units.get(e.q.unit) : undefined}
-              subjectName={e.q ? subjects.get(e.q.subject) : undefined}
-              selected={selected === e.key}
-              onPick={onPick}
-              imageUrl={imageUrl}
-            />
-          ))}
-        </tbody>
-      </table>
-      {shown.length === 0 && <p class="pg-empty">あてはまる 問題が ありません</p>}
+      <div class="pg-browser">
+        {catalog && (
+          <QuestionTree
+            catalog={catalog}
+            units={units}
+            subjects={subjects}
+            selectedFile={scopeFile}
+            onSelectFile={setScopeFile}
+          />
+        )}
+        <div class="pg-table-wrap">
+          <table class="pg-table">
+            <thead>
+              <tr>
+                <th />
+                <th>id</th>
+                <th>教科・学年</th>
+                <th>単元</th>
+                <th>タイプ</th>
+                <th>問題</th>
+                <th>選択肢（緑が正解）</th>
+                <th>解説</th>
+              </tr>
+            </thead>
+            <tbody>
+              {shown.map((e) => (
+                <Row
+                  key={e.key}
+                  e={e}
+                  unitName={e.q ? units.get(e.q.unit) : undefined}
+                  subjectName={e.q ? subjects.get(e.q.subject) : undefined}
+                  selected={selected === e.key}
+                  onPick={onPick}
+                  imageUrl={imageUrl}
+                />
+              ))}
+            </tbody>
+          </table>
+          {shown.length === 0 && <p class="pg-empty">あてはまる 問題が ありません</p>}
+        </div>
+      </div>
     </section>
   );
 }
