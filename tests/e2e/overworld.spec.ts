@@ -182,26 +182,48 @@ test('フィールドと町を往復すると対応する入口へ配置され�
   test.setTimeout(90_000);
   await startField(page);
 
-  await walkOneTile(page, 'ArrowUp');
-  await walkOneTile(page, 'ArrowUp');
+  const canvas = page.locator('canvas[data-player-tile]');
+  await page.keyboard.down('ArrowUp');
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
+  await page.keyboard.up('ArrowUp');
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
   await skipArrivalStory(page);
 
-  await page.waitForTimeout(450);
-  await walkOneTile(page, 'ArrowDown');
-  await walkOneTile(page, 'ArrowDown');
-  await walkOneTile(page, 'ArrowDown');
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await page.keyboard.down('ArrowDown');
+  await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
+  await page.keyboard.up('ArrowDown');
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-field', position: { x: 976, y: 1088 } });
 
-  await page.waitForTimeout(450);
-  await walkOneTile(page, 'ArrowUp');
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await page.keyboard.down('ArrowUp');
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
+  await page.keyboard.up('ArrowUp');
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+
+  for (let trip = 0; trip < 2; trip += 1) {
+    await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+    await page.keyboard.down('ArrowDown');
+    await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
+    await page.keyboard.up('ArrowDown');
+    await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+    await page.keyboard.down('ArrowUp');
+    await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
+    await page.keyboard.up('ArrowUp');
+  }
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await page.keyboard.down('ArrowDown');
+  await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
+  await page.keyboard.up('ArrowDown');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-field', position: { x: 976, y: 1088 } });
 });
 
 test('フィールドとダンジョンを往復すると対応する入口へ配置される', async ({ page }) => {
