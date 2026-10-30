@@ -1,0 +1,439 @@
+[
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.2134c31a8c32",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "手紙が届くまでの流れとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ポスト → 郵便局 → 配達"
+        },
+        {
+          "id": "c2",
+          "text": "家 → すぐ届く"
+        },
+        {
+          "id": "c3",
+          "text": "学校[がっこう] → 消える"
+        },
+        {
+          "id": "c4",
+          "text": "海 → 砂漠"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "郵便局で集め、仕分けし、配達されます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.4b414e220ad7",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、交流の活動として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お知らせを掲示する"
+        },
+        {
+          "id": "c2",
+          "text": "隠す"
+        },
+        {
+          "id": "c3",
+          "text": "破る"
+        },
+        {
+          "id": "c4",
+          "text": "無視する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dc899e941a88c15c.jpg"
+    },
+    "explanation": "公民館などにお知らせを掲示することも交流の活動です。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.51dc1ddeb89b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、人とかかわることの例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "家族[かぞく]と話す"
+        },
+        {
+          "id": "c2",
+          "text": "一人で黙る"
+        },
+        {
+          "id": "c3",
+          "text": "逃げる"
+        },
+        {
+          "id": "c4",
+          "text": "無視する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/60c575a03f72b3eb.jpg"
+    },
+    "explanation": "家族[かぞく]や友達と話すことで、つながりが広がります。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.81fec544fc78",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "紙[かみ]に書[か]いた文[ぶん]や絵[え]を遠[とお]くの人[ひと]へ届[とど]けたいとき、合[あ]う方法[ほうほう]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "手紙[てがみ]を送[おく]る"
+        },
+        {
+          "id": "c2",
+          "text": "電話[でんわ]で話[はな]すだけ"
+        },
+        {
+          "id": "c3",
+          "text": "自分[じぶん]の机[つくえ]にしまう"
+        },
+        {
+          "id": "c4",
+          "text": "だれにも見[み]せない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "手紙[てがみ]なら、書[か]いた文[ぶん]や絵[え]を遠[とお]くの相手[あいて]へ届[とど]けられます。伝[つた]えたいことに合[あ]う方法[ほうほう]を選[えら]びましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.9c87acb11424",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "すぐに返事[へんじ]を聞[き]きながら話[はな]したいとき、合[あ]う方法[ほうほう]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電話[でんわ]で話[はな]す"
+        },
+        {
+          "id": "c2",
+          "text": "手紙[てがみ]を送[おく]る"
+        },
+        {
+          "id": "c3",
+          "text": "掲示板[けいじばん]に貼[は]る"
+        },
+        {
+          "id": "c4",
+          "text": "日記[にっき]に書[か]く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "電話[でんわ]なら、相手[あいて]の返事[へんじ]を聞[き]きながら、その場[ば]で伝[つた]え合[あ]えます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.a3f81d11a8f3",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地域[ちいき]の多[おお]くの人[ひと]に行事[ぎょうじ]を知[し]らせたいとき、合[あ]う方法[ほうほう]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公民館[こうみんかん]の掲示板[けいじばん]に案内[あんない]を貼[は]る"
+        },
+        {
+          "id": "c2",
+          "text": "自分[じぶん]だけの日記[にっき]に書[か]く"
+        },
+        {
+          "id": "c3",
+          "text": "案内[あんない]を机[つくえ]の中[なか]にしまう"
+        },
+        {
+          "id": "c4",
+          "text": "だれにも言[い]わない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "多[おお]くの人[ひと]が見[み]る掲示板[けいじばん]に案内[あんない]を貼[は]ると、地域[ちいき]の人[ひと]へ広[ひろ]く知[し]らせられます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.b55cdb86cf2c",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "伝[つた]え方[かた]を選[えら]ぶとき、いちばん大切[たいせつ]に考[かんが]えることはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "だれに、何[なに]を伝[つた]えたいか"
+        },
+        {
+          "id": "c2",
+          "text": "自分[じぶん]の服[ふく]の色[いろ]"
+        },
+        {
+          "id": "c3",
+          "text": "昨日[きのう]の天気[てんき]"
+        },
+        {
+          "id": "c4",
+          "text": "机[つくえ]の大[おお]きさ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "相手[あいて]と伝[つた]えたい内容[ないよう]を考[かんが]えると、手紙[てがみ]、電話[でんわ]、掲示[けいじ]などから合[あ]う方法[ほうほう]を選[えら]べます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.c167e7733bf5",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、手紙を書いている様子[ようす]として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "机に向かって書く"
+        },
+        {
+          "id": "c2",
+          "text": "走りながら書く"
+        },
+        {
+          "id": "c3",
+          "text": "泳ぎながら書く"
+        },
+        {
+          "id": "c4",
+          "text": "寝ながら書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ee561f5ce529b76d.jpg"
+    },
+    "explanation": "机に向かって、相手のことを考えながら書きます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.c46355e685d6",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人とかかわることの楽しさを学ぶために大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "進んで交流する"
+        },
+        {
+          "id": "c2",
+          "text": "こわがるだけ"
+        },
+        {
+          "id": "c3",
+          "text": "話さない"
+        },
+        {
+          "id": "c4",
+          "text": "逃げる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "進んで交流することで、つながりが広がります。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.cad28a61ad7a",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "手紙を書くときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "相手のことを考えた言葉を選ぶ"
+        },
+        {
+          "id": "c2",
+          "text": "乱暴な言葉"
+        },
+        {
+          "id": "c3",
+          "text": "相手をばかにする"
+        },
+        {
+          "id": "c4",
+          "text": "読めない字だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "相手のことを考えて書きましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.da56ff58ce6b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、伝え合う手段の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "電話[でんわ]"
+        },
+        {
+          "id": "c2",
+          "text": "無言"
+        },
+        {
+          "id": "c3",
+          "text": "無視"
+        },
+        {
+          "id": "c4",
+          "text": "けんか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f2f24ce8639e88b0.jpg"
+    },
+    "explanation": "手紙や電話[でんわ]など、いろいろな手段で伝え合えます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-04.ff737b184136",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-04",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-04",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域の出来事を伝え合う例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "運動会のことを伝える"
+        },
+        {
+          "id": "c2",
+          "text": "秘密にする"
+        },
+        {
+          "id": "c3",
+          "text": "話さない"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a2a3a2e2b0adb696.jpg"
+    },
+    "explanation": "学校[がっこう]や地域の出来事を家族[かぞく]や地域の人と伝え合います。"
+  }
+]

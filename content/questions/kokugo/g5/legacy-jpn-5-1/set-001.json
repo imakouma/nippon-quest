@@ -1,0 +1,1079 @@
+[
+  {
+    "id": "source.kokugo.g5.jpn-5-1.ff233b523375",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "次の文のうち、「事実（実際にあったこと）」を書いているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "アンケートでは、30人中20人が賛成した。"
+        },
+        {
+          "id": "b",
+          "text": "私はこの結果にとてもおどろいた。"
+        },
+        {
+          "id": "c",
+          "text": "学校はこの案を採用すべきだと思う。"
+        },
+        {
+          "id": "d",
+          "text": "もっと多くの人が賛成するはずだ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "誰が見ても変わらないデータや出来事を「事実」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-1.0404203998b7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "次の文のうち、「意見（自分の主張や考え）」を書いているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "今日は朝から大雨が降っている。"
+        },
+        {
+          "id": "b",
+          "text": "図書室には本が3000冊ある。"
+        },
+        {
+          "id": "c",
+          "text": "学校に植物を増やす方がよいと考える。"
+        },
+        {
+          "id": "d",
+          "text": "昨日の給食はカレーだった。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「〜すべきだ」「〜の方がよいと考える」など、自分の主張を述べるものを「意見」といいます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-1.c49ae7d83d53",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "次の文のうち、「感想（心で感じたこと）」を書いているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "富士山は日本で一番高い山だ。"
+        },
+        {
+          "id": "b",
+          "text": "頂上からの景色を見て、とても感動した。"
+        },
+        {
+          "id": "c",
+          "text": "登山道をもっと整備するべきだ。"
+        },
+        {
+          "id": "d",
+          "text": "毎年多くの人が富士山に登る。"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "出来事に対して「うれしかった」「おどろいた」など、心に浮かんだ思いを「感想」といいます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.072f103e43e5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「寄」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "寄"
+        },
+        {
+          "id": "c2",
+          "text": "に"
+        },
+        {
+          "id": "c3",
+          "text": "ひと"
+        },
+        {
+          "id": "c4",
+          "text": "つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「寄」は「寄」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.0c504afc91c3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「桜」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "桜"
+        },
+        {
+          "id": "c2",
+          "text": "だい"
+        },
+        {
+          "id": "c3",
+          "text": "あ"
+        },
+        {
+          "id": "c4",
+          "text": "つた"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「桜」は「桜」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.1b36b655bcc0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「基」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "もと"
+        },
+        {
+          "id": "c2",
+          "text": "こと"
+        },
+        {
+          "id": "c3",
+          "text": "に"
+        },
+        {
+          "id": "c4",
+          "text": "ひと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「基」は「もと」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.1cdd59ecfce6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「刊」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "刊"
+        },
+        {
+          "id": "c2",
+          "text": "した"
+        },
+        {
+          "id": "c3",
+          "text": "なら"
+        },
+        {
+          "id": "c4",
+          "text": "なか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「刊」は「刊」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.21b39397d760",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「格」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "格"
+        },
+        {
+          "id": "c2",
+          "text": "ちょう"
+        },
+        {
+          "id": "c3",
+          "text": "さん"
+        },
+        {
+          "id": "c4",
+          "text": "うえ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「格」は「格」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.27bbe75bdefe",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「貿易」の「易」の読み方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "えき"
+        },
+        {
+          "id": "c2",
+          "text": "やさしい"
+        },
+        {
+          "id": "c3",
+          "text": "い"
+        },
+        {
+          "id": "c4",
+          "text": "よう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「貿易」は「ぼうえき」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.3d8b735b6a2a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「往」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "往"
+        },
+        {
+          "id": "c2",
+          "text": "つ"
+        },
+        {
+          "id": "c3",
+          "text": "だい"
+        },
+        {
+          "id": "c4",
+          "text": "あ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「往」は「往」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.3e6d2d03f3d6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「永」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "永"
+        },
+        {
+          "id": "c2",
+          "text": "した"
+        },
+        {
+          "id": "c3",
+          "text": "なら"
+        },
+        {
+          "id": "c4",
+          "text": "なか"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「永」は「永」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.438cb256678a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「解」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "解"
+        },
+        {
+          "id": "c2",
+          "text": "いち"
+        },
+        {
+          "id": "c3",
+          "text": "ちょう"
+        },
+        {
+          "id": "c4",
+          "text": "さん"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「解」は「解」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.51850fe1ce9c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「益」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "益"
+        },
+        {
+          "id": "c2",
+          "text": "きゅう"
+        },
+        {
+          "id": "c3",
+          "text": "こと"
+        },
+        {
+          "id": "c4",
+          "text": "に"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「益」は「益」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.544fde2415e3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「仮」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "仮"
+        },
+        {
+          "id": "c2",
+          "text": "つた"
+        },
+        {
+          "id": "c3",
+          "text": "くらい"
+        },
+        {
+          "id": "c4",
+          "text": "から"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「仮」は「仮」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.6314721c5266",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「営」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "営"
+        },
+        {
+          "id": "c2",
+          "text": "なら"
+        },
+        {
+          "id": "c3",
+          "text": "なか"
+        },
+        {
+          "id": "c4",
+          "text": "おも"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「営」は「営」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.68593e250a49",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「断る」の正しい読み方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ことわる"
+        },
+        {
+          "id": "c2",
+          "text": "さわる"
+        },
+        {
+          "id": "c3",
+          "text": "まわる"
+        },
+        {
+          "id": "c4",
+          "text": "ことわる(送り仮名違い)"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「断る」は「ことわる」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.72d6a7d1c271",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「河」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "河"
+        },
+        {
+          "id": "c2",
+          "text": "から"
+        },
+        {
+          "id": "c3",
+          "text": "なに"
+        },
+        {
+          "id": "c4",
+          "text": "つく"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「河」は「河」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.7399f8013b08",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「喜」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "喜"
+        },
+        {
+          "id": "c2",
+          "text": "つ"
+        },
+        {
+          "id": "c3",
+          "text": "だい"
+        },
+        {
+          "id": "c4",
+          "text": "あ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「喜」は「喜」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.7637367ddb39",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「謝る」の正しい漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "誤る"
+        },
+        {
+          "id": "c2",
+          "text": "謝る"
+        },
+        {
+          "id": "c3",
+          "text": "謝る(別字)"
+        },
+        {
+          "id": "c4",
+          "text": "甘る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "お詫びをすることは「謝る（あやまる）」と書きます（「誤る」は間違えることです）。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.7a5eda0ed080",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「墓」の音読みはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぼ"
+        },
+        {
+          "id": "c2",
+          "text": "はか"
+        },
+        {
+          "id": "c3",
+          "text": "む"
+        },
+        {
+          "id": "c4",
+          "text": "そう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「墓」の音読みは「ぼ」（墓地：ぼち）、訓読みは「はか」です。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.834c7035799b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「価」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "価"
+        },
+        {
+          "id": "c2",
+          "text": "くらい"
+        },
+        {
+          "id": "c3",
+          "text": "から"
+        },
+        {
+          "id": "c4",
+          "text": "なに"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「価」は「価」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.891d894c917a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「幹」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "幹"
+        },
+        {
+          "id": "c2",
+          "text": "なら"
+        },
+        {
+          "id": "c3",
+          "text": "なか"
+        },
+        {
+          "id": "c4",
+          "text": "おも"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「幹」は「幹」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.91ca43173c0c",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「額」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "額"
+        },
+        {
+          "id": "c2",
+          "text": "うえ"
+        },
+        {
+          "id": "c3",
+          "text": "した"
+        },
+        {
+          "id": "c4",
+          "text": "なら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「額」は「額」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.a065bb979371",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「義」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぎ"
+        },
+        {
+          "id": "c2",
+          "text": "あ"
+        },
+        {
+          "id": "c3",
+          "text": "つた"
+        },
+        {
+          "id": "c4",
+          "text": "くらい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「義」は「ぎ」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.a2f5c52ab548",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「演」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "演"
+        },
+        {
+          "id": "c2",
+          "text": "に"
+        },
+        {
+          "id": "c3",
+          "text": "ひと"
+        },
+        {
+          "id": "c4",
+          "text": "つ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「演」は「演」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.a8dfa134bbf6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「囲」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "囲"
+        },
+        {
+          "id": "c2",
+          "text": "ちょう"
+        },
+        {
+          "id": "c3",
+          "text": "さん"
+        },
+        {
+          "id": "c4",
+          "text": "うえ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「囲」は「囲」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.aaae262ba798",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「慣」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "慣"
+        },
+        {
+          "id": "c2",
+          "text": "なか"
+        },
+        {
+          "id": "c3",
+          "text": "おも"
+        },
+        {
+          "id": "c4",
+          "text": "きゅう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「慣」は「慣」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.ae05bf76a0a4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「規」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "規"
+        },
+        {
+          "id": "c2",
+          "text": "ひと"
+        },
+        {
+          "id": "c3",
+          "text": "つ"
+        },
+        {
+          "id": "c4",
+          "text": "だい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「規」は「規」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.b87f2f9d3a66",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「因」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "因"
+        },
+        {
+          "id": "c2",
+          "text": "うえ"
+        },
+        {
+          "id": "c3",
+          "text": "した"
+        },
+        {
+          "id": "c4",
+          "text": "なら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「因」は「因」と読みます。"
+  },
+  {
+    "id": "legacy.kokugo.g5.jpn-5-1.ba81ea6e3d85",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「衛」の読み方として正しいものは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "衛"
+        },
+        {
+          "id": "c2",
+          "text": "なか"
+        },
+        {
+          "id": "c3",
+          "text": "おも"
+        },
+        {
+          "id": "c4",
+          "text": "きゅう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「衛」は「衛」と読みます。"
+  }
+]

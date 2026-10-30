@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
 
 import { choicePayloadSchema } from '../../src/questions/renderers/choice/schema';
 import { getChoicePromptSpeech } from '../../src/questions/renderers/choice/ChoiceView';
+import { readUnitQuestionSets } from './questionSetFixture';
 
 describe('choice question speech', () => {
   it('画面に答えを出さず、指定した音声用テキストだけを読み上げられる', () => {
@@ -36,9 +36,9 @@ describe('choice question speech', () => {
   });
 
   it('3年生の小文字問題は全26文字を、答えを見せずに聞き取らせる', () => {
-    const questions = JSON.parse(readFileSync('content/questions/eigo/g3/alphabet-small.json', 'utf8')) as {
+    const questions = readUnitQuestionSets<{
       payload: { prompt: string; promptSpeech?: string };
-    }[];
+    }>('eigo', 'g3', 'alphabet-small');
 
     expect(questions).toHaveLength(26);
     expect(questions.map(({ payload }) => payload.promptSpeech).join('')).toBe('ABCDEFGHIJKLMNOPQRSTUVWXYZ');

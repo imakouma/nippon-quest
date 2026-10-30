@@ -1,0 +1,250 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-16.1a39e3e1e03b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 本のえんぴつがある。使った本数を〇本、残りの本数を△本とすると、〇と△の変わり方は下の表のようにまとめられる。",
+      "answers": [
+        "4"
+      ],
+      "template": "えんぴつを 8 本使ったときの残りの本数を求めよう。 使った本数 〇（本） 1 2 3 4 5 6 残りの本数 △（本） 11 10 9 8 7 6 {{INPUT}} 本",
+      "suffix": "本"
+    },
+    "explanation": "使った本数を〇本、残りの本数を△本とすると、〇と△の関係は 12- 〇 = △ と表すことができる。〇が 8 のとき、12-8=4 より、残りの本数は 4 本。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.56bfabb620fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１個 150 円のりんごを何個か買って、80 円の箱に入れて買う。買ったりんごの数を〇個、代金を△円とする。〇と△の変わり方をまとめた下の表の□に当てはまる数をうめよう。",
+      "answers": [
+        "230",
+        "380",
+        "530",
+        "680",
+        "830",
+        "980"
+      ],
+      "template": "りんごの数 〇（個） 1 2 3 4 5 6 代金 △（円） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "買ったりんごの数を〇個、代金を△円とすると、〇と△の関係は 150× 〇 +80= △ と表すことができる。 りんごの数 〇（個） 1 2 3 4 5 6 代金 △（円） 230 380 530 680 830 980"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.6620188ba713",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１個 150 円のりんごを何個か買って 80 円の箱に入れて買うとき、買うりんごの個数と代金について、変わり方を調べたい。買うりんごが 2 個のときの代金を求めよう。",
+      "answers": [
+        "380"
+      ],
+      "template": "{{INPUT}} 円",
+      "suffix": "円"
+    },
+    "explanation": "150 円のりんご 2 個分の代金に、箱代 80 円をたせばよいので、150×2+80=300+80=380 より、代金は 380 円。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.83684515e4e8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１個 150 円のりんごを何個か買って、80 円の箱に入れて買う。買ったりんごの数を〇個、代金を△円とすると、〇と△の変わり方は下の表のようにまとめられる。",
+      "answers": [
+        "1280"
+      ],
+      "template": "りんごを 8 個買ったときの代金を求めよう。 りんごの数 〇（個） 1 2 3 4 5 6 代金 △（円） 230 380 530 680 830 980 {{INPUT}} 円",
+      "suffix": "円"
+    },
+    "explanation": "買ったりんごの数を〇個、代金を△円とすると、〇と△の関係は 150× 〇 +80= △ と表すことができる。〇が 8 のとき、150×8+80=1200+80=1280 より、代金は 1280 円。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.86d63a59a02c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１個 150 円のりんごを何個か買って、80 円の箱に入れて買う。買ったりんごを〇個、代金を△円とする。〇と△の関係を表した式として正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "150× 〇 +80= △"
+        },
+        {
+          "id": "c2",
+          "text": "150× △ +80= 〇"
+        },
+        {
+          "id": "c3",
+          "text": "80× 〇 +150= △"
+        },
+        {
+          "id": "c4",
+          "text": "80× △ +150= 〇"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "具体的な数で考えてみよう。 りんごを 1 個買うと、150×1+80=150+80=230 より、代金は 230 円。 りんごを 2 個買うと、150×2+80=300+80=380 より、代金は 380 円。 りんごを 3 個買うと、150×3+80=450+80=530 より、代金は 530 円。 150 に買ったりんごの数をかけて、箱代の 80 をたすと、代金になる。買ったりんごを〇個、代金を△円とすると、〇と△の関係は 150× 〇 +80= △ と表すことができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.a4f716eef839",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 本のえんぴつがある。使った本数を〇本、残りの本数を△本とすると、〇と△の変わり方は下の表のようにまとめられる。",
+      "answers": [
+        "3"
+      ],
+      "template": "えんぴつを 9 本使ったときの残りの本数を求めよう。 使った本数 〇（本） 1 2 3 4 5 6 残りの本数 △（本） 11 10 9 8 7 6 {{INPUT}} 本",
+      "suffix": "本"
+    },
+    "explanation": "使った本数を〇本、残りの本数を△本とすると、〇と△の関係は 12- 〇 = △ と表すことができる。〇が 9 のとき、12-9=3 より、残りの本数は 3 本。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.b0d4b9579292",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 本のえんぴつがある。使った本数を〇本、残りの本数を△本とする。〇と△の関係を表した式として正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12- 〇 = △"
+        },
+        {
+          "id": "c2",
+          "text": "12+ 〇 = △"
+        },
+        {
+          "id": "c3",
+          "text": "△ +12= 〇"
+        },
+        {
+          "id": "c4",
+          "text": "〇 -12= △"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "具体的な数で考えてみよう。 12 本の えんぴつから 1 本使うと、12-1=11 より、残りの本数は 11 本。 12 本の えんぴつから 2 本使うと、12-2=10 より、残りの本数は 10 本。 12 本の えんぴつから 3 本使うと、12-3=9 より、残りの本数は 9 本。 12 から使った本数をひくと残りの本数になる。使った本数を〇本、残りの本数を△本とすると、〇と△の関係は 12- 〇 = △ と表すことができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.d63278dca668",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１個 150 円のりんごを何個か買って、80 円の箱に入れて買う。買ったりんごの数を〇個、代金を△円とすると、〇と△の変わり方は下の表のようにまとめられる。",
+      "answers": [
+        "1580"
+      ],
+      "template": "りんごを 10 個買ったときの代金を求めよう。 りんごの数 〇（個） 1 2 3 4 5 6 代金 △（円） 230 380 530 680 830 980 {{INPUT}} 円",
+      "suffix": "円"
+    },
+    "explanation": "買ったりんごの数を〇個、代金を△円とすると、〇と△の関係は 150× 〇 +80= △ と表すことができる。〇が 10 のとき、150×10+80=1500+80=1580 より、代金は 1580 円。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.e95e8416b48d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 本のえんぴつがある。使った本数を〇本、残りの本数を△本とする。〇と△の変わり方をまとめた下の表の□に当てはまる数をうめよう。",
+      "answers": [
+        "11",
+        "10",
+        "9",
+        "8",
+        "7",
+        "6"
+      ],
+      "template": "使った本数 〇（本） 1 2 3 4 5 6 残りの本数 △（本） {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}} {{INPUT}}"
+    },
+    "explanation": "使った本数を〇本、残りの本数を△本とすると、〇と△の関係は 12- 〇 = △ と表すことができる。 使った本数 〇（本） 1 2 3 4 5 6 残りの本数 △（本） 11 10 9 8 7 6"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-16.feee2b27da61",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "12 本のえんぴつがある。使った本数と残りの本数について、変わり方を調べたい。1 本使ったとき、残りの本数を求めよう。",
+      "answers": [
+        "11"
+      ],
+      "template": "{{INPUT}} 本",
+      "suffix": "本"
+    },
+    "explanation": "12 本の えんぴつから 1 本使うので、12-1=11 より、残りの本数は 11 本。"
+  }
+]

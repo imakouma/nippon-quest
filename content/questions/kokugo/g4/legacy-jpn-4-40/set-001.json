@@ -1,0 +1,100 @@
+[
+  {
+    "id": "kokugo.g4.supplemental.expository-b.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-40",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「木[き]を植[う]えると、根[ね]が土[つち]を支[ささ]えます。そのため、大雨[おおあめ]で土[つち]が流[なが]れにくくなります。」事例[じれい]が示[しめ]すことはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "木[き]が土[つち]を守[まも]る働[はたら]き"
+        },
+        {
+          "id": "b",
+          "text": "木[き]の葉[は]の色[いろ]"
+        },
+        {
+          "id": "c",
+          "text": "雨[あめ]の降[ふ]る時間[じかん]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "根[ね]が土[つち]を支[ささ]えるという事例[じれい]が、木[き]の働[はたら]きを説明[せつめい]している。"
+  },
+  {
+    "id": "kokugo.g4.supplemental.expository-b.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-40",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「水筒[すいとう]を使[つか]うと、使[つか]い捨[す]ての容器[ようき]を減[へ]らせます。だから、ごみを減[へ]らす方法[ほうほう]の一[ひと]つです。」文章[ぶんしょう]の中心[ちゅうしん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "水筒[すいとう]はごみを減[へ]らすのに役立[やくだ]つ"
+        },
+        {
+          "id": "b",
+          "text": "水筒[すいとう]は重[おも]い"
+        },
+        {
+          "id": "c",
+          "text": "容器[ようき]には色[いろ]がある"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "理由[りゆう]と結論[けつろん]の関係[かんけい]から中心[ちゅうしん]を捉[とら]える。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-40.8a4784d5eb93",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-40",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_40",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "説明文「奈良公園とコガネムシ」で、鹿のフンを分解するコガネムシたちの役割と自然のサイクルについて正しい説明はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コガネムシがフンを分解して土に返し、芝生が育ち、それを鹿が食べるというサイクル"
+        },
+        {
+          "id": "c2",
+          "text": "コガネムシが鹿を追い払って芝生を守るサイクル"
+        },
+        {
+          "id": "c3",
+          "text": "鹿がコガネムシを食べて大増殖するサイクル"
+        },
+        {
+          "id": "c4",
+          "text": "フンがそのまま残って公園が汚れていく様子"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "コガネムシ（フン虫）が鹿のフンを分解して土に還すことで、豊かな芝生が育ち、それをまた鹿が食べるという「自然のサイクル（循環）」が説明されています。"
+  }
+]

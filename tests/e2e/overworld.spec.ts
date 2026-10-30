@@ -227,7 +227,7 @@ test('船頭に頼んで県フィールドから離島へ移動する', async ({
     .toMatchObject({ currentMap: 'kagoshima-enclave', position: { x: 128, y: 528 } });
 });
 
-test('敗北後はフィールドの出発地点へ戻って入力が復帰する', async ({ page }) => {
+test('敗北後はフィールドの出発地点へ戻り、導入演出を再開せず入力が復帰する', async ({ page }) => {
   test.setTimeout(120_000);
   await page.goto('/?debug=battle&enemy=aomori-ringoron&lv=99');
   await expect(page.locator('.nq-battle')).toBeVisible({ timeout: 20_000 });
@@ -254,7 +254,8 @@ test('敗北後はフィールドの出発地点へ戻って入力が復帰す�
       ...state,
       progress: {
         ...state.progress,
-        counters: { ...state.progress.counters, 'story.prologue': 1 },
+        // 完了済みチュートリアルは導入を見終えた証拠。旧セーブでカウンターが欠けても再演しない。
+        counters: { ...state.progress.counters, 'story.prologue': 0 },
         eventsDone: [...new Set([...state.progress.eventsDone, 'tutorial.battle-basics'])],
       },
     });
@@ -268,6 +269,7 @@ test('敗北後はフィールドの出発地点へ戻って入力が復帰す�
     game.events.emit('battle:end', { encounterId, result });
   });
   await expect(page.locator('.nq-battle')).toHaveCount(0, { timeout: 20_000 });
+  await expect(page.getByRole('dialog', { name: 'ものがたりの シーン' })).toHaveCount(0);
   await page.waitForTimeout(1_000);
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: 'がくしゅう' }).click();

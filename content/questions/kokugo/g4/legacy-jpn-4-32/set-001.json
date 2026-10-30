@@ -1,0 +1,105 @@
+[
+  {
+    "id": "kokugo.g4.supplemental.expository-a.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-32",
+    "tags": [
+      "source:codex-supplemental",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "「コウモリは暗[くら]い場所[ばしょ]で休[やす]み、夜[よる]になるとえさを探[さが]します。」この文[ぶん]の中心[ちゅうしん]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "コウモリの休[やす]む場所[ばしょ]と活動[かつどう]する時間[じかん]"
+        },
+        {
+          "id": "b",
+          "text": "コウモリの体[からだ]の色[いろ]"
+        },
+        {
+          "id": "c",
+          "text": "コウモリの大[おお]きさ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "中心[ちゅうしん]となる内容[ないよう]を、文[ぶん]に書[か]かれた二[ふた]つの情報[じょうほう]からまとめる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-32.6b30823de3da",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-32",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_32",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "都会の「ヒートアイランド現象（温だん化）」の主な原因として、文章中にあげられているものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "アスファルトの地面やエアコンの排熱"
+        },
+        {
+          "id": "c2",
+          "text": "工場の煙や自動車の排気ガス"
+        },
+        {
+          "id": "c3",
+          "text": "川の水が少くなったこと"
+        },
+        {
+          "id": "c4",
+          "text": "背の高いビルがたくさん建ったこと"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "都市部のアスファルト舗装や、エアコンの室外機からの排熱などがヒートアイランド現象を引き起こしています。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-32.70d7c5b1832e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-32",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_32",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "都会の温だん化とアブラコウモリのエサの関係について、正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温だん化によって昆虫が増え、アブラコウモリのエサが増えた。"
+        },
+        {
+          "id": "c2",
+          "text": "温だん化によって昆虫が減り、アブラコウモリのエサがなくなった。"
+        },
+        {
+          "id": "c3",
+          "text": "温だん化によってコウモリが飛べなくなった。"
+        },
+        {
+          "id": "c4",
+          "text": "エサである果物がたくさん実るようになった。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "都会が暖かくなったことで、エサとなる街灯に集まる虫（昆虫）の量が増加し、コウモリにとって暮らしやすい環境になっています。"
+  }
+]

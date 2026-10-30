@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-16.00663db7499d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星座早見盤は冬の星でも使えますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "使えない"
+        },
+        {
+          "id": "c2",
+          "text": "日付と時刻を合わせれば使える"
+        },
+        {
+          "id": "c3",
+          "text": "夏だけ"
+        },
+        {
+          "id": "c4",
+          "text": "昼だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "季節に合わせて日付・時刻を合わせます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.2152ca71a8c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の星座の例として近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オリオン座など"
+        },
+        {
+          "id": "c2",
+          "text": "さそり座だけ"
+        },
+        {
+          "id": "c3",
+          "text": "夏の大三角だけ"
+        },
+        {
+          "id": "c4",
+          "text": "見えない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "オリオン座などは冬の代表的な星座です。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.34795d5a9b29",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の大三角をつくる明るい星の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "とても暗い"
+        },
+        {
+          "id": "c2",
+          "text": "明るい1等星などが多い"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ"
+        },
+        {
+          "id": "c4",
+          "text": "動く惑星だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "明るい星で三角形[さんかくけい]をつくります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.37c9856c8f52",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の夜空で有名な明るい星の三角形[さんかくけい]を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夏の大三角"
+        },
+        {
+          "id": "c2",
+          "text": "冬の大三角"
+        },
+        {
+          "id": "c3",
+          "text": "秋の四角"
+        },
+        {
+          "id": "c4",
+          "text": "春の線"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冬の大三角が見られます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.4a6165f9579a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬と夏で見える星座はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "まったく同じ"
+        },
+        {
+          "id": "c2",
+          "text": "ちがう星座が見える"
+        },
+        {
+          "id": "c3",
+          "text": "星はない"
+        },
+        {
+          "id": "c4",
+          "text": "月だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "季節によって見える星座がちがいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.985be956689d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "星の観察記録に書くとよいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日付・時刻・見える星座"
+        },
+        {
+          "id": "c2",
+          "text": "日付[ひづけ]と時刻[じこく]だけ"
+        },
+        {
+          "id": "c3",
+          "text": "見[み]える星座[せいざ]と気温[きおん]だけ"
+        },
+        {
+          "id": "c4",
+          "text": "日付[ひづけ]と天気[てんき]だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "日付・時刻・星座名などを書きます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.ac59f167ac2a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の夜空の観察の注意はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "暖かくして安全に観察する"
+        },
+        {
+          "id": "c2",
+          "text": "裸足で長く立つ"
+        },
+        {
+          "id": "c3",
+          "text": "車道の真ん中"
+        },
+        {
+          "id": "c4",
+          "text": "目を閉じる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "寒さ対策をして安全に観察します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-16.efcfc7779ced",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-16",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-16",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冬の星が見えやすい条件はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "厚い雲"
+        },
+        {
+          "id": "c2",
+          "text": "晴れた寒い夜"
+        },
+        {
+          "id": "c3",
+          "text": "大雨"
+        },
+        {
+          "id": "c4",
+          "text": "昼間だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "晴れた夜は冬の星が見えやすいです。"
+  }
+]

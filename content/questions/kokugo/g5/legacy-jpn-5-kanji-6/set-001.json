@@ -1,0 +1,807 @@
+[
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.80da810adc05",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お寺で（仏）像を見る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "むつ"
+        },
+        {
+          "id": "b",
+          "text": "ふつ"
+        },
+        {
+          "id": "c",
+          "text": "ぶつ"
+        },
+        {
+          "id": "d",
+          "text": "ぷつ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「仏像」は「ぶつぞう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.448ea930f845",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆春は 花（粉）がとぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ふん"
+        },
+        {
+          "id": "b",
+          "text": "ぷん"
+        },
+        {
+          "id": "c",
+          "text": "ぶん"
+        },
+        {
+          "id": "d",
+          "text": "むん"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「花粉」は「かふん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.eaa93156aa28",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆毛糸で セーターを（編）む。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "か"
+        },
+        {
+          "id": "b",
+          "text": "た"
+        },
+        {
+          "id": "c",
+          "text": "や"
+        },
+        {
+          "id": "d",
+          "text": "あ"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「編む」は「あむ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.82a9214f2a5d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お（弁）当を たべる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぺん"
+        },
+        {
+          "id": "b",
+          "text": "へん"
+        },
+        {
+          "id": "c",
+          "text": "べん"
+        },
+        {
+          "id": "d",
+          "text": "めん"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「弁当」は「べんとう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.c30b9d9519fc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆データを 保（存）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぽ"
+        },
+        {
+          "id": "b",
+          "text": "ぼ"
+        },
+        {
+          "id": "c",
+          "text": "も"
+        },
+        {
+          "id": "d",
+          "text": "ほ"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「保存」は「ほぞん」と読みます（※「保」は「ほ」と読みます）。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.ae9bd61a60bf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆お（墓）まいりに 行く。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "はか"
+        },
+        {
+          "id": "b",
+          "text": "ばか"
+        },
+        {
+          "id": "c",
+          "text": "ぱか"
+        },
+        {
+          "id": "d",
+          "text": "まか"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「墓」は「はか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.01d11f707d90",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆結果を（報）告する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぼう"
+        },
+        {
+          "id": "b",
+          "text": "ほう"
+        },
+        {
+          "id": "c",
+          "text": "ぽう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「報告」は「ほうこく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.17343509715d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆自然が（豊）かだ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ほが"
+        },
+        {
+          "id": "b",
+          "text": "しず"
+        },
+        {
+          "id": "c",
+          "text": "おごそ"
+        },
+        {
+          "id": "d",
+          "text": "ゆた"
+        }
+      ],
+      "answer": "d",
+      "shuffle": true
+    },
+    "explanation": "「豊か」は「ゆたか」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.1dc7c2dd5055",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆事故を（防）ぐ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "かせ"
+        },
+        {
+          "id": "b",
+          "text": "ふせ"
+        },
+        {
+          "id": "c",
+          "text": "つ"
+        },
+        {
+          "id": "d",
+          "text": "いそ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「防ぐ」は「ふせぐ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.c3bb9d027f37",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆外国と（貿）易をする。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ほう"
+        },
+        {
+          "id": "b",
+          "text": "ぼう"
+        },
+        {
+          "id": "c",
+          "text": "ぽう"
+        },
+        {
+          "id": "d",
+          "text": "もう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「貿易」は「ぼうえき」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.ce3105cee649",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆馬が（暴）れる。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "こぼ"
+        },
+        {
+          "id": "b",
+          "text": "あば"
+        },
+        {
+          "id": "c",
+          "text": "つか"
+        },
+        {
+          "id": "d",
+          "text": "わ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「暴れる」は「あばれる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.e9da6bc980c6",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆大きな 山（脈）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "みゃく"
+        },
+        {
+          "id": "b",
+          "text": "びゃく"
+        },
+        {
+          "id": "c",
+          "text": "ぴゃく"
+        },
+        {
+          "id": "d",
+          "text": "りゃく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「山脈」は「さんみゃく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.7df44740dca4",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆国民の 義（務）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ぶ"
+        },
+        {
+          "id": "b",
+          "text": "む"
+        },
+        {
+          "id": "c",
+          "text": "ふ"
+        },
+        {
+          "id": "d",
+          "text": "ぷ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「義務」は「ぎむ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.9474dbc01f6a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆将来の（夢）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "ゆめ"
+        },
+        {
+          "id": "b",
+          "text": "くも"
+        },
+        {
+          "id": "c",
+          "text": "ほし"
+        },
+        {
+          "id": "d",
+          "text": "にじ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「夢」は「ゆめ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.17946af50a63",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆道に（迷）う。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なや"
+        },
+        {
+          "id": "b",
+          "text": "まよ"
+        },
+        {
+          "id": "c",
+          "text": "かよ"
+        },
+        {
+          "id": "d",
+          "text": "さそ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「迷う」は「まよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.cc46a88fdc11",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆木（綿）の ハンカチ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "べん"
+        },
+        {
+          "id": "b",
+          "text": "めん"
+        },
+        {
+          "id": "c",
+          "text": "ぺん"
+        },
+        {
+          "id": "d",
+          "text": "へん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「木綿」は「もめん」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.8c4b98b77a08",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆石油を（輸）入する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "じゅ"
+        },
+        {
+          "id": "b",
+          "text": "きゅ"
+        },
+        {
+          "id": "c",
+          "text": "ゆ"
+        },
+        {
+          "id": "d",
+          "text": "しゅ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「輸入」は「ゆにゅう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.a14e5019db55",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆時間が（余）る。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あま"
+        },
+        {
+          "id": "b",
+          "text": "たま"
+        },
+        {
+          "id": "c",
+          "text": "とま"
+        },
+        {
+          "id": "d",
+          "text": "そま"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「余る」は「あまる」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.4a95e845229e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆箱の中の 内（容）。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "よう"
+        },
+        {
+          "id": "b",
+          "text": "そう"
+        },
+        {
+          "id": "c",
+          "text": "りょう"
+        },
+        {
+          "id": "d",
+          "text": "きょう"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「内容」は「ないよう」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.dcce0ef532dc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆詳しい説明を 省（略）する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "みゃく"
+        },
+        {
+          "id": "b",
+          "text": "りゃく"
+        },
+        {
+          "id": "c",
+          "text": "ぎゃく"
+        },
+        {
+          "id": "d",
+          "text": "きゃく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「省略」は「しょうりゃく」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.e46aef451da1",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（留）守番を する。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "る"
+        },
+        {
+          "id": "b",
+          "text": "む"
+        },
+        {
+          "id": "c",
+          "text": "ぶ"
+        },
+        {
+          "id": "d",
+          "text": "ふ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「留守」は「るす」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.fa2b5824e1f2",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆（領）収書を もらう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょう"
+        },
+        {
+          "id": "b",
+          "text": "りょう"
+        },
+        {
+          "id": "c",
+          "text": "ぎょう"
+        },
+        {
+          "id": "d",
+          "text": "みょう"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「領収書」は「りょうしゅうしょ」と読みます。"
+  },
+  {
+    "id": "source.kokugo.g5.jpn-5-kanji-6.ae8ea1fa40b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 5,
+    "unit": "kokugo.g5.legacy-jpn-5-kanji-6",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆日本の（歴）史。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "れき"
+        },
+        {
+          "id": "b",
+          "text": "でき"
+        },
+        {
+          "id": "c",
+          "text": "めき"
+        },
+        {
+          "id": "d",
+          "text": "ぺき"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「歴史」は「れきし」と読みます。"
+  }
+]

@@ -1,0 +1,343 @@
+[
+  {
+    "id": "kokugo.g1.bun-no-kimari.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "ふつうの文[ぶん]の終[お]わりにつける記号[きごう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "、(てん)"
+        },
+        {
+          "id": "b",
+          "text": "。(まる)"
+        },
+        {
+          "id": "c",
+          "text": "？(はてな)"
+        },
+        {
+          "id": "d",
+          "text": "！(びっくり)"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "ふつうの文[ぶん]の終[お]わりには「句点[くてん]（。）」をつけます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「きょうはてんきがいい」を、ことばのまとまりで分[わ]けたものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きょうはてんきがいい"
+        },
+        {
+          "id": "b",
+          "text": "きょう はてんき がいい"
+        },
+        {
+          "id": "c",
+          "text": "きょうは てんきが いい"
+        },
+        {
+          "id": "d",
+          "text": "きょ うはてん きがいい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「きょうは / てんきが / いい」のまとまりに分[わ]けます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "かぎかっこ「 」は、どんなときに使[つか]いますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "人[ひと]が話[はな]した言葉[ことば]を文[ぶん]に書[か]くとき"
+        },
+        {
+          "id": "b",
+          "text": "ぶんの おわり"
+        },
+        {
+          "id": "c",
+          "text": "ぶんの とちゅうの きれめ"
+        },
+        {
+          "id": "d",
+          "text": "なまえを かくとき"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "かぎかっこは、人[ひと]が話[はな]した言葉[ことば]などを囲[かこ]むときに使[つか]います。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「ぼくは、あした」の「、」の名前[なまえ]は何[なん]ですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "くてん"
+        },
+        {
+          "id": "b",
+          "text": "とうてん"
+        },
+        {
+          "id": "c",
+          "text": "かぎかっこ"
+        },
+        {
+          "id": "d",
+          "text": "のばすおと"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「、」は「読点[とうてん]」または「てん」と呼[よ]びます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「おもしろい本[ほん]を読[よ]んだ」を、正[ただ]しい順[じゅん]にしたものはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "本[ほん]をおもしろい読[よ]んだ"
+        },
+        {
+          "id": "b",
+          "text": "おもしろい本[ほん]を読[よ]んだ"
+        },
+        {
+          "id": "c",
+          "text": "読[よ]んだ本[ほん]をおもしろい"
+        },
+        {
+          "id": "d",
+          "text": "おもしろい読[よ]んだ本[ほん]を"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「どんな本[ほん]」かを表[あらわ]す「おもしろい」は、「本[ほん]」の前[まえ]に書[か]きます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「ことりが なく。」で、「だれが」にあたる言葉[ことば]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "なく。"
+        },
+        {
+          "id": "b",
+          "text": "ことり"
+        },
+        {
+          "id": "c",
+          "text": "ことりが"
+        },
+        {
+          "id": "d",
+          "text": "がなく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「だれが・なにが」にあたるのは「ことりが」です。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0007",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「いぬが はしる。」で、うごきを表[あらわ]す言葉[ことば]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いぬ"
+        },
+        {
+          "id": "b",
+          "text": "はしる"
+        },
+        {
+          "id": "c",
+          "text": "いぬが"
+        },
+        {
+          "id": "d",
+          "text": "がはしる"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "うごきを表[あらわ]す言葉[ことば]は「はしる」です。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0008",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「げんきですか」のような文[ぶん]のさいごにつける記号[きごう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "、(てん)"
+        },
+        {
+          "id": "b",
+          "text": "。(まる)"
+        },
+        {
+          "id": "c",
+          "text": "「(かっこ)"
+        },
+        {
+          "id": "d",
+          "text": "ー(のばすおと)"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "たずねる文[ぶん]でも、さいごに「。（まる）」をつけます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0009",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "読点[とうてん]「、」は、文[ぶん]のどこで使[つか]うとよいですか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "文[ぶん]のさいご"
+        },
+        {
+          "id": "b",
+          "text": "言葉[ことば]の切[き]れめや読[よ]みやすいところ"
+        },
+        {
+          "id": "c",
+          "text": "かならず文[ぶん]のはじめ"
+        },
+        {
+          "id": "d",
+          "text": "会話[かいわ]のなかだけ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「、」は言葉[ことば]の切[き]れめにつけて、文[ぶん]を読[よ]みやすくする記号[きごう]です。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0010",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "原稿用紙[げんこうようし]に文[ぶん]を書[か]きはじめるとき、はじめの1マスはどうしますか？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "そのまま書[か]く"
+        },
+        {
+          "id": "b",
+          "text": "1マスあけて書[か]く"
+        },
+        {
+          "id": "c",
+          "text": "2マスあけて書[か]く"
+        },
+        {
+          "id": "d",
+          "text": "一番下[いちばんした]から書[か]く"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文[ぶん]の書[か]きはじめは、はじめの1マスをあけて書[か]きます。"
+  },
+  {
+    "id": "kokugo.g1.bun-no-kimari.0011",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 1,
+    "unit": "kokugo.g1.bun-no-kimari",
+    "payload": {
+      "prompt": "「あさごはんをたべる」を、ことばの まとまりで わけたものは どれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あさごはんを たべる"
+        },
+        {
+          "id": "b",
+          "text": "あさ ごはんをた べる"
+        },
+        {
+          "id": "c",
+          "text": "あさご はんを たべる"
+        },
+        {
+          "id": "d",
+          "text": "あさごはんをたべる"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「あさごはんを」と「たべる」の まとまりに わけると、読[よ]みやすく なります。"
+  }
+]

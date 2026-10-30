@@ -1,0 +1,617 @@
+[
+  {
+    "id": "legacy.shakai.g5.soc-5-1.02a8f9fd7f49",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ロシア連邦との領土をめぐる問題[もんだい]が発生している 以下の地図の地域を、何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "北方領土"
+        },
+        {
+          "id": "c2",
+          "text": "竹島"
+        },
+        {
+          "id": "c3",
+          "text": "尖閣諸島"
+        },
+        {
+          "id": "c4",
+          "text": "樺太"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d611150b0d9336d5.png"
+    },
+    "explanation": "第二次世界大戦後、ソ連が占領した択捉えとろふ島、国後くなしり島、色丹しこたん島、歯舞群島はぼまいぐんとうを、北方領土 という。ソ連がなくなった現在は、ロシア が支配している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.04d970fa769f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国旗についての説明[せつめい]として、正しくないものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "日本の国旗の赤い丸は、太陽[たいよう]を表している。"
+        },
+        {
+          "id": "c2",
+          "text": "イギリスの国旗は、イギリスをつくる４つの国の旗を合わせて作られた。"
+        },
+        {
+          "id": "c3",
+          "text": "フランスの国旗の３つの色は、自由・平等・友愛を表している。"
+        },
+        {
+          "id": "c4",
+          "text": "国旗は、最初につくられた後は 変えられることはない。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "国旗は、最初につくられた後も、変えられることがある。 例えば、アメリカの国旗は、アメリカの州の数が変わる度に、そのデザインが変わってきた。他にも、政治の体制が変わったりすると、国旗が変更されることがある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.0ae70760ab50",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国連「世界人口推計2024年版」の2024年推計で、人口が多い国の1位と2位の組み合わせを選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "インド・中国"
+        },
+        {
+          "id": "c2",
+          "text": "中国・ブラジル"
+        },
+        {
+          "id": "c3",
+          "text": "ブラジル・ロシア"
+        },
+        {
+          "id": "c4",
+          "text": "ロシア・インド"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "国連「世界人口推計2024年版」の2024年推計では、人口は1位がインド、2位が中国です。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.26c39e9055eb",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の地図を参考にして、日本とほぼ同じ緯度に 位置する国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c2",
+          "text": "イタリア"
+        },
+        {
+          "id": "c3",
+          "text": "ブラジル"
+        },
+        {
+          "id": "c4",
+          "text": "南アフリカ共和国"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af98e9a11d4cbfad.png"
+    },
+    "explanation": "「ほぼ同じ緯度」なので、日本と南北の位置が ほぼ同じ国をえらべばいい。ヨーロッパの国イタリアは、この地図では日本のずっと左で、ほぼ同じ緯度にある。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.2cac68dd14ba",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "それぞれの国の海岸線から200海里（約370km）まで広がる、その国が 水産しげん や 鉱産しげんの権けん利を持つ、海のはんい を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "排他的経済水域"
+        },
+        {
+          "id": "c2",
+          "text": "大陸棚"
+        },
+        {
+          "id": "c3",
+          "text": "領海"
+        },
+        {
+          "id": "c4",
+          "text": "公海"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "それぞれの国の海岸線から200海里（約370km）まで広がる、その国が 水産しげん や 鉱産しげんの権利を持つ、海のはんい を、排他はいた的経済けいざい水域 という。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.2feefc01d43b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "上の地図中Aにある 尖閣諸島せんかくしょとう は、日本が支配しているが、ある国が自国の領土だと主張している。その国は、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "韓国"
+        },
+        {
+          "id": "c2",
+          "text": "北朝鮮"
+        },
+        {
+          "id": "c3",
+          "text": "ロシア"
+        },
+        {
+          "id": "c4",
+          "text": "中国"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/66af21f9eeeba2cb.png"
+    },
+    "explanation": "上の地図中Aにある 尖閣諸島せんかくしょとう は、日本が支配しているが、中国が自国の領土だと主張している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.383e6f68281b",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地球上の位置の表し方について、かっこに当てはまる語をえらぼう。",
+      "answers": [
+        "180度",
+        "経度",
+        "90度",
+        "緯度"
+      ],
+      "template": "地球上の位置は、東西をそれぞれ {{INPUT}} に分けた {{INPUT}} と、南北をそれぞれ {{INPUT}} に分けた {{INPUT}} で表すことができる。"
+    },
+    "explanation": "地球上の位置は、東西をそれぞれ（180度）に分けた（経けい度）と、南北をそれぞれ（90度）に分けた（緯い度）で表すことができる。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.4a3ab541e2a0",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本の東西南北の はし について、A〜Dに当てはまる島の名前[なまえ]をえらぼう。",
+      "answers": [
+        "択捉島",
+        "沖ノ鳥島",
+        "南鳥島",
+        "与那国島"
+      ],
+      "template": "北のはし（A）： {{INPUT}} 南のはし（B）： {{INPUT}} 東のはし（C）： {{INPUT}} 西のはし（D）： {{INPUT}}",
+      "promptImage": "questions/legacy/ba210c6ac289172a.png"
+    },
+    "explanation": "北のはし（A）：（択捉島） 南のはし（B）：（沖ノ鳥島） 東のはし（C）：（南鳥島） 西のはし（D）：（与那国よなぐに島）"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.4bc13b0ef0e4",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国旗は、次のうちどの国のものでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イギリス"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c3",
+          "text": "中華人民共和国"
+        },
+        {
+          "id": "c4",
+          "text": "大韓民国"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/a6aea6a0f822fa01.png"
+    },
+    "explanation": "中華人民共和国ちゅうかじんみんきょうわこく、中国の国旗。赤色は革命を、黄色[きいろ]は光を表している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.4e94ee1ba0f5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国の中から、日本と同じぐらいの面積[めんせき]の国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ドイツ"
+        },
+        {
+          "id": "c2",
+          "text": "中国"
+        },
+        {
+          "id": "c3",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c4",
+          "text": "ブラジル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "世界地図を思いうかべてみよう。ドイツ以外は、とても大きな国ばかりになっている。中国が世界4位、ブラジルが世界5位、オーストラリアが世界6位、ドイツが世界62位。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.5d49c4e7e06d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の地図中Aの島は、日本の領土だが、1952年から韓国に支配されている。この島を 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "択捉島"
+        },
+        {
+          "id": "c2",
+          "text": "尖閣島"
+        },
+        {
+          "id": "c3",
+          "text": "沖ノ鳥島"
+        },
+        {
+          "id": "c4",
+          "text": "竹島"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/eb220de9c70bef1d.png"
+    },
+    "explanation": "地図中Aの竹島は、日本の領土だが、1952年から韓国に支配されている。 ・択捉えとろふ島は、ロシアに支配されている北方領土の島。 ・沖ノ鳥島は、日本の南のはし にある島。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.838105f79b75",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図上の A～F に当てはまる大陸として、正しいものをえらぼう。",
+      "answers": [
+        "ユーラシア",
+        "アフリカ",
+        "オーストラリア",
+        "北アメリカ",
+        "南アメリカ",
+        "南極"
+      ],
+      "template": "A ： {{INPUT}} 大陸 B ： {{INPUT}} 大陸 C ： {{INPUT}} 大陸 D ： {{INPUT}} 大陸 E ： {{INPUT}} 大陸 F ： {{INPUT}} 大陸",
+      "promptImage": "questions/legacy/2ce739ad6f9016a9.png"
+    },
+    "explanation": "A ： （ユーラシア） 大陸 B ： （アフリカ） 大陸 C ： （オーストラリア） 大陸 D ： （北アメリカ） 大陸 E ： （南アメリカ） 大陸 F ： （南極） 大陸"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.9b64d6a89bb6",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "国のはんいは、次の文の ①〜③でつくられている。①〜③に当てはまる語をえらぼう。",
+      "answers": [
+        "領土",
+        "領海",
+        "領空"
+      ],
+      "template": "① {{INPUT}} ： 国がもつ陸地や、陸地に囲まれた湖や川 ② {{INPUT}} ： 海岸から12海里（約22km）までの海 ③ {{INPUT}} ： ①と②の上空"
+    },
+    "explanation": "①（領りょう土）： 国がもつ陸地や、陸地に囲まれた湖や川 ②（領海）： 海岸から12海里（約22km）までの海 ③（領空）： ①領土と②領海の上空"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.a4ef1c9b5d5f",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本のまわりにある A〜Dの国について、国名をえらぼう。",
+      "answers": [
+        "大韓民国",
+        "朝鮮民主主義人民共和国",
+        "中華人民共和国",
+        "ロシア連邦"
+      ],
+      "template": "A： {{INPUT}} B： {{INPUT}} C： {{INPUT}} D： {{INPUT}}",
+      "promptImage": "questions/legacy/8cbf3e4bf1f29bf8.png"
+    },
+    "explanation": "A：（大韓かん民国） B：（朝鮮せん民主主義ぎ人民共和国） C：（中華か人民共和国） D：（ロシア連邦ぽう）"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.e4ef63f4d145",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国旗は、次のうちどの国のものでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イギリス"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c3",
+          "text": "スコットランド"
+        },
+        {
+          "id": "c4",
+          "text": "フランス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/98ab689286996c78.png"
+    },
+    "explanation": "イギリスの正式な名前[なまえ]は、グレートブリテンおよび北部アイルランド連合王国。４つの国がまとまって１つの国になっていて、国旗もそれぞれの国の旗を 合わせて作られた。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.e81892e00195",
+    "type": "text-input",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図上の A～C に当てはまる海として、正しいものをえらぼう。",
+      "answers": [
+        "太平洋",
+        "大西洋",
+        "インド洋"
+      ],
+      "template": "A ： {{INPUT}} B ： {{INPUT}} C ： {{INPUT}}",
+      "promptImage": "questions/legacy/a55d11a2f339c5af.png"
+    },
+    "explanation": "由来[ゆらい]や特ちょうを知っていると、覚えやすい。 A ： 世界で一番大きな大洋。 B ： ヨーロッパの「西」に位置する大洋。 C ： この海の北にある国の名前[なまえ]が、そのまま大洋の名前[なまえ]になっている。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.f09ffb9e5316",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の三つの海について、面積[めんせき]の大きい順に並べたものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太平洋、インド洋、大西洋"
+        },
+        {
+          "id": "c2",
+          "text": "太平洋、大西洋、インド洋"
+        },
+        {
+          "id": "c3",
+          "text": "インド洋、大西洋、太平洋"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af98e9a11d4cbfad.png"
+    },
+    "explanation": "太平洋：約1億6,525万km²大西洋：約8,244万km²インド洋：約7,344万km²"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.f206f5593367",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の国旗は、次のうちどの国のものでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "イギリス"
+        },
+        {
+          "id": "c2",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c3",
+          "text": "中華人民共和国"
+        },
+        {
+          "id": "c4",
+          "text": "アメリカ"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/50c5ee390497729f.jpg"
+    },
+    "explanation": "左上にある50の星は、アメリカの今の州の数を表している。13の赤白のラインは、アメリカが 独どく立したときの 州の数を表している。"
+  },
+  {
+    "id": "legacy.shakai.g5.soc-5-1.f85a64fa8632",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 5,
+    "unit": "shakai.g5.legacy-soc-5-1",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:soc_5_1",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "以下の地図を参考にして、日本とほぼ同じ経度に 位置する国をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "オーストラリア"
+        },
+        {
+          "id": "c2",
+          "text": "イタリア"
+        },
+        {
+          "id": "c3",
+          "text": "ブラジル"
+        },
+        {
+          "id": "c4",
+          "text": "南アフリカ共和国"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/af98e9a11d4cbfad.png"
+    },
+    "explanation": "「ほぼ同じ経度」なので、日本と東西の位置が ほぼ同じ国をえらべばいい。オーストラリアは、この地図では日本の真下にあるので、ほぼ同じ経度になる。"
+  }
+]

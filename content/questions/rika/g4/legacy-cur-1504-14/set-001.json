@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-14.1ec7274f2cc2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る（ちぢむ）"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすとちぢんで体積が減ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.2b3787da1435",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温度によって体積が変わることを調べる道具はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温度計"
+        },
+        {
+          "id": "c2",
+          "text": "方位磁針"
+        },
+        {
+          "id": "c3",
+          "text": "虫めがねだけ"
+        },
+        {
+          "id": "c4",
+          "text": "モーター"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度計で温度を測りながら調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.46dc44de466c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷になる"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水も温めると体積が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.4d2d857bd8f8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属を温めると体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "減る"
+        },
+        {
+          "id": "c2",
+          "text": "増える（ふくらむ）"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "消える"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "金属は温めるとふくらみ、体積が増えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.57906082a8c8",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水の温度と体積の関係を調べるとき使うものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "フラスコや温度計など"
+        },
+        {
+          "id": "c2",
+          "text": "磁石だけ"
+        },
+        {
+          "id": "c3",
+          "text": "電池だけ"
+        },
+        {
+          "id": "c4",
+          "text": "星座早見盤"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "容器と温度計などを使って調べます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.61961a25bc5d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属の棒を温めたときの変化として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "必[かなら]ず短[みじか]くなる"
+        },
+        {
+          "id": "c2",
+          "text": "長くなることがある"
+        },
+        {
+          "id": "c3",
+          "text": "長[なが]さはまったく変[か]わらない"
+        },
+        {
+          "id": "c4",
+          "text": "温[あたた]めている間[あいだ]だけ短[みじか]くなる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "温めると伸びることがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.b3a544eba604",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "温めた水を冷やすと体積はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "増える"
+        },
+        {
+          "id": "c2",
+          "text": "減る"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "油になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やすと体積は減りやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-14.e5c7dc0daa15",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同じ量の水でも温度が違うとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体積が違うことがある"
+        },
+        {
+          "id": "c2",
+          "text": "必ず同じ体積"
+        },
+        {
+          "id": "c3",
+          "text": "色だけ違う"
+        },
+        {
+          "id": "c4",
+          "text": "重さだけ0"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温度によって体積が変わります。"
+  }
+]

@@ -1,0 +1,443 @@
+[
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.00cef7a07d4f",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域のくらしを支える場所はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "コンビニエンスストア"
+        },
+        {
+          "id": "c2",
+          "text": "宇宙ステーション"
+        },
+        {
+          "id": "c3",
+          "text": "砂漠"
+        },
+        {
+          "id": "c4",
+          "text": "氷山"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7960c248ffaa4c74.jpg"
+    },
+    "explanation": "お店は、地域の人々のくらしを支えています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.1fc7a568adc8",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真[しゃしん]を見[み]て、自分[じぶん]たちの町[まち]にある施設[しせつ]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "学校[がっこう]"
+        },
+        {
+          "id": "c2",
+          "text": "工場"
+        },
+        {
+          "id": "c3",
+          "text": "空港"
+        },
+        {
+          "id": "c4",
+          "text": "発電所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/43d55f3c8bb91fd5.jpg"
+    },
+    "explanation": "学校[がっこう]は、子どもたちが学ぶ大切な場所です。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.21a83bae6a48",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "町探検[まちたんけん]で道[みち]に迷[まよ]ったとき、まずどうしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "近[ちか]くの先生[せんせい]や店[みせ]の人[ひと]に相談[そうだん]する"
+        },
+        {
+          "id": "c2",
+          "text": "一人[ひとり]で知[し]らない道[みち]を歩[ある]き続[つづ]ける"
+        },
+        {
+          "id": "c3",
+          "text": "だれにも言[い]わずに待[ま]つ"
+        },
+        {
+          "id": "c4",
+          "text": "見[み]つからない場所[ばしょ]に隠[かく]れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "困[こま]ったときは、その場[ば]から遠[とお]くへ行[い]かず、近[ちか]くの先生[せんせい]や店[みせ]の人[ひと]など、信頼[しんらい]できる大人[おとな]に相談[そうだん]しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.3b4899a3d2a3",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、すみかのまわりにある場所はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公園"
+        },
+        {
+          "id": "c2",
+          "text": "海の底"
+        },
+        {
+          "id": "c3",
+          "text": "月"
+        },
+        {
+          "id": "c4",
+          "text": "火山の中"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/34a7de33c3a13a3d.jpg"
+    },
+    "explanation": "家の近くには、店、学校[がっこう]、公園などがあります。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.5ed380449328",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まわりを見てまわるときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "安全に気をつける"
+        },
+        {
+          "id": "c2",
+          "text": "一人で遠くへ行く"
+        },
+        {
+          "id": "c3",
+          "text": "道路で遊ぶ"
+        },
+        {
+          "id": "c4",
+          "text": "記録しない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "安全に気をつけながら観察しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.5f2210edc188",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "仕事を調べるときに注目することはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "誰のくらしを助けているか"
+        },
+        {
+          "id": "c2",
+          "text": "給料の額だけ"
+        },
+        {
+          "id": "c3",
+          "text": "服装の色だけ"
+        },
+        {
+          "id": "c4",
+          "text": "何も調べない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "その仕事が誰のくらしを助けているかを考えます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.8bac38cc87b7",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域のくらしを支える交通手段はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バス"
+        },
+        {
+          "id": "c2",
+          "text": "潜水艦"
+        },
+        {
+          "id": "c3",
+          "text": "ロケット"
+        },
+        {
+          "id": "c4",
+          "text": "帆船"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/620425f5f07bf0be.jpg"
+    },
+    "explanation": "バスは、地域の人々を運ぶ仕事をしています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.9ad411b5b826",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、安全に生活するために守るものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "道路のルール"
+        },
+        {
+          "id": "c2",
+          "text": "車の前を走る"
+        },
+        {
+          "id": "c3",
+          "text": "知らない人について行く"
+        },
+        {
+          "id": "c4",
+          "text": "相談しない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/49fc5cf88e941a92.jpg"
+    },
+    "explanation": "横断歩道[おうだんほどう]や信号のルールを守りましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.a0c113aa2a34",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真[しゃしん]を見[み]て、けがや病気[びょうき]の人[ひと]を助[たす]ける施設[しせつ]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "病院[びょういん]"
+        },
+        {
+          "id": "c2",
+          "text": "遊園地[ゆうえんち]"
+        },
+        {
+          "id": "c3",
+          "text": "映画館[えいがかん]"
+        },
+        {
+          "id": "c4",
+          "text": "カラオケ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e1e5c00d367ab314.jpg"
+    },
+    "explanation": "病院[びょういん]では、医師[いし]や看護師[かんごし]などが、けがや病気[びょうき]の人[ひと]を助[たす]けています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.df1a73a22eaf",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域で働く人の仕事の場所はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "パン屋"
+        },
+        {
+          "id": "c2",
+          "text": "月面"
+        },
+        {
+          "id": "c3",
+          "text": "海底"
+        },
+        {
+          "id": "c4",
+          "text": "火山"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/884fa4899687dd39.jpg"
+    },
+    "explanation": "パン屋の人は、パンを作って地域の人の食事を支えています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.fc7e29951868",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真[しゃしん]を見[み]て、地域[ちいき]の祭[まつ]りや歴史[れきし]と関[かか]わりが深[ふか]い場所[ばしょ]はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "神社[じんじゃ]"
+        },
+        {
+          "id": "c2",
+          "text": "個人[こじん]の駐車場[ちゅうしゃじょう]"
+        },
+        {
+          "id": "c3",
+          "text": "家[いえ]の物置[ものおき]"
+        },
+        {
+          "id": "c4",
+          "text": "工事中[こうじちゅう]の道路[どうろ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d7eb239c8d4380f1.jpg"
+    },
+    "explanation": "神社[じんじゃ]には、地域[ちいき]の祭[まつ]りや歴史[れきし]と関[かか]わるものが残[のこ]っていることがあります。実際[じっさい]に見学[けんがく]するときは、地域[ちいき]の人[ひと]に話[はなし]を聞[き]いて確[たし]かめましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-01.fdd128a46678",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、地域で親しみをもてる場所はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "公園"
+        },
+        {
+          "id": "c2",
+          "text": "海の底"
+        },
+        {
+          "id": "c3",
+          "text": "宇宙"
+        },
+        {
+          "id": "c4",
+          "text": "地下鉄のトンネル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/575dbedb41283727.jpg"
+    },
+    "explanation": "公園は、地域の人々がくつろげる場所です。"
+  }
+]

@@ -1,0 +1,359 @@
+[
+  {
+    "id": "source.kokugo.g6.jpn-6-3.f29fa37b1a43",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「春はあけぼの…」で始まる、清少納言が書いた随筆（古典）の名前は何ですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "徒然草"
+        },
+        {
+          "id": "b",
+          "text": "枕草子"
+        },
+        {
+          "id": "c",
+          "text": "源氏物語"
+        },
+        {
+          "id": "d",
+          "text": "平家物語"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "清少納言が四季の美しさを書いた随筆は『枕草子』です。古文特有のリズムや響きを持ちます。"
+  },
+  {
+    "id": "source.kokugo.g6.jpn-6-3.fa613828a30b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "四つの文のうち、文の終わりを名詞（体言）で止めて余韻を残す「体言止め」を使っているものはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "空がとても青い。"
+        },
+        {
+          "id": "b",
+          "text": "海がきらきらと光る。"
+        },
+        {
+          "id": "c",
+          "text": "見上げれば、青い空。"
+        },
+        {
+          "id": "d",
+          "text": "静かに夜が明ける。"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「空」という名詞（体言）で文を終わらせることで、印象を強める修辞技法です。"
+  },
+  {
+    "id": "source.kokugo.g6.jpn-6-3.9fd16b70d1b5",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "ある地域だけで使われる「方言」に対して、全国どこでも通じる言葉を何といいますか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "共通語"
+        },
+        {
+          "id": "b",
+          "text": "外来語"
+        },
+        {
+          "id": "c",
+          "text": "専門用語"
+        },
+        {
+          "id": "d",
+          "text": "古語"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "地域特有の方言と、全国共通の共通語の違いを理解し、時と場に応じて使い分けることが大切です。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.36daffd4124e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四字熟語「以心___心」の空欄に入る漢字は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "伝"
+        },
+        {
+          "id": "c2",
+          "text": "通"
+        },
+        {
+          "id": "c3",
+          "text": "知"
+        },
+        {
+          "id": "c4",
+          "text": "同"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「以心伝心（いしんでんしん）」は、言葉を使わなくても心と心で通じ合うことです。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.4a076575decf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四字熟語で、「一生のうちで一度しかない出会い」という意味のものはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一期一会（いちごいちえ）"
+        },
+        {
+          "id": "c2",
+          "text": "一生懸命（いっしょうけんめい）"
+        },
+        {
+          "id": "c3",
+          "text": "千載一遇（せんざいいちぐう）"
+        },
+        {
+          "id": "c4",
+          "text": "一日千秋（いちじつせんしゅう）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "茶道に由来する「一期一会」は、その機会を一生に一度のものとして大切にするという意味です。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.8176a1b322e9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「十人十色」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人それぞれ違う"
+        },
+        {
+          "id": "c2",
+          "text": "10人同じ"
+        },
+        {
+          "id": "c3",
+          "text": "色10"
+        },
+        {
+          "id": "c4",
+          "text": "同じ好み"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "個性の違い。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.8588acbbb9c3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「最初から最後まで」という意味を持つ四字熟語はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "終始一貫"
+        },
+        {
+          "id": "c2",
+          "text": "徹頭徹尾（てっとうてつび）"
+        },
+        {
+          "id": "c3",
+          "text": "心機一転"
+        },
+        {
+          "id": "c4",
+          "text": "千差万別"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "頭から尾まで徹底しているという意味の「徹頭徹尾」です。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.c5a3d74d5ee0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「十人十色（じゅうにんといろ）」の意味は何ですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "みんなちがって、それぞれ個性があること"
+        },
+        {
+          "id": "c2",
+          "text": "みんな同じ考えを持っていること"
+        },
+        {
+          "id": "c3",
+          "text": "10つの色を混ぜること"
+        },
+        {
+          "id": "c4",
+          "text": "たくさんの服を着ること"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "人によって好みや考え方が様々に異なるという意味の四字熟語です。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.d7419973c12a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「一石二鳥」の意味は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一つの努力で二つの利益"
+        },
+        {
+          "id": "c2",
+          "text": "鳥2羽"
+        },
+        {
+          "id": "c3",
+          "text": "石1つ"
+        },
+        {
+          "id": "c4",
+          "text": "失敗"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "四字熟語。"
+  },
+  {
+    "id": "legacy.kokugo.g6.jpn-6-3.f315df92d541",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.legacy-jpn-6-3",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_6_3",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "四字熟語「弱肉___食」の空欄に入る漢字はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "強"
+        },
+        {
+          "id": "c2",
+          "text": "小"
+        },
+        {
+          "id": "c3",
+          "text": "大"
+        },
+        {
+          "id": "c4",
+          "text": "闘"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「弱肉強食（じゃくにくきょうしょく）」は、強い者が弱い者の犠牲の上に栄えることです。"
+  }
+]

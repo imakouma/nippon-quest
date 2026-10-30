@@ -1,0 +1,431 @@
+[
+  {
+    "id": "legacy.sansu.g6.math-6-10.01fa32a5ca71",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさんの３人でチームをつくって、リレーにでます。３人の走る順番は、全部で何通りあるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/3d5a9c9dba9842f3.png"
+    },
+    "explanation": "「１番目が まさしさん、２番目が さおりさん、３番目が…」というように、すべての場合を数えていくと、全部で 6通りになるね。下のような図をかくと、わかりやすい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.0d62b6f25ffb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10円玉を 4回投げて、表が出るか、裏が出るかを調べます。4回の表と裏の出方は、何通りありますか。",
+      "answers": [
+        "16"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/418e4fc84fcf5071.png"
+    },
+    "explanation": "1回ごとに、表が出る場合、と裏が出る場合がある。それを４回くりかえすので、すべての場合は、下の表のようになる。全部で 16通りだね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.15d68311fec9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさんの３人から、応援団長と副応援団長をえらびます。えらび方は、全部で何通りあるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "「応援団長が まさしさん、副応援団長が さおりさんのとき」、「応援団長が まさしさん、副応援団長が みくさんのとき」と順番に、すべての場合を考えていこう。 そうすると（応援団長、副団長）の組み合わせは、（まさし、さおり）、（まさし、みく）、（さおり、まさし）、（さおり、みく）、（みく、まさし）、（みく、さおり）の６通り。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.279fa37becfc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0、１、２の数字がかかれた３枚のカードを並びかえて、３けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "０のカードが最初に来てしまうと、たとえば 012 というように、正しい３けたの数をつくることができない。注意しながらすべてを数えると、102, 120, 201, 210 の４つの数になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.2d3b81618e56",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10円玉を 3回投げて、表が出るか、裏が出るかを調べます。3回の表と裏の出方は、何通りありますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/a16c3cee97897ed8.png"
+    },
+    "explanation": "1回ごとに、表が出る場合と裏が出る場合がある。それを３回くりかえすので、すべての場合は、下の表のようになる。全部で 8通りだね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.2eae84cc0e0e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "5人の中から、買い物に行く人を3人えらびます。えらび方は、何通りありますか。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "５人を区別できるように、名前[なまえ]をつけてあげよう。アルファベットで、A, B, C, D, E とつけると、そこから ３人のえらび方は、次の１０通り。 （A, B, C）、（A, B, D）、（A, B, E）、（A, C, D）、（A, C, E）、（A, D, E）、（B, C, D）、（B, C, E）、（B, D, E）、（C, D, E）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.3f15467abb6e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "10円玉を 5回投げて、表が出るか、裏が出るかを調べます。5回の表と裏の出方は、何通りありますか。",
+      "answers": [
+        "32"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/f00c6f80df6b8bfd.png"
+    },
+    "explanation": "1回ごとに、表が出る場合、と裏が出る場合がある。それを５回くりかえすので、すべての場合は、下の表のようになる。全部で 32通りだね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.4b5863b0b571",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "０、１、２の数字がかかれた３枚のカードから ２枚をえらんで、２けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "０のカードをえらぶときには、注意が必要。たとえば、０と１のカードをえらぶと、10 という２けたの数はつくれても、01は数にはなっていない。注意しながらすべてを数えると、10, 12, 20, 21 の４つの数になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.50e7977387d5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "班の 6人の中から、ろうかそうじする人を 2人えらびます。えらび方は、何通りありますか。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "６人を区別できるように、名前[なまえ]をつけてあげよう。アルファベットで、A, B, C, D, E, Fとつけると、そこから２人のえらび方は、次の１５通り。 （A, B）、（A, C）、（A, D）、（A, E）、（A, F）、（B, C）、（B, D）、（B, E）、（B, F）、（C, D）、（C, E）、（C, F）、（D, E）、（D, F）、（E, F）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.5f61c045a6e7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１から６の数字が書かれた 6枚 のカードがあります。この中から3枚をえらぶとき、全部で何通りの組み合わせがありますか。",
+      "answers": [
+        "20"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/b0b396f283f6ee18.png"
+    },
+    "explanation": "１から６の数字を横に並べて、表を書いてみよう。全部で 20通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.65033030f83c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0、１、２、３の数字がかかれた４枚のカードを並びかえて、３けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "18"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "０のカードが最初に来てしまうと、たとえば 012 というように、正しい３けたの数をつくることができない。注意しながらすべてを数えると、102, 103, 120, 123, 130, 132, 201, 203, 210, 213, 230, 231, 301, 302, 310, 312, 320, 321 の18この数になる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.69d6b8bdb13a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１、２、３の数字がかかれた３枚のカードから ２枚をえらんで、２けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "たとえば、１と２のカードをえらぶと、12 と 21 の２個の数をつくることができる。これをすべて数えると、 12, 13, 21, 23, 31, 32 の６つの数をつくることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.8fdd4aae9d85",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１、２、３の数字がかかれた３枚のカードを並びかえて、３けたの数をつくります。このとき、いくつの数をつくることができるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} 個",
+      "suffix": "個"
+    },
+    "explanation": "３枚すべてのカードを使う。123, 132, …と小さい方から順番に数えてみよう。 123, 132, 213, 231, 312, 321 と６つの数をつくることができる。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.958a9f8c669a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "４人でチームをつくって、リレーにでます。４人の走る順番は、全部で何通りあるでしょう。",
+      "answers": [
+        "24"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/ec031d6f54122283.png"
+    },
+    "explanation": "４人を区別できるように、A, B, C, Dと名前[なまえ]をつけてあげよう。「１番目が Aさん、２番目が Bさん、３番目が Cさん、４番目が…」というように、すべての場合を数えていくと、全部で 24通りになるね。下のような図をかくと、わかりやすい。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.c650311e4bd3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１から６の数字が書かれた 6枚 のカードがあります。この中から2枚をえらぶとき、全部で何通りの組み合わせがありますか。",
+      "answers": [
+        "15"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/ef0302b6666a277d.png"
+    },
+    "explanation": "１から６の数字を横に並べて、表を書いてみよう。全部で 15通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.ccbe613d231c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさん、ゆうたさんの４人から、図書委員 と 放送委員 と 体育委員をえらびます。えらび方は、全部で何通りあるでしょう。",
+      "answers": [
+        "24"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "「図書委員が まさしさん、放送委員が さおりさん、体育委員がみくさんのとき」、「図書委員が まさしさん、放送委員が さおりさん、体育委員がゆうたさんのとき」と順番に、すべての場合を考えていこう。 そうすると（図書委員、放送委員、体育委員）の組み合わせは、 （まさし、さおり、みく）、（まさし、さおり、ゆうた）、（まさし、みく、さおり）、（まさし、みく、ゆうた）（まさし、ゆうた、みく）、（まさし、ゆうた、みく）、 （さおり、まさし、みく）、（さおり、まさし、ゆうた）、（さおり、みく、まさし）、（さおり、みく、ゆうた）、（さおり、ゆうた、まさし）、（さおり、ゆうた、みく）、 （みく、まさし、さおり）、（みく、まさし、ゆうた）、（みく、さおり、まさし）、（みく、さおり、ゆうた）、（みく、ゆうた、まさし）、（みく、ゆうた、さおり）、 （ゆうた、まさし、さおり）、（ゆうた、まさし、みく）、（ゆうた、さおり、まさし）、（ゆうた、さおり、みく）、（ゆうた、みく、まさし）、（ゆうた、みく、さおり）、 の24通り。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.d168cfd846b3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "まさしさん、さおりさん、みくさん、ゆうたさんの４人から、班長 と 副班長 をえらびます。えらび方は、全部で何通りあるでしょう。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "「班長が まさしさん、副班長が さおりさんのとき」、「班長が まさしさん、副班長が ゆうたさんのとき」と順番に、すべての場合を考えていこう。 そうすると（班長、副班長）の組み合わせは、 （まさし、さおり）、（まさし、みく）、（まさし、ゆうた） （さおり、まさし）、（さおり、みく）、（さおり、ゆうた） （みく、まさし）、（みく、さおり）、（みく、ゆうた） （ゆうた、まさし）、（ゆうた、さおり）、（ゆうた、みく） の12通り。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.d5b48ad1615a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "班の 4人の中から、うさぎの世話をする人を 3人えらびます。えらび方は、何通りありますか。",
+      "answers": [
+        "4"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り"
+    },
+    "explanation": "４人を区別できるように、名前[なまえ]をつけてあげよう。アルファベットで、A, B, C, Dとつけると、そこから ３人のえらび方は、次の４通り。 （A, B, C）、（A, C, D）、（A, B, D）、（B, C, D）"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.d7df9e926bdb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "２人でじゃんけんをするとき、手の出し方は、全部で何通りありますか。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/be43c8cc8a66c915.png"
+    },
+    "explanation": "２人を区別できるように、A, Bと名前[なまえ]をつけてあげよう。「Aさんがグーのとき、Bさんが…」というように、すべての場合を数えていくと、全部で 9 通りになるね。"
+  },
+  {
+    "id": "legacy.sansu.g6.math-6-10.fba7c48744f8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_6_10",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤、青、緑、黄、桃色のついた 5枚のカードがあります。ここから、3枚のカードをえらぶとき、全部で何通りの組み合わせがありますか。",
+      "answers": [
+        "10"
+      ],
+      "template": "{{INPUT}} 通り",
+      "suffix": "通り",
+      "promptImage": "questions/legacy/dd88f1196019a7cb.png"
+    },
+    "explanation": "５つの色を横に並べて、表を書いてみよう。全部で 10通りになるね。"
+  }
+]

@@ -124,7 +124,53 @@
       }
     }
   ],
-  "relations": [],
+  "relations": [
+    {
+      "from": "kokugo.g1.script.hiragana",
+      "to": "kokugo.g1.legacy.kana-basics",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "平仮名[ひらがな]の読[よ]み書[か]きと、かなの基礎[きそ]を同[おな]じ初期[しょき]の文字[もじ]学習[がくしゅう]として結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.script.grade1-kanji",
+      "to": "kokugo.g1.legacy.kanji-basics",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "第[だい]1学年[がくねん]の漢字[かんじ]学習[がくしゅう]と、漢字[かんじ]の基礎[きそ]を対応[たいおう]する内容[ないよう]として結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.grammar.particles",
+      "to": "kokugo.g1.legacy.particles",
+      "kind": "related",
+      "strength": 0.8,
+      "rationale": "助詞[じょし]「は・へ・を」の使[つか]い方[かた]を扱[あつか]う内容[ないよう]同士[どうし]を結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.sentence.subject-predicate",
+      "to": "kokugo.g1.legacy.sentence-writing",
+      "kind": "prerequisite",
+      "strength": 0.75,
+      "rationale": "主語[しゅご]と述語[じゅつご]の関係[かんけい]を捉[とら]える力[ちから]を、文[ぶん]を組[く]み立[た]てて書[か]く基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "kokugo.g1.sound.syllable",
+      "to": "kokugo.g1.legacy.word-play",
+      "kind": "prerequisite",
+      "strength": 0.7,
+      "rationale": "音節[おんせつ]や音[おと]のまとまりへの気付[きづ]きを、音[おと]を使[つか]った言葉[ことば]遊[あそ]びの基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-kokugo-g1-2"],
+      "reviewStatus": "source-checked"
+    }
+  ],
   "questionLinks": [
     {
       "questionId": "legacy.kokugo.g1.jpn-1-1.05bfb4db842a",

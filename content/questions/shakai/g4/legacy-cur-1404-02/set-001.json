@@ -1,0 +1,548 @@
+[
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.19f7ca707ec1",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家や工場で使ったあとの汚れた水（下水）をキレイにして川や海へ戻す施設はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "下水処理場（水再生センター）"
+        },
+        {
+          "id": "c2",
+          "text": "浄水場[じょうすいじょう]"
+        },
+        {
+          "id": "c3",
+          "text": "ゴミ処理場"
+        },
+        {
+          "id": "c4",
+          "text": "変電所[へんでんしょ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e78e7b9a5c123e3e.png"
+    },
+    "explanation": "下水処理場では、微生物の力を活用して水の汚れを分解・沈殿させ、きれいな水に戻してから河川や海に流します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.271ce7198b2c",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、発電所で作られた高い電圧の電気を、家庭で使える電圧に変える施設は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変電所（へんでんしょ）"
+        },
+        {
+          "id": "c2",
+          "text": "浄水場[じょうすいじょう]"
+        },
+        {
+          "id": "c3",
+          "text": "消防署"
+        },
+        {
+          "id": "c4",
+          "text": "ガス工場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/699232f8f659797e.png"
+    },
+    "explanation": "発電所から届く高い電圧の電気は、各地の変電所[へんでんしょ]で段階的に電圧を下げることで、安全に家や学校[がっこう]に届けられます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.51551b427b70",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "家庭で使われる水道水のうち、一般的に消費量が最も多い用途の組み合わせはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "お風呂・トイレ・洗濯"
+        },
+        {
+          "id": "c2",
+          "text": "庭の水やり・洗車"
+        },
+        {
+          "id": "c3",
+          "text": "飲用水・料理"
+        },
+        {
+          "id": "c4",
+          "text": "水槽の水替え"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "家庭での水の使い道は、お風呂（約40%）やトイレ、洗濯などが大半を占めています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.623bfe1e8015",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、着なくなった服を弟や友達に譲ったり、洗剤の詰替え容器を何度も使い続ける行動は「3R」のどれにあたりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Reuse（リユース：くり返し使う）"
+        },
+        {
+          "id": "c2",
+          "text": "Reduce（リデュース）"
+        },
+        {
+          "id": "c3",
+          "text": "Recycle（リサイクル）"
+        },
+        {
+          "id": "c4",
+          "text": "Remove（リムーブ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e78e7b9a5c123e3e.png"
+    },
+    "explanation": "捨てずにそのままの形で何度も大切に使う取り組みを「Reuse（リユース）」と呼びます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.6592c4f31dfa",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、水道水や電気・ガスを家庭へいつでも安全に届けるために行われている大切な取り組みはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "専門の人々による毎日の点検・補修と24時間の監視"
+        },
+        {
+          "id": "c2",
+          "text": "壊れたときだけ新しく作り直す"
+        },
+        {
+          "id": "c3",
+          "text": "夜間はすべての供給を止める"
+        },
+        {
+          "id": "c4",
+          "text": "利用者に点検を行わせる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8c6cc6083154ae9b.png"
+    },
+    "explanation": "ライフライン（水・電気・ガス）が止まると人々の命や生活に直結するため、24時間態勢で安全監視と保守点検が行われています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.758bb774cd46",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "食べ残しや買いすぎで捨てられる食べ物を減らす「食品ロス削減」が大切な理由[りゆう]は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食品ごみを減らし、処理に必要なエネルギーや費用を削減できるから"
+        },
+        {
+          "id": "c2",
+          "text": "お店の商品が売れなくなるから"
+        },
+        {
+          "id": "c3",
+          "text": "食べ物の味が美味しくなるから"
+        },
+        {
+          "id": "c4",
+          "text": "お腹がいっぱいになるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食品ロスを減らすことで、食品ごみの運搬・焼却費用を抑え、資源の無駄を解消できます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.7a06841472c8",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "回収されたペットボトルは、リサイクルされてどのような製品に生まれ変わりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "新しいペットボトルや衣類のポリエステル繊維"
+        },
+        {
+          "id": "c2",
+          "text": "ガラス瓶や焼き物"
+        },
+        {
+          "id": "c3",
+          "text": "木製の机や家具"
+        },
+        {
+          "id": "c4",
+          "text": "アルミニウムの缶"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "洗浄・粉砕されたペットボトル樹脂は、フリースなどの服や新しいボトルの原料として再生利用されます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.8430c9fbf18b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、清掃工場（ごみ焼却場）でごみを燃やす際に出る熱の有効な活用方法はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "温水プールのお湯を作ったり発電を行ったりする"
+        },
+        {
+          "id": "c2",
+          "text": "空気を暖めて打ち上げ花火を上げる"
+        },
+        {
+          "id": "c3",
+          "text": "そのまま空中に逃がす"
+        },
+        {
+          "id": "c4",
+          "text": "雪を溶かすためだけに街に送る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d8e6f6ed0c339bca.png"
+    },
+    "explanation": "焼却熱を利用してサーマルリサイクルを行い、地域施設の温水供給や発電に役立てています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.8fdb055625fe",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、私たちが家庭で電気や水を無駄遣いしないように注意することのメリットは何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "二酸化炭素の排出や資源の消費[しょうひ]を抑え、環境保護につながる"
+        },
+        {
+          "id": "c2",
+          "text": "ゲームのプレイ時間が伸びる"
+        },
+        {
+          "id": "c3",
+          "text": "水道料金が何十倍にも高くなる"
+        },
+        {
+          "id": "c4",
+          "text": "電気メーターが逆回転する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8c6cc6083154ae9b.png"
+    },
+    "explanation": "節水・節電は、発電にかかる燃料消費や浄水にかかるエネルギーを削減し、地球温暖化防止に寄与します。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.9f831272b851",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ごみを燃やした後の灰や、リサイクルできないごみは最終的にどこへ運ばれて処理されますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最終処分場（埋立地）"
+        },
+        {
+          "id": "c2",
+          "text": "宇宙"
+        },
+        {
+          "id": "c3",
+          "text": "深海[しんかい]"
+        },
+        {
+          "id": "c4",
+          "text": "公園の砂場"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "最終処分場は土地の限度があるため、埋め立てるごみの量を少しでも減らす取り組みが重要です。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.ad563e0bd12d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ごみを減らすための「3R（スリーアール）」のうち、買い物にマイバッグを持参してレジ袋をもらわない行動はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Reduce（リデュース：ごみを減らす）"
+        },
+        {
+          "id": "c2",
+          "text": "Reuse（リユース：くり返し使う）"
+        },
+        {
+          "id": "c3",
+          "text": "Recycle（リサイクル：資源として再利用する）"
+        },
+        {
+          "id": "c4",
+          "text": "Refuse（リフューズ：買い物をやめる）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "余分な包装やレジ袋を断り、最初から出るごみそのものを減らすことを「Reduce（リデュース）」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.b6e0a6368390",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "家庭から出るごみを「燃やすごみ」「プラスチック」「ペットボトル」などに分別して出す一番の理由[りゆう]は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ごみを燃やす量を減らし、資源としてリサイクルするため"
+        },
+        {
+          "id": "c2",
+          "text": "ごみ収集車のかっこよさをアピールするため"
+        },
+        {
+          "id": "c3",
+          "text": "ごみ袋の重さを重くするため"
+        },
+        {
+          "id": "c4",
+          "text": "収集日を毎日変えるため"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分別収集により、プラスチックや金属、紙などを資源として再利用し、燃やしたり埋め立てたりするゴミを減らせます。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.b6f9fc60c13b",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "清掃工場でごみを燃やす際、ダイオキシンなどの有害物質を出さないための工夫として正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "800度以上の高温で完全燃焼させ、高性能フィルターで煙をろ過する"
+        },
+        {
+          "id": "c2",
+          "text": "低温でゆっくり煙を出さずに燃やす"
+        },
+        {
+          "id": "c3",
+          "text": "水をかけながら湿らせて燃やす"
+        },
+        {
+          "id": "c4",
+          "text": "風の強い日に屋外で燃やす"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "800℃以上の高温で燃やすことで有害物質の発生を防ぎ、フィルターで微細な灰を取り除いて排気しています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.b7b25c6bf36e",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "川やダムから取った水を、消毒・ろ過して安心して飲める水道水にする施設はどこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "浄水場（じょうすいじょう）"
+        },
+        {
+          "id": "c2",
+          "text": "下水処理場"
+        },
+        {
+          "id": "c3",
+          "text": "清掃工場"
+        },
+        {
+          "id": "c4",
+          "text": "発電所"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "浄水場[じょうすいじょう]では、泥やゴミを取り除き、消毒を行って安全で美味しい水道水を作り、配水池や水道管を通じて家庭に送っています。"
+  },
+  {
+    "id": "legacy.shakai.g4.cur-1404-02.dd8a6ffe87e5",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 4,
+    "unit": "shakai.g4.legacy-cur-1404-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1404-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地震や台風で水道管が破損したとき、断水した避難所に飲料水を素早く届ける特別な車両は何でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "給水車（きゅうすいしゃ）"
+        },
+        {
+          "id": "c2",
+          "text": "パトカー"
+        },
+        {
+          "id": "c3",
+          "text": "ダンプカー"
+        },
+        {
+          "id": "c4",
+          "text": "ミキサー車"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "給水車[きゅうすいしゃ]はタンクに清浄な水を積んで出動し、災害時に人々の命を守る飲料水を配給します。"
+  }
+]

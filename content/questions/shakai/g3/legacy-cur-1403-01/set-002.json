@@ -1,0 +1,557 @@
+[
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.b8092513903f",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "神社やお寺などの古い建物が、何百年も壊れずに残っている理由[りゆう]として、最も正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "地域の人々が大切に守り、修理し続けてきたから"
+        },
+        {
+          "id": "c2",
+          "text": "コンクリートだけでできているから"
+        },
+        {
+          "id": "c3",
+          "text": "誰も中に入らなかったから"
+        },
+        {
+          "id": "c4",
+          "text": "魔法がかかっているから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "古い建造物は、雨風で傷むたびに、地域の人々や大工さんが修理し、保護し続けてきたからこそ現代に残っています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.b9604ed1392d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "開いた本の形をした地図記号が表している建物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "図書館"
+        },
+        {
+          "id": "c2",
+          "text": "学校[がっこう]"
+        },
+        {
+          "id": "c3",
+          "text": "交番"
+        },
+        {
+          "id": "c4",
+          "text": "病院"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "開いた本の形をした地図記号は「図書館」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.bf5f6ec14cb7",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「二本線の並び（縦の二本線）」で表される地図記号は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "田"
+        },
+        {
+          "id": "c2",
+          "text": "畑"
+        },
+        {
+          "id": "c3",
+          "text": "かじゅ園"
+        },
+        {
+          "id": "c4",
+          "text": "荒地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "稲を刈り取った後の株をデザインした二本線の記号[きごう]は「田」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.c1086cb2a5dd",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図上で方位を示す「４方向の十字」の記号[きごう]において、上は北、下は南、右は東ですが、左はどの方位ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "西"
+        },
+        {
+          "id": "c2",
+          "text": "東"
+        },
+        {
+          "id": "c3",
+          "text": "南"
+        },
+        {
+          "id": "c4",
+          "text": "北"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位を示す十字の記号[きごう]では、上が北、下が南、右が東、左が西になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.c1acc6040580",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "土地の様子[ようす]（土地利用）において、お店やオフィスビルなどが最も多く並んでいる地域は次のうちどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "商業地"
+        },
+        {
+          "id": "c2",
+          "text": "住宅地"
+        },
+        {
+          "id": "c3",
+          "text": "工業地"
+        },
+        {
+          "id": "c4",
+          "text": "農耕地"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "お店や事務所が集まっている地域を「商業地」、家が集まっている地域を「住宅地」、工場が集まっている地域を「工業地」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.c1db6b8cc38e",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「鳥居（神社）」の記号[きごう]がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 68,
+          "y": 25,
+          "label": "神社"
+        },
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 50,
+          "y": 48,
+          "label": "学校[がっこう]"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "鳥居の地図記号は神社を表しています。地図の右上近くにあります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.d1af16281b5d",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図[ちず]の端[はし]などにある、地図記号[ちずきごう]や色[いろ]の意味[いみ]をまとめた部分[ぶぶん]を何[なん]といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "凡例（はんれい）"
+        },
+        {
+          "id": "c2",
+          "text": "索引（さくいん）"
+        },
+        {
+          "id": "c3",
+          "text": "方位記号"
+        },
+        {
+          "id": "c4",
+          "text": "等高線[とうこうせん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "地図記号[ちずきごう]や色[いろ]の意味[いみ]をまとめて示[しめ]した部分[ぶぶん]を「凡例[はんれい]」と呼[よ]びます。縮尺[しゅくしゃく]は、実際[じっさい]の距離[きょり]を地図上[ちずじょう]に縮[ちぢ]めた割合[わりあい]です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.d961cd365b76",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "方位を知るために使う、北が赤い針で示される磁石のついた道具を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "方位じしん"
+        },
+        {
+          "id": "c2",
+          "text": "けんびきょう"
+        },
+        {
+          "id": "c3",
+          "text": "気圧計"
+        },
+        {
+          "id": "c4",
+          "text": "じょうぎ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "方位を知るために使う道具を「方位じしん（方位磁針）」といいます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.da6b2a11b8a3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "古い建造物を実際に見学するときに、守るべきマナーとして正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "案内してくれる人の話をよく聞き、メモを取る"
+        },
+        {
+          "id": "c2",
+          "text": "建物の中を大声で走り回る"
+        },
+        {
+          "id": "c3",
+          "text": "展示物に勝手にさわって遊ぶ"
+        },
+        {
+          "id": "c4",
+          "text": "ゴミをその場に捨てる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "見学の際は、案内人の説明[せつめい]をよく聞いてメモを取り、静かにルールを守って見学することが大切です。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.db5a487ebbc9",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図帳で「福岡市」の位置を素早く探したいとき、巻末にある五十音順のリストを使ってページや場所を特定する便利な方法を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "索引（さくいん）を使って探す"
+        },
+        {
+          "id": "c2",
+          "text": "最初のページから順番にめくる"
+        },
+        {
+          "id": "c3",
+          "text": "他の人に聞くだけにする"
+        },
+        {
+          "id": "c4",
+          "text": "勘でページを開く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "巻末の「索引[さくいん]」には地名が五十音順に並んでおり、調べたい地名が掲載されているページをすぐに見つけることができます。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.e2f89bc12f06",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "福岡市の中心部である「福岡市役所」がある「中央区」は、地図のどこですか。クリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l1-region-map.png",
+      "hotspots": [
+        {
+          "x": 48,
+          "y": 56,
+          "label": "中央"
+        },
+        {
+          "x": 62,
+          "y": 64,
+          "label": "博多"
+        },
+        {
+          "x": 68,
+          "y": 38,
+          "label": "東"
+        },
+        {
+          "x": 32,
+          "y": 52,
+          "label": "西"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "福岡市役所がある「中央区」は、博多区の左隣（西側）に位置しています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.e81e99ddbfea",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学校から見て、図書館が「北西」の方向にあるとき、図書館から見た小学校の方向はどの方位ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "南東"
+        },
+        {
+          "id": "c2",
+          "text": "北東"
+        },
+        {
+          "id": "c3",
+          "text": "南西"
+        },
+        {
+          "id": "c4",
+          "text": "北西"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "北西の反対[はんたい]の方角は南東になります。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.e9ccefe59be3",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「V」の形に似た草の芽のような地図記号は、何を表していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "畑"
+        },
+        {
+          "id": "c2",
+          "text": "田"
+        },
+        {
+          "id": "c3",
+          "text": "かじゅ園"
+        },
+        {
+          "id": "c4",
+          "text": "森林"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "双葉の形をデザインした「V」のような記号[きごう]は「畑」を表します。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.f6da3bb41027",
+    "type": "choice",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "兵庫県姫路市などの「海ぞい（沿岸部）」の平らな地域に、特に多く集まっている建物はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "工場"
+        },
+        {
+          "id": "c2",
+          "text": "田んぼ"
+        },
+        {
+          "id": "c3",
+          "text": "畑"
+        },
+        {
+          "id": "c4",
+          "text": "森林"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "姫路市などの臨海部（海沿い）には、原材料の輸入[ゆにゅう]や製品の出荷に便利なため、多くの「工場（工業地帯）」が集まっています。"
+  },
+  {
+    "id": "legacy.shakai.g3.cur-1403-01.ffeb4560d45d",
+    "type": "map-tap",
+    "subject": "shakai",
+    "grade": 3,
+    "unit": "shakai.g3.legacy-cur-1403-01",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1403-01",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "地図の中から「交番（X）」の記号[きごう]がある場所をクリックして選ぼう。",
+      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "hotspots": [
+        {
+          "x": 75,
+          "y": 75,
+          "label": "交番"
+        },
+        {
+          "x": 20,
+          "y": 65,
+          "label": "消防署"
+        },
+        {
+          "x": 45,
+          "y": 70,
+          "label": "郵便局"
+        },
+        {
+          "x": 28,
+          "y": 35,
+          "label": "寺"
+        }
+      ],
+      "answerIndex": 0,
+      "radius": 9
+    },
+    "explanation": "交番は警棒を交差[こうさ]させた形からできた「X」の記号[きごう]です。地図の右下近くにあります。"
+  }
+]

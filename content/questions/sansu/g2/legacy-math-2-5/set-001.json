@@ -1,0 +1,456 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-5.03cbdc1af393",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "午後７時４５分から、午後９時３０分までは、なん時間なん分 あるでしょう。",
+      "answers": [
+        "1",
+        "45"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午後７時４５分から、午後９時４５分までで、２時間ある。そこから、１５分 もどせばいいので、１時間４５分だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.06349eb0f9b8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いま ３時４５分 です。２時間後は、なん時なん分 でしょう。",
+      "answers": [
+        "5",
+        "45"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "「２時間後」なので、「時間」のみじかいはりを ２すすめて、５時４５分になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.174ef3720d17",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１時間は、なん分でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "60分"
+        },
+        {
+          "id": "c2",
+          "text": "12分"
+        },
+        {
+          "id": "c3",
+          "text": "24分"
+        },
+        {
+          "id": "c4",
+          "text": "30分"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とけいのちいさな「めもり」は、ぜんぶで 60 ある。つまり、１時間は６０分ってことだね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.20b263830591",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "時計の みじかいはりが １しゅうすると、なん時間 たつでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12時間"
+        },
+        {
+          "id": "c2",
+          "text": "24時間"
+        },
+        {
+          "id": "c3",
+          "text": "60時間"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とけいのすうじは、１から １２まで あるね。このすうじが 時間を さしているので、みじかいはりが １しゅうすると、12時間になるよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.23685fb07ce2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いま ３時４５分 です。４５分後は、なん時なん分 でしょう。",
+      "answers": [
+        "4",
+        "30"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。そこから、さらに３０分[ぷん]すすむので、４時[じ]３０分[ぷん]になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.4a71d5b0e8de",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "７時の１時間後は、なん時 でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "８時"
+        },
+        {
+          "id": "c2",
+          "text": "９時"
+        },
+        {
+          "id": "c3",
+          "text": "６時"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「１時間後」なので、「時間」のみじかいはりを １すすめて、８時になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.5a0493da61c1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いま ３時４５分 です。１時間前は、なん時なん分 でしょう。",
+      "answers": [
+        "2",
+        "45"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/legacy/454fc9bd73743995.png"
+    },
+    "explanation": "「１時間前」なので、「時間」のみじかいはりを １もどして、２時４５分になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.5a7abd71fe07",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "１日は、なん時間でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "24時間"
+        },
+        {
+          "id": "c2",
+          "text": "12時間"
+        },
+        {
+          "id": "c3",
+          "text": "60時間"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "とけいのすうじは、１から １２まで あるね。午前で１２時間、午後で１２時間。あわせて、２４時間が１日のながさになる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.612e979848da",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "夜中の０時から、おひるの１２時までを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前"
+        },
+        {
+          "id": "c2",
+          "text": "午後"
+        },
+        {
+          "id": "c3",
+          "text": "朝"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "夜中の０時から、おひるの１２時までを 午前 というよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.b3ccde0d99f4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "午前６時１５分から、午前７時３０分までは、なん時間なん分 あるでしょう。",
+      "answers": [
+        "1",
+        "15"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午前６時１５分から、午前７時１５分までで、１時間ある。そこから、あと１５分 すすめたらいいので、１時間１５分だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.bb292b503443",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "午後７時４５分から、午後９時４５分までは、なん時間 あるでしょう。",
+      "answers": [
+        "2"
+      ],
+      "template": "{{INPUT}}時間",
+      "suffix": "時間",
+      "promptImage": "questions/legacy/da205b41e166e68d.png"
+    },
+    "explanation": "午後７時４５分 と 午後９時４５分では、「４５分」が同じ。「時」のちがいは、２時間になるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.bd01fe660d31",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "午前６時から、午前７時３０分までは、なん時間なん分 あるでしょう。",
+      "answers": [
+        "1",
+        "30"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/legacy/1b4d92ed74abeb1c.png"
+    },
+    "explanation": "午前６時から、午前７時までで、１時間ある。そこから、あと３０分 すすめたらいいので、１時間３０分だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.c3b026af04b5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いま ３時４５分 です。１時間３０分前は、なん時なん分 でしょう。",
+      "answers": [
+        "2",
+        "15"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分"
+    },
+    "explanation": "「１時間３０分前」なので、「時間」のみじかいはりを １、「分」のながいはりを ３０もどして、２時１５分になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.c58ed39dd4eb",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "おひるの１２時から、夜中の０時までを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前"
+        },
+        {
+          "id": "c2",
+          "text": "午後"
+        },
+        {
+          "id": "c3",
+          "text": "昼"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "おひるの１２時から、夜中の０時までを 午後 というよ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.c7023dee205f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いま ３時４５分 です。３０分後は、なん時なん分 でしょう。",
+      "answers": [
+        "4",
+        "15"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/legacy/454fc9bd73743995.png"
+    },
+    "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。のこりの１５分[ふん]をすすむので、４時[じ]１５分[ふん]になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.dc0838b681eb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "午前８時から、午後２時１５分までは、なん時間なん分 あるでしょう。",
+      "answers": [
+        "6",
+        "15"
+      ],
+      "template": "{{INPUT}}時間{{INPUT}}分"
+    },
+    "explanation": "午前８時から、午後２時までで、６時間ある。そこから、あと１５分 すすめたらいいので、６時間１５分だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.ed2e9903f60a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "午前８時から、午後２時までは、なん時間 あるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}}時間",
+      "suffix": "時間",
+      "promptImage": "questions/legacy/2beb0bf8cf2c8050.png"
+    },
+    "explanation": "午前[ごぜん]８時[じ]から正午[しょうご]までが４時間[じかん]、正午[しょうご]から午後[ごご]２時[じ]までが２時間[じかん]。あわせて６時間[じかん]だね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-5.f691d0ea5f27",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "いま ３時４５分 です。１時間後は、なん時なん分 でしょう。",
+      "answers": [
+        "4",
+        "45"
+      ],
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/legacy/454fc9bd73743995.png"
+    },
+    "explanation": "「１時間後」なので、「時間」のみじかいはりを １すすめて、４時４５分になる。"
+  }
+]

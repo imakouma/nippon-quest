@@ -1,0 +1,142 @@
+[
+  {
+    "id": "source.kokugo.g2.jpn-2-3.2a3feb25b261",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.vocabulary",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「つくえ、いす、本だな」と おなじ なかまの ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "テレビ"
+        },
+        {
+          "id": "b",
+          "text": "ベッド"
+        },
+        {
+          "id": "c",
+          "text": "えんぴつ"
+        },
+        {
+          "id": "d",
+          "text": "りんご"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "どれも家具（へやに置いて使うもの）の仲間です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.ae348ca7c414",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.vocabulary",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「はしる、あるく、とぶ」と おなじ なかまの ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あかい"
+        },
+        {
+          "id": "b",
+          "text": "おおきい"
+        },
+        {
+          "id": "c",
+          "text": "およぐ"
+        },
+        {
+          "id": "d",
+          "text": "かわいい"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "体を動かす「うごき（動詞）」の仲間です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.bcb219cc198a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.vocabulary",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「あたらしい」と はんたいの いみを もつ ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おおきい"
+        },
+        {
+          "id": "b",
+          "text": "ふるい"
+        },
+        {
+          "id": "c",
+          "text": "わかい"
+        },
+        {
+          "id": "d",
+          "text": "たかい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "「あたらしい」の反対は「ふるい」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-3.728079410870",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.vocabulary",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "「おおい」と はんたいの いみを もつ ことばは どれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "すくない"
+        },
+        {
+          "id": "b",
+          "text": "ちいさい"
+        },
+        {
+          "id": "c",
+          "text": "ほそい"
+        },
+        {
+          "id": "d",
+          "text": "みじかい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "「おおい」の反対は「すくない」です。"
+  }
+]

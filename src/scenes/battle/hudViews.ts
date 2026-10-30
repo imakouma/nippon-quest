@@ -20,7 +20,7 @@ import type {
 } from '../../ui/battle/store';
 import { itemIconUrl } from '../../rendering/itemIcons';
 import { t } from '../../ui/i18n';
-import { buildStatusEffects } from './statusHistoryViews';
+import { buildStatusEffects } from './statusEffectViews';
 
 const selectionContext = (context: BattleCommandEvaluationContext = {}): BattleCommandEvaluationContext => ({
   ...context,

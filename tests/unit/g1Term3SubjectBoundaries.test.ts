@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
+import { readUnitQuestionSets } from './questionSetFixture';
 
 type ChoiceQuestion = {
   id: string;
@@ -19,8 +20,7 @@ type ChoiceQuestion = {
 
 const root = process.cwd();
 const units = JSON.parse(readFileSync(join(root, 'content/units.json'), 'utf8')) as Unit[];
-const load = (file: string) =>
-  JSON.parse(readFileSync(join(root, 'content/questions/eigo/g1', file), 'utf8')) as ChoiceQuestion[];
+const load = (unitSlug: string) => readUnitQuestionSets<ChoiceQuestion>('eigo', 'g1', unitSlug);
 
 describe('小学1年3学期の理科・社会・英語の境界', () => {
   it('理科と社会は1年生の独立した必修単元にしない', () => {
@@ -39,8 +39,8 @@ describe('小学1年3学期の理科・社会・英語の境界', () => {
     expect(english.every((unit) => unit.curriculumCodes === undefined)).toBe(true);
   });
 
-  it.each(['alphabet.json', 'fruits.json'])('%s は英字を読ませず、英語の音から絵や場面を選ばせる', (file) => {
-    const questions = load(file);
+  it.each(['alphabet', 'fruits'])('%s は英字を読ませず、英語の音から絵や場面を選ばせる', (unitSlug) => {
+    const questions = load(unitSlug);
     expect(questions.length).toBeGreaterThanOrEqual(6);
 
     for (const question of questions) {

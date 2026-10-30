@@ -1,0 +1,415 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-7.0a42bf41f7f9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100 を７つ、1 を８つ あつめた数は、いくらになりますか。",
+      "answers": [
+        "708"
+      ]
+    },
+    "explanation": "百のくらいが 7、一のくらいが 8 になるので、708 だ。十のくらいがないので、0 をわすれないように しよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.0f8a1cdc85ad",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "530"
+      ]
+    },
+    "explanation": "10 ずつ数は、ふえている。540 の１つ前なので、530 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.170655594288",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３つの数で、いちばん 小さい数をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "712"
+        },
+        {
+          "id": "c2",
+          "text": "716"
+        },
+        {
+          "id": "c3",
+          "text": "709"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。百のくらいは同じなので、十のくらいがいちばん小さい 709 がいちばん小さいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.18cd86c03416",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "120"
+      ]
+    },
+    "explanation": "90 は、10 が９こ。30 は、10 が３こ。合わせると、9+3=12 こになる。10 が12こあるので、120になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.1d1022d5b576",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かん字で かかれた数を、数字で かきましょう。",
+      "answers": [
+        "590"
+      ]
+    },
+    "explanation": "百のくらいが 5、十のくらいが 9 になるので、590 だ。一のくらいがないので、0 をわすれないように しよう。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.2232f5e728cd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "600"
+      ]
+    },
+    "explanation": "100 ずつ数は、ふえている。500 の次は、600 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.4099854758d8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３つの数で、いちばん 小さい数をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "549"
+        },
+        {
+          "id": "c2",
+          "text": "579"
+        },
+        {
+          "id": "c3",
+          "text": "519"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。百のくらいは同じなので、十のくらいがいちばん小さい 519 がいちばん小さいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.5192c06c7aa2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "500"
+      ]
+    },
+    "explanation": "300 は、100 が３こ。200 は、100 が２こ。合わせると、3+2=5 こになる。100 が5こあるので、500になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.5661660d5e04",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かん字で かかれた数を、数字で かきましょう。",
+      "answers": [
+        "343"
+      ]
+    },
+    "explanation": "百のくらいが 3、十のくらいが 4、一のくらいが 3 になるので、343 だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.623932c5a163",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "200"
+      ]
+    },
+    "explanation": "1000 は、100 が１０こ。800 は、100 が８こ。ひき算をすると、10-8=2 こになる。100 が2こあるので、200になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.6345fd84c6ff",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100 を３つ、10 を６つ、1 を５つ あつめた数は、いくらになりますか。",
+      "answers": [
+        "365"
+      ]
+    },
+    "explanation": "百のくらいが 3、十のくらいが 6、一のくらいが 5 になるので、365 だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.69ced304e8d4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "800"
+      ]
+    },
+    "explanation": "600 は、100 が６こ。200 は、100 が２こ。合わせると、6+2=8 こになる。100 が8こあるので、800になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.70ccf8f934e1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100 を９つ、10 を１つ、1 を4つ あつめた数は、いくらになりますか。",
+      "answers": [
+        "914"
+      ]
+    },
+    "explanation": "百のくらいが 9、十のくらいが 1、一のくらいが 4 になるので、914 だ。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.74cb5cfc5972",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３つの数で、いちばん 大きい数をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "123"
+        },
+        {
+          "id": "c2",
+          "text": "213"
+        },
+        {
+          "id": "c3",
+          "text": "231"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。百のくらいは 2 のものが２つある。十のくらいが大きい 231 がいちばん大きいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.9917b16a7989",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "３つの数で、いちばん 大きい数をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "132"
+        },
+        {
+          "id": "c2",
+          "text": "124"
+        },
+        {
+          "id": "c3",
+          "text": "143"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。百のくらいは同じなので、十のくらいがいちばん大きい 143 がいちばん大きいね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.b99641312245",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "160"
+      ]
+    },
+    "explanation": "90 は、10 が９こ。70 は、10 が７こ。合わせると、9+7=16 こになる。10 が16こあるので、160になる。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.cbc9bc5adca7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "770"
+      ]
+    },
+    "explanation": "1 ずつ数は、ふえている。769 の次なので、770 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.db96b17f19ab",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に あてはまる かずは、いくつでしょう。",
+      "answers": [
+        "1000"
+      ]
+    },
+    "explanation": "1 ずつ数は、ふえている。999 の次なので、1000 になるね。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-7.f9613c4c2cc3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "かん字で かかれた数を、数字で かきましょう。",
+      "answers": [
+        "602"
+      ]
+    },
+    "explanation": "百のくらいが 6、一のくらいが 2 になるので、602 だ。十のくらいがないので、0 をわすれないように しよう。"
+  }
+]

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "kokugo.g6.reading-multiple-sources.0001",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.reading-multiple-sources",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-multiple-sources",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "資料Aでは「給食[きゅうしょく]の残量[ざんりょう]が減[へ]った」、資料Bでは「食育[しょくいく]授業後[じゅぎょうご]に完食[かんしょく]する児童[じどう]が増[ふ]えた」とある。二[ふた]つから言[い]えることはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "食育[しょくいく]授業[じゅぎょう]が残量[ざんりょう]減少[げんしょう]に関係[かんけい]した可能性[かのうせい]がある。"
+        },
+        {
+          "id": "b",
+          "text": "授業[じゅぎょう]だけが唯一[ゆいいつ]の原因[げんいん]だと断定[だんてい]できる。"
+        },
+        {
+          "id": "c",
+          "text": "給食[きゅうしょく]の量[りょう]は必[かなら]ず増[ふ]えた。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "複数資料から関係は考えられるが、原因を一つに断定しない。"
+  },
+  {
+    "id": "kokugo.g6.reading-multiple-sources.0002",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.reading-multiple-sources",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-multiple-sources",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "筆者[ひっしゃ]が「公共交通[こうきょうこうつう]を増[ふ]やすべきだ」と主張[しゅちょう]している。根拠[こんきょ]として最[もっと]も強[つよ]い資料[しりょう]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "交通手段別[こうつうしゅだんべつ]の利用者数[りようしゃすう]と二酸化炭素排出量[にさんかたんそはいしゅつりょう]の比較[ひかく]。"
+        },
+        {
+          "id": "b",
+          "text": "筆者[ひっしゃ]が好[す]きな電車[でんしゃ]の色[いろ]。"
+        },
+        {
+          "id": "c",
+          "text": "駅[えき]で売[う]られている菓子[かし]の写真[しゃしん]。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "主張を支えるには、利用と環境への影響を比較できる資料が有効。"
+  },
+  {
+    "id": "kokugo.g6.reading-multiple-sources.0003",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.reading-multiple-sources",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-multiple-sources",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "二[ふた]つの記事[きじ]で同[おな]じ出来事[できごと]の評価[ひょうか]が違[ちが]う。読[よ]み方[かた]として適切[てきせつ]なのはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "事実[じじつ]と意見[いけん]を分[わ]け、取材対象[しゅざいたいしょう]や根拠[こんきょ]を比[くら]べる。"
+        },
+        {
+          "id": "b",
+          "text": "先[さき]に読[よ]んだ記事[きじ]だけを正[ただ]しいとする。"
+        },
+        {
+          "id": "c",
+          "text": "見出[みだ]しの長[なが]い記事[きじ]を選[えら]ぶ。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "情報源と根拠を比べると、立場による表現の違いを検討できる。"
+  },
+  {
+    "id": "kokugo.g6.reading-multiple-sources.0004",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.reading-multiple-sources",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-multiple-sources",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "グラフの値[あたい]は増[ふ]えているのに、本文[ほんぶん]には「減少[げんしょう]した」とある。まずすべきことはどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "年[とし]・単位[たんい]・対象[たいしょう]が本文[ほんぶん]と一致[いっち]しているか確認[かくにん]する。"
+        },
+        {
+          "id": "b",
+          "text": "本文[ほんぶん]かグラフをすぐ削除[さくじょ]する。"
+        },
+        {
+          "id": "c",
+          "text": "好[す]きな方[ほう]だけを信[しん]じる。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "資料の条件を確認してから矛盾かどうかを判断する。"
+  },
+  {
+    "id": "kokugo.g6.reading-multiple-sources.0005",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.reading-multiple-sources",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-multiple-sources",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "物語[ものがたり]の終盤[しゅうばん]で主人公[しゅじんこう]が最初[さいしょ]と同[おな]じ言葉[ことば]を繰[く]り返[かえ]す効果[こうか]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "前後[ぜんご]の場面[ばめん]を比[くら]べ、人物[じんぶつ]の変化[へんか]を際立[きわだ]たせる。"
+        },
+        {
+          "id": "b",
+          "text": "出来事[できごと]の順番[じゅんばん]を消[け]す。"
+        },
+        {
+          "id": "c",
+          "text": "登場人物[とうじょうじんぶつ]を増[ふ]やす。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "同じ表現の反復は、文脈の変化や人物の成長を示すことがある。"
+  },
+  {
+    "id": "kokugo.g6.reading-multiple-sources.0006",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 6,
+    "unit": "kokugo.g6.reading-multiple-sources",
+    "tags": [
+      "source:codex-supplemental",
+      "skill:reading-multiple-sources",
+      "reviewed:source-aligned-v1"
+    ],
+    "payload": {
+      "prompt": "文章[ぶんしょう]を読[よ]んだ二人[ふたり]の意見[いけん]を共有[きょうゆう]する目的[もくてき]はどれ？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "異[こと]なる根拠[こんきょ]や解釈[かいしゃく]を知[し]り、自分[じぶん]の考[かんが]えを広[ひろ]げる。"
+        },
+        {
+          "id": "b",
+          "text": "一人[ひとり]の感想[かんそう]を全員[ぜんいん]で暗記[あんき]する。"
+        },
+        {
+          "id": "c",
+          "text": "本文[ほんぶん]を読[よ]まず多数決[たすうけつ]する。"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true
+    },
+    "explanation": "意見を比べることで、読みの根拠や新しい見方に気付ける。"
+  }
+]

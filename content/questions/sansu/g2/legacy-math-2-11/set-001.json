@@ -1,0 +1,242 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-11.1472b30372f0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんについて、はじめにけいさんするのは、どこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9-6"
+        },
+        {
+          "id": "c2",
+          "text": "6+3"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "しきの中に かっこが あるときには、かっこの中を 先に けいさんする。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.22dc5be52d2a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "29"
+      ]
+    },
+    "explanation": "たしざんでは、たすじゅんばんを かえても、答えは かわらない。先に 12+8 をけいさんして 20 をつくると、けいさんが かんたんになるね。 12+9+8=12+8+9=20+9=29"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.3be671c4cdbc",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "56"
+      ]
+    },
+    "explanation": "たしざんでは、たすじゅんばんを かえても、答えは かわらない。先に 35+5 をけいさんして 40 をつくると、けいさんが かんたんになるね。 16+(35+5)=16+40=56"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.5d0cde9b40b9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "0"
+      ]
+    },
+    "explanation": "しきの中に かっこが あるときには、かっこの中を 先に けいさんする。 6+3=9 9-9=0"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.81937b0c4297",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たしざん のきまりについて、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たしざんでは、たすじゅんばんを かえても、こたえは かわらない。"
+        },
+        {
+          "id": "c2",
+          "text": "たしざんでは、たすじゅんばんを かえると こたえが かわってしまう。"
+        },
+        {
+          "id": "c3",
+          "text": "たしざんでは、いつも 大きいかずから けいさんしていく。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "たす順番[じゅんばん]を入[い]れ替[か]えても、同[おな]じ数[かず]をたしているので答[こた]えは変[か]わりません。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.8f908457fec8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "24"
+      ]
+    },
+    "explanation": "しきの中に かっこが あるときには、かっこの中を 先に けいさんする。 4+8=12 12+12=24"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.aae05a60927a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "13"
+      ]
+    },
+    "explanation": "6+3=9 9+4=13"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.b596b6c126f3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "49"
+      ]
+    },
+    "explanation": "たしざんでは、たすじゅんばんを かえても、答えは かわらない。先に 23+7 をけいさんして 30 をつくると、けいさんが かんたんになるね。 23+19+7=23+7+19=30+19=49"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.c523bfefbc10",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "28"
+      ]
+    },
+    "explanation": "たしざんでは、たすじゅんばんを かえても、答えは かわらない。先に 4+6 をけいさんして 10 をつくると、けいさんが かんたんになるね。 18+(4+6)=18+10=28"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.ed2de19f111f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "25"
+      ]
+    },
+    "explanation": "7+12=19 19+6=25"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-11.ef9a86b31086",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-11",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_11",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんについて、はじめにけいさんするのは、どこでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7+12"
+        },
+        {
+          "id": "c2",
+          "text": "12+6"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "しきの中に かっこが あるときには、かっこの中を 先に けいさんする。"
+  }
+]

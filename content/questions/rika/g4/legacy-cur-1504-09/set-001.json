@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-09.26bc215a0434",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "冷たい保冷剤を入れた袋の外側に水滴がつくとき、水はどこから来ますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "袋の中"
+        },
+        {
+          "id": "c2",
+          "text": "袋の外の空気中の水蒸気"
+        },
+        {
+          "id": "c3",
+          "text": "地面[じめん]"
+        },
+        {
+          "id": "c4",
+          "text": "太陽[たいよう]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "空気中の水蒸気が冷やされて水になります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.2e8510d75451",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふたなしのコップの水が減る主な理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こぼれた"
+        },
+        {
+          "id": "c2",
+          "text": "水が水蒸気になって空気中に出ていく"
+        },
+        {
+          "id": "c3",
+          "text": "凍った"
+        },
+        {
+          "id": "c4",
+          "text": "消えた"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水が蒸発して水蒸気になり空気中へ出ていきます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.47cdb54c74c7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "蒸発と凝結（水にもどること）について正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水は姿を変える"
+        },
+        {
+          "id": "c2",
+          "text": "水はなくなる"
+        },
+        {
+          "id": "c3",
+          "text": "温度[おんど]が変[か]わっても、じょう発[はつ]のしかたは同[おな]じ"
+        },
+        {
+          "id": "c4",
+          "text": "水蒸気[すいじょうき]は水[みず]にもどらない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "水は液体・気体など姿を変えます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.4ce981cc6be3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ラップでふたをしたコップの水面はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "大きく減る"
+        },
+        {
+          "id": "c2",
+          "text": "ほとんど減らない"
+        },
+        {
+          "id": "c3",
+          "text": "必ず増える"
+        },
+        {
+          "id": "c4",
+          "text": "色が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "蒸発した水が外に出にくいので減りにくいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.8223848bc98d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "目に見えない気体の水を何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "氷"
+        },
+        {
+          "id": "c2",
+          "text": "水蒸気"
+        },
+        {
+          "id": "c3",
+          "text": "雨水"
+        },
+        {
+          "id": "c4",
+          "text": "雲だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "気体の水を水蒸気といいます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.b8df3441ba08",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ふたをしたコップの内側に水滴がつきやすい理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "外から雨が入る"
+        },
+        {
+          "id": "c2",
+          "text": "水蒸気が冷えて水にもどる"
+        },
+        {
+          "id": "c3",
+          "text": "砂が入る"
+        },
+        {
+          "id": "c4",
+          "text": "氷が降る"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "水蒸気が冷やされて水の粒にもどります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.d86b93449e58",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水滴が袋の外側につく理由[りゆう]として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "袋の中の水がにじむ"
+        },
+        {
+          "id": "c2",
+          "text": "外の水蒸気が冷やされる"
+        },
+        {
+          "id": "c3",
+          "text": "絵の具がつく"
+        },
+        {
+          "id": "c4",
+          "text": "砂がつく"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "外側の空気中の水蒸気が冷やされます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-09.f0bd2048b814",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-09",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-09",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水蒸気が冷えるとどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "消える"
+        },
+        {
+          "id": "c2",
+          "text": "水の粒（水滴）になる"
+        },
+        {
+          "id": "c3",
+          "text": "必ず氷になる"
+        },
+        {
+          "id": "c4",
+          "text": "油になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "冷やされると水にもどります。"
+  }
+]

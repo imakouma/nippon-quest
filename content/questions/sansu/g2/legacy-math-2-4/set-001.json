@@ -1,0 +1,226 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-4.02640ce182bb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "82"
+      ]
+    },
+    "explanation": "1 4 7 + 3 5 8 2"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.1ab728454723",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ひっさんをかいて、つぎのけいさんを しましょう。",
+      "answers": [
+        "85"
+      ]
+    },
+    "explanation": "1 1 7 + 6 8 8 5"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.38ab71b5ca0a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "76"
+      ]
+    },
+    "explanation": "1 2 + 6 4 7 6"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.576f64fa5955",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "64"
+      ]
+    },
+    "explanation": "6 1 + 3 6 4"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.62d517f09d39",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえが まちがっている しきを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "33-18=25"
+        },
+        {
+          "id": "c2",
+          "text": "42-24=18"
+        },
+        {
+          "id": "c3",
+          "text": "75-37=38"
+        },
+        {
+          "id": "c4",
+          "text": "91-65=26"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひき算では、ひいたかず と こたえを たすと、もとのかずになる。 33-18=25 では、 18+25=43 になるので、こたえが まちがっている。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.854570b8818a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ひっさんをかいて、つぎのけいさんを、しましょう。",
+      "answers": [
+        "82"
+      ]
+    },
+    "explanation": "\\require{cancel} 8 1 \\bcancel{9} 0 - 8 8 2"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.8aecece3c02a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ひっさんをかいて、つぎのけいさんを しましょう。",
+      "answers": [
+        "44"
+      ]
+    },
+    "explanation": "\\require{cancel} 7 1 \\bcancel{8} 1 - 3 7 4 4"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.8c89a86cb1a0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "6"
+      ]
+    },
+    "explanation": "\\require{cancel} 3 1 \\bcancel{4} 5 - 3 9 6"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.8cf43a3975e1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "こたえが まちがっている しきを えらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "94-55=49"
+        },
+        {
+          "id": "c2",
+          "text": "37-18=19"
+        },
+        {
+          "id": "c3",
+          "text": "64-28=36"
+        },
+        {
+          "id": "c4",
+          "text": "87-19=68"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ひき算では、ひいたかず と こたえを たすと、もとのかずになる。 94-55=49 では、 55+49=104 になるので、こたえが まちがっている。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-4.9feffbd76c05",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのけいさんを、しましょう。",
+      "answers": [
+        "44"
+      ]
+    },
+    "explanation": "1 1 6 + 2 8 4 4"
+  }
+]

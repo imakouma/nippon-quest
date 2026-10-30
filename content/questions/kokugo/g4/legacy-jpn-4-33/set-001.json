@@ -1,0 +1,182 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-33.157c36003d6e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-33",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_33",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「話題を新しく変える（転換する）」ときに使う接続詞はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ところで"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "また"
+        },
+        {
+          "id": "c4",
+          "text": "なぜなら"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話の流れを変えるときには「ところで」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-33.5b82c344f62e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-33",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_33",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「具体的な例をあげる（例示する）」ときに使う接続詞はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たとえば"
+        },
+        {
+          "id": "c2",
+          "text": "すると"
+        },
+        {
+          "id": "c3",
+          "text": "それとも"
+        },
+        {
+          "id": "c4",
+          "text": "しかし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "例を出すときには「たとえば」を使います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-33.5c568530cecf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-33",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_33",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「前の事柄に、さらに別の事柄を加える（追加する）」ときに使う接続詞はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そのうえ（また、および）"
+        },
+        {
+          "id": "c2",
+          "text": "ところで"
+        },
+        {
+          "id": "c3",
+          "text": "たとえば"
+        },
+        {
+          "id": "c4",
+          "text": "けれども（しかし）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "情報を付け足す（累加・並列）ときには「そのうえ」「また」「および」などを使います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-33.71d668dcf83a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-33",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_33",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「前の内容と反対・逆のことを述べる（逆接）」ときに使う接続詞はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "けれども（しかし）"
+        },
+        {
+          "id": "c2",
+          "text": "だから（すると）"
+        },
+        {
+          "id": "c3",
+          "text": "また（そのうえ）"
+        },
+        {
+          "id": "c4",
+          "text": "それとも"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "前後の文脈が対立・矛盾するときは「けれども」「しかし」などを使います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-33.d72acebfc615",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-33",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_33",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「前の文が結果で、後ろの文でその原因・理由を説明する」ときに使う接続詞はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "なぜなら"
+        },
+        {
+          "id": "c2",
+          "text": "だから"
+        },
+        {
+          "id": "c3",
+          "text": "すると"
+        },
+        {
+          "id": "c4",
+          "text": "それとも"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "理由を説明する文の前には「なぜなら」を使います。"
+  }
+]

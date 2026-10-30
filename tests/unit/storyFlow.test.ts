@@ -17,6 +17,7 @@ import {
   townStoryCounter,
 } from '../../src/scenes/overworld/storyFlow';
 import { IWATE_ARRIVAL_COUNTER } from '../../src/core/progression/storyCompanion';
+import { BATTLE_TUTORIAL_EVENT } from '../../src/core/progression/battleTutorial';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 
 describe('物語のマップ導入', () => {
@@ -47,6 +48,13 @@ describe('物語のマップ導入', () => {
 
     game.progress.counters[HERO_IDENTITY_COUNTER] = 1;
     expect(mapArrivalStory('aomori-field', game, 300)).toBeNull();
+  });
+
+  it('初回バトル説明まで完了した旧セーブでは導入カウンターが欠けても再演しない', () => {
+    const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
+    game.progress.eventsDone.push(BATTLE_TUTORIAL_EVENT);
+
+    expect(mapArrivalStory('aomori-field', game, 200)).toBeNull();
   });
 
   it('岩手では相棒を渡さず、社へ案内する導入だけを一度表示する', () => {

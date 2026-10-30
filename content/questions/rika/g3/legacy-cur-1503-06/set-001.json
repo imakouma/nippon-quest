@@ -1,0 +1,434 @@
+[
+  {
+    "id": "legacy.rika.g3.cur-1503-06.10426b245212",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風を強くすると、車の進むきょりはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなる"
+        },
+        {
+          "id": "c2",
+          "text": "長くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "必ず止まる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風が強いほど、遠くまで動きやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.10449977149d",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "うちわであおいだ車が動くのは、何の力ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "磁力"
+        },
+        {
+          "id": "c2",
+          "text": "風の力"
+        },
+        {
+          "id": "c3",
+          "text": "電気"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風の力が物を動かします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.1ca209e91733",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムの力で車が動くとき、何の力がはたらいていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "風の力だけ"
+        },
+        {
+          "id": "c2",
+          "text": "ゴムの力"
+        },
+        {
+          "id": "c3",
+          "text": "磁力だけ"
+        },
+        {
+          "id": "c4",
+          "text": "音の力"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "引きのばしたゴムがもどろうとする力が車を動かします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.29f106612467",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムを2本にすると、進むきょりはどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなるだけ"
+        },
+        {
+          "id": "c2",
+          "text": "長くなりやすい"
+        },
+        {
+          "id": "c3",
+          "text": "必ず0になる"
+        },
+        {
+          "id": "c4",
+          "text": "色が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ゴムの力が強くなると、より遠くまで進みやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.357e6c67f8aa",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風の力で動くものの例として正しくないものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ヨット"
+        },
+        {
+          "id": "c2",
+          "text": "ふうりん"
+        },
+        {
+          "id": "c3",
+          "text": "水車"
+        },
+        {
+          "id": "c4",
+          "text": "こいのぼり"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "水車は水の力で動きます。風の力ではありません。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.3f39fe355c4a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実験で記録するとよいことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "力の大きさときょり"
+        },
+        {
+          "id": "c2",
+          "text": "加[くわ]えた力[ちから]の大[おお]きさだけ"
+        },
+        {
+          "id": "c3",
+          "text": "物[もの]が動[うご]いたきょりだけ"
+        },
+        {
+          "id": "c4",
+          "text": "物[もの]を動[うご]かした時間[じかん]だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "力の条件と動いたきょりを記録すると、きまりが見えます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.9b6b729600bb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムを長く引きのばして車を走らせると、きょりはどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "短くなる"
+        },
+        {
+          "id": "c2",
+          "text": "長くなる"
+        },
+        {
+          "id": "c3",
+          "text": "変わらない"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "ゴムを長く引きのばすほど、遠くまで進みやすいです。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.bf887024cad1",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風やゴムの力について正しいものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "物を動かせない"
+        },
+        {
+          "id": "c2",
+          "text": "物を動かすことができる"
+        },
+        {
+          "id": "c3",
+          "text": "重さと同じ"
+        },
+        {
+          "id": "c4",
+          "text": "光と同じ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風やゴムの力は、物を動かすことができます。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.c9d8cb9f4443",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ゴムを引きのばすと、どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "そのまま"
+        },
+        {
+          "id": "c2",
+          "text": "もとの形にもどろうとする"
+        },
+        {
+          "id": "c3",
+          "text": "必ず切れる"
+        },
+        {
+          "id": "c4",
+          "text": "電気が流れる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "のびたゴムは、もとの形にもどろうとします。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.d28c7d90a446",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "力の大きさを変えると、物の動き方はどうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "変わらない"
+        },
+        {
+          "id": "c2",
+          "text": "動き方も変わる"
+        },
+        {
+          "id": "c3",
+          "text": "必ず止まる"
+        },
+        {
+          "id": "c4",
+          "text": "名前[なまえ]が変わる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "力の大きさを変えると、動き方も変わります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.d7559b2221e0",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たこが空に上がるのは、主に何の力ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "磁力"
+        },
+        {
+          "id": "c2",
+          "text": "風の力"
+        },
+        {
+          "id": "c3",
+          "text": "電気"
+        },
+        {
+          "id": "c4",
+          "text": "音"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "たこは風の力を受けて上がります。"
+  },
+  {
+    "id": "legacy.rika.g3.cur-1503-06.f5bd845372b9",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 3,
+    "unit": "rika.g3.legacy-cur-1503-06",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1503-06",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "風の力を使って電気をつくるものを何発電といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火力発電"
+        },
+        {
+          "id": "c2",
+          "text": "風力発電"
+        },
+        {
+          "id": "c3",
+          "text": "水力発電だけ"
+        },
+        {
+          "id": "c4",
+          "text": "手発電"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "風の力でプロペラを回して電気をつくるのが風力発電です。"
+  }
+]

@@ -2,7 +2,7 @@
  * content/ の読み込み・検証・索引。ブラウザ（fetch）と Node（fs）の両方から使える。
  * 実ファイル一覧は content/manifest.json（`pnpm gen:manifest` が生成）に従う。
  */
-import { z, type ZodTypeAny } from 'zod/v3';
+import type { ZodTypeAny } from 'zod/v3';
 import {
   contentKinds,
   elementSchema,
@@ -21,25 +21,10 @@ import {
   type World,
   type XpTable,
 } from './schemas';
+import { contentManifestSchema, type ContentManifest, type QuestionCatalog } from './manifest';
 import { checkRewardReferences } from './rewardValidation';
 
-export interface ContentManifest {
-  generatedAt: string;
-  files: Record<ContentKind, string[]>;
-  questions: string[];
-  /** Playground の ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
-  questionIndex?: Record<string, string>;
-  /** ゲーム開始時に選択学年だけ読み込むための索引。 */
-  questionFilesByGrade?: Record<string, string[]>;
-}
-
-const contentManifestSchema = z.object({
-  generatedAt: z.string(),
-  files: z.record(z.array(z.string().min(1))),
-  questions: z.array(z.string().min(1)),
-  questionIndex: z.record(z.string().min(1)).optional(),
-  questionFilesByGrade: z.record(z.array(z.string().min(1))).optional(),
-});
+export type { ContentManifest, QuestionCatalog } from './manifest';
 
 export function parseContentManifest(data: unknown): ContentManifest {
   return parseWith<ContentManifest>(contentManifestSchema, data, 'manifest.json');
@@ -76,6 +61,7 @@ export interface ContentIndex {
   monstersByArea: Map<string, Monster[]>;
   questionFiles: string[];
   questionFilesByGrade?: Record<string, string[]>;
+  questionCatalog?: QuestionCatalog;
 }
 
 /** fetch ベースの reader（ブラウザ用）。base は '/content' など */
@@ -209,6 +195,7 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     monstersByArea,
     questionFiles: manifest.questions ?? [],
     questionFilesByGrade: manifest.questionFilesByGrade ?? {},
+    questionCatalog: manifest.questionCatalog,
   };
 }
 

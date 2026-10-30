@@ -278,7 +278,7 @@ export class BattleEventAnimator {
         p.effects.burst(anchor.x, anchor.y, 0xff8fb1, 'bt.fx.heart', 18, -120);
         await p.sprites.tween({
           targets: enemy,
-          y: layout.enemy.y - 26,
+          y: enemy.y - 26,
           duration: 160,
           yoyo: true,
           repeat: 1,

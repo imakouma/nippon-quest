@@ -1,0 +1,220 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-12.0b5c9230c6fa",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円のまん中にある点を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中心"
+        },
+        {
+          "id": "c2",
+          "text": "中点"
+        },
+        {
+          "id": "c3",
+          "text": "原点"
+        },
+        {
+          "id": "c4",
+          "text": "ちょう点"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/37bcd37da4972579.png"
+    },
+    "explanation": "円のまん中にある点を、円の「中心」といいます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-12.150b8a6b4147",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円の中心をとおる 円のはしとはしを むすんだ 直線を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半径（はんけい）"
+        },
+        {
+          "id": "c2",
+          "text": "直径（ちょっけい）"
+        },
+        {
+          "id": "c3",
+          "text": "直線"
+        },
+        {
+          "id": "c4",
+          "text": "辺"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/340bdbe32bd95515.png"
+    },
+    "explanation": "円[えん]の中心[ちゅうしん]を通[とお]り、円[えん]のはしとはしを結[むす]ぶ線分[せんぶん]を「直径[ちょっけい]」といいます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-12.23bf1fd4e82f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような 図形[ずけい]を 何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "円"
+        },
+        {
+          "id": "c2",
+          "text": "球"
+        },
+        {
+          "id": "c3",
+          "text": "丸"
+        },
+        {
+          "id": "c4",
+          "text": "輪（わ）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5890275464501ee9.png"
+    },
+    "explanation": "平面[へいめん]にかいた、中心[ちゅうしん]からの長[なが]さがどこでも同[おな]じ形[かたち]を円[えん]といいます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-12.3f156151b1c4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "円の中心と 外がわをむすんだ 直線を、何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半径（はんけい）"
+        },
+        {
+          "id": "c2",
+          "text": "直径（ちょっけい）"
+        },
+        {
+          "id": "c3",
+          "text": "直線"
+        },
+        {
+          "id": "c4",
+          "text": "辺"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ce5104b55fb42518.png"
+    },
+    "explanation": "円[えん]の中心[ちゅうしん]から円周[えんしゅう]まで引[ひ]いた線分[せんぶん]を「半径[はんけい]」といいます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-12.5850b6b50aa0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のような 図形[ずけい]を 何といいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "円"
+        },
+        {
+          "id": "c2",
+          "text": "球"
+        },
+        {
+          "id": "c3",
+          "text": "丸"
+        },
+        {
+          "id": "c4",
+          "text": "輪（わ）"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/89f89657f17aee4c.png"
+    },
+    "explanation": "ボールのように、どの向[む]きから見[み]ても円[えん]に見[み]える立体[りったい]を球[きゅう]といいます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-12.dfc86c09b0b1",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_12",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図の ア、イ、ウの直線の中で、一番長いものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/655287114c34e3b0.png"
+    },
+    "explanation": "円のはしとはしを むすぶときは、中心をとおると、一番長くなる。つまり、直径[ちょっけい]になるとき、一番長いんだ。"
+  }
+]

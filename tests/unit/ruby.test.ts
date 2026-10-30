@@ -20,10 +20,10 @@ const properNouns = readJson<{ names: string[] }>('proper-nouns.json').names;
 const ja = readJson<Record<string, unknown>>('ja.json');
 const kokugoG1SkillFiles = ['hiragana', 'joshi', 'bun-no-kimari', 'kotoba-asobi'];
 
-const readKokugoG1Skill = (name: string): unknown =>
-  JSON.parse(
-    readFileSync(new URL(`../../content/questions/kokugo/g1/${name}.json`, import.meta.url), 'utf8'),
-  ) as unknown;
+const readKokugoG1Skill = (name: string): unknown[] =>
+  jsonFiles(fileURLToPath(new URL(`../../content/questions/kokugo/g1/${name}/`, import.meta.url))).flatMap(
+    (file) => JSON.parse(readFileSync(file, 'utf8')) as unknown[],
+  );
 
 function collectStrings(value: unknown, path: string[] = []): Array<{ path: string; text: string }> {
   if (typeof value === 'string') return [{ path: path.join('.'), text: value }];
@@ -225,7 +225,10 @@ describe('RubyText', () => {
     const folders = ['arena', 'curriculum', 'items', 'monsters', 'prefectures', 'world'];
     const questionFiles = jsonFiles(join(rootPath, 'questions')).filter((file) => {
       const portablePath = file.replaceAll('\\', '/');
-      return !portablePath.includes('/kokugo/') && !portablePath.includes('/legacy/');
+      return (
+        !portablePath.includes('/kokugo/') &&
+        !portablePath.split('/').some((part) => part.startsWith('legacy-'))
+      );
     });
     const files = [
       ...fixedFiles,
@@ -242,10 +245,14 @@ describe('RubyText', () => {
   it('旧教材も、読みが検証できた通常語は RubyText にし、出題意図のある表記は保護する', () => {
     const contentRoot = new URL('../../content/', import.meta.url);
     const rootPath = fileURLToPath(contentRoot);
-    const legacyRoot = join(rootPath, 'questions', 'legacy');
-    const files = ['sansu', 'rika', 'seikatsu', 'shakai'].flatMap((subject) =>
-      jsonFiles(join(legacyRoot, subject)),
-    );
+    const questionRoot = join(rootPath, 'questions');
+    const files = jsonFiles(questionRoot).filter((file) => {
+      const portablePath = file.replaceAll('\\', '/');
+      return (
+        !portablePath.includes('/kokugo/') &&
+        portablePath.split('/').some((part) => part.startsWith('legacy-'))
+      );
+    });
     const strings = files.flatMap((file) => {
       const data = JSON.parse(readFileSync(file, 'utf8')) as unknown;
       return collectDisplayStrings(data, relative(rootPath, file));
@@ -273,11 +280,17 @@ describe('RubyText', () => {
     });
     expect(stillBare).toEqual([]);
 
-    const protectedSource = readFileSync(join(legacyRoot, 'shakai', 'g4.json'), 'utf8');
+    const protectedSource = readFileSync(
+      join(questionRoot, 'shakai', 'g4', 'legacy-cur-1404-01', 'set-001.json'),
+      'utf8',
+    );
     expect(protectedSource).toContain('雨温図（うおんず）');
     expect(protectedSource).toContain('経線（けいせん）');
 
-    const kokugoSource = readFileSync(join(legacyRoot, 'kokugo', 'g2.json'), 'utf8');
+    const kokugoSource = jsonFiles(join(questionRoot, 'kokugo', 'g2'))
+      .filter((file) => file.split('/').some((part) => part.startsWith('legacy-')))
+      .map((file) => readFileSync(file, 'utf8'))
+      .join('\n');
     expect(kokugoSource).not.toContain('漢字[かんじ]');
   });
 

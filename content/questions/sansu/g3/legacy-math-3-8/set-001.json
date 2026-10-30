@@ -1,0 +1,363 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-8.0b71115835ea",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 43-18 =",
+      "answers": [
+        "25"
+      ]
+    },
+    "explanation": "２けたの引き算の暗算には、２つのやり方がある。 ① 近い数をさがして計算する。 18 に近い 20 として計算し、あとで 2 たす。 43-20=23 23+2=25 ② くりさがりが、おこらないように計算する。 18 を 13 と 5 に分けて考える。 43-13=30 30-5=25"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.0d0304a60c74",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 21 + 22 =",
+      "answers": [
+        "43"
+      ]
+    },
+    "explanation": "22を20と2に分[わ]けると、21+20=41、41+2=43です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.0e29bd01e951",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 44 - 25 =",
+      "answers": [
+        "19"
+      ]
+    },
+    "explanation": "25を20と5に分[わ]けると、44-20=24、24-5=19です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.1a72160af9fb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 36 + 37 =",
+      "answers": [
+        "73"
+      ]
+    },
+    "explanation": "37を40と考[かんが]えて36+40=76。多[おお]く足[た]した3を引[ひ]いて73です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.284cfb5e6552",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 49 - 25 =",
+      "answers": [
+        "24"
+      ]
+    },
+    "explanation": "25を20と5に分[わ]けると、49-20=29、29-5=24です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.29d29facc04e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 42 - 25 =",
+      "answers": [
+        "17"
+      ]
+    },
+    "explanation": "25を20と5に分[わ]けると、42-20=22、22-5=17です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.34c3b6874eba",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 100-32 =",
+      "answers": [
+        "68"
+      ]
+    },
+    "explanation": "100 からひく引き算には、いくつかのやり方がある。① 32 を30と2に分ける。100-30=70、70-2=68。② 32に何をたしたら100になるか考える。32+8=40、40+60=100なので、60+8=68。③ 100を99として計算してから1をたす。99-32=67、67+1=68。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.38f34016f0a4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 59 - 25 =",
+      "answers": [
+        "34"
+      ]
+    },
+    "explanation": "25を20と5に分[わ]けると、59-20=39、39-5=34です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.4abceaa7ea76",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 29 + 30 =",
+      "answers": [
+        "59"
+      ]
+    },
+    "explanation": "29に30を足[た]すと、29+30=59です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.4edb33dd8f60",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 40 + 41 =",
+      "answers": [
+        "81"
+      ]
+    },
+    "explanation": "40+40=80で、さらに1を足[た]して81です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.53d9670b1183",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 100 - 14 =",
+      "answers": [
+        "86"
+      ]
+    },
+    "explanation": "14を10と4に分[わ]けると、100-10=90、90-4=86です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.6956333714c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 51 - 25 =",
+      "answers": [
+        "26"
+      ]
+    },
+    "explanation": "25を20と5に分[わ]けると、51-20=31、31-5=26です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.6f2249b5239c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 62 - 25 =",
+      "answers": [
+        "37"
+      ]
+    },
+    "explanation": "25を20と5に分[わ]けると、62-20=42、42-5=37です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.70b6cbbf8918",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 26+49 =",
+      "answers": [
+        "75"
+      ]
+    },
+    "explanation": "２けたの足し算の暗算には、２つのやり方がある。 ① 数を小さく分けて考える。 26 を 20 と 6 に分ける。 49 を 40 と 9 に分ける。 6+9=15、20+40=60 15+60=75 ② 近い数をさがして計算する。 49 に近い 50 として計算し、あとで 1 ひく。 26+50=76 76-1=75"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.b375fc9721b5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 45 + 45 =",
+      "answers": [
+        "90"
+      ]
+    },
+    "explanation": "45+45は45の2倍[ばい]なので、90です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.c744d738e5b7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 100 - 69 =",
+      "answers": [
+        "31"
+      ]
+    },
+    "explanation": "69に31を足[た]すと100になるので、100-69=31です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.cd8591c437d6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 46 + 46 =",
+      "answers": [
+        "92"
+      ]
+    },
+    "explanation": "46+46は46の2倍[ばい]なので、92です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.d727d812b533",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 100 - 77 =",
+      "answers": [
+        "23"
+      ]
+    },
+    "explanation": "77に23を足[た]すと100になるので、100-77=23です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-8.f34fecc8b35a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_8",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 100 - 25 =",
+      "answers": [
+        "75"
+      ]
+    },
+    "explanation": "100の半分[はんぶん]は50で、25を引[ひ]くと75です。"
+  }
+]

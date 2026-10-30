@@ -6,6 +6,7 @@ import type { QuestionBase, QuestionRenderer, RendererContext } from '../../src/
 import { choiceRenderer } from '../../src/questions/renderers/choice';
 import { experimentRenderer } from '../../src/questions/renderers/experiment';
 import { numberBuildRenderer } from '../../src/questions/renderers/number-build';
+import { pairMatchRenderer } from '../../src/questions/renderers/pair-match';
 import { pictureWordRenderer } from '../../src/questions/renderers/picture-word';
 import { sortOrderRenderer } from '../../src/questions/renderers/sort-order';
 import { textInputRenderer } from '../../src/questions/renderers/text-input';
@@ -49,6 +50,17 @@ const cases: { name: string; renderer: QuestionRenderer; payload: unknown }[] = 
     },
   },
   {
+    name: 'pair-match',
+    renderer: pairMatchRenderer,
+    payload: {
+      prompt: 'あわせよう',
+      pairs: [
+        { a: { text: 'A' }, b: { text: 'a' } },
+        { a: { text: 'B' }, b: { text: 'b' } },
+      ],
+    },
+  },
+  {
     name: 'experiment',
     renderer: experimentRenderer,
     payload: {
@@ -84,6 +96,7 @@ const cases: { name: string; renderer: QuestionRenderer; payload: unknown }[] = 
     },
   },
 ];
+const rendererCase = (name: string) => cases.find((testCase) => testCase.name === name)!;
 
 function context(
   type: string,
@@ -126,6 +139,8 @@ describe('question renderer cancellation', () => {
         pictureAlt: 'もんだいの え',
         experimentPredict: 'よそう',
         experimentTry: 'ためす',
+        pairMatchBack: 'ふせてある カード',
+        pairMatchRetry: 'やりなおす',
         sortMoveEarlier: '{name}を まえへ',
         sortMoveLater: '{name}を うしろへ',
       },
@@ -172,7 +187,7 @@ describe('question renderer cancellation', () => {
     const container = document.createElement('div');
     document.body.append(container);
     const controller = new AbortController();
-    const testCase = cases[0]!;
+    const testCase = rendererCase('choice');
 
     let resultPromise!: Promise<unknown>;
     act(() => {
@@ -209,7 +224,7 @@ describe('question renderer cancellation', () => {
     const container = document.createElement('div');
     document.body.append(container);
     const controller = new AbortController();
-    const testCase = cases[3]!;
+    const testCase = rendererCase('picture-word');
 
     let resultPromise!: Promise<unknown>;
     act(() => {
@@ -246,7 +261,7 @@ describe('question renderer cancellation', () => {
     const container = document.createElement('div');
     document.body.append(container);
     const controller = new AbortController();
-    const testCase = cases[4]!;
+    const testCase = rendererCase('experiment');
 
     let resultPromise!: Promise<unknown>;
     act(() => {

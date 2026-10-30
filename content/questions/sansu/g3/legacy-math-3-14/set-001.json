@@ -1,0 +1,495 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-14.08d029c598af",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/8 - 2/8 =",
+      "answers": [
+        "3,8"
+      ]
+    },
+    "explanation": "分母が同じときは、分子を足し算、引き算すればいいので、 \\dfrac{5}{8} - \\dfrac{2}{8} = \\dfrac{3}{8}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.1ed3374f6fe6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/10 + 3/10 =",
+      "answers": [
+        "4,10"
+      ]
+    },
+    "explanation": "分母が同じときは、分子を足し算、引き算すればいいので、 \\dfrac{1}{10} + \\dfrac{3}{10} = \\dfrac{4}{10}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.28b9d4da9499",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "分母が同じときは、分子が大きい方が、数は大きくなるので、 \\dfrac{4}{5} \\gt \\dfrac{2}{5}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.455b0e61dc70",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 5/5 - 2/5 =",
+      "answers": [
+        "3,5"
+      ]
+    },
+    "explanation": "1=\\dfrac{5}{5} になるので、 \\dfrac{5}{5} - \\dfrac{2}{5} = \\dfrac{3}{5}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.6c8060081e8d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数の正しい読み方は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4分の3"
+        },
+        {
+          "id": "c2",
+          "text": "3分の4"
+        },
+        {
+          "id": "c3",
+          "text": "4分と3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f455391daa028f22.png"
+    },
+    "explanation": "分数を読むときは、下の数「分母」から読む。「4分の3」が正しいね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.789bdc68efb8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、アは分数であらわすと、いくらになるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{3}{4}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{4}{3}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{2}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{4}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2b555d48c3d96335.png"
+    },
+    "explanation": "0 から 1 までで、めもりが 4つ ある。アは そのうちの３つ目なので、\\dfrac{3}{4} だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.7f541118ffea",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4/7 + 3/7 =",
+      "answers": [
+        "7,1"
+      ]
+    },
+    "explanation": "分母が同じときは、分子を足し算、引き算すればいいので、 \\dfrac{4}{7} + \\dfrac{3}{7} = \\dfrac{7}{7} \\dfrac{7}{7}=1となる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.88b1229bd099",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、\\dfrac{4}{7} をあらわしたのは、ア～ウのうち、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7e865f61dd280a8f.png"
+    },
+    "explanation": "0 から 1 までで、めもりが 7つ ある。\\dfrac{4}{7} は、そのうちの４つ目なので、イだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.a3f6a26fa12e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、1 と同じ大きさの分数は、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{5}{5}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{3}{4}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{8}{9}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分数では、分母と分子が同じ数のとき、1 と同じ大きさになるので、\\dfrac{5}{5} が答えだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.a829d365b3ec",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "分数では、分母と分子が同じ数のとき、1 と同じ大きさになるので、1=\\dfrac{10}{10} になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.b7adf66adfaa",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 1/4 + 2/4 =",
+      "answers": [
+        "3,4"
+      ]
+    },
+    "explanation": "分母が同じときは、分子を足し算、足し算すればいいので、 \\dfrac{1}{4} + \\dfrac{2}{4} = \\dfrac{3}{4}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.c0ecdc288090",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "色をつけたぶぶんを、分数であらわすと いくらになるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{3}{1}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{3}{3}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{1}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7e878689ffdebcba.png"
+    },
+    "explanation": "全体を「３つに分けたうちの １つ分」なので、答えは \\dfrac{1}{3} になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.c4e3701f2227",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "色をつけたぶぶんを、分数であらわすと いくらになるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{2}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{2}{1}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{2}{2}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{1}{1}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b3b4ed7280b42d6d.png"
+    },
+    "explanation": "全体を「２つに分けたうちの １つ分」なので、答えは \\dfrac{1}{2} になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.c5242466e2d9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、\\dfrac{3}{5} をあらわしたのは、ア～ウのうち、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7339a7bf1f5d0eb1.png"
+    },
+    "explanation": "0 から 1 までで、めもりが 5つ ある。\\dfrac{3}{5} は、そのうちの３つ目なので、イだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.dd43c2ed9692",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\lt"
+        },
+        {
+          "id": "c2",
+          "text": "\\gt"
+        },
+        {
+          "id": "c3",
+          "text": "="
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "分母が同じときは、分子が大きい方が、数は大きくなるので、 \\dfrac{1}{3} \\lt \\dfrac{2}{3}"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.e70428ea176a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の数直線で、アは分数であらわすと、いくらになるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\\dfrac{1}{3}"
+        },
+        {
+          "id": "c2",
+          "text": "\\dfrac{3}{1}"
+        },
+        {
+          "id": "c3",
+          "text": "\\dfrac{2}{3}"
+        },
+        {
+          "id": "c4",
+          "text": "\\dfrac{3}{2}"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/033355c748bf3d98.png"
+    },
+    "explanation": "0 から 1 までで、めもりが 3つ ある。アは そのうちの１つ目なので、\\dfrac{1}{3} だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-14.f75a7758496a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-14",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_14",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 4/5 - 1/5 =",
+      "answers": [
+        "3,5"
+      ]
+    },
+    "explanation": "分母が同じときは、分子を足し算、引き算すればいいので、 \\dfrac{4}{5} - \\dfrac{1}{5} = \\dfrac{3}{5}"
+  }
+]

@@ -1,0 +1,650 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.0036891eb9c0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "わかりやすい作文にするには？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主語と述語がきちんと合うように書く"
+        },
+        {
+          "id": "c2",
+          "text": "一文をできるだけ長くする"
+        },
+        {
+          "id": "c3",
+          "text": "「、」を使わない"
+        },
+        {
+          "id": "c4",
+          "text": "思いついた順にならべる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "主語と述語を合わせると伝わりやすい。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.068c917d8296",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「したこと（事実）」と「思ったこと」を書くときのコツは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "分けて書くとわかりやすい"
+        },
+        {
+          "id": "c2",
+          "text": "まぜて書く"
+        },
+        {
+          "id": "c3",
+          "text": "事実は書かない"
+        },
+        {
+          "id": "c4",
+          "text": "思ったことは書かない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "事実と気持ちを分けて書くと読みやすい。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.1b1264642b6e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "作文の組み立てでよく使う三つのまとまりはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はじめ・なか・おわり"
+        },
+        {
+          "id": "c2",
+          "text": "上・中・下"
+        },
+        {
+          "id": "c3",
+          "text": "朝・昼・夜"
+        },
+        {
+          "id": "c4",
+          "text": "赤・青・黄"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「はじめ・なか・おわり」で組み立てる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.5eaa98670f87",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "作文を書きおわったあと、大切なことはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "読みかえしてまちがいをなおす"
+        },
+        {
+          "id": "c2",
+          "text": "すぐ出す"
+        },
+        {
+          "id": "c3",
+          "text": "見ない"
+        },
+        {
+          "id": "c4",
+          "text": "消す"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "読みかえして直すと、よい作文になる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.75c07cdfb9a7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "話題がかわるときはどうする？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "行をかえてだんらくをかえる"
+        },
+        {
+          "id": "c2",
+          "text": "そのままつづける"
+        },
+        {
+          "id": "c3",
+          "text": "「。」を2つ書く"
+        },
+        {
+          "id": "c4",
+          "text": "行をあけるだけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "話題のまとまりごとにだんらくをかえる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.780ee8ec13de",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "作文を書く前にするとよいことはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "何を書くか組み立てを考える"
+        },
+        {
+          "id": "c2",
+          "text": "とにかくすぐ書きはじめる"
+        },
+        {
+          "id": "c3",
+          "text": "むずかしい漢字をならべる"
+        },
+        {
+          "id": "c4",
+          "text": "長くすればよい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "組み立て（メモ）を考えてから書く。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.7d20c4dc85e8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「。」や「、」は原稿用紙でどう書きますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1マスに1つずつ書く"
+        },
+        {
+          "id": "c2",
+          "text": "前の文字と同じマスに入れる"
+        },
+        {
+          "id": "c3",
+          "text": "書かない"
+        },
+        {
+          "id": "c4",
+          "text": "行のそとに書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "句読点も1マスを使って書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.87611d84e931",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "原稿用紙のマス目はふつうどう使いますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1マスに1文字書く"
+        },
+        {
+          "id": "c2",
+          "text": "1マスに2文字書く"
+        },
+        {
+          "id": "c3",
+          "text": "すきなように書く"
+        },
+        {
+          "id": "c4",
+          "text": "マスをむしする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ふつう1マスに1文字ずつ書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.8d4924759d81",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小さい「っ」「ゃ」「ゅ」「ょ」は原稿用紙でどう書く？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1マスに1つ書く"
+        },
+        {
+          "id": "c2",
+          "text": "前の文字と同じマスに入れる"
+        },
+        {
+          "id": "c3",
+          "text": "書かない"
+        },
+        {
+          "id": "c4",
+          "text": "大きく書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小さい字も1マスを使う。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.901976a26a64",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "原稿用紙で、名前はふつうどこに書く？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "題名の次の行に、下を少しあけて書く"
+        },
+        {
+          "id": "c2",
+          "text": "1行目のいちばん上"
+        },
+        {
+          "id": "c3",
+          "text": "本文のさいご"
+        },
+        {
+          "id": "c4",
+          "text": "書かない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "題名の次の行に、名前を下げて書く。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.9f59e6cb09d7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "原稿用紙で、題名（だいめい）はふつうどこに書きますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1行目の上を2〜3マスあけて書く"
+        },
+        {
+          "id": "c2",
+          "text": "いちばん下に書く"
+        },
+        {
+          "id": "c3",
+          "text": "本文のとちゅうに書く"
+        },
+        {
+          "id": "c4",
+          "text": "書かなくてよい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "題名は1行目に、上を少しあけて書きます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.bf28ec2af262",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "会話文を書くときに使う記号はどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "「 」（かぎカッコ）"
+        },
+        {
+          "id": "c2",
+          "text": "（ ）"
+        },
+        {
+          "id": "c3",
+          "text": "【 】"
+        },
+        {
+          "id": "c4",
+          "text": "＝"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "会話は「 」で囲む。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.d20c10b8eb35",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "文の終わりには何をつけますか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "。（句点）"
+        },
+        {
+          "id": "c2",
+          "text": "、（読点）"
+        },
+        {
+          "id": "c3",
+          "text": "「"
+        },
+        {
+          "id": "c4",
+          "text": "なし"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "文の終わりには句点「。」をつけます。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.dda300dacd0b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "行のいちばん上（行頭）にきてはいけないものはどれ？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "。や、などの句読点"
+        },
+        {
+          "id": "c2",
+          "text": "ひらがな"
+        },
+        {
+          "id": "c3",
+          "text": "漢字"
+        },
+        {
+          "id": "c4",
+          "text": "カタカナ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "句読点が行のはじめにこないよう、前の行の終わりに入れる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.e5cefd4019b0",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "作文の書き出し（だんらくのはじめ）はどうする？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "はじめの1マスをあけて書く"
+        },
+        {
+          "id": "c2",
+          "text": "マスをあけずに書く"
+        },
+        {
+          "id": "c3",
+          "text": "2マスあける"
+        },
+        {
+          "id": "c4",
+          "text": "下から書く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "だんらくのはじめは1マス下げる。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.e81c6cd38481",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "会話文の「 はふつうどう書く？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "行をかえて、新しい行のはじめに書く"
+        },
+        {
+          "id": "c2",
+          "text": "前の文とつづけて書く"
+        },
+        {
+          "id": "c3",
+          "text": "いちばん下に書く"
+        },
+        {
+          "id": "c4",
+          "text": "書かない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "会話文は行をかえて書くと読みやすい。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.f274fbc3f65d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "たて書きの原稿用紙に数字を書くときは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "漢数字（一・二・三）で書くことが多い"
+        },
+        {
+          "id": "c2",
+          "text": "アルファベットで書く"
+        },
+        {
+          "id": "c3",
+          "text": "書かない"
+        },
+        {
+          "id": "c4",
+          "text": "よこにねかせる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "たて書きではふつう漢数字を使う。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-5.f65e37a0150d",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-5",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_5",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "伝えたいことをはっきりさせるには、まず何をきめるとよいですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いちばん言いたいこと（中心）をきめる"
+        },
+        {
+          "id": "c2",
+          "text": "むずかしい言葉をきめる"
+        },
+        {
+          "id": "c3",
+          "text": "長さをきめる"
+        },
+        {
+          "id": "c4",
+          "text": "色をきめる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中心になることをきめると、まとまった作文になります。"
+  }
+]

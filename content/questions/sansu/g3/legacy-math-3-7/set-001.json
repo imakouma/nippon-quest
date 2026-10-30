@@ -1,0 +1,697 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-7.0aa8b2b89c0c",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで、好きなきゅう食のメニューを しらべて、表とグラフにしました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ハンバーグ"
+        },
+        {
+          "id": "c2",
+          "text": "シチュー"
+        },
+        {
+          "id": "c3",
+          "text": "スパゲティ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/833477e3f65a5199.png"
+    },
+    "explanation": "（あ）は、７人になっている。表では、「ハンバーグ」が７人になっているので、（あ）は ハンバーグだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.1cd7f8bfcedd",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで、好きなスポーツを しらべて、グラフにしました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バスケットボール"
+        },
+        {
+          "id": "c2",
+          "text": "水泳"
+        },
+        {
+          "id": "c3",
+          "text": "サッカー"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dc26e9869c640125.png"
+    },
+    "explanation": "（あ）は、５人になっている。表では、「バスケットボール」が５人なっているので、（あ）はバスケットボールだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.26ca95d65503",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の ぼうグラフは、５年生と６年生が図書館でかりた本の数を、まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月曜日"
+        },
+        {
+          "id": "c2",
+          "text": "火曜日"
+        },
+        {
+          "id": "c3",
+          "text": "水曜日"
+        },
+        {
+          "id": "c4",
+          "text": "金曜日"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5cd8223a82ce63bf.png"
+    },
+    "explanation": "「一ばん多く本をかりた」なので、６年生のグラフで一番長い金曜日になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.36b02dd14c1e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで、好きなスポーツを しらべて、グラフにしました。",
+      "answers": [
+        "6"
+      ],
+      "template": "野球が好きな人は、何人いますか。 {{INPUT}}人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/1b339a48dde2b367.png"
+    },
+    "explanation": "グラフで、「野球」のところを見ると、6人になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.3d7aa17aae7e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「正」の字をつかって、クラスで、好きなきゅう食のメニューを しらべました。",
+      "answers": [
+        "3"
+      ],
+      "template": "「シチュー」と答えた人は、何人でしたか。 {{INPUT}}人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/b92bc99c6ae378d4.png"
+    },
+    "explanation": "「正」の字のとちゅう、３画でおわっているので、３人だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.4417b6636d1c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで、好きなきゅう食のメニューを しらべて表にしました。",
+      "answers": [
+        "16"
+      ],
+      "template": "「カレー」が好きな人と 「ハンバーグ」が好きな人を合わせると、何人になりますか。 {{INPUT}}人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/b56d54d067d872fc.png"
+    },
+    "explanation": "表の数を 足し算しよう。 9+7=16 人だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.460dd091d166",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで、好きなきゅう食のメニューを しらべて、グラフにしました。",
+      "answers": [
+        "8"
+      ],
+      "template": "カレーが好きな人は、何人いますか。 {{INPUT}}人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/3dadc9fccf7caaa6.png"
+    },
+    "explanation": "グラフで、「カレー」のところを見ると、8人になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.4b419f9738e4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのグラフは、１年生から３年生が 休み時間にしたいことについて、まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "１年生"
+        },
+        {
+          "id": "c2",
+          "text": "２年生"
+        },
+        {
+          "id": "c3",
+          "text": "３年生"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fe2ec07cf82f79bb.png"
+    },
+    "explanation": "なわとびのグラフを見てみよう。黄色[きいろ]が一番高さがあるので、２年生が一番多くなっている。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.4e7675ba28b0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の ぼうグラフは、５年生と６年生が図書館でかりた本の数を、まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火曜日"
+        },
+        {
+          "id": "c2",
+          "text": "水曜日"
+        },
+        {
+          "id": "c3",
+          "text": "木曜日"
+        },
+        {
+          "id": "c4",
+          "text": "月曜日"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5cd8223a82ce63bf.png"
+    },
+    "explanation": "「一番かりている本が少ない」なので、りょうほうのグラフで、一番みじかい木曜日になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.54bfe42d11e7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの表は、１年生から３年生が 休み時間にしたいことについて、まとめたものです。①〜⑤に当てはまる数をうめよう。",
+      "answers": [
+        "9",
+        "4",
+        "5",
+        "37",
+        "110"
+      ],
+      "template": "すること／学年 １年生 ２年生 ３年生 合計 おりがみ 3 4 2 ①{{INPUT}} 読書 4 5 6 15 おにごっこ 9 ②{{INPUT}} 6 19 ボールあそび 11 5 8 24 なわとび 3 10 ③{{INPUT}} 18 その他 7 8 10 25 合計 ④{{INPUT}} 36 37 ⑤{{INPUT}}"
+    },
+    "explanation": "① おりがみをしたい人の合計：3+4+2=9 ② ２年生でおにごっこをしたい人：19-9-6=4 ③ ３年生でなわとびをしたい人：18-3-10=5 ④ １年生の人数の合計：3+4+9+11+3+7=37 ⑤ １年生から３年生の合計：37+36+37=110"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.87f01978e443",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「正」の字をつかって、クラスで、好きなスポーツを しらべて表にしました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "野球"
+        },
+        {
+          "id": "c2",
+          "text": "サッカー"
+        },
+        {
+          "id": "c3",
+          "text": "バスケットボール"
+        },
+        {
+          "id": "c4",
+          "text": "水泳"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2956533e0bc63647.png"
+    },
+    "explanation": "「正」の字をかぞえて、表の数字がまちがっているものを さがそう。サッカーは、「正」では９人になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.8c3eb9fc08c3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「正」の字をつかって、クラスで、好きなきゅう食のメニューを しらべました。",
+      "answers": [
+        "23"
+      ],
+      "promptImage": "questions/legacy/b45112514923da56.png"
+    },
+    "explanation": "「合計」には、全部の人数を合わせたものが入る。 9+7+4+3=23 人だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.aff91fcdceec",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「正」の字をつかって、クラスで、好きなきゅう食のメニューを しらべました。",
+      "answers": [
+        "4"
+      ],
+      "promptImage": "questions/legacy/b45112514923da56.png"
+    },
+    "explanation": "「スパゲティ」と答えた人は、「正」の字４画分で ４人だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.b44a5a417d96",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「正」の字をつかって、クラスで、好きなきゅう食のメニューを しらべました。",
+      "answers": [
+        "9"
+      ],
+      "template": "「カレー」と答えた人は、何人でしたか。 {{INPUT}}人",
+      "suffix": "人",
+      "promptImage": "questions/legacy/b92bc99c6ae378d4.png"
+    },
+    "explanation": "「正」の字ひとつで、５画あるので ５人分。それにあと、４画かかれているので、あわせて答えは ９人になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.bb7096bfb3c7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のようなグラフを、何グラフというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぼうグラフ"
+        },
+        {
+          "id": "c2",
+          "text": "おれ線グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "円グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "おびグラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1af15bc435a1828b.png"
+    },
+    "explanation": "数[かず]を表[あらわ]す長方形[ちょうほうけい]の棒[ぼう]の長[なが]さで、量[りょう]の大小[だいしょう]を比[くら]べるグラフを棒[ぼう]グラフといいます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.c17411b5b4be",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の ぼうグラフは、５年生と６年生が図書館でかりた本の数を、まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5年生"
+        },
+        {
+          "id": "c2",
+          "text": "6年生"
+        },
+        {
+          "id": "c3",
+          "text": "同じ"
+        },
+        {
+          "id": "c4",
+          "text": "このグラフからは 分からない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5cd8223a82ce63bf.png"
+    },
+    "explanation": "１週間にかりた本の数は、それぞれの曜日の合計になる。５年生の方が合計が多いね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.d36f01d4ae2f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "クラスで、好きなきゅう食のメニューを しらべて、表とグラフにします。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "人"
+        },
+        {
+          "id": "c2",
+          "text": "こ"
+        },
+        {
+          "id": "c3",
+          "text": "曜日"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3ec316dad09c12b5.png"
+    },
+    "explanation": "左の表の数は、「それぞれのメニューが好きな人の数」を表している。これをグラフにしたので、グラフのたてのじくは、「人にん」になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.d6689c19d0c0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「正」の字をつかって、クラスで、好きなきゅう食のメニューを しらべました。",
+      "answers": [
+        "7"
+      ],
+      "promptImage": "questions/legacy/b45112514923da56.png"
+    },
+    "explanation": "「ハンバーグ」と答えた人は、「正」の字ひとつと ２画分で ７人だね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.dad5b0950b2f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の ぼうグラフは、１組で学校[がっこう]を休んだ人の数を まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火曜日"
+        },
+        {
+          "id": "c2",
+          "text": "水曜日"
+        },
+        {
+          "id": "c3",
+          "text": "木曜日"
+        },
+        {
+          "id": "c4",
+          "text": "金曜日"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2a21649d608d61ea.png"
+    },
+    "explanation": "「休んだ人がいなかった」なので、ぼうグラフがかかれていない 水曜日になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.edf8af3900f7",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎのグラフは、１年生から３年生が 休み時間にしたいことについて、まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ボールあそび"
+        },
+        {
+          "id": "c2",
+          "text": "おにごっこ"
+        },
+        {
+          "id": "c3",
+          "text": "なわとび"
+        },
+        {
+          "id": "c4",
+          "text": "読書"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fe2ec07cf82f79bb.png"
+    },
+    "explanation": "１年生から３年生全体なので、３つの色のグラフをあわせた大きさを くらべてみよう。ボールあそび、おにごっこ、なわとび、読書の中で、一番多いのは、ボールあそびだね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.f518193dc9d0",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の ぼうグラフは、１組で学校[がっこう]を休んだ人の数を まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "火曜日"
+        },
+        {
+          "id": "c2",
+          "text": "水曜日"
+        },
+        {
+          "id": "c3",
+          "text": "木曜日"
+        },
+        {
+          "id": "c4",
+          "text": "金曜日"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2a21649d608d61ea.png"
+    },
+    "explanation": "「休んだ人が一番多かった」なので、ぼうグラフが一番長い 金曜日になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.f988cdae4e6a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の ぼうグラフは、５年生と６年生が図書館でかりた本の数を、まとめたものです。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月曜日"
+        },
+        {
+          "id": "c2",
+          "text": "火曜日"
+        },
+        {
+          "id": "c3",
+          "text": "水曜日"
+        },
+        {
+          "id": "c4",
+          "text": "金曜日"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5cd8223a82ce63bf.png"
+    },
+    "explanation": "「一ばん多く本をかりた」なので、５年生のグラフで一番長い月曜日になるね。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.fa25628382c6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "数をかぞえるときに、よく使われる漢字はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正"
+        },
+        {
+          "id": "c2",
+          "text": "五"
+        },
+        {
+          "id": "c3",
+          "text": "十"
+        },
+        {
+          "id": "c4",
+          "text": "三"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "数をかぞえるときには、「正せい」の字をつかって ５ずつ数えることが多い。５ずつだと、２つで１０になるので、見やすくなるんだ。"
+  }
+]

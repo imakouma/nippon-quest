@@ -1,0 +1,401 @@
+[
+  {
+    "id": "legacy.sansu.g3.math-3-13.0de864b9c158",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の重さの計算を しましょう。",
+      "answers": [
+        "800"
+      ],
+      "template": "1kg - 200g = {{INPUT}}g",
+      "suffix": "g"
+    },
+    "explanation": "1kg=1000g なので、 1kg-200g = 1000g-200g = 800g"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.0ef197c09fa0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1tは、何kg でしょう。",
+      "answers": [
+        "1000"
+      ],
+      "template": "{{INPUT}}kg",
+      "suffix": "kg"
+    },
+    "explanation": "1t = 1000kg になる。しっかりおぼえておこう。キリンやカバは、大きくなると、1tをこえるんだ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.1a719426bdce",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、１キログラムの「重さ」になるものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1円玉"
+        },
+        {
+          "id": "c2",
+          "text": "500円玉"
+        },
+        {
+          "id": "c3",
+          "text": "牛にゅうパック1本"
+        },
+        {
+          "id": "c4",
+          "text": "えんぴつ1本"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "中身[なかみ]の入[はい]った1Lの牛乳[ぎゅうにゅう]パック1本[ぽん]は、およそ1kgです。身近[みぢか]な重[おも]さの目安[めやす]にできます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.1fc33d03fb2c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の重さの計算を しましょう。",
+      "answers": [
+        "1",
+        "500"
+      ],
+      "template": "600g + 900g = {{INPUT}}kg {{INPUT}}g"
+    },
+    "explanation": "600g + 900g = 1500g 1000g = 1kg なので、1500g=1kg500g になる。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.208428bc6fad",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の重さの計算を しましょう。",
+      "answers": [
+        "900"
+      ],
+      "template": "800g + 100g = {{INPUT}}g",
+      "suffix": "g"
+    },
+    "explanation": "そのまま 足し算すればいい。 800g + 100g = 900g"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.27f3ea0bdba8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "km や kg のように、たんいにつく k（キロ） は 何をあらわしているでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1000 こ分の 大きさになる。"
+        },
+        {
+          "id": "c2",
+          "text": "100 こ分の 大きさになる。"
+        },
+        {
+          "id": "c3",
+          "text": "÷1000 をした 大きさになる。"
+        },
+        {
+          "id": "c4",
+          "text": "÷100 をした 大きさになる。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1km=1000m、1kg=1000gです。単位[たんい]の前[まえ]につくk（キロ）は、もとの単位[たんい]の1000倍[ばい]を表[あらわ]します。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.483704a016c1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の重さの計算を しましょう。",
+      "answers": [
+        "700"
+      ],
+      "template": "2kg - 1kg 300g = {{INPUT}}g",
+      "suffix": "g"
+    },
+    "explanation": "1kg=1000g なので、2kg=2000g、1kg300g=1300g になる。 2kg - 1kg300g = 2000g-1300g = 700g"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.4e029a4e244b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "トンを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "t"
+        },
+        {
+          "id": "c2",
+          "text": "T"
+        },
+        {
+          "id": "c3",
+          "text": "TN"
+        },
+        {
+          "id": "c4",
+          "text": "tn"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "大きな「重さ」をあらわすトンは、「t」とあらわす。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.6b132acf296b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1kgは、何g でしょう。",
+      "answers": [
+        "1000"
+      ],
+      "template": "{{INPUT}}g",
+      "suffix": "g"
+    },
+    "explanation": "1km=1000m だったね。kは、同じ「キロ」をあらわしているので、1kg=1000g だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.a0803fed295f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、１グラムの「重さ」になるものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1円玉"
+        },
+        {
+          "id": "c2",
+          "text": "500円玉"
+        },
+        {
+          "id": "c3",
+          "text": "牛にゅうパック1本"
+        },
+        {
+          "id": "c4",
+          "text": "えんぴつ1本"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "１円玉は、ちょうど１グラムになっている。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.ed4745ebc930",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次のうち、１トンの「重さ」に 一ばん近いものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "キリンの体重"
+        },
+        {
+          "id": "c2",
+          "text": "スイカ"
+        },
+        {
+          "id": "c3",
+          "text": "学校[がっこう]の机"
+        },
+        {
+          "id": "c4",
+          "text": "ペンギンの体重"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1t=1000kgです。大[おお]きなキリンの体重[たいじゅう]はおよそ1tになることがあり、ほかの選択肢[せんたくし]より1tに近[ちか]いと考[かんが]えられます。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.f36c04ebd4d9",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "キログラムを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "g"
+        },
+        {
+          "id": "c2",
+          "text": "kg"
+        },
+        {
+          "id": "c3",
+          "text": "Kg"
+        },
+        {
+          "id": "c4",
+          "text": "kG"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「重さ」をあらわすキログラムは、「kg」とあらわす。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.f4ae1df9e4e1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の重さの計算を しましょう。",
+      "answers": [
+        "1"
+      ],
+      "template": "700g + 300g ={{INPUT}}kg",
+      "suffix": "kg"
+    },
+    "explanation": "700g + 300g = 1000g kg に直して、1000g = 1kg だ。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-13.f55e99ca1cff",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_13",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "グラムを あらわしているものは、どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "g"
+        },
+        {
+          "id": "c2",
+          "text": "kg"
+        },
+        {
+          "id": "c3",
+          "text": "G"
+        },
+        {
+          "id": "c4",
+          "text": "L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「重さ」をあらわすグラムは、「g」とあらわす。"
+  }
+]

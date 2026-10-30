@@ -9,6 +9,7 @@ import { numberBuildRenderer } from './number-build';
 import { pictureWordRenderer } from './picture-word';
 import { textInputRenderer } from './text-input';
 import { mapTapRenderer } from './map-tap';
+import { pairMatchRenderer } from './pair-match';
 import { sortOrderRenderer } from './sort-order';
 
 const registry = new Map<string, QuestionRenderer>();
@@ -42,4 +43,4 @@ registerRenderer(sortOrderRenderer);
 // registerRenderer(mapTapRenderer);
 registerRenderer(experimentRenderer);
 // registerRenderer(kanjiTraceRenderer);
-// registerRenderer(pairMatchRenderer);
+registerRenderer(pairMatchRenderer);

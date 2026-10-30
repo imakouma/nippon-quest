@@ -1,0 +1,377 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-4.01b80cd0e654",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/6a12c8dfd846297a.png"
+    },
+    "explanation": "目もりを右の 0 から読んでいこう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.148d1a37e4d6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "どの角が一番大きいでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        },
+        {
+          "id": "c3",
+          "text": "ウ"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/73135193ab301fd6.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.15fda8ae645e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "120"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/4cca2d6005ec1163.png"
+    },
+    "explanation": "目もりを右の 0 から読んでいこう。90°より大きくなるね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.197b1658fcd6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角じょうぎで、アの角は 何度になるでしょう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/192d664166365acf.png"
+    },
+    "explanation": "二等辺三角形ではない方の三角じょうぎでは、角の大きさは 90°, 60°, 30°の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.1c8952fd2045",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "角度をはかる 道具を何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "分度器"
+        },
+        {
+          "id": "c2",
+          "text": "ものさし"
+        },
+        {
+          "id": "c3",
+          "text": "定規"
+        },
+        {
+          "id": "c4",
+          "text": "コンパス"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/797c3a0dda1cdbea.png"
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.250742902536",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "180"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/5114af3dfcfe4fe6.png"
+    },
+    "explanation": "直線（半回転）にできる角は、180°。おぼえておこう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.2a6618edd261",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角じょうぎで、イの角は 何度になるでしょう。",
+      "answers": [
+        "90"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/9ecf7e92adf930f7.png"
+    },
+    "explanation": "二等辺三角形の三角じょうぎでは、角の大きさは 90°, 45°, 45°の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.34a4eda7989e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角じょうぎで、アの角は 何度になるでしょう。",
+      "answers": [
+        "45"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/9ecf7e92adf930f7.png"
+    },
+    "explanation": "二等辺三角形の三角じょうぎでは、角の大きさは 90°, 45°, 45°の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.3e2416d5491d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "45"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/3afa15513a6c573a.png"
+    },
+    "explanation": "目もりを右の 0 から読んでいこう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.429fa1b81359",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "135"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/af8fe3125916d4a4.png"
+    },
+    "explanation": "目もりを右の 0 から読んでいこう。90°より大きくなるね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.5768659e076b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "324"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/b28c144332bbe149.png"
+    },
+    "explanation": "180° より大きい角をはかる方法は、２つある。 ① 180° をこえるところの角をはかって、180 をたす。 分度器の青い数字を 0の方からよむと、38° になっているので、180+144=324° ② はかる角の反対[はんたい]にある角をはかって、360° からひく。 分度器の黒い数字を 0の方からよむと、142° になっているので、360-36=324°"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.5b32959b4f80",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の三角じょうぎで、イの角は 何度になるでしょう。",
+      "answers": [
+        "30"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/192d664166365acf.png"
+    },
+    "explanation": "二等辺三角形ではない方の三角じょうぎでは、角の大きさは 90°, 60°, 30°の大きさになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.5da6e64f1cb0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "218"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/e9add442103773ec.png"
+    },
+    "explanation": "180° より大きい角をはかる方法は、２つある。 ① 180° をこえるところの角をはかって、180 をたす。 分度器の青い数字を 0の方からよむと、38° になっているので、180+38=218° ② はかる角の反対[はんたい]にある角をはかって、360° からひく。 分度器の黒い数字を 0の方からよむと、142° になっているので、360-142=218°"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.7bfef0a27242",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "一回転で、何度になるでしょう。",
+      "answers": [
+        "360"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°"
+    },
+    "explanation": "ちょうど一回転で、360°になるんだね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.99ff766c8815",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "90"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/fb490e9ff714ee60.png"
+    },
+    "explanation": "直角[ちょっかく]は、90°。おぼえておこう。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-4.9c69e320b82c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の角の大きさは、何度でしょう。",
+      "answers": [
+        "50"
+      ],
+      "template": "{{INPUT}} °",
+      "suffix": "°",
+      "promptImage": "questions/legacy/889f2ac54a2901d8.png"
+    },
+    "explanation": "目もりを左の 0 から読んでいこう。"
+  }
+]

@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
+import { readUnitQuestionSets } from './questionSetFixture';
 
 type Question = {
   id: string;
@@ -26,15 +27,15 @@ const graph = JSON.parse(
   readFileSync(join(root, 'content/curriculum/seikatsu-g1-term1.json'), 'utf8'),
 ) as CurriculumGraph;
 
-function questions(file: string): Question[] {
-  return JSON.parse(readFileSync(join(root, 'content/questions/seikatsu/g1', file), 'utf8')) as Question[];
+function questions(unitSlug: string): Question[] {
+  return readUnitQuestionSets<Question>('seikatsu', 'g1', unitSlug);
 }
 
 describe('小学1年3学期の生活科教材', () => {
   it('成長を振り返る現行単元は3学期に6問以上を持つ', () => {
     const unitId = 'seikatsu.g1.next-grade';
     const unit = units.find((entry) => entry.id === unitId);
-    const items = questions('next-grade.json');
+    const items = questions('next-grade');
 
     expect(unit?.placement?.terms).toEqual([3]);
     expect(items.length).toBeGreaterThanOrEqual(6);
@@ -43,7 +44,7 @@ describe('小学1年3学期の生活科教材', () => {
   });
 
   it('記録の比較・支えてくれた人・次の目標を一続きに扱う', () => {
-    const text = JSON.stringify(questions('next-grade.json'));
+    const text = JSON.stringify(questions('next-grade'));
     expect(text).toContain('くらべ');
     expect(text).toContain('たすけ');
     expect(text).toContain('2年生[ねんせい]');
@@ -52,7 +53,7 @@ describe('小学1年3学期の生活科教材', () => {
   });
 
   it('成長を振り返る手順を操作して考える問題を含む', () => {
-    const items = questions('next-grade.json');
+    const items = questions('next-grade');
     expect(items.some((item) => item.type === 'sort-order' && (item.payload.cards?.length ?? 0) >= 4)).toBe(
       true,
     );

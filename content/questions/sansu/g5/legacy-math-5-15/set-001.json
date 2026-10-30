@@ -1,0 +1,362 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-15.19060d16d25b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学生が持っている携帯電話・スマートフォンの種類について、円グラフを作成しました。",
+      "answers": [
+        "64"
+      ],
+      "template": "「子ども向けスマートフォン」または「子ども向け携帯」を持っている人の割合は、何％ですか。 {{INPUT}}％",
+      "suffix": "％",
+      "promptImage": "questions/legacy/d209db527a8491e8.png"
+    },
+    "explanation": "「子ども向けスマートフォン」または「子ども向け携帯」なので、「子ども向けスマートフォン」と「子ども向け携帯」の割合[わりあい]の合計を グラフから読みとろう。合計すると、64% になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.35d8487e425d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、円を半径[はんけい]で分けて 割合[わりあい]を表したグラフを 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "円グラフ"
+        },
+        {
+          "id": "c2",
+          "text": "帯グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "絵グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "ぼうグラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/de48bf3166489000.png"
+    },
+    "explanation": "円を半径[はんけい]で分けて 割合[わりあい]を表したグラフを「円グラフ」という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.424ce2a9df7a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学５年生のテレビのしちょう時間について、帯グラフを作成しました。",
+      "answers": [
+        "50"
+      ],
+      "template": "テレビを見る時間が「２時間」または「３時間」の人の割合は、何％ですか。 {{INPUT}}％",
+      "suffix": "％",
+      "promptImage": "questions/legacy/37ae1f33ec9a7f8a.png"
+    },
+    "explanation": "「２時間」または「３時間」なので、「２時間」と「３時間」の割合[わりあい]の合計を グラフから読みとろう。合計すると、50% になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.4aa191ecec7c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表内の②にあてはまる数字を答えよう。",
+      "answers": [
+        "61"
+      ],
+      "promptImage": "questions/legacy/262665dfafc0cfed.png"
+    },
+    "explanation": "「割合[わりあい]=くらべる数÷もとにする数」で求めることができる。ここでは、合計の800人が「もとにする数」、488人が「くらべる数」になっている。 488÷800=0.61=61%"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.4db6cf2ac585",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表内の③にあてはまる数字を答えよう。",
+      "answers": [
+        "184"
+      ],
+      "promptImage": "questions/legacy/262665dfafc0cfed.png"
+    },
+    "explanation": "「人数」は「くらべる数」に当たるので、「もとにする数×割合[わりあい]」で求めることができる。 800×0.23=184人"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.5cecda0492da",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学５年生のテレビのしちょう時間について調べた表をもとに、円グラフを作成しました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f2059f233aebfa15.png"
+    },
+    "explanation": "表から「３時間」と答えた人の割合[わりあい]は、27% になっていることが分かる。円グラフで 27% を表しているのは、③だ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.7956ce757cfa",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のように、長方形[ちょうほうけい]を分けて 割合[わりあい]を表したグラフを 何というでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "円グラフ"
+        },
+        {
+          "id": "c2",
+          "text": "帯グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "ぼうグラフ"
+        },
+        {
+          "id": "c4",
+          "text": "折れ線グラフ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/d4d8b2772a5e5b98.png"
+    },
+    "explanation": "長方形[ちょうほうけい]を分けて 割合[わりあい]を表したグラフを「帯グラフ」という。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.883186a549e0",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学５年生のテレビのしちょう時間について、帯グラフを作成しました。",
+      "answers": [
+        "18"
+      ],
+      "template": "テレビを見る時間が「１時間以内」の人の割合は、何％ですか。 {{INPUT}}％",
+      "suffix": "％",
+      "promptImage": "questions/legacy/39de538f6ad80ce3.png"
+    },
+    "explanation": "グラフから割合[わりあい]を読みとろう。「１時間以内」は、18% になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.a220042aeb54",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学生が持っている携帯電話・スマートフォンの種類について、帯グラフを作成しました。",
+      "answers": [
+        "23"
+      ],
+      "template": "「その他の携帯」を持っている人の割合は、何％ですか。 {{INPUT}}％",
+      "suffix": "％",
+      "promptImage": "questions/legacy/98d1ca1032e5e104.png"
+    },
+    "explanation": "グラフから割合[わりあい]を読みとろう。「その他の携帯」は、23% になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.b24f151823ef",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学生が持っている携帯電話・スマートフォンの種類について、円グラフを作成しました。",
+      "answers": [
+        "16"
+      ],
+      "template": "「スマートフォン」または「子ども向けスマートフォン」を持っている人の割合は、何％ですか。 {{INPUT}}％",
+      "suffix": "％",
+      "promptImage": "questions/legacy/d209db527a8491e8.png"
+    },
+    "explanation": "「スマートフォン」または「子ども向けスマートフォン」なので、「スマートフォン」と「子ども向けスマートフォン」の割合[わりあい]の合計を グラフから読みとろう。合計すると、16% になっている。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.d57723a592ce",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学５年生のテレビのしちょう時間について、円グラフを作成しました。",
+      "answers": [
+        "18",
+        "12"
+      ],
+      "template": "テレビを見る時間が「１時間以内」の人は、「５時間」見る人の何倍かを求めたい。このときの式はどうなるだろう。 {{INPUT}} ÷ {{INPUT}}",
+      "promptImage": "questions/legacy/de48bf3166489000.png"
+    },
+    "explanation": "「何倍」と割合[わりあい]をたずねられているので、「くらべる数÷もとにする数」で求めることができる。 「くらべる数」にあたる「１時間以内」の人は 18%、「もとにする数」にあたる「５時間」の人は 12% になっている。 18÷12=1.5倍"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.de31195e3187",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表内の④にあてはまる数字を答えよう。",
+      "answers": [
+        "100"
+      ],
+      "promptImage": "questions/legacy/262665dfafc0cfed.png"
+    },
+    "explanation": "割合[わりあい]の「合計」は 全体を表すので、100%になるね。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.e9b5df225fbe",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の表内の①にあてはまる数字を答えよう。",
+      "answers": [
+        "3"
+      ],
+      "promptImage": "questions/legacy/262665dfafc0cfed.png"
+    },
+    "explanation": "「割合[わりあい]=くらべる数÷もとにする数」で求めることができる。ここでは、合計の800人が「もとにする数」、24人が「くらべる数」になっている。 24÷800=0.03=3%"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-15.f1cb747a4e8f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_15",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小学５年生のテレビのしちょう時間について調べた表をもとに、帯グラフを作成しました。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "②"
+        },
+        {
+          "id": "c3",
+          "text": "③"
+        },
+        {
+          "id": "c4",
+          "text": "④"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/18c727cb5b3f178d.png"
+    },
+    "explanation": "表から「２時間」と答えた人の割合[わりあい]は、23% になっていることが分かる。帯グラフで 23% を表しているのは、②だ。"
+  }
+]

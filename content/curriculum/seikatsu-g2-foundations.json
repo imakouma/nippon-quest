@@ -320,6 +320,33 @@
   ],
   "relations": [
     {
+      "from": "seikatsu.g2.community.public-use",
+      "to": "seikatsu.g2.community.public-care-safety",
+      "kind": "related",
+      "strength": 0.8,
+      "rationale": "公共施設[こうきょうしせつ]の働[はたら]きや使[つか]い方[かた]への理解[りかい]と、みんなが安全[あんぜん]に大切[たいせつ]に使[つか]う態度[たいど]を結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.self.growth-evidence",
+      "to": "seikatsu.g2.self.future-wishes",
+      "kind": "related",
+      "strength": 0.75,
+      "rationale": "できるようになったことの証拠[しょうこ]を振[ふ]り返[かえ]る活動[かつどう]と、これからの願[ねが]いを描[えが]く活動[かつどう]を結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g2.self.growth-evidence",
+      "to": "seikatsu.g2.self.support-gratitude",
+      "kind": "related",
+      "strength": 0.8,
+      "rationale": "自分[じぶん]の成長[せいちょう]の証拠[しょうこ]を振[ふ]り返[かえ]り、支[ささ]えてくれた人[ひと]への気付[きづ]きや感謝[かんしゃ]と結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
       "from": "seikatsu.g1.self.first-year-growth",
       "to": "seikatsu.g2.seasons.spring-change",
       "kind": "prerequisite",

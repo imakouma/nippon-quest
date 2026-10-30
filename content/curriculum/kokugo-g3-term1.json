@@ -179,6 +179,15 @@
   ],
   "relations": [
     {
+      "from": "kokugo.g2.grammar.subject-predicate",
+      "to": "kokugo.g3.grammar.subject-predicate",
+      "kind": "prerequisite",
+      "strength": 0.85,
+      "rationale": "第[だい]1・2学年[がくねん]で主語[しゅご]と述語[じゅつご]の関係[かんけい]を捉[とら]える力[ちから]を、第[だい]3学年[がくねん]で詳[くわ]しく確[たし]かめる基礎[きそ]とする。",
+      "sourceIds": ["mext-h29-kokugo-g34"],
+      "reviewStatus": "source-checked"
+    },
+    {
       "from": "kokugo.g2.kanji.context",
       "to": "kokugo.g3.kanji.foundation",
       "kind": "prerequisite",

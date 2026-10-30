@@ -1,27 +1,45 @@
 import { h, render } from 'preact';
 import type { ContentIndex } from '../../core/content/loader';
+import { curriculumGraph } from '../../core/learning/catalog';
+import * as learningPlanProvider from '../../core/learning/learningPlan';
+import { projectRoadmapRelations } from '../../core/learning/roadmapRelations';
+import { isCompletedRoadmapProgress } from '../../core/learning/subjectUnlocks';
+import {
+  recommendationReasonToAttemptReason,
+  type LearningRecommendation,
+} from '../../core/learning/recommendationPolicy';
+import { canonicalUnitId } from '../../core/learning/unitAliases';
+import { roadmapGrandfatheredUnitIds } from '../../core/state/roadmapSnapshot';
 import type { GameState } from '../../core/state/schema';
 import { QuestionFrame } from '../../ui/QuestionFrame';
 import { t } from '../../ui/i18n';
 import type { QuestionBank } from '../../questions/engine';
 import { askById, MasteryStore } from '../../questions/engine';
 import { buildAskEnv } from '../shared/askEnv';
-import { LEGACY_QUESTION_UNIT_ALIASES } from './roadmap';
+import { buildGameRoadmapNodes } from './roadmap';
 
-export function pickRoadmapQuestionId(
-  bank: QuestionBank,
-  unitId: string,
-  recent: readonly string[],
-  rng: { next(): number },
-): string | null {
-  const questions = bank
-    .all()
-    .filter((question) => question.unit === unitId || LEGACY_QUESTION_UNIT_ALIASES[question.unit] === unitId);
-  if (!questions.length) return null;
-  const recentIds = new Set(recent);
-  const fresh = questions.filter((question) => !recentIds.has(question.id));
-  const pool = fresh.length ? fresh : questions;
-  return pool[Math.floor(rng.next() * pool.length)]?.id ?? null;
+export type RoadmapPracticeSelection = Pick<
+  LearningRecommendation,
+  'questionId' | 'actualUnitId' | 'reason' | 'conceptIds'
+>;
+
+export function selectRoadmapPracticeQuestion(
+  input: Readonly<learningPlanProvider.LearningPlanInput>,
+  preferredQuestionId?: string,
+): RoadmapPracticeSelection | null {
+  const selection = learningPlanProvider
+    .buildLearningPlan(input)
+    .find(
+      (item) =>
+        !item.completed && (preferredQuestionId === undefined || item.questionId === preferredQuestionId),
+    );
+  if (!selection || selection.completed) return null;
+  return {
+    questionId: selection.questionId,
+    actualUnitId: selection.actualUnitId,
+    reason: selection.reason,
+    conceptIds: [...selection.conceptIds],
+  };
 }
 
 export interface RoadmapPracticeHost {
@@ -35,21 +53,64 @@ export interface RoadmapPracticeHost {
   renderHud(): void;
 }
 
-export async function runRoadmapPractice(hostScene: RoadmapPracticeHost, unitId: string): Promise<void> {
+export async function runRoadmapPractice(
+  hostScene: RoadmapPracticeHost,
+  unitId: string,
+): Promise<RoadmapPracticeSelection | null> {
+  return runRoadmapPracticeSelection(hostScene, undefined, unitId);
+}
+
+/** 安定した問題IDを使い、指定された問題をそのまま実行する。 */
+export async function runRoadmapPracticeByQuestionId(
+  hostScene: RoadmapPracticeHost,
+  questionId: string,
+): Promise<RoadmapPracticeSelection | null> {
+  return runRoadmapPracticeSelection(hostScene, questionId);
+}
+
+async function runRoadmapPracticeSelection(
+  hostScene: RoadmapPracticeHost,
+  preferredQuestionId?: string,
+  targetUnitId?: string,
+): Promise<RoadmapPracticeSelection | null> {
   const content = hostScene.content();
   const bank = hostScene.registry.get('bank') as QuestionBank | undefined;
   const game = hostScene.gs();
-  if (!content || !bank || !game) return;
-  const questionId = pickRoadmapQuestionId(bank, unitId, game.learning.recent, hostScene.rng);
-  if (!questionId) return hostScene.talk([{ text: t('field.roadmapNoQuestion') }]);
-  const question = bank.get(questionId)!;
+  if (!content || !bank || !game) return null;
+  const selection = selectRoadmapPracticeQuestion(
+    {
+      graph: curriculumGraph,
+      questionBank: targetUnitId ? roadmapUnitQuestionBank(bank, targetUnitId) : bank,
+      conceptStates: game.learning.conceptStates,
+      attempts: game.learning.attempts,
+      recentQuestionIds: game.learning.recent,
+      unitMastery: game.learning.mastery,
+      grandfatheredUnitIds: roadmapGrandfatheredUnitIds(game),
+      gradeScope: {
+        grade: game.learning.grade,
+        includeLower: game.learning.includeLower,
+        challengeHigher: game.learning.challengeHigher,
+      },
+      now: Date.now(),
+    },
+    preferredQuestionId,
+  );
+  if (!selection) {
+    await hostScene.talk([{ text: roadmapUnavailableMessage(content, game, targetUnitId) }]);
+    return null;
+  }
+  const question = bank.get(selection.questionId);
+  if (!question) {
+    await hostScene.talk([{ text: roadmapUnavailableMessage(content, game, targetUnitId) }]);
+    return null;
+  }
   const questionHost = document.createElement('div');
   questionHost.className = 'nq-bq-slot';
   const root = hostScene.root('fx');
   render(
     h(QuestionFrame, {
       host: questionHost,
-      title: content.units.get(unitId)?.name ?? unitId,
+      title: content.units.get(selection.actualUnitId)?.name ?? selection.actualUnitId,
       subject: question.subject,
       hint: t('field.roadmapQuestionHint'),
     }),
@@ -65,13 +126,65 @@ export async function runRoadmapPractice(hostScene: RoadmapPracticeHost, unitId:
         mastery: new MasteryStore(game.learning.mastery),
         rng: hostScene.rng,
         speak: hostScene.speak,
-        reason: 'review',
+        reason: recommendationReasonToAttemptReason(selection.reason),
         getGame: () => hostScene.gs() ?? game,
       }),
-      questionId,
+      selection.questionId,
     );
     hostScene.renderHud();
+    return selection;
   } finally {
     render(null, root);
   }
+}
+
+function roadmapUnavailableMessage(content: ContentIndex, game: GameState, targetUnitId?: string): string {
+  if (!targetUnitId) return t('field.roadmapNoQuestion');
+  const nodes = buildGameRoadmapNodes({
+    units: content.units.values(),
+    mastery: game.learning.mastery,
+    conceptStates: game.learning.conceptStates,
+    grandfatheredUnitIds: roadmapGrandfatheredUnitIds(game),
+    revealAll: false,
+    playerGrade: game.learning.grade,
+    challengeHigher: game.learning.challengeHigher,
+    subjectLabel: (subject) => subject,
+  });
+  const nodesById = new Map(nodes.map((node) => [canonicalUnitId(node.id), node]));
+  const target = nodesById.get(canonicalUnitId(targetUnitId));
+  const prerequisiteNames = [
+    ...new Set(
+      (target?.prerequisiteIds ?? []).flatMap((id) => {
+        const node = nodesById.get(canonicalUnitId(id));
+        return node && !isCompletedRoadmapProgress(node) ? [node.name] : [];
+      }),
+    ),
+  ];
+  return prerequisiteNames.length
+    ? t('field.roadmapPrerequisitesRequired', { names: prerequisiteNames.join('」「') })
+    : t('field.roadmapNoQuestion');
+}
+
+function roadmapUnitQuestionBank(
+  bank: QuestionBank,
+  targetUnitId: string,
+): Pick<QuestionBank, 'get' | 'all'> {
+  const canonicalTargetId = canonicalUnitId(targetUnitId);
+  const displayedUnitIds = new Set(
+    curriculumGraph.concepts
+      .filter((concept) => concept.kind !== 'misconception')
+      .map((concept) => canonicalUnitId(concept.unit)),
+  );
+  displayedUnitIds.add(canonicalTargetId);
+  const relations = projectRoadmapRelations(curriculumGraph, displayedUnitIds);
+  const allowedUnitIds = new Set([
+    canonicalTargetId,
+    ...(relations.prerequisiteIdsByTarget.get(canonicalTargetId) ?? []),
+  ]);
+  const questions = bank.all().filter((question) => allowedUnitIds.has(canonicalUnitId(question.unit)));
+  const byId = new Map(questions.map((question) => [question.id, question]));
+  return {
+    all: () => [...questions],
+    get: (questionId) => byId.get(questionId),
+  };
 }

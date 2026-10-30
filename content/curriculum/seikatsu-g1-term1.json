@@ -341,6 +341,69 @@
   ],
   "relations": [
     {
+      "from": "seikatsu.g1.home.roles-and-health",
+      "to": "seikatsu.g1.self.first-year-growth",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "家庭[かてい]での役割[やくわり]や健康[けんこう]への気付[きづ]きと、1年間[ねんかん]の自分[じぶん]の成長[せいちょう]を振[ふ]り返[かえ]る活動[かつどう]を結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.living-things.care",
+      "to": "seikatsu.g1.living-things.observe-and-care",
+      "kind": "related",
+      "strength": 0.8,
+      "rationale": "生[い]き物[もの]を大切[たいせつ]に世話[せわ]することと、変化[へんか]を継続[けいぞく]して観察[かんさつ]することを一体[いったい]の活動[かつどう]として結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.nature.observe-seasons",
+      "to": "seikatsu.g1.nature.spring-observation",
+      "kind": "related",
+      "strength": 0.75,
+      "rationale": "季節[きせつ]ごとの自然[しぜん]を観察[かんさつ]する活動[かつどう]と、春[はる]の身近[みぢか]な変化[へんか]を見付[みつ]ける活動[かつどう]を結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.nature.observe-seasons",
+      "to": "seikatsu.g1.nature.autumn-play",
+      "kind": "transfer",
+      "strength": 0.7,
+      "rationale": "季節[きせつ]の自然[しぜん]を観察[かんさつ]して得[え]た気付[きづ]きを、秋[あき]の自然物[しぜんぶつ]を使[つか]う遊[あそ]びへ生[い]かす。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.nature.spring-observation",
+      "to": "seikatsu.g1.nature.winter-change",
+      "kind": "chronological",
+      "strength": 0.8,
+      "rationale": "春[はる]から冬[ふゆ]へ移[うつ]る季節[きせつ]の時間的[じかんてき]な順序[じゅんじょ]を表[あらわ]し、学習[がくしゅう]の解放条件[かいほうじょうけん]にはしない。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.nature.winter-change",
+      "to": "seikatsu.g1.seasons.life-and-events",
+      "kind": "related",
+      "strength": 0.7,
+      "rationale": "冬[ふゆ]の自然[しぜん]や暮[く]らしの変化[へんか]と、季節[きせつ]に応[おう]じた生活[せいかつ]や行事[ぎょうじ]への気付[きづ]きを結[むす]び付[つ]ける。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "from": "seikatsu.g1.nature.autumn-play",
+      "to": "seikatsu.g1.seasons.make-and-play",
+      "kind": "transfer",
+      "strength": 0.75,
+      "rationale": "秋[あき]の自然物[しぜんぶつ]で遊[あそ]んだ経験[けいけん]を、材料[ざいりょう]の特徴[とくちょう]を生[い]かして作[つく]り遊[あそ]ぶ活動[かつどう]へ移[うつ]す。",
+      "sourceIds": ["mext-h29-seikatsu-g1-2"],
+      "reviewStatus": "source-checked"
+    },
+    {
       "from": "seikatsu.g1.school.safe-life",
       "to": "seikatsu.g1.nature.observe-seasons",
       "kind": "related",

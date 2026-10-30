@@ -1,0 +1,520 @@
+[
+  {
+    "id": "legacy.sansu.g5.math-5-2.0100300dfc4e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "厚さ 1cm のプラスチックの板でできた 下の図形[ずけい]の容積は、いくらになるでしょう。",
+      "answers": [
+        "1000"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/4f080fc5816286d5.png"
+    },
+    "explanation": "容積は、入れ物の中に入る水などの体積のこと。厚さが 1cm あるので、その分を たて、横、高さからそれぞれひいて、もとめる。 (12-2)×(12-2)×(11-1)=10×10×10=1000cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.026c09169a4e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1cm^3 は、次のうち どの大きさと等しいでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1mL"
+        },
+        {
+          "id": "c2",
+          "text": "1L"
+        },
+        {
+          "id": "c3",
+          "text": "1dL"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1cm^3 は、1mL と等しい。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.1389029cd58b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "立方体の体積を求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "横 × 高さ"
+        },
+        {
+          "id": "c2",
+          "text": "一辺 × 一辺 × 一辺"
+        },
+        {
+          "id": "c3",
+          "text": "たて × 横"
+        },
+        {
+          "id": "c4",
+          "text": "一辺 × 一辺"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "立方体の体積は、一辺 × 一辺 × 一辺 で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.178ec61603dc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1m^3 は、何cm^3 でしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1000000cm^3"
+        },
+        {
+          "id": "c2",
+          "text": "100cm^3"
+        },
+        {
+          "id": "c3",
+          "text": "10000cm^3"
+        },
+        {
+          "id": "c4",
+          "text": "100000cm^3"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1m^3 は、一辺が 1m の立方体の体積になる。この立方体の長さを、cm に直して考えてみよう。 1m^3 = 1m×1m×1m = 100cm×100cm×100cm = 1000000cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.31e8b4c08100",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立方体の体積をもとめよう。",
+      "answers": [
+        "1000",
+        "1"
+      ],
+      "template": "{{INPUT}} cm^3 = {{INPUT}} L",
+      "promptImage": "questions/legacy/4ef127b0a952f732.png"
+    },
+    "explanation": "立方体の体積は、10×10×10=1000cm^3 1000cm^3 は 1L になる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.3fd4a3c9fc5a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "1000"
+      ],
+      "template": "一辺 10cm の立方体 {{INPUT}}cm^3",
+      "suffix": "cm^3"
+    },
+    "explanation": "立方体の体積は、一辺 × 一辺 × 一辺 で求めることができる。 10×10×10 = 1000cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.5967becf37cd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "160"
+      ],
+      "template": "たて 4cm、横 8cm、高さ 5cm の直方体 {{INPUT}}cm^3",
+      "suffix": "cm^3"
+    },
+    "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。 4×8×5 = 160cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.76264168956f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の直方体の体積を求めよう。",
+      "answers": [
+        "20"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/cfff0b29b7487a86.png"
+    },
+    "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。 2×2×5 = 20cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.7ac566e3589b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立方体の体積を求めよう。",
+      "answers": [
+        "27"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/2b3c22c0d0a9eea6.png"
+    },
+    "explanation": "立方体の体積は、一辺 × 一辺 × 一辺 で求めることができる。 3×3×3 = 27cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.8a997c4793c4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体積・立方センチメートル"
+        },
+        {
+          "id": "c2",
+          "text": "平方[へいほう]センチメートル"
+        },
+        {
+          "id": "c3",
+          "text": "面積[めんせき]"
+        },
+        {
+          "id": "c4",
+          "text": "面積[めんせき]・平方[へいほう]センチメートル"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "立体などの「かさ」のことを（体積）といい、単位（立方センチメートル）などを使って表す。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.962bc7589914",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "300"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/d896c76c3078f0f9.png"
+    },
+    "explanation": "下図のように、真ん中のあいている部分をうめた 大きな直方体を考えてみよう。そこから、真ん中の部分の体積を引けばいい。 ・大きな直方体の体積は、9×10×4=360cm^3 ・真ん中の直方体の体積（赤線）は、3×5×4=60cm^3 大きな直方体から真ん中の直方体をひいて、360-60=300cm^3 になる。 直方体を３つに分けて、もとめることもできる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.970746c6bc4b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横1cm、高さ3cmの直方体があります。この直方体の体積を 27cm^3 にするには、たてを何cm にすれば、いいでしょう。",
+      "answers": [
+        "9"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm"
+    },
+    "explanation": "求めたい たての長さを、□cm とすると、□×1×3 = 27 □×3= 27 なので、□=9cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.b82a25863103",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の直方体の体積を求めよう。",
+      "answers": [
+        "56"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/b4e6046b92258481.png"
+    },
+    "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。 7×4×2 = 56cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.cc6424e34a97",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "横4cm、高さ2cmの直方体があります。この直方体の体積を 64cm^3 にするには、たてを何cm にすれば、いいでしょう。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/legacy/0c4aa4060466f469.png"
+    },
+    "explanation": "求めたい たての長さを、□cm とすると、□×4×2 = 64 □×8= 64 なので、□=8cm"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.cd3bdf4b91b6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "1400"
+      ],
+      "template": "{{INPUT}} cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/5a2a5162be65b77f.png"
+    },
+    "explanation": "下図のように２つの直方体に分けて、体積をもとめてみよう。 ・右の直方体の体積は、5×14×6=420cm^3 ・左の直方体の体積は、7×14×10=980cm^3 ２つの体積をあわせて、420+980=1400cm^3 になる。 この分け方以外にも、上下で２つの直方体に分けてもいい。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.d4e6b9a796a3",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "直方体の体積を求める式として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "たて × 横 × 高さ"
+        },
+        {
+          "id": "c2",
+          "text": "一辺 × 一辺 × 一辺"
+        },
+        {
+          "id": "c3",
+          "text": "たて × 横"
+        },
+        {
+          "id": "c4",
+          "text": "一辺 × 一辺"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.e34825e4d25a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立方体の体積をもとめよう。",
+      "answers": [
+        "1",
+        "1000000",
+        "1000"
+      ],
+      "template": "{{INPUT}} m^3 = {{INPUT}} cm^3 = {{INPUT}} L = 1kL",
+      "promptImage": "questions/legacy/fe33c73efc61d712.png"
+    },
+    "explanation": "立方体の体積は、1×1×1=1m^3 になる。 これを cm^3 で表すには、1m=100cm なので、 1m^3 = 100cm × 100cm × 100cm =1000000cm^3 1L=1000cm^3 になるので、1000000cm^3=1000L となる。 1000L は 1kL と表すこともできる。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.ee9fbea1dec4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "体積の単位として、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "cm^3"
+        },
+        {
+          "id": "c2",
+          "text": "cm^2"
+        },
+        {
+          "id": "c3",
+          "text": "cm"
+        },
+        {
+          "id": "c4",
+          "text": "cm^4"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "体積の単位には、cm^3（立方センチメートル）などを使う。数字の 3は、体積を求めるときに数が３つかけられることを 表しているんだ。"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.eeccf2a0aa0a",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立方体の体積を求めよう。",
+      "answers": [
+        "216"
+      ],
+      "template": "{{INPUT}}cm^3",
+      "suffix": "cm^3",
+      "promptImage": "questions/legacy/f1a05b8f862eeaef.png"
+    },
+    "explanation": "立方体の体積は、一辺 × 一辺 × 一辺 で求めることができる。 6×6×6 = 216cm^3"
+  },
+  {
+    "id": "legacy.sansu.g5.math-5-2.f8902427dcc1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_5_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の立体の体積を求めよう。",
+      "answers": [
+        "60"
+      ],
+      "template": "{{INPUT}}m^3",
+      "suffix": "m^3",
+      "promptImage": "questions/legacy/d0009a97329fa461.png"
+    },
+    "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。 6×5×2 = 60m^3"
+  }
+]

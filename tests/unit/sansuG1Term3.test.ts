@@ -3,15 +3,16 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Unit } from '../../src/core/content/schemas';
 import type { QuestionBase } from '../../src/questions/contracts';
-import { QuestionBank } from '../../src/questions/engine';
 import { buildRoadmapNodes } from '../../src/scenes/overworld/roadmap';
-import { pickRoadmapQuestionId } from '../../src/scenes/overworld/roadmapPractice';
 
 const root = process.cwd();
 const units = JSON.parse(readFileSync(join(root, 'content/units.json'), 'utf8')) as Unit[];
-const legacyQuestions = JSON.parse(
-  readFileSync(join(root, 'content/questions/legacy/sansu/g1.json'), 'utf8'),
-) as Array<QuestionBase & { payload: { prompt?: string } }>;
+const legacyQuestions = ['legacy-math-1-7', 'legacy-math-1-9'].flatMap(
+  (unit) =>
+    JSON.parse(readFileSync(join(root, `content/questions/sansu/g1/${unit}/set-001.json`), 'utf8')) as Array<
+      QuestionBase & { payload: { prompt?: string } }
+    >,
+);
 
 describe('小学1年3学期の算数教材', () => {
   it('旧単元を重複表示せず、現行6単元を学習順に並べる', () => {
@@ -44,24 +45,6 @@ describe('小学1年3学期の算数教材', () => {
       'sansu.g1.katachi',
       'sansu.g1.data',
     ]);
-  });
-
-  it.each([
-    ['sansu.g1.tens-calculation', 'sansu.g1.legacy-math-1-7'],
-    ['sansu.g1.word-problems', 'sansu.g1.legacy-math-1-9'],
-  ])('%s から対応する旧問題を出題できる', (currentUnit, legacyUnit) => {
-    const bank = new QuestionBank();
-    const question: QuestionBase = {
-      id: `legacy.${legacyUnit}.0001`,
-      type: 'text-input',
-      subject: 'sansu',
-      grade: 1,
-      unit: legacyUnit,
-      payload: {},
-    };
-    bank.add(question);
-
-    expect(pickRoadmapQuestionId(bank, currentUnit, [], { next: () => 0 })).toBe(question.id);
   });
 
   it('100までの計算は、画像なしでも式と演算が分かる', () => {

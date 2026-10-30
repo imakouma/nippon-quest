@@ -1,0 +1,476 @@
+[
+  {
+    "id": "legacy.sansu.g2.math-2-18.011a0f7b244a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はこの形を つくる 赤く ぬられた ところを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面"
+        },
+        {
+          "id": "c2",
+          "text": "へん"
+        },
+        {
+          "id": "c3",
+          "text": "ちょう点"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e01092184ac521a3.png"
+    },
+    "explanation": "はこの平[たい]らな部分[ぶぶん]を面[めん]といいます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.0b5521f885aa",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はこの形を つくる 赤い ぶぶんを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面"
+        },
+        {
+          "id": "c2",
+          "text": "へん"
+        },
+        {
+          "id": "c3",
+          "text": "ちょう点"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8fb1d13af78f16b5.png"
+    },
+    "explanation": "二[ふた]つの面[めん]が出会[であ]う、まっすぐな線[せん]の部分[ぶぶん]を辺[へん]といいます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.10ca147cab6a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの ずは、はこの形を きって ひらいた ものです。赤いろの 面は、何という 形に なっているでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c4",
+          "text": "直角三角形"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/9e2ff05e5b6071d1.png"
+    },
+    "explanation": "正方形[せいほうけい]は、角が ぜんぶ 直角[ちょっかく]で、へんの 長さが ぜんぶ おなじ 四角形[しかくけい]。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.11185d7c3d8f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "①の はこの形を きって ひらくと、アとイ、どちらの 形に なるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/15e7c657c809ba53.png"
+    },
+    "explanation": "①のはこを辺[へん]にそって切[き]り開[ひら]くと、六[むっ]つの面[めん]がつながったイの形[かたち]になります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.15345bd2561f",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はこの形を つくる 赤い ぶぶんを なんというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "面"
+        },
+        {
+          "id": "c2",
+          "text": "へん"
+        },
+        {
+          "id": "c3",
+          "text": "ちょう点"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8aa379c7e771015f.png"
+    },
+    "explanation": "辺[へん]が集[あつ]まる角[かど]の点[てん]を、頂点[ちょうてん]といいます。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.4fb31424dc0e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "①の はこの形には ぜんぶで いくつ 面が あるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/3d971ed8d56ec052.png"
+    },
+    "explanation": "はこの形には ぜんぶで 6つの 面が あります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.539c693eed81",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "③の 面と、形と 大きさが おなじ 面は どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "①"
+        },
+        {
+          "id": "c2",
+          "text": "④"
+        },
+        {
+          "id": "c3",
+          "text": "⑤"
+        },
+        {
+          "id": "c4",
+          "text": "⑥"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4b8eb3687dafbe36.png"
+    },
+    "explanation": "はこの形の ちょうど はんたいがわの 面が、おなじ 形と 大きさです。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.70d5488d88e8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "②の はこの形を きって ひらくと、アとイ、どちらの 形に なるでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ア"
+        },
+        {
+          "id": "c2",
+          "text": "イ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/15e7c657c809ba53.png"
+    },
+    "explanation": "②のはこを辺[へん]にそって切[き]り開[ひら]くと、六[むっ]つの面[めん]がつながったアの形[かたち]になります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.7155a7b84537",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの ような はこの形が あります。",
+      "answers": [
+        "12"
+      ],
+      "template": "7cmの へんは ぜんぶで いくつ ありますか。 {{INPUT}} 本",
+      "suffix": "本",
+      "promptImage": "questions/legacy/5081e4e93998b1b0.png"
+    },
+    "explanation": "はこの形は すべて 7cmの へんで できています。へんの かずは ぜんぶで 12本です。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.74030fce384c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "①や ②の はこの形には、へんは ぜんぶで いくつ ありますか。",
+      "answers": [
+        "12"
+      ],
+      "template": "{{INPUT}} つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/3d971ed8d56ec052.png"
+    },
+    "explanation": "はこの形は ぜんぶで 12の へんで できています。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.8f916963f3dd",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "②の 面と、形と 大きさが おなじ 面は どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "③"
+        },
+        {
+          "id": "c2",
+          "text": "④"
+        },
+        {
+          "id": "c3",
+          "text": "⑤"
+        },
+        {
+          "id": "c4",
+          "text": "⑥"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4b8eb3687dafbe36.png"
+    },
+    "explanation": "はこの形の ちょうど はんたいがわの 面が、おなじ 形と 大きさです。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.9a9bffdf1e95",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "①の 面と、形と 大きさが おなじ 面は どれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "②"
+        },
+        {
+          "id": "c2",
+          "text": "③"
+        },
+        {
+          "id": "c3",
+          "text": "⑤"
+        },
+        {
+          "id": "c4",
+          "text": "⑥"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4b8eb3687dafbe36.png"
+    },
+    "explanation": "はこの形の ちょうど はんたいがわの 面が、おなじ 形と 大きさです。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.a5ca028cf20c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "①や ②の はこの形には、ちょう点は ぜんぶで いくつ ありますか。",
+      "answers": [
+        "8"
+      ],
+      "template": "{{INPUT}} つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/3d971ed8d56ec052.png"
+    },
+    "explanation": "はこの形には ぜんぶで 8つ ちょう点が あります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.a7cfa10c870e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの ずは、はこの形を きって ひらいた ものです。赤いろの 面は、何という 形に なっているでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "正方形[せいほうけい]"
+        },
+        {
+          "id": "c3",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c4",
+          "text": "直角三角形"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2274b006b972fbec.png"
+    },
+    "explanation": "長方形[ちょうほうけい]は、角が ぜんぶ 直角[ちょっかく]の 四角形[しかくけい]。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.e03b30288c24",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "②の はこの形には ぜんぶで いくつ 面が あるでしょう。",
+      "answers": [
+        "6"
+      ],
+      "template": "{{INPUT}} つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/3d971ed8d56ec052.png"
+    },
+    "explanation": "はこの形には ぜんぶで 6つの 面が あります。"
+  },
+  {
+    "id": "legacy.sansu.g2.math-2-18.fc0d2e4c9380",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_2_18",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "つぎの ような はこの形が あります。",
+      "answers": [
+        "4"
+      ],
+      "template": "10cmの へんは ぜんぶで いくつ ありますか。 {{INPUT}} つ",
+      "suffix": "つ",
+      "promptImage": "questions/legacy/3dcdc1a8b39dc9d1.png"
+    },
+    "explanation": "むかいあう へんの ながさは おなじです。"
+  }
+]

@@ -1,1 +1,515 @@
-[]
+[
+  {
+    "id": "aichi-boss-kinshachi-ou",
+    "key": "mon.animation.aichi-boss-kinshachi-ou.v1",
+    "path": "sprites/animations/batch-03/aichi-boss-kinshachi-ou-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "aichi-kokekokkochin",
+    "key": "mon.animation.aichi-kokekokkochin.v1",
+    "path": "sprites/animations/batch-03/aichi-kokekokkochin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "aichi-shiborin",
+    "key": "mon.animation.aichi-shiborin.v1",
+    "path": "sprites/animations/batch-03/aichi-shiborin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "akita-chuken-maru",
+    "key": "mon.animation.akita-chuken-maru.v1",
+    "path": "sprites/animations/batch-03/akita-chuken-maru-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "akita-lastboss-satake-yoshinobu",
+    "key": "mon.animation.akita-lastboss-satake-yoshinobu.v1",
+    "path": "sprites/animations/batch-03/akita-lastboss-satake-yoshinobu-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "akita-wappa-toride",
+    "key": "mon.animation.akita-wappa-toride.v1",
+    "path": "sprites/animations/batch-03/akita-wappa-toride-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "chiba-kujukurin",
+    "key": "mon.animation.chiba-kujukurin.v1",
+    "path": "sprites/animations/batch-03/chiba-kujukurin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "chiba-peanight",
+    "key": "mon.animation.chiba-peanight.v1",
+    "path": "sprites/animations/batch-03/chiba-peanight-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ehime-iyokan-musha",
+    "key": "mon.animation.ehime-iyokan-musha.v1",
+    "path": "sprites/animations/batch-03/ehime-iyokan-musha-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ehime-lastboss-murakami-takeyoshi",
+    "key": "mon.animation.ehime-lastboss-murakami-takeyoshi.v1",
+    "path": "sprites/animations/batch-03/ehime-lastboss-murakami-takeyoshi-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukui-boss-echizen-gani-ou",
+    "key": "mon.animation.fukui-boss-echizen-gani-ou.v1",
+    "path": "sprites/animations/batch-03/fukui-boss-echizen-gani-ou-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukui-lastboss-matsudaira-shungaku",
+    "key": "mon.animation.fukui-lastboss-matsudaira-shungaku.v1",
+    "path": "sprites/animations/batch-03/fukui-lastboss-matsudaira-shungaku-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukui-raputorun",
+    "key": "mon.animation.fukui-raputorun.v1",
+    "path": "sprites/animations/batch-03/fukui-raputorun-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukuoka-boss-hiraodaio",
+    "key": "mon.animation.fukuoka-boss-hiraodaio.v1",
+    "path": "sprites/animations/batch-03/fukuoka-boss-hiraodaio-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukuoka-midboss-banana-taisho",
+    "key": "mon.animation.fukuoka-midboss-banana-taisho.v1",
+    "path": "sprites/animations/batch-03/fukuoka-midboss-banana-taisho-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukuoka-suigo-maru",
+    "key": "mon.animation.fukuoka-suigo-maru.v1",
+    "path": "sprites/animations/batch-03/fukuoka-suigo-maru-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukushima-akatsuki-momo",
+    "key": "mon.animation.fukushima-akatsuki-momo.v1",
+    "path": "sprites/animations/batch-03/fukushima-akatsuki-momo-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukushima-kura-donburi",
+    "key": "mon.animation.fukushima-kura-donburi.v1",
+    "path": "sprites/animations/batch-03/fukushima-kura-donburi-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "fukushima-yaoki-koboshi",
+    "key": "mon.animation.fukushima-yaoki-koboshi.v1",
+    "path": "sprites/animations/batch-03/fukushima-yaoki-koboshi-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "gifu-kamiori-dori",
+    "key": "mon.animation.gifu-kamiori-dori.v1",
+    "path": "sprites/animations/batch-03/gifu-kamiori-dori-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "gifu-oriben",
+    "key": "mon.animation.gifu-oriben.v1",
+    "path": "sprites/animations/batch-03/gifu-oriben-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "gunma-boss-gankake-daruma",
+    "key": "mon.animation.gunma-boss-gankake-daruma.v1",
+    "path": "sprites/animations/batch-03/gunma-boss-gankake-daruma-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "gunma-kyabezukin",
+    "key": "mon.animation.gunma-kyabezukin.v1",
+    "path": "sprites/animations/batch-03/gunma-kyabezukin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "gunma-purukon",
+    "key": "mon.animation.gunma-purukon.v1",
+    "path": "sprites/animations/batch-03/gunma-purukon-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hiroshima-kakigaran",
+    "key": "mon.animation.hiroshima-kakigaran.v1",
+    "path": "sprites/animations/batch-03/hiroshima-kakigaran-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hiroshima-onbashigame",
+    "key": "mon.animation.hiroshima-onbashigame.v1",
+    "path": "sprites/animations/batch-03/hiroshima-onbashigame-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hokkaido-ami-melon",
+    "key": "mon.animation.hokkaido-ami-melon.v1",
+    "path": "sprites/animations/batch-03/hokkaido-ami-melon-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hokkaido-hotaten",
+    "key": "mon.animation.hokkaido-hotaten.v1",
+    "path": "sprites/animations/batch-03/hokkaido-hotaten-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hokkaido-jet-hotate",
+    "key": "mon.animation.hokkaido-jet-hotate.v1",
+    "path": "sprites/animations/batch-03/hokkaido-jet-hotate-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hokkaido-lavendori",
+    "key": "mon.animation.hokkaido-lavendori.v1",
+    "path": "sprites/animations/batch-03/hokkaido-lavendori-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hokuriku-islandboss-kagamiutsushi",
+    "key": "mon.animation.hokuriku-islandboss-kagamiutsushi.v1",
+    "path": "sprites/animations/batch-03/hokuriku-islandboss-kagamiutsushi-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hyogo-lastboss-ikeda-terumasa",
+    "key": "mon.animation.hyogo-lastboss-ikeda-terumasa.v1",
+    "path": "sprites/animations/batch-03/hyogo-lastboss-ikeda-terumasa-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "hyogo-sorobanban",
+    "key": "mon.animation.hyogo-sorobanban.v1",
+    "path": "sprites/animations/batch-03/hyogo-sorobanban-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ibaraki-aozora-hime",
+    "key": "mon.animation.ibaraki-aozora-hime.v1",
+    "path": "sprites/animations/batch-03/ibaraki-aozora-hime-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ibaraki-hobikin",
+    "key": "mon.animation.ibaraki-hobikin.v1",
+    "path": "sprites/animations/batch-03/ibaraki-hobikin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ibaraki-nemofin",
+    "key": "mon.animation.ibaraki-nemofin.v1",
+    "path": "sprites/animations/batch-03/ibaraki-nemofin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ishikawa-gosai-bon",
+    "key": "mon.animation.ishikawa-gosai-bon.v1",
+    "path": "sprites/animations/batch-03/ishikawa-gosai-bon-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ishikawa-kinpaku-cho",
+    "key": "mon.animation.ishikawa-kinpaku-cho.v1",
+    "path": "sprites/animations/batch-03/ishikawa-kinpaku-cho-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "ishikawa-oo-hamashion",
+    "key": "mon.animation.ishikawa-oo-hamashion.v1",
+    "path": "sprites/animations/batch-03/ishikawa-oo-hamashion-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kagawa-kororibu",
+    "key": "mon.animation.kagawa-kororibu.v1",
+    "path": "sprites/animations/batch-03/kagawa-kororibu-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kagawa-mizukagami",
+    "key": "mon.animation.kagawa-mizukagami.v1",
+    "path": "sprites/animations/batch-03/kagawa-mizukagami-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kagawa-zenigani",
+    "key": "mon.animation.kagawa-zenigani.v1",
+    "path": "sprites/animations/batch-03/kagawa-zenigani-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kagoshima-kurogane-boo",
+    "key": "mon.animation.kagoshima-kurogane-boo.v1",
+    "path": "sprites/animations/batch-03/kagoshima-kurogane-boo-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kagoshima-nabezurun",
+    "key": "mon.animation.kagoshima-nabezurun.v1",
+    "path": "sprites/animations/batch-03/kagoshima-nabezurun-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kanagawa-boss-yokohama-shishi-oh",
+    "key": "mon.animation.kanagawa-boss-yokohama-shishi-oh.v1",
+    "path": "sprites/animations/batch-03/kanagawa-boss-yokohama-shishi-oh-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kanagawa-kazakiri-tonbi",
+    "key": "mon.animation.kanagawa-kazakiri-tonbi.v1",
+    "path": "sprites/animations/batch-03/kanagawa-kazakiri-tonbi-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kanagawa-piihyoro",
+    "key": "mon.animation.kanagawa-piihyoro.v1",
+    "path": "sprites/animations/batch-03/kanagawa-piihyoro-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kochi-boss-kuroshio-kujira",
+    "key": "mon.animation.kochi-boss-kuroshio-kujira.v1",
+    "path": "sprites/animations/batch-03/kochi-boss-kuroshio-kujira-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kochi-lastboss-sakamoto-ryoma",
+    "key": "mon.animation.kochi-lastboss-sakamoto-ryoma.v1",
+    "path": "sprites/animations/batch-03/kochi-lastboss-sakamoto-ryoma-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kumamoto-ebi-musha",
+    "key": "mon.animation.kumamoto-ebi-musha.v1",
+    "path": "sprites/animations/batch-03/kumamoto-ebi-musha-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kumamoto-midboss-kindouro",
+    "key": "mon.animation.kumamoto-midboss-kindouro.v1",
+    "path": "sprites/animations/batch-03/kumamoto-midboss-kindouro-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kumamoto-tatamin",
+    "key": "mon.animation.kumamoto-tatamin.v1",
+    "path": "sprites/animations/batch-03/kumamoto-tatamin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kyoto-chirimen-mai",
+    "key": "mon.animation.kyoto-chirimen-mai.v1",
+    "path": "sprites/animations/batch-03/kyoto-chirimen-mai-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kyoto-hontoha-karain",
+    "key": "mon.animation.kyoto-hontoha-karain.v1",
+    "path": "sprites/animations/batch-03/kyoto-hontoha-karain-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "kyushu-okinawa-islandboss-chishikigui",
+    "key": "mon.animation.kyushu-okinawa-islandboss-chishikigui.v1",
+    "path": "sprites/animations/batch-03/kyushu-okinawa-islandboss-chishikigui-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "mie-iga-jonin",
+    "key": "mon.animation.mie-iga-jonin.v1",
+    "path": "sprites/animations/batch-03/mie-iga-jonin-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  },
+  {
+    "id": "mie-shinju-hime",
+    "key": "mon.animation.mie-shinju-hime.v1",
+    "path": "sprites/animations/batch-03/mie-shinju-hime-v1.png",
+    "frameWidth": 128,
+    "frameHeight": 128,
+    "idle": [0, 1, 0, 3, 0, 2, 0],
+    "attack": [4, 5, 6, 7, 0]
+  }
+]

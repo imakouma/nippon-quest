@@ -1,0 +1,542 @@
+[
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.2c2689824670",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ありがとう」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "感謝"
+        },
+        {
+          "id": "c2",
+          "text": "あいさつ"
+        },
+        {
+          "id": "c3",
+          "text": "謝罪"
+        },
+        {
+          "id": "c4",
+          "text": "別れ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "感謝の言葉。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.325d4426fb16",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "目上の人に使う丁寧なあいさつとして、正しいものはどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "バイバイ！"
+        },
+        {
+          "id": "c2",
+          "text": "ありがとうございます。"
+        },
+        {
+          "id": "c3",
+          "text": "おす！"
+        },
+        {
+          "id": "c4",
+          "text": "ういっす"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「ありがとうございます」は、相手[あいて]への感謝[かんしゃ]を表[あらわ]す丁寧[ていねい]なあいさつです。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.330b03468f4b",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「見る」のていねいな言い方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "見ます"
+        },
+        {
+          "id": "c2",
+          "text": "見る"
+        },
+        {
+          "id": "c3",
+          "text": "ご覧になる"
+        },
+        {
+          "id": "c4",
+          "text": "見ろ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「見ます」が丁寧語。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.3f9e58f11b40",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「する」のていねいな言い方は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "します"
+        },
+        {
+          "id": "c2",
+          "text": "する"
+        },
+        {
+          "id": "c3",
+          "text": "やる"
+        },
+        {
+          "id": "c4",
+          "text": "しろ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「します」が丁寧語。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.513614f927d9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「おはようございます」は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "朝のあいさつ"
+        },
+        {
+          "id": "c2",
+          "text": "夜のあいさつ"
+        },
+        {
+          "id": "c3",
+          "text": "別れのあいさつ"
+        },
+        {
+          "id": "c4",
+          "text": "謝罪"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "朝のあいさつ。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.6cb6890ef5b9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「食べる」の丁寧な言い方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食べます"
+        },
+        {
+          "id": "c2",
+          "text": "食[た]べた"
+        },
+        {
+          "id": "c3",
+          "text": "食[た]べよう"
+        },
+        {
+          "id": "c4",
+          "text": "食[た]べろ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「食[た]べる」を丁寧[ていねい]な言[い]い方[かた]にすると、「食[た]べます」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.89a7d436e5cc",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あいさつで大切なのは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "相手への気持ち"
+        },
+        {
+          "id": "c2",
+          "text": "大声"
+        },
+        {
+          "id": "c3",
+          "text": "早口"
+        },
+        {
+          "id": "c4",
+          "text": "無言"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "丁寧な言葉遣い。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.8a7e11644d5f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ごめんなさい」はどんなときに使う？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あやまるとき"
+        },
+        {
+          "id": "c2",
+          "text": "お礼のとき"
+        },
+        {
+          "id": "c3",
+          "text": "あいさつのとき"
+        },
+        {
+          "id": "c4",
+          "text": "たずねるとき"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "あやまるときのていねいなことば。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.b09172582bd3",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "相手に何かを頼むとき、丁寧な言い方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "これやって。"
+        },
+        {
+          "id": "c2",
+          "text": "これをしてください。"
+        },
+        {
+          "id": "c3",
+          "text": "これをしろよ。"
+        },
+        {
+          "id": "c4",
+          "text": "これやってね。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「〜をしてください」や「〜をお願いします」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.b6fbc020e2c7",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「行く」の丁寧な言い方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "行[い]くよ"
+        },
+        {
+          "id": "c2",
+          "text": "行[い]きます"
+        },
+        {
+          "id": "c3",
+          "text": "行[い]った"
+        },
+        {
+          "id": "c4",
+          "text": "行[い]こう"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "「行[い]く」を丁寧[ていねい]な言[い]い方[かた]にすると、「行[い]きます」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.ba2f544b5554",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "人とわかれるときの、ていねいなことばは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "さようなら。"
+        },
+        {
+          "id": "c2",
+          "text": "じゃあな。"
+        },
+        {
+          "id": "c3",
+          "text": "またな。"
+        },
+        {
+          "id": "c4",
+          "text": "バイバイ。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「さようなら」はていねいな別れのあいさつ。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.be1316b8a53f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "友だちにあうときの、ていねいなあいさつは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "こんにちは。"
+        },
+        {
+          "id": "c2",
+          "text": "おっす。"
+        },
+        {
+          "id": "c3",
+          "text": "やあ。"
+        },
+        {
+          "id": "c4",
+          "text": "よう。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「こんにちは」はていねいなあいさつ。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.cfeaa6f7c085",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「言う」の丁寧な言い方はどれですか？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "言[い]います"
+        },
+        {
+          "id": "c2",
+          "text": "言[い]った"
+        },
+        {
+          "id": "c3",
+          "text": "言[い]おう"
+        },
+        {
+          "id": "c4",
+          "text": "言[い]え"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「言[い]う」を丁寧[ていねい]な言[い]い方[かた]にすると、「言[い]います」です。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.d0ce9f72ff55",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「ありがとう」をもっとていねいに言うと？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ありがとうございます。"
+        },
+        {
+          "id": "c2",
+          "text": "あざす。"
+        },
+        {
+          "id": "c3",
+          "text": "サンキュー。"
+        },
+        {
+          "id": "c4",
+          "text": "どうも。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "「ありがとうございます」がていねい。"
+  },
+  {
+    "id": "legacy.kokugo.g2.jpn-2-4.ec7d8d033f92",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.legacy-jpn-2-4",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_2_4",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ごはんを食べる前のあいさつは？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "いただきます。"
+        },
+        {
+          "id": "c2",
+          "text": "ごちそうさま。"
+        },
+        {
+          "id": "c3",
+          "text": "おやすみ。"
+        },
+        {
+          "id": "c4",
+          "text": "ただいま。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食べる前は「いただきます」。"
+  }
+]

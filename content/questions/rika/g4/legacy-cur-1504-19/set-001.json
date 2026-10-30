@@ -1,0 +1,290 @@
+[
+  {
+    "id": "legacy.rika.g4.cur-1504-19.5e554c0cec90",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属・水・空気で熱を伝えやすいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "空気"
+        },
+        {
+          "id": "c2",
+          "text": "金属"
+        },
+        {
+          "id": "c3",
+          "text": "どれも同じ"
+        },
+        {
+          "id": "c4",
+          "text": "水蒸気だけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "金属がいちばん熱を伝えやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.6507600aa446",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属のあたたまり方として正しいのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一部分から全体へ熱が伝わる"
+        },
+        {
+          "id": "c2",
+          "text": "全体が同時にだけ"
+        },
+        {
+          "id": "c3",
+          "text": "冷たいまま"
+        },
+        {
+          "id": "c4",
+          "text": "色だけ変わる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "温めたところから熱が伝わっていきます。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.6fe6da8c180e",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "フライパンの取っ手がプラスチックな理由[りゆう]に近いのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱を伝えにくく手を守る"
+        },
+        {
+          "id": "c2",
+          "text": "重いから"
+        },
+        {
+          "id": "c3",
+          "text": "音が出るから"
+        },
+        {
+          "id": "c4",
+          "text": "光るから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "熱を伝えにくい材料で手を守ります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.95be7176fe62",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属のあたたまり方の特徴はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "熱が伝わりやすい"
+        },
+        {
+          "id": "c2",
+          "text": "熱が伝わらない"
+        },
+        {
+          "id": "c3",
+          "text": "水だけ伝わる"
+        },
+        {
+          "id": "c4",
+          "text": "空気だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "金属は熱を伝えやすい性質があります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.9c7020398ea7",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属を温めた部分の近くほど温度はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "低い"
+        },
+        {
+          "id": "c2",
+          "text": "高い"
+        },
+        {
+          "id": "c3",
+          "text": "同じ"
+        },
+        {
+          "id": "c4",
+          "text": "測れない"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "温めたところに近いほど高くなりやすいです。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.c98814a3277f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "実験の安全で大切なことはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "やけどに注意する"
+        },
+        {
+          "id": "c2",
+          "text": "素手で熱い金属を長く持つ"
+        },
+        {
+          "id": "c3",
+          "text": "目を閉じる"
+        },
+        {
+          "id": "c4",
+          "text": "水をかけない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "やけどしないよう注意します。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.d03aa05a175c",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "熱の伝わりを調べる実験で使うもの例はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "金属棒とろうなど"
+        },
+        {
+          "id": "c2",
+          "text": "星座早見盤"
+        },
+        {
+          "id": "c3",
+          "text": "磁石だけ"
+        },
+        {
+          "id": "c4",
+          "text": "電池だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "金属棒とろうで伝わり方を調べることがあります。"
+  },
+  {
+    "id": "legacy.rika.g4.cur-1504-19.fe7280f681ca",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 4,
+    "unit": "rika.g4.legacy-cur-1504-19",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1504-19",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "金属の棒の一端を温めると、熱はどうなりやすいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "伝わらない"
+        },
+        {
+          "id": "c2",
+          "text": "他端へ伝わる"
+        },
+        {
+          "id": "c3",
+          "text": "消える"
+        },
+        {
+          "id": "c4",
+          "text": "音になる"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "金属は熱を伝えやすいです。"
+  }
+]

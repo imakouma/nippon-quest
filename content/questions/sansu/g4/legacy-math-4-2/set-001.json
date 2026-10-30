@@ -1,0 +1,683 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-2.026229489a63",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3度"
+        },
+        {
+          "id": "c2",
+          "text": "5度"
+        },
+        {
+          "id": "c3",
+          "text": "8度"
+        },
+        {
+          "id": "c4",
+          "text": "1度"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "午前６時 と 午前９時、それぞれの気温をよみとろう。 午前６時－11度、午前９時－14度なので、3度 気温は上がっているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.10d1addfab28",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、②に当てはまる数は いくつでしょう。",
+      "answers": [
+        "4"
+      ],
+      "promptImage": "questions/legacy/4ad35922a8e37959.png"
+    },
+    "explanation": "②は「体育館」の「合計」の列なので、「体育館で ねっ中しょう になった人の数の合計」になる。左の表から、当てはまる人の数を数えると、4 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.24802a797896",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、②に当てはまるのは、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "体育館で ねっ中しょう になった人の数の合計"
+        },
+        {
+          "id": "c2",
+          "text": "放課後に体育館で ねっ中しょう になった人の数"
+        },
+        {
+          "id": "c3",
+          "text": "ねっ中しょう になった人の数の合計"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4ad35922a8e37959.png"
+    },
+    "explanation": "この表の上の行は、いつねっ中しょうがおきたか を表している。左の列は、ねっ中しょう がおきた場所を表している。②は「体育館」の「合計」の列なので、「体育館で ねっ中しょう になった人の数の合計」になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.24faf04a5f29",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のようなグラフを、何グラフというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぼうグラフ"
+        },
+        {
+          "id": "c2",
+          "text": "折れ線グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "直線グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "線グラフ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/1af15bc435a1828b.png"
+    },
+    "explanation": "３年生で学んだ 「ぼうグラフ」だ。数や量をくらべるときに、よく使うよ。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.2a1ee5bef330",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午後3時"
+        },
+        {
+          "id": "c2",
+          "text": "午後12時"
+        },
+        {
+          "id": "c3",
+          "text": "午前3時"
+        },
+        {
+          "id": "c4",
+          "text": "午後6時"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "気温が一番低いところなので、グラフでは、一番下にある点を見ればいい。「午前３時」で、点は一番下になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.3e6f824722e8",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6度"
+        },
+        {
+          "id": "c2",
+          "text": "4度"
+        },
+        {
+          "id": "c3",
+          "text": "5度"
+        },
+        {
+          "id": "c4",
+          "text": "11度"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "午後９時 と 午後１２時（０時）、それぞれの気温をよみとろう。 午後９時－16度、午後１２時（０時）－10度なので、6度 気温は下がっているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.539cb8716b8a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午後3時"
+        },
+        {
+          "id": "c2",
+          "text": "午前12時"
+        },
+        {
+          "id": "c3",
+          "text": "午前3時"
+        },
+        {
+          "id": "c4",
+          "text": "午後6時"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "気温が一番高いところなので、グラフでは、一番上にある点を見ればいい。「午後３時」で、点は一番上になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.673531957ec4",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "22度"
+        },
+        {
+          "id": "c2",
+          "text": "23度"
+        },
+        {
+          "id": "c3",
+          "text": "18度"
+        },
+        {
+          "id": "c4",
+          "text": "17度"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "一番点が上にある「午後３時」で、最高気温になっている。たての目もりを見ると、22度になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.67bb346e3fbb",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、下の表のようになりました。表の①〜④に当てはまる数をうめよう。",
+      "answers": [
+        "7",
+        "0",
+        "3",
+        "20"
+      ],
+      "template": "場所／時間 授業中 休み時間 給食 放課後 合計 教室 3 1 2 1 ①{{INPUT}} 校庭 6 0 0 1 7 体育館 3 1 ②{{INPUT}} 0 4 その他 0 1 0 1 2 合計 12 ③{{INPUT}} 2 3 ④{{INPUT}}"
+    },
+    "explanation": "① 教室で ねっ中しょう になった人の数の合計：3+1+2+1=7 ② 給食中に 体育館で ねっ中しょう になった人の数：7-6-1-0=0 ③ 休み時間に ねっ中しょう になった人の数：1+1+1+0=3 ④ ねっ中しょう になった人の合計：7+7+4+2=12+3+2+3=20"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.7448e01f3afd",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温"
+        },
+        {
+          "id": "c2",
+          "text": "時間"
+        },
+        {
+          "id": "c3",
+          "text": "変わり方"
+        },
+        {
+          "id": "c4",
+          "text": "日づけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "たての目もりを見ていくと、数字がならんでいて、上には（度）とかいてある。これは、「気温」を表しているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.809aaf449950",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、①に当てはまるのは、次のうちどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "授業中に教室で ねっ中しょう になった人の数"
+        },
+        {
+          "id": "c2",
+          "text": "授業中に ねっ中しょう になった人の数"
+        },
+        {
+          "id": "c3",
+          "text": "教室で ねっ中しょう になった人の数"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/4ad35922a8e37959.png"
+    },
+    "explanation": "この表の上の行は、いつねっ中しょうがおきたか を表している。左の列は、ねっ中しょう がおきた場所を表している。①は「授業中」と「教室」が重なるところなので、「授業中に教室で ねっ中しょう になった人の数」になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.853e0425473e",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下の図のようなグラフを、何グラフというでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ぼうグラフ"
+        },
+        {
+          "id": "c2",
+          "text": "折れ線グラフ"
+        },
+        {
+          "id": "c3",
+          "text": "直線グラフ"
+        },
+        {
+          "id": "c4",
+          "text": "線グラフ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "変わり方を表すことが、とくいな「折れ線グラフ」だ。表の数を、直線でむすんで かいていく。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.c21995f5998d",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A市内の熱中症発生数は、教室7人、校庭7人、体育館4人、その他2人でした。授業中は12人、休み時間は3人、給食中は2人、放課後は3人です。この表から言えることとして正しいものを選ぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "休み時間に ねっ中しょう になる人が 最も多い。"
+        },
+        {
+          "id": "c2",
+          "text": "低学年の方が ねっ中しょう になりやすいので、低学年の先生は気をつけた方がよい。"
+        },
+        {
+          "id": "c3",
+          "text": "放課後の教室で ねっ中しょう になった人は いない。"
+        },
+        {
+          "id": "c4",
+          "text": "授業中の校庭や体育館での ねっ中しょう には、特に気をつけた方がよい。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    }
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.ca71f3ca3730",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "折れ線グラフについて、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "数や量をくらべるのに、むいている。"
+        },
+        {
+          "id": "c2",
+          "text": "変わり方を表すのに、むいている。"
+        },
+        {
+          "id": "c3",
+          "text": "変わり方が大きいと、グラフのかたむきは ゆるやかになる。"
+        },
+        {
+          "id": "c4",
+          "text": "変わり方が小さいと、グラフのかたむきは 急になる。"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "折れ線グラフは、変わり方を表すのに、むいている。 変わり方が大きいと、グラフのかたむきは 急になり、小さいと、グラフのかたむきは ゆるやかになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.cdf568016b10",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "気温"
+        },
+        {
+          "id": "c2",
+          "text": "時間"
+        },
+        {
+          "id": "c3",
+          "text": "変わり方"
+        },
+        {
+          "id": "c4",
+          "text": "日づけ"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "横の目もりを見ていくと、「午前３時」などの時間がかいてある。これは、「時間」を表しているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.d32950743016",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前9時 から 午前12時"
+        },
+        {
+          "id": "c2",
+          "text": "午後9時 から 午後12時"
+        },
+        {
+          "id": "c3",
+          "text": "午前12時 から 午前3時"
+        },
+        {
+          "id": "c4",
+          "text": "午後3時 から 午後6時"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "「気温が一番下がった」時間は、かたむきが急に下むきになる（右下がり）。一番急なのは、午後9時 から 午後12時だね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.dd9f165f7cc9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、①に当てはまる数は いくつでしょう。",
+      "answers": [
+        "3"
+      ],
+      "promptImage": "questions/legacy/4ad35922a8e37959.png"
+    },
+    "explanation": "①は「授業中」と「教室」が重なるところなので、「授業中に教室で ねっ中しょう になった人の数」になる。左の表から、当てはまる人の数を数えると、3 になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.eaf844ff04ab",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前9時 から 午前12時"
+        },
+        {
+          "id": "c2",
+          "text": "午後9時 から 午後12時"
+        },
+        {
+          "id": "c3",
+          "text": "午前12時 から 午前3時"
+        },
+        {
+          "id": "c4",
+          "text": "午後6時 から 午後9時"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c04ab9c6b3720ca1.png"
+    },
+    "explanation": "気温が変わらないと、折れ線は、横むきにまっすぐになる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.f4c02a4b6e32",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9度"
+        },
+        {
+          "id": "c2",
+          "text": "4度"
+        },
+        {
+          "id": "c3",
+          "text": "13度"
+        },
+        {
+          "id": "c4",
+          "text": "11度"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "一番点が下にある「午前３時」で、最低気温になっている。たての目もりを見ると、9度になっているね。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-2.f98d09875333",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_2",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "午前9時 から 午前12時"
+        },
+        {
+          "id": "c2",
+          "text": "午後9時 から 午後12時"
+        },
+        {
+          "id": "c3",
+          "text": "午前12時 から 午前3時"
+        },
+        {
+          "id": "c4",
+          "text": "午後3時 から 午後6時"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
+    },
+    "explanation": "「気温が一番上がった」時間は、かたむきが急に上むきになる（右上がり）。一番急なのは、午前9時 から 午前12時だね。"
+  }
+]

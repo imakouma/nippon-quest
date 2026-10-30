@@ -1,0 +1,442 @@
+[
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.0e11d7ea74f9",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "飼育・栽培の記録を振り返るときにすることはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "最初と今のすがたをくらべる"
+        },
+        {
+          "id": "c2",
+          "text": "記録を捨てる"
+        },
+        {
+          "id": "c3",
+          "text": "比べない"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "見付ける、比べることを通して成長を考えます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.26ac8c7f3d2b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、飼育・栽培の記録を振り返るときにくらべるものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "植物の成長"
+        },
+        {
+          "id": "c2",
+          "text": "天気予報"
+        },
+        {
+          "id": "c3",
+          "text": "電車の時刻"
+        },
+        {
+          "id": "c4",
+          "text": "友達の名前[なまえ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/e225fd5d352cf46d.jpg"
+    },
+    "explanation": "最初と今のすがたをくらべて、成長を考えます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.26b44bb156dc",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生活科の学びで大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "活動を通して感じたことを伝える"
+        },
+        {
+          "id": "c2",
+          "text": "黙っている"
+        },
+        {
+          "id": "c3",
+          "text": "記録をしない"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "気付いたことを自分の言葉で伝えることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.5ba46c5f304f",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、観察の記録として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ノートに書き込む"
+        },
+        {
+          "id": "c2",
+          "text": "記録しない"
+        },
+        {
+          "id": "c3",
+          "text": "破いてすてる"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c49de1c271f81ba7.jpg"
+    },
+    "explanation": "変化の様子[ようす]をノートに記録しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.5e0ea0bea046",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生きものが育つために必要なものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "水"
+        },
+        {
+          "id": "c2",
+          "text": "おもちゃ"
+        },
+        {
+          "id": "c3",
+          "text": "テレビ"
+        },
+        {
+          "id": "c4",
+          "text": "クッション"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3cb53f2980357e7e.jpg"
+    },
+    "explanation": "水やえさ、適した場所がなければ育ちません。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.6608654931f1",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "生きものへの気持ちとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "生命を大切にする"
+        },
+        {
+          "id": "c2",
+          "text": "いじめる"
+        },
+        {
+          "id": "c3",
+          "text": "無関心"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生きものは生命をもち、成長しています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.906c6758ad51",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、学びを表現する方法の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "絵を描く"
+        },
+        {
+          "id": "c2",
+          "text": "何もしない"
+        },
+        {
+          "id": "c3",
+          "text": "隠す"
+        },
+        {
+          "id": "c4",
+          "text": "破る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/dc9831b359fd9701.jpg"
+    },
+    "explanation": "言葉、絵、劇化などの方法で表現します。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.916c2730a0be",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生きものの成長の最終的なすがたはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "チョウ"
+        },
+        {
+          "id": "c2",
+          "text": "卵"
+        },
+        {
+          "id": "c3",
+          "text": "幼虫"
+        },
+        {
+          "id": "c4",
+          "text": "さなぎ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/18fd462c171c466c.jpg"
+    },
+    "explanation": "幼虫が成長して、チョウになります。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.a2053add4481",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生命をもつ生きもののすがたはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "幼虫"
+        },
+        {
+          "id": "c2",
+          "text": "石"
+        },
+        {
+          "id": "c3",
+          "text": "プラスチック"
+        },
+        {
+          "id": "c4",
+          "text": "紙"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/cb4a1091b85b2637.jpg"
+    },
+    "explanation": "幼虫は生命をもち、成長し続けています。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.c2587de750c9",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "飼[か]っている生[い]き物[もの]を外[そと]へ返[かえ]したいとき、まずどうしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "先生[せんせい]や詳[くわ]しい大人[おとな]に相談[そうだん]する"
+        },
+        {
+          "id": "c2",
+          "text": "近[ちか]くの公園[こうえん]へ勝手[かって]に放[はな]す"
+        },
+        {
+          "id": "c3",
+          "text": "遠[とお]い山[やま]へ勝手[かって]に放[はな]す"
+        },
+        {
+          "id": "c4",
+          "text": "世話[せわ]をやめてそのままにする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "生[い]き物[もの]を別[べつ]の場所[ばしょ]へ勝手[かって]に放[はな]すと、その場所[ばしょ]の自然[しぜん]に影響[えいきょう]することがあります。先生[せんせい]や詳[くわ]しい大人[おとな]に相談[そうだん]しましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.d0e025cdd959",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生きものの変化として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "種から芽が出る"
+        },
+        {
+          "id": "c2",
+          "text": "すぐに枯れる"
+        },
+        {
+          "id": "c3",
+          "text": "色が消える"
+        },
+        {
+          "id": "c4",
+          "text": "動かない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/f0de5d674d8b3af6.jpg"
+    },
+    "explanation": "種が発芽して、芽が伸びていきます。"
+  },
+  {
+    "id": "legacy.seikatsu.g2.cur-1802-03.d6a509f64c8b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 2,
+    "unit": "seikatsu.g2.legacy-cur-1802-03",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1802-03",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生きもののはじまりのすがたはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "卵"
+        },
+        {
+          "id": "c2",
+          "text": "さなぎ"
+        },
+        {
+          "id": "c3",
+          "text": "成虫"
+        },
+        {
+          "id": "c4",
+          "text": "化石"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/fcfa7f465e64962c.jpg"
+    },
+    "explanation": "チョウなどは、卵から生まれます。"
+  }
+]

@@ -1,0 +1,518 @@
+[
+  {
+    "id": "legacy.sansu.g4.math-4-6.059ff8d0c43f",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (5.67)",
+      "answers": [
+        "5.67"
+      ]
+    },
+    "explanation": "\\require{cancel} 8 0 1 \\bcancel{9}. \\bcancel{1} 2 - 3. 4 5 5. 6 7"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.2518118feb30",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数で、点の１つ後ろにある位をなんといいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小数第三位"
+        },
+        {
+          "id": "c2",
+          "text": "小数第二位"
+        },
+        {
+          "id": "c3",
+          "text": "小数第一位"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "小数で、点の１つ後にある位（10分の1の位）を、小数第一位という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.3408e780b66c",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0.049 を 10 でわると、いくらになるでしょう。",
+      "answers": [
+        "0.0049"
+      ]
+    },
+    "explanation": "10 でわると 位が１つ小さくなるので、小数点の位置が、左へ１つ動く。 0.049÷10=0.0049"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.34420d03af34",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (0.89)",
+      "answers": [
+        "0.89"
+      ]
+    },
+    "explanation": "\\require{cancel} 5 6 1 \\bcancel{6}. \\bcancel{7} 8 - 5. 8 9 0. 8 9"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.40cecff1bfbf",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数で、点の２つ後ろにある位は、何の位になりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100分の1の位"
+        },
+        {
+          "id": "c2",
+          "text": "れいの位"
+        },
+        {
+          "id": "c3",
+          "text": "10分の1の位"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "小数で、点の２つ後にある位は、100分の1の位になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.47904d8843c4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を単位を変えて、表しましょう。",
+      "answers": [
+        "703"
+      ],
+      "template": "70.3cm= {{INPUT}}mm",
+      "suffix": "mm"
+    },
+    "explanation": "1cm は 10mmなので、cm を mm に直す時は 10倍すればいい。 10倍すると 位が１つ大きくなるので、小数点の位置が、右へ１つ動くよ。 70.3cm × 10 = 703mm"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.4871c609ca04",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0.15 を 10 でわると、いくらになるでしょう。",
+      "answers": [
+        "0.015"
+      ]
+    },
+    "explanation": "10 でわると 位が１つ小さくなるので、小数点の位置が、左へ１つ動く。 0.15÷10=0.015"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.4f9df88d0397",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を単位を変えて、表しましょう。",
+      "answers": [
+        "1.76"
+      ],
+      "template": "176cm= {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "100cm は 1mなので、cm を m に直す時は 100でわればいい。100 でわると 位が２つ小さくなるので、1.76mだ。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.598b088b4ac6",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を単位を変えて、表しましょう。",
+      "answers": [
+        "42195"
+      ],
+      "template": "42.195 km= {{INPUT}}m",
+      "suffix": "m"
+    },
+    "explanation": "1km は 1000mなので、km を m に直す時は 1000倍すればいい。1000倍すると 位が３つ大きくなるので、小数点の位置が、右へ３つ動くよ。 42.195km × 1000 = 42195m"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.73c60670f5dd",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数で、点の１つ後ろにある位は、何の位になりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "100分の1の位"
+        },
+        {
+          "id": "c2",
+          "text": "れいの位"
+        },
+        {
+          "id": "c3",
+          "text": "10分の1の位"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "小数で、点の１つ後にある位は、10分の1の位になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.784da3c5fb64",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0.15 を 10倍 すると、いくらになるでしょう。",
+      "answers": [
+        "1.5"
+      ]
+    },
+    "explanation": "10倍 すると 位が１つ大きくなるので、小数点の位置が、右へ１つ動く。 0.15×10=1.5"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.97f934139c68",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (0.79)",
+      "answers": [
+        "0.79"
+      ]
+    },
+    "explanation": "しっかり位をそろえて、筆算をかこう。5.4は、5.40と考えてみると、分かりやすい。 \\require{cancel} 5 1 \\bcancel{6}. 1 9 - 5. 4 0 0. 7 9"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.ad7ef93a129b",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (12.37)",
+      "answers": [
+        "12.37"
+      ]
+    },
+    "explanation": "9は、整数になっているので 注意。しっかり位をそろえて、筆算をかこう。9.00と考えてみると、分かりやすい。 9 0 0 + 3. 3 7 1 2. 3 7"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.be6570b03137",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (9.66)",
+      "answers": [
+        "9.66"
+      ]
+    },
+    "explanation": "3. 1 4 + 6. 5 2 9. 6 6"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.bfcff36b65cc",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "小数で、点の２つ後ろにある位をなんといいますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "小数第三位"
+        },
+        {
+          "id": "c2",
+          "text": "小数第二位"
+        },
+        {
+          "id": "c3",
+          "text": "小数第一位"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true
+    },
+    "explanation": "小数で、点の２つ後にある位（100分の1の位）を、小数第二位という。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.cfef99982c64",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3 を 10 でわると、いくらになるでしょう。",
+      "answers": [
+        "0.3"
+      ]
+    },
+    "explanation": "10 でわると 位がひとつ小さくなる。一の位より １つ小さい位は １０分の１の位だ。 3÷10=0.3"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.d2cc68ee4889",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (10)",
+      "answers": [
+        "10"
+      ]
+    },
+    "explanation": "小数点より後ろが 0のときは、整数で答えよう。 \\require{cancel} 1 1 6. 6 3 + 3. 3 7 1 0. \\bcancel{0} \\bcancel{0}"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.d6b383b5325d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の数を単位を変えて、表しましょう。",
+      "answers": [
+        "1.259"
+      ],
+      "template": "1259mL= {{INPUT}}L",
+      "suffix": "L"
+    },
+    "explanation": "1000mL は 1Lなので、mL を L に直す時は 1000でわればいい。1000でわると 位が３つ小さくなるので、 1.259L になる。"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.d744981eae2e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "3 を 10倍 すると、いくらになるでしょう。",
+      "answers": [
+        "30"
+      ]
+    },
+    "explanation": "10倍 すると 位がひとつ大きくなる。 3×10=30"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.df621fab9ccd",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (8.43)",
+      "answers": [
+        "8.43"
+      ]
+    },
+    "explanation": "しっかり位をそろえて、筆算をかこう。6.4は、6.40と考えてみると分かりやすい。 2. 0 3 + 6. 4 0 8. 4 3"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.e33026a3f514",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "0.049 を 10倍 すると、いくらになるでしょう。",
+      "answers": [
+        "0.49"
+      ]
+    },
+    "explanation": "10倍 すると 位が１つ大きくなるので、小数点の位置が、右へ１つ動く。 0.049×10=0.49"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.e6873c1e723d",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (12.45)",
+      "answers": [
+        "12.45"
+      ]
+    },
+    "explanation": "1 1 4. 5 6 + 7. 8 9 1 2. 4 5"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.e732b039008e",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (2.46)",
+      "answers": [
+        "2.46"
+      ]
+    },
+    "explanation": "6は、整数になっているので 注意。しっかり位をそろえて、筆算をかこう。6.00と考えてみると、分かりやすい。 \\require{cancel} 5 9 1 \\bcancel{6}. \\bcancel{0} 0 - 3. 5 4 2. 4 6"
+  },
+  {
+    "id": "legacy.sansu.g4.math-4-6.e985fd756d98",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_4_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "次の計算をしましょう。 けいさんしましょう (1.28)",
+      "answers": [
+        "1.28"
+      ]
+    },
+    "explanation": "3は、整数になっているので 注意。しっかり位をそろえて、筆算をかこう。3.00と考えてみると、分かりやすい。 \\require{cancel} 2 9 1 \\bcancel{3}. \\bcancel{0} 0 - 1. 7 2 1. 2 8"
+  }
+]

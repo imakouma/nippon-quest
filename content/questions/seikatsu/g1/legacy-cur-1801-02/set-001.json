@@ -1,0 +1,443 @@
+[
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.0e4cbd00f3df",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家族[かぞく]のしごととして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食事の準備"
+        },
+        {
+          "id": "c2",
+          "text": "学校[がっこう]の掃除"
+        },
+        {
+          "id": "c3",
+          "text": "野球の試合"
+        },
+        {
+          "id": "c4",
+          "text": "工場での作業"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/ca099c58c9dba794.jpg"
+    },
+    "explanation": "食事の準備や洗濯など、家の中のしごとがあります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.1ba7d4a2543d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、バランスのよい食事に使われるものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "野菜"
+        },
+        {
+          "id": "c2",
+          "text": "おもちゃ"
+        },
+        {
+          "id": "c3",
+          "text": "鉛筆"
+        },
+        {
+          "id": "c4",
+          "text": "くつ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/2cdb73130a5405cc.jpg"
+    },
+    "explanation": "野菜や果物など、いろいろな種類の食べ物をとることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.1c96c1be7680",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "家族[かぞく]のしごとを調べるときに大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "感謝の気持ちを伝える"
+        },
+        {
+          "id": "c2",
+          "text": "しごとをばかにする"
+        },
+        {
+          "id": "c3",
+          "text": "調べない"
+        },
+        {
+          "id": "c4",
+          "text": "記録を破る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "家族[かぞく]のしごとへの感謝を言葉で伝えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.265bda0c3c1d",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、健康のために大切な習慣はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "歯みがきをする"
+        },
+        {
+          "id": "c2",
+          "text": "歯みがきをしない"
+        },
+        {
+          "id": "c3",
+          "text": "夜更かしをする"
+        },
+        {
+          "id": "c4",
+          "text": "朝食を抜く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b8e137d546c0a794.jpg"
+    },
+    "explanation": "歯みがきは、毎日の健康習慣として大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.96880e55846e",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "役割を果たすために大切なことはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "決めたことを続ける"
+        },
+        {
+          "id": "c2",
+          "text": "すぐにあきらめる"
+        },
+        {
+          "id": "c3",
+          "text": "人に任せきりにする"
+        },
+        {
+          "id": "c4",
+          "text": "約束を破る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "毎日できることを決めて、続けることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.9aa9a03cad93",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家族[かぞく]のくらしとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一緒に食事をとる"
+        },
+        {
+          "id": "c2",
+          "text": "一人だけで食べる"
+        },
+        {
+          "id": "c3",
+          "text": "食事をしない"
+        },
+        {
+          "id": "c4",
+          "text": "外でだけ食べる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/3b4b862e380c9729.jpg"
+    },
+    "explanation": "家族[かぞく]で一緒に食事をとることは、くらしの大切な時間です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.a42a98a164f0",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、できたことを伝える方法として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "絵や言葉で表す"
+        },
+        {
+          "id": "c2",
+          "text": "何も言わない"
+        },
+        {
+          "id": "c3",
+          "text": "隠す"
+        },
+        {
+          "id": "c4",
+          "text": "忘れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/925523a27c7eb00d.jpg"
+    },
+    "explanation": "できたことを絵や言葉で家族[かぞく]に伝えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.b33aedf0ef41",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、自分でできることの例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食器を片づける"
+        },
+        {
+          "id": "c2",
+          "text": "車を運転する"
+        },
+        {
+          "id": "c3",
+          "text": "家を建てる"
+        },
+        {
+          "id": "c4",
+          "text": "給料をもらう"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5ba77448b913218e.jpg"
+    },
+    "explanation": "食器を片づけたり、洋服をたたんだり、自分にもできることがあります。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.bfc299e245ab",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "規則正しい生活の例はどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "決まった時間に寝る"
+        },
+        {
+          "id": "c2",
+          "text": "夜更かしをする"
+        },
+        {
+          "id": "c3",
+          "text": "朝食を抜く"
+        },
+        {
+          "id": "c4",
+          "text": "外で体を動かさない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "決まった時間に起きて寝ることが大切です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.cfb3a1193492",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、生活上の習慣として正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "手あらいをする"
+        },
+        {
+          "id": "c2",
+          "text": "手を洗わない"
+        },
+        {
+          "id": "c3",
+          "text": "部屋を散らかす"
+        },
+        {
+          "id": "c4",
+          "text": "水を飲まない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/675dd39244f9dec2.jpg"
+    },
+    "explanation": "手あらいは、病気[びょうき]を防ぐ大切な習慣です。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.dbdc311e318b",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家族[かぞく]への気持ちとして正しいものはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "ありがとうと伝える"
+        },
+        {
+          "id": "c2",
+          "text": "文句を言う"
+        },
+        {
+          "id": "c3",
+          "text": "何もしない"
+        },
+        {
+          "id": "c4",
+          "text": "隠れる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5b6b76fd4748a382.jpg"
+    },
+    "explanation": "家族[かぞく]のしごとへの感謝を言葉で伝えましょう。"
+  },
+  {
+    "id": "legacy.seikatsu.g1.cur-1801-02.f600e928beaa",
+    "type": "choice",
+    "subject": "seikatsu",
+    "grade": 1,
+    "unit": "seikatsu.g1.legacy-cur-1801-02",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:cur-1801-02",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "写真を見て、家の中でできるしごとはどれでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "食器を洗う"
+        },
+        {
+          "id": "c2",
+          "text": "車を運転する"
+        },
+        {
+          "id": "c3",
+          "text": "家を建てる"
+        },
+        {
+          "id": "c4",
+          "text": "飛行機に乗る"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/b34abc3bd0f3a673.jpg"
+    },
+    "explanation": "食器を洗うなど、自分にもできる家事があります。"
+  }
+]

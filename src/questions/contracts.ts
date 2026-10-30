@@ -90,6 +90,8 @@ export interface QuestionQuery {
   subject: Subject;
   gradeRange: [Grade, Grade];
   tags?: string[];
+  /** 指定した単元だけを出す（技ごとの問題など）。 */
+  units?: string[];
   /** 特定タイプに限定（イベントなど）。省略時はエンジンが選ぶ */
   type?: string;
   excludeIds?: string[];

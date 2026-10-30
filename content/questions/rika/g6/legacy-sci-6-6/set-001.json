@@ -1,0 +1,624 @@
+[
+  {
+    "id": "legacy.rika.g6.sci-6-6.0f73b9fa94fd",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「菜の花や月は東に日は西に」この俳句はいくは、与謝よさ蕪村ぶそんによってよまれた。このときに見えた月の形は、どんな形だと考えられるでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "満月"
+        },
+        {
+          "id": "c2",
+          "text": "半月"
+        },
+        {
+          "id": "c3",
+          "text": "三日月"
+        },
+        {
+          "id": "c4",
+          "text": "新月"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/998bd95757688635.png"
+    },
+    "explanation": "「日は西に」とあるので、太陽[たいよう]は西にかたむいている、つまりこの俳句がよまれたのは夕方だということがわかる。太陽[たいよう]は西にあるときに、太陽[たいよう]とは反対側の東の空にあらわれる月は、満月に近い形になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.18be942bf0fb",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ア の位置にある月（新月）が見えないのは、なぜでしょう。かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "太陽[たいよう]・同じ・月"
+        },
+        {
+          "id": "c2",
+          "text": "太陽[たいよう]・同[おな]じ・地球[ちきゅう]"
+        },
+        {
+          "id": "c3",
+          "text": "太陽[たいよう]・反対[はんたい]・月[つき]"
+        },
+        {
+          "id": "c4",
+          "text": "太陽[たいよう]・反対[はんたい]・地球[ちきゅう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c167cb9d61d62883.png"
+    },
+    "explanation": "月は（太陽[たいよう]）の光を受けてかがやいているが、月と太陽[たいよう]が（同じ）方向にあるときには、地球からは（ 月 ）のかがやいている側が見えないから。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.1cab69405793",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "A〜D の形の月を何というでしょう。正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三日月・半月（上弦の月）・満月・半月（下弦の月）"
+        },
+        {
+          "id": "c2",
+          "text": "満月[まんげつ]・三日月[みかづき]・半月[はんげつ]（上弦[じょうげん]の月[つき]）・半月[はんげつ]（下弦[かげん]の月[つき]）"
+        },
+        {
+          "id": "c3",
+          "text": "三日月[みかづき]・満月[まんげつ]・半月[はんげつ]（下弦[かげん]の月[つき]）・半月[はんげつ]（上弦[じょうげん]の月[つき]）"
+        },
+        {
+          "id": "c4",
+          "text": "半月[はんげつ]（下弦[かげん]の月[つき]）・満月[まんげつ]・三日月[みかづき]・半月[はんげつ]（上弦[じょうげん]の月[つき]）"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/45c35394b826b09b.png"
+    },
+    "explanation": "A：三日月 B：半月（上弦じょうげんの月） C：満月 D：半月（下弦かげんの月） 月の満ち欠けは、「新月→上弦の月→満月→下弦の月→新月→…」とくり返される。上弦や下弦の名前[なまえ]に使われている「弦つる」は、弓に張る糸のこと。半月の形が弓に似ているので、「弦」の漢字が用いられている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.3c21eeb664c3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の イ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "F"
+        },
+        {
+          "id": "c2",
+          "text": "G"
+        },
+        {
+          "id": "c3",
+          "text": "H"
+        },
+        {
+          "id": "c4",
+          "text": "E"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の イ の位置に月があるとき、地球からは月の光っている部分が右側に少しだけ見えるので、F のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.438657f7c75f",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の オ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "G"
+        },
+        {
+          "id": "c2",
+          "text": "H"
+        },
+        {
+          "id": "c3",
+          "text": "F"
+        },
+        {
+          "id": "c4",
+          "text": "B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の オ の位置に月があるとき、地球からは月の光っている部分がすべて見えるので、満月になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.4b0519700a87",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の キ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B"
+        },
+        {
+          "id": "c2",
+          "text": "D"
+        },
+        {
+          "id": "c3",
+          "text": "F"
+        },
+        {
+          "id": "c4",
+          "text": "G"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の キ の位置に月があるとき、地球からは月の光っている左半分が見えるので、B のような半月（下弦の月）が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.52ffa8ba56bf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ウ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "E"
+        },
+        {
+          "id": "c2",
+          "text": "C"
+        },
+        {
+          "id": "c3",
+          "text": "H"
+        },
+        {
+          "id": "c4",
+          "text": "A"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の ウ の位置に月があるとき、地球からは月の光っている右半分が見えるので、E のような半月（上弦の月）が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.9292026a1315",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ア の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "H"
+        },
+        {
+          "id": "c2",
+          "text": "A"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        },
+        {
+          "id": "c4",
+          "text": "G"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の ア の位置に月があるとき、地球からは月の光っている部分が見えないので、新月になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.96947509b9a3",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の表面のようすについて、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "平地・高地・クレーター・石や岩"
+        },
+        {
+          "id": "c2",
+          "text": "高地[こうち]・平地[へいち]・クレーター・風[かぜ]"
+        },
+        {
+          "id": "c3",
+          "text": "平地[へいち]・高地[こうち]・谷[たに]・水[みず]"
+        },
+        {
+          "id": "c4",
+          "text": "海[うみ]・山[やま]・クレーター・氷[こおり]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/8bac7c5a3cedf3b7.png"
+    },
+    "explanation": "月の表面の暗く見える部分には（平地）が広がっていて、明るく見える部分は（高地）が広がっている。また、表面にたくさんある A のようなくぼみを（クレーター）といい、（石や岩）が月にぶつかってできたと考えられている。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.a1f7e50aa144",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日本では、太陽[たいよう]と月はどのように動くでしょう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "東・南・西"
+        },
+        {
+          "id": "c2",
+          "text": "北[きた]・南[みなみ]・西[にし]"
+        },
+        {
+          "id": "c3",
+          "text": "東[ひがし]・北[きた]・西[にし]"
+        },
+        {
+          "id": "c4",
+          "text": "西[にし]・南[みなみ]・東[ひがし]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "太陽[たいよう]と月は、（東）からのぼって、（南）の空を通り、（西）にしずむ。 夕方近くに西から差しこむ日差しのことを、「西日」というよ。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.a34736bd2769",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の形や見え方について、まちがっているもの をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月は、球の形をしている。"
+        },
+        {
+          "id": "c2",
+          "text": "月は、太陽[たいよう]の光を受けてかがやいている。"
+        },
+        {
+          "id": "c3",
+          "text": "月のかがやいている側には地球がある。"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true
+    },
+    "explanation": "月は、太陽[たいよう]の光を受けてかがやいているので、月のかがやいている側には太陽[たいよう]がある。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.b7898b1f55cf",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の ク の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "C"
+        },
+        {
+          "id": "c2",
+          "text": "D"
+        },
+        {
+          "id": "c3",
+          "text": "E"
+        },
+        {
+          "id": "c4",
+          "text": "B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の ク の位置に月があるとき、地球からは月の光っている部分が左側に少しだけ見えるので、C のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.b9eae8e18685",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の エ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "D"
+        },
+        {
+          "id": "c2",
+          "text": "A"
+        },
+        {
+          "id": "c3",
+          "text": "F"
+        },
+        {
+          "id": "c4",
+          "text": "B"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の エ の位置に月があるとき、地球からは月の光っている部分が半分以上見えるので、D のような形の月が見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.d0359358354a",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "ア〜クは、月の位置を表している。月の見え方について、かっこに当てはまる言葉をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "三日月・満月・新月"
+        },
+        {
+          "id": "c2",
+          "text": "半月[はんげつ]・満月[まんげつ]・新月[しんげつ]"
+        },
+        {
+          "id": "c3",
+          "text": "満月[まんげつ]・三日月[みかづき]・新月[しんげつ]"
+        },
+        {
+          "id": "c4",
+          "text": "半月[はんげつ]・満月[まんげつ]・三日月[みかづき]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/c167cb9d61d62883.png"
+    },
+    "explanation": "月は、太陽[たいよう]に近い側にあると（三日月）に近い形になり、遠い側にあると（満月）に近い形になる。月と太陽[たいよう]が同じ方向にあるときには、月は（新月）になる。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.e630657ef028",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "日によって月の形が変わるのはなぜでしょう。正しい説明[せつめい]をえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "実際に月の形が変わるから。"
+        },
+        {
+          "id": "c2",
+          "text": "様々な形の月があり、日によって見ている月がちがうから。"
+        },
+        {
+          "id": "c3",
+          "text": "日によって雲が月の一部をかくしているから。"
+        },
+        {
+          "id": "c4",
+          "text": "月と太陽[たいよう]の位置関係が変わるから。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true,
+      "promptImage": "questions/legacy/7d12c381fef6dbb4.png"
+    },
+    "explanation": "月は太陽[たいよう]の光を受けてかがやいているので、かがやいている部分の見え方によって、月の形が変わっているように見える。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.f6f846757bc2",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "月の見え方について、正しいものをえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "月は、自ら光りかがやいている。"
+        },
+        {
+          "id": "c2",
+          "text": "月はいつも同じ時刻に、同じ場所に見える。"
+        },
+        {
+          "id": "c3",
+          "text": "月は夜にしか見えない。"
+        },
+        {
+          "id": "c4",
+          "text": "月の形は日によってちがうように見える。"
+        }
+      ],
+      "answer": "c4",
+      "shuffle": true
+    },
+    "explanation": "月は球の形をしていて、太陽[たいよう]の光を受けてかがやいている。月の位置や見える形は、毎日少しづつ変わっていく。"
+  },
+  {
+    "id": "legacy.rika.g6.sci-6-6.f8337b096452",
+    "type": "choice",
+    "subject": "rika",
+    "grade": 6,
+    "unit": "rika.g6.legacy-sci-6-6",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:sci_6_6",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "図の カ の位置に月があるとき、月は地球からどのように見えるでしょう。A〜H から正しいものを記号[きごう]でえらぼう。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "D"
+        },
+        {
+          "id": "c3",
+          "text": "E"
+        },
+        {
+          "id": "c4",
+          "text": "F"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/legacy/5dab8c97c39156e2.png"
+    },
+    "explanation": "図の カ の位置に月があるとき、地球からは月の光っている部分が半分以上見えるので、A のような形の月が見える。"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "source.kokugo.g2.jpn-2-4.35257c1db5b8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.bun-no-kimari",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "つぎの ぶんの 「だれが（なにが）」にあたる ことばは どれですか。◆きれいな さくらが さく。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "きれいな"
+        },
+        {
+          "id": "b",
+          "text": "さくらが"
+        },
+        {
+          "id": "c",
+          "text": "さく"
+        },
+        {
+          "id": "d",
+          "text": "きれいなさくらがさく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "文の主役になる言葉（主語）は「さくらが」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.82ec95edd3ec",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.bun-no-kimari",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "つぎの ぶんの 「どうする」にあたる ことばは どれですか。◆いもうとが うたを うたう。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "いもうとが"
+        },
+        {
+          "id": "b",
+          "text": "うたを"
+        },
+        {
+          "id": "c",
+          "text": "うたう"
+        },
+        {
+          "id": "d",
+          "text": "いもうとがうたを"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "動きを表す言葉（述語）は「うたう」です。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.e1a3f347a9bf",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.bun-no-kimari",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい ことばは どれですか。◆きのう（ ） あめが ふった。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "に"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true
+    },
+    "explanation": "「きのうは」と書くとき、発音は「わ」ですが文字は「は」を使います。"
+  },
+  {
+    "id": "source.kokugo.g2.jpn-2-4.7e6cdc9d0163",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 2,
+    "unit": "kokugo.g2.bun-no-kimari",
+    "tags": [
+      "source:yasuoka-docx",
+      "review:pending-human"
+    ],
+    "payload": {
+      "prompt": "（ ）に はいる ただしい ことばは どれですか。◆ともだち（ ） いっしょに あそぶ。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "を"
+        },
+        {
+          "id": "b",
+          "text": "と"
+        },
+        {
+          "id": "c",
+          "text": "は"
+        },
+        {
+          "id": "d",
+          "text": "へ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true
+    },
+    "explanation": "相手と一緒に何かをするときは「と」を使います。"
+  }
+]

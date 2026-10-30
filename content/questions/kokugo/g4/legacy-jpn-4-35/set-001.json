@@ -1,0 +1,218 @@
+[
+  {
+    "id": "legacy.kokugo.g4.jpn-4-35.0ecb0f5fa24a",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-35",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_35",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「余計な発言をしたために、自ら災いを招くこと」を表すことわざはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "雉（きじ）も鳴かずば打たれまい"
+        },
+        {
+          "id": "c2",
+          "text": "馬の耳に念仏"
+        },
+        {
+          "id": "c3",
+          "text": "猫の手も借りたい"
+        },
+        {
+          "id": "c4",
+          "text": "転ばぬ先の杖"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "雉が鳴かなければ撃たれなかったのに、という話から、余計な発言で災いを招くことを言います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-35.2c4538bc4b57",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-35",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_35",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「困っているときに、さらに災難が重なること」を表すことわざはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "泣きっつらに蜂"
+        },
+        {
+          "id": "c2",
+          "text": "馬の耳に念仏"
+        },
+        {
+          "id": "c3",
+          "text": "猫の手も借りたい"
+        },
+        {
+          "id": "c4",
+          "text": "雉も鳴かずば打たれまい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "悪いことの上にさらに悪いことが重なることを「泣きっつらに蜂」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-35.6b9b3e81dfd8",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-35",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_35",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「余分なもの、あっても役に立たないもの」という意味の故事成語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "蛇足（だそく）"
+        },
+        {
+          "id": "c2",
+          "text": "矛盾"
+        },
+        {
+          "id": "c3",
+          "text": "推敲"
+        },
+        {
+          "id": "c4",
+          "text": "転ばぬ先の杖"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "蛇の絵に余分な足を書き加えた話から、余計なものを「蛇足」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-35.ce7f1d0a342f",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-35",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_35",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「つじつまが合わないこと」という意味の故事成語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "矛盾（むじゅん）"
+        },
+        {
+          "id": "c2",
+          "text": "推敲"
+        },
+        {
+          "id": "c3",
+          "text": "蛇足"
+        },
+        {
+          "id": "c4",
+          "text": "転ばぬ先の杖"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "何でも突き通す矛（ほこ）と、何でも防ぐ盾（たて）を売っていた商人の話から、つじつまが合わないことを「矛盾」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-35.f4ef20b147e9",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-35",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_35",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「前もって用心しておけば、失敗しない」という意味のことわざはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "転ばぬ先の杖"
+        },
+        {
+          "id": "c2",
+          "text": "蛇足"
+        },
+        {
+          "id": "c3",
+          "text": "推敲"
+        },
+        {
+          "id": "c4",
+          "text": "矛盾"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "あらかじめ準備や用心をしておくことを「転ばぬ先の杖」と言います。"
+  },
+  {
+    "id": "legacy.kokugo.g4.jpn-4-35.f86da340802e",
+    "type": "choice",
+    "subject": "kokugo",
+    "grade": 4,
+    "unit": "kokugo.g4.legacy-jpn-4-35",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:jpn_4_35",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "「文章を何度も練り直して、より良くする」という意味の故事成語はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "推敲（すいこう）"
+        },
+        {
+          "id": "c2",
+          "text": "矛盾"
+        },
+        {
+          "id": "c3",
+          "text": "蛇足"
+        },
+        {
+          "id": "c4",
+          "text": "猫の手も借りたい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "詩の「僧は推す月下の門」の「推す」と「敲（たた）く」のどちらにするか悩んだ故事から「推敲」と言います。"
+  }
+]
