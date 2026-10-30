@@ -60,7 +60,7 @@ test('Playground は編集欄の学年と制限時間で問題を試す', async 
   await page.getByLabel('学年 (grade)', { exact: true }).selectOption('2');
   await page.getByLabel('制限時間 (秒)', { exact: true }).fill('3');
   await page.getByRole('button', { name: '中断', exact: true }).click();
-  await page.getByRole('button', { name: /この問題を試す|もう一度試す/ }).click();
+  await page.getByRole('button', { name: '再生', exact: true }).click();
   await expect(page.getByRole('region', { name: '問題プレビュー' })).toContainText('小2');
   await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText('時間切れ', {
     timeout: 8_000,
@@ -191,6 +191,11 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   const review = page.locator('.pg-review');
   await expect(list).toBeVisible({ timeout: 20_000 });
   await expect(review).toBeVisible();
+  const heading = await page.locator('.pg-question-heading').boundingBox();
+  const play = await page.getByRole('button', { name: '再生', exact: true }).boundingBox();
+  expect(heading).not.toBeNull();
+  expect(play).not.toBeNull();
+  expect(play!.x).toBeGreaterThanOrEqual(heading!.x + heading!.width);
 
   const listBox = await list.boundingBox();
   const reviewBox = await review.boundingBox();

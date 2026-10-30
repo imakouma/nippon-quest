@@ -345,7 +345,7 @@ function App() {
                     onClick={() => void run()}
                     disabled={running || !question}
                   >
-                    {result ? pgText('retryQuestion') : pgText('tryQuestion')}
+                    {pgText('playQuestion')}
                   </button>
                   <button
                     type="button"
