@@ -53,6 +53,23 @@ test('Playground は選択中の実問題を同じ画面でフォーム編集で
   await expect(prompt).toHaveValue('へんしゅうした もんだい');
 });
 
+test('Playground は編集を一つもどせ、問題を切り替えると履歴が消える', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const prompt = page.getByLabel('問題文', { exact: true });
+  await expect(prompt).toBeVisible({ timeout: 20_000 });
+  const original = await prompt.inputValue();
+  const undo = page.getByRole('button', { name: '一つもどる' });
+  await expect(undo).toBeDisabled();
+  await prompt.fill('変更した問題文');
+  await expect(undo).toBeEnabled();
+  await undo.click();
+  await expect(prompt).toHaveValue(original);
+  await expect(undo).toBeDisabled();
+  await prompt.fill('別の変更');
+  await page.locator('.pg-question-row').first().click();
+  await expect(undo).toBeDisabled();
+});
+
 test('Playground は編集欄の学年と制限時間で問題を試す', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });

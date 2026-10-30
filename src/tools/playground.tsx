@@ -106,6 +106,7 @@ function App() {
   const [selectedItemId, setSelectedItemId] = useState('');
   const [json, setJson] = useState('');
   const [draft, setDraft] = useState<QuestionBase | null>(null);
+  const [undoHistory, setHistory] = useState<QuestionBase[]>([]);
   const [grade, setGrade] = useState<Grade>(3);
   const [result, setResult] = useState<QuestionResult | null>(null);
   const [error, setError] = useState('');
@@ -175,6 +176,7 @@ function App() {
         setItems(validItems);
         setSelectedItemId(initial?.id ?? '');
         if (initial) {
+          setHistory([]);
           setGrade(initial.grade);
           setDraft(initial);
           setJson(JSON.stringify(initial, null, 2));
@@ -246,9 +248,19 @@ function App() {
   };
 
   const updateDraft = (next: QuestionBase) => {
+    if (draft) setHistory((previous) => [...previous.slice(-99), draft]);
     setDraft(next);
     setGrade(next.grade);
     setJson(JSON.stringify(next, null, 2));
+  };
+
+  const undo = () => {
+    const previous = undoHistory.at(-1);
+    if (!previous) return;
+    setHistory((items) => items.slice(0, -1));
+    setDraft(previous);
+    setGrade(previous.grade);
+    setJson(JSON.stringify(previous, null, 2));
   };
 
   const updateDraftField = (field: keyof QuestionBase, value: unknown) => {
@@ -265,6 +277,7 @@ function App() {
   /** いちらんの 行を おした：JSON に 入れて、ステージで 出す（URL も ?q=<id> に） */
   const pick = (e: QuestionEntry) => {
     const text = JSON.stringify(e.raw, null, 2);
+    setHistory([]);
     setSelected(e.key);
     setFile(e.file);
     setSelectedItemId(e.q?.id ?? '');
@@ -354,6 +367,9 @@ function App() {
                     disabled={!running}
                   >
                     {pgText('stop')}
+                  </button>
+                  <button type="button" class="pg-stop" onClick={undo} disabled={!undoHistory.length}>
+                    {pgText('undo')}
                   </button>
                 </div>
               </div>
@@ -455,6 +471,7 @@ function App() {
                         onChange={(e) => {
                           const item = items[Number((e.target as HTMLSelectElement).value)];
                           if (!item) return;
+                          setHistory([]);
                           setSelectedItemId(item.id);
                           setGrade(item.grade);
                           setDraft(item);
