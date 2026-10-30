@@ -694,30 +694,6 @@ button:disabled {
   font-size: 0.55em;
 }
 
-.pg-question-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-  margin-top: 8px;
-  color: #52625d;
-  font-size: 12px;
-}
-
-.pg-question-meta span {
-  padding: 3px 7px;
-  border-radius: 999px;
-  background: #eef3f0;
-}
-
-.pg-question-meta code {
-  overflow: hidden;
-  max-width: 100%;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .pg-test-controls {
   display: flex;
   flex: none;

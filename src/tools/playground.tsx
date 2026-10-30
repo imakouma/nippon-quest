@@ -304,7 +304,6 @@ function App() {
   const payload = question?.payload as Record<string, unknown> | undefined;
   const prompt = typeof payload?.prompt === 'string' ? payload.prompt : undefined;
   const questionTitle = prompt ?? (question ? units.get(question.unit) : undefined) ?? question?.id;
-  const subject = question ? (subjects.get(question.subject) ?? question.subject) : '';
   const status = result ? resultStatus(result) : null;
 
   return (
@@ -339,17 +338,6 @@ function App() {
                 <div class="pg-question-heading">
                   <p class="pg-section-label">{pgText('selectedQuestion')}</p>
                   <h2>{questionTitle ? <RubyLabel text={questionTitle} /> : pgText('chooseQuestion')}</h2>
-                  {question && (
-                    <div class="pg-question-meta">
-                      <span>{subject}</span>
-                      <span>
-                        {pgText('gradePrefix')}
-                        {question.grade}
-                      </span>
-                      <span>{question.type}</span>
-                      <code>{question.id}</code>
-                    </div>
-                  )}
                 </div>
                 <div class="pg-test-controls" aria-label={pgText('testSettings')}>
                   <button

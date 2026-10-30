@@ -78,7 +78,7 @@ test('Playground は編集欄の学年と制限時間で問題を試す', async 
   await page.getByLabel('制限時間・秒', { exact: true }).fill('3');
   await page.getByRole('button', { name: '中断', exact: true }).click();
   await page.getByRole('button', { name: '再生', exact: true }).click();
-  await expect(page.getByRole('region', { name: '問題プレビュー' })).toContainText('小2');
+  await expect(page.getByLabel('学年', { exact: true })).toHaveValue('2');
   await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText('時間切れ', {
     timeout: 8_000,
   });
