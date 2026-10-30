@@ -370,13 +370,7 @@ function App() {
             </section>
 
             <section class="pg-editor" aria-label={pgText('editPanel')}>
-              <div class="pg-editor-head">
-                <div>
-                  <p class="pg-section-label">{pgText('selectedQuestion')}</p>
-                  <h2>{pgText('editPanel')}</h2>
-                </div>
-                <p>{pgText('draftHelp')}</p>
-              </div>
+              <p class="pg-draft-help">{pgText('draftHelp')}</p>
               {draft ? (
                 <div class="pg-editor-form">
                   <EditorQuestionForm
