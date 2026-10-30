@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { folderLayoutSchema, isUnfiled, removeFolder } from '../../src/tools/folderLayout';
+import { folderLayoutSchema, isUnfiled, removeFolder, type FolderLayout } from '../../src/tools/folderLayout';
 import type { QuestionBase } from '../../src/questions/contracts';
 
 describe('問題フォルダの構成', () => {
   it('フォルダ削除時はその配下の問題を未整理に移す', () => {
-    const layout = {
+    const layout: FolderLayout = {
       folders: [
         { id: 'parent', name: 'まとめ', subject: 'sansu', grade: 1, parent: null },
         { id: 'child', name: '子', subject: 'sansu', grade: 1, parent: 'parent' },

@@ -390,7 +390,9 @@ test('複数ファイルに分かれた単元もまとめて表示する', async
   await page.locator('details[data-subject="kokugo"] details[data-grade="1"] > summary').click();
   await page.locator('button[data-unit="kokugo.g1.legacy-jpn-1-1"]').click();
   await expect(page.locator('.pg-question-row').first()).toBeVisible();
-  const files = await page.locator('.pg-question-row').evaluateAll((rows) => rows.map((row) => row.title));
+  const files = await page
+    .locator('.pg-question-row')
+    .evaluateAll((rows) => rows.map((row) => row.getAttribute('title')));
   expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-1/set-001.json');
   expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-1/set-002.json');
 });
@@ -432,7 +434,7 @@ test('小1の漢字の読みを一つにまとめて両単元の問題を表示�
   await merged.click();
   const rows = reading.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible();
-  const files = await rows.evaluateAll((elements) => elements.map((row) => row.title));
+  const files = await rows.evaluateAll((elements) => elements.map((row) => row.getAttribute('title')));
   expect(files).toContain('questions/kokugo/g1/kanji/set-001.json');
   expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-2/set-001.json');
   const count = Number((await merged.locator('.pg-tree-count').textContent())?.replace(/\D/g, ''));
