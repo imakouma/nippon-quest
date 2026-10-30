@@ -69,7 +69,8 @@ async function savedTohokuClear(page: Page): Promise<boolean> {
 }
 
 async function useFirstSkill(page: Page): Promise<void> {
-  await page.locator('.nq-cmd[data-cmd="skill"]').click({ timeout: 1_000 });
+  const command = page.locator('.nq-cmd[data-cmd="skill"]');
+  if (await command.isVisible()) await command.click({ timeout: 1_000 });
   await page.locator('[data-skill]:not(.nq-opt-off)').first().click({ timeout: 2_000 });
   await expect(page.locator('.nq-bq')).toBeVisible({ timeout: 20_000 });
   const choices = page.locator('.nq-choice');
@@ -146,9 +147,14 @@ test('タップだけで東北地方ボスを倒し、再読込後もバッグ�
   await expect(page.locator('.nq-box-next')).toBeVisible();
   await page.locator('.nq-box').click();
   const skill = page.locator('.nq-cmd[data-cmd="skill"]');
+  await skill.click();
   const battleDeadline = Date.now() + 90_000;
   while (Date.now() < battleDeadline && !(await page.locator('.nq-result').isVisible())) {
-    if (await skill.isVisible()) await useFirstSkill(page).catch(() => undefined);
+    if (
+      (await skill.isVisible()) ||
+      (await page.locator('[data-skill]:not(.nq-opt-off)').first().isVisible())
+    )
+      await useFirstSkill(page).catch(() => undefined);
     else if (await page.locator('.nq-box-next').isVisible())
       await page
         .locator('.nq-box')
