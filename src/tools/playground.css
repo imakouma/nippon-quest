@@ -276,8 +276,8 @@ button:disabled {
 }
 
 .pg-tree details details {
-  margin-left: 10px;
-  padding-left: 10px;
+  margin-left: 5px;
+  padding-left: 5px;
   border-left: 1px solid #d5e2dd;
 }
 
@@ -320,20 +320,20 @@ button:disabled {
 
 .pg-tree > details > summary {
   color: #174f47;
-  background: #e3f1ec;
+  background: #d8eee6;
   font-weight: 700;
 }
 
 .pg-tree details[data-grade] > summary {
-  color: #43563e;
-  background: #f0f4e9;
+  color: #614d25;
+  background: #f8edce;
 }
 
 .pg-tree button[data-unit] {
-  width: calc(100% - 21px);
-  margin-left: 21px;
-  color: #345663;
-  background: #edf4f6;
+  width: calc(100% - 11px);
+  margin-left: 11px;
+  color: #284f68;
+  background: #deedf7;
 }
 
 .pg-tree details > summary:hover {
@@ -377,6 +377,16 @@ button:disabled {
   color: #104f47;
   background: #e7f3ef;
   font-weight: 750;
+}
+
+.pg-tree button[data-unit][aria-pressed='true'] {
+  border-color: #245d7c;
+  color: #fff;
+  background: #245d7c;
+}
+
+.pg-tree button[data-unit][aria-pressed='true'] .pg-tree-count {
+  color: #fff;
 }
 
 .pg-tree-count {
