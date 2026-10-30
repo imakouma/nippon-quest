@@ -105,24 +105,21 @@ export function EditorQuestionForm({
     <>
       <div class="ed-group">
         <div class="ed-group-title">基本メタデータ</div>
-        <div class="ed-field">
-          <label class="ed-label" for="ed-question-id">
-            問題 ID
-          </label>
-          <input
-            id="ed-question-id"
-            class="ed-input"
-            value={question.id}
-            onInput={(event) => onFieldChange('id', (event.target as HTMLInputElement).value)}
-          />
+        <div class="ed-identifiers">
+          <div class="ed-field">
+            <label class="ed-label" for="ed-question-id">
+              問題 ID
+            </label>
+            <input id="ed-question-id" class="ed-input" value={question.id} readOnly />
+          </div>
+          <div class="ed-field">
+            <label class="ed-label" for="ed-question-unit">
+              単元コード (unit)
+            </label>
+            <input id="ed-question-unit" class="ed-input" value={question.unit} readOnly />
+          </div>
         </div>
-        <div class="ed-field">
-          <label class="ed-label" for="ed-question-type">
-            問題タイプ (type)
-          </label>
-          <input id="ed-question-type" class="ed-input" value={question.type} readOnly />
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+        <div class="ed-metadata-row">
           <div class="ed-field">
             <label class="ed-label" for="ed-question-subject">
               教科 (subject)
@@ -162,31 +159,26 @@ export function EditorQuestionForm({
               ))}
             </select>
           </div>
-        </div>
-        <div class="ed-field">
-          <label class="ed-label" for="ed-question-unit">
-            単元コード (unit)
-          </label>
-          <input
-            id="ed-question-unit"
-            class="ed-input"
-            value={question.unit}
-            onInput={(event) => onFieldChange('unit', (event.target as HTMLInputElement).value)}
-          />
-        </div>
-        <div class="ed-field">
-          <label class="ed-label" for="ed-question-time-limit">
-            制限時間 (秒)
-          </label>
-          <input
-            id="ed-question-time-limit"
-            type="number"
-            class="ed-input"
-            value={question.timeLimitSec ?? 20}
-            onInput={(event) =>
-              onFieldChange('timeLimitSec', Number((event.target as HTMLInputElement).value))
-            }
-          />
+          <div class="ed-field">
+            <label class="ed-label" for="ed-question-time-limit">
+              制限時間 (秒)
+            </label>
+            <input
+              id="ed-question-time-limit"
+              type="number"
+              class="ed-input"
+              value={question.timeLimitSec ?? 20}
+              onInput={(event) =>
+                onFieldChange('timeLimitSec', Number((event.target as HTMLInputElement).value))
+              }
+            />
+          </div>
+          <div class="ed-field">
+            <label class="ed-label" for="ed-question-type">
+              問題タイプ (type)
+            </label>
+            <input id="ed-question-type" class="ed-input" value={question.type} readOnly />
+          </div>
         </div>
         <div class="ed-field">
           <label class="ed-label" for="ed-question-explanation">

@@ -42,6 +42,8 @@ test('Playground は選択中の実問題を同じ画面でフォーム編集で
 
   await expect(page.getByRole('region', { name: '問題を編集' })).toBeVisible();
   await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g1.alphabet.0002');
+  await expect(page.getByLabel('問題 ID', { exact: true })).toHaveAttribute('readonly', '');
+  await expect(page.getByLabel('単元コード (unit)', { exact: true })).toHaveAttribute('readonly', '');
   await expect(page.getByRole('button', { name: /問題を編集する|問題を確認する/ })).toHaveCount(0);
   await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 
@@ -187,7 +189,7 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
 });
 
-test('Playground は広い画面で問題一覧・編集・プレビューを横に並べる', async ({ page }) => {
+test('Playground は広い画面でプレビューを編集の上に表示し、基本情報を横に並べる', async ({ page }) => {
   await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
 
@@ -203,8 +205,16 @@ test('Playground は広い画面で問題一覧・編集・プレビューを横
   expect(listBox).not.toBeNull();
   expect(editorBox).not.toBeNull();
   expect(previewBox).not.toBeNull();
-  expect(editorBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
-  expect(previewBox!.x).toBeGreaterThanOrEqual(editorBox!.x + editorBox!.width);
+  expect(previewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(editorBox!.y).toBeGreaterThanOrEqual(previewBox!.y + previewBox!.height);
+  const fields = await page
+    .locator('.ed-metadata-row .ed-field')
+    .evaluateAll((items) =>
+      items.map((item) => ({ x: item.getBoundingClientRect().x, y: item.getBoundingClientRect().y })),
+    );
+  expect(fields).toHaveLength(4);
+  expect(new Set(fields.map((field) => field.y)).size).toBe(1);
+  expect(fields[3]!.x).toBeGreaterThan(fields[0]!.x);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1600);
 });
 

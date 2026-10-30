@@ -321,27 +321,6 @@ function App() {
         />
 
         <div class="pg-review">
-          <section class="pg-editor" aria-label={pgText('editPanel')}>
-            <div class="pg-editor-head">
-              <div>
-                <p class="pg-section-label">{pgText('selectedQuestion')}</p>
-                <h2>{pgText('editPanel')}</h2>
-              </div>
-              <p>{pgText('draftHelp')}</p>
-            </div>
-            {draft ? (
-              <div class="pg-editor-form">
-                <EditorQuestionForm
-                  question={draft}
-                  onQuestionChange={updateDraft}
-                  onFieldChange={updateDraftField}
-                  onPayloadChange={updateDraftPayload}
-                />
-              </div>
-            ) : (
-              <p class="pg-editor-empty">{pgText('chooseQuestion')}</p>
-            )}
-          </section>
           <div class="pg-preview-column">
             <section class="pg-preview" aria-label={pgText('preview')}>
               <div class="pg-preview-head">
@@ -418,6 +397,28 @@ function App() {
                 <div class="pg-stage" ref={stage} />
                 {!question && <p class="pg-stage-empty">{pgText('stageEmpty')}</p>}
               </div>
+            </section>
+
+            <section class="pg-editor" aria-label={pgText('editPanel')}>
+              <div class="pg-editor-head">
+                <div>
+                  <p class="pg-section-label">{pgText('selectedQuestion')}</p>
+                  <h2>{pgText('editPanel')}</h2>
+                </div>
+                <p>{pgText('draftHelp')}</p>
+              </div>
+              {draft ? (
+                <div class="pg-editor-form">
+                  <EditorQuestionForm
+                    question={draft}
+                    onQuestionChange={updateDraft}
+                    onFieldChange={updateDraftField}
+                    onPayloadChange={updateDraftPayload}
+                  />
+                </div>
+              ) : (
+                <p class="pg-editor-empty">{pgText('chooseQuestion')}</p>
+              )}
             </section>
 
             <section class="pg-result-summary" aria-label={pgText('testResult')}>

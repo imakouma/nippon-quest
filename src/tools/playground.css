@@ -521,7 +521,6 @@ button:disabled {
 
 .pg-review {
   display: grid;
-  grid-template-columns: minmax(340px, 0.8fr) minmax(520px, 1.2fr);
   min-width: 0;
   gap: 14px;
   align-items: start;
@@ -534,6 +533,7 @@ button:disabled {
 }
 
 .pg-editor {
+  container-type: inline-size;
   overflow: hidden;
 }
 
@@ -581,6 +581,40 @@ button:disabled {
   color: #225c54;
   font-size: 14px;
   font-weight: 750;
+}
+
+.pg-editor .ed-identifiers,
+.pg-editor .ed-metadata-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pg-editor .ed-metadata-row {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.pg-editor .ed-identifiers .ed-field,
+.pg-editor .ed-metadata-row .ed-field {
+  min-width: 0;
+  margin-bottom: 12px;
+}
+
+.pg-editor .ed-input:read-only {
+  color: #61706b;
+  background: #edf2ef;
+}
+
+@container (max-width: 600px) {
+  .pg-editor .ed-metadata-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 340px) {
+  .pg-editor .ed-identifiers {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .pg-editor .ed-field {
@@ -938,12 +972,6 @@ button:disabled {
     Menlo,
     monospace;
   white-space: pre-wrap;
-}
-
-@media (max-width: 1400px) {
-  .pg-review {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 @media (max-width: 1200px) and (min-width: 821px) {
