@@ -233,8 +233,6 @@ button:disabled {
 
 .pg-search input,
 .pg-filter-grid select,
-.pg-test-controls select,
-.pg-test-controls input,
 .pg-technical select,
 .pg-technical textarea {
   width: 100%;
@@ -747,28 +745,6 @@ button:disabled {
   gap: 8px;
 }
 
-.pg-test-controls label {
-  display: grid;
-  gap: 3px;
-  color: #55645f;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.pg-test-controls select {
-  width: 84px;
-}
-
-.pg-number-input {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.pg-number-input input {
-  width: 70px;
-}
-
 .pg-run,
 .pg-stop {
   align-self: end;
@@ -1042,11 +1018,6 @@ button:disabled {
   .pg-test-controls {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .pg-test-controls select,
-  .pg-number-input input {
-    width: 100%;
   }
 
   .pg-stage-shell {

@@ -53,6 +53,20 @@ test('Playground は選択中の実問題を同じ画面でフォーム編集で
   await expect(prompt).toHaveValue('へんしゅうした もんだい');
 });
 
+test('Playground は編集欄の学年と制限時間で問題を試す', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
+  await expect(page.locator('#pg-grade, #pg-time-limit')).toHaveCount(0);
+  await page.getByLabel('学年 (grade)', { exact: true }).selectOption('2');
+  await page.getByLabel('制限時間 (秒)', { exact: true }).fill('3');
+  await page.getByRole('button', { name: '中断', exact: true }).click();
+  await page.getByRole('button', { name: /この問題を試す|もう一度試す/ }).click();
+  await expect(page.getByRole('region', { name: '問題プレビュー' })).toContainText('小2');
+  await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText('時間切れ', {
+    timeout: 8_000,
+  });
+});
+
 test('Playground は choice 以外も JSON を使わず項目ごとに編集できる', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g3.sea.0006');
 

@@ -107,7 +107,6 @@ function App() {
   const [json, setJson] = useState('');
   const [draft, setDraft] = useState<QuestionBase | null>(null);
   const [grade, setGrade] = useState<Grade>(3);
-  const [timeLimit, setTimeLimit] = useState(20);
   const [result, setResult] = useState<QuestionResult | null>(null);
   const [error, setError] = useState('');
   const [running, setRunning] = useState(false);
@@ -227,10 +226,10 @@ function App() {
     const res = await r.mount({
       container,
       question: { ...q, payload: p.data },
-      grade,
+      grade: q.grade,
       assets,
       speak,
-      timeLimitMs: timeLimit * 1000,
+      timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
       signal: ctl.signal,
     });
     if (id !== runId.current) return;
@@ -340,35 +339,6 @@ function App() {
                   )}
                 </div>
                 <div class="pg-test-controls" aria-label={pgText('testSettings')}>
-                  <label for="pg-grade">
-                    {pgText('displayGrade')}
-                    <select
-                      id="pg-grade"
-                      value={grade}
-                      onChange={(e) => setGrade(Number((e.target as HTMLSelectElement).value) as Grade)}
-                    >
-                      {[1, 2, 3, 4, 5, 6].map((g) => (
-                        <option value={g}>
-                          {pgText('gradePrefix')}
-                          {g}
-                        </option>
-                      ))}
-                    </select>
-                  </label>
-                  <label for="pg-time-limit">
-                    {pgText('timeLimit')}
-                    <span class="pg-number-input">
-                      <input
-                        id="pg-time-limit"
-                        type="number"
-                        value={timeLimit}
-                        min={3}
-                        max={120}
-                        onInput={(e) => setTimeLimit(Number((e.target as HTMLInputElement).value))}
-                      />
-                      {pgText('seconds')}
-                    </span>
-                  </label>
                   <button
                     type="button"
                     class="pg-run"
