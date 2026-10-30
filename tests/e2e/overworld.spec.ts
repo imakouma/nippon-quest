@@ -183,6 +183,25 @@ test('フィールドと町を往復すると対応する入口へ配置され�
   await startField(page);
 
   const canvas = page.locator('canvas[data-player-tile]');
+  const townLayer = () =>
+    page.evaluate(() => {
+      const scene = window.__nq.scene.getScene('Overworld');
+      const layer = scene.children.list.find(
+        (child) =>
+          child.type === 'TilemapLayer' && (child as Phaser.Tilemaps.TilemapLayer).layer.name === 'town-view',
+      ) as Phaser.Tilemaps.TilemapLayer | undefined;
+      return layer ? layer.layer.data.flat().filter((tile) => tile.index >= 0).length : 0;
+    });
+  const waitForTransitionReady = () =>
+    expect
+      .poll(() =>
+        page.evaluate(
+          () => (window.__nq.scene.getScene('Overworld') as Phaser.Scene & { canWarp: boolean }).canWarp,
+        ),
+      )
+      .toBe(true);
+  expect(await townLayer()).toBe(0);
+  await waitForTransitionReady();
   await page.keyboard.down('ArrowUp');
   await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
   await page.keyboard.up('ArrowUp');
@@ -190,16 +209,20 @@ test('フィールドと町を往復すると対応する入口へ配置され�
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
   await skipArrivalStory(page);
+  await expect.poll(townLayer).toBeGreaterThan(0);
 
   await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await waitForTransitionReady();
   await page.keyboard.down('ArrowDown');
   await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
   await page.keyboard.up('ArrowDown');
+  expect(await townLayer()).toBe(0);
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-field', position: { x: 976, y: 1088 } });
 
   await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await waitForTransitionReady();
   await page.keyboard.down('ArrowUp');
   await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
   await page.keyboard.up('ArrowUp');
@@ -209,15 +232,18 @@ test('フィールドと町を往復すると対応する入口へ配置され�
 
   for (let trip = 0; trip < 2; trip += 1) {
     await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+    await waitForTransitionReady();
     await page.keyboard.down('ArrowDown');
     await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
     await page.keyboard.up('ArrowDown');
     await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+    await waitForTransitionReady();
     await page.keyboard.down('ArrowUp');
     await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
     await page.keyboard.up('ArrowUp');
   }
   await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await waitForTransitionReady();
   await page.keyboard.down('ArrowDown');
   await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
   await page.keyboard.up('ArrowDown');
