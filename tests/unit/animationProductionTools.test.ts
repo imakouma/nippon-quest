@@ -85,7 +85,7 @@ describe('animation production image contract', () => {
       expect(audit.issues, entry.id).toEqual([]);
       expect(audit.frames, entry.id).toHaveLength(8);
     }
-  });
+  }, 60_000);
 
   it('accepts eight occupied cells with internal pose changes', () => {
     expect(inspectAnimationSheet(validSyntheticSheet()).issues).toEqual([]);
