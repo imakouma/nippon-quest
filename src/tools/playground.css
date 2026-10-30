@@ -351,6 +351,12 @@ button:disabled {
   background: #f8edce;
 }
 
+.pg-tree details[data-kanji-category] > summary {
+  color: #734831;
+  background: #f7e8df;
+  font-weight: 700;
+}
+
 .pg-tree button[data-unit] {
   width: calc(100% - 11px);
   margin-left: 11px;

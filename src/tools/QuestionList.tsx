@@ -12,6 +12,7 @@ import { tOpt } from '../ui/i18n';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
+import { kanjiCategory, type KanjiCategory } from './kanjiCategory';
 
 export interface QuestionEntry {
   /** "<ファイル>#<何番目>" */
@@ -110,6 +111,7 @@ export function QuestionList({
   const [samples, setSamples] = useState(false);
   const [onlyBad, setOnlyBad] = useState(false);
   const [scopeUnit, setScopeUnit] = useState<string | null | undefined>(undefined);
+  const [scopeCategory, setScopeCategory] = useState<KanjiCategory | undefined>();
   const search = useMemo(() => new Map(entries.map((e) => [e.key, haystack(e)])), [entries]);
 
   const unitFiles = new Set(
@@ -121,7 +123,12 @@ export function QuestionList({
       ),
     ),
   );
-  const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeUnit || unitFiles.has(e.file)));
+  const pool = entries.filter(
+    (e) =>
+      (samples || !isSample(e)) &&
+      (!scopeUnit || unitFiles.has(e.file)) &&
+      (!scopeCategory || kanjiCategory(e.q) === scopeCategory),
+  );
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
   const needle = text.trim().toLowerCase();
   const filtering = !!needle || samples || onlyBad || FACETS.some((key) => !!f[key]);
@@ -247,7 +254,12 @@ export function QuestionList({
             units={units}
             subjects={subjects}
             selectedUnit={scopeUnit}
-            onSelectUnit={setScopeUnit}
+            selectedCategory={scopeCategory}
+            onSelectUnit={(unit, category) => {
+              setScopeUnit(unit);
+              setScopeCategory(category);
+            }}
+            entries={entries}
             questions={filtering ? null : questionRows}
           />
         )}

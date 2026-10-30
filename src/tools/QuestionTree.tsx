@@ -2,13 +2,17 @@ import type { QuestionCatalog } from '../core/content/manifest';
 import type { ComponentChildren } from 'preact';
 import { tOpt } from '../ui/i18n';
 import { stripRuby } from '../ui/ruby';
+import type { QuestionBase } from '../questions/contracts';
+import { kanjiCategory, type KanjiCategory } from './kanjiCategory';
 
 interface QuestionTreeProps {
   catalog: QuestionCatalog;
   units: ReadonlyMap<string, string>;
   subjects: ReadonlyMap<string, string>;
   selectedUnit: string | null | undefined;
-  onSelectUnit: (unit: string | null | undefined) => void;
+  selectedCategory: KanjiCategory | undefined;
+  onSelectUnit: (unit: string | null | undefined, category?: KanjiCategory) => void;
+  entries: { file: string; q: QuestionBase | null }[];
   questions: ComponentChildren;
 }
 
@@ -23,7 +27,9 @@ export function QuestionTree({
   units,
   subjects,
   selectedUnit,
+  selectedCategory,
   onSelectUnit,
+  entries,
   questions,
 }: QuestionTreeProps) {
   const isKanji = (unit: { unit: string }) =>
@@ -127,25 +133,89 @@ export function QuestionTree({
                     {pgText('questionSuffix')}
                   </span>
                 </summary>
-                {grade.units.map((unit) => (
-                  <div>
-                    <button
-                      type="button"
-                      data-unit={unit.unit}
-                      aria-pressed={selectedUnit === unit.unit}
-                      onClick={() => onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)}
-                    >
-                      <span class="pg-tree-label">
-                        {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
-                      </span>
-                      <span class="pg-tree-count">
-                        {unit.count}
-                        {pgText('questionSuffix')}
-                      </span>
-                    </button>
-                    {selectedUnit === unit.unit && questions}
-                  </div>
-                ))}
+                {subject.subject === 'kanji'
+                  ? (['reading', 'writing', 'review'] as const).map((category) => {
+                      const categoryUnits = grade.units
+                        .map((unit) => {
+                          const files = new Set(unit.sets.map((set) => set.file));
+                          const count = entries.filter(
+                            (entry) => files.has(entry.file) && kanjiCategory(entry.q) === category,
+                          ).length;
+                          return { ...unit, count };
+                        })
+                        .filter((unit) => unit.count > 0);
+                      return (
+                        <details
+                          name="question-tree-kanji-category"
+                          data-kanji-category={category}
+                          onToggle={(event) => {
+                            if (
+                              !(event.currentTarget as HTMLDetailsElement).open &&
+                              selectedCategory === category &&
+                              grade.units.some((unit) => unit.unit === selectedUnit)
+                            )
+                              onSelectUnit(undefined);
+                          }}
+                        >
+                          <summary>
+                            <span class="pg-tree-label">
+                              {pgText(`kanjiCategory${category[0]!.toUpperCase()}${category.slice(1)}`)}
+                            </span>
+                            <span class="pg-tree-count">
+                              {categoryUnits.reduce((sum, unit) => sum + unit.count, 0)}
+                              {pgText('questionSuffix')}
+                            </span>
+                          </summary>
+                          {categoryUnits.map((unit) => (
+                            <div>
+                              <button
+                                type="button"
+                                data-unit={unit.unit}
+                                aria-pressed={selectedUnit === unit.unit && selectedCategory === category}
+                                onClick={() =>
+                                  onSelectUnit(
+                                    selectedUnit === unit.unit && selectedCategory === category
+                                      ? undefined
+                                      : unit.unit,
+                                    selectedUnit === unit.unit && selectedCategory === category
+                                      ? undefined
+                                      : category,
+                                  )
+                                }
+                              >
+                                <span class="pg-tree-label">
+                                  {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
+                                </span>
+                                <span class="pg-tree-count">
+                                  {unit.count}
+                                  {pgText('questionSuffix')}
+                                </span>
+                              </button>
+                              {selectedUnit === unit.unit && selectedCategory === category && questions}
+                            </div>
+                          ))}
+                        </details>
+                      );
+                    })
+                  : grade.units.map((unit) => (
+                      <div>
+                        <button
+                          type="button"
+                          data-unit={unit.unit}
+                          aria-pressed={selectedUnit === unit.unit}
+                          onClick={() => onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)}
+                        >
+                          <span class="pg-tree-label">
+                            {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
+                          </span>
+                          <span class="pg-tree-count">
+                            {unit.count}
+                            {pgText('questionSuffix')}
+                          </span>
+                        </button>
+                        {selectedUnit === unit.unit && questions}
+                      </div>
+                    ))}
               </details>
             ))}
           </details>

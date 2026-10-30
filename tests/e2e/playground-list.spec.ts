@@ -331,9 +331,17 @@ test('漢字の単元を国語から分けて表示する', async ({ page }) => 
   await expect(kokugo.locator('button[data-unit="kokugo.g2.bun-no-kimari"]')).toBeVisible();
   await kanji.locator(':scope > summary').click();
   await kanji.locator('details[data-grade="2"] > summary').click();
-  await expect(kanji.locator('button[data-unit="kokugo.g2.legacy-jpn-2-2"]')).toBeVisible();
-  await kanji.locator('button[data-unit="kokugo.g2.kanji"]').click();
-  await expect(page.locator('.pg-question-row')).toHaveCount(15);
+  const secondGrade = kanji.locator('details[data-grade="2"]');
+  const reading = secondGrade.locator('details[data-kanji-category="reading"]');
+  const writing = secondGrade.locator('details[data-kanji-category="writing"]');
+  await reading.locator(':scope > summary').click();
+  await expect(reading.locator('button[data-unit="kokugo.g2.legacy-jpn-2-2"]')).toBeVisible();
+  await reading.locator('button[data-unit="kokugo.g2.kanji"]').click();
+  await expect(page.locator('.pg-question-row')).toHaveCount(7);
+  await writing.locator(':scope > summary').click();
+  await expect(reading).not.toHaveAttribute('open', '');
+  await writing.locator('button[data-unit="kokugo.g2.kanji"]').click();
+  await expect(page.locator('.pg-question-row')).toHaveCount(8);
 });
 
 test('問題フォルダの教科名を漢字で表示する', async ({ page }) => {
