@@ -20,7 +20,7 @@ type Px = (x: number, y: number, col: string) => void;
 const grassAt = (x: number, y: number, v: number): string => {
   // 草の 小さな かげを まばらに（v で 位置を ずらす）
   const k = (x * 7 + y * 13 + v * 5) % 47;
-  if (k === 0 || (k === 1 && (y + v) % 2 === 0)) return NQ.green;
+  if (k === 0) return NQ.green;
   return NQ.leaf;
 };
 const waterAt = (x: number, y: number, glint: boolean, flow = 0): string => {
@@ -135,7 +135,7 @@ function peak(p: Px, apexX: number, apexY: number, snow: boolean): void {
       let col: string = x <= apexX ? NQ.sand : NQ.brown;
       if (snow && y <= apexY + 3) col = x <= apexX ? NQ.white : NQ.cloud;
       if (x === left || x === right) col = NQ.bark;
-      if (y === 15) col = NQ.bark;
+      if (y === 15 && (x + apexX) % 4 === 0) col = NQ.bark;
       p(x, y, col);
     }
   }
@@ -237,7 +237,7 @@ function drawView(px: (n: number) => Px): void {
     const p = px(n);
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++)
-        p(x, y, y % 4 === 2 && (x + (y % 8 === 2 ? 0 : 2)) % 4 < 2 ? mark : NQ.leaf);
+        p(x, y, y % 4 === 2 && (x + (y % 8 === 2 ? 0 : 2)) % 4 === 0 ? mark : NQ.leaf);
   });
   // 果樹園（1 本ずつ 実の なる 木）
   fruitTree(px(VIEW.ORCHARD), NQ.red, NQ.brick);
