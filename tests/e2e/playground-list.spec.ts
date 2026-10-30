@@ -35,6 +35,7 @@ test('Playground は問題を探して試すレビュー画面として表示す
   await expect(page.getByRole('region', { name: '問題フォルダ' })).toBeVisible();
   await filters.locator('summary').click();
   await expect(page.locator('input#pg-f-text')).toBeVisible();
+  await expect(page.getByRole('button', { name: /再読込/ })).toBeVisible();
   await expect(page.getByRole('region', { name: '問題プレビュー' })).toBeVisible();
   await expect(page.getByRole('region', { name: 'テスト結果' })).toContainText(
     /まだ結果はありません|回答中です/,
@@ -188,7 +189,7 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
   const treeDetails = page.locator('details.pg-tree-details');
   const tree = page.getByRole('region', { name: '問題フォルダ' });
   await expect(treeDetails).toHaveAttribute('open', '');
-  expect((await tree.boundingBox())!.height).toBeGreaterThan(300);
+  expect((await tree.boundingBox())!.height).toBeGreaterThanOrEqual(420);
   await treeDetails.locator(':scope > summary').click();
   await expect(tree).toBeHidden();
   await treeDetails.locator(':scope > summary').click();

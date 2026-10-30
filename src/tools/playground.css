@@ -167,19 +167,6 @@ button:disabled {
   overflow: hidden;
 }
 
-.pg-list-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 16px 16px 12px;
-  border-bottom: 1px solid #e3e8e5;
-}
-
-.pg-list h2 {
-  font-size: 22px;
-}
-
 .pg-reload {
   min-height: 38px;
   padding: 6px 10px;
@@ -285,7 +272,7 @@ button:disabled {
 }
 
 .pg-tree {
-  height: 350px;
+  height: 420px;
   overflow: auto;
   padding: 8px 12px 10px;
 }

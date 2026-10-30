@@ -166,16 +166,6 @@ export function QuestionList({
 
   return (
     <nav class="pg-list" aria-label={pgText('find')}>
-      <div class="pg-list-head">
-        <div>
-          <p class="pg-section-label">{pgText('library')}</p>
-          <h2>{pgText('find')}</h2>
-        </div>
-        <button type="button" class="pg-reload" onClick={onReload}>
-          ↻ {pgText('reload')}
-        </button>
-      </div>
-
       <details class="pg-filter-details">
         <summary>{pgText('filters')}</summary>
         <div class="pg-filters">
@@ -228,6 +218,9 @@ export function QuestionList({
               {pgText('onlyErrors')}
             </label>
           </div>
+          <button type="button" class="pg-reload" onClick={onReload}>
+            ↻ {pgText('reload')}
+          </button>
         </div>
       </details>
 
