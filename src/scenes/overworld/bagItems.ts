@@ -4,7 +4,7 @@ import { bagContext, equipmentUnlocked, evolveRoom } from '../../core/progressio
 import { xpToNextLevel } from '../../core/progression/battleResult';
 import { TRIAL_CORE_ID } from '../../core/progression/eventReward';
 import { evolve, skillChanges } from '../../core/progression/evolution';
-import { EQUIP_SLOTS, isEquip } from '../../core/progression/inventory';
+import { EQUIP_SLOTS, equipSetProgress, isEquip } from '../../core/progression/inventory';
 import { LEARNING_FRAGMENT_ID } from '../../core/progression/learningRewards';
 import {
   previewLevelCapUnlock,
@@ -178,7 +178,16 @@ export function levelProgressLine(
   return progress.need > 0 ? t('battle.nextLevel', { n: progress.need }) : t('battle.maxLevel');
 }
 
-function equipmentThing(it: Item, key: string, count?: number): BagThing {
+function equipmentSetLines(gs: GameState, content: ContentIndex, item: Item): string[] {
+  const set = item.setId ? content.sets.get(item.setId) : undefined;
+  if (!set) return [];
+  const { have, total, complete } = equipSetProgress(set, gs.player.equipment);
+  return complete
+    ? [t('field.equipSetDone', { name: set.name }), set.bonus.description]
+    : [t('field.equipSetProgress', { name: set.name, have, total })];
+}
+
+function equipmentThing(it: Item, key: string, count?: number, setLines: string[] = []): BagThing {
   return {
     key,
     kind: 'equip',
@@ -191,7 +200,11 @@ function equipmentThing(it: Item, key: string, count?: number): BagThing {
     inBag: key.startsWith('eq:'),
     count,
     sub: t('field.equipSlot', { slot: t(`slots.${it.kind}`) }),
-    lines: [itemStatText(it), count === undefined ? '' : t('field.townHave', { n: count })].filter(Boolean),
+    lines: [
+      itemStatText(it),
+      count === undefined ? '' : t('field.townHave', { n: count }),
+      ...setLines,
+    ].filter(Boolean),
     blurb: it.blurb,
   };
 }
@@ -200,7 +213,7 @@ export function equippedBagThings(gs: GameState, content: ContentIndex): BagThin
   return EQUIP_SLOTS.flatMap((slot) => {
     const item = content.items.get(gs.player.equipment[slot] ?? '');
     return item && (equipmentUnlocked(gs) || item.id === STARTER_EQUIPMENT_ID)
-      ? [equipmentThing(item, `eq:${slot}`)]
+      ? [equipmentThing(item, `eq:${slot}`, undefined, equipmentSetLines(gs, content, item))]
       : [];
   });
 }
@@ -247,6 +260,8 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
     ...rows
       .filter(({ item }) => isEquip(item))
       .sort((a, b) => rank(a.item) - rank(b.item))
-      .map(({ item, count }) => equipmentThing(item, `inv:${item.id}`, count)),
+      .map(({ item, count }) =>
+        equipmentThing(item, `inv:${item.id}`, count, equipmentSetLines(gs, content, item)),
+      ),
   ];
 }

@@ -772,7 +772,7 @@ describe('buildRoadmapViewModel', () => {
       );
     });
 
-    it('固定時刻で決定的に返し、代表v13 stateとすべての入力を変更しない', () => {
+    it('固定時刻で決定的に返し、現行stateとすべての入力を変更しない', () => {
       const game = createNewGame({ name: 'テスト', grade: 1 }, PLAN_NOW);
       game.learning.mastery = {
         'sansu.g1.tashizan': { value: 0.9, n: 1, lastAt: 1 },
@@ -802,7 +802,7 @@ describe('buildRoadmapViewModel', () => {
       expect(input.units).toEqual(beforeUnits);
       expect(bank.all()).toEqual(beforeBank);
       expect(game).toMatchObject({
-        schemaVersion: 13,
+        schemaVersion: 14,
         updatedAt: beforeGame.updatedAt,
         inventory: beforeGame.inventory,
         progress: beforeGame.progress,

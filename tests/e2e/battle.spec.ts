@@ -223,14 +223,13 @@ test('バトル：ターン表示を出さず、こちらが動くと次のコ�
 test('バトル：コマンドと主人公情報はポケモン風の独立したコンパクトな枠に収まる', async ({ page }) => {
   test.setTimeout(60_000);
   await start(page, 8);
-  const [rail, foe, commandSlot, gauge, party, heroHp, heroGauge] = await Promise.all([
+  const [rail, foe, commandSlot, gauge, party, heroHp] = await Promise.all([
     page.locator('.nq-bottom-rail').boundingBox(),
     page.locator('.nq-panel').boundingBox(),
     page.locator('.nq-bottom-command-slot').boundingBox(),
     page.locator('.nq-ally-hero .nq-sgauge').boundingBox(),
     page.locator('.nq-party').boundingBox(),
     page.locator('.nq-ally-hero .nq-bar-hp').boundingBox(),
-    page.locator('.nq-ally-hero .nq-sg-bar').boundingBox(),
   ]);
 
   expect(rail).not.toBeNull();
@@ -239,7 +238,6 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   expect(gauge).not.toBeNull();
   expect(party).not.toBeNull();
   expect(heroHp).not.toBeNull();
-  expect(heroGauge).not.toBeNull();
   await expect(page.locator('.nq-bottom-rail')).toBeVisible();
   await expect(page.locator('.nq-bottom-rail .nq-win')).toHaveCount(0);
   await expect(page.locator('.nq-box')).toHaveCount(0);
@@ -253,8 +251,8 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   expect(party!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
   expect(gauge!.y).toBeGreaterThan(heroHp!.y);
   expect(gauge!.x).toBeGreaterThanOrEqual(heroHp!.x);
-  expect(heroGauge!.width).toBeCloseTo(heroHp!.width, 0);
-  await expect(page.locator('.nq-ally-hero .nq-sg-value')).toHaveText('0/100');
+  expect(gauge!.width).toBeCloseTo(heroHp!.width, 0);
+  await expect(page.locator('.nq-ally-hero .nq-sg-value')).toHaveText(['0/100', '0/100']);
 
   // 技一覧を開いても、右下の主人公枠は動かず、舞台を覆い過ぎない高さに保つ。
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
