@@ -48,7 +48,7 @@ function PayloadFields({
     <>
       {leaves.map(({ path, value }) => {
         const name = String(path.at(-1) ?? 'value');
-        const label = payloadLabels[name] ? `${payloadLabels[name]} (${name})` : name;
+        const label = payloadLabels[name] ?? name;
         const id = `ed-payload-${path.join('-')}`;
         const update = (next: unknown) =>
           onQuestionChange({
@@ -114,7 +114,7 @@ export function EditorQuestionForm({
           </div>
           <div class="ed-field">
             <label class="ed-label" for="ed-question-unit">
-              単元コード (unit)
+              単元コード
             </label>
             <input id="ed-question-unit" class="ed-input" value={question.unit} readOnly />
           </div>
@@ -122,7 +122,7 @@ export function EditorQuestionForm({
         <div class="ed-metadata-row">
           <div class="ed-field">
             <label class="ed-label" for="ed-question-subject">
-              教科 (subject)
+              教科
             </label>
             <select
               id="ed-question-subject"
@@ -132,17 +132,17 @@ export function EditorQuestionForm({
                 onFieldChange('subject', (event.target as HTMLSelectElement).value as Subject)
               }
             >
-              <option value="sansu">算数 (sansu)</option>
-              <option value="kokugo">国語 (kokugo)</option>
-              <option value="rika">理科 (rika)</option>
-              <option value="shakai">社会 (shakai)</option>
-              <option value="seikatsu">生活 (seikatsu)</option>
-              <option value="eigo">英語 (eigo)</option>
+              <option value="sansu">算数</option>
+              <option value="kokugo">国語</option>
+              <option value="rika">理科</option>
+              <option value="shakai">社会</option>
+              <option value="seikatsu">生活</option>
+              <option value="eigo">英語</option>
             </select>
           </div>
           <div class="ed-field">
             <label class="ed-label" for="ed-question-grade">
-              学年 (grade)
+              学年
             </label>
             <select
               id="ed-question-grade"
@@ -161,7 +161,7 @@ export function EditorQuestionForm({
           </div>
           <div class="ed-field">
             <label class="ed-label" for="ed-question-time-limit">
-              制限時間 (秒)
+              制限時間・秒
             </label>
             <input
               id="ed-question-time-limit"
@@ -175,14 +175,14 @@ export function EditorQuestionForm({
           </div>
           <div class="ed-field">
             <label class="ed-label" for="ed-question-type">
-              問題タイプ (type)
+              問題タイプ
             </label>
             <input id="ed-question-type" class="ed-input" value={question.type} readOnly />
           </div>
         </div>
         <div class="ed-field">
           <label class="ed-label" for="ed-question-explanation">
-            解説文 (RubyText)
+            解説文
           </label>
           <textarea
             id="ed-question-explanation"
@@ -194,12 +194,12 @@ export function EditorQuestionForm({
       </div>
 
       <div class="ed-group">
-        <div class="ed-group-title">問題のコンテンツ ({question.type})</div>
+        <div class="ed-group-title">問題のコンテンツ</div>
         {question.type === 'choice' && (
           <>
             <div class="ed-field">
               <label class="ed-label" for="ed-question-prompt">
-                問題文 (prompt)
+                問題文
               </label>
               <textarea
                 id="ed-question-prompt"

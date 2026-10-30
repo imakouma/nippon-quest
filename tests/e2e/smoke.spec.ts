@@ -58,13 +58,13 @@ test('問題レビュー内の編集フォームに主要入力と選択肢操�
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   for (const label of [
     '問題 ID',
-    '問題タイプ (type)',
-    '教科 (subject)',
-    '学年 (grade)',
-    '単元コード (unit)',
-    '制限時間 (秒)',
-    '解説文 (RubyText)',
-    '問題文 (prompt)',
+    '問題タイプ',
+    '教科',
+    '学年',
+    '単元コード',
+    '制限時間・秒',
+    '解説文',
+    '問題文',
     '選択肢 1',
     '選択肢 1を正解にする',
   ]) {

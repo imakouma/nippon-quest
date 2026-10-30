@@ -43,11 +43,11 @@ test('Playground は選択中の実問題を同じ画面でフォーム編集で
   await expect(page.getByRole('region', { name: '問題を編集' })).toBeVisible();
   await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g1.alphabet.0002');
   await expect(page.getByLabel('問題 ID', { exact: true })).toHaveAttribute('readonly', '');
-  await expect(page.getByLabel('単元コード (unit)', { exact: true })).toHaveAttribute('readonly', '');
+  await expect(page.getByLabel('単元コード', { exact: true })).toHaveAttribute('readonly', '');
   await expect(page.getByRole('button', { name: /問題を編集する|問題を確認する/ })).toHaveCount(0);
   await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 
-  const prompt = page.getByLabel('問題文 (prompt)', { exact: true });
+  const prompt = page.getByLabel('問題文', { exact: true });
   await prompt.fill('へんしゅうした もんだい');
   await expect(page.getByRole('heading', { name: 'へんしゅうした もんだい' })).toBeVisible();
   await expect(prompt).toHaveValue('へんしゅうした もんだい');
@@ -57,8 +57,8 @@ test('Playground は編集欄の学年と制限時間で問題を試す', async 
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('#pg-grade, #pg-time-limit')).toHaveCount(0);
-  await page.getByLabel('学年 (grade)', { exact: true }).selectOption('2');
-  await page.getByLabel('制限時間 (秒)', { exact: true }).fill('3');
+  await page.getByLabel('学年', { exact: true }).selectOption('2');
+  await page.getByLabel('制限時間・秒', { exact: true }).fill('3');
   await page.getByRole('button', { name: '中断', exact: true }).click();
   await page.getByRole('button', { name: '再生', exact: true }).click();
   await expect(page.getByRole('region', { name: '問題プレビュー' })).toContainText('小2');
