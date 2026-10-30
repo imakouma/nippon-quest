@@ -66,7 +66,7 @@ export function QuestionTree({
           type="button"
           class="pg-tree-all"
           aria-pressed={selectedUnit === null}
-          onClick={() => onSelectUnit(null)}
+          onClick={() => onSelectUnit(selectedUnit === null ? undefined : null)}
         >
           <span class="pg-tree-label">{pgText('all')}</span>
           <span class="pg-tree-count">

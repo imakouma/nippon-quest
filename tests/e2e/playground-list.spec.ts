@@ -44,6 +44,12 @@ test('フォルダ未選択では問題を表示せず、選択すると表示�
   await expect(page.locator('.nq-q-choice')).toBeVisible();
   await all.click();
   await expect(page.locator('.pg-question-row').first()).toBeVisible();
+  await all.click();
+  await expect(all).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('.pg-question-row')).toHaveCount(0);
+  await all.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.pg-question-row').first()).toBeVisible();
 });
 
 test('Playground は問題を探して試すレビュー画面として表示する', async ({ page }) => {
