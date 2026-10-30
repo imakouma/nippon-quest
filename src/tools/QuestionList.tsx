@@ -109,7 +109,7 @@ export function QuestionList({
   const [text, setText] = useState('');
   const [samples, setSamples] = useState(false);
   const [onlyBad, setOnlyBad] = useState(false);
-  const [scopeFile, setScopeFile] = useState<string | null>(null);
+  const [scopeFile, setScopeFile] = useState<string | null | undefined>(undefined);
   const search = useMemo(() => new Map(entries.map((e) => [e.key, haystack(e)])), [entries]);
 
   const pool = entries.filter((e) => (samples || !isSample(e)) && (!scopeFile || e.file === scopeFile));
@@ -120,7 +120,8 @@ export function QuestionList({
     (!onlyBad || !!e.problem) &&
     FACETS.every((k) => k === skip || !f[k] || valueOf(e, k) === f[k]) &&
     (!needle || (search.get(e.key) ?? '').includes(needle));
-  const shown = pool.filter((e) => match(e));
+  const awaitingFolder = !!catalog && scopeFile === undefined;
+  const shown = awaitingFolder ? [] : pool.filter((e) => match(e));
   const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;
 
@@ -259,7 +260,9 @@ export function QuestionList({
               />
             ))}
           </div>
-          {shown.length === 0 && <p class="pg-empty">{pgText('noMatches')}</p>}
+          {shown.length === 0 && (
+            <p class="pg-empty">{pgText(awaitingFolder ? 'chooseFolder' : 'noMatches')}</p>
+          )}
           {shown.length > visible.length && <p class="pg-empty">{pgText('first200')}</p>}
         </div>
       </div>

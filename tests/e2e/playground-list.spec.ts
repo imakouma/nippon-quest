@@ -12,6 +12,18 @@ test('Playground は翻訳辞書の読込前に欠落警告を出さない', asy
   expect(warnings.filter((message) => message.includes('[i18n] キーがありません'))).toEqual([]);
 });
 
+test('フォルダ未選択では問題を表示せず、選択すると表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const tree = page.getByRole('region', { name: '問題フォルダ' });
+  const all = tree.getByRole('button', { name: /すべて/ });
+  await expect(all).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('.pg-question-row')).toHaveCount(0);
+  await expect(page.locator('.pg-empty')).toContainText('フォルダを選');
+  await expect(page.locator('.nq-q-choice')).toBeVisible();
+  await all.click();
+  await expect(page.locator('.pg-question-row').first()).toBeVisible();
+});
+
 test('Playground は問題を探して試すレビュー画面として表示する', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
 
@@ -64,6 +76,10 @@ test('Playground は編集を一つもどせ、問題を切り替えると履歴
   await expect(prompt).toHaveValue(original);
   await expect(undo).toBeDisabled();
   await prompt.fill('別の変更');
+  await page
+    .getByRole('region', { name: '問題フォルダ' })
+    .getByRole('button', { name: /すべて/ })
+    .click();
   await page.locator('details.pg-tree-details > summary').click();
   page.once('dialog', (dialog) => dialog.accept());
   await page.locator('.pg-question-row').first().click();
@@ -118,6 +134,10 @@ test('Playground は choice 以外も JSON を使わず項目ごとに編集で�
 test('Playground の問題いちらん：全件数と先頭200問が出て、しぼりこめる', async ({ page }) => {
   await page.goto('/playground.html');
   const rows = page.locator('.pg-question-row');
+  await page
+    .getByRole('region', { name: '問題フォルダ' })
+    .getByRole('button', { name: /すべて/ })
+    .click();
   await expect(rows.first()).toBeVisible({ timeout: 20_000 });
   const allQuestionCount = await rows.count();
   expect(allQuestionCount).toBe(200);
@@ -153,6 +173,10 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
   });
 
   await page.goto('/playground.html');
+  await page
+    .getByRole('region', { name: '問題フォルダ' })
+    .getByRole('button', { name: /すべて/ })
+    .click();
   await expect(page.locator('.pg-count')).toContainText('4832問 / 4832問', { timeout: 30_000 });
   expect(maximum).toBeLessThanOrEqual(8);
 });
@@ -160,7 +184,6 @@ test('Playground の問題ファイル読込は8並列を超えない', async ({
 test('Playground の問題ツリー：教科からセットを選び、キーボードで全件へ戻せる', async ({ page }) => {
   await page.goto('/playground.html');
   const rows = page.locator('.pg-question-row');
-  await expect(rows.first()).toBeVisible({ timeout: 20_000 });
 
   const treeDetails = page.locator('details.pg-tree-details');
   const tree = page.getByRole('region', { name: '問題フォルダ' });
@@ -172,7 +195,7 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   await expect(tree).toBeVisible();
 
   const all = tree.getByRole('button', { name: /すべて.*4832/ });
-  await expect(all).toHaveAttribute('aria-pressed', 'true');
+  await expect(all).toHaveAttribute('aria-pressed', 'false');
 
   const subject = tree.locator('details[data-subject="sansu"]');
   await expect(subject.locator(':scope > summary')).toContainText(/算数|さんすう/);
@@ -195,6 +218,9 @@ test('Playground の問題ツリー：教科からセットを選び、キーボ
   expect(await rows.evaluateAll((items) => items.map((item) => item.getAttribute('title')))).toEqual(
     Array(21).fill('questions/sansu/g1/kazu-100/set-001.json'),
   );
+
+  await unit.locator(':scope > summary').click();
+  await expect(rows).toHaveCount(0);
 
   await all.focus();
   await page.keyboard.press('Enter');
@@ -316,6 +342,6 @@ test('Playground は旧 manifest でも問題表を全幅で表示する', async
 test('Playground：?q=<問題 id> で ひらくと その問題が出る', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
-  await expect(page.locator('.pg-question-row.pg-sel')).toContainText('eigo.g1.alphabet.0002');
+  await expect(page.locator('.pg-question-row')).toHaveCount(0);
   await expect(page.locator('select#pg-question')).toHaveValue('1');
 });

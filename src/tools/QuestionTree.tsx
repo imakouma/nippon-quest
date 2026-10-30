@@ -7,8 +7,8 @@ interface QuestionTreeProps {
   catalog: QuestionCatalog;
   units: ReadonlyMap<string, string>;
   subjects: ReadonlyMap<string, string>;
-  selectedFile: string | null;
-  onSelectFile: (file: string | null) => void;
+  selectedFile: string | null | undefined;
+  onSelectFile: (file: string | null | undefined) => void;
 }
 
 const fileName = (file: string) => file.slice(file.lastIndexOf('/') + 1);
@@ -38,7 +38,17 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
           </span>
         </button>
         {catalog.subjects.map((subject) => (
-          <details name="question-tree-subject" data-subject={subject.subject}>
+          <details
+            name="question-tree-subject"
+            data-subject={subject.subject}
+            onToggle={(event) => {
+              if (
+                !(event.currentTarget as HTMLDetailsElement).open &&
+                selectedFile?.startsWith(`questions/${subject.subject}/`)
+              )
+                onSelectFile(undefined);
+            }}
+          >
             <summary>
               <RubyLabel text={subjects.get(subject.subject) ?? subject.subject} />
               <span class="pg-tree-count">
@@ -47,7 +57,17 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
               </span>
             </summary>
             {subject.grades.map((grade) => (
-              <details name="question-tree-grade" data-grade={grade.grade}>
+              <details
+                name="question-tree-grade"
+                data-grade={grade.grade}
+                onToggle={(event) => {
+                  if (
+                    !(event.currentTarget as HTMLDetailsElement).open &&
+                    selectedFile?.startsWith(`questions/${subject.subject}/g${grade.grade}/`)
+                  )
+                    onSelectFile(undefined);
+                }}
+              >
                 <summary>
                   {pgText('gradePrefix')}
                   {grade.grade}
@@ -57,7 +77,16 @@ export function QuestionTree({ catalog, units, subjects, selectedFile, onSelectF
                   </span>
                 </summary>
                 {grade.units.map((unit) => (
-                  <details data-unit={unit.unit}>
+                  <details
+                    data-unit={unit.unit}
+                    onToggle={(event) => {
+                      if (
+                        !(event.currentTarget as HTMLDetailsElement).open &&
+                        unit.sets.some((set) => set.file === selectedFile)
+                      )
+                        onSelectFile(undefined);
+                    }}
+                  >
                     <summary>
                       <RubyLabel text={units.get(unit.unit) ?? unit.unit} />
                       <span class="pg-tree-count">
