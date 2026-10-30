@@ -115,14 +115,16 @@
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: max-content;
+  align-content: start;
 }
 .nq-q-choices-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .nq-q-choices-5,
 .nq-q-choices-6 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .nq-choice {
   display: flex;
@@ -130,14 +132,23 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 12px;
+  min-width: 0;
+  min-height: max-content;
+  padding: 12px 12px 12px 48px;
   font-size: 24px;
   position: relative;
 }
 .nq-choice img {
-  width: 96px;
+  width: min(96px, 100%);
   height: 96px;
   image-rendering: pixelated;
+}
+.nq-choice-content {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 .nq-choice-key {
   position: absolute;
@@ -406,17 +417,19 @@
 .nq-pw-words {
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .nq-pw-words-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .nq-pw-words-4 {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .nq-pw-card {
   position: relative;
   min-height: 60px;
+  min-width: 0;
+  padding-left: 48px;
   font-size: 36px;
 }
 .nq-pw-card-miss {

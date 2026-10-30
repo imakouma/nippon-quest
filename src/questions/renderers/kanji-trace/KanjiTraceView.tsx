@@ -129,7 +129,7 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
                 }
               >
                 <span class="nq-choice-key">{index + 1}</span>
-                <RubyLabel text={choice} grade={ctx.grade} />
+                <RubyLabel class="nq-choice-content" text={choice} grade={ctx.grade} />
               </button>
             );
           })}
