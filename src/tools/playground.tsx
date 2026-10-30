@@ -124,6 +124,12 @@ function App() {
   // いちらんの 文字も ステージの 問題も この設定で 描くので、子を 描く前（ここ）で きめる
   if (kanji) setKanjiLevel({ grade, table: kanji.table, names: kanji.names });
 
+  useEffect(() => {
+    if (saveMessage !== '保存しました') return;
+    const timer = window.setTimeout(() => setSaveMessage(''), 4000);
+    return () => window.clearTimeout(timer);
+  }, [saveMessage]);
+
   const loadAll = async () => {
     try {
       const m = parseContentManifest(await read('manifest.json'));
@@ -354,6 +360,15 @@ function App() {
         </nav>
       </header>
 
+      {saveMessage && (
+        <div
+          class={`pg-save-toast${saveMessage.startsWith('保存できませんでした') ? ' pg-save-toast-error' : ''}`}
+          role={saveMessage.startsWith('保存できませんでした') ? 'alert' : 'status'}
+        >
+          {saveMessage}
+        </div>
+      )}
+
       <main class="pg-workspace">
         <QuestionList
           entries={entries}
@@ -438,8 +453,6 @@ function App() {
                   </button>
                 </div>
               </div>
-
-              {saveMessage && <p role="status">{saveMessage}</p>}
 
               {error && (
                 <pre class="pg-warn" role="alert">

@@ -81,6 +81,29 @@ button:disabled {
   line-height: 1.15;
 }
 
+.pg-save-toast {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 50%;
+  max-width: min(90vw, 480px);
+  padding: 10px 16px;
+  border: 1px solid #9fcabb;
+  border-radius: 8px;
+  color: #174d3d;
+  background: #f0faf5;
+  box-shadow: 0 4px 16px rgb(20 50 40 / 18%);
+  font-size: 14px;
+  font-weight: 700;
+  transform: translateX(-50%);
+}
+
+.pg-save-toast-error {
+  border-color: #e5b7a6;
+  color: #8a351d;
+  background: #fff4ed;
+}
+
 .pg-section-label {
   margin: 0 0 4px;
   color: #4e625e;

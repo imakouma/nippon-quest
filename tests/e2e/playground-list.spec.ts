@@ -158,9 +158,28 @@ test('Playground は保存操作で編集内容を送信し、成功を表示す
   const prompt = page.getByLabel('問題文', { exact: true });
   await expect(prompt).toBeVisible({ timeout: 20_000 });
   await prompt.fill('保存する問題文');
+  await page.getByRole('button', { name: '保存', exact: true }).scrollIntoViewIfNeeded();
+  const before = await page.locator('.pg-stage-shell').boundingBox();
   await page.getByRole('button', { name: '保存', exact: true }).click();
   await expect(page.getByRole('status')).toHaveText('保存しました');
+  await expect(page.locator('.pg-save-toast')).toHaveCSS('position', 'fixed');
+  const after = await page.locator('.pg-stage-shell').boundingBox();
+  expect(after!.y).toBe(before!.y);
   await expect(page.getByRole('button', { name: '保存', exact: true })).toBeDisabled();
+  await expect(page.locator('.pg-save-toast')).toHaveCount(0, { timeout: 6000 });
+});
+
+test('保存失敗の通知を表示し、下書きを保持する', async ({ page }) => {
+  await page.route('**/__nq/save-question', (route) =>
+    route.fulfill({ status: 400, json: { error: '競合しました' } }),
+  );
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const prompt = page.getByLabel('問題文', { exact: true });
+  await prompt.fill('未保存の変更');
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.locator('.pg-save-toast[role="alert"]')).toContainText('競合しました');
+  await expect(prompt).toHaveValue('未保存の変更');
+  await expect(page.getByRole('button', { name: '保存', exact: true })).toBeEnabled();
 });
 
 test('Playground は編集欄の学年と制限時間で問題を試す', async ({ page }) => {
