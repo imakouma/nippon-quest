@@ -33,7 +33,11 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
     const tile = TOWN_ROOF_START + roof * 16 + mask;
     return pixels.get(`${(tile % 8) * 16 + x},${Math.floor(tile / 8) * 16 + y}`);
   };
+  const stoneTile = 15;
+  expect(pixels.get(`${(stoneTile % 8) * 16 + 3},${Math.floor(stoneTile / 8) * 16 + 5}`)).toBe(NQ.sand);
   expect(roofPixel(5, 3, 2)).toBe(NQ.brick);
+  expect(roofPixel(0, 4, 5)).toBe(NQ.brick);
+  expect(roofPixel(1, 4, 5)).toBe(NQ.blue);
   expect(roofPixel(6, 2, 9)).toBe(NQ.cloud);
   expect(roofPixel(6, 8, 15, 11)).toBe(NQ.brown);
   expect(roofPixel(7, 2, 3)).toBe(NQ.brown);

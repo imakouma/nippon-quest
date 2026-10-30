@@ -19,6 +19,8 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
     ctx.fillRect(x, y, 16, 16);
     ctx.fillStyle = tile < 16 ? NQ.sand : NQ.leaf;
     if (tile < 16) {
+      ctx.fillRect(x + 3, y + 5, 4, 1);
+      ctx.fillRect(x + 10, y + 11, 3, 1);
       if (!(tile & 1)) ctx.fillRect(x, y, 16, 1);
       if (!(tile & 2)) ctx.fillRect(x + 15, y, 1, 16);
       if (!(tile & 4)) ctx.fillRect(x, y + 15, 16, 1);
@@ -49,6 +51,8 @@ export function buildTownViewTexture(scene: Phaser.Scene): void {
         ctx.fillStyle = light;
         if (!(mask & 1)) ctx.fillRect(x, y, 16, 1);
         ctx.fillStyle = dark;
+        ctx.fillRect(x + 3, y + 5, 6, 1);
+        ctx.fillRect(x + 8, y + 10, 5, 1);
         if (roof === 5) {
           for (const rx of [3, 8, 13]) ctx.fillRect(x + rx, y + 2, 1, 11);
         } else if (roof === 6) {
