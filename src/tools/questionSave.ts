@@ -23,8 +23,14 @@ export function replaceQuestionForSave(
   if (!original.success) throw new Error('問題データの形式が不正です');
   const before = original.data;
   const after = next.data;
-  if (before.id !== after.id || before.unit !== after.unit || before.type !== after.type) {
-    throw new Error('問題 ID、単元、問題タイプは変更できません');
+  if (before.id !== after.id || before.unit !== after.unit) {
+    throw new Error('問題 ID、単元は変更できません');
+  }
+  if (
+    before.type !== after.type &&
+    ![before.type, after.type].every((type) => ['choice', 'text-input'].includes(type))
+  ) {
+    throw new Error('この問題タイプへの変更には対応していません');
   }
   if (!after.unit.startsWith(`${after.subject}.g${after.grade}.`)) {
     throw new Error('教科・学年と単元が一致しません');

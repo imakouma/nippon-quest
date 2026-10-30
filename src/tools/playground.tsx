@@ -390,6 +390,9 @@ function App() {
                     onClick={() => void run()}
                     disabled={running || !question}
                   >
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" fill="currentColor" />
+                    </svg>
                     {pgText('playQuestion')}
                   </button>
                   <button
@@ -398,9 +401,22 @@ function App() {
                     onClick={() => abort.current?.abort()}
                     disabled={!running}
                   >
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M6 6h12v12H6z" fill="currentColor" />
+                    </svg>
                     {pgText('stop')}
                   </button>
                   <button type="button" class="pg-stop" onClick={undo} disabled={!undoHistory.length}>
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path
+                        d="M9 7 5 11l4 4M5 11h8a5 5 0 0 1 0 10"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                     {pgText('undo')}
                   </button>
                   <button
@@ -409,6 +425,15 @@ function App() {
                     onClick={() => void save()}
                     disabled={saving || !draft || JSON.stringify(draft) === JSON.stringify(savedDraft)}
                   >
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path
+                        d="M5 4h12l2 2v14H5zM8 4v6h8V4M8 20v-7h8v7"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                     {saving ? pgText('saving') : pgText('save')}
                   </button>
                 </div>

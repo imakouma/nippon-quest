@@ -755,6 +755,16 @@ button:disabled {
 .pg-run,
 .pg-stop {
   align-self: end;
+  gap: 5px;
+  padding-right: 6px;
+  padding-left: 6px;
+  white-space: nowrap;
+}
+
+.pg-test-controls svg {
+  width: 17px;
+  height: 17px;
+  flex: none;
 }
 
 .pg-stage-shell {

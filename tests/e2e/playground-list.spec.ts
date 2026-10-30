@@ -92,6 +92,36 @@ test('Playground は選択中の実問題を同じ画面でフォーム編集で
   await expect(prompt).toHaveValue('へんしゅうした もんだい');
 });
 
+test('選択式と記述式を変更して元に戻せる', async ({ page }) => {
+  await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
+  const type = page.getByLabel('問題タイプ', { exact: true });
+  await expect(type).toHaveValue('choice');
+  page.once('dialog', (dialog) => dialog.dismiss());
+  await type.selectOption('text-input');
+  await expect(type).toHaveValue('choice');
+  page.once('dialog', (dialog) => dialog.accept());
+  await type.selectOption('text-input');
+  await expect(type).toHaveValue('text-input');
+  await expect(page.locator('#ed-payload-answers-0')).not.toHaveValue('');
+  await expect(page.getByRole('button', { name: '保存', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: '一つもどる' }).click();
+  await expect(type).toHaveValue('choice');
+  for (const name of ['再生', '中断', '一つもどる', '保存']) {
+    await expect(page.getByRole('button', { name, exact: true }).locator('svg')).toHaveCount(1);
+  }
+});
+
+test('記述式から選択式に変更すると問題文と正解を引き継ぐ', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.sansu.g3.math-3-1.01e66a4560e3');
+  const type = page.getByLabel('問題タイプ', { exact: true });
+  await expect(type).toHaveValue('text-input');
+  const original = await page.locator('#ed-payload-answers-0').inputValue();
+  page.once('dialog', (dialog) => dialog.accept());
+  await type.selectOption('choice');
+  await expect(page.getByLabel('選択肢 1', { exact: true })).toHaveValue(original);
+  await expect(page.getByLabel('選択肢 2', { exact: true })).toHaveValue('');
+});
+
 test('Playground は編集を一つもどせ、問題を切り替えると履歴が消える', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g1.alphabet.0002');
   const prompt = page.getByLabel('問題文', { exact: true });
