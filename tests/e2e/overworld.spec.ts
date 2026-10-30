@@ -228,6 +228,43 @@ test('フィールドと町を往復すると対応する入口へ配置され�
     };
   });
   expect(presentation).toEqual({ visible: true, alpha: 1, aboveBackground: true, roof: 25, paving: 15 });
+  const treeStats = () =>
+    page.evaluate(() => {
+      const scene = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+        map: Phaser.Tilemaps.Tilemap;
+      };
+      const original = scene.map.getLayer('decor')!.data;
+      const copy = scene.children.list.find(
+        (child) =>
+          child.type === 'TilemapLayer' &&
+          (child as Phaser.Tilemaps.TilemapLayer).layer.name === 'town-decor',
+      ) as Phaser.Tilemaps.TilemapLayer;
+      const trees = scene.children.list.filter(
+        (child) =>
+          child.type === 'Image' && (child as Phaser.GameObjects.Image).texture.key === 'town-tree-round',
+      ) as Phaser.GameObjects.Image[];
+      const coordinates = original
+        .flat()
+        .filter((tile) => tile.index === 32)
+        .map((tile) => ({ x: tile.x, y: tile.y }));
+      return {
+        expected: coordinates.length,
+        images: trees.length,
+        invalid: coordinates.filter(({ x, y }) => {
+          const matches = trees.filter(
+            (tree) => tree.x === x * 16 + 8 && tree.y === y * 16 + 15 && tree.depth === y * 16 + 8,
+          );
+          return copy.getTileAt(x, y)?.index !== undefined || matches.length !== 1;
+        }).length,
+      };
+    });
+  const initialTrees = await treeStats();
+  expect(initialTrees.expected).toBeGreaterThan(0);
+  expect(initialTrees).toEqual({
+    expected: initialTrees.expected,
+    images: initialTrees.expected,
+    invalid: 0,
+  });
 
   await expect(canvas).toHaveAttribute('data-input-ready', 'true');
   await waitForTransitionReady();
@@ -259,6 +296,7 @@ test('フィールドと町を往復すると対応する入口へ配置され�
     await page.keyboard.down('ArrowUp');
     await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
     await page.keyboard.up('ArrowUp');
+    await expect.poll(treeStats).toEqual(initialTrees);
   }
   await expect(canvas).toHaveAttribute('data-input-ready', 'true');
   await waitForTransitionReady();
