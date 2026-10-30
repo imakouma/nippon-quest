@@ -91,6 +91,7 @@ import {
   stopMonsterAnimation,
 } from './battle/monsterAnimation';
 import { BattleIdleMotion } from './battle/idleMotion';
+import { createHeroBattleSprite, playHeroBattleAnimation } from './battle/heroAnimation';
 import { BATTLE_SCALE as S, battleLayout, type BattleLayout, OFF_RIGHT, READY_STEP } from './battle/layout';
 import { createBattleClouds, createBattleWinds, moveBattleClouds, moveBattleWinds } from './battle/clouds';
 import { attachBattleBgm, finishBattleBgm, withBattleMusicDucked } from './battle/bgm';
@@ -406,8 +407,7 @@ export class BattleScene extends Phaser.Scene {
     const eq = this.gs.player.equipment;
     const hk = heroKey(ap, eq, true);
     addSheet(this.textures, hk, battleSheet(heroLook(ap, eq)), HERO_W, HERO_H);
-    this.heroSprite = this.add
-      .image(this.layout.hero.x, this.layout.hero.y, hk, BATTLE_POSE.idle)
+    this.heroSprite = createHeroBattleSprite(this, this.layout.hero.x, this.layout.hero.y, hk)
       .setOrigin(0.5, 1)
       .setScale(this.layout.hero.scale)
       .setDepth(12);
@@ -1185,7 +1185,7 @@ export class BattleScene extends Phaser.Scene {
   private async heroSlash(): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + 136, 260);
-    sp.setFrame(BATTLE_POSE.attack);
+    playHeroBattleAnimation(sp, 'attack');
     playSfx('slash');
     const fx = this.add
       .sprite(
@@ -1212,7 +1212,7 @@ export class BattleScene extends Phaser.Scene {
   private async heroJumpSlash(): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + 190, 220);
-    sp.setFrame(BATTLE_POSE.attack);
+    playHeroBattleAnimation(sp, 'attack');
     await this.fx.hopTo(sp, this.layout.enemy.x + 128, this.layout.hero.y, 22 * S, 260);
     playSfx('slash');
     const fx = this.add
@@ -1248,7 +1248,7 @@ export class BattleScene extends Phaser.Scene {
   private async heroSwing(kind: SwingKind): Promise<void> {
     const sp = this.heroSprite;
     await this.walk(sp, this.layout.enemy.x + (kind === 'thrust' ? 200 : 136), kind === 'thrust' ? 200 : 260);
-    sp.setFrame(BATTLE_POSE.attack);
+    playHeroBattleAnimation(sp, 'attack');
     if (kind === 'thrust') await this.fx.hopTo(sp, this.layout.enemy.x + 150, this.layout.hero.y, 2 * S, 100);
     playSfx('slash');
     if (kind === 'cross') this.time.delayedCall(150, () => playSfx('slash'));
@@ -1361,7 +1361,6 @@ export class BattleScene extends Phaser.Scene {
     const self = toId === actorId || !attack;
     const to = this.anchorOf(toId);
     const tint = ELEMENT_FX[this.lastElement];
-    if (hero) sp.setFrame(BATTLE_POSE.attack);
     if (enemySide) this.lastEnemyStyle = 'skill';
     // 必殺技の ぶたい：画面が くらく なって 集中線（自分への 回復・まもりは しない）
     const stage = self || !mid ? null : await this.fx.stageIn(from, this.lastElement, sp, !full);
@@ -1376,6 +1375,7 @@ export class BattleScene extends Phaser.Scene {
       if (!self) await this.lunge(sp, 1);
     } else {
       this.stopBob(sp, baseY);
+      if (hero) playHeroBattleAnimation(sp, 'attack');
       await Promise.all([this.flash(sp, tint, 2), this.fx.hop(sp, baseY), charge]);
     }
     if (!hero && attack) playMonsterAttack(sp);
@@ -1400,7 +1400,6 @@ export class BattleScene extends Phaser.Scene {
       ]);
       await stage?.end();
     }
-    if (hero) sp.setFrame(BATTLE_POSE.idle);
     if (!enemySide && sp.active && (!hero || this.state.ally.hero.hp > 0)) this.idleBob(sp, baseY);
   }
 
@@ -1535,7 +1534,7 @@ export class BattleScene extends Phaser.Scene {
   private async victoryPose(): Promise<void> {
     const hero = this.heroSprite;
     this.stopBob(hero, this.layout.hero.y);
-    hero.setFrame(BATTLE_POSE.victory);
+    playHeroBattleAnimation(hero, 'victory');
     const pal = this.palSprite?.active && this.palSprite.alpha > 0.5 ? this.palSprite : null;
     if (pal) this.stopBob(pal, this.layout.partner.y);
     for (let i = 0; i < 2; i++)

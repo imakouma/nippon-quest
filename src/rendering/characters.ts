@@ -31,6 +31,16 @@ export const walkFrame = (dir: Dir, col: 0 | 1 | 2): number => DIRS.indexOf(dir)
 /** バトルシート（左向き）のコマ番号 */
 export const BATTLE_POSE = { idle: 0, stepA: 1, stepB: 2, attack: 3, hurt: 4, victory: 5 } as const;
 
+/** バトル中に再生する主人公のドット絵。座標移動とは別に、各状態でコマ自体を変える。 */
+export const HERO_BATTLE_SEQUENCES = {
+  idle: [BATTLE_POSE.idle, BATTLE_POSE.stepA, BATTLE_POSE.idle, BATTLE_POSE.stepB],
+  attack: [BATTLE_POSE.stepA, BATTLE_POSE.attack, BATTLE_POSE.stepB, BATTLE_POSE.attack],
+  hurt: [BATTLE_POSE.hurt, BATTLE_POSE.idle, BATTLE_POSE.hurt],
+  knockout: [BATTLE_POSE.hurt, BATTLE_POSE.idle, BATTLE_POSE.hurt],
+  victory: [BATTLE_POSE.victory, BATTLE_POSE.idle, BATTLE_POSE.victory],
+} as const;
+export type HeroBattleAnimation = keyof typeof HERO_BATTLE_SEQUENCES;
+
 export interface Look {
   hair: string;
   skin: string;
@@ -502,12 +512,12 @@ export function battleFrames(l: Look): Grid[] {
     ...rows.slice(at + part.length),
   ];
   const size = HERO_FRAME;
-  const f = (top: Rows, lg: Rows, view: CostumeView, pose: CostumePose) =>
-    frame(top, lg, l, colors, { size, view, pose });
+  const f = (top: Rows, lg: Rows, view: CostumeView, pose: CostumePose, walkColumn?: 0 | 1 | 2) =>
+    frame(top, lg, l, colors, { size, view, pose, walkColumn });
   const frames = [
     f(side, SIDE_LEGS.idle, 'side', 'walk'),
-    f(side, SIDE_LEGS.stepA, 'side', 'walk'),
-    f(side, SIDE_LEGS.stepB, 'side', 'walk'),
+    f(side, SIDE_LEGS.stepA, 'side', 'stepA', 0),
+    f(side, SIDE_LEGS.stepB, 'side', 'stepB', 2),
     f(replace(side, 10, POSE_ATTACK_ARMS), SIDE_LEGS.stepA, 'side', 'attack'),
     f(replace(side, 5, POSE_HURT_FACE), SIDE_LEGS.idle, 'side', 'hurt'),
     f(capped(POSE_VICTORY, l, false), FRONT_LEGS.idle, 'front', 'victory'),
