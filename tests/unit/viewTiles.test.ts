@@ -38,4 +38,8 @@ it('atlas 内を palette 色で描き、孤立した森と砂の両側の角を�
   expect(pixel(VIEW.WATER + 1, 1, 0)).toBe(NQ.white);
   expect(pixel(VIEW.ORCHARD_ALT, 5, 4)).toBe(NQ.red);
   expect(pixel(VIEW.ORCHARD_PEACH_ALT, 5, 4)).toBe(NQ.blush);
+  expect(pixel(VIEW.CLIFF, 8, 0)).toBe(NQ.leaf);
+  expect(pixel(VIEW.CLIFF, 8, 8)).toBe(NQ.tan);
+  expect(pixel(VIEW.STAIRS, 8, 4)).toBe(NQ.beige);
+  expect(pixel(VIEW.STAIRS, 2, 8)).toBe(NQ.bark);
 });

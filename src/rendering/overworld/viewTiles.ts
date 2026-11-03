@@ -313,6 +313,30 @@ function drawView(px: (n: number) => Px): void {
       p(x + 1, y, NQ.cloud);
     }
   }
+  // 段丘：上端の草、縦に続く岩肌、下端の濃い影で高さを色だけでなく形でも示す。
+  {
+    const p = px(VIEW.CLIFF);
+    for (let y = 0; y < 16; y++)
+      for (let x = 0; x < 16; x++) {
+        if (y < 2) p(x, y, y === 0 ? NQ.leaf : NQ.green);
+        else if (y === 2 || y >= 14) p(x, y, NQ.bark);
+        else p(x, y, (x + Math.floor(y / 3) * 5) % 7 === 0 ? NQ.brown : NQ.tan);
+      }
+  }
+  // 階段：太い両端と横向きの段線を反復し、3倍表示でも進める場所だと読めるようにする。
+  {
+    const p = px(VIEW.STAIRS);
+    for (let y = 0; y < 16; y++)
+      for (let x = 0; x < 16; x++) {
+        if (x < 3 || x > 12) p(x, y, NQ.bark);
+        else if (y % 3 === 1) p(x, y, NQ.beige);
+        else p(x, y, NQ.tan);
+      }
+    for (let x = 3; x <= 12; x++) {
+      p(x, 0, NQ.leaf);
+      p(x, 15, NQ.green);
+    }
+  }
 }
 
 /** さかいの 岩山：すそが マスいっぱい、上は 雪。左が 日なた（gray）、右が かげ（night） */

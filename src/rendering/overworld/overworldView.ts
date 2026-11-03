@@ -8,7 +8,7 @@
  *  - 草原・すなはま・みずべ：場所で きまる 2〜3 しゅるいを まぜて、同じ 絵が マス目に ならばないように
  * 純粋関数（Phaser を 使わない）。知らない 番号は -1（background の 絵を そのまま 見せる）
  */
-import { PREFECTURE_BORDER_TILE } from '../../core/world/ground';
+import { CLIFF_TILE, PREFECTURE_BORDER_TILE, STAIRS_TILE } from '../../core/world/ground';
 
 /** 見た目の タイルの 番号（テクスチャ 'overworld-view' の 中。0 から） */
 export const VIEW = {
@@ -54,8 +54,10 @@ export const VIEW = {
   PREFECTURE_BORDER: 88,
   ORCHARD_ALT: 89,
   ORCHARD_PEACH_ALT: 90,
+  CLIFF: 91,
+  STAIRS: 92,
 } as const;
-export const VIEW_COUNT = 91;
+export const VIEW_COUNT = 93;
 
 /** background の 番号（fieldArt.ts・core/world/ground.ts） */
 const WATER = 3;
@@ -106,6 +108,10 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
       return VIEW.ROAD + mask((n) => n === 163);
     case PREFECTURE_BORDER_TILE:
       return VIEW.PREFECTURE_BORDER;
+    case CLIFF_TILE:
+      return VIEW.CLIFF;
+    case STAIRS_TILE:
+      return VIEW.STAIRS;
     case 1:
     case 13:
     case 14:

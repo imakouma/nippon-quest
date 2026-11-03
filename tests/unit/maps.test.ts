@@ -293,6 +293,24 @@ describe('マップ', () => {
     }
   });
 
+  it('青森の果樹園段丘は崖を通れず、中央の階段だけを通れる', () => {
+    const aomori = maps.get('aomori-field')!;
+    const background = aomori.layers.find((layer) => layer.name === 'background')!.data!;
+    const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    const at = (x: number, y: number) => y * aomori.width + x;
+
+    for (let x = 57; x <= 70; x++) {
+      const index = at(x, 74);
+      if (x === 65) {
+        expect(background[index]).toBe(306);
+        expect(collision[index]).not.toBe(3);
+      } else {
+        expect(background[index]).toBe(305);
+        expect(collision[index]).toBe(3);
+      }
+    }
+  });
+
   it('裏ステージ（secret）の ある 県は、フィールドに 入口が あり、<県>-secret の おくに ラスボスが いる', () => {
     for (const f of jsonFiles(PREFECTURES)) {
       const area = JSON.parse(readFileSync(new URL(f, PREFECTURES), 'utf8')) as {

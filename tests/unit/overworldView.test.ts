@@ -111,6 +111,11 @@ describe('フィールドの 見た目（overworldView）', () => {
     expect(viewTileAt([301], 1, 1, 0)).toBe(VIEW.PREFECTURE_BORDER);
   });
 
+  it('青森の段丘は崖面と階段を別の形で描く', () => {
+    expect(viewTileAt([305], 1, 1, 0)).toBe(VIEW.CLIFF);
+    expect(viewTileAt([306], 1, 1, 0)).toBe(VIEW.STAIRS);
+  });
+
   it('県の フィールドと 離島に 使っている タイルは ぜんぶ 見た目が ある', () => {
     for (const f of readdirSync(MAPS).filter((n) => /-(field|enclave)\.json$/.test(n))) {
       const m = JSON.parse(readFileSync(new URL(f, MAPS), 'utf8')) as {
