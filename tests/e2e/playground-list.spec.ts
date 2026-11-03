@@ -1,4 +1,11 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+
+const totalQuestions = (
+  JSON.parse(readFileSync('content/manifest.json', 'utf8')) as {
+    questionCatalog: { totalQuestions: number };
+  }
+).questionCatalog.totalQuestions;
 
 test('単元の直下に問題を表示し、検索時だけ検索結果欄を表示する', async ({ page }) => {
   await page.goto('/playground.html');
@@ -327,7 +334,9 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
   await treeDetails.locator(':scope > summary').click();
   await expect(tree).toBeVisible();
 
-  const all = tree.getByRole('button', { name: /すべて.*4832/ });
+  const all = tree.getByRole('button', {
+    name: new RegExp(`すべて.*${totalQuestions}`),
+  });
   await expect(all).toHaveAttribute('aria-pressed', 'false');
 
   const subject = tree.locator('details[data-subject="sansu"]');
