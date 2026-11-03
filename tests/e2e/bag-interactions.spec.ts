@@ -96,6 +96,7 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   await storedWeapon.click();
   await expect(storedWeapon).toBeFocused();
   await expect(page.locator('.nq-party-name')).toContainText('れんしゅうの ぼう');
+  await expect(bagDialog.getByRole('button', { name: /いれる|バッグから.*ぬく/ })).toHaveCount(0);
   await storedWeapon.click();
   await expect(page.locator('.nq-party-info')).toHaveCount(0);
   await storedWeapon.click();
@@ -108,6 +109,8 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   const weaponSlot = page.locator('.nq-bag-empty[data-drop-slot="weapon"]');
   await storedWeapon.dragTo(weaponSlot);
   const weapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
+  await weapon.click();
+  await expect(bagDialog.getByRole('button', { name: /いれる|バッグから.*ぬく/ })).toHaveCount(0);
   await page.locator('.nq-bag-empty').first().click();
   await expect(weapon).toHaveCSS('grid-column-start', '1');
   await expect(reserve).toContainText('ひかえや もちものは ないよ');
