@@ -65,6 +65,7 @@ test('フォルダ未選択では問題を表示せず、選択すると表示�
 test('Playground は問題を探して試すレビュー画面として表示する', async ({ page }) => {
   await page.goto('/playground.html?q=eigo.g3.alphabet-small.0002');
 
+  await expect(page).toHaveTitle('問題レビュー — ニホンクエスト');
   await expect(page.getByRole('heading', { name: '問題レビュー' })).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole('navigation', { name: '問題を探す' })).toBeVisible();
   const filters = page.locator('details.pg-filter-details');
@@ -79,9 +80,8 @@ test('Playground は問題を探して試すレビュー画面として表示す
     /まだ結果はありません|回答中です/,
   );
 
-  const technical = page.locator('details.pg-technical');
-  await expect(technical).toBeHidden();
-  await expect(page.locator('select#pg-file')).toBeHidden();
+  await expect(page.locator('details.pg-technical')).toHaveCount(0);
+  await expect(page.locator('select#pg-file')).toHaveCount(0);
   await expect(page.locator('textarea#pg-json')).toHaveCount(0);
 });
 
@@ -299,8 +299,7 @@ test('Playground の問題いちらん：全件数と先頭200問が出て、し
   await rows.first().focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('.nq-q-pw')).toBeVisible({ timeout: 10_000 });
-  await expect(page.locator('select#pg-file')).toHaveValue('questions/eigo/g3/sea/set-001.json');
-  await expect(page.locator('select#pg-question option:checked')).toContainText('eigo.g3.sea.0006');
+  await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g3.sea.0006');
   await expect(page).toHaveURL(/\?q=eigo\.g3\.sea\.0006/);
 });
 
@@ -646,5 +645,5 @@ test('Playground：?q=<問題 id> で ひらくと その問題が出る', async
   await page.goto('/playground.html?q=eigo.g3.alphabet-small.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('.pg-question-row')).toHaveCount(0);
-  await expect(page.locator('select#pg-question')).toHaveValue('1');
+  await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g3.alphabet-small.0002');
 });
