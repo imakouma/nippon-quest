@@ -9,6 +9,8 @@
 .nq-bag-left > .nq-party-info {
   flex: 1;
   min-height: 0;
+  border-color: #665044;
+  background: #151723;
 }
 .nq-bag-left .nq-party-art {
   width: 56px;
@@ -44,8 +46,8 @@
   gap: 8px;
   min-height: 160px;
   padding: 8px;
-  border: 4px solid #31273f;
-  background: #111321;
+  border: 4px solid #403b50;
+  background: #141726;
 }
 .nq-bag-details-closed .nq-party-msg {
   visibility: hidden;
@@ -80,13 +82,14 @@
 .nq-bag-grid {
   display: grid;
   gap: 4px;
+  align-self: center;
   justify-content: center;
   align-content: center;
   min-height: 0;
   padding: 10px;
-  border: 4px solid #735840;
-  background: #322a29;
-  box-shadow: inset 0 0 0 4px #211d26;
+  border: 4px solid #98734d;
+  background: #493629;
+  box-shadow: inset 0 0 0 4px #2c2223;
   flex: none;
 }
 .nq-bag-cell {
@@ -125,10 +128,10 @@
 .nq-bag-hero img {
   transform: translateY(-8px);
 }
-/* あいている マス：点線の わくだけ */
+/* あいている マス */
 .nq-bag-empty {
-  border: 3px solid #665044;
-  background: #1d1d29;
+  border: 3px solid #80654c;
+  background: #211e27;
 }
 .nq-bag-drop-ok {
   border-color: var(--nq-yellow);
