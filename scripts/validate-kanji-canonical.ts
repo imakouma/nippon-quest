@@ -71,6 +71,9 @@ export function validateKanjiCanonicalData(
             errors.push(`用例「${example.word}」に対象漢字がありません`);
           }
           if (example.reading.trim() === '') errors.push(`用例「${example.word}」の読みが空です`);
+          else if (example.reading !== reading.reading) {
+            errors.push(`用例「${example.word}」の対象漢字の読みは「${reading.reading}」にしてください`);
+          }
         }
       }
     }

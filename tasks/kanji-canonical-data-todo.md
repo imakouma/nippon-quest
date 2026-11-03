@@ -31,15 +31,15 @@
 
 **Acceptance criteria:**
 
-- [ ] 正規JSONは1026件の一意な漢字を持ち、学年別件数が80 / 160 / 200 / 202 / 193 / 191件である。
-- [ ] `content/i18n/kanji-grades.json` と文字集合・学年・順序が一致し、全音訓に根拠付き用例がある。
-- [ ] `王`は音読みあり・訓読みなし、`貝`と`畑`は訓読みあり・音読みなしで、推測した読みが含まれない。
+- [x] 正規JSONは1026件の一意な漢字を持ち、学年別件数が80 / 160 / 200 / 202 / 193 / 191件である。
+- [x] `content/i18n/kanji-grades.json` と文字集合・学年・順序が一致し、全音訓に根拠付き用例がある。
+- [x] `王`は音読みあり・訓読みなし、`貝`と`畑`は訓読みあり・音読みなしで、推測した読みが含まれない。
 
 **Verification:**
 
-- [ ] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
-- [ ] 学年別件数、音読みのみ、訓読みのみの件数を監査出力で確認する。
-- [ ] 抽出元URLと確認日が `content/quality/academic-reviews.json` に記録されている。
+- [x] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
+- [x] 学年別件数、音読みのみ、訓読みのみの件数を監査出力で確認する。
+- [x] 抽出元URLと確認日が `content/quality/academic-reviews.json` に記録されている。
 
 **Dependencies:** Task 1
 
@@ -53,10 +53,10 @@
 
 ## Checkpoint: Canonical data
 
-- [ ] 1026字と学年別件数が一致する。
-- [ ] 既存の学年別文字列との不一致が0件である。
-- [ ] 代表的な音訓欠如と用例が一次資料どおりである。
-- [ ] 外部通信を切った状態で関連テストが通る。
+- [x] 1026字と学年別件数が一致する。
+- [x] 既存の学年別文字列との不一致が0件である。
+- [x] 代表的な音訓欠如と用例が一次資料どおりである。
+- [x] 外部通信を切った状態で関連テストが通る。
 
 ## Task 3: 監査コマンドとコンテンツ検証の統合
 
