@@ -134,8 +134,6 @@ export function BagOverlay({
   cols,
   rows,
   dropSlots,
-  used,
-  capacity,
   over,
   focusKey,
   message,
@@ -171,10 +169,6 @@ export function BagOverlay({
     });
     return () => cancelAnimationFrame(frame);
   }, [m.key]);
-
-  useEffect(() => {
-    if (detailsOpen) boxRef.current?.querySelector('.nq-party-info')?.scrollIntoView?.({ block: 'nearest' });
-  }, [detailsOpen, m.key]);
 
   const pick = (k: number) => {
     if (k === sel || !order[k]) return;
@@ -354,20 +348,18 @@ export function BagOverlay({
               {t('field.bagTitle')}
             </span>
           </div>
-          <p
-            class={`nq-bag-capacity ${over ? 'nq-bag-capacity-warning' : ''}`}
-            role={over ? 'alert' : 'status'}
-          >
-            <span>{t('field.bagCapacity', { used, capacity })}</span>
-            {over && <strong>{t('field.bagLayoutInvalid')}</strong>}
-          </p>
+          {over && (
+            <p class="nq-bag-capacity-warning" role="alert">
+              {t('field.bagLayoutInvalid')}
+            </p>
+          )}
           <div
             class="nq-bag-grid"
             role="group"
             aria-label={t('field.bagTitle')}
             style={{
-              gridTemplateColumns: `repeat(${cols}, 76px)`,
-              gridTemplateRows: `repeat(${rows}, 76px)`,
+              gridTemplateColumns: `repeat(${cols}, 50px)`,
+              gridTemplateRows: `repeat(${rows}, 50px)`,
             }}
             onDragOver={(e) => {
               if (draggedThing?.kind === 'item' && !draggedThing.inBag && draggedThing.action === 'pack')

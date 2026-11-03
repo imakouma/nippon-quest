@@ -4,12 +4,29 @@
  */
 .nq-bag-left {
   min-height: 0;
-  overflow-y: auto;
 }
 .nq-bag-left > .nq-party-info {
-  flex: none;
-  min-height: 160px;
-  max-height: 240px;
+  flex: 1;
+  min-height: 0;
+}
+.nq-bag-left .nq-party-art {
+  width: 56px;
+  height: 56px;
+}
+.nq-bag-left .nq-party-art img {
+  width: 48px;
+  height: 48px;
+}
+.nq-bag-left .nq-party-name {
+  font-size: 24px;
+  line-height: 28px;
+}
+.nq-bag-left .nq-party-sub,
+.nq-bag-left .nq-bag-line,
+.nq-bag-left .nq-party-blurb,
+.nq-bag-left .nq-party-stats {
+  font-size: 16px;
+  line-height: 20px;
 }
 .nq-bag-right {
   min-height: 0;
@@ -61,8 +78,8 @@
   gap: 6px;
   justify-content: center;
   align-content: center;
-  min-height: 252px;
-  padding: 12px;
+  min-height: 0;
+  padding: 6px;
   border: 4px solid #31273f;
   background: #111321;
   flex: none;
