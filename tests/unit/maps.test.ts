@@ -316,7 +316,9 @@ describe('マップ', () => {
       if (x >= 64 && x <= 66) {
         expect(collision[index]).not.toBe(3);
       } else {
-        expect(canTraverseElevation(elevationAt(elevation, x, 73), elevationAt(elevation, x, 74))).toBe(false);
+        expect(canTraverseElevation(elevationAt(elevation, x, 73), elevationAt(elevation, x, 74))).toBe(
+          false,
+        );
         expect(collision[index]).toBe(3);
       }
     }

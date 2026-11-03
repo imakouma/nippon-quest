@@ -15,8 +15,7 @@ export interface TiledElevationObject {
   properties?: readonly { name?: string; value?: unknown }[];
 }
 
-const nonnegativeInteger = (value: unknown): value is number =>
-  Number.isInteger(value) && Number(value) >= 0;
+const nonnegativeInteger = (value: unknown): value is number => Number.isInteger(value) && Number(value) >= 0;
 
 export function terrainElevationFromObjects(
   width: number,
@@ -46,7 +45,14 @@ export function terrainElevationFromObjects(
 }
 
 export function elevationAt(elevation: TerrainElevation, x: number, y: number): number {
-  if (!Number.isInteger(x) || !Number.isInteger(y) || x < 0 || y < 0 || x >= elevation.width || y >= elevation.height)
+  if (
+    !Number.isInteger(x) ||
+    !Number.isInteger(y) ||
+    x < 0 ||
+    y < 0 ||
+    x >= elevation.width ||
+    y >= elevation.height
+  )
     return 0;
   return elevation.tiles[y * elevation.width + x] ?? 0;
 }

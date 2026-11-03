@@ -114,11 +114,7 @@ describe('フィールドの 見た目（overworldView）', () => {
   it('青森の段丘は崖面と階段を別の形で描く', () => {
     expect(viewTileAt([305], 1, 1, 0)).toBe(VIEW.CLIFF);
     expect(viewTileAt([306], 1, 1, 0)).toBe(VIEW.STAIRS);
-    expect(overworldView([306, 306, 306], 3, 1)).toEqual([
-      VIEW.STAIRS_LEFT,
-      VIEW.STAIRS,
-      VIEW.STAIRS_RIGHT,
-    ]);
+    expect(overworldView([306, 306, 306], 3, 1)).toEqual([VIEW.STAIRS_LEFT, VIEW.STAIRS, VIEW.STAIRS_RIGHT]);
   });
 
   it('県の フィールドと 離島に 使っている タイルは ぜんぶ 見た目が ある', () => {

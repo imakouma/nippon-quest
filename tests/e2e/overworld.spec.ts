@@ -152,6 +152,19 @@ async function skipArrivalStory(page: Page): Promise<void> {
   await finishDialogue(page);
 }
 
+test('青森の石段を一段ずつ昇降し、ワールドカメラへ遠近投影する', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+  await teleport(page, [65, 77], { area: 'aomori', map: 'aomori-field', devAll: true });
+
+  for (const y of [76, 75, 74, 73]) await walkOneTile(page, 'ArrowUp', [65, y]);
+  for (const y of [74, 75, 76, 77]) await walkOneTile(page, 'ArrowDown', [65, y]);
+
+  await expect
+    .poll(() => page.evaluate(() => window.__nq.scene.getScene('Overworld').cameras.main.hasPostPipeline))
+    .toBe(true);
+});
+
 async function suppressFadeCompletionAndCountRestarts(page: Page): Promise<void> {
   await page.evaluate(() => {
     const browser = window as unknown as {

@@ -1,8 +1,4 @@
-import {
-  ELEVATION_UNIT_PX,
-  elevationAt,
-  type TerrainElevation,
-} from '../../core/world/terrainElevation';
+import { ELEVATION_UNIT_PX, elevationAt, type TerrainElevation } from '../../core/world/terrainElevation';
 
 export interface ElevationViewBand {
   elevation: number;

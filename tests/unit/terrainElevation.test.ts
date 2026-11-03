@@ -7,13 +7,7 @@ import {
   terrainElevationFromObjects,
 } from '../../src/core/world/terrainElevation';
 
-const elevationObject = (
-  elevation: unknown,
-  x = 16,
-  y = 16,
-  width = 16,
-  height = 16,
-) => ({
+const elevationObject = (elevation: unknown, x = 16, y = 16, width = 16, height = 16) => ({
   x,
   y,
   width,
@@ -27,11 +21,7 @@ describe('terrain elevation', () => {
     const original = structuredClone(objects);
     const elevation = terrainElevationFromObjects(4, 3, 16, objects);
 
-    expect(elevation.tiles).toEqual([
-      0, 0, 0, 0,
-      0, 4, 2, 0,
-      0, 0, 0, 0,
-    ]);
+    expect(elevation.tiles).toEqual([0, 0, 0, 0, 0, 4, 2, 0, 0, 0, 0, 0]);
     expect(objects).toEqual(original);
   });
 
