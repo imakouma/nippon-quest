@@ -12,10 +12,11 @@ export function validateCurriculumUnits(
     byId.set(unit.id, unit);
     const expectedPrefix = `${unit.subject}.g${unit.grade}.`;
     if (!unit.id.startsWith(expectedPrefix)) errors.push(`${unit.id}: IDと教科・学年が一致しません`);
+    if (unit.grade <= 2 && unit.subject === 'eigo') errors.push(`${unit.id}: 英語は3年から登録できます`);
     if (
       unit.grade <= 2 &&
       unit.courseKind === undefined &&
-      (unit.subject === 'rika' || unit.subject === 'shakai' || unit.subject === 'eigo')
+      (unit.subject === 'rika' || unit.subject === 'shakai')
     )
       errors.push(
         `${unit.id}: ${unit.grade}年 ${unit.subject} は supplementary と明記した補助教材だけ登録できます`,
