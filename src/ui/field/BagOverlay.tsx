@@ -172,6 +172,10 @@ export function BagOverlay({
     return () => cancelAnimationFrame(frame);
   }, [m.key]);
 
+  useEffect(() => {
+    if (detailsOpen) boxRef.current?.querySelector('.nq-party-info')?.scrollIntoView?.({ block: 'nearest' });
+  }, [detailsOpen, m.key]);
+
   const pick = (k: number) => {
     if (k === sel || !order[k]) return;
     playSfx('move');
@@ -450,45 +454,6 @@ export function BagOverlay({
               <ul class="nq-party-list nq-bag-packed">{itemsInBag.map(listRow)}</ul>
             </>
           )}
-        </div>
-
-        <div class="nq-wmap-right nq-bag-right">
-          <div class="nq-wmap-head">
-            {message ? <RubyLabel text={message} class="nq-party-msg" /> : <span />}
-            <button type="button" class="nq-back" onClick={onClose}>
-              × {t('ui.close')}
-            </button>
-          </div>
-          <section class="nq-bag-reserve" aria-label={t('field.bagOutside')}>
-            <p
-              class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-              onDragOver={(e) => {
-                if (canReturnItem) e.preventDefault();
-              }}
-              onDrop={(e) => {
-                e.preventDefault();
-                returnItem();
-              }}
-            >
-              {t('field.bagOutside')}
-            </p>
-            <ul
-              class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-              onDragOver={(e) => {
-                if (canReturnItem) e.preventDefault();
-              }}
-              onDrop={(e) => {
-                e.preventDefault();
-                returnItem();
-              }}
-            >
-              {outside.length ? (
-                outside.map(reserveTile)
-              ) : (
-                <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
-              )}
-            </ul>
-          </section>
           {detailsOpen && (
             <div class="nq-wmap-info nq-party-info">
               <div class="nq-party-head">
@@ -602,6 +567,45 @@ export function BagOverlay({
               }
             />
           )}
+        </div>
+
+        <div class="nq-wmap-right nq-bag-right">
+          <div class="nq-wmap-head">
+            {message ? <RubyLabel text={message} class="nq-party-msg" /> : <span />}
+            <button type="button" class="nq-back" onClick={onClose}>
+              × {t('ui.close')}
+            </button>
+          </div>
+          <section class="nq-bag-reserve" aria-label={t('field.bagOutside')}>
+            <p
+              class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+              onDragOver={(e) => {
+                if (canReturnItem) e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                returnItem();
+              }}
+            >
+              {t('field.bagOutside')}
+            </p>
+            <ul
+              class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+              onDragOver={(e) => {
+                if (canReturnItem) e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                returnItem();
+              }}
+            >
+              {outside.length ? (
+                outside.map(reserveTile)
+              ) : (
+                <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
+              )}
+            </ul>
+          </section>
         </div>
       </div>
     </div>

@@ -4,6 +4,12 @@
  */
 .nq-bag-left {
   min-height: 0;
+  overflow-y: auto;
+}
+.nq-bag-left > .nq-party-info {
+  flex: none;
+  min-height: 160px;
+  max-height: 240px;
 }
 .nq-bag-right {
   min-height: 0;

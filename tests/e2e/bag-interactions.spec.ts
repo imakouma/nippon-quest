@@ -101,11 +101,13 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   await expect(page.locator('.nq-party-info')).toHaveCount(0);
   await storedWeapon.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
-  const [reserveBox, detailBox] = await Promise.all([
-    reserve.boundingBox(),
+  const [gridBox, detailBox, reserveBox] = await Promise.all([
+    page.locator('.nq-bag-grid').boundingBox(),
     page.locator('.nq-party-info').boundingBox(),
+    reserve.boundingBox(),
   ]);
-  expect(reserveBox!.y + reserveBox!.height).toBeLessThanOrEqual(detailBox!.y);
+  expect(gridBox!.y + gridBox!.height).toBeLessThanOrEqual(detailBox!.y);
+  expect(detailBox!.x).toBeLessThan(reserveBox!.x);
   const weaponSlot = page.locator('.nq-bag-empty[data-drop-slot="weapon"]');
   await storedWeapon.dragTo(weaponSlot);
   const weapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
