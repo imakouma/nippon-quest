@@ -5,7 +5,7 @@ export type KanjiCategory = 'reading' | 'writing' | 'review';
 
 export const FIRST_GRADE_READING_UNITS = ['kokugo.g1.kanji', 'kokugo.g1.legacy-jpn-1-2'] as const;
 
-/** Ambiguous questions remain visible for review rather than being guessed. */
+/** `writing` is reserved for questions where the learner actually writes a kanji. */
 export function kanjiCategory(question: QuestionBase | null): KanjiCategory {
   if (!question) return 'review';
   const payload =
