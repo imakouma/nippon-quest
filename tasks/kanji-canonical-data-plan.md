@@ -50,7 +50,7 @@
 
 ### Phase 3: Integration
 
-- [ ] Task 3: 監査コマンドをコンテンツ検証へ統合する
+- [x] Task 3: 監査コマンドをコンテンツ検証へ統合する
 - [ ] Task 4: 品質ゲートと差分レビューを完了する
 
 ### Checkpoint: Complete

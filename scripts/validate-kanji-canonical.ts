@@ -1,3 +1,6 @@
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 
 const exampleSchema = z.object({ word: z.string(), reading: z.string() }).strict();
@@ -84,3 +87,33 @@ export function validateKanjiCanonicalData(
   }
   return errors;
 }
+
+async function main() {
+  const root = resolve(import.meta.dirname, '..');
+  const content = resolve(root, 'content');
+  const [records, grades, ledger] = await Promise.all([
+    readFile(resolve(content, 'curriculum/kanji-readings.json'), 'utf8').then(JSON.parse),
+    readFile(resolve(content, 'i18n/kanji-grades.json'), 'utf8').then(JSON.parse),
+    readFile(resolve(content, 'quality/academic-reviews.json'), 'utf8').then(JSON.parse),
+  ]);
+  const expectedByGrade = z.object({ byGrade: z.record(z.string(), z.string()) }).parse(grades).byGrade;
+  const sources = z
+    .object({ sources: z.array(z.object({ id: z.string() }).passthrough()) })
+    .parse(ledger).sources;
+  const errors = validateKanjiCanonicalData(records, {
+    expectedByGrade,
+    knownSourceIds: new Set(sources.map((source) => source.id)),
+  });
+  if (errors.length) {
+    for (const error of errors) console.error(`- ${error}`);
+    throw new Error(`正規漢字データに ${errors.length} 件の不整合があります`);
+  }
+
+  const parsedRecords = z.array(recordSchema).parse(records);
+  const counts = [1, 2, 3, 4, 5, 6]
+    .map((grade) => `${grade}年 ${parsedRecords.filter((record) => record.grade === grade).length}字`)
+    .join(' / ');
+  console.log(`canonical kanji: ${parsedRecords.length}字 (${counts})`);
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

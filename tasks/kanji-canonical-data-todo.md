@@ -64,15 +64,15 @@
 
 **Acceptance criteria:**
 
-- [ ] `pnpm audit:kanji-canonical` が学年別件数を表示し、不正データがあれば非0で終了する。
-- [ ] `pnpm validate:content` が同じ監査を含み、外部ネットワークへ接続しない。
-- [ ] 既存の `validate:content` の検証内容と出力を失わず、新しい依存を追加しない。
+- [x] `pnpm audit:kanji-canonical` が学年別件数を表示し、不正データがあれば非0で終了する。
+- [x] `pnpm validate:content` が同じ監査を含み、外部ネットワークへ接続しない。
+- [x] 既存の `validate:content` の検証内容と出力を失わず、新しい依存を追加しない。
 
 **Verification:**
 
-- [ ] `pnpm audit:kanji-canonical`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
+- [x] `pnpm audit:kanji-canonical`
+- [x] `pnpm validate:content`
+- [x] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
 
 **Dependencies:** Task 2
 
