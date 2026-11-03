@@ -358,8 +358,8 @@ export function BagOverlay({
             role="group"
             aria-label={t('field.bagTitle')}
             style={{
-              gridTemplateColumns: `repeat(${cols}, 50px)`,
-              gridTemplateRows: `repeat(${rows}, 50px)`,
+              gridTemplateColumns: `repeat(${cols}, 68px)`,
+              gridTemplateRows: `repeat(${rows}, 68px)`,
             }}
             onDragOver={(e) => {
               if (draggedThing?.kind === 'item' && !draggedThing.inBag && draggedThing.action === 'pack')
