@@ -51,14 +51,14 @@
 ### Phase 3: Integration
 
 - [x] Task 3: 監査コマンドをコンテンツ検証へ統合する
-- [ ] Task 4: 品質ゲートと差分レビューを完了する
+- [x] Task 4: 品質ゲートと差分レビューを完了する
 
 ### Checkpoint: Complete
 
-- [ ] 承認済み仕様の完了条件をすべて満たす
-- [ ] `pnpm audit:kanji-canonical`、関連テスト、`pnpm validate:content`、`pnpm check:fast`、`pnpm build` が通る
-- [ ] 人間の学術レビュー待ちであることが台帳と完了報告から分かる
-- [ ] `kanji-question-coverage` の仕様作成に進める状態になっている
+- [x] 承認済み仕様の完了条件をすべて満たす
+- [x] `pnpm audit:kanji-canonical`、関連テスト、`pnpm validate:content`、`pnpm check:fast`、`pnpm build` が通る
+- [x] 人間の学術レビュー待ちであることが台帳と完了報告から分かる
+- [x] `kanji-question-coverage` の仕様作成に進める状態になっている
 
 ## Verification Strategy
 

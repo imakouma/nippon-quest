@@ -90,18 +90,18 @@
 
 **Acceptance criteria:**
 
-- [ ] 承認済み仕様の完了条件をすべて満たし、共有問題契約・問題JSON・UI・生成物を変更していない。
-- [ ] 正しさ、可読性、構造、安全性、性能のレビューで必須修正が残っていない。
-- [ ] 人間の学術レビュー待ちであることと、後続モジュールが検証済みJSONだけを使うことが完了報告に記録される。
+- [x] 承認済み仕様の完了条件をすべて満たし、共有問題契約・問題JSON・UI・生成物を変更していない。
+- [x] 正しさ、可読性、構造、安全性、性能のレビューで必須修正が残っていない。
+- [x] 人間の学術レビュー待ちであることと、後続モジュールが検証済みJSONだけを使うことが完了報告に記録される。
 
 **Verification:**
 
-- [ ] `pnpm audit:kanji-canonical`
-- [ ] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
-- [ ] `pnpm validate:content`
-- [ ] `pnpm check:fast`
-- [ ] `pnpm build`
-- [ ] `git diff --check`
+- [x] `pnpm audit:kanji-canonical`
+- [x] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
+- [x] `pnpm validate:content`
+- [x] `pnpm check:fast`
+- [x] `pnpm build`
+- [x] `git diff --check`
 
 **Dependencies:** Task 3
 
@@ -111,7 +111,17 @@
 
 ## Checkpoint: Complete
 
-- [ ] 全タスクの受け入れ条件を満たす。
-- [ ] Definition of Done の Correctness、Quality、Integration、Documentation を満たす。
-- [ ] 実装コミットIDと検証結果を記録する。
-- [ ] `kanji-question-coverage` の仕様作成を開始できる。
+- [x] 全タスクの受け入れ条件を満たす。
+- [x] Definition of Done の Correctness、Quality、Integration、Documentation を満たす。
+- [x] 実装コミットIDと検証結果を記録する。
+- [x] `kanji-question-coverage` の仕様作成を開始できる。
+
+## Verification record: 2026-11-03
+
+- `94c681a6`: 正規データ検証契約と失敗・成功テスト
+- `d7bd44fa`: 1026字の音訓・用例・一次資料
+- `7ef8a593`: 漢字監査CLIと `validate:content` 統合
+- `09a76175`: 学習グラフ領域との分離と配当表順検査
+- `pnpm test:fast`: 21 files / 305 tests passed
+- `pnpm audit:kanji-canonical`, 関連14テスト, `pnpm validate:content`, `pnpm check:fast`, `pnpm build`: passed
+- コードレビュー: 正しさ、可読性、構造、安全性、性能の必須指摘なし。人間の学術レビューは未実施。
