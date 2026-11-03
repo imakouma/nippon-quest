@@ -411,36 +411,60 @@ test('漢字の単元を国語から分けて表示する', async ({ page }) => 
   const secondGrade = kanji.locator('details[data-grade="2"]');
   const reading = secondGrade.locator('details[data-kanji-category="reading"]');
   const writing = secondGrade.locator('details[data-kanji-category="writing"]');
+  const other = secondGrade.locator('details[data-kanji-category="review"]');
   await reading.locator(':scope > summary').click();
-  await expect(reading.locator('button[data-unit="kokugo.g2.legacy-jpn-2-2"]')).toBeVisible();
-  await reading.locator('button[data-unit="kokugo.g2.kanji"]').click();
-  await expect(page.locator('.pg-question-row')).toHaveCount(7);
+  const onyomi = reading.locator('details[data-kanji-reading-kind="on"]');
+  const kunyomi = reading.locator('details[data-kanji-reading-kind="kun"]');
+  await expect(onyomi.locator(':scope > summary')).toContainText('音読み');
+  await expect(kunyomi.locator(':scope > summary')).toContainText('訓読み');
+  await onyomi.locator(':scope > summary').click();
+  const gradeTwoRows = page.locator('.pg-question-row');
+  await expect(gradeTwoRows.first()).toBeVisible();
+  expect(await gradeTwoRows.count()).toBeGreaterThanOrEqual(160);
   await writing.locator(':scope > summary').click();
   await expect(reading).not.toHaveAttribute('open', '');
-  await writing.locator('button[data-unit="kokugo.g2.kanji"]').click();
-  await expect(page.locator('.pg-question-row')).toHaveCount(8);
+  await expect(writing.locator('button[data-unit]')).toHaveCount(0);
+  await expect(page.locator('.pg-question-row')).toHaveCount(160);
+  await expect(other.locator(':scope > summary')).toContainText('その他');
 });
 
-test('小1の漢字の読みを一つにまとめて両単元の問題を表示する', async ({ page }) => {
+test('小1の読みを音読みと訓読みに分けて表示する', async ({ page }) => {
   await page.goto('/playground.html');
   const kanji = page.locator('details[data-subject="kanji"]');
   await kanji.locator(':scope > summary').click();
   await kanji.locator('details[data-grade="1"] > summary').click();
   const reading = kanji.locator('details[data-grade="1"] details[data-kanji-category="reading"]');
   await reading.locator(':scope > summary').click();
-  const merged = reading.locator('button[data-unit="kokugo.g1.kanji"]');
-  await expect(merged).toBeVisible();
-  await expect(reading.locator('button[data-unit="kokugo.g1.legacy-jpn-1-2"]')).toHaveCount(0);
-  await merged.click();
+  const onyomi = reading.locator('details[data-kanji-reading-kind="on"]');
+  const kunyomi = reading.locator('details[data-kanji-reading-kind="kun"]');
+  await onyomi.locator(':scope > summary').click();
   const rows = reading.locator('.pg-question-row');
   await expect(rows.first()).toBeVisible();
-  const files = await rows.evaluateAll((elements) => elements.map((row) => row.getAttribute('title')));
-  expect(files).toContain('questions/kokugo/g1/kanji/set-001.json');
-  expect(files).toContain('questions/kokugo/g1/legacy-jpn-1-2/set-001.json');
-  const count = Number((await merged.locator('.pg-tree-count').textContent())?.replace(/\D/g, ''));
-  expect(files).toHaveLength(count);
-  await merged.click();
-  await expect(rows).toHaveCount(0);
+  expect(await rows.count()).toBeGreaterThanOrEqual(80);
+  await kunyomi.locator(':scope > summary').click();
+  await expect(onyomi).not.toHaveAttribute('open', '');
+  await expect(rows.first()).toBeVisible();
+  expect(await rows.count()).toBeGreaterThanOrEqual(80);
+});
+
+test('その他に四字熟語と対義語・類義語のフォルダを表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  const kanji = page.locator('details[data-subject="kanji"]');
+  await kanji.locator(':scope > summary').click();
+
+  const grade5 = kanji.locator('details[data-grade="5"]');
+  await grade5.locator(':scope > summary').click();
+  const other5 = grade5.locator('details[data-kanji-category="review"]');
+  await other5.locator(':scope > summary').click();
+  await expect(other5.locator('details[data-kanji-other-kind="relation"] > summary')).toContainText(
+    '対義語・類義語',
+  );
+
+  const grade6 = kanji.locator('details[data-grade="6"]');
+  await grade6.locator(':scope > summary').click();
+  const other6 = grade6.locator('details[data-kanji-category="review"]');
+  await other6.locator(':scope > summary').click();
+  await expect(other6.locator('details[data-kanji-other-kind="idiom"] > summary')).toContainText('四字熟語');
 });
 
 test('フォルダ構成APIが空応答でも内部エラーを表示しない', async ({ page }) => {
@@ -486,7 +510,7 @@ test('学年の下にフォルダを作り、削除した構成を復元でき�
   await expect(folder).toBeVisible();
 });
 
-test('既存の単元を削除しても問題は未整理に残り、元に戻せる', async ({ page }) => {
+test('読みフォルダを削除しても元に戻せる', async ({ page }) => {
   let state = { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] };
   await page.route('**/__nq/folder-state', async (route) => {
     const request = route.request().postDataJSON();
@@ -501,12 +525,10 @@ test('既存の単元を削除しても問題は未整理に残り、元に戻�
   const reading = grade.locator('details[data-kanji-category="reading"]');
   await reading.locator(':scope > summary').click();
   page.once('dialog', (dialog) => dialog.accept());
-  await reading.getByRole('button', { name: '1年の漢字 削除' }).click();
-  await expect(reading.locator('button[data-unit="kokugo.g1.kanji"]')).toHaveCount(0);
-  await grade.getByRole('button', { name: /未整理/ }).click();
-  await expect(grade.locator('.pg-question-row')).toHaveCount(47);
+  await reading.getByRole('button', { name: '削除', exact: true }).click();
+  await expect(reading).toHaveCount(0);
   await page.getByRole('button', { name: 'フォルダを元に戻す' }).click();
-  await expect(reading.locator('button[data-unit="kokugo.g1.kanji"]')).toBeVisible();
+  await expect(grade.locator('details[data-kanji-category="reading"]')).toBeVisible();
 });
 
 test('問題フォルダの教科名を漢字で表示する', async ({ page }) => {

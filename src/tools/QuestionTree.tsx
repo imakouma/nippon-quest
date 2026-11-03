@@ -3,7 +3,14 @@ import type { ComponentChildren } from 'preact';
 import { tOpt } from '../ui/i18n';
 import { stripRuby } from '../ui/ruby';
 import type { QuestionBase } from '../questions/contracts';
-import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import {
+  FIRST_GRADE_READING_UNITS,
+  kanjiCategory,
+  kanjiScope,
+  kanjiScopeMatches,
+  type KanjiCategory,
+  type KanjiScopeKind,
+} from './kanjiCategory';
 import { CustomFolders, FolderControls } from './FolderControls';
 import { defaultFolderKey, folderSubject, isKanjiUnit, isUnfiled, removeFolder } from './folderLayout';
 import type { useFolderState } from './useFolderState';
@@ -63,6 +70,10 @@ export function QuestionTree({
   );
   const selectionIn = (subject: string, grade?: number) => {
     if (!selectedUnit) return false;
+    if (selectedUnit.startsWith('kanji-scope:')) {
+      const selectedGrade = Number(selectedUnit.split(':')[1]);
+      return subject === 'kanji' && (grade === undefined || grade === selectedGrade);
+    }
     if (selectedUnit.startsWith('unfiled:'))
       return (
         selectedUnit.startsWith(`unfiled:${subject}:`) &&
@@ -261,77 +272,78 @@ export function QuestionTree({
                           !folderTools.state?.layout.hidden.includes(`kanji:${grade.grade}:${category}:*`),
                       )
                       .map((category) => {
-                        let categoryUnits = grade.units.map((unit) => {
-                          const files = new Set(unit.sets.map((set) => set.file));
-                          const count = entries.filter(
-                            (entry) =>
-                              files.has(entry.file) &&
-                              kanjiCategory(entry.q) === category &&
-                              (!entry.q ||
-                                !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, entry.q.id)),
-                          ).length;
-                          return { ...unit, count };
-                        });
-                        if (grade.grade === 1 && category === 'reading') {
-                          const primary = categoryUnits.find(
-                            (unit) => unit.unit === FIRST_GRADE_READING_UNITS[0],
-                          );
-                          const extra = categoryUnits.find(
-                            (unit) => unit.unit === FIRST_GRADE_READING_UNITS[1],
-                          );
-                          if (primary && extra) {
-                            categoryUnits = categoryUnits
-                              .filter((unit) => unit !== extra)
-                              .map((unit) =>
-                                unit === primary ? { ...unit, count: unit.count + extra.count } : unit,
-                              );
-                          }
-                        }
-                        categoryUnits = categoryUnits.filter(
-                          (unit) =>
-                            unit.count > 0 &&
-                            !folderTools.state?.layout.hidden.includes(
-                              `${subject.subject}:${grade.grade}:${category}:${unit.unit}`,
-                            ),
+                        const defaultEntries = entries.filter(
+                          ({ file, q }) =>
+                            !file.startsWith('questions/_samples/') &&
+                            q &&
+                            q.grade === grade.grade &&
+                            folderSubject(q, units) === 'kanji' &&
+                            kanjiCategory(q) === category &&
+                            !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
                         );
+                        const assignedCount = entries.filter(
+                          ({ file, q }) =>
+                            !file.startsWith('questions/_samples/') &&
+                            q &&
+                            q.grade === grade.grade &&
+                            folderSubject(q, units) === 'kanji' &&
+                            folderTools.state?.layout.folders.some(
+                              (folder) =>
+                                folder.id === folderTools.state?.layout.assignments[q.id] &&
+                                folder.category === category,
+                            ),
+                        ).length;
+                        const categoryName = pgText(
+                          `kanjiCategory${category[0]!.toUpperCase()}${category.slice(1)}`,
+                        );
+                        const directKind: KanjiScopeKind | undefined =
+                          category === 'writing' ? 'writing' : category === 'review' ? 'misc' : undefined;
+                        const directScope = directKind ? kanjiScope(grade.grade, directKind) : undefined;
+                        const scopeFolder = (
+                          kind: KanjiScopeKind,
+                          label: string,
+                          attribute: 'reading' | 'other',
+                        ) => {
+                          const scope = kanjiScope(grade.grade, kind);
+                          const count = defaultEntries.filter(
+                            ({ q }) => q && kanjiScopeMatches(q, scope),
+                          ).length;
+                          return (
+                            <details
+                              name="question-tree-kanji-subcategory"
+                              data-kanji-reading-kind={attribute === 'reading' ? kind : undefined}
+                              data-kanji-other-kind={attribute === 'other' ? kind : undefined}
+                              onToggle={(event) => {
+                                const open = (event.currentTarget as HTMLDetailsElement).open;
+                                if (open) onSelectUnit(scope, category);
+                                else if (selectedUnit === scope) onSelectUnit(undefined);
+                              }}
+                            >
+                              <summary>
+                                <span class="pg-tree-label">{label}</span>
+                                <span class="pg-tree-count">
+                                  {count}
+                                  {pgText('questionSuffix')}
+                                </span>
+                              </summary>
+                              {selectedUnit === scope && questions}
+                            </details>
+                          );
+                        };
                         return (
                           <details
                             name="question-tree-kanji-category"
                             data-kanji-category={category}
                             onToggle={(event) => {
-                              if (
-                                !(event.currentTarget as HTMLDetailsElement).open &&
-                                ((selectedCategory === category &&
-                                  grade.units.some((unit) => unit.unit === selectedUnit)) ||
-                                  (selectionIn(subject.subject, grade.grade) &&
-                                    folderTools.state?.layout.folders.some(
-                                      (folder) =>
-                                        selectedUnit === `custom:${folder.id}` &&
-                                        folder.category === category,
-                                    )))
-                              )
-                                onSelectUnit(undefined);
+                              const open = (event.currentTarget as HTMLDetailsElement).open;
+                              if (open && directScope) onSelectUnit(directScope, category);
+                              else if (!open && selectedCategory === category) onSelectUnit(undefined);
                             }}
                           >
                             <summary>
-                              <span class="pg-tree-label">
-                                {pgText(`kanjiCategory${category[0]!.toUpperCase()}${category.slice(1)}`)}
-                              </span>
+                              <span class="pg-tree-label">{categoryName}</span>
                               <span class="pg-tree-count">
-                                {categoryUnits.reduce((sum, unit) => sum + unit.count, 0) +
-                                  entries.filter(
-                                    ({ file, q }) =>
-                                      !file.startsWith('questions/_samples/') &&
-                                      q &&
-                                      q.grade === grade.grade &&
-                                      folderSubject(q, units) === 'kanji' &&
-                                      kanjiCategory(q) === category &&
-                                      folderTools.state?.layout.folders.some(
-                                        (folder) =>
-                                          folder.id === folderTools.state?.layout.assignments[q.id] &&
-                                          folder.category === category,
-                                      ),
-                                  ).length}
+                                {defaultEntries.length + assignedCount}
                                 {pgText('questionSuffix')}
                               </span>
                             </summary>
@@ -340,64 +352,25 @@ export function QuestionTree({
                                 <button
                                   type="button"
                                   disabled={folderTools.busy}
-                                  onClick={() =>
-                                    deleteCategory(
-                                      grade.grade,
-                                      category,
-                                      pgText(
-                                        `kanjiCategory${category[0]!.toUpperCase()}${category.slice(1)}`,
-                                      ),
-                                    )
-                                  }
+                                  onClick={() => deleteCategory(grade.grade, category, categoryName)}
                                 >
                                   {pgText('folderDelete')}
                                 </button>
                               </div>
                             )}
-                            {categoryUnits.map((unit) => (
-                              <div>
-                                <button
-                                  type="button"
-                                  data-unit={unit.unit}
-                                  aria-pressed={selectedUnit === unit.unit && selectedCategory === category}
-                                  onClick={() =>
-                                    onSelectUnit(
-                                      selectedUnit === unit.unit && selectedCategory === category
-                                        ? undefined
-                                        : unit.unit,
-                                      selectedUnit === unit.unit && selectedCategory === category
-                                        ? undefined
-                                        : category,
-                                    )
-                                  }
-                                >
-                                  <span class="pg-tree-label">
-                                    {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
-                                  </span>
-                                  <span class="pg-tree-count">
-                                    {unit.count}
-                                    {pgText('questionSuffix')}
-                                  </span>
-                                </button>
-                                {folderTools.state && (
-                                  <button
-                                    type="button"
-                                    class="pg-folder-delete"
-                                    disabled={folderTools.busy}
-                                    aria-label={`${stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')} ${pgText('folderDelete')}`}
-                                    onClick={() =>
-                                      deleteUnit(
-                                        `${subject.subject}:${grade.grade}:${category}:${unit.unit}`,
-                                        stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji'),
-                                      )
-                                    }
-                                  >
-                                    {pgText('folderDelete')}
-                                  </button>
-                                )}
-                                {selectedUnit === unit.unit && selectedCategory === category && questions}
+                            {category === 'reading' && (
+                              <div class="pg-kanji-subfolders">
+                                {scopeFolder('on', pgText('kanjiReadingOn'), 'reading')}
+                                {scopeFolder('kun', pgText('kanjiReadingKun'), 'reading')}
                               </div>
-                            ))}
+                            )}
+                            {category === 'review' && (
+                              <div class="pg-kanji-subfolders">
+                                {scopeFolder('idiom', pgText('kanjiOtherIdioms'), 'other')}
+                                {scopeFolder('relation', pgText('kanjiOtherRelations'), 'other')}
+                              </div>
+                            )}
+                            {directScope && selectedUnit === directScope && questions}
                             <CustomFolders
                               tools={folderTools}
                               subject={subject.subject}

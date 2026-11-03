@@ -1,9 +1,15 @@
 import { z } from 'zod/v3';
 import type { QuestionBase } from '../questions/contracts';
+import { stripRuby } from '../ui/ruby';
 import { FIRST_GRADE_READING_UNITS, kanjiCategory } from './kanjiCategory';
 
 export function isKanjiUnit(unit: string, units: ReadonlyMap<string, string>): boolean {
-  return /漢字|かんじ|おんよみ・くんよみ|へんとつくり/.test(units.get(unit) ?? '') || unit.includes('kanji');
+  const name = stripRuby(units.get(unit) ?? '', 'kanji').replace(/\s/g, '');
+  return (
+    /漢字|かんじ|音読み・訓読み|おんよみ・くんよみ|へんとつくり|四字熟語|対義語|類義語|反対語|にてる言葉|はんたいの言葉/.test(
+      name,
+    ) || unit.includes('kanji')
+  );
 }
 
 export function folderSubject(question: QuestionBase, units: ReadonlyMap<string, string>): string {

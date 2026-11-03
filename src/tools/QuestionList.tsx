@@ -12,7 +12,12 @@ import { tOpt } from '../ui/i18n';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
-import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import {
+  FIRST_GRADE_READING_UNITS,
+  kanjiCategory,
+  kanjiScopeMatches,
+  type KanjiCategory,
+} from './kanjiCategory';
 import { defaultFolderHidden, defaultFolderKey, folderSubject, isUnfiled } from './folderLayout';
 import { useFolderState } from './useFolderState';
 
@@ -139,18 +144,22 @@ export function QuestionList({
     (e) =>
       (samples || !isSample(e)) &&
       (!scopeUnit ||
-        (scopeUnit.startsWith('custom:')
+        (scopeUnit.startsWith('kanji-scope:')
           ? !!e.q &&
-            !!folderTools.state &&
-            folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
-            !isUnfiled(e.q, units, folderTools.state.layout)
-          : scopeUnit.startsWith('unfiled:')
+            kanjiScopeMatches(e.q, scopeUnit) &&
+            !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)
+          : scopeUnit.startsWith('custom:')
             ? !!e.q &&
               !!folderTools.state &&
-              isUnfiled(e.q, units, folderTools.state.layout) &&
-              `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
-            : unitFiles.has(e.file) &&
-              (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
+              folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
+              !isUnfiled(e.q, units, folderTools.state.layout)
+            : scopeUnit.startsWith('unfiled:')
+              ? !!e.q &&
+                !!folderTools.state &&
+                isUnfiled(e.q, units, folderTools.state.layout) &&
+                `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
+              : unitFiles.has(e.file) &&
+                (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
       (!scopeCategory || kanjiCategory(e.q) === scopeCategory),
   );
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
