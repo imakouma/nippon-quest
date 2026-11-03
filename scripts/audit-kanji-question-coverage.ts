@@ -17,8 +17,6 @@ interface CanonicalKanjiRecord {
   kunyomi: CanonicalReading[];
 }
 
-type ReadingCategory = 'onyomi' | 'kunyomi';
-
 const GRADES: Grade[] = [1, 2, 3, 4, 5, 6];
 const PRESERVED_WRITING_IDS = new Set([
   'kokugo.g1.kanji-trace.0001',
