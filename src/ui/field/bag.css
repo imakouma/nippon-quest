@@ -9,12 +9,22 @@
 .nq-bag-left > .nq-party-info {
   flex: 1;
   min-height: 0;
-  border-color: #665044;
-  background: #151723;
+  gap: 6px;
+  padding: 8px;
+  border-color: #98734d;
+  background: #171723;
+  box-shadow: inset 0 0 0 2px #3b302b;
+}
+.nq-bag-left .nq-party-head {
+  gap: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #665044;
 }
 .nq-bag-left .nq-party-art {
   width: 56px;
   height: 56px;
+  border-color: #80654c;
+  background: #252131;
 }
 .nq-bag-left .nq-party-art img {
   width: 48px;
@@ -23,6 +33,24 @@
 .nq-bag-left .nq-party-name {
   font-size: 24px;
   line-height: 28px;
+}
+.nq-bag-left .nq-party-who {
+  min-width: 0;
+  gap: 0;
+}
+.nq-bag-left .nq-party-sub {
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  color: var(--nq-cloud);
+}
+.nq-bag-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  color: var(--nq-white);
+}
+.nq-bag-left .nq-party-blurb {
+  color: var(--nq-cloud);
 }
 .nq-bag-left .nq-party-sub,
 .nq-bag-left .nq-bag-line,

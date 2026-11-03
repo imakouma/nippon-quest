@@ -483,9 +483,13 @@ export function BagOverlay({
                   ))}
                 </div>
               )}
-              {m.lines?.map((l, i) => (
-                <RubyLabel key={i} text={l} class="nq-bag-line" as="p" />
-              ))}
+              {!!m.lines?.length && (
+                <div class="nq-bag-facts">
+                  {m.lines.map((l, i) => (
+                    <RubyLabel key={i} text={l} class="nq-bag-line" as="p" />
+                  ))}
+                </div>
+              )}
               {!!m.skills?.length && (
                 <>
                   <p class="nq-party-label">
