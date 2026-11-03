@@ -45,7 +45,7 @@
 
 **Files likely touched:**
 
-- `content/curriculum/kanji-readings.json`
+- `content/kanji/readings.json`
 - `content/quality/academic-reviews.json`
 - `tests/unit/kanjiCanonicalData.test.ts`
 

@@ -86,10 +86,25 @@ describe('正規漢字データの検証', () => {
       ]),
     );
   });
+
+  it('同じ文字集合でも学年別配当表と異なる順序を拒否する', () => {
+    const mountain = {
+      ...validRecord,
+      character: '山',
+      onyomi: [{ reading: 'サン', examples: [{ word: '山地', reading: 'サン' }] }],
+    };
+
+    expect(
+      validateKanjiCanonicalData([mountain, validRecord], {
+        expectedByGrade: { '1': '王山' },
+        knownSourceIds: new Set(validRecord.sourceIds),
+      }),
+    ).toContain('正規データの1字目は「山」ですが、配当表順では「王」です');
+  });
 });
 
 describe('小学校1026字の正規データ', () => {
-  const records = readJson('curriculum/kanji-readings.json');
+  const records = readJson('kanji/readings.json');
   const grades = readJson('i18n/kanji-grades.json') as { byGrade: Record<string, string> };
   const ledger = readJson('quality/academic-reviews.json') as { sources: { id: string }[] };
 

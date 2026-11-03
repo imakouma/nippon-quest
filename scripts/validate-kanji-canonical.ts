@@ -34,7 +34,11 @@ export function validateKanjiCanonicalData(
   const errors: string[] = [];
   const seen = new Set<string>();
   const expectedGrades = new Map<string, number>();
-  for (const [grade, characters] of Object.entries(options.expectedByGrade)) {
+  const expectedEntries = Object.entries(options.expectedByGrade).sort(
+    ([left], [right]) => Number(left) - Number(right),
+  );
+  const expectedCharacters = expectedEntries.flatMap(([, characters]) => [...characters]);
+  for (const [grade, characters] of expectedEntries) {
     for (const character of characters) expectedGrades.set(character, Number(grade));
   }
 
@@ -85,6 +89,14 @@ export function validateKanjiCanonicalData(
   for (const character of expectedGrades.keys()) {
     if (!seen.has(character)) errors.push(`配当表の漢字「${character}」が正規データにありません`);
   }
+  parsed.data.forEach((record, index) => {
+    const expected = expectedCharacters[index];
+    if (expected && record.character !== expected) {
+      errors.push(
+        `正規データの${index + 1}字目は「${record.character}」ですが、配当表順では「${expected}」です`,
+      );
+    }
+  });
   return errors;
 }
 
@@ -92,7 +104,7 @@ async function main() {
   const root = resolve(import.meta.dirname, '..');
   const content = resolve(root, 'content');
   const [records, grades, ledger] = await Promise.all([
-    readFile(resolve(content, 'curriculum/kanji-readings.json'), 'utf8').then(JSON.parse),
+    readFile(resolve(content, 'kanji/readings.json'), 'utf8').then(JSON.parse),
     readFile(resolve(content, 'i18n/kanji-grades.json'), 'utf8').then(JSON.parse),
     readFile(resolve(content, 'quality/academic-reviews.json'), 'utf8').then(JSON.parse),
   ]);

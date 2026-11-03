@@ -2,7 +2,7 @@
 
 ## Overview
 
-承認済みの `SPEC-kanji-canonical-data.md` に基づき、小学校配当1026字の学年・音読み・訓読み・用例・一次資料を `content/curriculum/kanji-readings.json` に整備する。文化庁の公式HTML表から一度だけ機械抽出して手入力ミスを避け、以後のビルドと検査は外部通信せず、チェックイン済みJSONだけを検証する。
+承認済みの `SPEC-kanji-canonical-data.md` に基づき、小学校配当1026字の学年・音読み・訓読み・用例・一次資料を `content/kanji/readings.json` に整備する。文化庁の公式HTML表から一度だけ機械抽出して手入力ミスを避け、以後のビルドと検査は外部通信せず、チェックイン済みJSONだけを検証する。
 
 この計画は第1モジュールだけを対象とする。問題生成、問題タグ、フォルダUIは後続モジュールで扱う。
 
