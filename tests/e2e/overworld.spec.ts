@@ -152,7 +152,7 @@ async function skipArrivalStory(page: Page): Promise<void> {
   await finishDialogue(page);
 }
 
-test('青森の石段を一段ずつ昇降し、ワールドカメラへ遠近投影する', async ({ page }) => {
+test('青森の石段を一段ずつ昇降し、段丘を実地形3Dで描く', async ({ page }) => {
   test.setTimeout(90_000);
   await startField(page);
   await teleport(page, [65, 77], { area: 'aomori', map: 'aomori-field', devAll: true });
@@ -162,7 +162,18 @@ test('青森の石段を一段ずつ昇降し、ワールドカメラへ遠近�
 
   await expect
     .poll(() => page.evaluate(() => window.__nq.scene.getScene('Overworld').cameras.main.hasPostPipeline))
-    .toBe(true);
+    .toBe(false);
+  expect(
+    await page.evaluate(() =>
+      Math.max(
+        0,
+        ...window.__nq.scene
+          .getScene('Overworld')
+          .children.list.filter((child): child is Phaser.GameObjects.Mesh => child.type === 'Mesh')
+          .map((mesh) => mesh.faces.length),
+      ),
+    ),
+  ).toBeGreaterThan(0);
 });
 
 async function suppressFadeCompletionAndCountRestarts(page: Page): Promise<void> {

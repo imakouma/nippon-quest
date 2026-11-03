@@ -323,7 +323,7 @@ function drawView(px: (n: number) => Px): void {
         else p(x, y, (x + Math.floor(y / 3) * 5) % 7 === 0 ? NQ.brown : NQ.tan);
       }
   }
-  // 3マス幅の階段：内側の縦枠を消し、左右端だけに側壁、横の段線を全幅へつなぐ。
+  // 3マス幅の石段：1タイルを1段の天面にし、実高さのriserと重ねても金属板に見せない。
   for (const [tile, rail] of [
     [VIEW.STAIRS_LEFT, 'left'],
     [VIEW.STAIRS, 'none'],
@@ -333,8 +333,9 @@ function drawView(px: (n: number) => Px): void {
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++) {
         const side = (rail === 'left' && x < 2) || (rail === 'right' && x > 13);
-        const tread = y === 4 || y === 9 || y === 14;
-        p(x, y, side ? NQ.slate : tread ? NQ.cloud : NQ.silver);
+        const frontEdge = y >= 14;
+        const chip = (x * 5 + y * 3) % 29 === 0;
+        p(x, y, side ? NQ.night : frontEdge ? NQ.slate : chip ? NQ.silver : NQ.gray);
       }
   }
 }

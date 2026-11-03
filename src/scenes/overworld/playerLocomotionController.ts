@@ -9,7 +9,11 @@ import {
   type LocomotionState,
   type TilePoint,
 } from '../../core/world/playerLocomotion';
-import { interpolateElevation, projectedWorldY } from '../../core/world/terrainElevation';
+import {
+  FIELD_ELEVATION_DATA_KEY,
+  interpolateElevation,
+  projectedWorldY,
+} from '../../core/world/terrainElevation';
 import { presentPlayerMotion } from './playerMotionPresenter';
 
 /** Scene の Phaser オブジェクトと純粋な移動ランタイムだけを接続する。 */
@@ -85,6 +89,8 @@ export class PlayerLocomotionController {
       anchorX,
       anchorY,
     });
+    this.sprite.setData(FIELD_ELEVATION_DATA_KEY, elevation);
+    this.shadow.setData(FIELD_ELEVATION_DATA_KEY, elevation);
     this.sprite.setDepth(anchorY);
   }
 

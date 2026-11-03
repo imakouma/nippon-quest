@@ -1,5 +1,6 @@
 export const ELEVATION_UNIT_PX = 4;
 export const MAX_STEP_ELEVATION_DELTA = 1;
+export const FIELD_ELEVATION_DATA_KEY = 'fieldElevation';
 
 export interface TerrainElevation {
   width: number;

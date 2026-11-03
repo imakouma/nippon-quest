@@ -1,5 +1,9 @@
 import type Phaser from 'phaser';
-import { ELEVATION_UNIT_PX, projectedWorldY } from '../../core/world/terrainElevation';
+import {
+  ELEVATION_UNIT_PX,
+  FIELD_ELEVATION_DATA_KEY,
+  projectedWorldY,
+} from '../../core/world/terrainElevation';
 import { entranceIconDepth, entranceIconScale } from '../../rendering/overworld/entranceIcons';
 import type { MapKind } from './geography';
 import { fieldGateIcon } from './overworldFieldInteraction';
@@ -23,7 +27,8 @@ export function addTransitionMarker(
   const pad = scene.add
     .image(x * tileSize + tileSize / 2, projectedWorldY((y + 1) * tileSize, elevation), icon)
     .setOrigin(0.5, isTown ? 1 : 0.5)
-    .setDepth(entranceIconDepth(icon, y, tileSize) - elevation * ELEVATION_UNIT_PX);
+    .setDepth(entranceIconDepth(icon, y, tileSize) - elevation * ELEVATION_UNIT_PX)
+    .setData(FIELD_ELEVATION_DATA_KEY, elevation);
   if (isTown) pad.setDisplaySize(tileSize * entranceIconScale(target), tileSize * entranceIconScale(target));
   if (locked) pad.setTint(0x555566);
   else if (icon === 'fld.gate')

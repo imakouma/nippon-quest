@@ -3,6 +3,7 @@ import { PlayerLocomotionController } from '../../src/scenes/overworld/playerLoc
 
 const sprite = () => ({
   active: true,
+  data: new Map<string, unknown>(),
   texture: { key: 'hero' },
   setTexture(key: string) {
     this.texture.key = key;
@@ -17,17 +18,26 @@ const sprite = () => ({
   setDepth() {
     return this;
   },
+  setData(key: string, value: unknown) {
+    this.data.set(key, value);
+    return this;
+  },
 });
 
 const shadow = () => ({
   x: 0,
   y: 0,
+  data: new Map<string, unknown>(),
   setPosition(x: number, y: number) {
     this.x = x;
     this.y = y;
     return this;
   },
   setScale() {
+    return this;
+  },
+  setData(key: string, value: unknown) {
+    this.data.set(key, value);
     return this;
   },
 });
@@ -71,6 +81,7 @@ describe('PlayerLocomotionController', () => {
     );
 
     expect(playerShadow.y).toBe(73 * 16 + 8 - 4 * 4 + 6);
+    expect(player.data.get('fieldElevation')).toBe(4);
     controller.dispatch({
       type: 'step',
       direction: 'down',
@@ -79,6 +90,7 @@ describe('PlayerLocomotionController', () => {
     });
     controller.advance(80);
     expect(playerShadow.y).toBe(73.5 * 16 + 8 - 3.5 * 4 + 6);
+    expect(player.data.get('fieldElevation')).toBe(3.5);
     controller.advance(80);
     expect(playerShadow.y).toBe(74 * 16 + 8 - 3 * 4 + 6);
   });

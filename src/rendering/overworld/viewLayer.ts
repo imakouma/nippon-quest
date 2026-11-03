@@ -5,6 +5,7 @@ import { addSheet } from '../sheet';
 import { buildElevationView, type ElevationFace } from './elevationView';
 import { buildEntranceIcons } from './entranceIcons';
 import { overworldView } from './overworldView';
+import { addTerrainMesh } from './terrainMesh';
 import { buildViewTexture } from './viewTiles';
 
 /** Tiledのbackgroundを保ったまま、フィールド用の見た目レイヤーをSceneへ重ねる。 */
@@ -56,10 +57,18 @@ export function addOverworldViewLayer(
 ): boolean {
   buildViewTexture(scene);
   buildEntranceIcons(scene);
-  buildFaceTexture(scene, 'cliff');
-  buildFaceTexture(scene, 'stairs');
   const background = map.getLayer('background');
   if (!background) return false;
+  const ids = overworldView(
+    background.data.flatMap((row) => row.map((tile) => tile.index)),
+    map.width,
+    map.height,
+  );
+  const blockedTiles =
+    map.getLayer('collision')?.data.flatMap((row) => row.map((tile) => tile.index > 0)) ?? [];
+  if (addTerrainMesh(scene, ids, elevation, tileSize, blockedTiles)) return true;
+  buildFaceTexture(scene, 'cliff');
+  buildFaceTexture(scene, 'stairs');
   const viewMap = scene.make.tilemap({
     tileWidth: tileSize,
     tileHeight: tileSize,
@@ -67,12 +76,10 @@ export function addOverworldViewLayer(
     height: map.height,
   });
   const tiles = viewMap.addTilesetImage('overworld-view', 'overworld-view', tileSize, tileSize, 0, 0, 0);
-  if (!tiles) return false;
-  const ids = overworldView(
-    background.data.flatMap((row) => row.map((tile) => tile.index)),
-    map.width,
-    map.height,
-  );
+  if (!tiles) {
+    viewMap.destroy();
+    return false;
+  }
   const view = buildElevationView(ids, elevation, tileSize);
   for (const band of view.bands) {
     const layer = viewMap.createBlankLayer(`view-${band.elevation}`, tiles, 0, band.offsetY);

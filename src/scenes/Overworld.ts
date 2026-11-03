@@ -157,7 +157,6 @@ import { locomotionCommandFromDecision } from './overworld/playerLocomotionAdapt
 import { PlayerLocomotionController } from './overworld/playerLocomotionController';
 import { FieldInputController } from './overworld/fieldInput';
 import { attachFieldCamera, type FieldCameraController } from './overworld/fieldCameraController';
-import { attachFieldPerspective } from './overworld/fieldPerspectivePipeline';
 import { FieldContextActions } from './overworld/fieldContextActions';
 import { createMapLayers } from './overworld/mapLayers';
 import { addTransitionMarker } from './overworld/transitionMarker';
@@ -534,7 +533,6 @@ export class OverworldScene extends Phaser.Scene {
 
     const cam = this.cameras.main;
     this.fieldCamera = attachFieldCamera(this, this.player, this.map);
-    attachFieldPerspective(this);
     // 前の 画面の フェードが のこっていたら 消してから 明るくする
     cam.resetFX();
     cam.fadeIn(250, 0, 0, 0);
