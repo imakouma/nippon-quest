@@ -463,13 +463,6 @@ export function BagOverlay({
                       </>
                     )}
                     {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
-                    {m.sub && <RubyLabel text={m.sub} />}
-                    {m.cost > 0 && (
-                      <span class="nq-bag-costline">
-                        <Pips n={m.cost} />
-                        {t('field.bagCost', { n: m.cost })}
-                      </span>
-                    )}
                   </span>
                 </div>
               </div>
