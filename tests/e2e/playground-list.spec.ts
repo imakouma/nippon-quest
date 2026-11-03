@@ -443,6 +443,22 @@ test('漢字の単元を国語から分けて表示する', async ({ page }) => 
   expect(otherFiles.every((file) => file?.startsWith('questions/kokugo/g2/'))).toBe(true);
 });
 
+test('漢字の書き問題は一覧に問題ごとの漢字を表示する', async ({ page }) => {
+  await page.goto('/playground.html');
+  const grade = page.locator('details[data-subject="kanji"] details[data-grade="1"]');
+  await page.locator('details[data-subject="kanji"] > summary').click();
+  await grade.locator(':scope > summary').click();
+  await grade.locator('details[data-kanji-category="writing"] > summary').click();
+
+  const rows = grade.locator('.pg-question-row[title="questions/kokugo/g1/kanji-writing/set-001.json"]');
+  await expect(rows.nth(0).locator('strong')).toContainText('一');
+  await expect(rows.nth(1).locator('strong')).toContainText('右');
+  await expect(rows.nth(2).locator('strong')).toContainText('雨');
+
+  await rows.nth(0).click();
+  await expect(page.locator('.pg-preview h2')).toContainText('一');
+});
+
 test('小1の読みを音読みと訓読みに分けて表示する', async ({ page }) => {
   await page.goto('/playground.html');
   const kanji = page.locator('details[data-subject="kanji"]');
