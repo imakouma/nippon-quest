@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { choicePayloadSchema } from '../src/questions/renderers/choice/schema';
 import { kanjiTracePayloadSchema } from '../src/questions/renderers/kanji-trace/schema';
+import { KANJI_UNIT_BY_GRADE } from './generate-kanji-questions';
 import { MAX_QUESTIONS_PER_SET, type QuestionSourceFile } from './question-layout';
 
 interface CanonicalReading {
@@ -87,7 +88,7 @@ export function auditKanjiQuestionCoverage(
   for (const { source, question } of canonicalQuestions) {
     if (seenIds.has(question.id)) errors.push(`正規漢字問題IDが重複しています: ${question.id}`);
     seenIds.add(question.id);
-    if (question.unit !== `kokugo.g${question.grade}.kanji`) {
+    if (question.unit !== KANJI_UNIT_BY_GRADE[question.grade]) {
       errors.push(`${question.id}: 単元が学年の正規漢字単元ではありません`);
     }
 

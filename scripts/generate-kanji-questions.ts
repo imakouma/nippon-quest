@@ -54,14 +54,22 @@ export type KanjiQuestionCategory = keyof GeneratedKanjiQuestions;
 type ReadingCategory = Exclude<KanjiQuestionCategory, 'writing'>;
 
 const GRADES: Grade[] = [1, 2, 3, 4, 5, 6];
+export const KANJI_UNIT_BY_GRADE: Record<Grade, string> = {
+  1: 'kokugo.g1.kanji',
+  2: 'kokugo.g2.kanji',
+  3: 'kokugo.g3.legacy-jpn-3-1',
+  4: 'kokugo.g4.legacy-jpn-4-1',
+  5: 'kokugo.g5.legacy-jpn-5-1',
+  6: 'kokugo.g6.legacy-jpn-6-1',
+};
 const CATEGORY_SLUG: Record<KanjiQuestionCategory, string> = {
   writing: 'kanji-writing',
   onyomi: 'kanji-onyomi',
   kunyomi: 'kanji-kunyomi',
 };
 const READING_LABEL: Record<ReadingCategory, string> = {
-  onyomi: '音読み[おんよみ]',
-  kunyomi: '訓読み[くんよみ]',
+  onyomi: '音[おん]読[よ]み',
+  kunyomi: '訓[くん]読[よ]み',
 };
 
 export function normalizeKanjiReading(reading: string): string {
@@ -95,7 +103,7 @@ function writingQuestions(
         type: 'kanji-trace',
         subject: 'kokugo',
         grade: record.grade,
-        unit: `kokugo.g${record.grade}.kanji`,
+        unit: KANJI_UNIT_BY_GRADE[record.grade],
         tags: ['kanji:writing', 'kanji:canonical'],
         payload: {
           mode: 'trace',
@@ -189,7 +197,7 @@ function readingQuestions(
         type: 'choice',
         subject: 'kokugo',
         grade,
-        unit: `kokugo.g${grade}.kanji`,
+        unit: KANJI_UNIT_BY_GRADE[grade],
         tags: [`kanji:reading:${category === 'onyomi' ? 'on' : 'kun'}`, 'kanji:canonical'],
         payload: {
           prompt: `「${candidate.record.character}」の ${label}の 一[ひと]つは どれ？`,

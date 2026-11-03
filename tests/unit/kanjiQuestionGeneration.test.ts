@@ -5,6 +5,7 @@ import { auditKanjiQuestionCoverage } from '../../scripts/audit-kanji-question-c
 import {
   buildKanjiQuestionFiles,
   generateKanjiQuestions,
+  KANJI_UNIT_BY_GRADE,
   normalizeKanjiReading,
   type CanonicalKanjiRecord,
 } from '../../scripts/generate-kanji-questions';
@@ -59,6 +60,22 @@ describe('漢字問題生成', () => {
     expect(generated.kunyomi.filter((question) => question.grade === grade)).toHaveLength(
       expectedCounts[grade],
     );
+  });
+
+  it('生成問題を学習グラフに接続済みの単元へ割り当てる', () => {
+    expect(KANJI_UNIT_BY_GRADE).toEqual({
+      1: 'kokugo.g1.kanji',
+      2: 'kokugo.g2.kanji',
+      3: 'kokugo.g3.legacy-jpn-3-1',
+      4: 'kokugo.g4.legacy-jpn-4-1',
+      5: 'kokugo.g5.legacy-jpn-5-1',
+      6: 'kokugo.g6.legacy-jpn-6-1',
+    });
+    for (const category of ['writing', 'onyomi', 'kunyomi'] as const) {
+      expect(
+        generated[category].every((question) => question.unit === KANJI_UNIT_BY_GRADE[question.grade]),
+      ).toBe(true);
+    }
   });
 
   it('存在しないカテゴリの読み問題を作らない', () => {
