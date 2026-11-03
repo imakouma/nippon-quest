@@ -6,15 +6,15 @@
 
 **Acceptance criteria:**
 
-- [ ] 重複漢字、不正学年、片仮名でない音読み、平仮名でない訓読み、音訓が両方空のレコードを具体的なエラーとして返す。
-- [ ] 用例が対象漢字を含まない、用例の読みが空、参照した `sourceIds` が未登録の場合を検出する。
-- [ ] 正しい最小フィクスチャはエラー0件になり、検証時に入力を暗黙修正しない。
+- [x] 重複漢字、不正学年、片仮名でない音読み、平仮名でない訓読み、音訓が両方空のレコードを具体的なエラーとして返す。
+- [x] 用例が対象漢字を含まない、用例の読みが空、参照した `sourceIds` が未登録の場合を検出する。
+- [x] 正しい最小フィクスチャはエラー0件になり、検証時に入力を暗黙修正しない。
 
 **Verification:**
 
-- [ ] 追加テストが実装前に意図した理由で失敗する。
-- [ ] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
-- [ ] `pnpm exec prettier --check scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
+- [x] 追加テストが実装前に意図した理由で失敗する。
+- [x] `pnpm test:related scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
+- [x] `pnpm exec prettier --check scripts/validate-kanji-canonical.ts tests/unit/kanjiCanonicalData.test.ts`
 
 **Dependencies:** None
 

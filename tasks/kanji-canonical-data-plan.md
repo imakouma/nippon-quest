@@ -37,7 +37,7 @@
 
 ### Phase 1: Contract
 
-- [ ] Task 1: 正規漢字データの検証契約をテスト駆動で実装する
+- [x] Task 1: 正規漢字データの検証契約をテスト駆動で実装する
 
 ### Phase 2: Canonical data
 
