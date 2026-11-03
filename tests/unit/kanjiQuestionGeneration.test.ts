@@ -122,4 +122,23 @@ describe('漢字問題生成', () => {
       ),
     ).toBe(true);
   });
+
+  it('生成専用の書きフォルダへタグなし選択問題を混ぜると拒否する', () => {
+    const mixed = structuredClone([...preservedSources, ...generatedSources]);
+    const writingFile = mixed.find(({ file }) => file === 'questions/kokugo/g1/kanji-writing/set-003.json')!;
+    const choice = structuredClone(
+      mixed
+        .flatMap((source) => source.questions)
+        .find((question) => question.id === 'kokugo.g1.kanji-onyomi.0001')!,
+    );
+    choice.id = 'kokugo.g1.misplaced-choice.0001';
+    choice.tags = [];
+    writingFile.questions.push(choice);
+
+    expect(
+      auditKanjiQuestionCoverage(records, mixed).some((error) =>
+        error.includes('生成専用パスの問題に kanji:canonical タグがありません'),
+      ),
+    ).toBe(true);
+  });
 });

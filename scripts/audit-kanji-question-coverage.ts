@@ -54,6 +54,36 @@ export function auditKanjiQuestionCoverage(
   const seenIds = new Set<string>();
   const setNumbers = new Map<string, number[]>();
 
+  for (const source of sources) {
+    const pathMatch = GENERATED_PATH.exec(source.file);
+    if (!pathMatch) continue;
+    const pathGrade = Number(pathMatch[1]);
+    const directory = pathMatch[2]!;
+    const setNumber = Number(pathMatch[3]);
+    const requiredTag =
+      directory === 'kanji-writing'
+        ? 'kanji:writing'
+        : directory === 'kanji-onyomi'
+          ? 'kanji:reading:on'
+          : 'kanji:reading:kun';
+
+    if (source.questions.length === 0 || source.questions.length > MAX_QUESTIONS_PER_SET) {
+      errors.push(`${source.file}: 1セットは1〜${MAX_QUESTIONS_PER_SET}問にしてください`);
+    }
+    const setKey = `${pathGrade}/${directory}`;
+    const numbers = setNumbers.get(setKey) ?? [];
+    numbers.push(setNumber);
+    setNumbers.set(setKey, numbers);
+
+    for (const question of source.questions) {
+      if (!hasTags(question, 'kanji:canonical')) {
+        errors.push(`${question.id}: 生成専用パスの問題に kanji:canonical タグがありません`);
+      }
+      if (!hasTags(question, requiredTag)) errors.push(`${question.id}: ${requiredTag} タグがありません`);
+      if (pathGrade !== question.grade) errors.push(`${question.id}: ファイルの学年と問題の学年が違います`);
+    }
+  }
+
   for (const { source, question } of canonicalQuestions) {
     if (seenIds.has(question.id)) errors.push(`正規漢字問題IDが重複しています: ${question.id}`);
     seenIds.add(question.id);
@@ -66,27 +96,7 @@ export function auditKanjiQuestionCoverage(
       if (!PRESERVED_WRITING_IDS.has(question.id)) {
         errors.push(`${question.id}: 正規漢字問題が生成専用パスにありません (${source.file})`);
       }
-      continue;
     }
-    const pathGrade = Number(pathMatch[1]);
-    const directory = pathMatch[2]!;
-    const setNumber = Number(pathMatch[3]);
-    if (source.questions.length === 0 || source.questions.length > MAX_QUESTIONS_PER_SET) {
-      errors.push(`${source.file}: 1セットは1〜${MAX_QUESTIONS_PER_SET}問にしてください`);
-    }
-    if (pathGrade !== question.grade) errors.push(`${question.id}: ファイルの学年と問題の学年が違います`);
-    const requiredTag =
-      directory === 'kanji-writing'
-        ? 'kanji:writing'
-        : directory === 'kanji-onyomi'
-          ? 'kanji:reading:on'
-          : 'kanji:reading:kun';
-    if (!hasTags(question, requiredTag)) errors.push(`${question.id}: ${requiredTag} タグがありません`);
-
-    const setKey = `${pathGrade}/${directory}`;
-    const numbers = setNumbers.get(setKey) ?? [];
-    if (!numbers.includes(setNumber)) numbers.push(setNumber);
-    setNumbers.set(setKey, numbers);
   }
 
   for (const [key, numbers] of setNumbers) {
