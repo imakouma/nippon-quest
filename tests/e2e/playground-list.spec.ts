@@ -443,6 +443,12 @@ test('小1の漢字の読みを一つにまとめて両単元の問題を表示�
   await expect(rows).toHaveCount(0);
 });
 
+test('フォルダ構成APIが空応答でも内部エラーを表示しない', async ({ page }) => {
+  await page.route('**/__nq/folder-state', (route) => route.fulfill({ status: 404, body: '' }));
+  await page.goto('/playground.html');
+  await expect(page.getByRole('alert')).toHaveText('フォルダ構成を読み込めませんでした');
+});
+
 test('学年の下にフォルダを作り、削除した構成を復元できる', async ({ page }) => {
   let state = { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] };
   await page.route('**/__nq/folder-state', async (route) => {

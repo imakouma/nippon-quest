@@ -63,7 +63,7 @@ function questionSave(): Plugin {
       server.middlewares.use(folderSaveMiddleware(root));
     },
     configurePreviewServer(server) {
-      if (includeDeveloperTools) {
+      if (includeDeveloperTools || existsSync(resolve(root, 'dist/playground.html'))) {
         server.middlewares.use(questionSaveMiddleware(root));
         server.middlewares.use(folderSaveMiddleware(root));
         server.middlewares.use((req, res, next) => {
