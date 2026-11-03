@@ -1,12 +1,15 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import { auditKanjiQuestionCoverage } from '../../scripts/audit-kanji-question-coverage';
 import {
   buildKanjiQuestionFiles,
   generateKanjiQuestions,
   normalizeKanjiReading,
   type CanonicalKanjiRecord,
 } from '../../scripts/generate-kanji-questions';
+import type { QuestionSourceFile } from '../../scripts/question-layout';
+import type { QuestionBase } from '../../src/questions/contracts';
 
 const CONTENT = fileURLToPath(new URL('../../content/', import.meta.url));
 const records = JSON.parse(readFileSync(`${CONTENT}kanji/readings.json`, 'utf8')) as CanonicalKanjiRecord[];
@@ -14,6 +17,17 @@ const expectedCounts = { 1: 80, 2: 160, 3: 200, 4: 202, 5: 193, 6: 191 } as cons
 const preservedWritingCharacters = new Set(['山', '石', '風']);
 
 const generated = generateKanjiQuestions(records, preservedWritingCharacters);
+const preservedSources: QuestionSourceFile[] = [
+  'questions/kokugo/g1/kanji-trace.json',
+  'questions/kokugo/g2/kanji-trace.json',
+].map((file) => ({ file, questions: readJson(file) as QuestionBase[] }));
+const generatedSources = (['writing', 'onyomi', 'kunyomi'] as const).flatMap((category) =>
+  buildKanjiQuestionFiles(category, generated[category]),
+);
+
+function readJson(path: string): unknown {
+  return JSON.parse(readFileSync(`${CONTENT}${path}`, 'utf8'));
+}
 
 describe('漢字問題生成', () => {
   it('読みを選択肢用の平仮名へ正規化する', () => {
@@ -86,5 +100,26 @@ describe('漢字問題生成', () => {
     expect(files.every((file) => file.questions.length <= 30)).toBe(true);
     expect(files[0]?.file).toBe('questions/kokugo/g1/kanji-kunyomi/set-001.json');
     expect(new Set(generated.kunyomi.map((question) => question.id)).size).toBe(1026);
+  });
+
+  it('保存済み問題を独立監査し、正規データにない正解を拒否する', () => {
+    const sources = [...preservedSources, ...generatedSources];
+    expect(auditKanjiQuestionCoverage(records, sources)).toEqual([]);
+
+    const broken = structuredClone(sources);
+    const question = broken
+      .flatMap((source) => source.questions)
+      .find((candidate) => candidate.id === 'kokugo.g1.kanji-onyomi.0001')!;
+    const payload = question.payload as {
+      choices: { id: string; text: string }[];
+      answer: string;
+    };
+    payload.choices.find(({ id }) => id === payload.answer)!.text = 'でたらめ';
+
+    expect(
+      auditKanjiQuestionCoverage(records, broken).some((error) =>
+        error.includes('正規データの音読みにありません'),
+      ),
+    ).toBe(true);
   });
 });
