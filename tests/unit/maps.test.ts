@@ -3,6 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { EVENT_SPOTS, LANDMARK_SPOTS, type LonLat } from '../../scripts/data/geo';
 import { TOWN_THEMES } from '../../scripts/data/towns';
 import { project, type Proj } from '../../scripts/terrain/raster';
+import {
+  canTraverseElevation,
+  elevationAt,
+  terrainElevationFromObjects,
+} from '../../src/core/world/terrainElevation';
 
 /**
  * scaffold:maps が作ったマップが「遊べる」ことを機械的に確かめる。
@@ -293,19 +298,25 @@ describe('マップ', () => {
     }
   });
 
-  it('青森の果樹園段丘は崖を通れず、中央の階段だけを通れる', () => {
+  it('青森の果樹園段丘は4段高く、3マスの階段だけを通れる', () => {
     const aomori = maps.get('aomori-field')!;
     const background = aomori.layers.find((layer) => layer.name === 'background')!.data!;
     const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    const elevationObjects = aomori.layers.find((layer) => layer.name === 'elevation')?.objects ?? [];
+    const elevation = terrainElevationFromObjects(aomori.width, aomori.height, 16, elevationObjects);
     const at = (x: number, y: number) => y * aomori.width + x;
 
+    for (const x of [64, 65, 66]) {
+      expect([73, 74, 75, 76, 77].map((y) => elevationAt(elevation, x, y))).toEqual([4, 3, 2, 1, 0]);
+      expect([74, 75, 76].map((y) => background[at(x, y)])).toEqual([306, 306, 306]);
+      expect(canTraverseElevation(elevationAt(elevation, x, 73), elevationAt(elevation, x, 74))).toBe(true);
+    }
     for (let x = 57; x <= 70; x++) {
       const index = at(x, 74);
-      if (x === 65) {
-        expect(background[index]).toBe(306);
+      if (x >= 64 && x <= 66) {
         expect(collision[index]).not.toBe(3);
       } else {
-        expect(background[index]).toBe(305);
+        expect(canTraverseElevation(elevationAt(elevation, x, 73), elevationAt(elevation, x, 74))).toBe(false);
         expect(collision[index]).toBe(3);
       }
     }

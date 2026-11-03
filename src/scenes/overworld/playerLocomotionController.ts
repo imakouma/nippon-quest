@@ -9,6 +9,7 @@ import {
   type LocomotionState,
   type TilePoint,
 } from '../../core/world/playerLocomotion';
+import { interpolateElevation, projectedWorldY } from '../../core/world/terrainElevation';
 import { presentPlayerMotion } from './playerMotionPresenter';
 
 /** Scene の Phaser オブジェクトと純粋な移動ランタイムだけを接続する。 */
@@ -23,6 +24,7 @@ export class PlayerLocomotionController {
     facing: Dir,
     tile: TilePoint,
     private textureKey: string,
+    private readonly elevationAtTile: (x: number, y: number) => number = () => 0,
   ) {
     this.state = createLocomotionState(facing);
     this.logicalTile = { ...tile };
@@ -66,7 +68,15 @@ export class PlayerLocomotionController {
       tileY += (this.state.to.y - this.state.from.y) * this.state.progress;
     }
     const anchorX = tileX * this.tileSize + this.tileSize / 2;
-    const anchorY = tileY * this.tileSize + this.tileSize / 2;
+    const elevation =
+      this.state.phase === 'stepping'
+        ? interpolateElevation(
+            this.elevationAtTile(this.state.from.x, this.state.from.y),
+            this.elevationAtTile(this.state.to.x, this.state.to.y),
+            this.state.progress,
+          )
+        : this.elevationAtTile(this.logicalTile.x, this.logicalTile.y);
+    const anchorY = projectedWorldY(tileY * this.tileSize + this.tileSize / 2, elevation);
     presentPlayerMotion({
       sprite: this.sprite,
       shadow: this.shadow,

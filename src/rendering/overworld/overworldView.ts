@@ -55,9 +55,11 @@ export const VIEW = {
   ORCHARD_ALT: 89,
   ORCHARD_PEACH_ALT: 90,
   CLIFF: 91,
-  STAIRS: 92,
+  STAIRS_LEFT: 92,
+  STAIRS: 93,
+  STAIRS_RIGHT: 94,
 } as const;
-export const VIEW_COUNT = 93;
+export const VIEW_COUNT = 95;
 
 /** background の 番号（fieldArt.ts・core/world/ground.ts） */
 const WATER = 3;
@@ -110,8 +112,11 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
       return VIEW.PREFECTURE_BORDER;
     case CLIFF_TILE:
       return VIEW.CLIFF;
-    case STAIRS_TILE:
-      return VIEW.STAIRS;
+    case STAIRS_TILE: {
+      const left = x > 0 && bg[i - 1] === STAIRS_TILE;
+      const right = x + 1 < w && bg[i + 1] === STAIRS_TILE;
+      return !left && right ? VIEW.STAIRS_LEFT : left && !right ? VIEW.STAIRS_RIGHT : VIEW.STAIRS;
+    }
     case 1:
     case 13:
     case 14:

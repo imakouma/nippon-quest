@@ -323,19 +323,19 @@ function drawView(px: (n: number) => Px): void {
         else p(x, y, (x + Math.floor(y / 3) * 5) % 7 === 0 ? NQ.brown : NQ.tan);
       }
   }
-  // 階段：太い両端と横向きの段線を反復し、3倍表示でも進める場所だと読めるようにする。
-  {
-    const p = px(VIEW.STAIRS);
+  // 3マス幅の階段：内側の縦枠を消し、左右端だけに側壁、横の段線を全幅へつなぐ。
+  for (const [tile, rail] of [
+    [VIEW.STAIRS_LEFT, 'left'],
+    [VIEW.STAIRS, 'none'],
+    [VIEW.STAIRS_RIGHT, 'right'],
+  ] as const) {
+    const p = px(tile);
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++) {
-        if (x < 3 || x > 12) p(x, y, NQ.bark);
-        else if (y % 3 === 1) p(x, y, NQ.beige);
-        else p(x, y, NQ.tan);
+        const side = (rail === 'left' && x < 2) || (rail === 'right' && x > 13);
+        const tread = y === 4 || y === 9 || y === 14;
+        p(x, y, side ? NQ.slate : tread ? NQ.cloud : NQ.silver);
       }
-    for (let x = 3; x <= 12; x++) {
-      p(x, 0, NQ.leaf);
-      p(x, 15, NQ.green);
-    }
   }
 }
 

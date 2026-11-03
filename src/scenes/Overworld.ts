@@ -16,7 +16,9 @@ import { groundOfTile, type Ground } from '../core/world/ground';
 import type { LocomotionEvent } from '../core/world/playerLocomotion';
 import {
   canTraverseElevation,
+  ELEVATION_UNIT_PX,
   elevationAt,
+  projectedWorldY,
   terrainElevationFromObjects,
   type TerrainElevation,
 } from '../core/world/terrainElevation';
@@ -500,9 +502,13 @@ export class OverworldScene extends Phaser.Scene {
       console.error('[Overworld] タイルセットを読み込めません');
       return;
     }
-    this.map.createLayer('background', tileset, 0, 0);
+    const backgroundLayer = this.map.createLayer('background', tileset, 0, 0);
     // フィールド・離島は 見た目用の レイヤーを 上に しく（データの background は そのまま。地面の 判定に つかう）
-    if (this.kind() === 'field' || this.kind() === 'enclave') addOverworldViewLayer(this, this.map, TILE);
+    if (
+      (this.kind() === 'field' || this.kind() === 'enclave') &&
+      addOverworldViewLayer(this, this.map, TILE, this.terrainElevation)
+    )
+      backgroundLayer?.setVisible(false);
     if (this.kind() === 'town') addTownViewLayer(this, this.map, TILE);
     // 町・ダンジョンの 木・かざり・たいまつ など（地面の上に重ねる）
     if (this.map.getLayer('decor') && !(this.kind() === 'town' && addTownDecor(this, this.map, TILE)))
@@ -672,6 +678,7 @@ export class OverworldScene extends Phaser.Scene {
       this.facing,
       { x: tx, y: ty },
       this.heroTex,
+      (x, y) => elevationAt(this.terrainElevation, x, y),
     );
   }
 
@@ -828,7 +835,10 @@ export class OverworldScene extends Phaser.Scene {
         type: 'footPlanted',
         ground: this.kind() === 'field' || this.kind() === 'enclave' ? groundOfTile(tile) : null,
         x: event.at.x * TILE + TILE / 2,
-        y: (event.at.y + 1) * TILE,
+        y: projectedWorldY(
+          (event.at.y + 1) * TILE,
+          elevationAt(this.terrainElevation, event.at.x, event.at.y),
+        ),
       });
       return;
     }
@@ -1037,10 +1047,11 @@ export class OverworldScene extends Phaser.Scene {
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
       const icon = fieldGateIcon(this.kind(), target);
       const isTown = icon === 'fld.icon.town';
+      const elevation = elevationAt(this.terrainElevation, tx + k, ty);
       const pad = this.add
-        .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
+        .image((tx + k) * TILE + 8, projectedWorldY((ty + 1) * TILE, elevation), icon)
         .setOrigin(0.5, isTown ? 1 : 0.5)
-        .setDepth(entranceIconDepth(icon, ty, TILE));
+        .setDepth(entranceIconDepth(icon, ty, TILE) - elevation * ELEVATION_UNIT_PX);
       this.transitionIcons.set(i, pad);
       if (isTown) pad.setDisplaySize(TILE * entranceIconScale(target), TILE * entranceIconScale(target));
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
