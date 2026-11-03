@@ -18,12 +18,6 @@ export function kanjiCategory(question: QuestionBase | null): KanjiCategory {
   if (/読み方|読みがな|読み仮名|よみかた|よみがな|音読み|訓読み|おんよみ|くんよみ/.test(prompt))
     return 'reading';
   if (
-    /正しい漢字|正しいかん字|正しいかんじ|ただしい漢字|ただしいかん字|ただしいかんじ|あてはまる漢字|漢字の組み合わせ/.test(
-      prompt,
-    )
-  )
-    return 'writing';
-  if (
     question.unit.includes('-kanji-') &&
     Array.isArray(payload.choices) &&
     payload.choices.length > 0 &&
