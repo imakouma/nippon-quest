@@ -16,6 +16,7 @@ const decide = (patch: Partial<Parameters<typeof movementDecision<string, string
     areaBossTile: null,
     lastBossTile: null,
     blocked: () => false,
+    canTraverse: () => true,
     ...patch,
   });
 
@@ -40,6 +41,18 @@ describe('フィールド移動の優先順', () => {
         blocked: () => true,
       }),
     ).toEqual({ kind: 'move', x: 2, y: 1 });
+  });
+
+  it('高低差は空の衝突タイルと開いた関所のどちらでも迂回できない', () => {
+    expect(decide({ canTraverse: () => false })).toEqual({ kind: 'blocked' });
+    expect(
+      decide({
+        gateAt: () => 'gate',
+        gateOpen: () => true,
+        blocked: () => true,
+        canTraverse: () => false,
+      }),
+    ).toEqual({ kind: 'blocked' });
   });
 
   it('閉じた県境リンクは通常衝突より優先して、開いた後は衝突タイルを通れる', () => {

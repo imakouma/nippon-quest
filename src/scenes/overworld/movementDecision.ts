@@ -24,6 +24,7 @@ export function movementDecision<TBoss, TGate, TInterPrefecture = never>(input: 
   areaBossTile: number | null;
   lastBossTile: number | null;
   blocked(x: number, y: number): boolean;
+  canTraverse?(fromX: number, fromY: number, toX: number, toY: number): boolean;
 }): MovementDecision<TBoss, TGate, TInterPrefecture> {
   const x = input.from[0] + input.delta[0];
   const y = input.from[1] + input.delta[1];
@@ -39,6 +40,8 @@ export function movementDecision<TBoss, TGate, TInterPrefecture = never>(input: 
   const interPrefecture = input.interPrefectureAt?.(index);
   if (interPrefecture && !input.interPrefectureOpen?.(interPrefecture))
     return { kind: 'lockedInterPrefecture', link: interPrefecture };
+  if (input.canTraverse && !input.canTraverse(input.from[0], input.from[1], x, y))
+    return { kind: 'blocked' };
   if (gate || interPrefecture) return { kind: 'move', x, y };
   if (input.blocked(x, y)) return { kind: 'blocked' };
   return { kind: 'move', x, y };

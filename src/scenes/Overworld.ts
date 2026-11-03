@@ -14,6 +14,12 @@ import {
 } from '../core/encounter/policy';
 import { groundOfTile, type Ground } from '../core/world/ground';
 import type { LocomotionEvent } from '../core/world/playerLocomotion';
+import {
+  canTraverseElevation,
+  elevationAt,
+  terrainElevationFromObjects,
+  type TerrainElevation,
+} from '../core/world/terrainElevation';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
@@ -308,6 +314,7 @@ export class OverworldScene extends Phaser.Scene {
   private pendingDebugBattle: DebugBattle | null = null;
   private map!: Phaser.Tilemaps.Tilemap;
   private colLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+  private terrainElevation: TerrainElevation = terrainElevationFromObjects(0, 0, TILE);
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Image;
   private michiru!: Phaser.GameObjects.Sprite;
@@ -482,6 +489,12 @@ export class OverworldScene extends Phaser.Scene {
     });
 
     this.map = this.make.tilemap({ key: this.mapKey });
+    this.terrainElevation = terrainElevationFromObjects(
+      this.map.width,
+      this.map.height,
+      TILE,
+      this.map.getObjectLayer('elevation')?.objects ?? [],
+    );
     const tileset = this.map.addTilesetImage('overworld-tiles', 'overworld-tiles');
     if (!tileset) {
       console.error('[Overworld] タイルセットを読み込めません');
@@ -618,6 +631,7 @@ export class OverworldScene extends Phaser.Scene {
     this.transitionIcons = new Map();
     this.stampIds = [];
     this.baseMap = null;
+    this.terrainElevation = terrainElevationFromObjects(0, 0, TILE);
     this.fieldResume.reset();
   }
 
@@ -747,6 +761,11 @@ export class OverworldScene extends Phaser.Scene {
       areaBossTile: this.areaBoss?.tile ?? null,
       lastBossTile: this.lastBoss?.tile ?? null,
       blocked: (x, y) => this.isBlocked(x, y),
+      canTraverse: (fromX, fromY, toX, toY) =>
+        canTraverseElevation(
+          elevationAt(this.terrainElevation, fromX, fromY),
+          elevationAt(this.terrainElevation, toX, toY),
+        ),
     });
     this.game.canvas.dataset.lastMovement = decision.kind;
     const command = locomotionCommandFromDecision(dir, this.playerTile(), decision);
