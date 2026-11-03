@@ -1,5 +1,4 @@
-/* 問題UI共通スタイル。基準解像度 960x540 の DOM オーバーレイ内で使う。
- * 文字はドットフォント（PixelMplus12）なので、大きさは 12 / 24 / 36 / 48px だけにする（ほかはにじむ） */
+/* 問題UI共通スタイル。基準解像度 960x540 の DOM オーバーレイ内で使う。 */
 .nq-q {
   position: absolute;
   inset: 0;
@@ -14,6 +13,12 @@
   font-size: 24px;
   overflow-x: hidden;
   overflow-y: auto;
+}
+.nq-q-choice {
+  container-type: size;
+}
+.nq-q-choice .nq-q-prompt {
+  font-size: clamp(18px, 3.7cqh, 24px);
 }
 .nq-q ruby > rt {
   font-size: 12px;
@@ -135,7 +140,7 @@
   min-width: 0;
   min-height: max-content;
   padding: 12px 12px 12px 48px;
-  font-size: 24px;
+  font-size: clamp(16px, 3.3cqh, 24px);
   position: relative;
 }
 .nq-choice img {
