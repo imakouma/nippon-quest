@@ -426,6 +426,12 @@ test('漢字の単元を国語から分けて表示する', async ({ page }) => 
   await expect(writing.locator('button[data-unit]')).toHaveCount(0);
   await expect(page.locator('.pg-question-row')).toHaveCount(160);
   await expect(other.locator(':scope > summary')).toContainText('その他');
+  await other.locator(':scope > summary').click();
+  const otherFiles = await page
+    .locator('.pg-question-row')
+    .evaluateAll((rows) => rows.map((row) => row.getAttribute('title')));
+  expect(otherFiles.length).toBeGreaterThan(0);
+  expect(otherFiles.every((file) => file?.startsWith('questions/kokugo/g2/'))).toBe(true);
 });
 
 test('小1の読みを音読みと訓読みに分けて表示する', async ({ page }) => {

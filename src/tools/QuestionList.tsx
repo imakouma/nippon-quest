@@ -146,6 +146,7 @@ export function QuestionList({
       (!scopeUnit ||
         (scopeUnit.startsWith('kanji-scope:')
           ? !!e.q &&
+            folderSubject(e.q, units) === 'kanji' &&
             kanjiScopeMatches(e.q, scopeUnit) &&
             !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)
           : scopeUnit.startsWith('custom:')
