@@ -47,12 +47,14 @@ test('タイトル画面は全ゲームコンテンツの読込を待たない',
   await expect.poll(() => requests.includes('/content/content-bundle.json')).toBe(true);
 });
 
-test('Playground で choice 問題を解くと QuestionResult が返る', async ({ page }) => {
+test('問題レビュー内で choice 問題を解くと採点結果を確認できる', async ({ page }) => {
   test.skip(process.env.E2E_PRODUCTION_BUILD === '1', '開発者専用画面は本番ビルドに含まれない');
   await page.goto('/playground.html?q=eigo.g3.alphabet-small.0002');
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await page.locator('.nq-choice').first().click();
-  await expect(page.locator('.pg-result')).toContainText('"score"', { timeout: 10_000 });
+  await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toBeVisible({
+    timeout: 10_000,
+  });
 });
 
 test('問題レビュー内の編集フォームに主要入力と選択肢操作の名前がある', async ({ page }) => {
