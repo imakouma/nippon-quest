@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   buildEntranceIcons,
+  entranceIconDepth,
   entranceIconScale,
   INTER_PREFECTURE_ICON_SIZE,
   interPrefectureIconKey,
@@ -18,6 +19,14 @@ describe('フィールド入口の大きさ', () => {
   it('町以外は1マスのままにし、明示値は優先する', () => {
     expect(entranceIconScale('aomori-dungeon')).toBe(1);
     expect(entranceIconScale('iwate-town', 3)).toBe(3);
+  });
+
+  it('町の入口マスでは主人公を手前、1マス奥では建物を手前にする', () => {
+    const townDepth = entranceIconDepth('fld.icon.town', 10, 16);
+
+    expect(townDepth).toBeLessThan(10 * 16 + 8);
+    expect(townDepth).toBeGreaterThan(9 * 16 + 8);
+    expect(entranceIconDepth('fld.icon.cave', 10, 16)).toBe(10 * 16);
   });
 });
 
@@ -83,6 +92,12 @@ describe('県境・実在交通のフィールド入口', () => {
     };
 
     buildEntranceIcons({ textures } as never);
+
+    const town = registered.get('fld.icon.town');
+    expect(town).toBeDefined();
+    expect([town!.width, town!.height]).toEqual([32, 32]);
+    expect(town!.colors.every((color) => NQ48.includes(color))).toBe(true);
+    expect(new Set(town!.colors).size).toBeLessThanOrEqual(15);
 
     const entries = [...registered].filter(([key]) => key.startsWith('fld.interpref.'));
     expect(entries).toHaveLength(10);

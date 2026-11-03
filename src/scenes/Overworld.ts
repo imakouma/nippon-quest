@@ -108,6 +108,7 @@ import { monsterMenuArtUrl } from '../rendering/menuArt';
 import { addSheet } from '../rendering/sheet';
 import type { BattleEndEvent, BattleLaunchData, BattleSceneData } from './battle/contracts';
 import { buildFieldTextures } from '../rendering/overworld/fieldArt';
+import { entranceIconDepth, entranceIconScale } from '../rendering/overworld/entranceIcons';
 import { addOverworldViewLayer } from '../rendering/overworld/viewLayer';
 import { addTownDecor, addTownViewLayer } from './overworld/townPresentation';
 import {
@@ -1020,9 +1021,9 @@ export class OverworldScene extends Phaser.Scene {
       const pad = this.add
         .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
         .setOrigin(0.5, isTown ? 1 : 0.5)
-        .setDepth(isTown ? (ty + 1) * TILE - 1 : ty * TILE);
+        .setDepth(entranceIconDepth(icon, ty, TILE));
       this.transitionIcons.set(i, pad);
-      if (isTown) pad.setDisplaySize(TILE * 3, TILE * 3);
+      if (isTown) pad.setDisplaySize(TILE * entranceIconScale(target), TILE * entranceIconScale(target));
       // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
       if (this.isLocked(i)) {
         pad.setTint(0x555566);

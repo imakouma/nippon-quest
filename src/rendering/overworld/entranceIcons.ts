@@ -1,6 +1,6 @@
 /**
  * フィールドの 入口の しるし（ドラクエの 地図のように、行き先が 絵で わかる）。NQ-48 だけ。
- *  fld.icon.town：町（3×3マスの集落）／fld.icon.cave：ダンジョン（岩山の どうくつ）
+ *  fld.icon.town：町（2×2マスの集落）／fld.icon.cave：ダンジョン（岩山の どうくつ）
  *  fld.icon.castle：裏ステージ（お城の 門）／fld.icon.port：港（船と さんばし）
  * 離島への 港（ハーバー）の 絵も ここ：fld.pier.h / fld.pier.v（さんばしの 板 16×16）・fld.ship（船 32×24）
  * 県間入口：fld.interpref.<gate|bridge|tunnel|rail|ferry>.<open|closed>（すべて16×16）
@@ -44,6 +44,10 @@ export const entranceIconScale = (target: string, configured?: unknown): number 
   const scale = Number(configured ?? (target.endsWith('-town') ? 2 : 1));
   return Number.isFinite(scale) && scale > 0 ? scale : 1;
 };
+
+/** 町の入口マスでは主人公が建物の手前に立つ。 */
+export const entranceIconDepth = (icon: string, tileY: number, tileSize: number): number =>
+  tileY * tileSize + (icon === 'fld.icon.town' ? tileSize / 2 - 1 : 0);
 
 const ICONS: Record<string, (r: Rect) => void> = {
   'fld.icon.cave': (r) => {
@@ -94,87 +98,42 @@ const ICONS: Record<string, (r: Rect) => void> = {
   },
 };
 
-/** 町は1軒のアイコンではなく、家・役場・広場がまとまった3×3マスの集落として見せる。 */
+/** 町は透明背景の2×2マスで、地形に重ねても輪郭と入口が読める。 */
 const LARGE_ENTRANCES: Record<string, [number, number, (r: Rect) => void]> = {
   'fld.icon.town': [
-    72,
-    72,
+    32,
+    32,
     (r) => {
-      // 3×3マスの敷地。72pxで描き、ゲーム上では48pxへ縮小して精細に見せる。
-      r(3, 25, 66, 41, NQ.sprout);
-      r(20, 39, 32, 27, NQ.sand);
-      r(29, 60, 14, 12, NQ.beige);
-      // 広場の石畳
-      r(23, 43, 5, 2, NQ.beige);
-      r(44, 42, 5, 2, NQ.beige);
-      r(34, 48, 4, 2, NQ.paper);
-      r(25, 53, 4, 2, NQ.bark);
-      r(45, 54, 4, 2, NQ.bark);
-      r(33, 58, 6, 2, NQ.paper);
+      // 左右の家で集落の幅を出し、中央の暗い戸口へ視線を集める。
+      r(2, 10, 8, 2, NQ.navy);
+      r(0, 12, 12, 4, NQ.azure);
+      r(1, 16, 10, 11, NQ.paper);
+      r(1, 24, 10, 3, NQ.beige);
+      r(3, 19, 4, 5, NQ.navy);
+      r(4, 20, 2, 3, NQ.sky);
+      r(22, 10, 8, 2, NQ.brown);
+      r(20, 12, 12, 4, NQ.red);
+      r(21, 16, 10, 11, NQ.paper);
+      r(21, 24, 10, 3, NQ.beige);
+      r(25, 19, 3, 8, NQ.brown);
 
-      // 左奥の青屋根の家。縁取り、瓦、軒影まで描く。
-      r(3, 20, 24, 2, NQ.ink);
-      r(5, 17, 20, 3, NQ.navy);
-      r(2, 22, 27, 3, NQ.azure);
-      r(4, 25, 23, 3, NQ.sky);
-      r(6, 28, 19, 15, NQ.paper);
-      r(6, 40, 19, 3, NQ.beige);
-      r(8, 31, 6, 6, NQ.navy);
-      r(9, 32, 4, 4, NQ.sky);
-      r(18, 31, 5, 12, NQ.brown);
-      r(19, 33, 1, 2, NQ.gold);
-      r(8, 18, 2, 2, NQ.sky);
-      r(14, 18, 2, 2, NQ.sky);
-      r(20, 18, 2, 2, NQ.sky);
-
-      // 右奥の赤屋根の家。
-      r(47, 18, 22, 2, NQ.ink);
-      r(49, 15, 18, 3, NQ.brown);
-      r(45, 20, 27, 3, NQ.red);
-      r(47, 23, 23, 3, NQ.vermilion);
-      r(49, 26, 19, 16, NQ.beige);
-      r(49, 39, 19, 3, NQ.gold);
-      r(52, 29, 6, 6, NQ.navy);
-      r(53, 30, 4, 4, NQ.sky);
-      r(61, 29, 5, 13, NQ.brown);
-      r(62, 31, 1, 2, NQ.gold);
-      r(52, 16, 2, 2, NQ.vermilion);
-      r(58, 16, 2, 2, NQ.vermilion);
-      r(64, 16, 2, 2, NQ.vermilion);
-
-      // 中央の役場。二重屋根と壁の陰影で町の中心らしくする。
-      r(23, 5, 26, 2, NQ.ink);
-      r(25, 2, 22, 3, NQ.navy);
-      r(20, 7, 32, 3, NQ.red);
-      r(18, 10, 36, 6, NQ.vermilion);
-      r(20, 16, 32, 3, NQ.red);
-      r(23, 19, 26, 22, NQ.paper);
-      r(23, 37, 26, 4, NQ.beige);
-      r(26, 23, 7, 7, NQ.navy);
-      r(27, 24, 5, 5, NQ.sky);
-      r(39, 23, 7, 7, NQ.navy);
-      r(40, 24, 5, 5, NQ.sky);
-      r(33, 28, 7, 13, NQ.brown);
-      r(34, 30, 5, 11, NQ.bark);
-      r(38, 33, 1, 2, NQ.gold);
-      r(23, 19, 2, 18, NQ.gold);
-      r(47, 19, 2, 18, NQ.bark);
-      r(24, 11, 2, 3, NQ.gold);
-      r(31, 11, 2, 3, NQ.gold);
-      r(39, 11, 2, 3, NQ.gold);
-      r(46, 11, 2, 3, NQ.gold);
-
-      // 木と案内板。小さな陰影で単純な矩形感を抑える。
-      r(9, 50, 5, 12, NQ.brown);
-      r(10, 51, 2, 10, NQ.bark);
-      r(4, 45, 12, 10, NQ.leaf);
-      r(8, 41, 10, 12, NQ.leaf);
-      r(13, 46, 8, 9, NQ.sprout);
-      r(7, 44, 4, 3, NQ.sprout);
-      r(55, 48, 13, 2, NQ.ink);
-      r(56, 50, 11, 6, NQ.brown);
-      r(58, 52, 7, 2, NQ.gold);
-      r(60, 56, 3, 8, NQ.bark);
+      r(8, 3, 16, 3, NQ.navy);
+      r(5, 6, 22, 3, NQ.ink);
+      r(6, 7, 20, 3, NQ.red);
+      r(4, 10, 24, 4, NQ.vermilion);
+      r(5, 13, 22, 1, NQ.brick);
+      r(6, 14, 20, 15, NQ.paper);
+      r(5, 14, 1, 15, NQ.ink);
+      r(26, 14, 1, 15, NQ.ink);
+      r(6, 26, 20, 3, NQ.beige);
+      r(5, 29, 22, 1, NQ.ink);
+      r(8, 17, 5, 5, NQ.navy);
+      r(9, 18, 3, 3, NQ.sky);
+      r(19, 17, 5, 5, NQ.navy);
+      r(20, 18, 3, 3, NQ.sky);
+      r(13, 20, 6, 9, NQ.ink);
+      r(14, 21, 4, 8, NQ.brown);
+      r(17, 24, 1, 1, NQ.gold);
     },
   ],
 };
