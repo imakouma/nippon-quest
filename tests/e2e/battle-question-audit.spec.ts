@@ -27,6 +27,42 @@ test('長い選択肢の文字は番号と重ならず、枠からはみ出さ�
   }
 });
 
+test('狭い問題枠でも4つの選択肢がスクロールなしで見える', async ({ page }) => {
+  await page.goto('/battle-question-audit.html?q=legacy.rika.g3.cur-1503-01.15a88fa0a6e1');
+  const choices = page.locator('.nq-q-choice .nq-choice');
+  await expect(choices).toHaveCount(4, { timeout: 20_000 });
+  for (const [width, height] of [
+    [960, 540],
+    [720, 405],
+  ] as const) {
+    await page.locator('.nq-audit-stage').evaluate(
+      (stage, size) => {
+        (stage as HTMLElement).style.width = `${size.width}px`;
+        (stage as HTMLElement).style.height = `${size.height}px`;
+      },
+      { width, height },
+    );
+    const visible = await page.locator('.nq-q-choice').evaluate((root) => {
+      const frame = root.getBoundingClientRect();
+      const options = [...root.querySelectorAll('.nq-choice')];
+      return (
+        options.every((option) => {
+          const box = option.getBoundingClientRect();
+          return (
+            box.top >= frame.top &&
+            box.bottom <= frame.bottom &&
+            box.left >= frame.left &&
+            box.right <= frame.right
+          );
+        }) &&
+        root.scrollHeight <= root.clientHeight &&
+        root.querySelector('.nq-q-choices')!.scrollHeight <= root.querySelector('.nq-q-choices')!.clientHeight
+      );
+    });
+    expect(visible, `${width}×${height} の問題枠`).toBe(true);
+  }
+});
+
 test('テンプレート型の文字入力問題は問題文を二重に表示しない', async ({ page }) => {
   await page.goto('/battle-question-audit.html?q=legacy.sansu.g1.math-1-9.3e2f1449e1d8');
   await expect(page.locator('.nq-q-input')).toBeVisible({ timeout: 20_000 });
