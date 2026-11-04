@@ -618,7 +618,7 @@ test('Playground の問題ツリー：狭い画面では表の上に並ぶ', asy
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('Playground は中幅の画面でも問題一覧とレビューを横に並べる', async ({ page }) => {
+test('Playground は中幅でも一覧・見出し・操作部を同じ縦配置にする', async ({ page }) => {
   await page.setViewportSize({ width: 960, height: 900 });
   await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
 
@@ -630,22 +630,21 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   const play = await page.getByRole('button', { name: '再生', exact: true }).boundingBox();
   expect(heading).not.toBeNull();
   expect(play).not.toBeNull();
-  expect(play!.x).toBeGreaterThanOrEqual(heading!.x + heading!.width);
+  expect(play!.y).toBeGreaterThanOrEqual(heading!.y + heading!.height);
 
   const listBox = await list.boundingBox();
   const reviewBox = await review.boundingBox();
   expect(listBox).not.toBeNull();
   expect(reviewBox).not.toBeNull();
-  expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
-  expect(Math.abs(listBox!.height - reviewBox!.height)).toBeLessThan(2);
-  expect(reviewBox!.x - (listBox!.x + listBox!.width)).toBeLessThanOrEqual(10);
-  expect(reviewBox!.width / listBox!.width).toBeGreaterThanOrEqual(1.79);
+  expect(reviewBox!.y).toBeGreaterThanOrEqual(listBox!.y + listBox!.height);
+  expect(Math.abs(reviewBox!.x - listBox!.x)).toBeLessThan(1);
+  expect(reviewBox!.width).toBeCloseTo(listBox!.width, 1);
   await page.locator('details[data-subject="sansu"] > summary').click();
   await expect(page.locator('details[data-subject="sansu"] details[data-grade="1"]')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
 });
 
-test('Playground は広い画面でプレビューを編集の上に表示し、基本情報を横に並べる', async ({ page }) => {
+test('Playground は広い画面でも縦配置と基本情報の2列を保つ', async ({ page }) => {
   await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('/playground.html?q=eigo.g1.alphabet.0001');
 
@@ -661,7 +660,7 @@ test('Playground は広い画面でプレビューを編集の上に表示し、
   expect(listBox).not.toBeNull();
   expect(editorBox).not.toBeNull();
   expect(previewBox).not.toBeNull();
-  expect(previewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
+  expect(previewBox!.y).toBeGreaterThanOrEqual(listBox!.y + listBox!.height);
   expect(editorBox!.y).toBeGreaterThanOrEqual(previewBox!.y + previewBox!.height);
   const fields = await page
     .locator('.ed-metadata-row .ed-field')
@@ -669,7 +668,7 @@ test('Playground は広い画面でプレビューを編集の上に表示し、
       items.map((item) => ({ x: item.getBoundingClientRect().x, y: item.getBoundingClientRect().y })),
     );
   expect(fields).toHaveLength(4);
-  expect(new Set(fields.map((field) => field.y)).size).toBe(1);
+  expect(new Set(fields.map((field) => field.y)).size).toBe(2);
   expect(fields[3]!.x).toBeGreaterThan(fields[0]!.x);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1600);
 });
