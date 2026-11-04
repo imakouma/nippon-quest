@@ -176,6 +176,7 @@ test('旧版の算数：復元した長さの式を見て答えられる', async
     .locator('.nq-choice')
     .filter({ hasText: /^\d1km$/ })
     .click();
+  await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
   await expect(page.locator('.pg-result')).toContainText('"score": 1');
 });
 
@@ -185,6 +186,7 @@ test('旧版の算数：ケーキの分数を縦に表示して答えられる',
   await expect(page.locator('.nq-q-prompt')).not.toContainText('dfrac');
   await page.getByRole('textbox', { name: /こたえ/ }).fill('4');
   await page.locator('.nq-input-submit').click();
+  await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
   await expect(page.locator('.pg-result')).toContainText('"score": 1');
 });
 
@@ -196,6 +198,7 @@ for (const [answer, expected] of [
     await page.goto('/playground.html?q=legacy.sansu.g3.math-3-15.1c00bc7a70f5');
     await page.getByRole('textbox', { name: /こたえ/ }).fill(answer);
     await page.locator('.nq-input-submit').click();
+    await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
     await expect(page.locator('.pg-result')).toContainText(`"score": ${expected}`);
   });
 }
@@ -214,6 +217,7 @@ test('旧版の算数：罫線付きの表を見て1か所ずつ答える', asyn
     await expect(input).toHaveCount(1);
     await input.fill(answer);
     await page.locator('.nq-input-submit').click();
+    await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
     await expect(page.locator('.pg-result')).toContainText('"score": 1');
   }
 });
@@ -232,5 +236,38 @@ test('旧版の算数：狭い画面でも表をスクロールして答えら�
   expect((await image.boundingBox())?.height).toBeGreaterThan(150);
   await page.getByRole('textbox', { name: /こたえ/ }).fill('9');
   await page.locator('.nq-input-submit').click();
+  await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
   await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});
+
+test('旧版の算数：時計を読み、解説を自分のペースで確認する', async ({ page }) => {
+  await page.goto('/playground.html?q=sansu.g1.tokei.0002');
+  await expect(page.locator('.nq-q-prompt-img')).toHaveAttribute('src', /clock-03-30\.svg$/);
+  await page.locator('.nq-choice').filter({ hasText: '3じ 30ぷん' }).click();
+  await expect(page.locator('.nq-feedback')).toContainText('かんぺき');
+  await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeFocused();
+  await page.waitForTimeout(1200);
+  await expect(page.locator('.nq-review')).toBeVisible();
+  await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
+  await expect(page.locator('.nq-review p')).toContainText('3を すぎている');
+  await expect(page.locator('.nq-review p')).toBeFocused();
+  await page.screenshot({ path: 'test-results/sansu-clock-review.png' });
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});
+
+test('旧版の算数：入力式に読みと音声ボタンがあり答えを読み上げない', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window.speechSynthesis, 'speak', {
+      value: (utterance: SpeechSynthesisUtterance) => {
+        document.body.dataset.lastSpeech = utterance.text;
+      },
+    });
+  });
+  await page.goto('/playground.html?q=legacy.sansu.g3.math-3-15.1c00bc7a70f5');
+  await expect(page.locator('.nq-q-input ruby').first()).toBeVisible();
+  await page.locator('.nq-input-speak').click();
+  await expect(page.locator('body')).toHaveAttribute('data-last-speech', /センチメートル/);
+  await expect(page.locator('body')).not.toHaveAttribute('data-last-speech', /7てん6/);
 });

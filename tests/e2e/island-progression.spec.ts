@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { advanceQuestionFeedback } from './helpers/questionReview';
 import { completeNewGameSetup } from './newGame';
 
 const TOHOKU_SIGNS = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'];
@@ -75,21 +76,15 @@ async function useFirstSkill(page: Page): Promise<void> {
   await expect(page.locator('.nq-bq')).toBeVisible({ timeout: 20_000 });
   const choices = page.locator('.nq-choice');
   if (await choices.first().isVisible()) {
-    for (
-      let index = 0;
-      index < (await choices.count()) && (await page.locator('.nq-bq').isVisible());
-      index += 1
-    )
-      await choices
-        .nth(index)
-        .click({ timeout: 1_000 })
-        .catch(() => undefined);
+    await choices.first().click();
+    await advanceQuestionFeedback(page);
     return;
   }
   const inputs = page.locator('.nq-q-input input');
   if (await inputs.first().isVisible()) {
     for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
     await page.getByRole('button', { name: 'こたえる' }).click();
+    await advanceQuestionFeedback(page);
     return;
   }
   const map = page.locator('.nq-map-tap');

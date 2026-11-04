@@ -1027,7 +1027,6 @@ export class BattleScene extends Phaser.Scene {
         mastery: this.mastery,
         rng: this.qRng,
         speak: this.speak,
-        now: () => this.time.now,
         getGame: () => this.syncGame(),
         port: {
           show: ({ host, skillName, subject: questionSubject, hint: questionHint, abort }) => {

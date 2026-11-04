@@ -11,11 +11,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "はこの形を つくる 赤く ぬられた ところを なんというでしょう。",
+      "prompt": "はこの形[かたち]を つくる 赤[あか]く ぬられた ところを なんというでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "面"
+          "text": "面[めん]"
         },
         {
           "id": "c2",
@@ -23,7 +23,7 @@
         },
         {
           "id": "c3",
-          "text": "ちょう点"
+          "text": "ちょう点[てん]"
         }
       ],
       "answer": "c1",
@@ -44,11 +44,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "はこの形を つくる 赤い ぶぶんを なんというでしょう。",
+      "prompt": "はこの形[かたち]を つくる 赤[あか]い ぶぶんを なんというでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "面"
+          "text": "面[めん]"
         },
         {
           "id": "c2",
@@ -56,7 +56,7 @@
         },
         {
           "id": "c3",
-          "text": "ちょう点"
+          "text": "ちょう点[てん]"
         }
       ],
       "answer": "c2",
@@ -77,7 +77,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの ずは、はこの形を きって ひらいた ものです。赤いろの 面は、何という 形に なっているでしょう。",
+      "prompt": "つぎの ずは、はこの形[かたち]を きって ひらいた ものです。赤[あか]いろの 面[めん]は、何[なに]という 形[かたち]に なっているでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -93,14 +93,14 @@
         },
         {
           "id": "c4",
-          "text": "直角三角形"
+          "text": "直角三角形[ちょっかくさんかくけい]"
         }
       ],
       "answer": "c2",
       "shuffle": true,
       "promptImage": "questions/legacy/9e2ff05e5b6071d1.png"
     },
-    "explanation": "正方形[せいほうけい]は、角が ぜんぶ 直角[ちょっかく]で、へんの 長さが ぜんぶ おなじ 四角形[しかくけい]。"
+    "explanation": "正方形[せいほうけい]は、角[かく]が ぜんぶ 直角[ちょっかく]で、へんの 長[なが]さが ぜんぶ おなじ 四角形[しかくけい]。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.11185d7c3d8f",
@@ -114,7 +114,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "①の はこの形を きって ひらくと、アとイ、どちらの 形に なるでしょう。",
+      "prompt": "①の はこの形[かたち]を きって ひらくと、アとイ、どちらの 形[かたち]に なるでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -143,11 +143,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "はこの形を つくる 赤い ぶぶんを なんというでしょう。",
+      "prompt": "はこの形[かたち]を つくる 赤[あか]い ぶぶんを なんというでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "面"
+          "text": "面[めん]"
         },
         {
           "id": "c2",
@@ -155,7 +155,7 @@
         },
         {
           "id": "c3",
-          "text": "ちょう点"
+          "text": "ちょう点[てん]"
         }
       ],
       "answer": "c3",
@@ -176,7 +176,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "①の はこの形には ぜんぶで いくつ 面が あるでしょう。",
+      "prompt": "①の はこの形[かたち]には ぜんぶで いくつ 面[めん]が あるでしょう。",
       "answers": [
         "6"
       ],
@@ -184,7 +184,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形には ぜんぶで 6つの 面が あります。"
+    "explanation": "はこの形[かたち]には ぜんぶで 6つの 面[めん]が あります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.539c693eed81",
@@ -198,7 +198,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "③の 面と、形と 大きさが おなじ 面は どれでしょう。",
+      "prompt": "③の 面[めん]と、形[かたち]と 大[おお]きさが おなじ 面[めん]は どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -221,7 +221,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/4b8eb3687dafbe36.png"
     },
-    "explanation": "はこの形の ちょうど はんたいがわの 面が、おなじ 形と 大きさです。"
+    "explanation": "はこの形[かたち]の ちょうど はんたいがわの 面[めん]が、おなじ 形[かたち]と 大[おお]きさです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.70d5488d88e8",
@@ -235,7 +235,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "②の はこの形を きって ひらくと、アとイ、どちらの 形に なるでしょう。",
+      "prompt": "②の はこの形[かたち]を きって ひらくと、アとイ、どちらの 形[かたち]に なるでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -264,7 +264,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの ような はこの形が あります。",
+      "prompt": "つぎの ような はこの形[かたち]が あります。",
       "answers": [
         "12"
       ],
@@ -272,7 +272,7 @@
       "suffix": "本",
       "promptImage": "questions/legacy/5081e4e93998b1b0.png"
     },
-    "explanation": "はこの形は すべて 7cmの へんで できています。へんの かずは ぜんぶで 12本です。"
+    "explanation": "はこの形[かたち]は すべて 7cmの へんで できています。へんの かずは ぜんぶで 12本[ほん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.74030fce384c",
@@ -286,7 +286,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "①や ②の はこの形には、へんは ぜんぶで いくつ ありますか。",
+      "prompt": "①や ②の はこの形[かたち]には、へんは ぜんぶで いくつ ありますか。",
       "answers": [
         "12"
       ],
@@ -294,7 +294,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形は ぜんぶで 12の へんで できています。"
+    "explanation": "はこの形[かたち]は ぜんぶで 12の へんで できています。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.8f916963f3dd",
@@ -308,7 +308,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "②の 面と、形と 大きさが おなじ 面は どれでしょう。",
+      "prompt": "②の 面[めん]と、形[かたち]と 大[おお]きさが おなじ 面[めん]は どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -331,7 +331,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/4b8eb3687dafbe36.png"
     },
-    "explanation": "はこの形の ちょうど はんたいがわの 面が、おなじ 形と 大きさです。"
+    "explanation": "はこの形[かたち]の ちょうど はんたいがわの 面[めん]が、おなじ 形[かたち]と 大[おお]きさです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.9a9bffdf1e95",
@@ -345,7 +345,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "①の 面と、形と 大きさが おなじ 面は どれでしょう。",
+      "prompt": "①の 面[めん]と、形[かたち]と 大[おお]きさが おなじ 面[めん]は どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -368,7 +368,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/4b8eb3687dafbe36.png"
     },
-    "explanation": "はこの形の ちょうど はんたいがわの 面が、おなじ 形と 大きさです。"
+    "explanation": "はこの形[かたち]の ちょうど はんたいがわの 面[めん]が、おなじ 形[かたち]と 大[おお]きさです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.a5ca028cf20c",
@@ -382,7 +382,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "①や ②の はこの形には、ちょう点は ぜんぶで いくつ ありますか。",
+      "prompt": "①や ②の はこの形[かたち]には、ちょう点[てん]は ぜんぶで いくつ ありますか。",
       "answers": [
         "8"
       ],
@@ -390,7 +390,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形には ぜんぶで 8つ ちょう点が あります。"
+    "explanation": "はこの形[かたち]には ぜんぶで 8つ ちょう点[てん]が あります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.a7cfa10c870e",
@@ -404,7 +404,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの ずは、はこの形を きって ひらいた ものです。赤いろの 面は、何という 形に なっているでしょう。",
+      "prompt": "つぎの ずは、はこの形[かたち]を きって ひらいた ものです。赤[あか]いろの 面[めん]は、何[なに]という 形[かたち]に なっているでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -420,14 +420,14 @@
         },
         {
           "id": "c4",
-          "text": "直角三角形"
+          "text": "直角三角形[ちょっかくさんかくけい]"
         }
       ],
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/2274b006b972fbec.png"
     },
-    "explanation": "長方形[ちょうほうけい]は、角が ぜんぶ 直角[ちょっかく]の 四角形[しかくけい]。"
+    "explanation": "長方形[ちょうほうけい]は、角[かく]が ぜんぶ 直角[ちょっかく]の 四角形[しかくけい]。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.e03b30288c24",
@@ -441,7 +441,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "②の はこの形には ぜんぶで いくつ 面が あるでしょう。",
+      "prompt": "②の はこの形[かたち]には ぜんぶで いくつ 面[めん]が あるでしょう。",
       "answers": [
         "6"
       ],
@@ -449,7 +449,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形には ぜんぶで 6つの 面が あります。"
+    "explanation": "はこの形[かたち]には ぜんぶで 6つの 面[めん]が あります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.fc0d2e4c9380",
@@ -463,7 +463,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの ような はこの形が あります。",
+      "prompt": "つぎの ような はこの形[かたち]が あります。",
       "answers": [
         "4"
       ],

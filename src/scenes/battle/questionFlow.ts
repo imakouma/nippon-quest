@@ -29,7 +29,6 @@ export async function runBattleQuestion(input: {
   mastery: MasteryStore;
   rng: { next(): number };
   speak: (text: string) => void;
-  now: () => number;
   port: BattleQuestionPort;
   getGame: () => GameState;
 }): Promise<ActionResult> {
@@ -48,10 +47,9 @@ export async function runBattleQuestion(input: {
     reason: 'battle',
     getGame: input.getGame,
   });
-  const startedAt = input.now();
   try {
     const result = await ask(env, input.query, abort.signal);
-    return { score: result.score, timeMs: Math.round(input.now() - startedAt), attempts: 1 };
+    return { score: result.score, timeMs: result.timeMs, attempts: 1 };
   } catch (error) {
     if (error instanceof NoQuestionError) return { score: 0, timeMs: 0, attempts: 0 };
     throw error;

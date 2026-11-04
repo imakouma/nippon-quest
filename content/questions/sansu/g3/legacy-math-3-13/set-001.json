@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の重さの計算を しましょう。",
+      "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
       "answers": [
         "800"
       ],
@@ -32,14 +32,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1tは、何kg でしょう。",
+      "prompt": "1tは、何[なん]kg でしょう。",
       "answers": [
         "1000"
       ],
       "template": "{{INPUT}}kg",
       "suffix": "kg"
     },
-    "explanation": "1t = 1000kg になる。しっかりおぼえておこう。キリンやカバは、大きくなると、1tをこえるんだ。"
+    "explanation": "1t = 1000kg になる。しっかりおぼえておこう。キリンやカバは、大[おお]きくなると、1tをこえるんだ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.1a719426bdce",
@@ -53,23 +53,23 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次のうち、１キログラムの「重さ」になるものは、どれでしょう。",
+      "prompt": "次[つぎ]のうち、１キログラムの「重[おも]さ」になるものは、どれでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "1円玉"
+          "text": "1円玉[えんだま]"
         },
         {
           "id": "c2",
-          "text": "500円玉"
+          "text": "500円玉[えんだま]"
         },
         {
           "id": "c3",
-          "text": "牛にゅうパック1本"
+          "text": "牛[ぎゅう]にゅうパック1本[ほん]"
         },
         {
           "id": "c4",
-          "text": "えんぴつ1本"
+          "text": "えんぴつ1本[ほん]"
         }
       ],
       "answer": "c3",
@@ -89,7 +89,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の重さの計算を しましょう。",
+      "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
       "answers": [
         "1",
         "500"
@@ -110,14 +110,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の重さの計算を しましょう。",
+      "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
       "answers": [
         "900"
       ],
       "template": "800g + 100g = {{INPUT}}g",
       "suffix": "g"
     },
-    "explanation": "そのまま 足し算すればいい。 800g + 100g = 900g"
+    "explanation": "そのまま 足[た]し算[ざん]すればいい。 800g + 100g = 900g"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.27f3ea0bdba8",
@@ -131,23 +131,23 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "km や kg のように、たんいにつく k（キロ） は 何をあらわしているでしょう。",
+      "prompt": "km や kg のように、たんいにつく k（キロ） は 何[なに]をあらわしているでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "1000 こ分の 大きさになる。"
+          "text": "1000 こ分[ぶん]の 大[おお]きさになる。"
         },
         {
           "id": "c2",
-          "text": "100 こ分の 大きさになる。"
+          "text": "100 こ分[ぶん]の 大[おお]きさになる。"
         },
         {
           "id": "c3",
-          "text": "÷1000 をした 大きさになる。"
+          "text": "÷1000 をした 大[おお]きさになる。"
         },
         {
           "id": "c4",
-          "text": "÷100 をした 大きさになる。"
+          "text": "÷100 をした 大[おお]きさになる。"
         }
       ],
       "answer": "c1",
@@ -167,7 +167,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の重さの計算を しましょう。",
+      "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
       "answers": [
         "700"
       ],
@@ -210,7 +210,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "大きな「重さ」をあらわすトンは、「t」とあらわす。"
+    "explanation": "大[おお]きな「重[おも]さ」をあらわすトンは、「t」とあらわす。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.6b132acf296b",
@@ -224,14 +224,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1kgは、何g でしょう。",
+      "prompt": "1kgは、何[なん]g でしょう。",
       "answers": [
         "1000"
       ],
       "template": "{{INPUT}}g",
       "suffix": "g"
     },
-    "explanation": "1km=1000m だったね。kは、同じ「キロ」をあらわしているので、1kg=1000g だ。"
+    "explanation": "1km=1000m だったね。kは、同[おな]じ「キロ」をあらわしているので、1kg=1000g だ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.a0803fed295f",
@@ -245,29 +245,29 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次のうち、１グラムの「重さ」になるものは、どれでしょう。",
+      "prompt": "次[つぎ]のうち、１グラムの「重[おも]さ」になるものは、どれでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "1円玉"
+          "text": "1円玉[えんだま]"
         },
         {
           "id": "c2",
-          "text": "500円玉"
+          "text": "500円玉[えんだま]"
         },
         {
           "id": "c3",
-          "text": "牛にゅうパック1本"
+          "text": "牛[ぎゅう]にゅうパック1本[ほん]"
         },
         {
           "id": "c4",
-          "text": "えんぴつ1本"
+          "text": "えんぴつ1本[ほん]"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "１円玉は、ちょうど１グラムになっている。"
+    "explanation": "１円玉[えんだま]は、ちょうど１グラムになっている。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.ed4745ebc930",
@@ -281,11 +281,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次のうち、１トンの「重さ」に 一ばん近いものは、どれでしょう。",
+      "prompt": "次[つぎ]のうち、１トンの「重[おも]さ」に 一[いち]ばん近[ちか]いものは、どれでしょう。",
       "choices": [
         {
           "id": "c1",
-          "text": "キリンの体重"
+          "text": "キリンの体重[たいじゅう]"
         },
         {
           "id": "c2",
@@ -293,11 +293,11 @@
         },
         {
           "id": "c3",
-          "text": "学校[がっこう]の机"
+          "text": "学校[がっこう]の机[つくえ]"
         },
         {
           "id": "c4",
-          "text": "ペンギンの体重"
+          "text": "ペンギンの体重[たいじゅう]"
         }
       ],
       "answer": "c1",
@@ -339,7 +339,7 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "「重さ」をあらわすキログラムは、「kg」とあらわす。"
+    "explanation": "「重[おも]さ」をあらわすキログラムは、「kg」とあらわす。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.f4ae1df9e4e1",
@@ -353,14 +353,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の重さの計算を しましょう。",
+      "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
       "answers": [
         "1"
       ],
       "template": "700g + 300g ={{INPUT}}kg",
       "suffix": "kg"
     },
-    "explanation": "700g + 300g = 1000g kg に直して、1000g = 1kg だ。"
+    "explanation": "700g + 300g = 1000g kg に直[ちょく]して、1000g = 1kg だ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.f55e99ca1cff",
@@ -396,6 +396,6 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「重さ」をあらわすグラムは、「g」とあらわす。"
+    "explanation": "「重[おも]さ」をあらわすグラムは、「g」とあらわす。"
   }
 ]

@@ -804,3 +804,27 @@
     opacity: 1;
   }
 }
+
+.nq-review {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.nq-review .nq-feedback {
+  position: static;
+  flex: none;
+}
+.nq-review p {
+  margin: 0;
+  max-width: 100%;
+  overflow-y: auto;
+}
+.nq-review .nq-btn {
+  flex: none;
+  min-height: 48px;
+}
+
+.nq-input-speak {
+  align-self: flex-end;
+  flex: none;
+}

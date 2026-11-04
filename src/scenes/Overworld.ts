@@ -2212,6 +2212,7 @@ export class OverworldScene extends Phaser.Scene {
             rng: this.rng,
             speak: this.speak,
             reason: 'review',
+            practice: true,
             getGame: () => this.gs() ?? gs!,
           }),
           id,

@@ -127,6 +127,7 @@ async function runRoadmapPracticeSelection(
         rng: hostScene.rng,
         speak: hostScene.speak,
         reason: recommendationReasonToAttemptReason(selection.reason),
+        practice: true,
         getGame: () => hostScene.gs() ?? game,
       }),
       selection.questionId,

@@ -6,6 +6,7 @@ import { fractionSpeech } from '../../../ui/fraction';
 import { stripRuby } from '../../../ui/ruby';
 import { TimerBar } from '../shared/TimerBar';
 import { Feedback } from '../shared/Feedback';
+import { ReviewFeedback } from '../shared/ReviewFeedback';
 import type { ChoicePayload } from './schema';
 
 export interface ChoiceViewProps {
@@ -13,7 +14,13 @@ export interface ChoiceViewProps {
   payload: ChoicePayload;
   /** 選択肢の並び順（レンダラー側で決定論的にシャッフル済み） */
   order: string[];
-  onDone: (r: { score: number; attempts: number; timedOut: boolean; chosen: string | null }) => void;
+  onDone: (r: {
+    score: number;
+    attempts: number;
+    timedOut: boolean;
+    chosen: string | null;
+    answeredAt?: number;
+  }) => void;
 }
 
 export function getChoicePromptSpeech(payload: ChoicePayload): string {
@@ -25,6 +32,15 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   const [phase, setPhase] = useState<'answering' | 'feedback'>('answering');
   const doneRef = useRef(false);
   const completionTimer = useRef<number | null>(null);
+  const completed = useRef(false);
+  const answer = useRef<{
+    score: number;
+    attempts: number;
+    timedOut: boolean;
+    chosen: string | null;
+    answeredAt?: number;
+  } | null>(null);
+  const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
   const choices = useMemo(
     () => order.map((id) => payload.choices.find((c) => c.id === id)!),
     [order, payload.choices],
@@ -36,16 +52,25 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
     setChosen(id);
     setPhase('feedback');
     const score = id === payload.answer ? 1 : 0;
-    // 演出を見せてから閉じる（「おしい！」を読む時間）
-    completionTimer.current = window.setTimeout(() => {
-      completionTimer.current = null;
-      onDone({ score, attempts: 1, timedOut, chosen: id });
-    }, 900);
+    answer.current = {
+      score,
+      attempts: 1,
+      timedOut,
+      chosen: id,
+      ...(review ? { answeredAt: performance.now() } : {}),
+    };
+    if (!review)
+      completionTimer.current = window.setTimeout(() => {
+        completionTimer.current = null;
+        completed.current = true;
+        onDone(answer.current!);
+      }, 900);
   };
 
   const cancel = () => {
+    if (completed.current) return;
     if (completionTimer.current !== null) window.clearTimeout(completionTimer.current);
-    else if (doneRef.current) return;
+    completed.current = true;
     doneRef.current = true;
     completionTimer.current = null;
     onDone({ score: 0, attempts: 1, timedOut: true, chosen: null });
@@ -72,6 +97,20 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   const correct = chosen === payload.answer;
   // アルファベット 1〜2 もじ だけの 選択肢は、形が 見やすいよう 大きく
   const big = choices.every((c) => !c.image && /^[A-Za-z]{1,2}$/.test(c.text ?? ''));
+
+  if (review && phase === 'feedback')
+    return (
+      <ReviewFeedback
+        kind={correct ? 'correct' : chosen === null ? 'timeout' : 'wrong'}
+        explanation={ctx.question.explanation}
+        grade={ctx.grade}
+        onNext={() => {
+          if (completed.current) return;
+          completed.current = true;
+          onDone(answer.current!);
+        }}
+      />
+    );
 
   return (
     <div class="nq-q nq-q-choice">
