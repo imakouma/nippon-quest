@@ -1,3 +1,4 @@
+import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 import { expect, test, type Page } from '@playwright/test';
 
 test('choice：旧版の横長画像を正方形へ潰さず表示する', async ({ page }) => {
@@ -119,9 +120,11 @@ test('experiment：予想・操作・結果の状態を読み上げ用に持つ'
   await page.getByRole('button', { name: 'ためしてみる' }).click();
   const slider = page.getByRole('slider').first();
   await expect(slider).toHaveAttribute('aria-describedby', 'nq-question-prompt');
+  await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
   await expect(page.locator('.nq-exp-control output').first()).toHaveAttribute('aria-live', 'polite');
   await page.getByRole('button', { name: 'じっけんする' }).click();
   await expect(page.locator('.nq-exp-outcome')).toHaveAttribute('role', 'status');
+  await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
 });
 
 test('旧版の文字入力問題：複数の答えを入力して採点できる', async ({ page }) => {
@@ -210,9 +213,7 @@ test('旧版の算数：罫線付きの表を見て1か所ずつ答える', asyn
     const image = page.locator('.nq-input-illustration img');
     await expect(image).toBeVisible();
     await expect(image).not.toHaveAttribute('alt', '');
-    const size = await image.boundingBox();
-    expect(size?.height).toBeGreaterThan(150);
-    expect((await page.locator('.nq-input-illustration').boundingBox())?.height).toBeGreaterThanOrEqual(240);
+    expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
     const input = page.getByRole('textbox', { name: /こたえ/ });
     await expect(input).toHaveCount(1);
     await input.fill(answer);
@@ -222,18 +223,17 @@ test('旧版の算数：罫線付きの表を見て1か所ずつ答える', asyn
   }
 });
 
-test('旧版の算数：狭い画面でも表をスクロールして答えられる', async ({ page }) => {
+test('旧版の算数：狭い画面でも表と解答欄の全体を見て答えられる', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/playground.html?q=legacy.sansu.g3.math-3-7.54bfe42d11e7');
   const table = page.locator('.nq-input-illustration');
   await expect(table).toBeVisible();
-  expect((await table.boundingBox())?.height).toBeGreaterThanOrEqual(240);
+  expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
   await table.focus();
   await page.keyboard.press('ArrowRight');
   await expect(table).toBeFocused();
   await page.screenshot({ path: 'test-results/sansu-table-mobile.png' });
-  const image = table.locator('img');
-  expect((await image.boundingBox())?.height).toBeGreaterThan(150);
+  await expect(table).toHaveCSS('overflow', 'visible');
   await page.getByRole('textbox', { name: /こたえ/ }).fill('9');
   await page.locator('.nq-input-submit').click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
@@ -241,6 +241,7 @@ test('旧版の算数：狭い画面でも表をスクロールして答えら�
 });
 
 test('旧版の算数：時計を読み、解説を自分のペースで確認する', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
   await expect(page.locator('.nq-q-prompt-img')).toHaveAttribute('src', /clock-03-30\.svg$/);
   await page.locator('.nq-choice').filter({ hasText: '3じ 30ぷん' }).click();
@@ -251,6 +252,7 @@ test('旧版の算数：時計を読み、解説を自分のペースで確認�
   await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
   await expect(page.locator('.nq-review p')).toContainText('3を すぎている');
   await expect(page.locator('.nq-review p')).toBeFocused();
+  await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
   await page.screenshot({ path: 'test-results/sansu-clock-review.png' });
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');

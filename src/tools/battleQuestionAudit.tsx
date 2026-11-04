@@ -8,6 +8,8 @@ import { questionBaseSchema, type QuestionBase } from '../questions/contracts';
 import { getRenderer } from '../questions/renderers/registry';
 import { fetchReader, parseContentManifest } from '../core/content/loader';
 import { QuestionFrame } from '../ui/QuestionFrame';
+import { fitQuestionViewport } from '../questions/renderers/shared/questionViewport';
+import { inspectQuestion } from './questionLayoutAudit';
 import { setDictionary, type I18nDict } from '../ui/i18n';
 import { kanjiGradeTable, setKanjiLevel } from '../ui/ruby';
 import { createSpeaker } from '../ui/overlay';
@@ -37,48 +39,20 @@ const waitForImages = async (host: HTMLElement) => {
   await nextFrame();
 };
 
+const auditSizes = new URLSearchParams(location.search).has('matrix')
+  ? [
+      [960, 540],
+      [720, 405],
+      [390, 219],
+      [844, 390],
+    ]
+  : [[960, 540]];
+
 interface AuditFailure {
   id: string;
   type: string;
+  size?: string;
   reason: string;
-}
-
-function inspectQuestion(host: HTMLElement): string[] {
-  const hostRect = (host.parentElement ?? host).getBoundingClientRect();
-  const errors: string[] = [];
-  const isInside = (rect: DOMRect) =>
-    rect.left >= hostRect.left - 1 &&
-    rect.right <= hostRect.right + 1 &&
-    rect.top >= hostRect.top - 1 &&
-    rect.bottom <= hostRect.bottom + 1;
-  const isReachableByScroll = (element: HTMLElement) => {
-    for (let parent = element.parentElement; parent && parent !== host; parent = parent.parentElement) {
-      const style = getComputedStyle(parent);
-      const scrolls =
-        ((style.overflowY === 'auto' || style.overflowY === 'scroll') &&
-          parent.scrollHeight > parent.clientHeight) ||
-        ((style.overflowX === 'auto' || style.overflowX === 'scroll') &&
-          parent.scrollWidth > parent.clientWidth);
-      if (scrolls && isInside(parent.getBoundingClientRect())) return true;
-    }
-    return false;
-  };
-  const question = host.querySelector<HTMLElement>('.nq-q');
-  if (!question) return ['問題のルートが描画されていません'];
-  if (!isInside(question.getBoundingClientRect())) errors.push('問題のルートが枠からはみ出しています');
-
-  for (const element of host.querySelectorAll<HTMLElement>('button, input, select, textarea, img, canvas')) {
-    const style = getComputedStyle(element);
-    if (style.display === 'none' || style.visibility === 'hidden') continue;
-    const rect = element.getBoundingClientRect();
-    const pendingImage =
-      element instanceof HTMLImageElement && (!element.complete || element.naturalWidth === 0);
-    if (!pendingImage && (rect.width < 24 || rect.height < 24))
-      errors.push(`${element.tagName.toLowerCase()} の操作・表示領域が小さすぎます`);
-    if (!isInside(rect) && !isReachableByScroll(element))
-      errors.push(`${element.tagName.toLowerCase()} が問題枠からはみ出しています`);
-  }
-  return [...new Set(errors)];
 }
 
 function parseQuestions(files: { file: string; raw: unknown }[]): QuestionBase[] {
@@ -96,6 +70,7 @@ function parseQuestions(files: { file: string; raw: unknown }[]): QuestionBase[]
 
 function AuditApp() {
   const host = useRef(document.createElement('div'));
+  const stage = useRef<HTMLDivElement>(null);
   const [title, setTitle] = useState('もんだいを よみこみ中');
   const [status, setStatus] = useState('loading');
   const [progress, setProgress] = useState({ done: 0, total: 0 });
@@ -121,7 +96,9 @@ function AuditApp() {
         const all = parseQuestions(
           await Promise.all(manifest.questions.map(async (file) => ({ file, raw: await read(file) }))),
         );
-        const requested = new URLSearchParams(location.search).get('q');
+        await document.fonts.ready;
+        const params = new URLSearchParams(location.search);
+        const requested = params.get('q');
         const questions = requested ? all.filter((question) => question.id === requested) : all;
         if (requested && questions.length !== 1) throw new Error(`問題IDが見つかりません: ${requested}`);
         setProgress({ done: 0, total: questions.length });
@@ -152,14 +129,22 @@ function AuditApp() {
               grade: question.grade,
               assets,
               speak,
-              timeLimitMs: (question.timeLimitSec ?? 20) * 1000,
+              timeLimitMs: 60_000,
               signal: abort.signal,
             })
             .catch((error: unknown) => console.error('question mount failed', question.id, error));
           await waitForImages(host.current);
           if (!disposed) {
-            for (const reason of inspectQuestion(host.current))
-              found.push({ id: question.id, type: question.type, reason });
+            for (const [width, height] of auditSizes) {
+              stage.current!.style.width = `${width}px`;
+              stage.current!.style.height = `${height}px`;
+              fitQuestionViewport(
+                host.current.querySelector<HTMLElement>('.nq-question-viewport')!,
+                host.current.querySelector<HTMLElement>('.nq-question-canvas')!,
+              );
+              for (const reason of inspectQuestion(host.current))
+                found.push({ id: question.id, type: question.type, size: `${width}x${height}`, reason });
+            }
             setProgress({ done: index + 1, total: questions.length });
           }
           if (!requested) {
@@ -194,11 +179,12 @@ function AuditApp() {
       <p class="nq-audit-progress" data-audit-progress={`${progress.done}/${progress.total}`}>
         {progress.done} / {progress.total} 問を確認中
       </p>
-      <div class="nq-audit-stage">
+      <code>{title}</code>
+      <div class="nq-audit-stage" ref={stage}>
         {progress.total > 0 && (
           <QuestionFrame
             host={host.current}
-            title={title}
+            title="もんだい"
             subject="sansu"
             hint="もんだいの ひょうじを かくにん"
           />
@@ -211,11 +197,14 @@ function AuditApp() {
             ? `${failures.length}件の異常があります。`
             : '確認を開始しています。'}
       </p>
+      <script type="application/json" id="question-layout-report">
+        {JSON.stringify({ progress, sizes: auditSizes, failures })}
+      </script>
       {failures.length > 0 && (
         <ol class="nq-audit-failures">
           {failures.map((failure, index) => (
             <li key={`${failure.id}-${failure.reason}-${index}`}>
-              <code>{failure.id}</code>（{failure.type}）: {failure.reason}
+              <code>{failure.id}</code>（{failure.type}, {failure.size}）: {failure.reason}
             </li>
           ))}
         </ol>

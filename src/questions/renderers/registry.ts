@@ -3,6 +3,7 @@
  * 新しいタイプを足すときは、renderers/<type>/index.ts を作って下の1行を追加するだけ（docs/01 §3.3 手順5）。
  */
 import type { QuestionRenderer } from '../contracts';
+import { withQuestionViewport } from './shared/questionViewport';
 import { choiceRenderer } from './choice';
 import { experimentRenderer } from './experiment';
 import { kanjiTraceRenderer } from './kanji-trace';
@@ -17,7 +18,7 @@ const registry = new Map<string, QuestionRenderer>();
 
 export function registerRenderer(r: QuestionRenderer): void {
   if (registry.has(r.type)) throw new Error(`renderer "${r.type}" は既に登録されています`);
-  registry.set(r.type, r);
+  registry.set(r.type, withQuestionViewport(r));
 }
 
 export function getRenderer(type: string): QuestionRenderer | undefined {

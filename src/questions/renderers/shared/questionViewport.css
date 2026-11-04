@@ -1,0 +1,21 @@
+.nq-question-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #141828;
+}
+.nq-question-canvas {
+  position: absolute;
+  width: 960px;
+  min-height: 540px;
+  transform-origin: top left;
+}
+.nq-question-canvas > .nq-q {
+  position: relative;
+  inset: auto;
+  min-height: 540px;
+  overflow: visible;
+}
+.nq-question-canvas .nq-q > * {
+  flex-shrink: 0;
+}

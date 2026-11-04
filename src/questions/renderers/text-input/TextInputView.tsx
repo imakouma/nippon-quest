@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { RendererContext } from '../../contracts';
 import { t } from '../../../ui/i18n';
+import { stripRuby } from '../../../ui/ruby';
 import { RubyLabel } from '../../../ui/RubyLabel';
 import { Feedback } from '../shared/Feedback';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
@@ -60,7 +61,7 @@ export function TextInputView({
   });
   const template = payload.template ?? '{{INPUT}}';
   const pieces = template.split('{{INPUT}}');
-  const compact = (value: string) => value.replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
+  const compact = (value: string) => stripRuby(value).replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
   const promptRepeated =
     !!payload.template && !payload.promptImage && compact(template) === compact(payload.prompt);
   const promptId = promptRepeated ? 'nq-question-template' : 'nq-question-prompt';
