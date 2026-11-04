@@ -15,7 +15,7 @@ describe('battle question timing', () => {
     mocks.ask.mockResolvedValue({ score: 1, timeMs: 2_000, attempts: 1 });
     const hide = vi.fn();
     const result = await runBattleQuestion({
-      query: { subject: 'sansu' },
+      query: { subject: 'sansu', gradeRange: [1, 3] },
       title: '',
       subject: 'sansu',
       hint: '',
