@@ -1,4 +1,5 @@
 import type { QuestionBase } from '../contracts';
+import { stripRuby } from '../../ui/ruby';
 
 export function questionTimeLimitMs(
   question: QuestionBase,
@@ -15,7 +16,8 @@ export function questionTimeLimitMs(
       : {};
   const prompt = typeof payload.prompt === 'string' ? payload.prompt : '';
   const template = typeof payload.template === 'string' ? payload.template : '';
-  const length = Math.max(prompt.length, template.replace(/\{\{INPUT\}\}/g, '').length);
+  const textLength = (text: string) => stripRuby(text.replace(/\{\{INPUT\}\}|\s+/g, ''), 'kana').length;
+  const length = Math.max(textLength(prompt), textLength(template));
   const inputs = Array.isArray(payload.answers) ? payload.answers.length : 1;
   return (defaultSeconds + Math.ceil(Math.max(0, length - 30) / 10) * 2 + Math.max(0, inputs - 1) * 5) * 1000;
 }

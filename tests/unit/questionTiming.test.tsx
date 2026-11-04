@@ -27,6 +27,14 @@ describe('question timing', () => {
     expect(short).toBeGreaterThanOrEqual(20_000);
     expect(long).toBeGreaterThan(short);
   });
+  it('ルビ記法・空白・入力欄記号は読みの長さだけで数え、問題文とテンプレートを重複させない', () => {
+    const timed = (prompt: string, template?: string) =>
+      questionTimeLimitMs({ ...question, payload: { prompt, template, answers: ['1'] } }, 20, true, false);
+    const reading = 'ながさをくらべましょう'.repeat(4);
+    const ruby = '長[なが]さを比[くら]べましょう'.repeat(4);
+    expect(timed(ruby, `  ${ruby} {{INPUT}}  `)).toBe(timed(reading));
+    expect(timed(` {{INPUT}} ${ruby} `)).toBe(timed(reading));
+  });
   it('明示時間と対象外の問題を維持し、練習の無制限を選べる', () => {
     expect(questionTimeLimitMs({ ...question, timeLimitSec: 12 }, 20, true, false)).toBe(12_000);
     expect(questionTimeLimitMs({ ...question, subject: 'kokugo' }, 20, true, false)).toBe(20_000);
