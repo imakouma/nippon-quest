@@ -68,13 +68,18 @@ const str = (v: unknown) => (typeof v === 'string' ? v : undefined);
 const isSample = (e: QuestionEntry) => e.file.startsWith('questions/_samples/');
 const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
 
+export function questionLabel(q: QuestionBase): string | undefined {
+  const payload = (q.payload ?? {}) as Record<string, unknown>;
+  return str(payload.prompt) ?? str(payload.hintWord) ?? str(payload.kanji);
+}
+
 /** 表に 出す 中身。タイプを 知らなくても、よくある 形から 拾う */
 function summarize(q: QuestionBase): Summary {
   const p = (q.payload ?? {}) as Record<string, unknown>;
   const list = [p.choices, p.words, p.cards].find(Array.isArray) as Record<string, unknown>[] | undefined;
   const picture = str(p.picture);
   return {
-    prompt: str(p.prompt),
+    prompt: questionLabel(q),
     picture: picture && PICTURES.has(picture) ? (picture as PictureKey) : undefined,
     image: str(p.promptImage) ?? str(p.image),
     options: (list ?? []).map((o) => ({

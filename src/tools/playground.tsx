@@ -18,7 +18,7 @@ import { createSpeaker } from '../ui/overlay';
 import { kanjiGradeTable, setKanjiLevel, stripRuby, type KanjiGradeTable } from '../ui/ruby';
 import { RubyLabel } from '../ui/RubyLabel';
 import { EditorQuestionForm } from './editorQuestionForm';
-import { QuestionList, type QuestionEntry } from './QuestionList';
+import { QuestionList, questionLabel, type QuestionEntry } from './QuestionList';
 import '../questions/renderers/shared/questions.css';
 import './playground.css';
 
@@ -316,9 +316,9 @@ function App() {
   }, [entries, kanji]);
 
   const question = parseQuestion(json);
-  const payload = question?.payload as Record<string, unknown> | undefined;
-  const prompt = typeof payload?.prompt === 'string' ? payload.prompt : undefined;
-  const questionTitle = prompt ?? (question ? units.get(question.unit) : undefined) ?? question?.id;
+  const questionTitle = question
+    ? (questionLabel(question) ?? units.get(question.unit) ?? question.id)
+    : undefined;
   const status = result ? resultStatus(result) : null;
 
   const save = async () => {
