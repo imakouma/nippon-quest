@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { groundOfTile, isRoadTile } from '../../src/core/world/ground';
+import { advanceQuestionFeedback } from './helpers/questionReview';
 import { completeNewGameSetup } from './newGame';
 
 const AREA_ID = 'nagasaki';
@@ -632,10 +633,12 @@ async function defeatCurrentEnemy(page: Page): Promise<void> {
       await expect(answer).toBeVisible({ timeout: 20_000 });
       if (await page.locator('.nq-choice').first().isVisible()) {
         await page.locator('.nq-choice').first().click();
+        await advanceQuestionFeedback(page);
       } else if (await page.locator('.nq-q-input input').first().isVisible()) {
         const inputs = page.locator('.nq-q-input input');
         for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
         await page.getByRole('button', { name: 'こたえる' }).click();
+        await advanceQuestionFeedback(page);
       } else if (await page.locator('.nq-nb-submit').isVisible()) {
         await page.locator('.nq-nb-submit').click();
       } else if (await page.locator('.nq-pw-card').first().isVisible()) {

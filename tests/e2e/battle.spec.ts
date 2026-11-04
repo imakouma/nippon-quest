@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { advanceQuestionFeedback } from './helpers/questionReview';
 
 /**
  * docs/02 Step 6 の E2E（ターン制バトル）：デバッグ URL で強制エンカウント。
@@ -30,6 +31,7 @@ async function answerCurrentQuestion(page: Page): Promise<void> {
     );
     await expect(page.locator('.nq-choice').first()).toHaveAttribute('aria-keyshortcuts', '1');
     await page.locator('.nq-choice').first().click();
+    await advanceQuestionFeedback(page);
     return;
   }
   if (await page.locator('.nq-q-input input').first().isVisible()) {
@@ -39,6 +41,7 @@ async function answerCurrentQuestion(page: Page): Promise<void> {
     await expect(page.locator(`#${describedBy}`)).toBeVisible();
     for (let index = 0; index < (await inputs.count()); index += 1) await inputs.nth(index).fill('0');
     await page.getByRole('button', { name: 'こたえる' }).click();
+    await advanceQuestionFeedback(page);
     return;
   }
   if (await page.locator('.nq-nb-submit').isVisible()) {
