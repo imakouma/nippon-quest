@@ -103,7 +103,7 @@ const foundationUnits: Unit[] = [
   },
   { id: 'rika.g3.base', name: 'りか3', subject: 'rika', grade: 3, courseKind: 'required-subject' },
   { id: 'shakai.g3.base', name: 'しゃかい3', subject: 'shakai', grade: 3, courseKind: 'required-subject' },
-  { id: 'eigo.g1.base', name: 'えいご1', subject: 'eigo', grade: 1, courseKind: 'supplementary' },
+  { id: 'eigo.g3.base', name: 'えいご3', subject: 'eigo', grade: 3, courseKind: 'required-activity' },
 ];
 
 const curriculum: CurriculumGraph = {

@@ -1,6 +1,12 @@
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 import { expect, test, type Page } from '@playwright/test';
 
+async function expectScore(page: Page, score: string) {
+  const result = page.getByRole('region', { name: 'テスト結果' });
+  await expect(result).toBeVisible({ timeout: 10_000 });
+  await expect(result.locator('dd').first()).toHaveText(score);
+}
+
 test('choice：旧版の横長画像を正方形へ潰さず表示する', async ({ page }) => {
   await page.goto('/playground.html?q=legacy.sansu.g1.math-1-1.d29b83d0c753');
   const image = page.locator('.nq-q-prompt-img');
@@ -26,7 +32,7 @@ test('picture-word：絵を見て 正しい英単語を 1 回で えらぶと sc
   await showPictureWord(page);
   await page.locator('.nq-pw-card', { hasText: 'apple' }).click();
   await expect(page.locator('.nq-pw-slot')).toHaveAttribute('role', 'status');
-  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+  await expectScore(page, '100%');
 });
 
 test('picture-word：1 回まちがえてから 正解すると score 0.5', async ({ page }) => {
@@ -34,7 +40,7 @@ test('picture-word：1 回まちがえてから 正解すると score 0.5', asyn
   await page.locator('.nq-pw-card', { hasText: 'grapes' }).click();
   await expect(page.locator('.nq-pw-card-miss')).toHaveCount(1);
   await page.locator('.nq-pw-card', { hasText: 'apple' }).click({ timeout: 5_000 });
-  await expect(page.locator('.pg-result')).toContainText('"score": 0.5', { timeout: 10_000 });
+  await expectScore(page, '50%');
 });
 
 test('sort-order：カードの順位と移動ボタンの意味を読み上げ用に持つ', async ({ page }) => {
@@ -64,7 +70,7 @@ test('pair-match：やりなおし後にキーボードで合わせると score 
     await page.keyboard.press('Enter');
   }
 
-  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+  await expectScore(page, '100%');
 });
 
 test('pair-match：最大6ペアが960×540の問題枠に収まる', async ({ page }) => {
@@ -145,7 +151,7 @@ test('旧版の文字入力問題：複数の答えを入力して採点でき�
   await answers.nth(2).fill('1.2');
   await expect(page.locator('button.nq-input-submit')).toBeEnabled();
   await answers.nth(2).press('Enter');
-  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+  await expectScore(page, '100%');
 });
 
 test('旧版の地図問題：正しい地点をクリックして採点できる', async ({ page }) => {
@@ -156,7 +162,7 @@ test('旧版の地図問題：正しい地点をクリックして採点でき�
   expect(box).not.toBeNull();
   expect(box!.height).toBeGreaterThanOrEqual(48);
   await map.click({ position: { x: box!.width * 0.45, y: box!.height * 0.7 } });
-  await expect(page.locator('.pg-result')).toContainText('"score": 1', { timeout: 10_000 });
+  await expectScore(page, '100%');
 });
 
 test('地図問題：キーボードで照準を動かして地点を決定できる', async ({ page }) => {
@@ -180,7 +186,7 @@ test('旧版の算数：復元した長さの式を見て答えられる', async
     .filter({ hasText: /^\d1km$/ })
     .click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 test('旧版の算数：ケーキの分数を縦に表示して答えられる', async ({ page }) => {
@@ -190,7 +196,7 @@ test('旧版の算数：ケーキの分数を縦に表示して答えられる',
   await page.getByRole('textbox', { name: /こたえ/ }).fill('4');
   await page.locator('.nq-input-submit').click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 for (const [answer, expected] of [
@@ -202,7 +208,7 @@ for (const [answer, expected] of [
     await page.getByRole('textbox', { name: /こたえ/ }).fill(answer);
     await page.locator('.nq-input-submit').click();
     await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-    await expect(page.locator('.pg-result')).toContainText(`"score": ${expected}`);
+    await expectScore(page, expected ? '100%' : '0%');
   });
 }
 
@@ -219,7 +225,7 @@ test('旧版の算数：罫線付きの表を見て1か所ずつ答える', asyn
     await input.fill(answer);
     await page.locator('.nq-input-submit').click();
     await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-    await expect(page.locator('.pg-result')).toContainText('"score": 1');
+    await expectScore(page, '100%');
   }
 });
 
@@ -237,7 +243,7 @@ test('旧版の算数：狭い画面でも表と解答欄の全体を見て答�
   await page.getByRole('textbox', { name: /こたえ/ }).fill('9');
   await page.locator('.nq-input-submit').click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 test('旧版の算数：時計を読み、解説を自分のペースで確認する', async ({ page }) => {
@@ -256,7 +262,7 @@ test('旧版の算数：時計を読み、解説を自分のペースで確認�
   await page.screenshot({ path: 'test-results/sansu-clock-review.png' });
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 test('旧版の算数：入力式に読みと音声ボタンがあり答えを読み上げない', async ({ page }) => {

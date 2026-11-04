@@ -25,7 +25,7 @@ export interface ContentManifest {
   generatedAt: string;
   files: Record<ContentKind, string[]>;
   questions: string[];
-  /** Playground の ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
+  /** 問題レビューの ?q= 直リンクで全問題を読み込まず、該当ファイルだけ取得する索引。 */
   questionIndex?: Record<string, string>;
   /** ゲーム開始時に選択学年だけ読み込むための索引。 */
   questionFilesByGrade?: Record<string, string[]>;

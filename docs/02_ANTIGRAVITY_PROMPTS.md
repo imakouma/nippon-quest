@@ -35,7 +35,7 @@
 |---|---|---|
 | 0 | プロジェクト初期化・ルールファイル | 半日 |
 | 1 | コンテンツ基盤（スキーマ・ローダ・バリデータ） | 1日 |
-| 2 | 問題システム（契約・レジストリ・Playground・`choice`） | 1〜2日 |
+| 2 | 問題システム（契約・レジストリ・問題レビュー・`choice`） | 1〜2日 |
 | 3 | 残りの問題レンダラー（UI担当と並行可） | 3〜5日 |
 | 4 | オーバーワールド（島マップ・エリア・町・ダンジョン・NPC） | 2〜3日 |
 | 5 | バトルエンジン（純粋ロジック＋テスト） | 2日 |
@@ -130,7 +130,7 @@ content/ 配下には JSON 以外を置かないこと。完了後 pnpm validate
 
 ---
 
-## Step 2 — 問題システムの骨格（契約・レジストリ・Playground・choice）
+## Step 2 — 問題システムの骨格（契約・レジストリ・問題レビュー・choice）
 
 ▼ PROMPT（Claude 推奨・Planning モード）
 ```
@@ -144,12 +144,12 @@ docs/01_ARCHITECTURE.md §3 の三分割の契約を実装してください。�
    - MasteryStore: unit ごとの習熟度（指数移動平均、α=0.3）。QuestionResult を食わせて更新。
    - ask(query, ctxFactory): pick → renderer.mount → QuestionResult を返す一本の関数。ゲーム本体はこれだけ呼ぶ。
 4. 最初のレンダラー src/questions/renderers/choice/：Preact 実装。payload スキーマは docs/04_CONTENT_TEMPLATES.md §3.1。選択肢はテキスト or 画像。タップ／キー(1-4)両対応。制限時間バーを表示。ボタン最小48px。正解時「かんぺき！」、不正解時「おしい！」の演出（赤い×は使わない）。ふりがな表示のため src/ui/RubyLabel.tsx（"漢字[かんじ]" → <ruby>）も作る。
-5. public/playground.html + src/tools/playground.tsx: ゲームを起動せず、(a) content/questions のツリーから問題を選ぶ (b) テキストエリアに JSON を貼る、のどちらかで任意の問題を choice レンダラーで表示し、返ってきた QuestionResult を画面に JSON 表示する。学年設定・制限時間も切替可。
+5. playground.html + src/tools/playground.tsx: ゲームを起動せず、content/questions の教科・学年・単元フォルダから問題を選び、実際のレンダラーで解いて、人間向けの採点結果を確認できる問題レビューを作る。問題編集は項目別フォームだけで行い、生 JSON の編集欄や生の QuestionResult は表示しない。
 6. scripts/gen-schemas.ts を拡張し、registry の全 renderer.schema から schemas/questions/<type>.schema.json を生成。content/questions/_samples/choice.json に "$schema" 付きのサンプル3問。
 7. テスト: pick のロジック（除外・比率・シード再現性）、MasteryStore、registry。
 
 守ること: renderers/ から Phaser を import しない。engine/ は DOM を知らない（mount を呼ぶだけ）。
-完了後、playground で choice 問題を解いた画面のスクリーンショットを Walkthrough に貼ってください。
+完了後、問題レビューで choice 問題を解いた画面のスクリーンショットを Walkthrough に貼ってください。
 ```
 
 ---

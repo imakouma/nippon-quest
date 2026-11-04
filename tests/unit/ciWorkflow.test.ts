@@ -34,7 +34,7 @@ describe('CI workflow', () => {
     expect(prebuiltConfig).toContain("screenshot: 'only-on-failure'");
   });
 
-  it('deploys Pages only after both quality gates succeed', () => {
-    expect(workflow).toContain('needs: [check, e2e]');
+  it('deploys Pages only after all quality gates succeed', () => {
+    expect(workflow).toContain('needs: [check, e2e, developer-tools]');
   });
 });
