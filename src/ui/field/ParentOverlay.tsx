@@ -251,6 +251,18 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
                     <option value="2">{displayText(t('parent.veryLong'))}</option>
                   </select>
                 </label>
+                <label>
+                  <RubyLabel text={t('parent.practiceTimeLimit')} />
+                  <select
+                    value={game.settings.practiceUnlimitedTime ? 'unlimited' : 'limited'}
+                    onChange={(ev) =>
+                      patchSettings({ practiceUnlimitedTime: ev.currentTarget.value === 'unlimited' })
+                    }
+                  >
+                    <option value="limited">{t('parent.practiceTimeLimited')}</option>
+                    <option value="unlimited">{t('parent.practiceTimeUnlimited')}</option>
+                  </select>
+                </label>
               </div>
             </section>
             <section class="nq-parent-card nq-parent-scroll">

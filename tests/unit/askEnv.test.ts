@@ -32,6 +32,29 @@ describe('問題結果の学習状態への記録', () => {
     ).toThrow('getGame');
   });
 
+  it('無制限設定は練習にだけ適用する', () => {
+    const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
+    game.settings.practiceUnlimitedTime = true;
+    const options: AskEnvOptions = {
+      host: document.createElement('div'),
+      gs: game,
+      content: {
+        settings: { timeLimitSecByGrade: { '1': 20 }, recentQuestionWindow: 10, adaptiveWeakUnitRatio: 0.5 },
+      } as unknown as ContentIndex,
+      bank: {} as QuestionBank,
+      mastery: new MasteryStore(game.learning.mastery),
+      rng: { next: () => 0 },
+      speak: () => {},
+      getGame: () => game,
+    };
+    expect(buildAskEnv({ ...options, practice: true }).unlimitedTime).toBe(true);
+    expect(buildAskEnv({ ...options, reason: 'battle' })).toMatchObject({
+      unlimitedTime: false,
+      battleTiming: true,
+    });
+    expect(buildAskEnv(options)).toMatchObject({ unlimitedTime: false, battleTiming: false });
+  });
+
   it('回答履歴と更新時刻を同じ時点へ進める', () => {
     const game = createNewGame({ name: 'ハル', grade: 1 }, 100);
     const question: QuestionBase = {

@@ -12,7 +12,12 @@ import { tOpt } from '../ui/i18n';
 import { RubyLabel } from '../ui/RubyLabel';
 import { stripRuby } from '../ui/ruby';
 import { QuestionTree } from './QuestionTree';
-import { FIRST_GRADE_READING_UNITS, kanjiCategory, type KanjiCategory } from './kanjiCategory';
+import {
+  FIRST_GRADE_READING_UNITS,
+  kanjiCategory,
+  kanjiScopeMatches,
+  type KanjiCategory,
+} from './kanjiCategory';
 import { defaultFolderHidden, defaultFolderKey, folderSubject, isUnfiled } from './folderLayout';
 import { useFolderState } from './useFolderState';
 
@@ -63,13 +68,18 @@ const str = (v: unknown) => (typeof v === 'string' ? v : undefined);
 const isSample = (e: QuestionEntry) => e.file.startsWith('questions/_samples/');
 const pgText = (key: string) => stripRuby(tOpt(`tools.playground.${key}`) ?? '', 'kanji');
 
+export function questionLabel(q: QuestionBase): string | undefined {
+  const payload = (q.payload ?? {}) as Record<string, unknown>;
+  return str(payload.prompt) ?? str(payload.hintWord) ?? str(payload.kanji);
+}
+
 /** 表に 出す 中身。タイプを 知らなくても、よくある 形から 拾う */
 function summarize(q: QuestionBase): Summary {
   const p = (q.payload ?? {}) as Record<string, unknown>;
   const list = [p.choices, p.words, p.cards].find(Array.isArray) as Record<string, unknown>[] | undefined;
   const picture = str(p.picture);
   return {
-    prompt: str(p.prompt),
+    prompt: questionLabel(q),
     picture: picture && PICTURES.has(picture) ? (picture as PictureKey) : undefined,
     image: str(p.promptImage) ?? str(p.image),
     options: (list ?? []).map((o) => ({
@@ -139,18 +149,23 @@ export function QuestionList({
     (e) =>
       (samples || !isSample(e)) &&
       (!scopeUnit ||
-        (scopeUnit.startsWith('custom:')
+        (scopeUnit.startsWith('kanji-scope:')
           ? !!e.q &&
-            !!folderTools.state &&
-            folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
-            !isUnfiled(e.q, units, folderTools.state.layout)
-          : scopeUnit.startsWith('unfiled:')
+            folderSubject(e.q, units) === 'kanji' &&
+            kanjiScopeMatches(e.q, scopeUnit) &&
+            !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)
+          : scopeUnit.startsWith('custom:')
             ? !!e.q &&
               !!folderTools.state &&
-              isUnfiled(e.q, units, folderTools.state.layout) &&
-              `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
-            : unitFiles.has(e.file) &&
-              (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
+              folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
+              !isUnfiled(e.q, units, folderTools.state.layout)
+            : scopeUnit.startsWith('unfiled:')
+              ? !!e.q &&
+                !!folderTools.state &&
+                isUnfiled(e.q, units, folderTools.state.layout) &&
+                `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
+              : unitFiles.has(e.file) &&
+                (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
       (!scopeCategory || kanjiCategory(e.q) === scopeCategory),
   );
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');

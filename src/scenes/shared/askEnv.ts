@@ -32,6 +32,7 @@ export interface AskEnvOptions {
   rng: { next(): number };
   speak: (text: string) => void;
   reason?: AttemptEvent['reason'];
+  practice?: boolean;
   /** 長い処理中に別経路が GameState を差し替える場合、回答時点の最新版を返す。 */
   getGame: () => GameState;
 }
@@ -84,6 +85,8 @@ export function buildAskEnv(o: AskEnvOptions): AskEnv {
     timeLimitSecByGrade: Object.fromEntries(
       Object.entries(st.timeLimitSecByGrade).map(([g, sec]) => [g, sec * scale]),
     ),
+    battleTiming: o.reason === 'battle',
+    unlimitedTime: o.practice === true && o.gs.settings.practiceUnlimitedTime === true,
     recentWindow: st.recentQuestionWindow,
     weakUnitRatio: st.adaptiveWeakUnitRatio,
     recent: o.gs.learning.recent,

@@ -1,3 +1,4 @@
+import { writeFile } from 'node:fs/promises';
 import { expect, test } from '@playwright/test';
 
 test('長い選択肢の文字は番号と重ならず、枠からはみ出さない', async ({ page }) => {
@@ -27,6 +28,42 @@ test('長い選択肢の文字は番号と重ならず、枠からはみ出さ�
   }
 });
 
+test('狭い問題枠でも4つの選択肢がスクロールなしで見える', async ({ page }) => {
+  await page.goto('/battle-question-audit.html?q=legacy.rika.g3.cur-1503-01.15a88fa0a6e1');
+  const choices = page.locator('.nq-q-choice .nq-choice');
+  await expect(choices).toHaveCount(4, { timeout: 20_000 });
+  for (const [width, height] of [
+    [960, 540],
+    [720, 405],
+  ] as const) {
+    await page.locator('.nq-audit-stage').evaluate(
+      (stage, size) => {
+        (stage as HTMLElement).style.width = `${size.width}px`;
+        (stage as HTMLElement).style.height = `${size.height}px`;
+      },
+      { width, height },
+    );
+    const visible = await page.locator('.nq-q-choice').evaluate((root) => {
+      const frame = root.getBoundingClientRect();
+      const options = [...root.querySelectorAll('.nq-choice')];
+      return (
+        options.every((option) => {
+          const box = option.getBoundingClientRect();
+          return (
+            box.top >= frame.top &&
+            box.bottom <= frame.bottom &&
+            box.left >= frame.left &&
+            box.right <= frame.right
+          );
+        }) &&
+        root.scrollHeight <= root.clientHeight &&
+        root.querySelector('.nq-q-choices')!.scrollHeight <= root.querySelector('.nq-q-choices')!.clientHeight
+      );
+    });
+    expect(visible, `${width}×${height} の問題枠`).toBe(true);
+  }
+});
+
 test('テンプレート型の文字入力問題は問題文を二重に表示しない', async ({ page }) => {
   await page.goto('/battle-question-audit.html?q=legacy.sansu.g1.math-1-9.3e2f1449e1d8');
   await expect(page.locator('.nq-q-input')).toBeVisible({ timeout: 20_000 });
@@ -44,7 +81,7 @@ test('画像英単語問題はバトル問題枠に収まる', async ({ page }) 
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });
 
-test('長い選択肢と縦並びカードはスクロールして問題枠内で操作できる', async ({ page }) => {
+test('長い選択肢と縦並びカードも全体を縮小して問題枠内に収める', async ({ page }) => {
   const questionIds = [
     'kokugo.g2.observation-writing.0003',
     'kokugo.g2.reading-sequence.0002',
@@ -56,17 +93,20 @@ test('長い選択肢と縦並びカードはスクロールして問題枠内�
   ];
   for (const questionId of questionIds) {
     await page.goto(`/battle-question-audit.html?q=${questionId}`);
-    await expect(page.locator('.nq-q')).toHaveCSS('overflow-y', 'auto');
+    await expect(page.locator('.nq-q')).toHaveCSS('overflow-y', 'visible');
     await expect(page.locator('[data-audit-status="complete"]')).toBeVisible({ timeout: 20_000 });
     await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
   }
 });
 
-test('全問題をバトル問題枠で描画してレイアウトを検査する', async ({ page }) => {
-  test.setTimeout(420_000);
-  await page.goto('/battle-question-audit.html');
+test('全問題をバトル問題枠で描画してレイアウトを検査する', async ({ page }, testInfo) => {
+  test.setTimeout(600_000);
+  await page.goto('/battle-question-audit.html?matrix');
   const audit = page.locator('[data-audit-status]');
-  await expect(audit).toHaveAttribute('data-audit-status', /^(?:complete|failed)$/, { timeout: 400_000 });
+  await expect(audit).toHaveAttribute('data-audit-status', /^(?:complete|failed)$/, { timeout: 580_000 });
+  const report = (await page.locator('#question-layout-report').textContent())!;
+  await writeFile(testInfo.outputPath('question-layout-report.json'), report);
+  await testInfo.attach('all-question-layout-report', { body: report, contentType: 'application/json' });
   await expect(audit).toHaveAttribute('data-audit-status', 'complete');
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });

@@ -11,14 +11,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "250"
       ],
       "template": "{{INPUT}} - 100 = 150",
       "suffix": "- 100 = 150"
     },
-    "explanation": "100を引いて、150になるのは、250だね。"
+    "explanation": "100を引[ひ]いて、150になるのは、250だね。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.28a4b749d728",
@@ -29,7 +29,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -54,7 +55,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "ふくろに入っていたチョコの数を □こ とすると、□と ばらの6こをあわせて 20こになる。これを式にすると、□+6 = 20"
+    "explanation": "ふくろに入[はい]っていたチョコの数[かず]を □こ とすると、□と ばらの6こをあわせて 20こになる。これを式[しき]にすると、□+6 = 20"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.39c46b6654ea",
@@ -68,7 +69,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "9"
       ],
@@ -89,14 +90,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "62"
       ],
       "template": "52 + {{INPUT}} = 114",
       "suffix": "= 114"
     },
-    "explanation": "52に足して、114になるのは、62だね。"
+    "explanation": "52に足[た]して、114になるのは、62だね。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.5dd703a8e8dd",
@@ -110,7 +111,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "15"
       ],
@@ -131,14 +132,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "140"
       ],
       "template": "{{INPUT}} +120 = 260",
       "suffix": "+120 = 260"
     },
-    "explanation": "120を足して、260になるのは、140だね。"
+    "explanation": "120を足[た]して、260になるのは、140だね。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.6a4af24fc3b9",
@@ -152,14 +153,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "14"
       ],
       "template": "{{INPUT}} +6 = 20",
       "suffix": "+6 = 20"
     },
-    "explanation": "6を足して、20になるのは、14だね。"
+    "explanation": "6を足[た]して、20になるのは、14だね。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.7fc9bf4f7f8f",
@@ -173,7 +174,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "42"
       ],
@@ -191,7 +192,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -216,7 +218,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "はじめにあったチョコを □ことする。□こを6人で分けると、7こになるので、□÷6 = 7"
+    "explanation": "はじめにあったチョコを □ことする。□こを6人[にん]で分[わ]けると、7こになるので、□÷6 = 7"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.836dfd415775",
@@ -230,7 +232,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "5"
       ],
@@ -248,7 +250,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -273,7 +276,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "お茶のねだんを □円 とすると、□と おにぎりの120円をあわせて 260円になる。これを式にすると、□+120 = 260"
+    "explanation": "お茶[ちゃ]のねだんを □円[えん] とすると、□と おにぎりの120円[えん]をあわせて 260円[えん]になる。これを式[しき]にすると、□+120 = 260"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.a0432f39553e",
@@ -284,7 +287,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -309,7 +313,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "食べたチョコの数を □こ とすると、18こから、食べた□こを引くと、6こになる。これを式にすると、18-□ = 6"
+    "explanation": "食[た]べたチョコの数[かず]を □こ とすると、18こから、食[た]べた□こを引[ひ]くと、6こになる。これを式[しき]にすると、18-□ = 6"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.a35af0dc336f",
@@ -323,7 +327,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "6"
       ],
@@ -344,14 +348,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "96"
       ],
       "template": "145 - {{INPUT}} = 49",
       "suffix": "= 49"
     },
-    "explanation": "145から引いて、49になるのは、96だね。"
+    "explanation": "145から引[ひ]いて、49になるのは、96だね。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.a7e235b0a501",
@@ -362,7 +366,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -387,7 +392,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "はじめにあった水を □mLとすると、□から 使った100mLをひくと、 150mLになる。これを式にすると、□-100 = 150"
+    "explanation": "はじめにあった水[みず]を □mLとすると、□から 使[つか]った100mLをひくと、 150mLになる。これを式[しき]にすると、□-100 = 150"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.c7a637d97dc4",
@@ -401,14 +406,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を もとめよう。",
+      "prompt": "□にあてはまる数[かず]を もとめよう。",
       "answers": [
         "12"
       ],
       "template": "18 - {{INPUT}} = 6",
       "suffix": "= 6"
     },
-    "explanation": "18から引いて、6になるのは、12だね。"
+    "explanation": "18から引[ひ]いて、6になるのは、12だね。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.d037a27ee191",
@@ -419,7 +424,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -444,7 +450,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "1ふくろに入っているチョコの数を □ことすると、チョコは 3ふくろで、45こ あるので、□×3 = 45"
+    "explanation": "1ふくろに入[はい]っているチョコの数[かず]を □ことすると、チョコは 3ふくろで、45こ あるので、□×3 = 45"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.f08bac6cf2eb",
@@ -455,7 +461,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -480,7 +487,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "分けた人数を □人とする。チョコの数45こを□で割ると1人分の数になるので、45÷□ = 9"
+    "explanation": "分[わ]けた人数[にんずう]を □人[にん]とする。チョコの数[かず]45こを□で割[わ]ると1人分[にんぶん]の数[かず]になるので、45÷□ = 9"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.f50edb56f425",
@@ -491,7 +498,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
@@ -516,6 +524,6 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "おにぎりの数を □ことすると、おにぎりは □こで、400円になるので、80×□ = 400"
+    "explanation": "おにぎりの数[かず]を □ことすると、おにぎりは □こで、400円[えん]になるので、80×□ = 400"
   }
 ]

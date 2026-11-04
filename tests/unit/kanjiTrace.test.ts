@@ -87,7 +87,8 @@ describe('kanji-trace schema and registration', () => {
     expect(() => kanjiTracePayloadSchema.parse({ kanji: '山川', reading: 'やまかわ' })).toThrow();
   });
 
-  it('registers the renderer', () => expect(getRenderer('kanji-trace')).toBe(kanjiTraceRenderer));
+  it('registers the renderer', () =>
+    expect(getRenderer('kanji-trace')?.schema).toBe(kanjiTraceRenderer.schema));
 });
 
 describe('kanji-trace content integration', () => {

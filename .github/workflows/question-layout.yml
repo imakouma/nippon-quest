@@ -1,0 +1,28 @@
+name: All question layouts
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 18 * * *'
+concurrency:
+  group: all-question-layouts
+  cancel-in-progress: true
+jobs:
+  layout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Render every question at four sizes
+        run: pnpm test:e2e:audit
+      - name: Preserve the full question layout report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: question-layout-report
+          path: test-results
+          retention-days: 14

@@ -11,12 +11,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の漢字を、数字になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
       "answers": [
         "5005"
       ]
     },
-    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「百」「十」が出てきていないので、百のくらい と 十のくらいは、0になる。"
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「百[ひゃく]」「十[じゅう]」が出[で]てきていないので、百[ひゃく]のくらい と 十[じゅう]のくらいは、0になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.0ae531ccae18",
@@ -30,12 +30,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "8000"
       ]
     },
-    "explanation": "数は、10 ずつふえているね。ちょうど くらいが上がって、1000 が 8つになる 8000 だ。"
+    "explanation": "数[かず]は、10 ずつふえているね。ちょうど くらいが上[あ]がって、1000 が 8つになる 8000 だ。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.1ffa9ec437be",
@@ -49,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "100を 12こ あつめた数は、いくらになるでしょう。",
+      "prompt": "100を 12こ あつめた数[かず]は、いくらになるでしょう。",
       "answers": [
         "1200"
       ]
@@ -68,7 +68,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "prompt": "つぎの数[かず]の 読[よ]みかたとして、正[ただ]しいものを えらぼう。 3926",
       "choices": [
         {
           "id": "c1",
@@ -101,7 +101,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
@@ -126,7 +127,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "0 になっているくらいは、とばして読もう。"
+    "explanation": "0 になっているくらいは、とばして読[よ]もう。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.3c0c83e6efd1",
@@ -140,12 +141,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の漢字を、数字になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
       "answers": [
         "8013"
       ]
     },
-    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「百」が出てきていないので、百のくらいは、0になる。"
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「百[ひゃく]」が出[で]てきていないので、百[ひゃく]のくらいは、0になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.448d3ccd57d9",
@@ -159,12 +160,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "9900"
       ]
     },
-    "explanation": "数は、100 ずつふえているね。10000 より、100 小さい数なので、9900 だ。"
+    "explanation": "数[かず]は、100 ずつふえているね。10000 より、100 小[ちい]さい数[かず]なので、9900 だ。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.58c5f0f7f9fb",
@@ -178,7 +179,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1000を ２こ、100 を ８こ、10 を ５こ、それに 1 をあわせた数は、いくらになるでしょう。",
+      "prompt": "1000を ２こ、100 を ８こ、10 を ５こ、それに 1 をあわせた数[かず]は、いくらになるでしょう。",
       "answers": [
         "2851"
       ]
@@ -197,7 +198,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "３つの数で、いちばん 小さい数をえらぼう。",
+      "prompt": "３つの数[かず]で、いちばん 小[ちい]さい数[かず]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -215,7 +216,7 @@
       "answer": "c3",
       "shuffle": true
     },
-    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。千のくらいがない 920 が一ばん小さいね。"
+    "explanation": "数[かず]の大小[だいしょう]をくらべるときは、大[おお]きなくらいの数[かず]から、じゅんばんに 見[み]ていこう。千[せん]のくらいがない 920 が一[いち]ばん小[ちい]さいね。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.74d9aacd2e62",
@@ -229,12 +230,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "10000"
       ]
     },
-    "explanation": "数は、1000 ずつふえているので、□には、1000が 10こ あつまった数が はいる。10000（１万）だね。"
+    "explanation": "数[かず]は、1000 ずつふえているので、□には、1000が 10こ あつまった数[かず]が はいる。10000（１万[まん]）だね。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.8a892ac360b1",
@@ -248,7 +249,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "３つの数で、いちばん 大きい数をえらぼう。",
+      "prompt": "３つの数[かず]で、いちばん 大[おお]きい数[かず]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -266,7 +267,7 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "数の大小をくらべるときは、大きなくらいの数から、じゅんばんに 見ていこう。千のくらいと 百のくらいが 54と大きくなっている 5430 が一ばん大きいね。"
+    "explanation": "数[かず]の大小[だいしょう]をくらべるときは、大[おお]きなくらいの数[かず]から、じゅんばんに 見[み]ていこう。千[せん]のくらいと 百[ひゃく]のくらいが 54と大[おお]きくなっている 5430 が一[いち]ばん大[おお]きいね。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.8f8305c216db",
@@ -280,12 +281,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の漢字を、数字になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
       "answers": [
         "1102"
       ]
     },
-    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「十」が出てきていないので、十のくらいは、0になる。"
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。「十[じゅう]」が出[で]てきていないので、十[じゅう]のくらいは、0になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.964d32b0ff14",
@@ -299,7 +300,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1000を ４こ、100 を ３こ、10 を ７こ、それに 9 をあわせた数は、いくらになるでしょう。",
+      "prompt": "1000を ４こ、100 を ３こ、10 を ７こ、それに 9 をあわせた数[かず]は、いくらになるでしょう。",
       "answers": [
         "4379"
       ]
@@ -318,12 +319,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□に あてはまる 数は、いくつでしょう。",
+      "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "5000"
       ]
     },
-    "explanation": "数は、100 ずつふえているね。ちょうど くらいが上がって、1000 が 5つになる 5000 だ。"
+    "explanation": "数[かず]は、100 ずつふえているね。ちょうど くらいが上[あ]がって、1000 が 5つになる 5000 だ。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.b1b0796b5505",
@@ -337,12 +338,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1000を ３こ、100 を １こ、それに 7 をあわせた数は、いくらになるでしょう。",
+      "prompt": "1000を ３こ、100 を １こ、それに 7 をあわせた数[かず]は、いくらになるでしょう。",
       "answers": [
         "3107"
       ]
     },
-    "explanation": "十のくらいが ないので、「0（れい）」をいれよう。"
+    "explanation": "十[じゅう]のくらいが ないので、「0（れい）」をいれよう。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.b66fdb25f090",
@@ -353,7 +354,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
@@ -378,7 +380,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "0 になっているくらいは、とばして読もう。"
+    "explanation": "0 になっているくらいは、とばして読[よ]もう。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.d62a8c39ddd3",
@@ -392,12 +394,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の漢字を、数字になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
       "answers": [
         "4574"
       ]
     },
-    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。千や百、十をとばして 数字にしていくと、分かりやすい。"
+    "explanation": "それぞれの くらいが、いくらになるか、かんがえよう。千[せん]や百[ひゃく]、十[じゅう]をとばして 数字[すうじ]にしていくと、分[わ]かりやすい。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.e334c51373ad",
@@ -408,7 +410,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
@@ -433,7 +436,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "0 になっているくらいは、とばして読もう。"
+    "explanation": "0 になっているくらいは、とばして読[よ]もう。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.ea34d5d396f4",
@@ -447,12 +450,12 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1000を ８こ、それに 5 をあわせた数は、いくらになるでしょう。",
+      "prompt": "1000を ８こ、それに 5 をあわせた数[かず]は、いくらになるでしょう。",
       "answers": [
         "8005"
       ]
     },
-    "explanation": "百のくらい、十のくらいが ないので、「0（れい）」をいれよう。"
+    "explanation": "百[ひゃく]のくらい、十[じゅう]のくらいが ないので、「0（れい）」をいれよう。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.fa9c3380a02b",
@@ -466,7 +469,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "100を 30こ あつめた数は、いくらになるでしょう。",
+      "prompt": "100を 30こ あつめた数[かず]は、いくらになるでしょう。",
       "answers": [
         "3000"
       ]

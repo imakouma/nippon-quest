@@ -4,17 +4,29 @@ import { folderStateSchema, type FolderLayout, type FolderState } from './folder
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 async function request(data: unknown): Promise<FolderState> {
+  const fallback =
+    (data as { action?: unknown }).action === 'read'
+      ? 'フォルダ構成を読み込めませんでした'
+      : 'フォルダ構成を保存できませんでした';
   const response = await fetch(`${base}/__nq/folder-state`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-nq-save': '1' },
     body: JSON.stringify(data),
   });
-  const result: unknown = await response.json();
-  if (!response.ok) {
-    const message = (result as { error?: string }).error;
-    throw new Error(message || 'フォルダ構成を保存できませんでした');
+  const body = await response.text();
+  let result: unknown = null;
+  try {
+    if (body) result = JSON.parse(body);
+  } catch {
+    throw new Error(fallback);
   }
-  return folderStateSchema.parse(result);
+  if (!response.ok) {
+    const message = result && typeof result === 'object' ? (result as { error?: unknown }).error : undefined;
+    throw new Error(typeof message === 'string' && message ? message : fallback);
+  }
+  const parsed = folderStateSchema.safeParse(result);
+  if (!parsed.success) throw new Error(fallback);
+  return parsed.data;
 }
 
 export function useFolderState() {

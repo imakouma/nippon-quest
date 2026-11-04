@@ -5,6 +5,7 @@ import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 import { h, render } from 'preact';
 import { act } from 'preact/test-utils';
 import { createNewGame } from '../../src/core/state/newGame';
+import { gameStateSchema } from '../../src/core/state/schema';
 import { ParentOverlay } from '../../src/ui/field/ParentOverlay';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 
@@ -105,6 +106,34 @@ describe('保護者設定の更新日時', () => {
 
     expect(changed.learning.grade).toBe(4);
     expect(changed.updatedAt).toBe(5_000);
+  });
+
+  it('練習の制限時間を選んで保存する', async () => {
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 0);
+    let changed = game;
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      h(ParentOverlay, {
+        game,
+        getGame: () => changed,
+        mastery: [],
+        onChange: (next) => (changed = next),
+        onImport: vi.fn(),
+        onClose: vi.fn(),
+      }),
+      container,
+    );
+    await unlock(container);
+    const select = [...container.querySelectorAll('select')].find((item) =>
+      item.querySelector('option[value="unlimited"]'),
+    )!;
+    expect(select.value).toBe('limited');
+    select.value = 'unlimited';
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(changed.settings.practiceUnlimitedTime).toBe(true);
+    expect(gameStateSchema.parse(changed).settings.practiceUnlimitedTime).toBe(true);
+    expect(gameStateSchema.parse(game).settings.practiceUnlimitedTime).toBeUndefined();
   });
 
   it('音量を変更した時刻を GameState に記録する', async () => {

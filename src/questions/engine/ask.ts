@@ -14,6 +14,7 @@ import { requireRenderer } from '../renderers/registry';
 import type { QuestionBank } from './bank';
 import type { MasteryStore } from './mastery';
 import { pickQuestion, type PickRng } from './pick';
+import { questionTimeLimitMs } from './timeLimit';
 
 export interface AskEnv {
   bank: QuestionBank;
@@ -25,6 +26,8 @@ export interface AskEnv {
   speak: (text: string) => void;
   playerGrade: Grade;
   timeLimitSecByGrade: Record<string, number>;
+  battleTiming?: boolean;
+  unlimitedTime?: boolean;
   recentWindow: number;
   weakUnitRatio: number;
   /** 直近出題 id（GameState に保存） */
@@ -72,7 +75,7 @@ export async function askById(env: AskEnv, id: string, signal?: AbortSignal): Pr
 async function runQuestion(env: AskEnv, q: QuestionBase, signal?: AbortSignal): Promise<AskResult> {
   const presentedAt = Date.now();
   const renderer = requireRenderer(q.type);
-  const timeLimitSec = q.timeLimitSec ?? env.timeLimitSecByGrade[String(q.grade)] ?? 20;
+  const defaultSeconds = env.timeLimitSecByGrade[String(q.grade)] ?? 20;
 
   const container = document.createElement('div');
   container.className = 'nq-question-root';
@@ -84,7 +87,12 @@ async function runQuestion(env: AskEnv, q: QuestionBase, signal?: AbortSignal): 
     grade: env.playerGrade,
     assets: env.assets,
     speak: env.speak,
-    timeLimitMs: timeLimitSec * 1000,
+    timeLimitMs: questionTimeLimitMs(
+      q,
+      defaultSeconds,
+      env.battleTiming ?? false,
+      env.unlimitedTime ?? false,
+    ),
     signal,
   };
 
