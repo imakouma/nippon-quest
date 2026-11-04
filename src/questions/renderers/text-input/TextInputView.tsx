@@ -53,11 +53,19 @@ export function TextInputView({
     <div class="nq-q nq-q-input">
       <TimerBar ms={ctx.timeLimitMs} running={!done} onTimeout={() => finish(true)} />
       {!promptRepeated && (
-        <div id="nq-question-prompt" class="nq-q-prompt">
-          {payload.promptImage && (
+        <div
+          id="nq-question-prompt"
+          class={payload.promptImageAlt ? 'nq-q-prompt nq-input-illustrated-prompt' : 'nq-q-prompt'}
+        >
+          {payload.promptImage && !payload.promptImageAlt && (
             <img class="nq-q-prompt-img" src={ctx.assets.image(payload.promptImage)} alt="" />
           )}
           <RubyLabel text={payload.prompt} grade={ctx.grade} as="p" />
+          {payload.promptImage && payload.promptImageAlt && (
+            <div class="nq-input-illustration" tabIndex={0}>
+              <img src={ctx.assets.image(payload.promptImage)} alt={payload.promptImageAlt} />
+            </div>
+          )}
         </div>
       )}
       <div id={promptRepeated ? 'nq-question-template' : undefined} class="nq-input-template">

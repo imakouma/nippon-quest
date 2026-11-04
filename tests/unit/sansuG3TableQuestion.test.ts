@@ -22,6 +22,8 @@ describe('grade 3 recess table questions', () => {
     for (const question of tables) {
       expect(curriculum).toContain(`"questionId": "${question.id}"`);
       const svg = readFileSync(`${root}/assets/${question.payload.promptImage}`, 'utf8');
+      expect(question.payload.promptImageAlt).toContain('空らん');
+      expect(question.payload.promptImageAlt).toContain('おりがみ');
       expect(svg.match(/>□<\/text>/g)).toHaveLength(1);
       expect(svg.match(/<path /g)).toHaveLength(15);
     }
