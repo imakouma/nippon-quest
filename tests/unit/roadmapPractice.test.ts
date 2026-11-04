@@ -386,6 +386,7 @@ describe('runRoadmapPractice', () => {
     const first = question('first-question', 'sansu.g1.first');
     const selected = question('selected-question', 'sansu.g1.selected');
     const fixture = runtimeFixture(selected);
+    fixture.game.settings.practiceUnlimitedTime = true;
     fixture.bank.add(first);
     vi.spyOn(learningPlanProvider, 'buildLearningPlan').mockReturnValue([
       incompletePlanItem(first, 'due-review'),
@@ -404,7 +405,7 @@ describe('runRoadmapPractice', () => {
 
     expect(result?.questionId).toBe(selected.id);
     expect(mocks.askById).toHaveBeenCalledOnce();
-    expect(mocks.askById).toHaveBeenCalledWith(expect.any(Object), selected.id);
+    expect(mocks.askById).toHaveBeenCalledWith(expect.objectContaining({ unlimitedTime: true }), selected.id);
   });
 
   it('候補なしとstale候補では回答前の状態を変えず既存案内だけを表示する', async () => {

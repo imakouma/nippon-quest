@@ -16,7 +16,7 @@ export function TimerBar({ ms, running, onTimeout }: TimerBarProps) {
   onTimeoutRef.current = onTimeout;
 
   useEffect(() => {
-    if (!running) return;
+    if (!running || ms === 0) return;
     start.current = performance.now();
     fired.current = false;
     setLeft(ms);
@@ -33,6 +33,7 @@ export function TimerBar({ ms, running, onTimeout }: TimerBarProps) {
     tick();
     return () => window.clearInterval(id);
   }, [ms, running]);
+  if (ms === 0) return null;
   const pct = ms > 0 ? (left / ms) * 100 : 0;
   const seconds = Math.ceil(left / 1000);
   const maxSeconds = Math.ceil(ms / 1000);
