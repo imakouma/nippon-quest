@@ -48,6 +48,7 @@
     "test:e2e:flow-companion": "playwright test tests/e2e/story-companion.spec.ts",
     "test:e2e:flow-accessibility": "playwright test tests/e2e/ui-accessibility.spec.ts",
     "test:e2e:progression": "playwright test tests/e2e/island-progression.spec.ts tests/e2e/regional-progression.spec.ts",
+    "test:e2e:mobile": "playwright test --config tests/e2e/playwright.mobile.config.ts",
     "test:e2e:audit": "playwright test tests/e2e/battle-question-audit.spec.ts --grep '全問題をバトル問題枠'",
     "gen:schemas": "tsx scripts/gen-schemas.ts",
     "gen:kanji-questions": "tsx scripts/generate-kanji-questions.ts",

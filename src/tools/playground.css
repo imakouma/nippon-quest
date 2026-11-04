@@ -813,6 +813,7 @@ button:disabled {
 }
 
 .pg-preview {
+  container-type: inline-size;
   overflow: hidden;
 }
 
@@ -831,6 +832,7 @@ button:disabled {
 
 .pg-question-heading h2 {
   max-width: 680px;
+  overflow-wrap: anywhere;
   font-size: clamp(19px, 2vw, 26px);
   line-height: 1.35;
 }
@@ -1084,11 +1086,17 @@ button:disabled {
   .pg-list {
     width: 100%;
     height: auto;
-    min-height: 720px;
+    min-height: 0;
   }
 
   .pg-review {
     width: 100%;
+  }
+
+  .pg-tree {
+    height: auto;
+    min-height: 0;
+    max-height: 55dvh;
   }
 
   .pg-question-list {
@@ -1096,7 +1104,22 @@ button:disabled {
   }
 }
 
+@container (max-width: 520px) {
+  .pg-preview-head {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pg-question-heading,
+  .pg-test-controls {
+    width: 100%;
+  }
+}
+
 @media (max-width: 520px) {
+  .pg-header {
+    flex-wrap: wrap;
+  }
   .pg-header,
   .pg-workspace {
     padding-right: 5px;
