@@ -143,7 +143,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数をよみましょう。",
+      "prompt": "次の数をよみましょう。 87万2300",
       "choices": [
         {
           "id": "c1",
@@ -280,7 +280,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数をくらべたとき、□に入る きごう をえらぼう。",
+      "prompt": "次の数をくらべたとき、□に入る きごう をえらぼう。 21000 + 32000 □ 50000",
       "choices": [
         {
           "id": "c1",
@@ -328,7 +328,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の２つの数をくらべたとき、□に入る きごう をえらぼう。",
@@ -513,7 +514,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数をよみましょう。",
+      "prompt": "次の数をよみましょう。 309万",
       "choices": [
         {
           "id": "c1",
@@ -549,7 +550,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数をよみましょう。",
+      "prompt": "次の数をよみましょう。 5632万100",
       "choices": [
         {
           "id": "c1",
@@ -585,7 +586,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数をくらべたとき、□に入る きごう をえらぼう。",
+      "prompt": "次の数をくらべたとき、□に入る きごう をえらぼう。 21000 + 32000 □ 78000",
       "choices": [
         {
           "id": "c1",
@@ -614,7 +615,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の２つの数をくらべたとき、□に入る きごう をえらぼう。",
