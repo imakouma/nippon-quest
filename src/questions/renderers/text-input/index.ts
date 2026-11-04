@@ -14,12 +14,12 @@ export const textInputRenderer: QuestionRenderer = {
         h(TextInputView, {
           ctx,
           payload,
-          onDone: ({ score, values, timedOut }) => {
+          onDone: ({ score, values, timedOut, answeredAt }) => {
             render(null, ctx.container);
             resolve({
               questionId: ctx.question.id,
               score,
-              timeMs: Math.round(performance.now() - startedAt),
+              timeMs: Math.round((answeredAt ?? performance.now()) - startedAt),
               attempts: timedOut ? 0 : 1,
               timedOut,
               detail: { values },

@@ -23,12 +23,12 @@ export const choiceRenderer: QuestionRenderer = {
           ctx,
           payload,
           order,
-          onDone: ({ score, attempts, timedOut, chosen }) => {
+          onDone: ({ score, attempts, timedOut, chosen, answeredAt }) => {
             render(null, ctx.container);
             resolve({
               questionId: ctx.question.id,
               score,
-              timeMs: Math.round(performance.now() - startedAt),
+              timeMs: Math.round((answeredAt ?? performance.now()) - startedAt),
               attempts,
               timedOut,
               detail: { chosen, order },
