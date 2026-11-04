@@ -870,9 +870,30 @@ button:disabled {
   width: min(100%, 960px);
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  container-name: question-preview;
+  container-type: inline-size;
   border-radius: 8px;
   background: #111;
   box-shadow: 0 12px 28px rgba(16, 27, 24, 0.18);
+}
+
+@container question-preview (max-width: 746px) {
+  .pg-stage .nq-q-choice {
+    gap: 6px;
+    padding: 8px 12px;
+  }
+
+  .pg-stage .nq-q-choice .nq-q-prompt p {
+    line-height: 1.35;
+  }
+
+  .pg-stage .nq-q-choice .nq-q-choices {
+    gap: 6px;
+  }
+
+  .pg-stage .nq-q-choice .nq-choice {
+    padding: 6px 8px 6px 40px;
+  }
 }
 
 .pg-stage .nq-q-pair-match {

@@ -593,6 +593,29 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
 });
 
+test('Playground は中幅の4択プレビューをスクロールなしで表示する', async ({ page }) => {
+  await page.setViewportSize({ width: 960, height: 900 });
+  await page.goto('/playground.html?q=eigo.g3.alphabet-small.0002');
+  await page.getByRole('button', { name: '再生', exact: true }).click();
+
+  const choices = page.locator('.nq-q-choices');
+  await expect(choices).toBeVisible({ timeout: 20_000 });
+  const layout = await choices.evaluate((element) => {
+    const stage = element.closest('.pg-stage')!.getBoundingClientRect();
+    const options = [...element.querySelectorAll('.nq-choice')].map((option) =>
+      option.getBoundingClientRect(),
+    );
+    return {
+      clientHeight: element.clientHeight,
+      scrollHeight: element.scrollHeight,
+      optionsInsideStage: options.every((option) => option.top >= stage.top && option.bottom <= stage.bottom),
+    };
+  });
+
+  expect(layout.scrollHeight).toBeLessThanOrEqual(layout.clientHeight);
+  expect(layout.optionsInsideStage).toBe(true);
+});
+
 test('Playground は広い画面でプレビューを編集の上に表示し、基本情報を横に並べる', async ({ page }) => {
   await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('/playground.html?q=eigo.g3.alphabet-small.0001');
