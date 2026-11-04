@@ -28,7 +28,7 @@ export function mathSpeech(text: string): string {
 }
 
 export function getTextInputSpeech(payload: TextInputPayload, mathematical = true): string {
-  const compact = (text: string) => text.replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
+  const compact = (text: string) => stripRuby(text).replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
   const template = payload.template ?? '{{INPUT}}';
   const repeated = compact(template) === compact(payload.prompt);
   const parts = [repeated ? '' : payload.prompt, payload.promptImageAlt, template];

@@ -12,7 +12,12 @@ process.env.E2E_PRODUCTION_BUILD = '1';
 
 export default defineConfig({
   testDir: '.',
-  testIgnore: ['playground-list.spec.ts', 'questions.spec.ts'],
+  testIgnore: [
+    'playground-list.spec.ts',
+    'questions.spec.ts',
+    'question-viewport.spec.ts',
+    'battle-question-audit.spec.ts',
+  ],
   timeout: 30_000,
   workers: 1,
   reporter: process.env.CI ? [['line'], ['html', { open: 'never' }]] : 'list',

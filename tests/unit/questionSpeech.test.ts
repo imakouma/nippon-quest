@@ -16,6 +16,15 @@ describe('input question speech', () => {
       '3たす2はしかく',
     );
   });
+  it('does not repeat a prompt when only ruby differs', () => {
+    expect(
+      getTextInputSpeech({
+        prompt: '5人[にん]で わける。こ',
+        template: '5人で わける。{{INPUT}}こ',
+        answers: ['3'],
+      }),
+    ).toBe('5人で わける。しかくこ');
+  });
   it('includes the illustration description and a separate equation', () => {
     const speech = getTextInputSpeech({
       prompt: '表[ひょう]をみよう',
