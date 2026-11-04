@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { RendererContext } from '../../contracts';
 import { t } from '../../../ui/i18n';
 import { RubyLabel } from '../../../ui/RubyLabel';
+import { fractionSpeech } from '../../../ui/fraction';
 import { stripRuby } from '../../../ui/ruby';
 import { TimerBar } from '../shared/TimerBar';
 import { Feedback } from '../shared/Feedback';
@@ -16,7 +17,7 @@ export interface ChoiceViewProps {
 }
 
 export function getChoicePromptSpeech(payload: ChoicePayload): string {
-  return payload.promptSpeech ?? stripRuby(payload.prompt, 'kana');
+  return payload.promptSpeech ?? fractionSpeech(stripRuby(payload.prompt, 'kana'));
 }
 
 export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {

@@ -49,15 +49,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。 \\dfrac{4}{5} □ \\dfrac{2}{5}",
       "choices": [
         {
           "id": "c1",
-          "text": "\\lt"
+          "text": "<"
         },
         {
           "id": "c2",
-          "text": "\\gt"
+          "text": ">"
         },
         {
           "id": "c3",
@@ -67,7 +67,7 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "分母が同じときは、分子が大きい方が、数は大きくなるので、 \\dfrac{4}{5} \\gt \\dfrac{2}{5}"
+    "explanation": "分母が同じときは、分子が大きい方が、数は大きくなるので、 \\dfrac{4}{5} > \\dfrac{2}{5}"
   },
   {
     "id": "legacy.sansu.g3.math-3-14.455b0e61dc70",
@@ -258,15 +258,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。 1 □ \\dfrac{10}{10}",
       "choices": [
         {
           "id": "c1",
-          "text": "\\lt"
+          "text": "<"
         },
         {
           "id": "c2",
-          "text": "\\gt"
+          "text": ">"
         },
         {
           "id": "c3",
@@ -416,15 +416,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。",
+      "prompt": "次の分数の大きさをくらべて、□に入る ＝ や 不等号をえらぼう。 \\dfrac{1}{3} □ \\dfrac{2}{3}",
       "choices": [
         {
           "id": "c1",
-          "text": "\\lt"
+          "text": "<"
         },
         {
           "id": "c2",
-          "text": "\\gt"
+          "text": ">"
         },
         {
           "id": "c3",
@@ -434,7 +434,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "分母が同じときは、分子が大きい方が、数は大きくなるので、 \\dfrac{1}{3} \\lt \\dfrac{2}{3}"
+    "explanation": "分母が同じときは、分子が大きい方が、数は大きくなるので、 \\dfrac{1}{3} < \\dfrac{2}{3}"
   },
   {
     "id": "legacy.sansu.g3.math-3-14.e70428ea176a",
