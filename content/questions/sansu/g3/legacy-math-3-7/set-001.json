@@ -272,17 +272,98 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの表は、１年生から３年生が 休み時間にしたいことについて、まとめたものです。①〜⑤に当てはまる数をうめよう。",
+      "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
       "answers": [
-        "9",
-        "4",
-        "5",
-        "37",
+        "9"
+      ],
+      "suffix": "人[にん]",
+      "promptImage": "questions/sansu/g3/recess-table-1.svg"
+    },
+    "explanation": "3＋4＋2＝9 なので、9人[にん]です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.54bfe42d11e7.2",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
+      "answers": [
+        "4"
+      ],
+      "suffix": "人[にん]",
+      "promptImage": "questions/sansu/g3/recess-table-2.svg"
+    },
+    "explanation": "19−9−6＝4 なので、4人[にん]です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.54bfe42d11e7.3",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
+      "answers": [
+        "5"
+      ],
+      "suffix": "人[にん]",
+      "promptImage": "questions/sansu/g3/recess-table-3.svg"
+    },
+    "explanation": "18−3−10＝5 なので、5人[にん]です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.54bfe42d11e7.4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
+      "answers": [
+        "37"
+      ],
+      "suffix": "人[にん]",
+      "promptImage": "questions/sansu/g3/recess-table-4.svg"
+    },
+    "explanation": "3＋4＋9＋11＋3＋7＝37 なので、37人[にん]です。"
+  },
+  {
+    "id": "legacy.sansu.g3.math-3-7.54bfe42d11e7.5",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": [
+      "source:legacy-autonomy-game",
+      "legacy-node:math_3_7",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
+      "answers": [
         "110"
       ],
-      "template": "すること／学年 １年生 ２年生 ３年生 合計 おりがみ 3 4 2 ①{{INPUT}} 読書 4 5 6 15 おにごっこ 9 ②{{INPUT}} 6 19 ボールあそび 11 5 8 24 なわとび 3 10 ③{{INPUT}} 18 その他 7 8 10 25 合計 ④{{INPUT}} 36 37 ⑤{{INPUT}}"
+      "suffix": "人[にん]",
+      "promptImage": "questions/sansu/g3/recess-table-5.svg"
     },
-    "explanation": "① おりがみをしたい人の合計：3+4+2=9 ② ２年生でおにごっこをしたい人：19-9-6=4 ③ ３年生でなわとびをしたい人：18-3-10=5 ④ １年生の人数の合計：3+4+9+11+3+7=37 ⑤ １年生から３年生の合計：37+36+37=110"
+    "explanation": "37＋36＋37＝110 なので、110人[にん]です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-7.87f01978e443",
