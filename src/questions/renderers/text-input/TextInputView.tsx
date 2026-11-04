@@ -5,6 +5,7 @@ import { RubyLabel } from '../../../ui/RubyLabel';
 import { Feedback } from '../shared/Feedback';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
 import { TimerBar } from '../shared/TimerBar';
+import { getTextInputSpeech } from '../shared/questionSpeech';
 import { textInputScore, type TextInputPayload } from './schema';
 
 export function TextInputView({
@@ -80,6 +81,14 @@ export function TextInputView({
   return (
     <div class="nq-q nq-q-input">
       <TimerBar ms={ctx.timeLimitMs} running={!done} onTimeout={() => finish(true)} />
+      <button
+        type="button"
+        class="nq-btn nq-btn-speak nq-input-speak"
+        aria-label={t('question.speak')}
+        onClick={() => ctx.speak(getTextInputSpeech(payload, ctx.question.subject === 'sansu'))}
+      >
+        🔊
+      </button>
       {!promptRepeated && (
         <div
           id="nq-question-prompt"

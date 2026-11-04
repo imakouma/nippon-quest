@@ -6,6 +6,7 @@ import { TextInputView } from '../../src/questions/renderers/text-input/TextInpu
 
 const context = {
   grade: 3,
+  question: { subject: 'sansu', grade: 3 },
   timeLimitMs: 10000,
   assets: { image: (path: string) => path },
 } as RendererContext;

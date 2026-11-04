@@ -33,7 +33,7 @@ describe('choice answer context', () => {
     for (const [id, expression] of [
       ['2d54955c2bba', '3km200m + 800m'],
       ['fe60b183f57a', '600m + 400m'],
-    ]) {
+    ] as const) {
       const question = questions.find((item) => item.id.endsWith(id))!;
       expect(question.payload).toMatchObject({ prompt: expect.stringContaining(expression) });
       expect(questionHasAnswerContext(question)).toBe(true);

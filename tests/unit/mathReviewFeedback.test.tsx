@@ -84,8 +84,10 @@ for (const [renderer, payload] of [
     });
     expect(settled).toBe(false);
     expect(container.querySelector('.nq-feedback-correct')).not.toBeNull();
+    expect(document.activeElement).toBe(container.querySelector('.nq-review-next'));
     act(() => (container.querySelector('.nq-review-explain') as HTMLButtonElement).click());
     expect(container.querySelector('ruby')).not.toBeNull();
+    expect(document.activeElement).toBe(container.querySelector('.nq-review p'));
     act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
     expect(await result).toMatchObject({ score: 1, timeMs: 0, timedOut: false });
   });
