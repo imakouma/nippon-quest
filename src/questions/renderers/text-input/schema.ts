@@ -6,6 +6,7 @@ export const textInputPayloadSchema = z.object({
   answers: z.array(z.string().min(1)).min(1).max(8),
   suffix: z.string().optional(),
   promptImage: z.string().optional(),
+  promptImageAlt: z.string().min(1).optional(),
 });
 export type TextInputPayload = z.infer<typeof textInputPayloadSchema>;
 

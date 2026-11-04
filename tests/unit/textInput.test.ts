@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { normalizeInput, textInputScore } from '../../src/questions/renderers/text-input/schema';
+import {
+  normalizeInput,
+  textInputPayloadSchema,
+  textInputScore,
+} from '../../src/questions/renderers/text-input/schema';
 describe('text-input', () => {
   it('全角数字・空白・桁区切りを正規化する', () => expect(normalizeInput(' ４２,１９５ ')).toBe('42195'));
   it('複数欄を部分点つきで採点する', () =>
@@ -27,4 +31,11 @@ describe('text-input numeric grading', () => {
     }
     expect(score('1/2', '2/4')).toBe(0);
   });
+});
+
+it('画像の代替テキストを保持し、空文字を拒否する', () => {
+  const payload = { prompt: 'p', answers: ['1'], promptImageAlt: '表の説明' };
+  expect(textInputPayloadSchema.parse(payload).promptImageAlt).toBe('表の説明');
+  expect(textInputPayloadSchema.safeParse({ ...payload, promptImageAlt: '' }).success).toBe(false);
+  expect(textInputPayloadSchema.safeParse({ prompt: 'p', answers: ['1'] }).success).toBe(true);
 });
