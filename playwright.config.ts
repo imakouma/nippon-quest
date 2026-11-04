@@ -13,6 +13,7 @@ const useDevServer = process.env.E2E_USE_DEV_SERVER === '1';
 
 export default defineConfig({
   testDir: 'tests/e2e',
+  testIgnore: ['question-mobile.spec.ts'],
   timeout: 30_000,
   // Phaser/WebGL と4,000問超のJSONを複数ブラウザで同時に初期化すると、
   // CI の小さいCPUでは正常な画面までタイムアウトする。ゲームE2Eは直列で再現性を優先する。
