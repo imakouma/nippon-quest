@@ -103,3 +103,77 @@ test('スマホで入力中に高さが変わっても答えられる', async ({
   await page.getByRole('button', { name: 'つぎへ', exact: true }).tap();
   await expect(page.locator('.pg-result')).toContainText('"score": 1');
 });
+
+test('画面全体は境界幅をまたいでも同じ割合で連続的に伸縮する', async ({ page }) => {
+  await page.setViewportSize({ width: 960, height: 900 });
+  await page.goto('/playground.html?q=sansu.g1.tokei.0002');
+  await expect(page.locator('.nq-q-prompt-img')).toBeVisible();
+  await page.locator('.pg-tree-details > summary').tap();
+  const measure = () =>
+    page.locator('.pg').evaluate((root) => {
+      const width = root.getBoundingClientRect().width;
+      const selectors = [
+        '.pg-header h1',
+        '.pg-question-heading h2',
+        '.pg-run',
+        '.pg-tree-details > summary',
+        '.ed-group-title',
+        '.ed-label',
+        '.ed-input',
+      ];
+      return {
+        fonts: selectors.map(
+          (selector) => parseFloat(getComputedStyle(root.querySelector(selector)!).fontSize) / width,
+        ),
+        boxes: ['.pg-preview', '.pg-stage', '.nq-q-prompt-img', '.nq-choice', '.pg-run']
+          .map((selector) => {
+            const box = root.querySelector(selector)!.getBoundingClientRect();
+            return [box.width / width, box.height / width];
+          })
+          .flat(),
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      };
+    });
+  const baseline = await measure();
+  for (const width of [
+    320, 339, 340, 341, 390, 519, 520, 521, 600, 601, 767, 768, 819, 820, 821, 959, 960, 961, 1099, 1100,
+    1101, 1199, 1200, 1201, 1440,
+  ]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect
+      .poll(
+        async () => {
+          const actual = await measure();
+          // Native borders round to device pixels; stacked borders can differ by a few CSS pixels.
+          const fontsMatch = actual.fonts.every((value, i) => Math.abs(value - baseline.fonts[i]!) < 0.00001);
+          return fontsMatch
+            ? Math.max(...actual.boxes.map((value, i) => Math.abs(value - baseline.boxes[i]!) * width))
+            : Infinity;
+        },
+        { message: `${width}pxでも文字・時計・操作部の比率を維持` },
+      )
+      .toBeLessThan(5);
+    expect((await measure()).overflow).toBeLessThanOrEqual(1);
+    await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  }
+});
+
+test('多数の検索結果も相対的な高さの一覧内でスクロールできる', async ({ page }) => {
+  await page.goto('/playground.html?q=sansu.g1.tokei.0002');
+  await page.locator('.pg-filter-details > summary').tap();
+  await page.locator('#pg-f-text').fill('sansu');
+  const results = page.locator('.pg-results .pg-question-list');
+  await expect(results.locator('.pg-question-row')).toHaveCount(200);
+  for (const width of [320, 820, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    const metrics = await results.evaluate((list) => ({
+      height: list.getBoundingClientRect().height,
+      contentHeight: list.scrollHeight,
+      width: document.querySelector('.pg')!.getBoundingClientRect().width,
+      overflow: getComputedStyle(list).overflowY,
+    }));
+    expect(metrics.height).toBeLessThanOrEqual(metrics.width + 1);
+    expect(metrics.contentHeight).toBeGreaterThan(metrics.height);
+    expect(metrics.overflow).toBe('auto');
+  }
+});

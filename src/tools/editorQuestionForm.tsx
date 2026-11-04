@@ -249,7 +249,7 @@ export function EditorQuestionForm({
               <button
                 type="button"
                 class="ed-btn"
-                style={{ marginTop: '6px' }}
+                style={{ marginTop: '0.375em' }}
                 onClick={() => {
                   let number = choices.length + 1;
                   while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;

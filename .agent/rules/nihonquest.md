@@ -42,3 +42,5 @@
 - 問題UIはregistryの共通questionViewportで、文字・画像・入力・ボタンを同じ倍率で枠に収める。個別のviewport単位やスクロールで見切れを補わない。
 - 問題レイアウト変更時は`tests/e2e/question-viewport.spec.ts`と`battle-question-audit.spec.ts`の代表検査を実行する。全件確認は`pnpm test:e2e:audit`で4サイズを描画する（nightlyでも実行）。
 - 監査はタイマー・表示領域ゼロ・文字の内部クリップも検査する。読み上げ専用要素以外を検査から除外して合格にしない。
+
+- 問題レビュー画面全体は幅520pxを基準にルート倍率を連続的に変える。周辺UIの寸法はrem/em/%/frで揃え、固定pxや幅別の列切替・文字サイズ上限下限を再導入しない。変更時は`pnpm test:e2e:mobile`で境界前後の比率と検索一覧の高さも確認する。
