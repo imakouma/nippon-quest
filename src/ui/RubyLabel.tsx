@@ -1,4 +1,5 @@
 import type { JSX } from 'preact';
+import { renderFractions } from './fraction';
 import { displayRuby, openKanjiAboveGrade, parseRuby, type KanjiGradeTable } from './ruby';
 
 export interface RubyLabelProps {
@@ -24,7 +25,7 @@ export function RubyLabel({ text, grade, table, id, class: cls, as: Tag = 'span'
             <rt>{s.ruby}</rt>
           </ruby>
         ) : (
-          <span key={i}>{s.base}</span>
+          <span key={i}>{renderFractions(s.base)}</span>
         ),
       )}
     </T>

@@ -92,7 +92,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_19",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
@@ -131,7 +132,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の式をまとめて計算すると、どういう式になるでしょう。",
+      "prompt": "次の式をまとめて計算すると、どういう式になるでしょう。 30 × 3 + 50 × 3",
       "choices": [
         {
           "id": "c1",
@@ -167,7 +168,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の式をまとめて計算すると、どういう式になるでしょう。",
+      "prompt": "次の式をまとめて計算すると、どういう式になるでしょう。 50 × 4 + 80 × 4",
       "choices": [
         {
           "id": "c1",
@@ -200,7 +201,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_19",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
@@ -278,7 +280,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_19",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
@@ -335,7 +338,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_19",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "runtime:quarantined-missing-context"
     ],
     "payload": {
       "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",

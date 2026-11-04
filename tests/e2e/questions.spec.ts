@@ -168,3 +168,69 @@ test('地図問題：キーボードで照準を動かして地点を決定で�
   await page.keyboard.press('Enter');
   await expect(page.locator('.nq-map-pick')).toBeVisible();
 });
+
+test('旧版の算数：復元した長さの式を見て答えられる', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.sansu.g3.math-3-9.fe60b183f57a');
+  await expect(page.locator('#nq-question-prompt')).toContainText('600m + 400m');
+  await page
+    .locator('.nq-choice')
+    .filter({ hasText: /^\d1km$/ })
+    .click();
+  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});
+
+test('旧版の算数：ケーキの分数を縦に表示して答えられる', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.sansu.g2.math-2-17.56b737970858');
+  await expect(page.locator('.nq-q-prompt .nq-fraction')).toHaveAttribute('aria-label', '4分の1');
+  await expect(page.locator('.nq-q-prompt')).not.toContainText('dfrac');
+  await page.getByRole('textbox', { name: /こたえ/ }).fill('4');
+  await page.locator('.nq-input-submit').click();
+  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});
+
+for (const [answer, expected] of [
+  ['7.60', 1],
+  ['7.61', 0],
+] as const) {
+  test(`旧版の算数：小数 ${answer} を ${expected} と採点する`, async ({ page }) => {
+    await page.goto('/playground.html?q=legacy.sansu.g3.math-3-15.1c00bc7a70f5');
+    await page.getByRole('textbox', { name: /こたえ/ }).fill(answer);
+    await page.locator('.nq-input-submit').click();
+    await expect(page.locator('.pg-result')).toContainText(`"score": ${expected}`);
+  });
+}
+
+test('旧版の算数：罫線付きの表を見て1か所ずつ答える', async ({ page }) => {
+  for (const [index, answer] of ['9', '4', '5', '37', '110'].entries()) {
+    const id = 'legacy.sansu.g3.math-3-7.54bfe42d11e7' + (index ? `.${index + 1}` : '');
+    await page.goto(`/playground.html?q=${id}`);
+    const image = page.locator('.nq-input-illustration img');
+    await expect(image).toBeVisible();
+    await expect(image).not.toHaveAttribute('alt', '');
+    const size = await image.boundingBox();
+    expect(size?.height).toBeGreaterThan(150);
+    expect((await page.locator('.nq-input-illustration').boundingBox())?.height).toBeGreaterThanOrEqual(240);
+    const input = page.getByRole('textbox', { name: /こたえ/ });
+    await expect(input).toHaveCount(1);
+    await input.fill(answer);
+    await page.locator('.nq-input-submit').click();
+    await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  }
+});
+
+test('旧版の算数：狭い画面でも表をスクロールして答えられる', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/playground.html?q=legacy.sansu.g3.math-3-7.54bfe42d11e7');
+  const table = page.locator('.nq-input-illustration');
+  await expect(table).toBeVisible();
+  expect((await table.boundingBox())?.height).toBeGreaterThanOrEqual(240);
+  await table.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(table).toBeFocused();
+  await page.screenshot({ path: 'test-results/sansu-table-mobile.png' });
+  const image = table.locator('img');
+  expect((await image.boundingBox())?.height).toBeGreaterThan(150);
+  await page.getByRole('textbox', { name: /こたえ/ }).fill('9');
+  await page.locator('.nq-input-submit').click();
+  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});
