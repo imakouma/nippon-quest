@@ -186,7 +186,7 @@ test('旧版の算数：復元した長さの式を見て答えられる', async
     .filter({ hasText: /^\d1km$/ })
     .click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 test('旧版の算数：ケーキの分数を縦に表示して答えられる', async ({ page }) => {
@@ -196,7 +196,7 @@ test('旧版の算数：ケーキの分数を縦に表示して答えられる',
   await page.getByRole('textbox', { name: /こたえ/ }).fill('4');
   await page.locator('.nq-input-submit').click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 for (const [answer, expected] of [
@@ -208,7 +208,7 @@ for (const [answer, expected] of [
     await page.getByRole('textbox', { name: /こたえ/ }).fill(answer);
     await page.locator('.nq-input-submit').click();
     await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-    await expect(page.locator('.pg-result')).toContainText(`"score": ${expected}`);
+    await expectScore(page, expected ? '100%' : '0%');
   });
 }
 
@@ -225,7 +225,7 @@ test('旧版の算数：罫線付きの表を見て1か所ずつ答える', asyn
     await input.fill(answer);
     await page.locator('.nq-input-submit').click();
     await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-    await expect(page.locator('.pg-result')).toContainText('"score": 1');
+    await expectScore(page, '100%');
   }
 });
 
@@ -243,7 +243,7 @@ test('旧版の算数：狭い画面でも表と解答欄の全体を見て答�
   await page.getByRole('textbox', { name: /こたえ/ }).fill('9');
   await page.locator('.nq-input-submit').click();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 test('旧版の算数：時計を読み、解説を自分のペースで確認する', async ({ page }) => {
@@ -262,7 +262,7 @@ test('旧版の算数：時計を読み、解説を自分のペースで確認�
   await page.screenshot({ path: 'test-results/sansu-clock-review.png' });
   await page.keyboard.press('Tab');
   await page.keyboard.press('Enter');
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expectScore(page, '100%');
 });
 
 test('旧版の算数：入力式に読みと音声ボタンがあり答えを読み上げない', async ({ page }) => {
