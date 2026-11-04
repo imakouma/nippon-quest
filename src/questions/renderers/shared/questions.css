@@ -1,3 +1,5 @@
+@import '../../../ui/fraction.css';
+
 /* 問題UI共通スタイル。基準解像度 960x540 の DOM オーバーレイ内で使う。 */
 .nq-q {
   position: absolute;
@@ -253,7 +255,7 @@
   font-size: 48px;
 }
 .nq-input-illustrated-prompt {
-  flex: 1;
+  flex: none;
   flex-direction: column;
   align-items: stretch;
   min-height: 0;
@@ -264,8 +266,9 @@
   flex: none;
 }
 .nq-input-illustration {
-  flex: 1;
-  min-height: 80px;
+  flex: none;
+  height: min(45vh, 320px);
+  min-height: 240px;
   overflow: auto;
 }
 .nq-input-illustration img {

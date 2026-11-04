@@ -1,11 +1,15 @@
 {
   "source": "assets/",
-  "fileCount": 2147,
-  "totalBytes": 211237618,
+  "fileCount": 2152,
+  "totalBytes": 211248485,
   "categories": {
     "audio": { "fileCount": 25, "extensions": ["json", "md", "mp3"], "subdirectories": ["bgm", "se"] },
     "palette": { "fileCount": 2, "extensions": ["gpl", "hex"], "subdirectories": [] },
-    "questions": { "fileCount": 1557, "extensions": ["jpg", "png"], "subdirectories": ["eigo", "legacy"] },
+    "questions": {
+      "fileCount": 1562,
+      "extensions": ["jpg", "png", "svg"],
+      "subdirectories": ["eigo", "legacy", "sansu"]
+    },
     "rights": { "fileCount": 1, "extensions": ["json"], "subdirectories": [] },
     "sprites": {
       "fileCount": 562,
@@ -1598,6 +1602,11 @@
     "questions/legacy/ff737b184136.jpg",
     "questions/legacy/ff8e66205d03.png",
     "questions/legacy/ffb22b7264ce.png",
+    "questions/sansu/g3/recess-table-1.svg",
+    "questions/sansu/g3/recess-table-2.svg",
+    "questions/sansu/g3/recess-table-3.svg",
+    "questions/sansu/g3/recess-table-4.svg",
+    "questions/sansu/g3/recess-table-5.svg",
     "rights/tohoku-release-ledger.json",
     "sprites/animations/aomori-ringoron-v1.png",
     "sprites/animations/batch-01/aomori-boss-tsugaru-no-nushi-v1.png",

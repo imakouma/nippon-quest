@@ -77,6 +77,10 @@
               },
               "promptImage": {
                 "type": "string"
+              },
+              "promptImageAlt": {
+                "type": "string",
+                "minLength": 1
               }
             },
             "required": [

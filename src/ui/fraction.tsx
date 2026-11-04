@@ -14,7 +14,7 @@ export function renderFractions(text: string) {
     if (index % 3 === 1) {
       const denominator = parts[index + 1];
       return (
-        <span class="nq-fraction" aria-label={`${denominator}分の${part}`} key={index}>
+        <span class="nq-fraction" role="math" aria-label={`${denominator}分の${part}`} key={index}>
           <span aria-hidden="true">{part}</span>
           <span aria-hidden="true">{denominator}</span>
         </span>
