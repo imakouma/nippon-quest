@@ -11,14 +11,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さを、m（メートル）を使ってあらわそう。 4km 800m = m",
+      "prompt": "次[つぎ]の長[なが]さを、m（メートル）を使[つか]ってあらわそう。 4km 800m = m",
       "answers": [
         "4800"
       ],
       "template": "次の長さを、m（メートル）を使ってあらわそう。 4km 800m = {{INPUT}}m",
       "suffix": "m"
     },
-    "explanation": "1キロメートルは、1000メートルなので、4km = 4000m になる。それに 800m を合わせて、4800m だ。"
+    "explanation": "1キロメートルは、1000メートルなので、4km = 4000m になる。それに 800m を合[あ]わせて、4800m だ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.06e8891039ef",
@@ -32,7 +32,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さを、km （キロメートル）を使ってあらわそう。 5000m = km",
+      "prompt": "次[つぎ]の長[なが]さを、km （キロメートル）を使[つか]ってあらわそう。 5000m = km",
       "answers": [
         "5"
       ],
@@ -53,7 +53,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さの計算を しましょう。 3km200m + 800m",
+      "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。 3km200m + 800m",
       "choices": [
         {
           "id": "c1",
@@ -75,7 +75,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "メートルどうしを足し算すると、 3km200m + 800m = 3km1000mとなる。 1000m=1kmなので、3kmとあわせて、4kmとなる。"
+    "explanation": "メートルどうしを足[た]し算[ざん]すると、 3km200m + 800m = 3km1000mとなる。 1000m=1kmなので、3kmとあわせて、4kmとなる。"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.3e476f311f0c",
@@ -89,7 +89,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さの計算を しましょう。",
+      "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
       "answers": [
         "5"
       ],
@@ -110,14 +110,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さの計算を しましょう。",
+      "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
       "answers": [
         "1",
         "700"
       ],
       "template": "2km 200m - 500m = {{INPUT}}km {{INPUT}}m"
     },
-    "explanation": "200m から 500m は引き算できないから、2km をメートルになおしてみよう。 2km = 2000m なので、2km200m は 2200m になるね。 2200m - 500m = 1700m 1700m = 1km700m"
+    "explanation": "200m から 500m は引[ひ]き算[ざん]できないから、2km をメートルになおしてみよう。 2km = 2000m なので、2km200m は 2200m になるね。 2200m - 500m = 1700m 1700m = 1km700m"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.5b9035411c97",
@@ -131,14 +131,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さを、m （メートル）を使ってあらわそう。 7km 600m = m",
+      "prompt": "次[つぎ]の長[なが]さを、m （メートル）を使[つか]ってあらわそう。 7km 600m = m",
       "answers": [
         "7600"
       ],
       "template": "次の長さを、m （メートル）を使ってあらわそう。 7km 600m = {{INPUT}}m",
       "suffix": "m"
     },
-    "explanation": "1キロメートルは、1000メートルなので、7km=7000mになる。のこりの 600m と合わせて、7600m だ。"
+    "explanation": "1キロメートルは、1000メートルなので、7km=7000mになる。のこりの 600m と合[あ]わせて、7600m だ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.696e153c4086",
@@ -152,14 +152,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さを、km （キロメートル）を使ってあらわそう。 3200m = km m",
+      "prompt": "次[つぎ]の長[なが]さを、km （キロメートル）を使[つか]ってあらわそう。 3200m = km m",
       "answers": [
         "3",
         "200"
       ],
       "template": "次の長さを、km （キロメートル）を使ってあらわそう。 3200m = {{INPUT}}km {{INPUT}}m"
     },
-    "explanation": "1キロメートルは、1000メートルなので、3200m のうち、3000m=3km になる。のこりの 200m と合わせて、3km 200m だ。"
+    "explanation": "1キロメートルは、1000メートルなので、3200m のうち、3000m=3km になる。のこりの 200m と合[あ]わせて、3km 200m だ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.750b2b765f20",
@@ -173,7 +173,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さを、m （メートル）を使ってあらわそう。",
+      "prompt": "次[つぎ]の長[なが]さを、m （メートル）を使[つか]ってあらわそう。",
       "answers": [
         "4000"
       ],
@@ -194,14 +194,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さを、km （キロメートル）を使ってあらわそう。 1500m = km m",
+      "prompt": "次[つぎ]の長[なが]さを、km （キロメートル）を使[つか]ってあらわそう。 1500m = km m",
       "answers": [
         "1",
         "500"
       ],
       "template": "次の長さを、km （キロメートル）を使ってあらわそう。 1500m = {{INPUT}}km {{INPUT}}m"
     },
-    "explanation": "1キロメートルは、1000メートルなので、1500m のうち、1000m=1km になる。のこりの 500m と合わせて、1km 500m だ。"
+    "explanation": "1キロメートルは、1000メートルなので、1500m のうち、1000m=1km になる。のこりの 500m と合[あ]わせて、1km 500m だ。"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.afc9e27b8d37",
@@ -251,7 +251,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さの計算を しましょう。",
+      "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
       "answers": [
         "600"
       ],
@@ -272,14 +272,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さの計算を しましょう。",
+      "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
       "answers": [
         "1",
         "300"
       ],
       "template": "600m + 700m = {{INPUT}}km {{INPUT}}m"
     },
-    "explanation": "百のくらいだけ、足し算すればいいね。 600m + 700m = 1300m 1300m = 1km300m"
+    "explanation": "百[ひゃく]のくらいだけ、足[た]し算[ざん]すればいいね。 600m + 700m = 1300m 1300m = 1km300m"
   },
   {
     "id": "legacy.sansu.g3.math-3-9.dd491005f417",
@@ -293,7 +293,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1キロメートルは、何メートルでしょう。",
+      "prompt": "1キロメートルは、何[なん]メートルでしょう。",
       "answers": [
         "1000"
       ],
@@ -314,7 +314,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の長さの計算を しましょう。 600m + 400m",
+      "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。 600m + 400m",
       "choices": [
         {
           "id": "c1",
@@ -336,6 +336,6 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "百のくらいだけ、足し算すればいいね。 600m + 400m = 1000m 1000m = 1km"
+    "explanation": "百[ひゃく]のくらいだけ、足[た]し算[ざん]すればいいね。 600m + 400m = 1000m 1000m = 1km"
   }
 ]

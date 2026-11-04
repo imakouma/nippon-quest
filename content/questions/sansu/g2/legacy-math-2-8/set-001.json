@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1リットルは、何デシリットル でしょう。",
+      "prompt": "1リットルは、何[なん]デシリットル でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -83,7 +83,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を こたえよう。",
+      "prompt": "□にあてはまる数[かず]を こたえよう。",
       "answers": [
         "2000"
       ],
@@ -140,14 +140,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "4"
       ],
       "template": "2L 5dL + 1L 5dL = {{INPUT}}L",
       "suffix": "L"
     },
-    "explanation": "L と dL をそれぞれ たし算すればいい。 2L5dL + 1L5dL = 3L10dL 10dL = 1Lになるので、4L とこたえよう。"
+    "explanation": "L と dL をそれぞれ たし算[ざん]すればいい。 2L5dL + 1L5dL = 3L10dL 10dL = 1Lになるので、4L とこたえよう。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.5d270d7067a9",
@@ -161,14 +161,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "2",
         "8"
       ],
       "template": "3L 2dL - 4dL = {{INPUT}}L {{INPUT}}dL"
     },
-    "explanation": "2dL-4dL は、けいさんできない。3L のうち、1L=10dL をくずして、けい算しよう。 3L2dL - 4dL = 2L12dL - 4dL = 2L8dL"
+    "explanation": "2dL-4dL は、けいさんできない。3L のうち、1L=10dL をくずして、けい算[ざん]しよう。 3L2dL - 4dL = 2L12dL - 4dL = 2L8dL"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.5ed8d8000ee2",
@@ -182,14 +182,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "1",
         "5"
       ],
       "template": "1L 3dL + 2dL = {{INPUT}}L {{INPUT}}dL"
     },
-    "explanation": "dLだけ たし算すればいいので、1L 5dL になる。"
+    "explanation": "dLだけ たし算[ざん]すればいいので、1L 5dL になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.65e8475445ff",
@@ -203,7 +203,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を こたえよう。",
+      "prompt": "□にあてはまる数[かず]を こたえよう。",
       "answers": [
         "4"
       ],
@@ -224,14 +224,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "110"
       ],
       "template": "90dL + 20dL = {{INPUT}}dL",
       "suffix": "dL"
     },
-    "explanation": "十のくらいだけ、たし算して、110dL になる。"
+    "explanation": "十[じゅう]のくらいだけ、たし算[ざん]して、110dL になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.71c82bb90ecb",
@@ -245,7 +245,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を こたえよう。",
+      "prompt": "□にあてはまる数[かず]を こたえよう。",
       "answers": [
         "10"
       ],
@@ -266,7 +266,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を こたえよう。",
+      "prompt": "□にあてはまる数[かず]を こたえよう。",
       "answers": [
         "100"
       ],
@@ -287,7 +287,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を こたえよう。",
+      "prompt": "□にあてはまる数[かず]を こたえよう。",
       "answers": [
         "1000"
       ],
@@ -308,14 +308,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "1",
         "8"
       ],
       "template": "2L 6dL - 8dL = {{INPUT}}L {{INPUT}}dL"
     },
-    "explanation": "6dL-8dL は、けいさんできない。2L のうち、1L=10dL をくずして、けい算しよう。 2L6dL - 8dL = 1L16dL - 8dL = 1L8dL"
+    "explanation": "6dL-8dL は、けいさんできない。2L のうち、1L=10dL をくずして、けい算[ざん]しよう。 2L6dL - 8dL = 1L16dL - 8dL = 1L8dL"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.8bbb919d843b",
@@ -333,11 +333,11 @@
       "choices": [
         {
           "id": "c1",
-          "text": "大きな牛にゅうパック"
+          "text": "大[おお]きな牛[ぎゅう]にゅうパック"
         },
         {
           "id": "c2",
-          "text": "きゅうしょくの牛にゅう"
+          "text": "きゅうしょくの牛[ぎゅう]にゅう"
         },
         {
           "id": "c3",
@@ -345,13 +345,13 @@
         },
         {
           "id": "c4",
-          "text": "コンビニの小さなペットボトル"
+          "text": "コンビニの小[ちい]さなペットボトル"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "１リットルは、スーパーなどでうっている 大きな牛にゅうパック１本分の 「かさ」になる。"
+    "explanation": "１リットルは、スーパーなどでうっている 大[おお]きな牛[ぎゅう]にゅうパック１本分[ほんぶん]の 「かさ」になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.8f3a71f01a85",
@@ -365,7 +365,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1リットルは、何ミリリットル でしょう。",
+      "prompt": "1リットルは、何[なん]ミリリットル でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -401,14 +401,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "3",
         "8"
       ],
       "template": "2L 5dL + 1L 3dL = {{INPUT}}L {{INPUT}}dL"
     },
-    "explanation": "L と dL をそれぞれ たし算して、3L 8dL になる。"
+    "explanation": "L と dL をそれぞれ たし算[ざん]して、3L 8dL になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.cb316f5ed97d",
@@ -422,14 +422,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "400"
       ],
       "template": "500mL - 100mL = {{INPUT}}mL",
       "suffix": "mL"
     },
-    "explanation": "百のくらいだけ、ひき算して、400mL になる。"
+    "explanation": "百[ひゃく]のくらいだけ、ひき算[ざん]して、400mL になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.d897207aa07b",
@@ -443,7 +443,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "□にあてはまる数を こたえよう。",
+      "prompt": "□にあてはまる数[かず]を こたえよう。",
       "answers": [
         "5"
       ],
@@ -500,7 +500,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの かさ のけい算をしましょう。",
+      "prompt": "つぎの かさ のけい算[ざん]をしましょう。",
       "answers": [
         "1",
         "4"
