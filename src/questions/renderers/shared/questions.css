@@ -828,3 +828,33 @@
   align-self: flex-end;
   flex: none;
 }
+
+/* 時計の数字と針は、低学年でも見分けられる大きさにする。 */
+.nq-q-choice .nq-q-prompt:has(img[src*='/sansu/g1/tokei/']) {
+  flex: none;
+  max-height: none;
+  overflow: visible;
+}
+.nq-q-prompt-img[src*='/sansu/g1/tokei/'] {
+  width: clamp(160px, 45cqh, 240px);
+  max-width: 48%;
+  max-height: none;
+  image-rendering: auto;
+}
+.nq-q-choices:has(img[src*='/sansu/g1/tokei/']) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+}
+.nq-choice:has(img[src*='/sansu/g1/tokei/']) {
+  padding: 40px 12px 12px;
+}
+.nq-choice img[src*='/sansu/g1/tokei/'] {
+  display: block;
+  margin: 0 auto 8px;
+  width: min(160px, 100%);
+  height: auto;
+  image-rendering: auto;
+}
+.nq-q-choice:has(img[src*='/sansu/g1/tokei/']) .nq-q-choices {
+  flex: none;
+  overflow: visible;
+}
