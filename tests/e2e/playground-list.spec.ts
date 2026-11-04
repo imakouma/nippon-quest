@@ -1,11 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
+import type { ContentManifest } from '../../src/core/content/loader';
 
-const totalQuestions = (
-  JSON.parse(readFileSync('content/manifest.json', 'utf8')) as {
-    questionCatalog: { totalQuestions: number };
-  }
-).questionCatalog.totalQuestions;
+const catalog = (JSON.parse(readFileSync('content/manifest.json', 'utf8')) as ContentManifest)
+  .questionCatalog!;
+const totalQuestions = catalog.totalQuestions;
 
 test('単元の直下に問題を表示し、検索時だけ検索結果欄を表示する', async ({ page }) => {
   await page.goto('/playground.html');
@@ -341,12 +340,15 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
 
   const subject = tree.locator('details[data-subject="sansu"]');
   await expect(subject.locator(':scope > summary')).toContainText(/算数|さんすう/);
-  await expect(subject.locator(':scope > summary')).toContainText('1733');
+  const sansu = catalog.subjects.find((item) => item.subject === 'sansu')!;
+  await expect(subject.locator(':scope > summary')).toContainText(String(sansu.count));
   await subject.locator(':scope > summary').click();
 
   const grade = subject.locator('details[data-grade="1"]');
   await expect(grade.locator(':scope > summary')).toContainText('小1');
-  await expect(grade.locator(':scope > summary')).toContainText('186');
+  await expect(grade.locator(':scope > summary')).toContainText(
+    String(sansu.grades.find((item) => item.grade === 1)!.count),
+  );
   await grade.locator(':scope > summary').click();
 
   const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
