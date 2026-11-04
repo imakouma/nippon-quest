@@ -168,7 +168,7 @@ button:disabled {
 
 .pg-workspace {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
   gap: 0.5625rem;
   align-items: stretch;
   padding: 1.125rem 0.3125rem 2rem;
@@ -1069,4 +1069,11 @@ button:disabled {
     Menlo,
     monospace;
   white-space: pre-wrap;
+}
+
+/* Only phone portrait changes composition; typography keeps the shared continuous scale. */
+@media (max-width: 600px) and (orientation: portrait) and (pointer: coarse) {
+  .pg-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

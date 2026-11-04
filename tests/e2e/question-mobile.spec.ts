@@ -104,7 +104,7 @@ test('スマホで入力中に高さが変わっても答えられる', async ({
   await expect(page.locator('.pg-result')).toContainText('"score": 1');
 });
 
-test('画面全体は境界幅をまたいでも同じ割合で連続的に伸縮する', async ({ page }) => {
+test('各列配置の中では文字・時計・操作部が連続的に伸縮する', async ({ page }) => {
   await page.setViewportSize({ width: 960, height: 900 });
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
   await expect(page.locator('.nq-q-prompt-img')).toBeVisible();
@@ -134,27 +134,50 @@ test('画面全体は境界幅をまたいでも同じ割合で連続的に伸�
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       };
     });
-  const baseline = await measure();
-  for (const width of [
-    320, 339, 340, 341, 390, 519, 520, 521, 600, 601, 767, 768, 819, 820, 821, 959, 960, 961, 1099, 1100,
-    1101, 1199, 1200, 1201, 1440,
-  ]) {
-    await page.setViewportSize({ width, height: 900 });
-    await expect
-      .poll(
-        async () => {
-          const actual = await measure();
-          // Native borders round to device pixels; stacked borders can differ by a few CSS pixels.
-          const fontsMatch = actual.fonts.every((value, i) => Math.abs(value - baseline.fonts[i]!) < 0.00001);
-          return fontsMatch
-            ? Math.max(...actual.boxes.map((value, i) => Math.abs(value - baseline.boxes[i]!) * width))
-            : Infinity;
-        },
-        { message: `${width}pxでも文字・時計・操作部の比率を維持` },
-      )
-      .toBeLessThan(5);
-    expect((await measure()).overflow).toBeLessThanOrEqual(1);
-    await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  const fonts = (await measure()).fonts;
+  const baselines = new Map<number, Awaited<ReturnType<typeof measure>>>();
+  for (const portrait of [true, false]) {
+    for (const width of [
+      320, 339, 340, 341, 390, 519, 520, 521, 599, 600, 601, 767, 768, 819, 820, 821, 959, 960, 961, 1099,
+      1100, 1101, 1199, 1200, 1201, 1440,
+    ].reverse()) {
+      await page.setViewportSize({ width, height: Math.round(width * (portrait ? 1.6 : 0.6)) });
+      const columns = await page
+        .locator('.pg-workspace')
+        .evaluate((workspace) => getComputedStyle(workspace).gridTemplateColumns.split(' ').length);
+      await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+      if (!baselines.has(columns)) {
+        // Let the renderer's ResizeObserver settle before capturing this composition's baseline.
+        await expect
+          .poll(() =>
+            page.locator('.nq-question-viewport').evaluate((viewport) => {
+              const canvas = viewport.querySelector<HTMLElement>('.nq-question-canvas')!;
+              const scale = Math.min(
+                viewport.clientWidth / 960,
+                viewport.clientHeight / Math.max(540, canvas.scrollHeight),
+              );
+              return Math.abs(Number(viewport.dataset.scale) - scale);
+            }),
+          )
+          .toBeLessThan(0.00001);
+        baselines.set(columns, await measure());
+      }
+      const baseline = baselines.get(columns)!;
+      await expect
+        .poll(
+          async () => {
+            const actual = await measure();
+            // Composition may change on rotation; text never switches to a separate size rule.
+            const fontsMatch = actual.fonts.every((value, i) => Math.abs(value - fonts[i]!) < 0.00001);
+            return fontsMatch
+              ? Math.max(...actual.boxes.map((value, i) => Math.abs(value - baseline.boxes[i]!) * width))
+              : Infinity;
+          },
+          { message: `${width}px・${columns}列の連続比率` },
+        )
+        .toBeLessThan(5);
+      expect((await measure()).overflow).toBeLessThanOrEqual(1);
+    }
   }
 });
 
@@ -175,5 +198,32 @@ test('多数の検索結果も相対的な高さの一覧内でスクロール�
     expect(metrics.height).toBeLessThanOrEqual(metrics.width + 1);
     expect(metrics.contentHeight).toBeGreaterThan(metrics.height);
     expect(metrics.overflow).toBe('auto');
+  }
+});
+
+test('スマホ縦画面だけ1列、横画面とPCは2列になる', async ({ page, isMobile }) => {
+  await page.goto('/playground.html?q=sansu.g1.tokei.0002');
+  await expect(page.locator('.nq-q')).toBeVisible();
+  for (const [width, height] of [
+    [390, 844],
+    [844, 390],
+    [600, 900],
+    [601, 900],
+    [960, 900],
+    [390, 844],
+  ]) {
+    await page.setViewportSize({ width: width!, height: height! });
+    await expect
+      .poll(() =>
+        page.locator('.pg-workspace').evaluate((workspace) => {
+          const list = workspace.querySelector('.pg-list')!.getBoundingClientRect();
+          const review = workspace.querySelector('.pg-review')!.getBoundingClientRect();
+          return review.left >= list.right ? 2 : 1;
+        }),
+      )
+      .toBe(isMobile && width! <= 600 && height! > width! ? 1 : 2);
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth),
+    ).toBe(true);
   }
 });
