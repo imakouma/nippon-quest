@@ -877,6 +877,8 @@ button:disabled {
 }
 
 .pg-stage {
+  /* Keep the shared renderer identical to its in-game typography. */
+  line-height: normal;
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
