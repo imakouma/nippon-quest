@@ -415,16 +415,6 @@ export function QuestionTree({
                               </span>
                             </button>
                             <div class="pg-unit-meta">
-                              <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
-                                {unit.count -
-                                  entries.filter(
-                                    ({ file, q }) =>
-                                      unit.sets.some((set) => set.file === file) &&
-                                      q &&
-                                      Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
-                                  ).length}
-                                {pgText('questionSuffix')}
-                              </span>
                               {folderTools.state && (
                                 <button
                                   type="button"
@@ -438,9 +428,19 @@ export function QuestionTree({
                                     )
                                   }
                                 >
-                                  {pgText('folderDelete')}
+                                  <span aria-hidden="true">❌</span>
                                 </button>
                               )}
+                              <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
+                                {unit.count -
+                                  entries.filter(
+                                    ({ file, q }) =>
+                                      unit.sets.some((set) => set.file === file) &&
+                                      q &&
+                                      Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
+                                  ).length}
+                                {pgText('questionSuffix')}
+                              </span>
                             </div>
                           </div>
                           {selectedUnit === unit.unit && questions}
