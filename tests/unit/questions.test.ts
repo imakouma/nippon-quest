@@ -323,9 +323,9 @@ describe('choice レンダラーの schema', () => {
       false,
     );
   });
-  it('選択肢6つまで許可し、7つは拒否', () => {
-    const choices = Array.from({ length: 7 }, (_, i) => ({ id: String(i), text: String(i) }));
-    expect(schema.safeParse({ prompt: 'p', choices: choices.slice(0, 6), answer: '0' }).success).toBe(true);
+  it('選択肢8つまで許可し、9つは拒否', () => {
+    const choices = Array.from({ length: 9 }, (_, i) => ({ id: String(i), text: String(i) }));
+    expect(schema.safeParse({ prompt: 'p', choices: choices.slice(0, 8), answer: '0' }).success).toBe(true);
     expect(schema.safeParse({ prompt: 'p', choices, answer: '0' }).success).toBe(false);
   });
   it('text も image も無い選択肢は拒否', () => {
@@ -374,12 +374,12 @@ describe('picture-word レンダラー', () => {
       true,
     );
   });
-  it('絵が無い・answer が words に無い・知らない絵・カード 5 まい は拒否', () => {
+  it('絵が無い・answer が words に無い・知らない絵・カード 9 まい は拒否', () => {
     expect(schema.safeParse({ words, answer: 'apple' }).success).toBe(false);
     expect(schema.safeParse({ picture: 'apple', words, answer: 'banana' }).success).toBe(false);
     expect(schema.safeParse({ picture: 'unicorn', words, answer: 'apple' }).success).toBe(false);
-    const five = ['a', 'b', 'c', 'd', 'e'].map((t) => ({ id: t, text: t }));
-    expect(schema.safeParse({ picture: 'apple', words: five, answer: 'a' }).success).toBe(false);
+    const nine = Array.from({ length: 9 }, (_, i) => ({ id: String(i), text: String(i) }));
+    expect(schema.safeParse({ picture: 'apple', words: nine, answer: '0' }).success).toBe(false);
   });
   it('点数は 1 回目で正解 1.0、2 回目 0.5、それより あとは 0（2 回まちがえたら おわり）', () => {
     expect([0, 1, 2].map(pictureWordScore)).toEqual([1, 0.5, 0]);

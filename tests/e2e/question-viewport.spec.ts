@@ -126,3 +126,58 @@ test('レイアウト監査は非表示の問題と内部の文字切れを失�
     'nq-choice-content の内容が縦に隠れています',
   );
 });
+
+for (const [type, id, selector] of [
+  ['choice', 'sample.choice.0001', '.nq-choice'],
+  ['picture-word', 'sample.picture-word.0001', '.nq-pw-card'],
+  ['kanji-trace', 'sample.kanji-trace.0003', '.nq-choice'],
+  ['experiment', 'sample.experiment.water.0001', '.nq-exp-choices button'],
+]) {
+  test(`8個の選択肢が収まり8番目を選べる: ${type}`, async ({ page }) => {
+    await page.route(`**/content/questions/_samples/${type}.json`, async (route) => {
+      const response = await route.fetch();
+      const questions = await response.json();
+      const question = questions.find((q: { id: string }) => q.id === id);
+      question.timeLimitSec = 300;
+      const options = Array.from({ length: 8 }, (_, i) => ({ id: `c${i}`, text: `こたえ${i + 1}` }));
+      const payload = question.payload;
+      if (type === 'kanji-trace') {
+        payload.choices = options.map((c) => c.text);
+        payload.answer = 'こたえ8';
+      } else if (type === 'experiment') {
+        payload.predict.choices = options;
+        payload.predict.answer = 'c7';
+      } else {
+        payload[type === 'picture-word' ? 'words' : 'choices'] = options;
+        payload.answer = 'c7';
+        payload.shuffle = false;
+      }
+      await route.fulfill({ json: questions });
+    });
+    await page.goto(`/playground.html?q=${id}`);
+    const choices = page.locator(`.pg-stage ${selector}`);
+    await expect(choices).toHaveCount(8);
+    for (const [width, height] of [
+      [320, 700],
+      [768, 1024],
+      [1024, 768],
+      [1440, 900],
+    ]) {
+      await page.setViewportSize({ width: width!, height: height! });
+      await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    }
+    if (type === 'experiment') {
+      await choices.last().click();
+      await expect(choices.last()).toHaveAttribute('aria-pressed', 'true');
+    } else if (type === 'kanji-trace') {
+      // Reading choices are shuffled; activate the displayed correct answer by its number.
+      const correct = choices.filter({ hasText: 'こたえ8' });
+      const key = await correct.getAttribute('aria-keyshortcuts');
+      await page.keyboard.press(key!);
+      await expect(correct).toHaveClass(/nq-choice-correct/);
+    } else {
+      await page.keyboard.press('8');
+      await expect(choices.last()).toHaveClass(/(?:nq-choice|nq-pw-card)-correct/);
+    }
+  });
+}

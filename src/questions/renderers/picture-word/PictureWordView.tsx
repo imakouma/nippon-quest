@@ -81,7 +81,7 @@ export function PictureWordView({ ctx, payload, order, onDone }: PictureWordView
     }
   };
 
-  // キーボード 1〜4
+  // 表示順の数字キーで選択
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const n = Number(e.key);

@@ -1,3 +1,4 @@
+import { MAX_CHOICES } from '../src/questions/renderers/shared/choiceLimit';
 /**
  * autonomy-game の問題バンクを、安全にレビューできる中間形式へ変換する。
  *
@@ -259,8 +260,8 @@ function convertOne(
   }
   if (raw.answerMode != null && raw.answerMode !== 'choice')
     return reject(rejected, subject, nodeId, sourceIndex, `未対応の回答形式: ${String(raw.answerMode)}`);
-  if (!Array.isArray(raw.choices) || raw.choices.length < 2 || raw.choices.length > 6)
-    return reject(rejected, subject, nodeId, sourceIndex, '選択肢は2〜6個である必要がある');
+  if (!Array.isArray(raw.choices) || raw.choices.length < 2 || raw.choices.length > MAX_CHOICES)
+    return reject(rejected, subject, nodeId, sourceIndex, `選択肢は2〜${MAX_CHOICES}個である必要がある`);
   if (raw.choices.some((choice) => typeof choice !== 'string' || !normalizedText(choice)))
     return reject(rejected, subject, nodeId, sourceIndex, '空または文字列ではない選択肢がある');
   if (!Number.isInteger(raw.correctIndex))
