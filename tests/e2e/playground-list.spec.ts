@@ -749,6 +749,8 @@ test('Playground の単元名は問題数と削除ボタンに押されて1文�
   await expect(unit).toBeVisible();
   const row = unit.locator('../..');
   await expect(row.locator('.pg-folder-delete')).toBeVisible();
+  await expect(row.locator('.pg-folder-delete')).toHaveText('❌');
+  await expect(row.locator('.pg-folder-delete')).toHaveAccessibleName('文のきまり・書き方 削除');
   for (const width of [390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     const layout = await row.evaluate((element) => {
@@ -776,11 +778,11 @@ test('Playground の単元名は問題数と削除ボタンに押されて1文�
     });
     expect(Math.abs(layout.countCenter - layout.titleCenter)).toBeLessThanOrEqual(1);
     expect(Math.abs(layout.deleteCenter - layout.titleCenter)).toBeLessThanOrEqual(1);
-    expect(layout.titleRight).toBeLessThanOrEqual(layout.countLeft);
-    expect(layout.deleteRight).toBeLessThanOrEqual(layout.cardRight);
+    expect(layout.titleRight).toBeLessThanOrEqual(layout.deleteLeft);
+    expect(layout.countRight).toBeLessThanOrEqual(layout.cardRight);
     expect(layout.charactersPerLine).toBeGreaterThanOrEqual(5);
     expect(layout.lines, JSON.stringify({ width, layout })).toBeLessThanOrEqual(1.1);
-    expect(layout.countRight).toBeLessThanOrEqual(layout.deleteLeft);
+    expect(layout.deleteRight).toBeLessThanOrEqual(layout.countLeft);
     expect(layout.overflow).toBeLessThanOrEqual(1);
   }
   await unit.click();
