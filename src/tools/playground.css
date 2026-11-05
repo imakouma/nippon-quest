@@ -336,6 +336,7 @@ button:disabled {
 }
 
 .pg-unit-meta {
+  font-size: 0.6875rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -345,6 +346,7 @@ button:disabled {
 }
 
 .pg-unit-meta .pg-tree-count {
+  font-size: 75%;
   margin-left: 0;
 }
 
@@ -352,7 +354,7 @@ button:disabled {
   width: auto;
   min-height: 1.625rem;
   padding: 0.125rem 0.3125rem;
-  font-size: 0.6875rem;
+  font-size: 75%;
 }
 
 .pg-browser-filtering .pg-tree-details {
