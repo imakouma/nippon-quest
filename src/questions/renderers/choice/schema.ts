@@ -1,4 +1,5 @@
 import { z } from 'zod/v3';
+import { MAX_CHOICES } from '../shared/choiceLimit';
 
 const choiceOption = z
   .object({
@@ -19,7 +20,7 @@ export const choicePayloadSchema = z
       .min(1)
       .optional()
       .describe('読み上げ専用テキスト。答えを問題文に表示せず聞き取りを問う場合に使う'),
-    choices: z.array(choiceOption).min(2).max(6),
+    choices: z.array(choiceOption).min(2).max(MAX_CHOICES),
     answer: z.string().min(1).describe('正解の choice.id'),
     shuffle: z.boolean().default(true),
   })

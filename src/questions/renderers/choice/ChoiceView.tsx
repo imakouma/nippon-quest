@@ -76,7 +76,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
     onDone({ score: 0, attempts: 1, timedOut: true, chosen: null });
   };
 
-  // キーボード 1〜4
+  // 表示順の数字キーで選択
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (phase !== 'answering') return;

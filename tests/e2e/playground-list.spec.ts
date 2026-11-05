@@ -706,3 +706,32 @@ test('PCでは狭い縦長ウィンドウでも2列を保つ', async ({ page }) 
   expect(review!.x).toBeGreaterThanOrEqual(list!.x + list!.width);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });
+
+test('選択肢を8個まで追加・保存でき、削除すると追加ボタンが戻る', async ({ page }) => {
+  let savedCount = 0;
+  await page.route('**/__nq/save-question', async (route) => {
+    const body = route.request().postDataJSON();
+    savedCount = body.question.payload.choices.length;
+    await route.fulfill({
+      json: { questions: body.expected.map((q: { id: string }) => (q.id === body.id ? body.question : q)) },
+    });
+  });
+  await page.goto('/playground.html?q=sansu.g1.data.0001');
+  const rows = page.locator('.ed-choice-row');
+  await expect(rows).toHaveCount(3);
+  const add = page.getByRole('button', { name: '➕ 選択肢を追加', exact: true });
+  for (let count = 4; count <= 8; count += 1) {
+    await add.click();
+    await expect(rows).toHaveCount(count);
+  }
+  await expect(add).toHaveCount(0);
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('保存しました');
+  expect(savedCount).toBe(8);
+  await page.getByRole('button', { name: '選択肢 8を削除', exact: true }).click();
+  await expect(rows).toHaveCount(7);
+  await expect(add).toBeVisible();
+  await add.click();
+  await expect(rows).toHaveCount(8);
+  await expect(add).toHaveCount(0);
+});

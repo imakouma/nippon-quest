@@ -1,4 +1,5 @@
 import { z } from 'zod/v3';
+import { MAX_CHOICES } from '../shared/choiceLimit';
 import { PICTURE_KEYS } from '../shared/pictures';
 
 const word = z.object({
@@ -24,7 +25,7 @@ export const pictureWordPayloadSchema = z
       .describe(
         '本番の絵。assets/ からの相対パス。例 questions/eigo/apple.png（読めなければ picture を出す）',
       ),
-    words: z.array(word).min(2).max(4),
+    words: z.array(word).min(2).max(MAX_CHOICES),
     answer: z.string().min(1).describe('正解の words[].id'),
     shuffle: z.boolean().default(true),
   })

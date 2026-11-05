@@ -1,5 +1,6 @@
 import type { Grade, QuestionBase, Subject } from '../questions/contracts';
 import { useRef, useState } from 'preact/hooks';
+import { MAX_CHOICES } from '../questions/renderers/shared/choiceLimit';
 
 type EditorQuestionFormProps = {
   question: QuestionBase;
@@ -246,21 +247,23 @@ export function EditorQuestionForm({
                   </button>
                 </div>
               ))}
-              <button
-                type="button"
-                class="ed-btn"
-                style={{ marginTop: '0.375em' }}
-                onClick={() => {
-                  let number = choices.length + 1;
-                  while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
-                  onPayloadChange('choices', [
-                    ...choices,
-                    { id: `choice-${number}`, text: `選択肢${number}` },
-                  ]);
-                }}
-              >
-                ➕ 選択肢を追加
-              </button>
+              {choices.length < MAX_CHOICES && (
+                <button
+                  type="button"
+                  class="ed-btn"
+                  style={{ marginTop: '0.375em' }}
+                  onClick={() => {
+                    let number = choices.length + 1;
+                    while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
+                    onPayloadChange('choices', [
+                      ...choices,
+                      { id: `choice-${number}`, text: `選択肢${number}` },
+                    ]);
+                  }}
+                >
+                  ➕ 選択肢を追加
+                </button>
+              )}
             </div>
           </>
         )}

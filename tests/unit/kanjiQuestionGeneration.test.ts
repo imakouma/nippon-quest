@@ -140,6 +140,39 @@ describe('漢字問題生成', () => {
     ).toBe(true);
   });
 
+  it('正規漢字問題も8択への編集を許可し9択は拒否する', () => {
+    const sources = structuredClone([...preservedSources, ...generatedSources]);
+    const question = sources
+      .flatMap((source) => source.questions)
+      .find((q) => q.id === 'kokugo.g1.kanji-onyomi.0001')!;
+    const payload = question.payload as { choices: { id: string; text: string }[] };
+    for (const [index, text] of ['あああ', 'いいい', 'ううう', 'えええ'].entries()) {
+      payload.choices.push({ id: `extra-${index}`, text });
+    }
+    expect(auditKanjiQuestionCoverage(records, sources)).toEqual([]);
+    payload.choices.push({ id: 'extra-9', text: 'おおお' });
+    expect(auditKanjiQuestionCoverage(records, sources)).toContain(
+      `${question.id}: 音読み問題の選択肢が不正です`,
+    );
+  });
+
+  it('正規漢字問題の画像だけの選択肢は平仮名として受理しない', () => {
+    const sources = structuredClone([...preservedSources, ...generatedSources]);
+    const question = sources
+      .flatMap((source) => source.questions)
+      .find((q) => q.id === 'kokugo.g1.kanji-onyomi.0001')!;
+    const payload = question.payload as {
+      choices: { id: string; text?: string; image?: string }[];
+      answer: string;
+    };
+    const wrong = payload.choices.find((choice) => choice.id !== payload.answer)!;
+    delete wrong.text;
+    wrong.image = 'questions/example.svg';
+    expect(auditKanjiQuestionCoverage(records, sources)).toContain(
+      `${question.id}: 音読みの選択肢は異なる平仮名2〜8件にしてください`,
+    );
+  });
+
   it('生成専用の書きフォルダへタグなし選択問題を混ぜると拒否する', () => {
     const mixed = structuredClone([...preservedSources, ...generatedSources]);
     const writingFile = mixed.find(({ file }) => file === 'questions/kokugo/g1/kanji-writing/set-003.json')!;
