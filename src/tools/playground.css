@@ -442,6 +442,11 @@ button:disabled {
   background: #deedf7;
 }
 
+.pg-tree button[data-unit] .pg-tree-label {
+  font-size: 75%;
+  line-height: 1.4;
+}
+
 .pg-tree details > summary:hover {
   filter: brightness(0.96);
 }
