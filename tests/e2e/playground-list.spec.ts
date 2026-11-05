@@ -352,7 +352,7 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
   await grade.locator(':scope > summary').click();
 
   const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
-  await expect(unit).toContainText('21');
+  await expect(unit).toHaveAccessibleDescription('21問');
   await unit.click();
   await expect(unit).toHaveAttribute('aria-pressed', 'true');
   await expect(tree.getByText('set-001.json')).toHaveCount(0);
@@ -734,4 +734,49 @@ test('Playground は選択肢を8個まで追加・保存でき、削除する�
   await add.click();
   await expect(rows).toHaveCount(8);
   await expect(add).toHaveCount(0);
+});
+
+test('Playground の単元名は問題数と削除ボタンに押されて1文字ずつ折り返さない', async ({ page }) => {
+  await page.route('**/__nq/folder-state', (route) =>
+    route.fulfill({
+      json: { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] },
+    }),
+  );
+  await page.goto('/playground.html?q=sansu.g1.data.0001');
+  await page.locator('details[data-subject="kokugo"] > summary').click();
+  await page.locator('details[data-subject="kokugo"] details[data-grade="1"] > summary').click();
+  const unit = page.locator('button[data-unit="kokugo.g1.bun-no-kimari"]');
+  await expect(unit).toBeVisible();
+  const row = unit.locator('..');
+  await expect(row.locator('.pg-folder-delete')).toBeVisible();
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    const layout = await row.evaluate((element) => {
+      const button = element.querySelector('button[data-unit]')!;
+      const label = button.querySelector('.pg-tree-label')!;
+      const count = element.querySelector('.pg-tree-count')!.getBoundingClientRect();
+      const remove = element.querySelector('.pg-folder-delete')!.getBoundingClientRect();
+      const box = label.getBoundingClientRect();
+      const font = parseFloat(getComputedStyle(label).fontSize);
+      return {
+        charactersPerLine: box.width / font,
+        lines: box.height / parseFloat(getComputedStyle(label).lineHeight),
+        countTop: count.top,
+        titleBottom: box.bottom,
+        countRight: count.right,
+        deleteLeft: remove.left,
+        deleteTop: remove.top,
+        buttonBottom: button.getBoundingClientRect().bottom,
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      };
+    });
+    expect(layout.charactersPerLine).toBeGreaterThanOrEqual(5);
+    expect(layout.lines).toBeLessThanOrEqual(2.1);
+    expect(layout.countTop).toBeGreaterThanOrEqual(layout.titleBottom);
+    expect(layout.deleteTop).toBeGreaterThanOrEqual(layout.buttonBottom);
+    expect(layout.countRight).toBeLessThanOrEqual(layout.deleteLeft);
+    expect(layout.overflow).toBeLessThanOrEqual(1);
+  }
+  await unit.click();
+  await expect(row.locator('.pg-question-row').first()).toBeVisible();
 });

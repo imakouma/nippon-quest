@@ -335,16 +335,23 @@ button:disabled {
   margin: 0 0.5rem 0.375rem 2.1875rem;
 }
 
-.pg-tree button[data-unit] {
-  padding-right: 3.75rem;
+.pg-unit-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4375rem;
+  margin: 0 0 0.375rem 0.6875rem;
+  padding: 0 0.4375rem;
 }
 
-.pg-tree button[data-unit] + .pg-folder-delete {
+.pg-unit-meta .pg-tree-count {
+  margin-left: 0;
+}
+
+.pg-tree .pg-unit-meta .pg-folder-delete {
   width: auto;
   min-height: 1.625rem;
-  margin: -1.875rem 0.25rem 0.25rem auto;
   padding: 0.125rem 0.3125rem;
-  position: relative;
   font-size: 0.6875rem;
 }
 
