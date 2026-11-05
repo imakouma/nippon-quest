@@ -756,9 +756,17 @@ test('Playground の単元名は問題数と削除ボタンに押されて1文�
       const label = button.querySelector('.pg-tree-label')!;
       const count = element.querySelector('.pg-tree-count')!.getBoundingClientRect();
       const remove = element.querySelector('.pg-folder-delete')!.getBoundingClientRect();
+      const meta = element.querySelector('.pg-unit-meta')!;
+      const metaBox = meta.getBoundingClientRect();
+      const buttonBox = button.getBoundingClientRect();
       const box = label.getBoundingClientRect();
       const font = parseFloat(getComputedStyle(label).fontSize);
       return {
+        metaGap: metaBox.top - buttonBox.bottom,
+        metaLeft: metaBox.left - buttonBox.left,
+        metaRight: metaBox.right - buttonBox.right,
+        metaBackground: getComputedStyle(meta).backgroundColor,
+        titleBackground: getComputedStyle(button).backgroundColor,
         charactersPerLine: box.width / font,
         lines: box.height / parseFloat(getComputedStyle(label).lineHeight),
         countTop: count.top,
@@ -770,6 +778,11 @@ test('Playground の単元名は問題数と削除ボタンに押されて1文�
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       };
     });
+    expect(Math.abs(layout.metaGap)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.metaLeft)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.metaRight)).toBeLessThanOrEqual(1);
+    expect(layout.metaBackground).toBe(layout.titleBackground);
+    expect(layout.metaBackground).not.toBe('rgba(0, 0, 0, 0)');
     expect(layout.charactersPerLine).toBeGreaterThanOrEqual(5);
     expect(layout.lines).toBeLessThanOrEqual(2.1);
     expect(layout.countTop).toBeGreaterThanOrEqual(layout.titleBottom);
