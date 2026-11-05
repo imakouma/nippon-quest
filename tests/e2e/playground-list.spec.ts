@@ -707,7 +707,7 @@ test('PCでは狭い縦長ウィンドウでも2列を保つ', async ({ page }) 
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });
 
-test('選択肢を8個まで追加・保存でき、削除すると追加ボタンが戻る', async ({ page }) => {
+test('Playground は選択肢を8個まで追加・保存でき、削除すると追加ボタンが戻る', async ({ page }) => {
   let savedCount = 0;
   await page.route('**/__nq/save-question', async (route) => {
     const body = route.request().postDataJSON();
