@@ -114,6 +114,7 @@ test('レイアウト監査は非表示の問題と内部の文字切れを失�
     '問題枠の表示サイズが0です',
   );
   await page.locator('.nq-question-viewport').evaluate((viewport) => (viewport.style.height = ''));
+  await expect.poll(() => page.locator('.nq-audit-stage').evaluate(inspectQuestion)).toEqual([]);
   await page
     .locator('.nq-choice-content')
     .first()
