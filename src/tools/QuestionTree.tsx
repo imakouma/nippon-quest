@@ -402,44 +402,46 @@ export function QuestionTree({
                       )
                       .map((unit) => (
                         <div>
-                          <button
-                            type="button"
-                            data-unit={unit.unit}
-                            aria-describedby={`pg-unit-count-${unit.unit}`}
-                            aria-pressed={selectedUnit === unit.unit}
-                            onClick={() => onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)}
-                          >
-                            <span class="pg-tree-label">
-                              {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
-                            </span>
-                          </button>
-                          <div class="pg-unit-meta">
-                            <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
-                              {unit.count -
-                                entries.filter(
-                                  ({ file, q }) =>
-                                    unit.sets.some((set) => set.file === file) &&
-                                    q &&
-                                    Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
-                                ).length}
-                              {pgText('questionSuffix')}
-                            </span>
-                            {folderTools.state && (
-                              <button
-                                type="button"
-                                class="pg-folder-delete"
-                                disabled={folderTools.busy}
-                                aria-label={`${stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')} ${pgText('folderDelete')}`}
-                                onClick={() =>
-                                  deleteUnit(
-                                    `${subject.subject}:${grade.grade}::${unit.unit}`,
-                                    stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji'),
-                                  )
-                                }
-                              >
-                                {pgText('folderDelete')}
-                              </button>
-                            )}
+                          <div class="pg-unit-card">
+                            <button
+                              type="button"
+                              data-unit={unit.unit}
+                              aria-describedby={`pg-unit-count-${unit.unit}`}
+                              aria-pressed={selectedUnit === unit.unit}
+                              onClick={() => onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)}
+                            >
+                              <span class="pg-tree-label">
+                                {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
+                              </span>
+                            </button>
+                            <div class="pg-unit-meta">
+                              <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
+                                {unit.count -
+                                  entries.filter(
+                                    ({ file, q }) =>
+                                      unit.sets.some((set) => set.file === file) &&
+                                      q &&
+                                      Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
+                                  ).length}
+                                {pgText('questionSuffix')}
+                              </span>
+                              {folderTools.state && (
+                                <button
+                                  type="button"
+                                  class="pg-folder-delete"
+                                  disabled={folderTools.busy}
+                                  aria-label={`${stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')} ${pgText('folderDelete')}`}
+                                  onClick={() =>
+                                    deleteUnit(
+                                      `${subject.subject}:${grade.grade}::${unit.unit}`,
+                                      stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji'),
+                                    )
+                                  }
+                                >
+                                  {pgText('folderDelete')}
+                                </button>
+                              )}
+                            </div>
                           </div>
                           {selectedUnit === unit.unit && questions}
                         </div>

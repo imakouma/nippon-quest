@@ -13,7 +13,7 @@ test('単元の直下に問題を表示し、検索時だけ検索結果欄を�
   await page.locator('details[data-subject="kokugo"] details[data-grade="2"] > summary').click();
   const unit = page.locator('button[data-unit="kokugo.g2.bun-no-kimari"]');
   await unit.click();
-  await expect(unit.locator('..').locator('.pg-question-row')).toHaveCount(4);
+  await expect(unit.locator('../..').locator('.pg-question-row')).toHaveCount(4);
   await expect(page.locator('.pg-results')).toHaveCount(0);
   await page.locator('details.pg-filter-details > summary').click();
   await page.locator('#pg-f-text').fill('source.kokugo');
@@ -21,7 +21,7 @@ test('単元の直下に問題を表示し、検索時だけ検索結果欄を�
   await expect(page.locator('.pg-results .pg-question-row').first()).toBeVisible();
   await page.locator('#pg-f-text').clear();
   await expect(page.locator('.pg-results')).toHaveCount(0);
-  await expect(unit.locator('..').locator('.pg-question-row')).toHaveCount(4);
+  await expect(unit.locator('../..').locator('.pg-question-row')).toHaveCount(4);
   await unit.click();
   await expect(page.locator('.pg-question-row')).toHaveCount(0);
   await page.locator('#pg-f-text').fill('eigo.g3.sea.0006');
@@ -747,7 +747,7 @@ test('Playground の単元名は問題数と削除ボタンに押されて1文�
   await page.locator('details[data-subject="kokugo"] details[data-grade="1"] > summary').click();
   const unit = page.locator('button[data-unit="kokugo.g1.bun-no-kimari"]');
   await expect(unit).toBeVisible();
-  const row = unit.locator('..');
+  const row = unit.locator('../..');
   await expect(row.locator('.pg-folder-delete')).toBeVisible();
   for (const width of [390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
@@ -756,37 +756,30 @@ test('Playground の単元名は問題数と削除ボタンに押されて1文�
       const label = button.querySelector('.pg-tree-label')!;
       const count = element.querySelector('.pg-tree-count')!.getBoundingClientRect();
       const remove = element.querySelector('.pg-folder-delete')!.getBoundingClientRect();
-      const meta = element.querySelector('.pg-unit-meta')!;
-      const metaBox = meta.getBoundingClientRect();
-      const buttonBox = button.getBoundingClientRect();
+      const card = element.querySelector('.pg-unit-card')!.getBoundingClientRect();
       const box = label.getBoundingClientRect();
       const font = parseFloat(getComputedStyle(label).fontSize);
       return {
-        metaGap: metaBox.top - buttonBox.bottom,
-        metaLeft: metaBox.left - buttonBox.left,
-        metaRight: metaBox.right - buttonBox.right,
-        metaBackground: getComputedStyle(meta).backgroundColor,
-        titleBackground: getComputedStyle(button).backgroundColor,
+        countCenter: (count.top + count.bottom) / 2,
+        deleteCenter: (remove.top + remove.bottom) / 2,
+        titleCenter: (box.top + box.bottom) / 2,
+        titleRight: box.right,
+        countLeft: count.left,
+        deleteRight: remove.right,
+        cardRight: card.right,
         charactersPerLine: box.width / font,
         lines: box.height / parseFloat(getComputedStyle(label).lineHeight),
-        countTop: count.top,
-        titleBottom: box.bottom,
         countRight: count.right,
         deleteLeft: remove.left,
-        deleteTop: remove.top,
-        buttonBottom: button.getBoundingClientRect().bottom,
         overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       };
     });
-    expect(Math.abs(layout.metaGap)).toBeLessThanOrEqual(1);
-    expect(Math.abs(layout.metaLeft)).toBeLessThanOrEqual(1);
-    expect(Math.abs(layout.metaRight)).toBeLessThanOrEqual(1);
-    expect(layout.metaBackground).toBe(layout.titleBackground);
-    expect(layout.metaBackground).not.toBe('rgba(0, 0, 0, 0)');
+    expect(Math.abs(layout.countCenter - layout.titleCenter)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.deleteCenter - layout.titleCenter)).toBeLessThanOrEqual(1);
+    expect(layout.titleRight).toBeLessThanOrEqual(layout.countLeft);
+    expect(layout.deleteRight).toBeLessThanOrEqual(layout.cardRight);
     expect(layout.charactersPerLine).toBeGreaterThanOrEqual(5);
-    expect(layout.lines).toBeLessThanOrEqual(2.1);
-    expect(layout.countTop).toBeGreaterThanOrEqual(layout.titleBottom);
-    expect(layout.deleteTop).toBeGreaterThanOrEqual(layout.buttonBottom);
+    expect(layout.lines, JSON.stringify({ width, layout })).toBeLessThanOrEqual(1.1);
     expect(layout.countRight).toBeLessThanOrEqual(layout.deleteLeft);
     expect(layout.overflow).toBeLessThanOrEqual(1);
   }
