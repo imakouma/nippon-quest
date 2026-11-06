@@ -630,7 +630,7 @@ test('Playground はPCで一覧とレビューを2列に並べる', async ({ pag
   const play = await page.getByRole('button', { name: '再生', exact: true }).boundingBox();
   expect(heading).not.toBeNull();
   expect(play).not.toBeNull();
-  expect(play!.y).toBeGreaterThanOrEqual(heading!.y + heading!.height);
+  expect(play!.x).toBeGreaterThanOrEqual(heading!.x + heading!.width);
 
   const listBox = await list.boundingBox();
   const reviewBox = await review.boundingBox();
@@ -667,7 +667,7 @@ test('Playground は広い画面で一覧の右にレビューを表示する', 
       items.map((item) => ({ x: item.getBoundingClientRect().x, y: item.getBoundingClientRect().y })),
     );
   expect(fields).toHaveLength(4);
-  expect(new Set(fields.map((field) => field.y)).size).toBe(2);
+  expect(new Set(fields.map((field) => field.y)).size).toBe(1);
   expect(fields[3]!.x).toBeGreaterThan(fields[0]!.x);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(1600);
 });
@@ -698,12 +698,12 @@ test('Playground：?q=<問題 id> で ひらくと その問題が出る', async
   await expect(page.locator('select#pg-question')).toHaveValue('1');
 });
 
-test('PCでは狭い縦長ウィンドウでも2列を保つ', async ({ page }) => {
+test('狭いウィンドウでは一覧とレビューを縦に並べる', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
   const list = await page.locator('.pg-list').boundingBox();
   const review = await page.locator('.pg-review').boundingBox();
-  expect(review!.x).toBeGreaterThanOrEqual(list!.x + list!.width);
+  expect(review!.y).toBeGreaterThanOrEqual(list!.y + list!.height);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });
 
