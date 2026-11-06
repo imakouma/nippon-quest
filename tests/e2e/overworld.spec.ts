@@ -152,13 +152,17 @@ async function skipArrivalStory(page: Page): Promise<void> {
   await finishDialogue(page);
 }
 
-test('青森の石段を一段ずつ昇降し、段丘を実地形3Dで描く', async ({ page }) => {
+test('青森の石段と横道を一段ずつ昇降し、段丘を実地形3Dで描く', async ({ page }) => {
   test.setTimeout(90_000);
   await startField(page);
   await teleport(page, [65, 77], { area: 'aomori', map: 'aomori-field', devAll: true });
 
   for (const y of [76, 75, 74, 73]) await walkOneTile(page, 'ArrowUp', [65, y]);
   for (const y of [74, 75, 76, 77]) await walkOneTile(page, 'ArrowDown', [65, y]);
+
+  await teleport(page, [71, 68], { area: 'aomori', map: 'aomori-field', devAll: true });
+  for (const x of [70, 69, 68, 67]) await walkOneTile(page, 'ArrowLeft', [x, 68]);
+  for (const x of [68, 69, 70, 71]) await walkOneTile(page, 'ArrowRight', [x, 68]);
 
   await expect
     .poll(() => page.evaluate(() => window.__nq.scene.getScene('Overworld').cameras.main.hasPostPipeline))

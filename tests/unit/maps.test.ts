@@ -8,6 +8,7 @@ import {
   elevationAt,
   terrainElevationFromObjects,
 } from '../../src/core/world/terrainElevation';
+import { ROAD_TILE } from '../../src/core/world/ground';
 
 /**
  * scaffold:maps が作ったマップが「遊べる」ことを機械的に確かめる。
@@ -320,6 +321,36 @@ describe('マップ', () => {
           false,
         );
         expect(collision[index]).toBe(3);
+      }
+    }
+  });
+
+  it('青森の横道は段丘の高さ判定で通行不能にならない', () => {
+    const aomori = maps.get('aomori-field')!;
+    const background = aomori.layers.find((layer) => layer.name === 'background')!.data!;
+    const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    const elevation = terrainElevationFromObjects(
+      aomori.width,
+      aomori.height,
+      16,
+      aomori.layers.find((layer) => layer.name === 'elevation')?.objects ?? [],
+    );
+
+    for (let y = 0; y < aomori.height; y++) {
+      for (let x = 0; x < aomori.width - 1; x++) {
+        const left = y * aomori.width + x;
+        const right = left + 1;
+        if (
+          background[left] !== ROAD_TILE ||
+          background[right] !== ROAD_TILE ||
+          collision[left] === 3 ||
+          collision[right] === 3
+        )
+          continue;
+        expect(
+          canTraverseElevation(elevationAt(elevation, x, y), elevationAt(elevation, x + 1, y)),
+          `横道 (${x}, ${y}) → (${x + 1}, ${y})`,
+        ).toBe(true);
       }
     }
   });
