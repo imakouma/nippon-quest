@@ -173,7 +173,7 @@ export function TextInputView({
       {payload.suffix && !suffixRepeated && <RubyLabel text={payload.suffix} class="nq-input-suffix" />}
       {numberPad ? (
         <div class="nq-input-number-pad" role="group" aria-label={t('question.textInputNumberPad')}>
-          {['7', '8', '9'].map((digit) => (
+          {['1', '2', '3'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
               {digit}
             </button>
@@ -193,7 +193,7 @@ export function TextInputView({
           >
             ❌
           </button>
-          {['1', '2', '3', '0'].map((digit) => (
+          {['7', '8', '9', '0'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
               {digit}
             </button>

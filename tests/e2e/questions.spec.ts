@@ -137,6 +137,7 @@ test('text-input：小1算数は画面内の数字ボタンだけで答えられ
   const numberPad = page.getByRole('group', { name: 'すうじボタン' });
   const buttons = numberPad.getByRole('button');
   await expect(buttons).toHaveCount(11);
+  await expect(buttons).toHaveText(['1', '2', '3', '4', '5', '6', '❌', '7', '8', '9', '0']);
   await expect(numberPad.getByRole('button', { name: '1もじ もどす' })).toHaveCount(0);
   await expect(numberPad.getByRole('button', { name: 'ぜんぶ けす' })).toHaveText('❌');
   expect(
