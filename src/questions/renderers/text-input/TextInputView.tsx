@@ -44,8 +44,7 @@ export function TextInputView({
     setValues((current) => {
       const next = [...current];
       const value = next[activeInput] ?? '';
-      if (key === 'backspace') next[activeInput] = value.slice(0, -1);
-      else if (key === 'clear') next[activeInput] = '';
+      if (key === 'clear') next[activeInput] = '';
       else if (key === '.' && value.includes('.')) return current;
       else if (key === '-') next[activeInput] = value.startsWith('-') ? value.slice(1) : `-${value}`;
       else next[activeInput] = value + key;
@@ -179,15 +178,7 @@ export function TextInputView({
               {digit}
             </button>
           ))}
-          <button
-            type="button"
-            class="nq-btn nq-input-pad-action"
-            aria-label={t('question.textInputBackspace')}
-            disabled={done}
-            onClick={() => typeOnPad('backspace')}
-          >
-            {t('question.textInputBack')}
-          </button>
+          <span class="nq-input-pad-spacer" aria-hidden="true" />
           {['4', '5', '6'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
               {digit}
@@ -196,10 +187,11 @@ export function TextInputView({
           <button
             type="button"
             class="nq-btn nq-input-pad-action"
+            aria-label={t('question.textInputClear')}
             disabled={done}
             onClick={() => typeOnPad('clear')}
           >
-            {t('question.textInputClear')}
+            ❌
           </button>
           {['1', '2', '3', '0'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>

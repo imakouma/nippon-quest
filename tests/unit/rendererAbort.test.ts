@@ -140,8 +140,6 @@ describe('question renderer cancellation', () => {
         answerSubmit: 'こたえる',
         textInputEnterHint: 'で つぎの らんへ／ぜんぶ いれたら こたえる',
         textInputNumberPad: 'すうじボタン',
-        textInputBackspace: '1もじ もどす',
-        textInputBack: 'もどす',
         textInputClear: 'ぜんぶ けす',
         numberBuildClear: 'けす',
         numberBuildCurrent: 'いまの すうじ {n}',

@@ -135,7 +135,19 @@ test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page
 test('text-input：小1算数は画面内の数字ボタンだけで答えられる', async ({ page }) => {
   await page.goto('/playground.html?q=sansu.g1.hikizan.0002');
   const numberPad = page.getByRole('group', { name: 'すうじボタン' });
-  await expect(numberPad.getByRole('button')).toHaveCount(12);
+  const buttons = numberPad.getByRole('button');
+  await expect(buttons).toHaveCount(11);
+  await expect(numberPad.getByRole('button', { name: '1もじ もどす' })).toHaveCount(0);
+  await expect(numberPad.getByRole('button', { name: 'ぜんぶ けす' })).toHaveText('❌');
+  expect(
+    await buttons.evaluateAll((elements) =>
+      elements.map((element) => {
+        const style = getComputedStyle(element);
+        return [style.width, style.height];
+      }),
+    ),
+  ).toEqual(Array.from({ length: 11 }, () => ['96px', '56px']));
+  await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveCSS('outline-style', 'none');
   await expect(page.locator('.nq-input-key-hint')).toHaveCount(0);
   await numberPad.getByRole('button', { name: '5', exact: true }).click();
   await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveValue('5');

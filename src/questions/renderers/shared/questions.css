@@ -273,21 +273,24 @@
 }
 .nq-input-template input.nq-input-active {
   border-color: #ffd866;
-  outline: 4px solid #6aa9ff;
-  outline-offset: 2px;
+  outline: none;
 }
 .nq-input-number-pad {
   display: grid;
-  grid-template-columns: repeat(4, minmax(64px, 96px));
+  grid-template-columns: repeat(4, 96px);
   justify-content: center;
   gap: 8px;
 }
 .nq-input-number-pad .nq-btn {
+  width: 96px;
+  min-width: 96px;
+  height: 56px;
+  min-height: 56px;
+  box-sizing: border-box;
   font-size: 28px;
 }
 .nq-input-pad-action {
   background: #6aa9ff;
-  font-size: 18px !important;
 }
 .nq-input-submit {
   align-self: center;
