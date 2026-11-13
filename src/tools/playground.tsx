@@ -326,6 +326,8 @@ function App() {
     setSaving(true);
     setSaveMessage('');
     try {
+      const validation = checkQuestion(file, 0, draft);
+      if (validation.problem) throw new Error(validation.problem);
       const response = await fetch(`${base}/__nq/save-question`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-NQ-Save': '1' },

@@ -14,6 +14,7 @@ export default defineConfig({
   testDir: '.',
   testIgnore: [
     'playground-list.spec.ts',
+    'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
     'question-mobile.spec.ts',

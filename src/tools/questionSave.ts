@@ -28,7 +28,7 @@ export function replaceQuestionForSave(
   }
   if (
     before.type !== after.type &&
-    ![before.type, after.type].every((type) => ['choice', 'text-input'].includes(type))
+    ![before.type, after.type].every((type) => ['choice', 'text-input', 'random-calculation'].includes(type))
   ) {
     throw new Error('この問題タイプへの変更には対応していません');
   }
@@ -36,7 +36,11 @@ export function replaceQuestionForSave(
     throw new Error('教科・学年と単元が一致しません');
   }
   const renderer = getRenderer(after.type);
-  if (!renderer || !renderer.schema.safeParse(after.payload).success) {
+  if (
+    !renderer ||
+    !renderer.schema.safeParse(after.payload).success ||
+    (after.type === 'random-calculation' && after.subject !== 'sansu')
+  ) {
     throw new Error('問題の内容が不正です');
   }
   return source.map((item, index) => (index === matches[0] ? replacement : item));
