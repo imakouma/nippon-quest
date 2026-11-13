@@ -2,6 +2,8 @@ import { expect, test } from '@playwright/test';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
 const questions = [
+  'sample.random-calculation.0001',
+  'sample.random-calculation.0002',
   'sansu.g1.tokei.0002',
   'sample.experiment.water.0001',
   'sample.kanji-trace.0001',

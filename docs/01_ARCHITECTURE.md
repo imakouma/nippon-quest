@@ -284,3 +284,7 @@ interface Skill {
 # 文理戦闘契約（v10）
 
 能力値の正は `src/core/content/schemas.ts` の8能力契約、成長は `{ base, every5, every10 }` です。文理ペア選択とポケモン型基礎式は `src/core/battle/damage.ts`、行動順は `src/core/battle/initiative.ts` に分離します。Sceneは計算せず、BattleEventをエンジンが返した順に再生します。旧セーブの6能力は `src/core/state/migrations.ts` で一度だけv10へ変換します。
+
+### ランダム算数の出題
+
+`random-calculation` は1桁の足し算の範囲・繰り上がり・回答形式をpayloadに保存する。出題時にシード付き乱数で1問を生成し、登録前のchoice/text-inputレンダラーへ渡す。共通viewportはregistryで1回だけ適用する。生成した式・正解・シードをQuestionResult.detail.generatedへ残し、解答中やリサイズで再生成しない。問題IDはルールIDなので、間違いノートからの再出題も同条件の新しい式になる。
