@@ -5,7 +5,7 @@ import { setDictionary } from '../../src/ui/i18n';
 import type { QuestionBase, RendererContext } from '../../src/questions/contracts';
 import { defaultRandomCalculation } from '../../src/questions/renderers/random-calculation/schema';
 import {
-  createAdditionQuestion,
+  createCalculationQuestion,
   randomCalculationRenderer,
 } from '../../src/questions/renderers/random-calculation';
 import { choiceRenderer } from '../../src/questions/renderers/choice';
@@ -30,8 +30,8 @@ describe('random calculation adapter', () => {
     'builds a valid %s question with the right answer and explanation',
     (response) => {
       const source = { ...question, payload: { ...defaultRandomCalculation, prompt: 'たしざん', response } };
-      const result = createAdditionQuestion(source, 'one');
-      expect(result).toEqual(createAdditionQuestion(source, 'one'));
+      const result = createCalculationQuestion(source, 'one');
+      expect(result).toEqual(createCalculationQuestion(source, 'one'));
       expect(result.question.id).toBe(source.id);
       expect(result.question.explanation).not.toContain('STALE');
       expect(result.question.explanation).toContain(
@@ -81,7 +81,37 @@ describe('random calculation adapter', () => {
       expect(delegated.timeLimitMs).toBe(ctx.timeLimitMs);
       expect(result).toMatchObject(completed);
       const generated = result.detail!.generated as { seed: string };
-      expect(delegated.question).toEqual(createAdditionQuestion(ctx.question, generated.seed).question);
+      expect(delegated.question).toEqual(createCalculationQuestion(ctx.question, generated.seed).question);
     },
   );
+});
+
+it('remainder questions grade two inputs and encode unique answer pairs in choices', () => {
+  const payload = {
+    prompt: 'わりざん',
+    operation: 'divide',
+    stage: 'division',
+    leftMin: 17,
+    leftMax: 17,
+    rightMin: 5,
+    rightMax: 5,
+    carry: false,
+    remainder: true,
+    response: 'text-input',
+  };
+  const source = { ...question, grade: 3 as const, unit: 'sansu.g3.random-calculation', payload };
+  const input = createCalculationQuestion(source, 'remainder');
+  const parsed = textInputPayloadSchema.parse(input.question.payload);
+  expect(parsed.answers).toEqual(['3', '2']);
+  expect(textInputScore(parsed, ['3', '2'])).toBe(1);
+  expect(textInputScore(parsed, ['3', '3'])).toBeLessThan(1);
+  expect(input.question.explanation).toContain('5 × 3 ＋ 2 ＝ 17');
+  const choice = createCalculationQuestion(
+    { ...source, payload: { ...payload, response: 'choice' } },
+    'remainder',
+  );
+  const choices = choicePayloadSchema.parse(choice.question.payload);
+  expect(choices.choices.find((c) => c.id === choices.answer)?.text).toBe('3 あまり 2');
+  expect(new Set(choices.choices.map((c) => c.text)).size).toBe(4);
+  expect(() => createCalculationQuestion({ ...source, grade: 1 }, 'bad')).toThrow();
 });

@@ -52,5 +52,85 @@
       "carry": false,
       "response": "choice"
     }
+  },
+  {
+    "id": "sample.random-calculation.0004",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "ひきざん（ランダム）",
+      "operation": "subtract",
+      "stage": "digit",
+      "leftMin": 1,
+      "leftMax": 18,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    }
+  },
+  {
+    "id": "sample.random-calculation.0005",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "かけざん（ランダム）",
+      "operation": "multiply",
+      "stage": "kuku",
+      "leftMin": 1,
+      "leftMax": 9,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    }
+  },
+  {
+    "id": "sample.random-calculation.0006",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "わりざん（あまりあり）",
+      "operation": "divide",
+      "stage": "division",
+      "leftMin": 1,
+      "leftMax": 89,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": true,
+      "response": "text-input"
+    }
+  },
+  {
+    "id": "sample.random-calculation.0007",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "わりざん（あまりあり）",
+      "operation": "divide",
+      "stage": "division",
+      "leftMin": 1,
+      "leftMax": 89,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": true,
+      "response": "choice"
+    }
   }
 ]

@@ -2,6 +2,9 @@ import { expect, test } from '@playwright/test';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
 const questions = [
+  'sansu.g1.random-subtract.0001',
+  'sansu.g2.random-multiply.0001',
+  'sansu.g3.random-divide.0002',
   'sample.random-calculation.0001',
   'sample.random-calculation.0002',
   'sansu.g1.tokei.0002',

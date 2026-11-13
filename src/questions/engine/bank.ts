@@ -1,3 +1,4 @@
+import { calculationProblem } from '../renderers/random-calculation/schema';
 /**
  * QuestionBank: content/questions/**.json を読み込み、payload を各レンダラーの schema で検証して保持する。
  * 問題作成者がファイルを置く → manifest 再生成 → リロード、で反映される。
@@ -64,11 +65,11 @@ export class QuestionBank {
             report.skipped.push({ file, index, reason: `未登録タイプ ${base.data.type}` });
           } else {
             const p = r.schema.safeParse(base.data.payload);
-            if (!p.success) {
+            if (!p.success || calculationProblem(base.data)) {
               report.skipped.push({
                 file,
                 index,
-                reason: `payload: ${p.error.issues[0]?.message ?? 'invalid'}`,
+                reason: `payload: ${!p.success ? p.error.issues[0]?.message : calculationProblem(base.data)}`,
               });
             } else {
               const question = { ...base.data, payload: p.data } as QuestionBase;
