@@ -61,27 +61,53 @@
               },
               "operation": {
                 "type": "string",
-                "const": "add"
+                "enum": [
+                  "add",
+                  "subtract",
+                  "multiply",
+                  "divide"
+                ]
+              },
+              "stage": {
+                "type": "string",
+                "enum": [
+                  "digit",
+                  "twenty",
+                  "twoDigits",
+                  "hundreds",
+                  "kuku",
+                  "tensMultiply",
+                  "threeDigits",
+                  "fourDigits",
+                  "twoByOne",
+                  "threeByOne",
+                  "twoByTwo",
+                  "division",
+                  "divisionTens"
+                ]
+              },
+              "remainder": {
+                "type": "boolean"
               },
               "leftMin": {
                 "type": "integer",
                 "minimum": 0,
-                "maximum": 9
+                "maximum": 9999
               },
               "leftMax": {
                 "type": "integer",
                 "minimum": 0,
-                "maximum": 9
+                "maximum": 9999
               },
               "rightMin": {
                 "type": "integer",
                 "minimum": 0,
-                "maximum": 9
+                "maximum": 9999
               },
               "rightMax": {
                 "type": "integer",
                 "minimum": 0,
-                "maximum": 9
+                "maximum": 9999
               },
               "carry": {
                 "type": "boolean"

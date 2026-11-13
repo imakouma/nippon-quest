@@ -1,3 +1,4 @@
+import { calculationProblem } from '../questions/renderers/random-calculation/schema';
 import { isDeepStrictEqual } from 'node:util';
 import { questionBaseSchema } from '../questions/contracts';
 import { getRenderer } from '../questions/renderers/registry';
@@ -36,11 +37,7 @@ export function replaceQuestionForSave(
     throw new Error('教科・学年と単元が一致しません');
   }
   const renderer = getRenderer(after.type);
-  if (
-    !renderer ||
-    !renderer.schema.safeParse(after.payload).success ||
-    (after.type === 'random-calculation' && after.subject !== 'sansu')
-  ) {
+  if (!renderer || !renderer.schema.safeParse(after.payload).success || calculationProblem(after)) {
     throw new Error('問題の内容が不正です');
   }
   return source.map((item, index) => (index === matches[0] ? replacement : item));

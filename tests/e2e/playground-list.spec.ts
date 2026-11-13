@@ -701,9 +701,16 @@ test('Playground：?q=<問題 id> で ひらくと その問題が出る', async
 test('狭いウィンドウでは一覧とレビューを縦に並べる', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
-  const list = await page.locator('.pg-list').boundingBox();
-  const review = await page.locator('.pg-review').boundingBox();
-  expect(review!.y).toBeGreaterThanOrEqual(list!.y + list!.height);
+  await expect(page.locator('.nq-q-choice')).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const list = document.querySelector('.pg-list')!.getBoundingClientRect();
+        const review = document.querySelector('.pg-review')!.getBoundingClientRect();
+        return review.top >= list.bottom;
+      }),
+    )
+    .toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
 });
 

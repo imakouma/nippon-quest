@@ -1,9 +1,10 @@
 import type { Grade, QuestionBase, Subject } from '../questions/contracts';
 import { useRef, useState } from 'preact/hooks';
+import { stageDefaults, stages } from '../questions/renderers/random-calculation/rules';
 import { freshSeed } from '../core/rng';
-import { createAdditionQuestion } from '../questions/renderers/random-calculation';
+import { createCalculationQuestion } from '../questions/renderers/random-calculation';
 import {
-  defaultRandomCalculation,
+  operationsForQuestion,
   randomCalculationSchema,
 } from '../questions/renderers/random-calculation/schema';
 import { RandomCalculationFields, randomCalculationText } from './RandomCalculationFields';
@@ -125,12 +126,19 @@ export function EditorQuestionForm({
   const changeType = (type: string) => {
     if (type === question.type || !canChangeType) return;
     if (type === 'random-calculation') {
-      if (question.subject !== 'sansu' || !window.confirm(randomCalculationText('convert'))) return;
+      if (!operationsForQuestion(question).length || !window.confirm(randomCalculationText('convert')))
+        return;
       onQuestionChange({
         ...question,
         type,
         explanation: undefined,
-        payload: { ...defaultRandomCalculation, prompt: randomCalculationText('title') },
+        payload: {
+          ...stageDefaults(
+            stages.find((s) => s.operations.includes(operationsForQuestion(question)[0]!))!.id,
+            operationsForQuestion(question)[0]!,
+          ),
+          prompt: randomCalculationText('title'),
+        },
       });
       return;
     }
@@ -141,7 +149,7 @@ export function EditorQuestionForm({
       }
       if (!window.confirm(randomCalculationText('convertFixed'))) return;
       onQuestionChange(
-        createAdditionQuestion(
+        createCalculationQuestion(
           { ...question, payload: { ...(question.payload as Record<string, unknown>), response: type } },
           freshSeed(),
         ).question,
@@ -300,7 +308,13 @@ export function EditorQuestionForm({
           </>
         )}
 
-        {isRandom && <RandomCalculationFields payload={question.payload} onChange={onPayloadChange} />}
+        {isRandom && (
+          <RandomCalculationFields
+            question={question}
+            onQuestionChange={onQuestionChange}
+            onChange={onPayloadChange}
+          />
+        )}
         {question.type !== 'choice' && !isRandom && (
           <PayloadFields question={question} onQuestionChange={onQuestionChange} />
         )}
@@ -350,6 +364,7 @@ export function EditorQuestionForm({
             </label>
             <select
               id="ed-question-grade"
+              disabled={isRandom}
               class="ed-select"
               value={question.grade}
               onChange={(event) =>
@@ -398,7 +413,7 @@ export function EditorQuestionForm({
                 <>
                   <option value="choice">選択式</option>
                   <option value="text-input">記述式</option>
-                  {question.subject === 'sansu' && (
+                  {operationsForQuestion(question).length > 0 && (
                     <option value="random-calculation">{randomCalculationText('name')}</option>
                   )}
                 </>

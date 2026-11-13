@@ -1,0 +1,107 @@
+[
+  {
+    "id": "sansu.g3.random-add.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "たしざん（ランダム）",
+      "operation": "add",
+      "stage": "threeDigits",
+      "leftMin": 1,
+      "leftMax": 999,
+      "rightMin": 1,
+      "rightMax": 999,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  },
+  {
+    "id": "sansu.g3.random-subtract.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "ひきざん（ランダム）",
+      "operation": "subtract",
+      "stage": "threeDigits",
+      "leftMin": 1,
+      "leftMax": 999,
+      "rightMin": 1,
+      "rightMax": 999,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  },
+  {
+    "id": "sansu.g3.random-multiply.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "かけざん（ランダム）",
+      "operation": "multiply",
+      "stage": "twoByOne",
+      "leftMin": 1,
+      "leftMax": 99,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  },
+  {
+    "id": "sansu.g3.random-divide.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "わりざん（ランダム）",
+      "operation": "divide",
+      "stage": "division",
+      "leftMin": 1,
+      "leftMax": 89,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  },
+  {
+    "id": "sansu.g3.random-divide.0002",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "わりざん（あまりあり）",
+      "operation": "divide",
+      "stage": "division",
+      "leftMin": 1,
+      "leftMax": 89,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": true,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "id": "sansu.g2.random-add.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "たしざん（ランダム）",
+      "operation": "add",
+      "stage": "twoDigits",
+      "leftMin": 1,
+      "leftMax": 99,
+      "rightMin": 1,
+      "rightMax": 99,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  },
+  {
+    "id": "sansu.g2.random-subtract.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "ひきざん（ランダム）",
+      "operation": "subtract",
+      "stage": "twoDigits",
+      "leftMin": 1,
+      "leftMax": 99,
+      "rightMin": 1,
+      "rightMax": 99,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  },
+  {
+    "id": "sansu.g2.random-multiply.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.random-calculation",
+    "timeLimitSec": 60,
+    "payload": {
+      "prompt": "かけざん（ランダム）",
+      "operation": "multiply",
+      "stage": "kuku",
+      "leftMin": 1,
+      "leftMax": 9,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "remainder": false,
+      "response": "text-input"
+    },
+    "tags": ["prefecture:aomori", "stage:application"]
+  }
+]

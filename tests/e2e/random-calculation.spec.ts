@@ -129,3 +129,84 @@ test('ランダム計算も時間切れ・中断後に再生できる', async ({
   await replay(page);
   await expect(page.locator('.nq-input-template')).toBeVisible();
 });
+
+for (const [id, left, right, carry, remainder, answers, symbol] of [
+  ['sansu.g1.random-subtract.0001', 13, 5, true, false, ['8'], '−'],
+  ['sansu.g2.random-multiply.0001', 6, 7, false, false, ['42'], '×'],
+  ['sansu.g3.random-divide.0001', 56, 7, false, false, ['8'], '÷'],
+  ['sansu.g3.random-divide.0002', 17, 5, false, true, ['3', '2'], '÷'],
+] as const) {
+  test(`学年別計算を入力し解説まで確認: ${id}`, async ({ page }) => {
+    await page.goto(`/playground.html?q=${id}`);
+    await setPair(page, left, right);
+    if (carry) await page.locator('#ed-random-carry').selectOption('true');
+    await replay(page);
+    await expect(page.locator('.nq-input-template')).toContainText(`${left} ${symbol} ${right}`);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    const inputs = page.locator('.nq-q-input input');
+    await expect(inputs).toHaveCount(answers.length);
+    for (let i = 0; i < answers.length; i++) await inputs.nth(i).fill(answers[i]!);
+    await page.locator('.nq-input-submit').click();
+    await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
+    await expect(page.locator('.pg-stage')).toContainText(`${left} ${symbol} ${right} ＝ ${answers[0]}`);
+    if (remainder) await expect(page.locator('.pg-stage')).toContainText('5 × 3 ＋ 2 ＝ 17');
+    await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
+    await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  });
+}
+
+test('学年に合う演算・段階だけを選べ、余り付き4択を保存・再読込できる', async ({ page }) => {
+  for (const [grade, operations] of [
+    [1, ['add', 'subtract']],
+    [2, ['add', 'subtract', 'multiply']],
+    [3, ['add', 'subtract', 'multiply', 'divide']],
+  ] as const) {
+    await page.goto(`/playground.html?q=sansu.g${grade}.random-add.0001`);
+    await expect(page.locator('#ed-random-operation option')).toHaveCount(operations.length);
+    expect(
+      await page
+        .locator('#ed-random-operation option')
+        .evaluateAll((options) => options.map((o) => (o as HTMLOptionElement).value)),
+    ).toEqual(operations);
+    if (grade < 3) await expect(page.locator('#ed-random-stage option[value="fourDigits"]')).toHaveCount(0);
+  }
+  let saved: QuestionBase[] | undefined;
+  await page.route('**/content/questions/sansu/g3/random-calculation/set-001.json', async (route) =>
+    saved ? route.fulfill({ json: saved }) : route.continue(),
+  );
+  await page.route('**/__nq/save-question', async (route) => {
+    const body = route.request().postDataJSON();
+    saved = body.expected.map((q: QuestionBase) => (q.id === body.id ? body.question : q));
+    await route.fulfill({ json: { questions: saved } });
+  });
+  await page.goto('/playground.html?q=sansu.g3.random-divide.0002');
+  await setPair(page, 17, 5);
+  await page.locator('#ed-random-response').selectOption('choice');
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('保存しました');
+  await page.reload();
+  await expect(page.locator('#ed-random-remainder')).toHaveValue('true');
+  const choices = page.locator('.nq-choice');
+  await expect(choices).toHaveCount(4);
+  expect(new Set(await choices.locator('.nq-choice-content').allTextContents()).size).toBe(4);
+  await page.setViewportSize({ width: 320, height: 700 });
+  await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  await choices.filter({ hasText: '3 あまり 2' }).click();
+  await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
+  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});
+
+test('4桁の計算も縮小後に答えられる', async ({ page }) => {
+  await page.goto('/playground.html?q=sansu.g3.random-subtract.0001');
+  await page.locator('#ed-random-stage').selectOption('fourDigits');
+  await setPair(page, 1000, 1);
+  await page.locator('#ed-random-carry').selectOption('true');
+  await replay(page);
+  await page.setViewportSize({ width: 320, height: 568 });
+  await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  await page.locator('.nq-q-input input').fill('999');
+  await page.locator('.nq-input-submit').click();
+  await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
+  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+});

@@ -1,3 +1,4 @@
+import { calculationProblem } from '../questions/renderers/random-calculation/schema';
 /**
  * Question Playground（docs/01 §3.4）
  * ゲームを起動せず、任意の問題 JSON をレンダラーで表示し、QuestionResult を確認する。
@@ -40,6 +41,8 @@ function checkQuestion(file: string, index: number, raw: unknown): QuestionEntry
   const q = b.data as QuestionBase;
   const r = getRenderer(q.type);
   if (!r) return { key, file, index, raw, q, problem: `未登録の問題タイプ "${q.type}"` };
+  const problem = calculationProblem(q);
+  if (problem) return { key, file, index, raw, q, problem };
   const p = r.schema.safeParse(q.payload);
   return p.success
     ? { key, file, index, raw, q: { ...q, payload: p.data }, problem: null }
@@ -217,6 +220,11 @@ function App() {
         `payload エラー (${q.type}):\n` +
           p.error.issues.map((i) => `  ${i.path.join('.')}: ${i.message}`).join('\n'),
       );
+      return;
+    }
+    const problem = calculationProblem(q);
+    if (problem) {
+      setError(problem);
       return;
     }
     const container = document.createElement('div');
