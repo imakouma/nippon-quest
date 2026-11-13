@@ -12,6 +12,7 @@
 - 既存の一覧・8択・問題viewport・バトル問題枠の代表E2E60件成功。Android相当18件成功（縦横回転、幅320〜1920px、従来の一覧幅と列切替を含む）。
 - check:fast、typecheck:tests、gen:schemas、gen:manifest、validate:content、開発ツール付きbuild成功。
 - アプリ内ブラウザで3＋5の記入と解説、9＋9の4択正解、再生後の8＋8への更新、不成立の設定と保存拒否を確認。ブラウザエラー0件。画面記録: /private/tmp/random-addition-choice.png。
+- ランダム計算E2EをCIの開発ツール検査とtest:e2e:toolsへ追加。開発画面を含まない本番ビルドのE2Eからは除外する。
 - Graphifyはコードのみ更新。繰り上がり判定を一時反転すると単体テストが失敗することを確認し、復元後の12件成功も確認。
 
 ## レビュー
