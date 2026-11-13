@@ -117,7 +117,11 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
       <TimerBar ms={ctx.timeLimitMs} running={phase === 'answering'} onTimeout={() => finish(null, true)} />
       <div id="nq-question-prompt" class="nq-q-prompt">
         {payload.promptImage && (
-          <img class="nq-q-prompt-img" src={ctx.assets.image(payload.promptImage)} alt="" />
+          <img
+            class="nq-q-prompt-img"
+            src={ctx.assets.image(payload.promptImage)}
+            alt={payload.promptSpeech ?? ''}
+          />
         )}
         <RubyLabel text={payload.prompt} grade={ctx.grade} as="p" />
         <button
