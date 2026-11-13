@@ -109,6 +109,18 @@ test('number-build：現在値と操作部から設問を読み上げで参照�
   await expect(page.locator('.nq-feedback')).toHaveCount(0);
 });
 
+test('number-build：23を10のまとまり2つと1のばら3つで見せる', async ({ page }) => {
+  await page.goto('/playground.html?q=sansu.g1.kazu-100.ringo-blocks-0001');
+  const placeValue = page.locator('.nq-nb-place-value');
+  await page.getByRole('button', { name: '10を たす' }).click();
+  await page.getByRole('button', { name: '10を たす' }).click();
+  for (let count = 0; count < 3; count += 1) await page.getByRole('button', { name: '1を たす' }).click();
+  await expect(placeValue).toHaveAttribute('aria-label', '10の まとまりが 2こ、1の ばらが 3こ');
+  await expect(page.locator('.nq-nb-ten')).toHaveCount(2);
+  await expect(page.locator('.nq-nb-ones img')).toHaveCount(3);
+  expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+});
+
 test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page }) => {
   await page.goto('/playground.html?q=sansu.g1.kazu-100.ringo-numberline-0001');
   const numberline = page.getByRole('slider');
@@ -116,6 +128,33 @@ test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page
   await numberline.press('ArrowRight');
   await expect(numberline).toHaveValue('1');
   await expect(page.locator('.nq-nb-value')).toHaveAttribute('aria-label', 'いまの すうじ 1');
+  await expect(page.locator('.nq-nb-tick')).toHaveCount(11);
+  await expect(page.locator('.nq-nb-tick-current')).toHaveAttribute('data-value', '1');
+});
+
+test('text-input：小1算数は画面内の数字ボタンだけで答えられる', async ({ page }) => {
+  await page.goto('/playground.html?q=sansu.g1.hikizan.0002');
+  const numberPad = page.getByRole('group', { name: 'すうじボタン' });
+  await expect(numberPad.getByRole('button')).toHaveCount(12);
+  await expect(page.locator('.nq-input-key-hint')).toHaveCount(0);
+  await numberPad.getByRole('button', { name: '5', exact: true }).click();
+  await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveValue('5');
+  await page.getByRole('button', { name: 'こたえる', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeVisible();
+});
+
+test('text-input：複数欄は押した欄へ数字を入れられる', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.sansu.g1.math-1-2.970865a03225');
+  const numberPad = page.getByRole('group', { name: 'すうじボタン' });
+  const answers = page.getByRole('textbox', { name: /こたえ/ });
+  await numberPad.getByRole('button', { name: '3', exact: true }).click();
+  await answers.nth(1).click();
+  await numberPad.getByRole('button', { name: '4', exact: true }).click();
+  await expect(answers.nth(0)).toHaveValue('3');
+  await expect(answers.nth(1)).toHaveValue('4');
+  expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  await page.getByRole('button', { name: 'こたえる', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeVisible();
 });
 
 test('experiment：予想・操作・結果の状態を読み上げ用に持つ', async ({ page }) => {

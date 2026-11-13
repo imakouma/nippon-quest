@@ -4,6 +4,7 @@ import {
   textInputPayloadSchema,
   textInputScore,
 } from '../../src/questions/renderers/text-input/schema';
+import { shouldShowNumberPad } from '../../src/questions/renderers/text-input/TextInputView';
 describe('text-input', () => {
   it('全角数字・空白・桁区切りを正規化する', () => expect(normalizeInput(' ４２,１９５ ')).toBe('42195'));
   it('複数欄を部分点つきで採点する', () =>
@@ -38,4 +39,14 @@ it('画像の代替テキストを保持し、空文字を拒否する', () => {
   expect(textInputPayloadSchema.parse(payload).promptImageAlt).toBe('表の説明');
   expect(textInputPayloadSchema.safeParse({ ...payload, promptImageAlt: '' }).success).toBe(false);
   expect(textInputPayloadSchema.safeParse({ prompt: 'p', answers: ['1'] }).success).toBe(true);
+});
+
+describe('text-input number pad', () => {
+  it('小1〜小3算数の通常10進数回答だけに表示する', () => {
+    expect(shouldShowNumberPad('sansu', 1, ['１２'])).toBe(true);
+    expect(shouldShowNumberPad('sansu', 3, ['-0.5', '2'])).toBe(true);
+    expect(shouldShowNumberPad('sansu', 4, ['12'])).toBe(false);
+    expect(shouldShowNumberPad('rika', 1, ['12'])).toBe(false);
+    expect(shouldShowNumberPad('sansu', 1, ['1/2'])).toBe(false);
+  });
 });
