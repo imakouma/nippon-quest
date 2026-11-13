@@ -7,3 +7,5 @@
 フォントはSVGに同梱せず、表示環境のフォントを利用する。
 
 制作履歴: `tasks/sansu-g1-g3-five-fixes.md`、`tasks/sansu-g1-g3-learning-support.md`。
+
+`g1/data/*.svg` は既存の `src/questions/renderers/shared/pictures.ts` の果物ドット絵を再利用した自作図版。`fruit-votes.svg` は絵1つを1人として、りんご3人・みかん2人・ぶどう1人を等間隔に並べた絵グラフ。外部素材は使用していない。
