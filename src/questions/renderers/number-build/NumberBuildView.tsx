@@ -13,6 +13,21 @@ interface Props {
   onDone: (r: { score: number; timedOut: boolean; value: number }) => void;
 }
 
+export function splitPlaceValue(value: number): { tens: number; ones: number } {
+  const whole = Math.max(0, Math.floor(value));
+  return { tens: Math.floor(whole / 10), ones: whole % 10 };
+}
+
+export function numberLineTicks(min: number, max: number, step: number): number[] {
+  const steps = Math.round((max - min) / step);
+  const stride = steps <= 20 ? 1 : Math.ceil(steps / 10);
+  const ticks = Array.from({ length: Math.floor(steps / stride) + 1 }, (_, index) =>
+    Number((min + index * stride * step).toFixed(10)),
+  );
+  if (ticks.at(-1) !== max) ticks.push(max);
+  return ticks;
+}
+
 export function NumberBuildView({ ctx, payload, onDone }: Props) {
   const initial = payload.mode === 'numberline' ? payload.min : 0;
   const [value, setValue] = useState(initial);
@@ -23,6 +38,11 @@ export function NumberBuildView({ ctx, payload, onDone }: Props) {
   const completionTimer = useRef<number | null>(null);
 
   const current = payload.mode === 'keypad' ? Number(digits || '0') : value;
+  const placeValue = splitPlaceValue(current);
+  const ticks = payload.mode === 'numberline' ? numberLineTicks(payload.min, payload.max, payload.step) : [];
+  const appleImage = ctx.question.tags?.includes('theme:ringo')
+    ? ctx.assets.image('questions/eigo/apple.png')
+    : undefined;
   const finish = (timedOut: boolean) => {
     if (doneRef.current) return;
     doneRef.current = true;
@@ -112,30 +132,58 @@ export function NumberBuildView({ ctx, payload, onDone }: Props) {
 
       {payload.mode === 'blocks' && (
         <div class="nq-nb-blocks">
-          {payload.blocks.map((block) => (
-            <div class="nq-nb-block-row" key={block}>
-              <button
-                type="button"
-                class="nq-btn nq-nb-minus"
-                aria-label={t('question.numberBuildRemove', { n: block })}
-                aria-describedby="nq-question-prompt"
-                disabled={done || value - block < 0}
-                onClick={() => setValue(Math.max(0, value - block))}
-              >
-                −
-              </button>
-              <button
-                type="button"
-                class={`nq-btn nq-nb-block nq-nb-block-${block}`}
-                aria-label={t('question.numberBuildAdd', { n: block })}
-                aria-describedby="nq-question-prompt"
-                disabled={done || value + block > payload.max}
-                onClick={() => setValue(value + block)}
-              >
-                +{block}
-              </button>
+          <div
+            class="nq-nb-place-value"
+            role="img"
+            aria-label={t('question.numberBuildPlaceValue', placeValue)}
+          >
+            <div class="nq-nb-place-group">
+              <span>{t('question.numberBuildTens')}</span>
+              <div class="nq-nb-tens" aria-hidden="true">
+                {Array.from({ length: placeValue.tens }, (_, ten) => (
+                  <span class="nq-nb-ten" key={ten}>
+                    {Array.from({ length: 10 }, (_, one) =>
+                      appleImage ? <img key={one} src={appleImage} alt="" /> : <i key={one} />,
+                    )}
+                  </span>
+                ))}
+              </div>
             </div>
-          ))}
+            <div class="nq-nb-place-group">
+              <span>{t('question.numberBuildOnes')}</span>
+              <div class="nq-nb-ones" aria-hidden="true">
+                {Array.from({ length: placeValue.ones }, (_, one) =>
+                  appleImage ? <img key={one} src={appleImage} alt="" /> : <i key={one} />,
+                )}
+              </div>
+            </div>
+          </div>
+          <div class="nq-nb-block-controls">
+            {payload.blocks.map((block) => (
+              <div class="nq-nb-block-row" key={block}>
+                <button
+                  type="button"
+                  class="nq-btn nq-nb-minus"
+                  aria-label={t('question.numberBuildRemove', { n: block })}
+                  aria-describedby="nq-question-prompt"
+                  disabled={done || value - block < 0}
+                  onClick={() => setValue(Math.max(0, value - block))}
+                >
+                  −
+                </button>
+                <button
+                  type="button"
+                  class={`nq-btn nq-nb-block nq-nb-block-${block}`}
+                  aria-label={t('question.numberBuildAdd', { n: block })}
+                  aria-describedby="nq-question-prompt"
+                  disabled={done || value + block > payload.max}
+                  onClick={() => setValue(value + block)}
+                >
+                  +{block}
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
@@ -167,6 +215,16 @@ export function NumberBuildView({ ctx, payload, onDone }: Props) {
 
       {payload.mode === 'numberline' && (
         <div class="nq-nb-numberline">
+          <div class="nq-nb-ticks" aria-hidden="true">
+            {ticks.map((tick) => (
+              <span
+                key={tick}
+                class={tick === value ? 'nq-nb-tick nq-nb-tick-current' : 'nq-nb-tick'}
+                data-value={tick}
+                style={{ left: `${((tick - payload.min) / (payload.max - payload.min)) * 100}%` }}
+              />
+            ))}
+          </div>
           <input
             aria-label={t('question.numberBuildNumberline')}
             aria-describedby="nq-question-prompt"
