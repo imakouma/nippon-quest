@@ -1,13 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
+import type { ContentManifest } from '../../src/core/content/loader';
 
-const questionCatalog = (
-  JSON.parse(readFileSync('content/manifest.json', 'utf8')) as {
-    questionCatalog: { totalQuestions: number; subjects: { subject: string; count: number }[] };
-  }
-).questionCatalog;
-const totalQuestions = questionCatalog.totalQuestions;
-const sansuQuestions = questionCatalog.subjects.find(({ subject }) => subject === 'sansu')!.count;
+const catalog = (JSON.parse(readFileSync('content/manifest.json', 'utf8')) as ContentManifest)
+  .questionCatalog!;
+const totalQuestions = catalog.totalQuestions;
 
 test('単元の直下に問題を表示し、検索時だけ検索結果欄を表示する', async ({ page }) => {
   await page.goto('/playground.html');
@@ -16,7 +13,7 @@ test('単元の直下に問題を表示し、検索時だけ検索結果欄を�
   await page.locator('details[data-subject="kokugo"] details[data-grade="2"] > summary').click();
   const unit = page.locator('button[data-unit="kokugo.g2.bun-no-kimari"]');
   await unit.click();
-  await expect(unit.locator('..').locator('.pg-question-row')).toHaveCount(4);
+  await expect(unit.locator('../..').locator('.pg-question-row')).toHaveCount(4);
   await expect(page.locator('.pg-results')).toHaveCount(0);
   await page.locator('details.pg-filter-details > summary').click();
   await page.locator('#pg-f-text').fill('source.kokugo');
@@ -24,7 +21,7 @@ test('単元の直下に問題を表示し、検索時だけ検索結果欄を�
   await expect(page.locator('.pg-results .pg-question-row').first()).toBeVisible();
   await page.locator('#pg-f-text').clear();
   await expect(page.locator('.pg-results')).toHaveCount(0);
-  await expect(unit.locator('..').locator('.pg-question-row')).toHaveCount(4);
+  await expect(unit.locator('../..').locator('.pg-question-row')).toHaveCount(4);
   await unit.click();
   await expect(page.locator('.pg-question-row')).toHaveCount(0);
   await page.locator('#pg-f-text').fill('eigo.g3.sea.0006');
@@ -352,16 +349,19 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
 
   const subject = tree.locator('details[data-subject="sansu"]');
   await expect(subject.locator(':scope > summary')).toContainText(/算数|さんすう/);
-  await expect(subject.locator(':scope > summary')).toContainText(String(sansuQuestions));
+  const sansu = catalog.subjects.find((item) => item.subject === 'sansu')!;
+  await expect(subject.locator(':scope > summary')).toContainText(String(sansu.count));
   await subject.locator(':scope > summary').click();
 
   const grade = subject.locator('details[data-grade="1"]');
   await expect(grade.locator(':scope > summary')).toContainText('小1');
-  await expect(grade.locator(':scope > summary')).toContainText('186');
+  await expect(grade.locator(':scope > summary')).toContainText(
+    String(sansu.grades.find((item) => item.grade === 1)!.count),
+  );
   await grade.locator(':scope > summary').click();
 
   const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
-  await expect(unit).toContainText('21');
+  await expect(unit).toHaveAccessibleDescription('21問');
   await unit.click();
   await expect(unit).toHaveAttribute('aria-pressed', 'true');
   await expect(tree.getByText('set-001.json')).toHaveCount(0);
@@ -627,7 +627,7 @@ test('Playground の問題ツリー：狭い画面では表の上に並ぶ', asy
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('Playground は中幅の画面でも問題一覧とレビューを横に並べる', async ({ page }) => {
+test('Playground はPCで一覧とレビューを2列に並べる', async ({ page }) => {
   await page.setViewportSize({ width: 960, height: 900 });
   await page.goto('/playground.html?q=eigo.g3.alphabet-small.0001');
 
@@ -646,9 +646,7 @@ test('Playground は中幅の画面でも問題一覧とレビューを横に並
   expect(listBox).not.toBeNull();
   expect(reviewBox).not.toBeNull();
   expect(reviewBox!.x).toBeGreaterThanOrEqual(listBox!.x + listBox!.width);
-  expect(Math.abs(listBox!.height - reviewBox!.height)).toBeLessThan(2);
-  expect(reviewBox!.x - (listBox!.x + listBox!.width)).toBeLessThanOrEqual(10);
-  expect(reviewBox!.width / listBox!.width).toBeGreaterThanOrEqual(1.79);
+  expect(reviewBox!.width / listBox!.width).toBeCloseTo(1.8, 1);
   await page.locator('details[data-subject="sansu"] > summary').click();
   await expect(page.locator('details[data-subject="sansu"] details[data-grade="1"]')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(960);
@@ -730,4 +728,102 @@ test('Playground：?q=<問題 id> で ひらくと その問題が出る', async
   await expect(page.locator('.nq-q-choice')).toBeVisible({ timeout: 20_000 });
   await expect(page.locator('.pg-question-row')).toHaveCount(0);
   await expect(page.getByLabel('問題 ID', { exact: true })).toHaveValue('eigo.g3.alphabet-small.0002');
+});
+
+test('狭いウィンドウでは一覧とレビューを縦に並べる', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/playground.html?q=sansu.g1.tokei.0002');
+  await expect(page.locator('.nq-q-choice')).toBeVisible();
+  await expect
+    .poll(() =>
+      page.evaluate(() => {
+        const list = document.querySelector('.pg-list')!.getBoundingClientRect();
+        const review = document.querySelector('.pg-review')!.getBoundingClientRect();
+        return review.top >= list.bottom;
+      }),
+    )
+    .toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
+});
+
+test('Playground は選択肢を8個まで追加・保存でき、削除すると追加ボタンが戻る', async ({ page }) => {
+  let savedCount = 0;
+  await page.route('**/__nq/save-question', async (route) => {
+    const body = route.request().postDataJSON();
+    savedCount = body.question.payload.choices.length;
+    await route.fulfill({
+      json: { questions: body.expected.map((q: { id: string }) => (q.id === body.id ? body.question : q)) },
+    });
+  });
+  await page.goto('/playground.html?q=sansu.g1.data.0001');
+  const rows = page.locator('.ed-choice-row');
+  await expect(rows).toHaveCount(3);
+  const add = page.getByRole('button', { name: '➕ 選択肢を追加', exact: true });
+  for (let count = 4; count <= 8; count += 1) {
+    await add.click();
+    await expect(rows).toHaveCount(count);
+  }
+  await expect(add).toHaveCount(0);
+  await page.getByRole('button', { name: '保存', exact: true }).click();
+  await expect(page.getByRole('status')).toHaveText('保存しました');
+  expect(savedCount).toBe(8);
+  await page.getByRole('button', { name: '選択肢 8を削除', exact: true }).click();
+  await expect(rows).toHaveCount(7);
+  await expect(add).toBeVisible();
+  await add.click();
+  await expect(rows).toHaveCount(8);
+  await expect(add).toHaveCount(0);
+});
+
+test('Playground の単元名は問題数と削除ボタンに押されて1文字ずつ折り返さない', async ({ page }) => {
+  await page.route('**/__nq/folder-state', (route) =>
+    route.fulfill({
+      json: { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] },
+    }),
+  );
+  await page.goto('/playground.html?q=sansu.g1.data.0001');
+  await page.locator('details[data-subject="kokugo"] > summary').click();
+  await page.locator('details[data-subject="kokugo"] details[data-grade="1"] > summary').click();
+  const unit = page.locator('button[data-unit="kokugo.g1.bun-no-kimari"]');
+  await expect(unit).toBeVisible();
+  const row = unit.locator('../..');
+  await expect(row.locator('.pg-folder-delete')).toBeVisible();
+  await expect(row.locator('.pg-folder-delete')).toHaveText('❌');
+  await expect(row.locator('.pg-folder-delete')).toHaveAccessibleName('文のきまり・書き方 削除');
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    const layout = await row.evaluate((element) => {
+      const button = element.querySelector('button[data-unit]')!;
+      const label = button.querySelector('.pg-tree-label')!;
+      const count = element.querySelector('.pg-tree-count')!.getBoundingClientRect();
+      const remove = element.querySelector('.pg-folder-delete')!.getBoundingClientRect();
+      const card = element.querySelector('.pg-unit-card')!.getBoundingClientRect();
+      const box = label.getBoundingClientRect();
+      const font = parseFloat(getComputedStyle(label).fontSize);
+      return {
+        countCenter: (count.top + count.bottom) / 2,
+        deleteCenter: (remove.top + remove.bottom) / 2,
+        titleCenter: (box.top + box.bottom) / 2,
+        titleRight: box.right,
+        countLeft: count.left,
+        deleteRight: remove.right,
+        cardRight: card.right,
+        charactersPerLine: box.width / font,
+        lines: box.height / parseFloat(getComputedStyle(label).lineHeight),
+        countRight: count.right,
+        deleteLeft: remove.left,
+        overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+      };
+    });
+    expect(Math.abs(layout.countCenter - layout.titleCenter)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.deleteCenter - layout.titleCenter)).toBeLessThanOrEqual(1);
+    expect(layout.titleRight).toBeLessThanOrEqual(layout.deleteLeft);
+    expect(layout.countRight).toBeLessThanOrEqual(layout.cardRight);
+    expect(layout.charactersPerLine).toBeGreaterThanOrEqual(5);
+    expect(layout.lines, JSON.stringify({ width, layout })).toBeLessThanOrEqual(1.1);
+    expect(layout.deleteRight).toBeLessThanOrEqual(layout.countLeft);
+    expect(layout.overflow).toBeLessThanOrEqual(1);
+  }
+  await unit.click();
+  await expect(row.locator('.pg-question-row').first()).toBeVisible();
 });

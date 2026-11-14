@@ -1,5 +1,14 @@
 import type { Grade, QuestionBase, Subject } from '../questions/contracts';
 import { useRef, useState } from 'preact/hooks';
+import { stageDefaults, stages } from '../questions/renderers/random-calculation/rules';
+import { freshSeed } from '../core/rng';
+import { createCalculationQuestion } from '../questions/renderers/random-calculation';
+import {
+  operationsForQuestion,
+  randomCalculationSchema,
+} from '../questions/renderers/random-calculation/schema';
+import { RandomCalculationFields, randomCalculationText } from './RandomCalculationFields';
+import { MAX_CHOICES } from '../questions/renderers/shared/choiceLimit';
 
 type EditorQuestionFormProps = {
   question: QuestionBase;
@@ -103,7 +112,8 @@ export function EditorQuestionForm({
           !!choice && typeof choice === 'object' && typeof (choice as { id?: unknown }).id === 'string',
       )
     : [];
-  const canChangeType = question.type === 'choice' || question.type === 'text-input';
+  const isRandom = question.type === 'random-calculation';
+  const canChangeType = question.type === 'choice' || question.type === 'text-input' || isRandom;
 
   const moveChoice = (id: string, target: number) => {
     const from = choices.findIndex((choice) => choice.id === id);
@@ -115,6 +125,37 @@ export function EditorQuestionForm({
 
   const changeType = (type: string) => {
     if (type === question.type || !canChangeType) return;
+    if (type === 'random-calculation') {
+      if (!operationsForQuestion(question).length || !window.confirm(randomCalculationText('convert')))
+        return;
+      onQuestionChange({
+        ...question,
+        type,
+        explanation: undefined,
+        payload: {
+          ...stageDefaults(
+            stages.find((s) => s.operations.includes(operationsForQuestion(question)[0]!))!.id,
+            operationsForQuestion(question)[0]!,
+          ),
+          prompt: randomCalculationText('title'),
+        },
+      });
+      return;
+    }
+    if (isRandom) {
+      if (!randomCalculationSchema.safeParse(question.payload).success) {
+        window.alert(randomCalculationText('invalid'));
+        return;
+      }
+      if (!window.confirm(randomCalculationText('convertFixed'))) return;
+      onQuestionChange(
+        createCalculationQuestion(
+          { ...question, payload: { ...(question.payload as Record<string, unknown>), response: type } },
+          freshSeed(),
+        ).question,
+      );
+      return;
+    }
     if (
       !window.confirm(
         '問題文と正解を引き継ぎますが、それ以外の内容は引き継がれない場合があります。変更しますか？',
@@ -246,26 +287,35 @@ export function EditorQuestionForm({
                   </button>
                 </div>
               ))}
-              <button
-                type="button"
-                class="ed-btn"
-                style={{ marginTop: '6px' }}
-                onClick={() => {
-                  let number = choices.length + 1;
-                  while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
-                  onPayloadChange('choices', [
-                    ...choices,
-                    { id: `choice-${number}`, text: `選択肢${number}` },
-                  ]);
-                }}
-              >
-                ➕ 選択肢を追加
-              </button>
+              {choices.length < MAX_CHOICES && (
+                <button
+                  type="button"
+                  class="ed-btn"
+                  style={{ marginTop: '6px' }}
+                  onClick={() => {
+                    let number = choices.length + 1;
+                    while (choices.some((choice) => choice.id === `choice-${number}`)) number += 1;
+                    onPayloadChange('choices', [
+                      ...choices,
+                      { id: `choice-${number}`, text: `選択肢${number}` },
+                    ]);
+                  }}
+                >
+                  ➕ 選択肢を追加
+                </button>
+              )}
             </div>
           </>
         )}
 
-        {question.type !== 'choice' && (
+        {isRandom && (
+          <RandomCalculationFields
+            question={question}
+            onQuestionChange={onQuestionChange}
+            onChange={onPayloadChange}
+          />
+        )}
+        {question.type !== 'choice' && !isRandom && (
           <PayloadFields question={question} onQuestionChange={onQuestionChange} />
         )}
       </div>
@@ -295,6 +345,7 @@ export function EditorQuestionForm({
               id="ed-question-subject"
               class="ed-select"
               value={question.subject}
+              disabled={isRandom}
               onChange={(event) =>
                 onFieldChange('subject', (event.target as HTMLSelectElement).value as Subject)
               }
@@ -313,6 +364,7 @@ export function EditorQuestionForm({
             </label>
             <select
               id="ed-question-grade"
+              disabled={isRandom}
               class="ed-select"
               value={question.grade}
               onChange={(event) =>
@@ -361,6 +413,9 @@ export function EditorQuestionForm({
                 <>
                   <option value="choice">選択式</option>
                   <option value="text-input">記述式</option>
+                  {operationsForQuestion(question).length > 0 && (
+                    <option value="random-calculation">{randomCalculationText('name')}</option>
+                  )}
                 </>
               )}
             </select>
@@ -373,7 +428,8 @@ export function EditorQuestionForm({
           <textarea
             id="ed-question-explanation"
             class="ed-textarea"
-            value={question.explanation ?? ''}
+            value={isRandom ? randomCalculationText('autoExplanation') : (question.explanation ?? '')}
+            readOnly={isRandom}
             onInput={(event) => onFieldChange('explanation', (event.target as HTMLTextAreaElement).value)}
           />
         </div>

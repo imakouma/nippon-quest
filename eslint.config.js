@@ -7,7 +7,7 @@ import globals from 'globals';
 /**
  * プロジェクトの境界ルールを Lint で機械的に守らせる。
  *  - Math.random 禁止（src/core/rng.ts のシード付き乱数を使う）
- *  - src/questions/renderers/** から phaser / core を import 禁止
+ *  - src/questions/renderers/** から phaser / core を import 禁止（純粋な rng だけ例外）
  *  - src/core/** から DOM・phaser・renderers を import 禁止（純粋ロジック）
  */
 export default tseslint.config(
@@ -61,7 +61,8 @@ export default tseslint.config(
               message: 'レンダラーは Phaser を知ってはいけない（docs/01 §3.3）。',
             },
             {
-              group: ['@/core/*', '**/core/*', '@/scenes/*', '**/scenes/*'],
+              // Reuse the mandated seeded RNG; state and Scene imports remain forbidden.
+              group: ['@/core/*', '**/core/*', '!@/core/rng', '!**/core/rng', '@/scenes/*', '**/scenes/*'],
               message: 'レンダラーは GameState / Scene に触れない。契約は contracts.ts のみ。',
             },
           ],

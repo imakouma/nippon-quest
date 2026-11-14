@@ -1,11 +1,12 @@
 import { z } from 'zod/v3';
+import { MAX_CHOICES } from '../shared/choiceLimit';
 
 const prediction = z.object({
   prompt: z.string().min(1),
   choices: z
     .array(z.object({ id: z.string().min(1), text: z.string().min(1) }))
     .min(2)
-    .max(4),
+    .max(MAX_CHOICES),
   answer: z.string().min(1),
 });
 

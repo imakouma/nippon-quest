@@ -55,3 +55,42 @@ it('共有側で追加された漢字問題ファイルも保存できる', () =
   saveQuestion(root, { file: kanjiFile, expected: [kanji], id: kanji.id, question: changed });
   expect(JSON.parse(readFileSync(kanjiPath, 'utf8'))).toEqual([changed]);
 });
+
+it('ランダム計算の条件をファイルへ保存し、不正な更新で保存済みデータを壊さない', () => {
+  const mathFile = 'questions/sansu/g1/tashizan/set-002.json';
+  const mathPath = join(root, 'content', mathFile);
+  const math = {
+    ...original,
+    id: 'sansu.g1.tashizan.random.0001',
+    subject: 'sansu',
+    grade: 1,
+    unit: 'sansu.g1.tashizan',
+  };
+  mkdirSync(join(root, 'content/questions/sansu/g1/tashizan'), { recursive: true });
+  writeFileSync(mathPath, JSON.stringify([math]));
+  const random = {
+    ...math,
+    type: 'random-calculation',
+    payload: {
+      prompt: 'たしざん',
+      operation: 'add',
+      leftMin: 1,
+      leftMax: 9,
+      rightMin: 1,
+      rightMax: 9,
+      carry: true,
+      response: 'choice',
+    },
+  };
+  saveQuestion(root, { file: mathFile, expected: [math], id: math.id, question: random });
+  expect(JSON.parse(readFileSync(mathPath, 'utf8'))).toEqual([random]);
+  expect(() =>
+    saveQuestion(root, {
+      file: mathFile,
+      expected: [random],
+      id: math.id,
+      question: { ...random, payload: { ...random.payload, leftMax: 2, rightMax: 2 } },
+    }),
+  ).toThrow();
+  expect(JSON.parse(readFileSync(mathPath, 'utf8'))).toEqual([random]);
+});

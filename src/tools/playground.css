@@ -323,17 +323,32 @@ button:disabled {
   margin: 0 8px 6px 35px;
 }
 
-.pg-tree button[data-unit] {
-  padding-right: 60px;
+.pg-unit-card {
+  display: flex;
+  align-items: center;
+  margin: 0 0 6px 11px;
+  border-radius: 5px;
+  background: #deedf7;
 }
 
-.pg-tree button[data-unit] + .pg-folder-delete {
+.pg-unit-meta {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 4px;
+  padding-right: 7px;
+}
+
+.pg-unit-meta .pg-tree-count {
+  margin-left: 0;
+}
+
+.pg-tree .pg-unit-meta .pg-folder-delete {
+  color: #c62828;
   width: auto;
   min-height: 26px;
-  margin: -30px 4px 4px auto;
-  padding: 2px 5px;
-  position: relative;
-  font-size: 11px;
+  padding: 2px 3px;
+  font-size: 12px;
 }
 
 .pg-browser-filtering .pg-tree-details {
@@ -417,10 +432,15 @@ button:disabled {
 }
 
 .pg-tree button[data-unit] {
-  width: calc(100% - 11px);
-  margin-left: 11px;
+  min-width: 0;
+  flex: 1;
   color: #284f68;
   background: #deedf7;
+}
+
+.pg-tree button[data-unit] .pg-tree-label {
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 .pg-tree details > summary:hover {
@@ -514,6 +534,7 @@ button:disabled {
 }
 
 .pg-question-list {
+  max-height: 520px;
   min-height: 0;
   overflow: auto;
 }
@@ -807,6 +828,7 @@ button:disabled {
 }
 
 .pg-preview {
+  container-type: inline-size;
   overflow: hidden;
 }
 
@@ -825,6 +847,7 @@ button:disabled {
 
 .pg-question-heading h2 {
   max-width: 680px;
+  overflow-wrap: anywhere;
   font-size: clamp(19px, 2vw, 26px);
   line-height: 1.35;
 }
@@ -982,19 +1005,36 @@ button:disabled {
   .pg-list {
     width: 100%;
     height: auto;
-    min-height: 720px;
+    min-height: 0;
   }
 
   .pg-review {
     width: 100%;
   }
 
-  .pg-question-list {
-    max-height: 520px;
+  .pg-tree {
+    height: auto;
+    min-height: 0;
+    max-height: 55dvh;
+  }
+}
+
+@container (max-width: 520px) {
+  .pg-preview-head {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pg-question-heading,
+  .pg-test-controls {
+    width: 100%;
   }
 }
 
 @media (max-width: 520px) {
+  .pg-header {
+    flex-wrap: wrap;
+  }
   .pg-header,
   .pg-workspace {
     padding-right: 5px;

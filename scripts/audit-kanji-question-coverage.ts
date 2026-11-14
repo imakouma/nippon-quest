@@ -3,6 +3,7 @@ import { relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { choicePayloadSchema } from '../src/questions/renderers/choice/schema';
+import { MAX_CHOICES } from '../src/questions/renderers/shared/choiceLimit';
 import { kanjiTracePayloadSchema } from '../src/questions/renderers/kanji-trace/schema';
 import { KANJI_UNIT_BY_GRADE } from './generate-kanji-questions';
 import { MAX_QUESTIONS_PER_SET, type QuestionSourceFile } from './question-layout';
@@ -148,7 +149,7 @@ export function auditKanjiQuestionCoverage(
       if (question.type !== 'choice') errors.push(`${question.id}: ${label}問題のtypeがchoiceではありません`);
       const parsed = choicePayloadSchema.safeParse(question.payload);
       if (!parsed.success) {
-        errors.push(`${question.id}: ${label}問題の4択が不正です`);
+        errors.push(`${question.id}: ${label}問題の選択肢が不正です`);
         continue;
       }
       const character = questionCharacter(parsed.data.prompt);
@@ -165,8 +166,13 @@ export function auditKanjiQuestionCoverage(
       const choices = parsed.data.choices.flatMap(({ text }) => (text ? [text] : []));
       const answer = parsed.data.choices.find(({ id }) => id === parsed.data.answer)?.text;
       const validReadings = new Set(record[category].map(({ reading }) => normalizeReading(reading)));
-      if (choices.length !== 4 || new Set(choices).size !== 4) {
-        errors.push(`${question.id}: ${label}の選択肢は異なる平仮名4件にしてください`);
+      if (
+        choices.length !== parsed.data.choices.length ||
+        choices.length < 2 ||
+        choices.length > MAX_CHOICES ||
+        new Set(choices).size !== choices.length
+      ) {
+        errors.push(`${question.id}: ${label}の選択肢は異なる平仮名2〜${MAX_CHOICES}件にしてください`);
       }
       if (!answer || !validReadings.has(answer)) {
         errors.push(`${question.id}: 正解「${answer ?? ''}」が正規データの${label}にありません`);

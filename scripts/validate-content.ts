@@ -1,3 +1,4 @@
+import { calculationProblem } from '../src/questions/renderers/random-calculation/schema';
 /**
  * content/ 全体の検証。CI と手元の両方で使う。
  *  (a) スキーマ検証  (b) id 重複  (c) 参照切れ  (d) 問題 JSON の payload 検証
@@ -95,6 +96,11 @@ if (content) {
       seen.set(id, file);
       if (!content.units.has(unit) && !file.startsWith('questions/_samples/'))
         warnings.push(`${file}[${i}]: unit "${unit}" が content/units.json にありません`);
+      const problem = calculationProblem(base.data);
+      if (problem) {
+        errors.push(`${file}[${i}]: ${problem}`);
+        return;
+      }
       const r = getRenderer(type);
       if (!r) {
         errors.push(`${file}[${i}]: 未登録の問題タイプ "${type}"`);

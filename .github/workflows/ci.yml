@@ -87,13 +87,32 @@ jobs:
           pnpm exec playwright test
           tests/e2e/playground-list.spec.ts tests/e2e/questions.spec.ts tests/e2e/smoke.spec.ts tests/e2e/overworld.spec.ts
           --grep 'Playground|問題レビュー内|開発者モードのメニュー|choice：|picture-word：|sort-order：|pair-match：|number-build：|experiment：|旧版の|地図問題：'
-      - name: Verify proportional layouts and resizing in every question renderer
+      - name: Verify random calculation and proportional question layouts
         env:
           E2E_REUSE_SERVER: '0'
-        run: pnpm exec playwright test tests/e2e/question-viewport.spec.ts tests/e2e/battle-question-audit.spec.ts --grep-invert '全問題をバトル問題枠'
+        run: pnpm exec playwright test tests/e2e/random-calculation.spec.ts tests/e2e/question-viewport.spec.ts tests/e2e/battle-question-audit.spec.ts --grep-invert '全問題をバトル問題枠'
+  mobile-layout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - name: Verify mobile WebKit and Chromium rotation and touch
+        run: pnpm test:e2e:mobile
+      - name: Upload mobile browser diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-layout-report
+          path: test-results
+          retention-days: 7
   deploy-pages:
     if: github.ref == 'refs/heads/main'
-    needs: [check, e2e, developer-tools]
+    needs: [check, e2e, developer-tools, mobile-layout]
     runs-on: ubuntu-latest
     permissions:
       pages: write

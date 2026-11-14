@@ -1,3 +1,4 @@
+import { calculationProblem } from '../questions/renderers/random-calculation/schema';
 /**
  * 問題レビュー（docs/01 §3.4）
  * ゲームを起動せず、問題を探して実際に解き、フォームで編集する開発用ワークスペース。
@@ -39,6 +40,8 @@ function checkQuestion(file: string, index: number, raw: unknown): QuestionEntry
   const q = b.data as QuestionBase;
   const r = getRenderer(q.type);
   if (!r) return { key, file, index, raw, q, problem: `未登録の問題タイプ "${q.type}"` };
+  const problem = calculationProblem(q);
+  if (problem) return { key, file, index, raw, q, problem };
   const p = r.schema.safeParse(q.payload);
   return p.success
     ? { key, file, index, raw, q: { ...q, payload: p.data }, problem: null }
@@ -210,6 +213,11 @@ function App() {
       );
       return;
     }
+    const problem = calculationProblem(q);
+    if (problem) {
+      setError(problem);
+      return;
+    }
     const container = document.createElement('div');
     stage.current!.replaceChildren(container);
     const ctl = new AbortController();
@@ -316,6 +324,8 @@ function App() {
     setSaving(true);
     setSaveMessage('');
     try {
+      const validation = checkQuestion(file, 0, draft);
+      if (validation.problem) throw new Error(validation.problem);
       const response = await fetch(`${base}/__nq/save-question`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-NQ-Save': '1' },

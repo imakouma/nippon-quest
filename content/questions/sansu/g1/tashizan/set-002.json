@@ -1,0 +1,24 @@
+[
+  {
+    "id": "sansu.g1.tashizan.random.0001",
+    "type": "random-calculation",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "timeLimitSec": 30,
+    "payload": {
+      "prompt": "1けたの たしざん（ランダム）",
+      "operation": "add",
+      "leftMin": 1,
+      "leftMax": 9,
+      "rightMin": 1,
+      "rightMax": 9,
+      "carry": false,
+      "response": "text-input"
+    },
+    "tags": [
+      "prefecture:aomori",
+      "stage:application"
+    ]
+  }
+]

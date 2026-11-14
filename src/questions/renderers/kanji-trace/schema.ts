@@ -1,4 +1,5 @@
 import { z } from 'zod/v3';
+import { MAX_CHOICES } from '../shared/choiceLimit';
 
 export const kanjiTracePayloadSchema = z
   .object({
@@ -8,7 +9,7 @@ export const kanjiTracePayloadSchema = z
     hintWord: z.string().min(1).optional().describe('ことばの例（RubyText）'),
     strokeCount: z.number().int().positive().optional().describe('画数（表示のみ）'),
     guideImage: z.string().min(1).optional().describe('お手本画像。省略時はフォントで描く'),
-    choices: z.array(z.string().min(1)).min(2).max(6).optional(),
+    choices: z.array(z.string().min(1)).min(2).max(MAX_CHOICES).optional(),
     answer: z.string().min(1).optional(),
   })
   .refine(
