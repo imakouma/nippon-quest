@@ -94,7 +94,7 @@ test('スマホで回転後に時計をタップして解説を開ける', async
   await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
   await page.locator('.pg-preview').screenshot({ path: testInfo.outputPath('clock-review-mobile.png') });
   await page.getByRole('button', { name: 'つぎへ', exact: true }).tap();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
 });
 
 test('スマホで入力中に高さが変わっても答えられる', async ({ page }) => {
@@ -106,7 +106,7 @@ test('スマホで入力中に高さが変わっても答えられる', async ({
   await input.fill('9');
   await page.locator('.nq-input-submit').tap();
   await page.getByRole('button', { name: 'つぎへ', exact: true }).tap();
-  await expect(page.locator('.pg-result')).toContainText('"score": 1');
+  await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
 });
 
 test('広い画面でも一覧幅と周辺UIの文字を画面に比例して拡大しない', async ({ page }) => {
