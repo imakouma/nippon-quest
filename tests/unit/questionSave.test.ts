@@ -2,10 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { replaceQuestionForSave } from '../../src/tools/questionSave';
 
 const question = {
-  id: 'eigo.g1.alphabet.0001',
-  unit: 'eigo.g1.alphabet',
+  id: 'eigo.g3.alphabet-small.0001',
+  unit: 'eigo.g3.alphabet-small',
   subject: 'eigo',
-  grade: 1,
+  grade: 3,
   type: 'choice',
   payload: {
     prompt: '問題',
@@ -51,7 +51,13 @@ describe('問題の保存準備', () => {
 });
 
 it('saves random math rules, rejects impossible rules and non-math conversion, and keeps other questions', () => {
-  const math = { ...question, id: 'sansu.g1.tashizan.test', unit: 'sansu.g1.tashizan', subject: 'sansu' };
+  const math = {
+    ...question,
+    id: 'sansu.g1.tashizan.test',
+    unit: 'sansu.g1.tashizan',
+    subject: 'sansu',
+    grade: 1,
+  };
   const payload = {
     prompt: 'たしざん',
     operation: 'add',
