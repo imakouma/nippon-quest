@@ -89,7 +89,9 @@
         "600"
       ],
       "template": "{{INPUT}}mL",
-      "suffix": "mL"
+      "suffix": "mL",
+      "promptImage": "questions/sansu/g2/visuals/bottle-comparison.svg",
+      "promptImageAlt": "かなさんが500mL。ひかるくんは100mLおおい。ひかるくんの量は はてな。"
     },
     "explanation": "「100mL おおく入[はい]る」といっているので、たし算[ざん]をすればいいね。 500+100=600"
   },
@@ -110,7 +112,9 @@
         "170"
       ],
       "template": "{{INPUT}}人",
-      "suffix": "人"
+      "suffix": "人",
+      "promptImage": "questions/sansu/g2/visuals/school-comparison.svg",
+      "promptImageAlt": "あきさんの学校が150にん。となりの学校は20にんおおい。となりの学校の量は はてな。"
     },
     "explanation": "「20人[にん] おおい」といっているので、たし算[ざん]をすればいいね。 150+20=170"
   },
@@ -131,7 +135,9 @@
         "12"
       ],
       "template": "{{INPUT}}こ",
-      "suffix": "こ"
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g2/visuals/give-gummies.svg",
+      "promptImageAlt": "グミ 30こから、10こ あげる、8こ あげる。さいごの量をもとめる図。"
     },
     "explanation": "「あげた」ので、ひき算[ざん]で かんがえればいい。 30-10-8=12"
   },
@@ -188,7 +194,9 @@
         "17"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g2/visuals/snow-changes.svg",
+      "promptImageAlt": "ゆき 15cmから、6cm とける、8cm つもる。さいごの量をもとめる図。"
     },
     "explanation": "「6cm とけた」ので -6、「8cm つもった」ので、+8 になるね。 15-6+8=17"
   },
@@ -209,7 +217,9 @@
         "14"
       ],
       "template": "{{INPUT}}こ",
-      "suffix": "こ"
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g2/visuals/chocolate-given.svg",
+      "promptImageAlt": "はじめは20こ。そのうち のこりが6こ。のこり以外の部分を はてなで示しています。"
     },
     "explanation": "20こ からあげた のこりが、6こになるので、引[ひ]き算[ざん]をすればいいね。 20-6=14"
   },
@@ -230,7 +240,9 @@
         "170"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g2/visuals/money-changes.svg",
+      "promptImageAlt": "200えんから、80えん つかう、50えん もらう。さいごの量をもとめる図。"
     },
     "explanation": "「80円[えん] かった」ので -80、「50円[えん] もらいました」なので、+50 になるね。 200-80+50=170"
   },
@@ -283,7 +295,9 @@
         "12"
       ],
       "template": "{{INPUT}}人",
-      "suffix": "人"
+      "suffix": "人",
+      "promptImage": "questions/sansu/g2/visuals/car-passengers.svg",
+      "promptImageAlt": "1だいに4にん のれる くるまが3だい。囲み1つが くるま1だいぶん。"
     },
     "explanation": "4人[にん]のりの くるまが、3台[だい]あるので、かけ算[ざん]をすればいい。 4×3=12"
   },
@@ -304,7 +318,9 @@
         "10"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g2/visuals/height-growth.svg",
+      "promptImageAlt": "2ねんせいが110cm、1ねんせいが100cm。ちがいをもとめます。"
     },
     "explanation": "100 から 110 にふえた分[ぶん]を もとめたいので、引[ひ]き算[ざん]をすればいいね。 110-100=10"
   },
@@ -325,7 +341,9 @@
         "9"
       ],
       "template": "{{INPUT}}さい",
-      "suffix": "さい"
+      "suffix": "さい",
+      "promptImage": "questions/sansu/g2/visuals/age-three-times.svg",
+      "promptImageAlt": "いもうとの3さいを1つぶんとして、はやとさんは同じ大きさの3つぶん。"
     },
     "explanation": "「3ばい」は、「3つ分[ぶん]」ということなので、かけ算[ざん]をすればいい。 3×3=9"
   },
@@ -346,7 +364,9 @@
         "107"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g2/visuals/height-comparison.svg",
+      "promptImageAlt": "おかあさんが160cm。まなさんは53cmすくない。まなさんの量は はてな。"
     },
     "explanation": "「せがひくい」といっているので、ひき算[ざん]をすればいいね。 160-53=107"
   },
@@ -404,7 +424,9 @@
         "9"
       ],
       "template": "{{INPUT}}ひき",
-      "suffix": "ひき"
+      "suffix": "ひき",
+      "promptImage": "questions/sansu/g2/visuals/ants-increase.svg",
+      "promptImageAlt": "つぎの ひが25ひき、はじめの ひが16ひき。ちがいをもとめます。"
     },
     "explanation": "16 から 25 にふえた分[ぶん]を もとめたいので、引[ひ]き算[ざん]をすればいいね。 25-16=9"
   },
@@ -425,7 +447,9 @@
         "150"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g2/visuals/pen-price.svg",
+      "promptImageAlt": "かった おみせが200えん。となりの おみせは50えんすくない。となりの おみせの量は はてな。"
     },
     "explanation": "「やすくうっていました」といっているので、ひき算[ざん]をすればいいね。 200-50=150"
   },
@@ -446,7 +470,9 @@
         "40"
       ],
       "template": "{{INPUT}}こ",
-      "suffix": "こ"
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g2/visuals/five-candy-bags.svg",
+      "promptImageAlt": "1ふくろに あめが8こ。それが5ふくろ。"
     },
     "explanation": "8こ入[はい]りの あめが、5ふくろあるので、かけ算[ざん]をすればいい。 8×5=40"
   },
@@ -499,7 +525,9 @@
         "90"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g2/visuals/money-spent.svg",
+      "promptImageAlt": "はじめは150えん。そのうち のこりが60えん。のこり以外の部分を はてなで示しています。"
     },
     "explanation": "150円[えん]から お金[かね]をつかったのこりが、60円[えん] になるので、引[ひ]き算[ざん]をすればいいね。 150-60=90"
   }

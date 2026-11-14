@@ -16,7 +16,9 @@
         "200"
       ],
       "template": "2m = {{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "1m = 100cm なので、2m は 200cm になる。"
   },
@@ -37,7 +39,9 @@
         "120"
       ],
       "template": "1m20cm = {{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "1m = 100cm なので、1m20cm は 120cm になる。"
   },
@@ -58,7 +62,9 @@
         "3"
       ],
       "template": "300cm = {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "100cm = 1m なので、300cm は 3m になる。"
   },
@@ -115,7 +121,9 @@
         "1",
         "80"
       ],
-      "template": "とびらのたかさ ： 180cm = {{INPUT}}m {{INPUT}}cm"
+      "template": "とびらのたかさ ： 180cm = {{INPUT}}m {{INPUT}}cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "180cm は、100cm と 80cm ということ。 100cm = 1m なので、180cm は 1m 80cm になる。"
   },
@@ -136,7 +144,9 @@
         "100"
       ],
       "template": "{{INPUT}}センチメートル",
-      "suffix": "センチメートル"
+      "suffix": "センチメートル",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "センチメートルが 100こで、1メートルになるよ。"
   },
@@ -157,7 +167,9 @@
         "3",
         "85"
       ],
-      "template": "385cm = {{INPUT}}m {{INPUT}}cm"
+      "template": "385cm = {{INPUT}}m {{INPUT}}cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "100cm = 1m なので、385cm は 3m 85cm になる。"
   },
@@ -178,7 +190,9 @@
         "1",
         "91"
       ],
-      "template": "はばとびの きょり ： 191cm = {{INPUT}}m {{INPUT}}cm"
+      "template": "はばとびの きょり ： 191cm = {{INPUT}}m {{INPUT}}cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "191cm は、100cm と 91cm ということ。 100cm = 1m なので、191cm は 1m 91cm になる。"
   },
@@ -199,7 +213,9 @@
         "105"
       ],
       "template": "1m5cm = {{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "1m = 100cm なので、1m5cm は 105cm になる。"
   },
@@ -220,7 +236,9 @@
         "1",
         "18"
       ],
-      "template": "みさきさんの しんちょう ： 118cm = {{INPUT}}m {{INPUT}}cm"
+      "template": "みさきさんの しんちょう ： 118cm = {{INPUT}}m {{INPUT}}cm",
+      "promptImage": "questions/sansu/g2/visuals/metre-ticks.svg",
+      "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "118cm は、100cm と 18cm ということ。 100cm = 1m なので、118cm は 1m 18cm になる。"
   }

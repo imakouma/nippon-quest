@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/litre-grid.svg",
+      "promptSpeech": "1リットルは、何[なん]デシリットル でしょう。 1Lの容器を たて10れつ、よこ10だんに 区切った図。たて1れつが1dL、小さな1ますが10mL。"
     },
     "explanation": "デシリットルが 10こで、1Lになるよ。"
   },
@@ -123,19 +125,23 @@
       "choices": [
         {
           "id": "c1",
-          "text": "大[おお]きな 牛乳[ぎゅうにゅう]パック"
+          "text": "大[おお]きな 牛乳[ぎゅうにゅう]パック",
+          "image": "questions/sansu/g2/visuals/milk-large.svg"
         },
         {
           "id": "c2",
-          "text": "きゅうしょくの 牛乳[ぎゅうにゅう]"
+          "text": "きゅうしょくの 牛乳[ぎゅうにゅう]",
+          "image": "questions/sansu/g2/visuals/milk-school.svg"
         },
         {
           "id": "c3",
-          "text": "じどうはんばいきの かんジュース"
+          "text": "じどうはんばいきの かんジュース",
+          "image": "questions/sansu/g2/visuals/juice-can.svg"
         },
         {
           "id": "c4",
-          "text": "コンビニの小[ちい]さなペットボトル"
+          "text": "コンビニの小[ちい]さなペットボトル",
+          "image": "questions/sansu/g2/visuals/small-bottle.svg"
         }
       ],
       "answer": "c1",
@@ -175,7 +181,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/litre-grid.svg",
+      "promptSpeech": "1リットルは、何[なん]ミリリットル でしょう。 1Lの容器を たて10れつ、よこ10だんに 区切った図。たて1れつが1dL、小さな1ますが10mL。"
     },
     "explanation": "ミリリットルが 1000 こで、1Lになるよ。 1Lは 10dLなので、100mLで 1dL になる。"
   },
