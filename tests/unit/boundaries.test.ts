@@ -33,15 +33,31 @@ describe('境界1: content/ にコードを置かない', () => {
   });
 });
 
+// Match ESLint's sole exception for the project-mandated seeded RNG.
+const isForbiddenRendererImport = (path: string) =>
+  /\/(core|scenes)\//.test(path) && !/\/core\/rng$/.test(path);
+
 describe('境界2: レンダラーは Phaser も GameState も知らない', () => {
+  it('乱数の例外で状態・Scene・別のサブパスを許可しない', () => {
+    expect(isForbiddenRendererImport('../../../core/rng')).toBe(false);
+    for (const path of [
+      '../../../core/state/save',
+      '@/core/state',
+      '../scenes/Battle',
+      '../core/rng/private',
+    ])
+      expect(isForbiddenRendererImport(path), path).toBe(true);
+  });
   const sources = readAll('src/questions/renderers');
   it('Phaser を import しない', () => {
     const bad = sources.filter((s) => /from\s+['"]phaser/.test(s.src)).map((s) => s.file);
     expect(bad).toEqual([]);
   });
-  it('core / scenes を import しない', () => {
+  it('純粋な乱数モジュール以外の core / scenes を import しない', () => {
     const bad = sources
-      .filter((s) => /from\s+['"][^'"]*(\/core\/|\/scenes\/)/.test(s.src))
+      .filter((s) =>
+        [...s.src.matchAll(/from\s+['"]([^'"]+)['"]/g)].some(([, path]) => isForbiddenRendererImport(path!)),
+      )
       .map((s) => s.file);
     expect(bad).toEqual([]);
   });
