@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/apples-9-share.svg",
+      "promptSpeech": "9このりんごが あります、 3人[にん]で分[わ]けると、どうなりますか。 りんご9こ。3にんに同じ数ずつ分ける。1にんぶんはまだ空らん。"
     },
     "explanation": "9この りんごを、3人[にん]で分[わ]けるので、わり算[ざん]でかんがえられる。 9÷3=3"
   },
@@ -109,7 +111,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/apples-10-share.svg",
+      "promptSpeech": "10このりんごが あります、 3人[にん]で分[わ]けると、どうなりますか。 りんご10こ。3にんに同じ数ずつ分ける。1にんぶんはまだ空らん。"
     },
     "explanation": "10この りんごを、3人[にん]で分[わ]けるので、わり算[ざん]でかんがえられる。9こだと、9÷3=3 でぴったり分[わ]けられるけど、10こあるので、1つあまってしまうね。"
   },
@@ -208,7 +212,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/remainder-9-7-6.svg",
+      "promptSpeech": "次[つぎ]のわり算[ざん]の問題[もんだい]を ときました。 69÷9 =7 あまり 6 このわり算[ざん]の 答[こた]えのたしかめ として、正[ただ]しい式[しき]をえらぼう。 りんごが9こずつ7組、あまり6こ。問題のたしかめ方を考える図。"
     },
     "explanation": "わる数[すう] × こたえ + あまり = わられる数[かず] この式[しき]ができて、あまりが わる数[すう]より 小[ちい]さいとき、答[こた]えは せいかいだ。ここでは、次[つぎ]の式[しき]になる。 9×7+6 = 69"
   },
@@ -229,7 +235,9 @@
         "7"
       ],
       "template": "{{INPUT}}日",
-      "suffix": "日"
+      "suffix": "日",
+      "promptImage": "questions/sansu/g3/visuals/candy-days.svg",
+      "promptImageAlt": "あめ20。1にちに3ずつ使う。全部を図示し、答えは示していません。"
     },
     "explanation": "わり算[ざん]の式[しき]を 考[かんが]えよう。 20÷3 = 6 あまり 2 あまった 2このあめを食[た]べるのに、あと1日[にち]かかるので、答[こた]えは 7日[にち]になる。"
   },
@@ -265,7 +273,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/remainder-4-5-2.svg",
+      "promptSpeech": "次[つぎ]のわり算[ざん]の問題[もんだい]を ときました。 22÷4 =5 あまり 2 このわり算[ざん]の 答[こた]えのたしかめ として、正[ただ]しい式[しき]をえらぼう。 りんごが4こずつ5組、あまり2こ。問題のたしかめ方を考える図。"
     },
     "explanation": "わる数[すう] × こたえ + あまり = わられる数[かず] この式[しき]ができて、あまりが わる数[すう]より 小[ちい]さいとき、答[こた]えは せいかいだ。ここでは、次[つぎ]の式[しき]になる。 4×5+2 = 22"
   },
@@ -286,7 +296,9 @@
         "3",
         "1"
       ],
-      "template": "10÷3 = {{INPUT}}あまり{{INPUT}}"
+      "template": "10÷3 = {{INPUT}}あまり{{INPUT}}",
+      "promptImage": "questions/sansu/g3/visuals/divide-10-by-3.svg",
+      "promptImageAlt": "りんご10こ。3こずつのまとまりがいくつできるか考える図。"
     },
     "explanation": "9÷3 = 3 になる。10 をわってるから、1 あまりがでるね。"
   },
@@ -343,7 +355,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/remainder-3-6-1.svg",
+      "promptSpeech": "次[つぎ]のわり算[ざん]の問題[もんだい]を ときました。 19÷3 =6 あまり 1 このわり算[ざん]の 答[こた]えのたしかめ として、正[ただ]しい式[しき]をえらぼう。 りんごが3こずつ6組、あまり1こ。問題のたしかめ方を考える図。"
     },
     "explanation": "わる数[すう] × こたえ + あまり = わられる数[かず] この式[しき]ができて、あまりが わる数[すう]より 小[ちい]さいとき、答[こた]えは せいかいだ。ここでは、次[つぎ]の式[しき]になる。 3×6+1 = 19"
   },
@@ -359,12 +373,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "バナナを 4本[ほん]ずつ、ふくろに入[い]れて売[う]ります。30本[ほん] あるとき、何[なん]ふくろいりますか。",
+      "prompt": "バナナが30本[ほん]あります。1ふくろに4本[ほん]ずつ入[い]れて売[う]ります。4本[ほん]入[い]りのふくろは、いくつ作[つく]れますか。",
       "answers": [
         "7"
       ],
       "template": "{{INPUT}}ふくろ",
-      "suffix": "ふくろ"
+      "suffix": "ふくろ",
+      "promptImage": "questions/sansu/g3/visuals/banana-bags.svg",
+      "promptImageAlt": "バナナ30。1ふくろ4本ずつに入れる。全部を図示し、答えは示していません。",
+      "promptSpeech": "バナナが30本あります。1ふくろに4本ずつ入れて売ります。4本入りのふくろは、いくつ作れますか。図はバナナ30本と、1ふくろ4本の見本です。"
     },
     "explanation": "わり算[ざん]の式[しき]を 考[かんが]えよう。 30÷4 = 7 あまり 2 あまった 2本[ほん]は、ふくろに入[い]れて売[う]れないので、答[こた]えは 7ふくろになる。"
   },
@@ -384,7 +401,9 @@
       "answers": [
         "3"
       ],
-      "template": "9÷3 = {{INPUT}}"
+      "template": "9÷3 = {{INPUT}}",
+      "promptImage": "questions/sansu/g3/visuals/divide-9-by-3.svg",
+      "promptImageAlt": "りんご9こ。3こずつのまとまりがいくつできるか考える図。"
     },
     "explanation": "9は3が3こ分[ぶん]なので、9÷3=3です。"
   },
@@ -405,7 +424,9 @@
         "9"
       ],
       "template": "{{INPUT}}日",
-      "suffix": "日"
+      "suffix": "日",
+      "promptImage": "questions/sansu/g3/visuals/homework-days.svg",
+      "promptImageAlt": "ページ50。1にちに6ずつ使う。全部を図示し、答えは示していません。"
     },
     "explanation": "わり算[ざん]の式[しき]を 考[かんが]えよう。 50÷6 = 8 あまり 2 あまった 2ページをやるのにあと1日[にち]かかるので、答[こた]えは 9日[にち]になる。"
   },
@@ -468,7 +489,9 @@
         "3",
         "2"
       ],
-      "template": "11÷3 = {{INPUT}}あまり{{INPUT}}"
+      "template": "11÷3 = {{INPUT}}あまり{{INPUT}}",
+      "promptImage": "questions/sansu/g3/visuals/divide-11-by-3.svg",
+      "promptImageAlt": "りんご11こ。3こずつのまとまりがいくつできるか考える図。"
     },
     "explanation": "9÷3 = 3 になる。11 をわってるから、2 あまりがでるね。"
   },

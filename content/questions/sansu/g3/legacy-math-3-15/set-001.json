@@ -82,7 +82,9 @@
         "7.6"
       ],
       "template": "7cm 6mm = {{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g3/visuals/ruler-76mm.svg",
+      "promptImageAlt": "ものさしで7cm 6mmの長さを示す。大きな目盛りは1cm、小さな目盛りは1mm。"
     },
     "explanation": "10mm=1cm なので、1mm=0.1cmになる。6mmは、その６こ分[ぶん]で、0.6cm。7cmとあわせて、7.6cmだ。"
   },
@@ -134,7 +136,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/compare-2a571cfd6a21.svg",
+      "promptSpeech": "次[つぎ]の数[かず]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 0.9 □ \\dfrac{9}{10} 同じ長さを1とした図。上は0.9、下は9/10。どちらも10等分。"
     },
     "explanation": "１を１０こに分[わ]けた数直線[すうちょくせん]では、１目[め]もりが 小数[しょうすう]では 0.1、分数[ぶんすう]では \\dfrac{1}{10} になる。 どちらも、目[め]もり９こ分[ぶん]なので、同[おな]じ大[おお]きさになる。"
   },
@@ -155,7 +159,9 @@
         "2.5"
       ],
       "template": "2L 5dL = {{INPUT}}L",
-      "suffix": "L"
+      "suffix": "L",
+      "promptImage": "questions/sansu/g3/visuals/water-25dl.svg",
+      "promptImageAlt": "2L 5dLの水。容器1つは1Lで、小さな目盛りは1dL。"
     },
     "explanation": "10dL=1L なので、1dL=0.1Lになる。5dLは、その５こ分[ぶん]で、0.5L。2Lとあわせて、2.5Lだ。"
   },
@@ -319,7 +325,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/decimal-one-tenth.svg",
+      "promptSpeech": "小数[しょうすう] 0.1 と同[おな]じ大[おお]きさの分数[ぶんすう]は、いくらでしょう。 1を10等分し、0.1の部分を着色した図。"
     },
     "explanation": "小数[しょうすう]0.1は、「１を１０こに分[わ]けたときの １つ分[ぶん]」の大[おお]きさなので、分数[ぶんすう]\\dfrac{1}{10} と同[おな]じになる。"
   },
@@ -406,7 +414,9 @@
         "1",
         "3"
       ],
-      "template": "1.3cm = {{INPUT}}cm {{INPUT}}mm"
+      "template": "1.3cm = {{INPUT}}cm {{INPUT}}mm",
+      "promptImage": "questions/sansu/g3/visuals/ruler-13mm.svg",
+      "promptImageAlt": "ものさしで1.3cmの長さを示す。大きな目盛りは1cm、小さな目盛りは1mm。"
     },
     "explanation": "1.3cm は、1cm と 0.3cm に分[わ]けてかんがえよう。1cm=10mmなので、0.3cm = 3mm。1cm3mm が正[せい]かいだね。"
   },
@@ -476,7 +486,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/compare-840b3b31643b.svg",
+      "promptSpeech": "次[つぎ]の数[かず]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 0.6 □ \\dfrac{3}{10} 同じ長さを1とした図。上は0.6、下は3/10。どちらも10等分。"
     },
     "explanation": "１を１０こに分[わ]けた数直線[すうちょくせん]では、１目[め]もりが 小数[しょうすう]では0.1、分数[ぶんすう]では\\dfrac{1}{10} になる。 それぞれ、目[め]もり６こ分[ぶん]と３こ分[ぶん]になるので、0.6の方[ほう]が大[おお]きい。"
   },
@@ -497,7 +509,9 @@
         "0.8"
       ],
       "template": "8dL = {{INPUT}}L",
-      "suffix": "L"
+      "suffix": "L",
+      "promptImage": "questions/sansu/g3/visuals/water-8dl.svg",
+      "promptImageAlt": "8dLの水。容器1つは1Lで、小さな目盛りは1dL。"
     },
     "explanation": "10dL=1L なので、1dL=0.1Lになる。8dLは、その８こ分[ぶん]で、0.8Lだ。"
   },
@@ -660,7 +674,9 @@
         "8"
       ],
       "template": "0.8cm = {{INPUT}}mm",
-      "suffix": "mm"
+      "suffix": "mm",
+      "promptImage": "questions/sansu/g3/visuals/ruler-8mm.svg",
+      "promptImageAlt": "ものさしで0.8cmの長さを示す。大きな目盛りは1cm、小さな目盛りは1mm。"
     },
     "explanation": "1cm=10mmなので、0.8cm = 8mm になる。"
   },
@@ -681,7 +697,9 @@
         "15"
       ],
       "template": "1.5L= {{INPUT}}dL",
-      "suffix": "dL"
+      "suffix": "dL",
+      "promptImage": "questions/sansu/g3/visuals/water-15dl.svg",
+      "promptImageAlt": "1.5Lの水。容器1つは1Lで、小さな目盛りは1dL。"
     },
     "explanation": "1.5L は、1L と 0.5L に分[わ]けてかんがえよう。1L=10dLなので、0.5L = 5dL。15dL が正[せい]かいだね。"
   }

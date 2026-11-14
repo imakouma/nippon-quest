@@ -1,6 +1,6 @@
+// @vitest-environment jsdom
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
-import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
 import { questionBaseSchema, type QuestionBase } from '../../src/questions/contracts';
 import { getRenderer } from '../../src/questions/renderers/registry';
@@ -48,8 +48,10 @@ describe('grade 2 illustrated learning materials', () => {
     }
     const q = questions.find((q) => q.id.endsWith('f23f64530705'))!;
     const p = q.payload as { promptImage: string };
-    const doc = new JSDOM(readFileSync(`assets/${p.promptImage}`, 'utf8'), { contentType: 'image/svg+xml' })
-      .window.document;
+    const doc = new DOMParser().parseFromString(
+      readFileSync(`assets/${p.promptImage}`, 'utf8'),
+      'image/svg+xml',
+    );
     expect(doc.querySelectorAll('[data-group-count]')).toHaveLength(5);
     expect(doc.querySelectorAll('use')).toHaveLength(40);
     expect([...doc.querySelectorAll('text')].map((e) => e.textContent).join(' ')).not.toContain('40');
@@ -76,8 +78,7 @@ describe('grade 2 illustrated learning materials', () => {
       const paths = [p.promptImage, ...(p.choices ?? []).map((c) => c.image)].filter((p): p is string => !!p);
       expect(paths.length).toBeGreaterThan(0);
       for (const path of paths) {
-        const doc = new JSDOM(readFileSync(`assets/${path}`, 'utf8'), { contentType: 'image/svg+xml' }).window
-          .document;
+        const doc = new DOMParser().parseFromString(readFileSync(`assets/${path}`, 'utf8'), 'image/svg+xml');
         expect(doc.querySelector('parsererror, script, image'), path).toBeNull();
         expect(doc.querySelector('title')?.textContent, path).toBeTruthy();
         for (const use of doc.querySelectorAll('use'))
@@ -88,17 +89,19 @@ describe('grade 2 illustrated learning materials', () => {
     }
   });
   it('keeps the original survey votes and the table blanks while replacing circles with people', () => {
-    const doc = new JSDOM(readFileSync('assets/questions/sansu/g2/visuals/meal-votes-table.svg', 'utf8'), {
-      contentType: 'image/svg+xml',
-    }).window.document;
+    const doc = new DOMParser().parseFromString(
+      readFileSync('assets/questions/sansu/g2/visuals/meal-votes-table.svg', 'utf8'),
+      'image/svg+xml',
+    );
     expect(
       [...doc.querySelectorAll('[data-group-count]')].map((g) => g.querySelectorAll('use').length),
     ).toEqual([3, 4, 3, 4, 6, 5]);
     const labels = [...doc.querySelectorAll('text')].map((e) => e.textContent);
     expect(labels).toEqual(expect.arrayContaining(['ア', 'イ', 'ウ']));
-    const cards = new JSDOM(readFileSync('assets/questions/sansu/g2/visuals/meal-vote-cards.svg', 'utf8'), {
-      contentType: 'image/svg+xml',
-    }).window.document;
+    const cards = new DOMParser().parseFromString(
+      readFileSync('assets/questions/sansu/g2/visuals/meal-vote-cards.svg', 'utf8'),
+      'image/svg+xml',
+    );
     expect(cards.querySelectorAll('use')).toHaveLength(25);
     const names = [...cards.querySelectorAll('text')].map((e) => e.textContent);
     expect(names.filter((t) => t === 'カレー')).toHaveLength(6);
