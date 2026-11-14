@@ -29,3 +29,15 @@
   height: 64px;
   flex-shrink: 0;
 }
+
+/* 比べるための教材図は、文字の横の小さなアイコンに縮めない。 */
+.nq-q-choice .nq-choice-content:has(img[src*='/sansu/g1/visuals/']) {
+  flex-direction: column;
+}
+.nq-q-choice .nq-choice-content img[src*='/sansu/g1/visuals/'] {
+  width: 144px;
+  height: 104px;
+  max-width: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+}

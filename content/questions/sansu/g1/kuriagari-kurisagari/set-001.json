@@ -25,7 +25,9 @@
         }
       ],
       "answer": "a",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/make-ten-9-4.svg",
+      "promptSpeech": "9 + 4。10の まとまりを つくるには、4を いくつと いくつに わける？。10この ますに りんごが 9こ。べつに 4この りんごが あります。"
     },
     "explanation": "9に 1を たすと 10。4を 1と 3に わけると、10と 3で 13になります。"
   },
@@ -43,7 +45,9 @@
       "template": "8 + 7 = □",
       "answers": [
         "15"
-      ]
+      ],
+      "promptImage": "questions/sansu/g1/visuals/make-ten-8-7.svg",
+      "promptImageAlt": "10この ますに りんごが 8こ。べつに 7この りんごが あります。"
     },
     "explanation": "7を 2と 5に わけます。8と 2で 10、10と 5で 15です。"
   },
@@ -104,7 +108,9 @@
         }
       ],
       "answer": "a",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/thirteen-take-five.svg",
+      "promptSpeech": "13 - 5。13を 10と 3に わけた あと、どう かんがえる？。10この りんごの うち 5こに ばつ。べつに 3この りんごが あります。"
     },
     "explanation": "13を 10と 3に わけます。10 - 5 = 5、5と 3を あわせて 8です。"
   },
@@ -153,7 +159,9 @@
         }
       ],
       "answer": "b",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/acorns-12-take-4.svg",
+      "promptSpeech": "どんぐりが 12こ。4こ つかいました。のこりは なんこ？。はじめは 12こ。そのうち 4つに、なくなった しるしの ばつが ついています。"
     },
     "explanation": "12を 10と 2に わけます。10 - 4 = 6、6と 2を あわせて 8こです。"
   }

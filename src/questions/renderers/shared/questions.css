@@ -241,6 +241,11 @@
   height: auto;
   margin: auto;
 }
+.nq-input-illustration img[src*='/sansu/g1/visuals/'] {
+  width: auto;
+  max-width: 100%;
+  max-height: 216px;
+}
 .nq-input-template {
   display: flex;
   flex-wrap: wrap;

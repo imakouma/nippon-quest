@@ -38,7 +38,7 @@
     "grade": 1,
     "unit": "sansu.g1.data",
     "payload": {
-      "prompt": "あかい はな ●●●●、しろい はな ●●。あかい はなは しろい はなより なんぼん おおい？",
+      "prompt": "えを みよう。あかい はなは しろい はなより なんぼん おおい？",
       "choices": [
         {
           "id": "a",
@@ -54,7 +54,9 @@
         }
       ],
       "answer": "b",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/flowers-4-2.svg",
+      "promptSpeech": "えを みよう。あかい はなは しろい はなより なんぼん おおい？。あかい はなは 4ほん、しろい はなは 2ほん。はしを そろえて ならんでいます。"
     },
     "explanation": "あかは 4ほん、しろは 2ほんです。4と 2の ちがいは 2なので、2ほん おおいです。"
   },
@@ -69,15 +71,18 @@
       "choices": [
         {
           "id": "a",
-          "text": "どうぶつごとに しるしを ならべる"
+          "text": "どうぶつごとに しるしを ならべる",
+          "image": "questions/sansu/g1/visuals/sort-animals-a.svg"
         },
         {
           "id": "b",
-          "text": "じゅんばんを きめずに しるしを ちらす"
+          "text": "じゅんばんを きめずに しるしを ちらす",
+          "image": "questions/sansu/g1/visuals/sort-animals-b.svg"
         },
         {
           "id": "c",
-          "text": "かずを かかない"
+          "text": "かずを かかない",
+          "image": "questions/sansu/g1/visuals/sort-animals-c.svg"
         }
       ],
       "answer": "a",
