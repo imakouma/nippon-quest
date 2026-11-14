@@ -303,7 +303,9 @@ test('旧版の算数：時計を読み、解説を自分のペースで確認�
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
   await expect(page.locator('.nq-q-prompt-img')).toHaveAttribute('src', /clock-03-30\.svg$/);
   await page.locator('.nq-choice').filter({ hasText: '3じ 30ぷん' }).click();
-  await expect(page.locator('.nq-feedback')).toContainText('かんぺき');
+  const feedback = page.locator('.nq-feedback-correct .nq-feedback-text');
+  await expect(feedback).toHaveText('○ せいかい！');
+  await expect(feedback).toHaveCSS('background-color', 'rgb(108, 192, 112)');
   await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeFocused();
   await page.waitForTimeout(1200);
   await expect(page.locator('.nq-review')).toBeVisible();
