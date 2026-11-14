@@ -64,12 +64,14 @@ test('狭い問題枠でも4つの選択肢がスクロールなしで見える'
   }
 });
 
-test('テンプレート型の文字入力問題は問題文を二重に表示しない', async ({ page }) => {
+test('図付き文章題は入力テンプレートに問題文を二重に表示しない', async ({ page }) => {
   await page.goto('/battle-question-audit.html?q=legacy.sansu.g1.math-1-9.3e2f1449e1d8');
   await expect(page.locator('.nq-q-input')).toBeVisible({ timeout: 20_000 });
-  await expect(page.locator('.nq-q-input .nq-q-prompt')).toHaveCount(0);
+  await expect(page.locator('.nq-q-input .nq-q-prompt')).toHaveCount(1);
+  await expect(page.locator('.nq-input-illustration img')).toBeVisible();
+  await expect(page.locator('.nq-input-template')).not.toContainText('パン');
   await expect(page.locator('.nq-q-input .nq-input-suffix')).toHaveCount(0);
-  await expect(page.locator('.nq-q-input input')).toHaveAttribute('aria-describedby', 'nq-question-template');
+  await expect(page.locator('.nq-q-input input')).toHaveAttribute('aria-describedby', 'nq-question-prompt');
   await expect(page.locator('[data-audit-status="complete"]')).toBeVisible();
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });

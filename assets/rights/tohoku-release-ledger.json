@@ -350,6 +350,23 @@
         "assets/questions/sansu/g1/tokei/clock-10-30.svg": "737b003ba5e92e7248f65f5a93ef61237c8e9c543688153d9403c6bbe2fe8f13",
         "assets/questions/sansu/g1/tokei/clock-12-35.svg": "46fe2cceee0b9068646ebcfff5229f4f2854bcbe2dd929a80502a7dea3b119e3"
       }
+    },
+    {
+      "id": "sansu-g1-pictograms",
+      "pathPrefixes": [
+        "assets/questions/sansu/g1/data/",
+        "assets/questions/sansu/g1/visuals/"
+      ],
+      "status": "hold",
+      "origin": "NIHON QUEST内の果物・動物ドット絵の再利用、およびSVGの基本図形で作成した教材図版。外部画像・外部生成サービスは不使用。",
+      "author": "NIHON QUEST project",
+      "source": "scripts/generate-sansu-g1-visuals.ts; tasks/sansu-g1-fruit-pictogram-walkthrough.md",
+      "license": "制作根拠を記録済み。公開承認は未実施。",
+      "licenseEvidence": "assets/questions/sansu/PROVENANCE.md",
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "既存ドット絵を含め、公開前に制作者が権利と同梱配布を確認する"
     }
   ]
 }

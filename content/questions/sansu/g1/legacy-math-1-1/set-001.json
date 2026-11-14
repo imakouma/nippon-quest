@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/split-5.svg",
+      "promptSpeech": "5 をふたつにわけたものは、どれでしょう。。りんごが 5こ。2つの まとまりに わけて かんがえましょう。"
     }
   },
   {
@@ -66,7 +68,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/split-6.svg",
+      "promptSpeech": "6 をふたつにわけたものは、どれでしょう。。りんごが 6こ。2つの まとまりに わけて かんがえましょう。"
     }
   },
   {
@@ -81,14 +85,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつある でしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "2"
       ],
-      "template": "{{INPUT}}つ",
-      "suffix": "つ",
-      "promptImage": "questions/legacy/2d45c38e40ad1132.png"
-    }
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g1/visuals/count-apples-2.svg",
+      "promptImageAlt": "りんごが 2こ あります。"
+    },
+    "explanation": "りんごを 1こずつ かぞえると、2こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-1.27834d1ff3be",
@@ -210,14 +216,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつある でしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "6"
       ],
-      "template": "{{INPUT}}つ",
-      "suffix": "つ",
-      "promptImage": "questions/legacy/79b8b1fed2548cba.png"
-    }
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g1/visuals/count-apples-6.svg",
+      "promptImageAlt": "りんごが 6こ あります。"
+    },
+    "explanation": "りんごを 1こずつ かぞえると、6こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-1.46b4b8263a5d",
@@ -251,7 +259,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/split-4.svg",
+      "promptSpeech": "4 をふたつにわけたものは、どれでしょう。りんごが 4こ。2つの まとまりに わけて かんがえましょう。"
     }
   },
   {
@@ -266,14 +276,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつある でしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "7"
       ],
-      "template": "{{INPUT}}つ",
-      "suffix": "つ",
-      "promptImage": "questions/legacy/abf2ad6a5834321d.png"
-    }
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g1/visuals/count-apples-7.svg",
+      "promptImageAlt": "りんごが 7こ あります。"
+    },
+    "explanation": "りんごを 1こずつ かぞえると、7こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-1.5ad5d8d0e228",
@@ -323,14 +335,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつある でしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "3"
       ],
-      "template": "{{INPUT}}つ",
-      "suffix": "つ",
-      "promptImage": "questions/legacy/8d035e86898e0ecd.png"
-    }
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g1/visuals/count-apples-3.svg",
+      "promptImageAlt": "りんごが 3こ あります。"
+    },
+    "explanation": "りんごを 1こずつ かぞえると、3こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-1.8cd9f811aae4",
@@ -508,7 +522,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/split-3.svg",
+      "promptSpeech": "3 をふたつにわけたものは、どれでしょう。。りんごが 3こ。2つの まとまりに わけて かんがえましょう。"
     }
   },
   {
@@ -543,7 +559,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/split-5.svg",
+      "promptSpeech": "5 をふたつにわけたものは、どれでしょう。。りんごが 5こ。2つの まとまりに わけて かんがえましょう。"
     }
   },
   {
@@ -578,7 +596,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/split-4.svg",
+      "promptSpeech": "4 をふたつにわけたものは、どれでしょう。。りんごが 4こ。2つの まとまりに わけて かんがえましょう。"
     }
   },
   {
@@ -593,13 +613,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつある でしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "5"
       ],
-      "template": "{{INPUT}}つ",
-      "suffix": "つ",
-      "promptImage": "questions/legacy/936ea75891fe0c22.png"
-    }
+      "template": "{{INPUT}}こ",
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g1/visuals/count-apples-5.svg",
+      "promptImageAlt": "りんごが 5こ あります。"
+    },
+    "explanation": "りんごを 1こずつ かぞえると、5こです。"
   }
 ]

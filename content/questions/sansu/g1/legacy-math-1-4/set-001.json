@@ -71,14 +71,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつあるでしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "17"
       ],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
-      "promptImage": "questions/legacy/79d419626583a6d3.png"
-    }
+      "promptImage": "questions/sansu/g1/visuals/count-apples-17.svg",
+      "promptImageAlt": "しかくの わく 1つに りんごが 10こ。わくが 1つ、ばらが 7こです。"
+    },
+    "explanation": "10この まとまりが 1つ、ばらが 7こ。ぜんぶで 17こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-4.91bda509042f",
@@ -112,14 +114,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつあるでしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "12"
       ],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
-      "promptImage": "questions/legacy/81e747592d8a6225.png"
-    }
+      "promptImage": "questions/sansu/g1/visuals/count-apples-12.svg",
+      "promptImageAlt": "しかくの わく 1つに りんごが 10こ。わくが 1つ、ばらが 2こです。"
+    },
+    "explanation": "10この まとまりが 1つ、ばらが 2こ。ぜんぶで 12こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-4.e2ac63761c6b",
