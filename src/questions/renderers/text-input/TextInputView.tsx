@@ -3,7 +3,6 @@ import type { RendererContext } from '../../contracts';
 import { t } from '../../../ui/i18n';
 import { stripRuby } from '../../../ui/ruby';
 import { RubyLabel } from '../../../ui/RubyLabel';
-import { Feedback } from '../shared/Feedback';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
 import { TimerBar } from '../shared/TimerBar';
 import { getTextInputSpeech } from '../shared/questionSpeech';
@@ -26,12 +25,10 @@ export function TextInputView({
   const [activeInput, setActiveInput] = useState(0);
   const [done, setDone] = useState(false);
   const once = useRef(false);
-  const completionTimer = useRef<number | null>(null);
   const completed = useRef(false);
   const answer = useRef<{ score: number; values: string[]; timedOut: boolean; answeredAt?: number } | null>(
     null,
   );
-  const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
   const numberPad = shouldShowNumberPad(payload.answers);
   const decimalKey = payload.answers.some((value) => normalizeInput(value).includes('.'));
   const negativeKey = payload.answers.some((value) => normalizeInput(value).startsWith('-'));
@@ -56,21 +53,13 @@ export function TextInputView({
       score: timedOut ? 0 : textInputScore(payload, values),
       values,
       timedOut,
-      ...(review ? { answeredAt: performance.now() } : {}),
+      answeredAt: performance.now(),
     };
-    if (!review)
-      completionTimer.current = window.setTimeout(() => {
-        completionTimer.current = null;
-        completed.current = true;
-        onDone(answer.current!);
-      }, 900);
   };
   const cancel = () => {
     if (completed.current) return;
-    if (completionTimer.current !== null) window.clearTimeout(completionTimer.current);
     completed.current = true;
     once.current = true;
-    completionTimer.current = null;
     onDone({ score: 0, values, timedOut: true });
   };
   useEffect(() => {
@@ -79,14 +68,14 @@ export function TextInputView({
     if (ctx.signal?.aborted) abort();
     return () => ctx.signal?.removeEventListener('abort', abort);
   });
-  const template = payload.template ?? '{{INPUT}}';
+  const template = (payload.template ?? '{{INPUT}}').replace(/[□▢]/g, '{{INPUT}}');
   const pieces = template.split('{{INPUT}}');
   const compact = (value: string) => stripRuby(value).replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
   const promptRepeated =
     !!payload.template && !payload.promptImage && compact(template) === compact(payload.prompt);
   const promptId = promptRepeated ? 'nq-question-template' : 'nq-question-prompt';
   const suffixRepeated = !!payload.suffix && template.trimEnd().endsWith(payload.suffix);
-  if (review && done)
+  if (done)
     return (
       <ReviewFeedback
         kind={answer.current?.timedOut ? 'timeout' : answer.current?.score === 1 ? 'correct' : 'wrong'}
@@ -219,7 +208,6 @@ export function TextInputView({
       >
         {t('question.answerSubmit')}
       </button>
-      {done && <Feedback kind={textInputScore(payload, values) === 1 ? 'correct' : 'wrong'} />}
     </div>
   );
 }

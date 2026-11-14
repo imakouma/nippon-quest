@@ -134,6 +134,7 @@ test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page
 
 test('text-input：小1算数は画面内の数字ボタンだけで答えられる', async ({ page }) => {
   await page.goto('/playground.html?q=sansu.g1.hikizan.0002');
+  await expect(page.locator('.nq-input-template')).not.toContainText('□');
   const numberPad = page.getByRole('group', { name: 'すうじボタン' });
   const buttons = numberPad.getByRole('button');
   await expect(buttons).toHaveCount(11);
@@ -178,6 +179,11 @@ test('text-input：数字を記入する問題は教科と学年によらずテ�
   await numberPad.getByRole('button', { name: '1', exact: true }).click();
   await numberPad.getByRole('button', { name: '5', exact: true }).click();
   await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveValue('115');
+  await numberPad.getByRole('button', { name: 'ぜんぶ けす' }).click();
+  await numberPad.getByRole('button', { name: '1', exact: true }).click();
+  await page.getByRole('button', { name: 'こたえる', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'けっか' })).toBeVisible();
+  await expect(page.locator('.nq-feedback-wrong')).toHaveText('おしい！');
 });
 
 test('experiment：予想・操作・結果の状態を読み上げ用に持つ', async ({ page }) => {
