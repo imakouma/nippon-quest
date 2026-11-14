@@ -1,5 +1,5 @@
 import type { QuestionBase, QuestionRenderer } from '../../contracts';
-import { createRng, freshSeed } from '../../../shared/rng';
+import { createRng, freshSeed } from '../../../core/rng';
 import { t } from '../../../ui/i18n';
 import { choiceRenderer } from '../choice';
 import { textInputRenderer } from '../text-input';

@@ -140,7 +140,7 @@ test('旧版の文字入力問題：複数の答えを入力して採点でき�
   await expect(answers).toHaveCount(3);
   await expect(answers.first()).toHaveAttribute('aria-keyshortcuts', 'Enter');
   await expect(page.locator('button.nq-input-submit')).toHaveAttribute('aria-keyshortcuts', 'Enter');
-  await expect(page.locator('.nq-input-key-hint')).toContainText('つぎの らんへ');
+  await expect(page.locator('.nq-input-key-hint')).toHaveCount(0);
   await expect(page.locator('button.nq-input-submit')).toBeDisabled();
   await answers.nth(0).fill('1.2');
   await answers.nth(0).press('Enter');

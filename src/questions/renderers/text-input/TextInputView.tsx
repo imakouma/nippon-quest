@@ -145,9 +145,6 @@ export function TextInputView({
         ))}
       </div>
       {payload.suffix && !suffixRepeated && <RubyLabel text={payload.suffix} class="nq-input-suffix" />}
-      <p class="nq-input-key-hint">
-        <kbd>Enter</kbd> {t('question.textInputEnterHint')}
-      </p>
       <button
         type="button"
         class="nq-btn nq-input-submit"
