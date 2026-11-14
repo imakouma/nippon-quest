@@ -1,4 +1,4 @@
-import type { Rng } from '../../../core/rng';
+import type { Rng } from '../../../shared/rng';
 import { randomCalculationSchema } from './schema';
 import { rightCount } from './rules';
 
