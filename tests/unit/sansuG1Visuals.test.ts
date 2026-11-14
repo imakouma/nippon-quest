@@ -1,6 +1,6 @@
+// @vitest-environment jsdom
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync } from 'node:fs';
-import { JSDOM } from 'jsdom';
 import { describe, expect, it } from 'vitest';
 import review from '../../scripts/data/sansu-g1-visual-review.json';
 import { questionBaseSchema, type QuestionBase } from '../../src/questions/contracts';
@@ -53,8 +53,7 @@ describe('grade 1 visual question review', () => {
       expect(p.prompt, q.id).not.toMatch(/[●○]/);
       if (p.promptImage) expect(p.promptImageAlt ?? p.promptSpeech, q.id).toBeTruthy();
       for (const path of paths) {
-        const doc = new JSDOM(readFileSync(`assets/${path}`, 'utf8'), { contentType: 'image/svg+xml' }).window
-          .document;
+        const doc = new DOMParser().parseFromString(readFileSync(`assets/${path}`, 'utf8'), 'image/svg+xml');
         expect(doc.querySelector('parsererror'), path).toBeNull();
         expect(doc.querySelector('title')?.textContent, path).toBeTruthy();
         expect(doc.querySelector('script, image'), path).toBeNull();

@@ -11,12 +11,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "あおいさんは、25mおよげます。妹[いもうと]は、5mおよげます。あおいさんは、妹[いもうと]の何倍[なんばい]およげますか。 倍[ばい]",
+      "prompt": "あおいさんは、25mおよげます。妹[いもうと]は、5mおよげます。あおいさんは、妹[いもうと]の何倍[なんばい]およげますか。",
       "answers": [
         "5"
       ],
-      "template": "あおいさんは、25mおよげます。妹は、5mおよげます。あおいさんは、妹の何倍およげますか。 {{INPUT}}倍",
-      "suffix": "倍"
+      "template": "{{INPUT}}倍",
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g3/visuals/times-0cc801110e91.svg",
+      "promptImageAlt": "あおいさんは25m、いもうとは5m。同じ長さが同じ量を表す図。"
     },
     "explanation": "何倍[なんばい]かをもとめるときは、その逆[ぎゃく]をすればいいので、 25÷5 = 5倍[ばい]"
   },
@@ -37,7 +39,9 @@
         "350"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g3/visuals/shopping-change.svg",
+      "promptImageAlt": "1こ30円のおかし5こ。500円玉でしはらう。おつりは空らん。"
     },
     "explanation": "30人[にん]のおかしを 5つ買[か]うのに、30×5円[えん] ひつようになる。 はらったのは 500円[えん]なので、500-30×5 = 350円[えん]"
   },
@@ -58,7 +62,9 @@
         "520"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g3/visuals/paired-shopping-4-50-80.svg",
+      "promptImageAlt": "50円のチョコと80円のガムの組が4つ。"
     },
     "explanation": "１こ50円[えん] のチョコを 4こで、50×4=200円[えん] １こ80円[えん] のガムを 4こで、80×4=320円[えん] これを合[あ]わせればいいので、50×4+80×4 = 200+320 = 520円[えん]"
   },
@@ -79,7 +85,9 @@
         "80"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g3/visuals/buy-then-share.svg",
+      "promptImageAlt": "300円から60円の消しゴムを買い、のこりを3人に同じ金がくずつ分ける。"
     },
     "explanation": "300円[えん] のおこづかいから 60円[えん]の消[け]しゴムを買[か]うと、のこりは 300-60円[えん] になる。 これを３人[にん]で分[わ]けるので、(300-60)÷3 = 240÷3 = 80円[えん]"
   },
@@ -152,7 +160,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/paired-shopping-3-30-50.svg",
+      "promptSpeech": "次[つぎ]の式[しき]をまとめて計算[けいさん]すると、どういう式[しき]になるでしょう。 30 × 3 + 50 × 3 30円のチョコと50円のガムの組が3つ。"
     },
     "explanation": "それぞれをかけ算[ざん]してから足[た]しても、足[た]し算[ざん]してまとめてから かけ算[ざん]しても、答[こた]えは同[おな]じになるので、30+50 でまとめよう。それに 3をかけて、(30+50)×3 になる。"
   },
@@ -188,7 +198,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/paired-shopping-4-50-80.svg",
+      "promptSpeech": "次[つぎ]の式[しき]をまとめて計算[けいさん]すると、どういう式[しき]になるでしょう。 50 × 4 + 80 × 4 50円のチョコと80円のガムの組が4つ。"
     },
     "explanation": "それぞれをかけ算[ざん]してから足[た]しても、足[た]し算[ざん]してまとめてから かけ算[ざん]しても、答[こた]えは同[おな]じになるので、50+80 でまとめよう。それに 4をかけて、(50+80)×4 になる。"
   },
@@ -246,7 +258,9 @@
         "250"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g3/visuals/share-then-buy.svg",
+      "promptImageAlt": "800円を2人で同じ金がくずつ分ける。たかしくんが150円のアイスを買い、のこりを求める。"
     },
     "explanation": "800円[えん] のおこづかいを ２人[ふたり]で分[わ]けると、800÷2=400円[えん] になる。 ここから150円[えん]のアイスを買[か]ったので、800÷2-150 = 400-150 = 250円[えん]"
   },
@@ -267,7 +281,9 @@
         "53"
       ],
       "template": "{{INPUT}}こ",
-      "suffix": "こ"
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g3/visuals/candy-total.svg",
+      "promptImageAlt": "6にんのまとまりに あめが8こずつ。別にあまりが5こ。全部の数は空らん。"
     },
     "explanation": "あめを 6人[にん]で分[わ]けると、１人[ひとり]8つ になるので、6×8こ ひつようになる。 あと、5つあまりがあるので、6×8+5 = 53こ"
   },
@@ -325,7 +341,9 @@
         "8"
       ],
       "template": "{{INPUT}}倍",
-      "suffix": "倍"
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g3/visuals/times-cdd3d5549b93.svg",
+      "promptImageAlt": "おとうさんは32さい、いもうとは4さい。同じ長さが同じ量を表す図。"
     },
     "explanation": "何倍[なんばい]かをもとめるときは、その逆[ぎゃく]をすればいいので、 32÷4 = 8倍[ばい]"
   },

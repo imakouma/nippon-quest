@@ -13,8 +13,12 @@
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 5/8 - 2/8 =",
       "answers": [
-        "3,8"
-      ]
+        "3",
+        "8"
+      ],
+      "promptImage": "questions/sansu/g3/visuals/fraction-08d029c598af.svg",
+      "promptImageAlt": "同じ長さを1とした5/8と2/8の図。この2つを引く。",
+      "template": "{{INPUT}} / {{INPUT}}"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]を足[た]し算[ざん]、引[ひ]き算[ざん]すればいいので、 \\dfrac{5}{8} - \\dfrac{2}{8} = \\dfrac{3}{8}"
   },
@@ -32,8 +36,12 @@
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1/10 + 3/10 =",
       "answers": [
-        "4,10"
-      ]
+        "4",
+        "10"
+      ],
+      "promptImage": "questions/sansu/g3/visuals/fraction-1ed3374f6fe6.svg",
+      "promptImageAlt": "同じ長さを1とした1/10と3/10の図。この2つを足す。",
+      "template": "{{INPUT}} / {{INPUT}}"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]を足[た]し算[ざん]、引[ひ]き算[ざん]すればいいので、 \\dfrac{1}{10} + \\dfrac{3}{10} = \\dfrac{4}{10}"
   },
@@ -65,7 +73,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/compare-28b9d4da9499.svg",
+      "promptSpeech": "次[つぎ]の分数[ぶんすう]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 \\dfrac{4}{5} □ \\dfrac{2}{5} 同じ長さを1とした図。上は4/5、下は2/5。どちらも5等分。"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]が大[おお]きい方[ほう]が、数[かず]は大[おお]きくなるので、 \\dfrac{4}{5} > \\dfrac{2}{5}"
   },
@@ -83,8 +93,12 @@
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 5/5 - 2/5 =",
       "answers": [
-        "3,5"
-      ]
+        "3",
+        "5"
+      ],
+      "promptImage": "questions/sansu/g3/visuals/fraction-455b0e61dc70.svg",
+      "promptImageAlt": "同じ長さを1とした5/5と2/5の図。この2つを引く。",
+      "template": "{{INPUT}} / {{INPUT}}"
     },
     "explanation": "1=\\dfrac{5}{5} になるので、 \\dfrac{5}{5} - \\dfrac{2}{5} = \\dfrac{3}{5}"
   },
@@ -172,8 +186,11 @@
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4/7 + 3/7 =",
       "answers": [
-        "7,1"
-      ]
+        "1"
+      ],
+      "template": "{{INPUT}}",
+      "promptImage": "questions/sansu/g3/visuals/fraction-7f541118ffea.svg",
+      "promptImageAlt": "同じ長さを1とした4/7と3/7の図。この2つを足す。"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]を足[た]し算[ざん]、引[ひ]き算[ざん]すればいいので、 \\dfrac{4}{7} + \\dfrac{3}{7} = \\dfrac{7}{7} \\dfrac{7}{7}=1となる。"
   },
@@ -226,19 +243,23 @@
       "choices": [
         {
           "id": "c1",
-          "text": "\\dfrac{5}{5}"
+          "text": "\\dfrac{5}{5}",
+          "image": "questions/sansu/g3/visuals/fraction-choice-1.svg"
         },
         {
           "id": "c2",
-          "text": "\\dfrac{1}{2}"
+          "text": "\\dfrac{1}{2}",
+          "image": "questions/sansu/g3/visuals/fraction-choice-2.svg"
         },
         {
           "id": "c3",
-          "text": "\\dfrac{3}{4}"
+          "text": "\\dfrac{3}{4}",
+          "image": "questions/sansu/g3/visuals/fraction-choice-3.svg"
         },
         {
           "id": "c4",
-          "text": "\\dfrac{8}{9}"
+          "text": "\\dfrac{8}{9}",
+          "image": "questions/sansu/g3/visuals/fraction-choice-4.svg"
         }
       ],
       "answer": "c1",
@@ -274,7 +295,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/compare-a829d365b3ec.svg",
+      "promptSpeech": "次[つぎ]の分数[ぶんすう]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 1 □ \\dfrac{10}{10} 同じ長さを1とした図。上は1、下は10/10。どちらも10等分。"
     },
     "explanation": "分数[ぶんすう]では、分母[ぶんぼ]と分子[ぶんし]が同[おな]じ数[かず]のとき、1 と同[おな]じ大[おお]きさになるので、1=\\dfrac{10}{10} になる。"
   },
@@ -292,8 +315,12 @@
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1/4 + 2/4 =",
       "answers": [
-        "3,4"
-      ]
+        "3",
+        "4"
+      ],
+      "promptImage": "questions/sansu/g3/visuals/fraction-b7adf66adfaa.svg",
+      "promptImageAlt": "同じ長さを1とした1/4と2/4の図。この2つを足す。",
+      "template": "{{INPUT}} / {{INPUT}}"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]を足[た]し算[ざん]、足[た]し算[ざん]すればいいので、 \\dfrac{1}{4} + \\dfrac{2}{4} = \\dfrac{3}{4}"
   },
@@ -432,7 +459,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/compare-dd43c2ed9692.svg",
+      "promptSpeech": "次[つぎ]の分数[ぶんすう]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 \\dfrac{1}{3} □ \\dfrac{2}{3} 同じ長さを1とした図。上は1/3、下は2/3。どちらも3等分。"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]が大[おお]きい方[ほう]が、数[かず]は大[おお]きくなるので、 \\dfrac{1}{3} < \\dfrac{2}{3}"
   },
@@ -487,8 +516,12 @@
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4/5 - 1/5 =",
       "answers": [
-        "3,5"
-      ]
+        "3",
+        "5"
+      ],
+      "promptImage": "questions/sansu/g3/visuals/fraction-f75a7758496a.svg",
+      "promptImageAlt": "同じ長さを1とした4/5と1/5の図。この2つを引く。",
+      "template": "{{INPUT}} / {{INPUT}}"
     },
     "explanation": "分母[ぶんぼ]が同[おな]じときは、分子[ぶんし]を足[た]し算[ざん]、引[ひ]き算[ざん]すればいいので、 \\dfrac{4}{5} - \\dfrac{1}{5} = \\dfrac{3}{5}"
   }
