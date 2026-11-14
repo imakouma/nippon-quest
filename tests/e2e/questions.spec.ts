@@ -170,6 +170,16 @@ test('text-input：複数欄は押した欄へ数字を入れられる', async (
   await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeVisible();
 });
 
+test('text-input：数字を記入する問題は教科と学年によらずテンキーを表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.rika.g5.sci-5-8.143d35c53ce7');
+  const numberPad = page.getByRole('group', { name: 'すうじボタン' });
+  await expect(numberPad).toBeVisible();
+  await numberPad.getByRole('button', { name: '1', exact: true }).click();
+  await numberPad.getByRole('button', { name: '1', exact: true }).click();
+  await numberPad.getByRole('button', { name: '5', exact: true }).click();
+  await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveValue('115');
+});
+
 test('experiment：予想・操作・結果の状態を読み上げ用に持つ', async ({ page }) => {
   await page.goto('/playground.html?q=sample.experiment.water.0001');
   const choice = page.locator('.nq-exp-choices button').first();
@@ -306,10 +316,13 @@ test('旧版の算数：時計を読み、解説を自分のペースで確認�
   const feedback = page.locator('.nq-feedback-correct .nq-feedback-text');
   await expect(feedback).toHaveText('○ せいかい！');
   await expect(feedback).toHaveCSS('background-color', 'rgb(108, 192, 112)');
+  await expect(page.getByRole('heading', { name: 'けっか' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'かいせつ', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'かんがえかたを みる' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeFocused();
   await page.waitForTimeout(1200);
   await expect(page.locator('.nq-review')).toBeVisible();
-  await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
+  await page.getByRole('button', { name: 'かいせつ', exact: true }).click();
   await expect(page.locator('.nq-review p')).toContainText('3を すぎている');
   await expect(page.locator('.nq-review p')).toBeFocused();
   await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);

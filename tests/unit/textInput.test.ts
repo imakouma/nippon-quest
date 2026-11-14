@@ -42,11 +42,11 @@ it('画像の代替テキストを保持し、空文字を拒否する', () => {
 });
 
 describe('text-input number pad', () => {
-  it('小1〜小3算数の通常10進数回答だけに表示する', () => {
-    expect(shouldShowNumberPad('sansu', 1, ['１２'])).toBe(true);
-    expect(shouldShowNumberPad('sansu', 3, ['-0.5', '2'])).toBe(true);
-    expect(shouldShowNumberPad('sansu', 4, ['12'])).toBe(false);
-    expect(shouldShowNumberPad('rika', 1, ['12'])).toBe(false);
-    expect(shouldShowNumberPad('sansu', 1, ['1/2'])).toBe(false);
+  it('教科と学年によらず通常10進数回答へ表示する', () => {
+    expect(shouldShowNumberPad(['１２'])).toBe(true);
+    expect(shouldShowNumberPad(['-0.5', '2'])).toBe(true);
+    expect(shouldShowNumberPad(['12'])).toBe(true);
+    expect(shouldShowNumberPad(['1/2'])).toBe(false);
+    expect(shouldShowNumberPad(['東京'])).toBe(false);
   });
 });

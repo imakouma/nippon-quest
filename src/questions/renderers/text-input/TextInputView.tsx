@@ -9,12 +9,8 @@ import { TimerBar } from '../shared/TimerBar';
 import { getTextInputSpeech } from '../shared/questionSpeech';
 import { normalizeInput, textInputScore, type TextInputPayload } from './schema';
 
-export function shouldShowNumberPad(subject: string, grade: number, answers: string[]): boolean {
-  return (
-    subject === 'sansu' &&
-    grade <= 3 &&
-    answers.every((answer) => /^-?(?:\d+|\d*\.\d+)$/.test(normalizeInput(answer)))
-  );
+export function shouldShowNumberPad(answers: string[]): boolean {
+  return answers.every((answer) => /^-?(?:\d+|\d*\.\d+)$/.test(normalizeInput(answer)));
 }
 
 export function TextInputView({
@@ -36,7 +32,7 @@ export function TextInputView({
     null,
   );
   const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
-  const numberPad = shouldShowNumberPad(ctx.question.subject, ctx.question.grade, payload.answers);
+  const numberPad = shouldShowNumberPad(payload.answers);
   const decimalKey = payload.answers.some((value) => normalizeInput(value).includes('.'));
   const negativeKey = payload.answers.some((value) => normalizeInput(value).startsWith('-'));
   const inputs = useRef<Array<HTMLInputElement | null>>([]);

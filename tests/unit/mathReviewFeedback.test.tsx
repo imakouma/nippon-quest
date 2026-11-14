@@ -8,7 +8,7 @@ import { setDictionary } from '../../src/ui/i18n';
 
 beforeEach(() => {
   vi.useFakeTimers();
-  setDictionary({ question: { showExplanation: 'かんがえかたを みる', next: 'つぎへ' } });
+  setDictionary({ question: { showExplanation: 'かいせつ', next: 'つぎへ' } });
 });
 afterEach(() => {
   vi.useRealTimers();
