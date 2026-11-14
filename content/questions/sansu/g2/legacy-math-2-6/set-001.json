@@ -172,7 +172,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/centimetre-ticks.svg",
+      "promptSpeech": "ものさしの いちばん小[ちい]さな めもり１つ分[ぶん]の ながさを なんというでしょう。 0から1cmまでを10こに区切ったものさし。"
     },
     "explanation": "ものさしの いちばん小[ちい]さな めもりのながさは、「ミリメートル」だね。それが 10こあつまると、「センチメートル」になる。"
   },
@@ -394,7 +396,9 @@
         "10"
       ],
       "template": "{{INPUT}}ミリメートル",
-      "suffix": "ミリメートル"
+      "suffix": "ミリメートル",
+      "promptImage": "questions/sansu/g2/visuals/centimetre-ticks.svg",
+      "promptImageAlt": "0から1cmまでを10こに区切ったものさし。"
     },
     "explanation": "ものさしの めもりを、かぞえてみよう。小[ちい]さなミリメートルの めもりが 10こで、大[おお]きなめもりの センチメートルに なっているね。"
   },
