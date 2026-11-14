@@ -138,7 +138,6 @@ describe('question renderer cancellation', () => {
         remainingTime: 'のこり {n} びょう',
         answerNumber: 'こたえ {n}',
         answerSubmit: 'こたえる',
-        textInputEnterHint: 'で つぎの らんへ／ぜんぶ いれたら こたえる',
         numberBuildClear: 'けす',
         numberBuildCurrent: 'いまの すうじ {n}',
         numberBuildAnswer: 'こたえる',
