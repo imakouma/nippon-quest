@@ -16,7 +16,9 @@
         "20"
       ],
       "template": "分速500m の自動車が、10km 走るのにかかる時間 {{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g5/visuals/speed-00fde638b75f.svg",
+      "promptImageAlt": "自動車。速さ分速500m、道のり10km、時間？分。スタートからゴールへ進む図。"
     },
     "explanation": "時間は、「道のり÷速さ」で求めることができる。 10km=10000m なので 10000÷500=20（分）"
   },
@@ -37,7 +39,9 @@
         "2"
       ],
       "template": "分速 120m = 秒速 {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-unit-02b3abac2908.svg",
+      "promptImageAlt": "1分で120mを1秒で？mに直す。時計は1分が60秒、1時間が60分のまとまりを示す。"
     },
     "explanation": "分速を秒速に直すということは、「１分（60秒）で進む道のり」を「１秒で進む道のり」に直すということなので、60で割ってあげればいい。 120÷60=2（m）"
   },
@@ -58,7 +62,9 @@
         "25"
       ],
       "template": "分速80m で、2000m 走ったときにかかる時間 {{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g5/visuals/speed-03694d1112ee.svg",
+      "promptImageAlt": "走る人。速さ分速80m、道のり2000m、時間？分。スタートからゴールへ進む図。"
     },
     "explanation": "時間は、「道のり÷速さ」で求めることができるので、 2000÷80=25（分）"
   },
@@ -79,7 +85,9 @@
         "3600"
       ],
       "template": "秒速3mの自転車が、20分で進んだ道のり {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-090d121c656a.svg",
+      "promptImageAlt": "自転車。速さ秒速3m、道のり？m、時間20分。スタートからゴールへ進む図。"
     },
     "explanation": "道のりは、「速さ×時間」で求めることができる。 20分は、20×60=1200秒なので、 3×1200=3600（m)"
   },
@@ -100,7 +108,9 @@
         "50"
       ],
       "template": "800m のコースを 16分で歩いた人の速さ 分速 {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-1e3460269a9e.svg",
+      "promptImageAlt": "歩く人。速さ分速？m、道のり800m、時間16分。スタートからゴールへ進む図。"
     },
     "explanation": "速さは、「道のり÷時間」で求めることができるので、 800÷16=50（分速）"
   },
@@ -121,7 +131,9 @@
         "3"
       ],
       "template": "分速 50m = 時速 {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-unit-2104d392d4da.svg",
+      "promptImageAlt": "1分で50mを1時間で？kmに直す。時計は1分が60秒、1時間が60分のまとまりを示す。"
     },
     "explanation": "分速を時速に直すということは、「１分間で進む道のり」を「１時間（60分）で進む道のり」に直すということなので、60をかければいい。 50×60=3000（m） 3000m=3km"
   },
@@ -142,7 +154,9 @@
         "1.5"
       ],
       "template": "時速 90km = 分速 {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-unit-2c7d165887b1.svg",
+      "promptImageAlt": "1時間で90kmを1分で？kmに直す。時計は1分が60秒、1時間が60分のまとまりを示す。"
     },
     "explanation": "時速を分速に直すということは、「１時間（60分）で進む道のり」を「１分で進む道のり」に直すということなので、60で割ってあげればいい。 90÷60=1.5（km）"
   },
@@ -163,7 +177,9 @@
         "6"
       ],
       "template": "秒速30m のチーターが、180m 走るのにかかる時間 {{INPUT}}秒",
-      "suffix": "秒"
+      "suffix": "秒",
+      "promptImage": "questions/sansu/g5/visuals/speed-307c89d215d6.svg",
+      "promptImageAlt": "チーター。速さ秒速30m、道のり180m、時間？秒。スタートからゴールへ進む図。"
     },
     "explanation": "時間は、「道のり÷速さ」で求めることができるので、 180÷30=6（秒）"
   },
@@ -184,7 +200,9 @@
         "2"
       ],
       "template": "{{INPUT}}時間",
-      "suffix": "時間"
+      "suffix": "時間",
+      "promptImage": "questions/sansu/g5/visuals/speed-389689b9e7d2.svg",
+      "promptImageAlt": "新幹線。速さ時速250km、道のり500km、時間？時間。スタートからゴールへ進む図。"
     },
     "explanation": "時間は、「道のり÷速さ」で求めることができるので、 500÷250=2（時間）"
   },
@@ -205,7 +223,9 @@
         "30"
       ],
       "template": "時速12kmで、２時間半走った時の道のり {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-4270fca150a2.svg",
+      "promptImageAlt": "走る人。速さ時速12km、道のり？km、時間2時間半。スタートからゴールへ進む図。"
     },
     "explanation": "道のりは、「速さ×時間」で求めることができるので、 12×2\\dfrac{1}{2}=30（km)"
   },
@@ -226,7 +246,9 @@
         "20"
       ],
       "template": "秒速 {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-55d4cd7c91c3.svg",
+      "promptImageAlt": "ライオン。速さ秒速？m、道のり40m、時間2秒。スタートからゴールへ進む図。"
     },
     "explanation": "速さは、「道のり÷時間」で求めることができるので、 40÷2=20（秒速）"
   },
@@ -258,7 +280,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/speed-formula-67c1405ffb3a.svg",
+      "promptSpeech": "速さを求める式として、正しいものをえらぼう。 一定の速さで進む図。1時間ずつ同じ道のりを進み、全体の道のりと時間の関係を考える。"
     },
     "explanation": "速さは、「ある時間あたりに進む道のりの平均」のことをいうので、速さ＝道のり÷時間 で求めることができる。"
   },
@@ -279,7 +303,9 @@
         "30"
       ],
       "template": "90m を 3秒で走るチーターの速さ 秒速 {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-6bbadf969e98.svg",
+      "promptImageAlt": "チーター。速さ秒速？m、道のり90m、時間3秒。スタートからゴールへ進む図。"
     },
     "explanation": "速さは、「道のり÷時間」で求めることができるので、 90÷3=30（秒速）"
   },
@@ -300,7 +326,9 @@
         "15"
       ],
       "template": "秒速 {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-728fca9b42e4.svg",
+      "promptImageAlt": "シマウマ。速さ秒速？m、道のり90m、時間6秒。スタートからゴールへ進む図。"
     },
     "explanation": "速さは、「道のり÷時間」で求めることができるので、 90÷6=15（秒速）"
   },
@@ -321,7 +349,9 @@
         "4"
       ],
       "template": "12km の道のりを 3時間で歩いたときの速さ 時速 {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-8347e761af0b.svg",
+      "promptImageAlt": "歩く人。速さ時速？km、道のり12km、時間3時間。スタートからゴールへ進む図。"
     },
     "explanation": "速さは、「道のり÷時間」で求めることができるので、 12÷3=4（時速）"
   },
@@ -342,7 +372,9 @@
         "75"
       ],
       "template": "300km を 4時間で走った車の速さ 時速 {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-86dc0303b91d.svg",
+      "promptImageAlt": "自動車。速さ時速？km、道のり300km、時間4時間。スタートからゴールへ進む図。"
     },
     "explanation": "速さは、「道のり÷時間」で求めることができるので、 300÷4=75（時速）"
   },
@@ -363,7 +395,9 @@
         "240"
       ],
       "template": "時速80kmで、３時間進んだ時の道のり {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-8f0eb195f17f.svg",
+      "promptImageAlt": "進む人。速さ時速80km、道のり？km、時間3時間。スタートからゴールへ進む図。"
     },
     "explanation": "道のりは、「速さ×時間」で求めることができるので、 80×3=240（km)"
   },
@@ -384,7 +418,9 @@
         "24"
       ],
       "template": "分速0.8kmの電車が、30分で進んだ道のり {{INPUT}}km",
-      "suffix": "km"
+      "suffix": "km",
+      "promptImage": "questions/sansu/g5/visuals/speed-933dd92cebe7.svg",
+      "promptImageAlt": "電車。速さ分速0.8km、道のり？km、時間30分。スタートからゴールへ進む図。"
     },
     "explanation": "道のりは、「速さ×時間」で求めることができるので、 0.8×30=24（km)"
   },
@@ -416,7 +452,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/speed-formula-99ceaa50e373.svg",
+      "promptSpeech": "道のりを求める式として、正しいものをえらぼう。 一定の速さで進む図。1時間ずつ同じ道のりを進み、全体の道のりと時間の関係を考える。"
     },
     "explanation": "道のりは、「決まった速さで、ある時間進んだ長さ」のことをいうので、道のり＝速さ×時間 で求めることができる。"
   },
@@ -437,7 +475,9 @@
         "5"
       ],
       "template": "時速35km の自動車が、175km 走るのにかかる時間 {{INPUT}}時間",
-      "suffix": "時間"
+      "suffix": "時間",
+      "promptImage": "questions/sansu/g5/visuals/speed-d064a287ad71.svg",
+      "promptImageAlt": "自動車。速さ時速35km、道のり175km、時間？時間。スタートからゴールへ進む図。"
     },
     "explanation": "時間は、「道のり÷速さ」で求めることができるので、 175÷35=5（時間）"
   },
@@ -469,7 +509,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/speed-formula-d0b8f12d6701.svg",
+      "promptSpeech": "時間を求める式として、正しいものをえらぼう。 一定の速さで進む図。1時間ずつ同じ道のりを進み、全体の道のりと時間の関係を考える。"
     },
     "explanation": "時間は、「ある道のりを 決まった速さで進んだ時にかかる時間」のことをいうので、時間＝道のり÷速さ で求めることができる。"
   },
@@ -490,7 +532,9 @@
         "1800"
       ],
       "template": "秒速 30m = 分速 {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-unit-e3a833dcf832.svg",
+      "promptImageAlt": "1秒で30mを1分で？mに直す。時計は1分が60秒、1時間が60分のまとまりを示す。"
     },
     "explanation": "秒速を分速に直すということは、「１秒間で進む道のり」を「１分（60秒）で進む道のり」に直すということなので、60をかければいい。 30×60=1800（m）"
   },
@@ -511,7 +555,9 @@
         "400"
       ],
       "template": "{{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/speed-f3eaa21b17b3.svg",
+      "promptImageAlt": "ライオン。速さ秒速20m、道のり？m、時間20秒。スタートからゴールへ進む図。"
     },
     "explanation": "道のりは、「速さ×時間」で求めることができるので、 20×20=400（m)"
   },
@@ -532,7 +578,9 @@
         "15"
       ],
       "template": "分速60m で、900m 歩くのにかかる時間 {{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g5/visuals/speed-f77a8c408835.svg",
+      "promptImageAlt": "歩く人。速さ分速60m、道のり900m、時間？分。スタートからゴールへ進む図。"
     },
     "explanation": "時間は、「道のり÷速さ」で求めることができるので、 900÷60=15（分）"
   }

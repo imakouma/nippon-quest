@@ -142,8 +142,10 @@
       "answers": [
         "9.42"
       ],
-      "template": "直径 3cm の円の円周を求めよう。 {{INPUT}}cm",
-      "suffix": "cm"
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g5/visuals/circle-731b48de0083.svg",
+      "promptImageAlt": "円の直径は3cm。円周を求める。"
     },
     "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 3×3.14=9.42cm"
   },
@@ -163,8 +165,10 @@
       "answers": [
         "25.12"
       ],
-      "template": "半径 4m の円の円周を求めよう。 {{INPUT}}m",
-      "suffix": "m"
+      "template": "{{INPUT}}m",
+      "suffix": "m",
+      "promptImage": "questions/sansu/g5/visuals/circle-868404b850cc.svg",
+      "promptImageAlt": "円の半径は4m。円周を求める。"
     },
     "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。半径[はんけい]が 4m なので、直径[ちょっけい]は 4×2=8m 8×3.14=25.12m"
   },
@@ -184,8 +188,10 @@
       "answers": [
         "6.28"
       ],
-      "template": "直径 2cm の円の円周を求めよう。 {{INPUT}}cm",
-      "suffix": "cm"
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g5/visuals/circle-8f1a0dc8059a.svg",
+      "promptImageAlt": "円の直径は2cm。円周を求める。"
     },
     "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 2×3.14=6.28cm"
   },
@@ -205,8 +211,10 @@
       "answers": [
         "4.46"
       ],
-      "template": "円周が 14cm の円の直径は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約{{INPUT}}cm",
-      "suffix": "cm"
+      "template": "約 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g5/visuals/circle-8f3bb21ecab8.svg",
+      "promptImageAlt": "円の円周は14cm。直径を求める。"
     },
     "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 円周が分かっているときは、逆に「円周 ÷3.14」で直径[ちょっけい]を出すことができるね。 14÷3.14=4.458… よって、約4.46cm になる。"
   },
@@ -226,8 +234,10 @@
       "answers": [
         "6.37"
       ],
-      "template": "円周が 20cm の円の直径は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約{{INPUT}}cm",
-      "suffix": "cm"
+      "template": "約 {{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g5/visuals/circle-903b7a4a0c14.svg",
+      "promptImageAlt": "円の円周は20cm。直径を求める。"
     },
     "explanation": "円周は、「直径[ちょっけい] × 3.14」 で求めることができる。 円周が分かっているときは、逆に「円周 ÷3.14」で直径[ちょっけい]を出すことができるね。 20÷3.14=6.369… よって、約6.37cm になる。"
   },

@@ -16,7 +16,9 @@
         "2000"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/percent-0393683429b5.svg",
+      "promptImageAlt": "定価は？円、売値は1400円。定価の70%。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「もとにする数」が求められている。「もとにする数=くらべる数÷割合[わりあい]」 で求めることができるので、70%を 0.7に直して、 1400÷0.7=2000円 になる。"
   },
@@ -111,7 +113,9 @@
         "1125"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/percent-3a054be937fb.svg",
+      "promptImageAlt": "定価は1500円、売値は？円。定価の7割5分。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、7割5分 を、0.75に直して、 1500×0.75=1125円 になる。"
   },
@@ -132,7 +136,9 @@
         "1800"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/percent-4815d9c1d5c5.svg",
+      "promptImageAlt": "定価は？円、売値は1260円。定価の7割。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では「もとにする数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、7割 を、0.7に直して、 1260÷0.7=1800円 になる。"
   },
@@ -172,7 +178,9 @@
         "120"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/percent-62c1baeca9a6.svg",
+      "promptImageAlt": "本体価格は1200円、消費税は？円。本体価格の10%。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "消費税[しょうひぜい]は、商品の値段をもととした「くらべる数」になる。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、10% を、0.1に直して、 1200×0.1=120円 になる。"
   },
@@ -252,7 +260,9 @@
         "2400"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/percent-82d6401da9d4.svg",
+      "promptImageAlt": "定価は3000円、売値は？円。定価の80%。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、80% を、0.8に直して、 3000×0.8=2400円 になる。"
   },
@@ -311,7 +321,9 @@
         "270"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/percent-a3cfc0738c8f.svg",
+      "promptImageAlt": "定価は300円、売値は？円。定価から10%引き。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "「10%引き」ということは、90% の値段で売っているということ。これを「もとにする数」である定価にかければいい。 300×0.9=270円"
   },
@@ -332,7 +344,9 @@
         "9"
       ],
       "template": "0.09 = {{INPUT}} %",
-      "suffix": "%"
+      "suffix": "%",
+      "promptImage": "questions/sansu/g5/visuals/percent-grid-b24db5b6b72f.svg",
+      "promptImageAlt": "全体を100等分した図。青い部分は0.09。全体の割合は1。"
     },
     "explanation": "百分率では、1=100%、0.1=10%、0.01=1% になる。小数を百分率（%）にするときは、100 をかければいいので、0.09は 9% になる。"
   },
@@ -393,7 +407,9 @@
         "20"
       ],
       "template": "0.2 = {{INPUT}} %",
-      "suffix": "%"
+      "suffix": "%",
+      "promptImage": "questions/sansu/g5/visuals/percent-grid-c2d777edea13.svg",
+      "promptImageAlt": "全体を100等分した図。青い部分は0.2。全体の割合は1。"
     },
     "explanation": "百分率では、1=100%、0.1=10% になる。小数を百分率（%）にするときは、100 をかければいいので、0.2は 20% になる。"
   },
@@ -414,7 +430,9 @@
         "60"
       ],
       "template": "{{INPUT}} g",
-      "suffix": "g"
+      "suffix": "g",
+      "promptImage": "questions/sansu/g5/visuals/percent-d31de89b9461.svg",
+      "promptImageAlt": "もとの量は50g、増量後は？g。もとの量から2割増量。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "「２割増量」ということは、全部で １２割の重さになる。これを「もとにする数」である 50g にかければいい。 50×1.2=60g"
   },
@@ -475,7 +493,9 @@
         "75"
       ],
       "template": "0.75 = {{INPUT}} %",
-      "suffix": "%"
+      "suffix": "%",
+      "promptImage": "questions/sansu/g5/visuals/percent-grid-e69af55bcfbc.svg",
+      "promptImageAlt": "全体を100等分した図。青い部分は0.75。全体の割合は1。"
     },
     "explanation": "百分率では、1=100%、0.1=10%、0.01=1% になる。小数を百分率（%）にするときは、100 をかければいいので、0.75は 75% になる。"
   },
@@ -515,7 +535,9 @@
         "60"
       ],
       "template": "{{INPUT}}%",
-      "suffix": "%"
+      "suffix": "%",
+      "promptImage": "questions/sansu/g5/visuals/class-volunteers.svg",
+      "promptImageAlt": "25人を1人ずつの絵で示す。参加する15人には青い背景と参加の見出し、残り10人には白い背景と不参加の見出し。"
     },
     "explanation": "この問題[もんだい]では、「割合[わりあい]（％）」が求められている。「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができるので、 15÷25=0.6=60% になる。"
   }

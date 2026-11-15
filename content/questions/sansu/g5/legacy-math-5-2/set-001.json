@@ -49,7 +49,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/volume-026c09169a4e.svg",
+      "promptSpeech": "1cm^3 は、次のうち どの大きさと等しいでしょう。 直方体の横1cm、高さ1cm、たて1cmを示す図。"
     },
     "explanation": "1cm^3 は、1mL と等しい。"
   },
@@ -85,7 +87,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/volume-1389029cd58b.svg",
+      "promptSpeech": "立方体の体積を求める式として、正しいものをえらぼう。 直方体の横一辺、高さ一辺、たて一辺を示す図。"
     },
     "explanation": "立方体の体積は、一辺 × 一辺 × 一辺 で求めることができる。"
   },
@@ -121,7 +125,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/volume-178ec61603dc.svg",
+      "promptSpeech": "1m^3 は、何cm^3 でしょう。 直方体の横1m、高さ1m、たて1mを示す図。"
     },
     "explanation": "1m^3 は、一辺が 1m の立方体の体積になる。この立方体の長さを、cm に直して考えてみよう。 1m^3 = 1m×1m×1m = 100cm×100cm×100cm = 1000000cm^3"
   },
@@ -164,7 +170,9 @@
         "1000"
       ],
       "template": "一辺 10cm の立方体 {{INPUT}}cm^3",
-      "suffix": "cm^3"
+      "suffix": "cm^3",
+      "promptImage": "questions/sansu/g5/visuals/volume-3fd4a3c9fc5a.svg",
+      "promptImageAlt": "直方体の横10cm、高さ10cm、たて10cmを示す図。"
     },
     "explanation": "立方体の体積は、一辺 × 一辺 × 一辺 で求めることができる。 10×10×10 = 1000cm^3"
   },
@@ -185,7 +193,9 @@
         "160"
       ],
       "template": "たて 4cm、横 8cm、高さ 5cm の直方体 {{INPUT}}cm^3",
-      "suffix": "cm^3"
+      "suffix": "cm^3",
+      "promptImage": "questions/sansu/g5/visuals/volume-5967becf37cd.svg",
+      "promptImageAlt": "直方体の横8cm、高さ5cm、たて4cmを示す図。"
     },
     "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。 4×8×5 = 160cm^3"
   },
@@ -308,7 +318,9 @@
         "9"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g5/visuals/volume-970746c6bc4b.svg",
+      "promptImageAlt": "直方体の横1cm、高さ3cm、たて？cmを示す図。体積は27立方センチメートル。"
     },
     "explanation": "求めたい たての長さを、□cm とすると、□×1×3 = 27 □×3= 27 なので、□=9cm"
   },
@@ -410,7 +422,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/volume-d4e6b9a796a3.svg",
+      "promptSpeech": "直方体の体積を求める式として、正しいものをえらぼう。 直方体の横横、高さ高さ、たてたてを示す図。"
     },
     "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。"
   },
@@ -469,7 +483,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/volume-ee9fbea1dec4.svg",
+      "promptSpeech": "体積の単位として、正しいものをえらぼう。 直方体の横1cm、高さ1cm、たて1cmを示す図。"
     },
     "explanation": "体積の単位には、cm^3（立方センチメートル）などを使う。数字の 3は、体積を求めるときに数が３つかけられることを 表しているんだ。"
   },

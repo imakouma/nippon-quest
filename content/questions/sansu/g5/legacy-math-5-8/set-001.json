@@ -13,8 +13,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/2 + 1/3 =",
       "answers": [
-        "5,6"
-      ]
+        "5",
+        "6"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-1017a8c9d218.svg",
+      "promptImageAlt": "1/2と1/3。どの枠も1を表し、それぞれの分母で等分。上の青い部分が1/2、下が1/3。"
     },
     "explanation": "分母が最小公倍数の 6 になるよう、通分してから計算する。 \\dfrac{1}{2} + \\dfrac{1}{3} = \\dfrac{3}{6} + \\dfrac{2}{6} = \\dfrac{5}{6}"
   },
@@ -32,8 +36,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 3/4 - 1/2 =",
       "answers": [
-        "1,4"
-      ]
+        "1",
+        "4"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-1dac15f6e8d7.svg",
+      "promptImageAlt": "3/4と1/2。どの枠も1を表し、それぞれの分母で等分。上の青い部分が3/4、下が1/2。"
     },
     "explanation": "分母が最小公倍数の 4 になるよう、通分してから計算する。 \\dfrac{3}{4} - \\dfrac{1}{2} = \\dfrac{3}{4} - \\dfrac{2}{4} = \\dfrac{1}{4}"
   },
@@ -108,8 +116,13 @@
     "payload": {
       "prompt": "次の計算をしましょう。 25/9 + 29/12 =",
       "answers": [
-        "5,7,36"
-      ]
+        "5",
+        "7",
+        "36"
+      ],
+      "template": "整数 {{INPUT}} と 分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-371c1b00d1d1.svg",
+      "promptImageAlt": "25/9と29/12。どの枠も1を表し、それぞれの分母で等分。上の青い部分が25/9、下が29/12。"
     },
     "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{25}{9} + \\dfrac{29}{12} = \\dfrac{100}{36} + \\dfrac{87}{36} = \\dfrac{187}{36} ② 2\\dfrac{7}{9} + 2\\dfrac{5}{12} = 4 +\\dfrac{7}{9} + \\dfrac{5}{12} = 4 + \\dfrac{28}{36} + \\dfrac{15}{36} = 4+\\dfrac{43}{36} = 5\\dfrac{7}{36}"
   },
@@ -146,8 +159,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 5/12 + 1/4 =",
       "answers": [
-        "2,3"
-      ]
+        "2",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-443bea2dbd1c.svg",
+      "promptImageAlt": "5/12と1/4。どの枠も1を表し、それぞれの分母で等分。上の青い部分が5/12、下が1/4。"
     },
     "explanation": "分母が最小公倍数の 12 になるよう、通分してから計算する。 \\dfrac{5}{12} + \\dfrac{1}{4} = \\dfrac{5}{12} + \\dfrac{3}{12} = \\dfrac{8}{12} = \\dfrac{2}{3}"
   },
@@ -184,8 +201,13 @@
     "payload": {
       "prompt": "次の計算をしましょう。 5/2 + 5/3 =",
       "answers": [
-        "4,1,6"
-      ]
+        "4",
+        "1",
+        "6"
+      ],
+      "template": "整数 {{INPUT}} と 分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-5a643e829ba8.svg",
+      "promptImageAlt": "5/2と5/3。どの枠も1を表し、それぞれの分母で等分。上の青い部分が5/2、下が5/3。"
     },
     "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{5}{2} + \\dfrac{5}{3} = \\dfrac{15}{6} + \\dfrac{10}{6} = \\dfrac{25}{6} ② 2\\dfrac{1}{2} + 1\\dfrac{2}{3} = 3 +\\dfrac{1}{2} + \\dfrac{2}{3} = 3 + \\dfrac{3}{6} + \\dfrac{4}{6} = 3+\\dfrac{7}{6} = 4\\dfrac{1}{6}"
   },
@@ -203,8 +225,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 47/10 - 23/6 =",
       "answers": [
-        "13,15"
-      ]
+        "13",
+        "15"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-6463f2e7fd7b.svg",
+      "promptImageAlt": "47/10と23/6。どの枠も1を表し、それぞれの分母で等分。上の青い部分が47/10、下が23/6。"
     },
     "explanation": "帯分数の引き算では、①仮分数にしてから計算する、②帯分数のまま、整数から分数の部分を計算する 方法がある。 ① \\dfrac{47}{10} - \\dfrac{23}{6} = \\dfrac{141}{30} - \\dfrac{115}{30} = \\dfrac{26}{30} = \\dfrac{13}{15} ② 4\\dfrac{21}{30} - 3\\dfrac{25}{30} = 4-\\dfrac{25}{30} + \\dfrac{21}{30}-3 = 3\\dfrac{5}{30}+ \\dfrac{21}{30} -3 = \\dfrac{26}{30} = \\dfrac{13}{15}"
   },
@@ -241,8 +267,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 3/12 + 3/8 =",
       "answers": [
-        "5,8"
-      ]
+        "5",
+        "8"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-6f72f9be4857.svg",
+      "promptImageAlt": "3/12と3/8。どの枠も1を表し、それぞれの分母で等分。上の青い部分が3/12、下が3/8。"
     },
     "explanation": "分母が最小公倍数の 24 になるよう、通分してから計算する。 \\dfrac{3}{12} + \\dfrac{3}{8} = \\dfrac{6}{24} + \\dfrac{9}{24} = \\dfrac{15}{24} = \\dfrac{5}{8}"
   },
@@ -260,8 +290,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 13/15 - 1/6 =",
       "answers": [
-        "7,10"
-      ]
+        "7",
+        "10"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-81ea94966799.svg",
+      "promptImageAlt": "13/15と1/6。どの枠も1を表し、それぞれの分母で等分。上の青い部分が13/15、下が1/6。"
     },
     "explanation": "分母が最小公倍数の 30 になるよう、通分してから計算する。 \\dfrac{13}{15} - \\dfrac{1}{6} = \\dfrac{26}{30} - \\dfrac{5}{30} = \\dfrac{21}{30} = \\dfrac{7}{10}"
   },
@@ -393,8 +427,13 @@
     "payload": {
       "prompt": "次の計算をしましょう。 19/6 - 13/9 =",
       "answers": [
-        "1,13,18"
-      ]
+        "1",
+        "13",
+        "18"
+      ],
+      "template": "整数 {{INPUT}} と 分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-a590fbd0011d.svg",
+      "promptImageAlt": "19/6と13/9。どの枠も1を表し、それぞれの分母で等分。上の青い部分が19/6、下が13/9。"
     },
     "explanation": "帯分数の引き算では、①仮分数にしてから計算する、②帯分数のまま、整数から分数の部分を計算する 方法がある。 ① \\dfrac{19}{6} - \\dfrac{13}{9} = \\dfrac{57}{18} - \\dfrac{26}{18} = \\dfrac{31}{18} ② 3\\dfrac{3}{18} - 1\\dfrac{8}{18} = 3-\\dfrac{8}{18} + \\dfrac{3}{18}-1 = 2\\dfrac{10}{18} + \\dfrac{3}{18}-1 = 1\\dfrac{13}{18}"
   },
@@ -412,8 +451,13 @@
     "payload": {
       "prompt": "次の計算をしましょう。 67/10 + 43/15 =",
       "answers": [
-        "9,17,30"
-      ]
+        "9",
+        "17",
+        "30"
+      ],
+      "template": "整数 {{INPUT}} と 分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-a914e1f7fec4.svg",
+      "promptImageAlt": "67/10と43/15。どの枠も1を表し、それぞれの分母で等分。上の青い部分が67/10、下が43/15。"
     },
     "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{67}{10} + \\dfrac{43}{15} = \\dfrac{201}{30} + \\dfrac{86}{30} = \\dfrac{287}{30} ② 6\\dfrac{7}{10} + 2\\dfrac{13}{15} = 8 +\\dfrac{7}{10} + \\dfrac{13}{15} = 8 + \\dfrac{21}{30} + \\dfrac{26}{30} = 8+\\dfrac{47}{30} = 9\\dfrac{17}{30}"
   },
@@ -431,8 +475,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 5/7 - 5/9 =",
       "answers": [
-        "10,63"
-      ]
+        "10",
+        "63"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-cb5bb00c2add.svg",
+      "promptImageAlt": "5/7と5/9。どの枠も1を表し、それぞれの分母で等分。上の青い部分が5/7、下が5/9。"
     },
     "explanation": "分母が最小公倍数の 63 になるよう、通分してから計算する。 \\dfrac{5}{7} - \\dfrac{5}{9} = \\dfrac{45}{63} - \\dfrac{35}{63} = \\dfrac{10}{63}"
   },
@@ -469,8 +517,13 @@
     "payload": {
       "prompt": "次の計算をしましょう。 31/8 + 25/6 =",
       "answers": [
-        "8,1,24"
-      ]
+        "8",
+        "1",
+        "24"
+      ],
+      "template": "整数 {{INPUT}} と 分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g5/visuals/fraction-d67ff00c4f69.svg",
+      "promptImageAlt": "31/8と25/6。どの枠も1を表し、それぞれの分母で等分。上の青い部分が31/8、下が25/6。"
     },
     "explanation": "帯分数の足し算では、①仮分数にしてから計算する、②帯分数のまま、整数・分数の部分をそれぞれ計算する 方法がある。 ① \\dfrac{31}{8} + \\dfrac{25}{6} = \\dfrac{93}{24} + \\dfrac{100}{24} = \\dfrac{193}{24} ② 3\\dfrac{7}{8} + 4\\dfrac{1}{6} = 7 +\\dfrac{7}{8} + \\dfrac{1}{6} = 7 + \\dfrac{21}{24} + \\dfrac{4}{24} = 7+\\dfrac{25}{24} = 8\\dfrac{1}{24}"
   },

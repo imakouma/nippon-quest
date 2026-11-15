@@ -59,7 +59,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/ratio-formula-21982a371d8b.svg",
+      "promptSpeech": "もとにする数を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "くらべる数が「もとにする数 × 割合[わりあい]」で求められるので、もとにする数は、わり算で求めることができる。「もとにする数 ＝ くらべる数 ÷ 割合[わりあい]」が正しい。"
   },
@@ -80,7 +82,9 @@
         "190"
       ],
       "template": "{{INPUT}}人",
-      "suffix": "人"
+      "suffix": "人",
+      "promptImage": "questions/sansu/g5/visuals/ratio-329fceb01942.svg",
+      "promptImageAlt": "定員は200人、希望者は？人。定員の0.95倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 200×0.95=190人"
   },
@@ -101,7 +105,9 @@
         "0.4"
       ],
       "template": "{{INPUT}}倍",
-      "suffix": "倍"
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g5/visuals/ratio-332dc9ecf4e1.svg",
+      "promptImageAlt": "駅までは6km、学校までは2.4km。学校までは 駅までの ？倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：あきさんの家から駅までのきょり（6km） くらべる数：あきさんの家から学校[がっこう]までのきょり（2.4km）なので、 2.4÷6=0.4倍"
   },
@@ -122,7 +128,9 @@
         "1.4"
       ],
       "template": "{{INPUT}}倍",
-      "suffix": "倍"
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g5/visuals/ratio-362318fb18b8.svg",
+      "promptImageAlt": "去年は180円、今年は252円。今年は 去年の ？倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：去年の平均価格（180円） くらべる数：今年の平均価格（252円）なので、 252÷180=1.4倍"
   },
@@ -143,7 +151,9 @@
         "2960"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g5/visuals/ratio-4712d83d0dd6.svg",
+      "promptImageAlt": "いつもは？円、半額は1480円。いつもの0.5倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 1480÷0.5=2960円"
   },
@@ -164,7 +174,9 @@
         "700"
       ],
       "template": "約{{INPUT}}万人",
-      "suffix": "万人"
+      "suffix": "万人",
+      "promptImage": "questions/sansu/g5/visuals/ratio-479976e6acb0.svg",
+      "promptImageAlt": "去年は？万人、今年は1050万人。去年の1.5倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 1050÷1.5=700万人"
   },
@@ -185,7 +197,9 @@
         "0.4"
       ],
       "template": "{{INPUT}}倍",
-      "suffix": "倍"
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g5/visuals/ratio-4aadd29bfe30.svg",
+      "promptImageAlt": "私は150円、弟は60円。弟は 私の ？倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：私のお金（150円）、くらべる数：弟のお金（60円）なので、 60÷150=0.4倍"
   },
@@ -206,7 +220,9 @@
         "9120"
       ],
       "template": "{{INPUT}} 歩",
-      "suffix": "歩"
+      "suffix": "歩",
+      "promptImage": "questions/sansu/g5/visuals/ratio-7377bc97226a.svg",
+      "promptImageAlt": "さとしは4560歩、お父さんは？歩。さとしの2倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 45600×2=9120歩"
   },
@@ -238,7 +254,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/ratio-formula-768dc2c0e922.svg",
+      "promptSpeech": "割合[わりあい]を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "割合[わりあい]は、言いかえれば「くらべる数」が「もとになる数」の何倍か、何こ分かということ。「割合[わりあい]＝くらべる数÷もとにする数」で求めることができる。"
   },
@@ -270,7 +288,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/ratio-formula-b0a6a8e98e73.svg",
+      "promptSpeech": "くらべる数を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "くらべる数は、「もとにする数」の◯倍（割合[わりあい]）になっているので、かけ算で求めることができる。「くらべる数 ＝ もとにする数 × 割合[わりあい]」が正しい。"
   },
@@ -323,7 +343,9 @@
         "110"
       ],
       "template": "約{{INPUT}}万人",
-      "suffix": "万人"
+      "suffix": "万人",
+      "promptImage": "questions/sansu/g5/visuals/ratio-c92a6edc8675.svg",
+      "promptImageAlt": "宮崎県は？万人、大阪府は880万人。宮崎県の 約8倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「もとになる数」が求められている。「もとにする数＝くらべる数÷割合[わりあい]」 で求めることができるので、 880÷8=110万人"
   },
@@ -376,7 +398,9 @@
         "0.8"
       ],
       "template": "{{INPUT}}倍",
-      "suffix": "倍"
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g5/visuals/ratio-e82459fd4e2d.svg",
+      "promptImageAlt": "土曜日は400人、日曜日は320人。日曜日は 土曜日の ？倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "「割合[わりあい]＝くらべる数÷もとにする数」 で求めることができる。 もとにする数：土曜日に来た人（400人）、くらべる数：日曜日[にちようび]に来た人（320人）なので、 320÷400=0.8倍"
   },
@@ -397,7 +421,9 @@
         "780"
       ],
       "template": "{{INPUT}} mL",
-      "suffix": "mL"
+      "suffix": "mL",
+      "promptImage": "questions/sansu/g5/visuals/ratio-ff64e7fab1d2.svg",
+      "promptImageAlt": "もとの量は650mL、増量後は？mL。もとの量の1.2倍。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 650×1.2=780mL"
   }
