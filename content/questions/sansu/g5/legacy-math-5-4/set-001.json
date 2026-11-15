@@ -327,7 +327,9 @@
         "34.56"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g5/visuals/decimal-area.svg",
+      "promptImageAlt": "横7.2cm、たて4.8cmの長方形。辺の比は実際の長さと一致。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、たて×横 で求めることができた。 4.8×7.2 = 34.56(cm^2)"
   },
@@ -443,7 +445,9 @@
         "10.648"
       ],
       "template": "{{INPUT}}cm^3",
-      "suffix": "cm^3"
+      "suffix": "cm^3",
+      "promptImage": "questions/sansu/g5/visuals/decimal-cube.svg",
+      "promptImageAlt": "一辺2.2cmの立方体。"
     },
     "explanation": "立方体の体積は、一辺×一辺×一辺 で求めることができる。 2.2×2.2×2.2 = 10.648(cm^3)"
   },

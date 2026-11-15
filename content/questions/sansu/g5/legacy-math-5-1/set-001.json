@@ -46,7 +46,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/place-1cc857d26ba7.svg",
+      "promptSpeech": "0.0314は、31.4を何分の1 にした数でしょう。 0.0314と31.4を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "31.4 の小数点を左に３つ動かすと、0.0314 になる。小数点が左に３つ動くということは、位が３つ小さくなるということなので、1000分の1 になる。"
   },
@@ -89,7 +91,9 @@
         "9",
         "5"
       ],
-      "template": "42195 は、一万を {{INPUT}}こ、千を {{INPUT}}こ、百を {{INPUT}}こ、十を {{INPUT}}こ、一を {{INPUT}}こ 集めた数です。"
+      "template": "42195 は、一万を {{INPUT}}こ、千を {{INPUT}}こ、百を {{INPUT}}こ、十を {{INPUT}}こ、一を {{INPUT}}こ 集めた数です。",
+      "promptImage": "questions/sansu/g5/visuals/place-4ae8459eba96.svg",
+      "promptImageAlt": "42195を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "42195 は、一万を 4こ、千を 2こ、百を 1こ、十を 9こ、一を 5こ 集めた数です。"
   },
@@ -121,7 +125,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/place-55965affa6a6.svg",
+      "promptSpeech": "3140は、3.14を何倍した数でしょう。 3140と3.14を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "3.14 の小数点を右に３つ動かすと、3140 になる。小数点が右に３つ動くということは、位が３つ大きくなるということなので、1000倍になる。"
   },
@@ -159,7 +165,9 @@
       "prompt": "42.195 を 1000倍 すると、いくつになるでしょう。",
       "answers": [
         "42195"
-      ]
+      ],
+      "promptImage": "questions/sansu/g5/visuals/place-5f869fdc7c24.svg",
+      "promptImageAlt": "42.195を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "1000倍 すると、位は３つ分大きくなるので、42195 になる。"
   },
@@ -191,7 +199,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/place-67316332d150.svg",
+      "promptSpeech": "31.4は、3.14を何倍した数でしょう。 31.4と3.14を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "3.14 の小数点を右に１つ動かすと、31.4 になる。小数点が右に１つ動くということは、位が１つ大きくなるということなので、10倍になる。"
   },
@@ -215,7 +225,9 @@
         "9",
         "5"
       ],
-      "template": "42.195 は、10を{{INPUT}}こ、1を{{INPUT}}こ、0.1を{{INPUT}}こ、0.01を{{INPUT}}こ、0.001を{{INPUT}}こ 集めた数です。"
+      "template": "42.195 は、10を{{INPUT}}こ、1を{{INPUT}}こ、0.1を{{INPUT}}こ、0.01を{{INPUT}}こ、0.001を{{INPUT}}こ 集めた数です。",
+      "promptImage": "questions/sansu/g5/visuals/place-6bd1169fe6c2.svg",
+      "promptImageAlt": "42.195を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "42.195 は、10を 4こ、1を 2こ、0.1を 1こ、0.01を 9こ、0.001を 5こ 集めた数です。"
   },
@@ -247,7 +259,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/place-84ad5324d3f6.svg",
+      "promptSpeech": "3.14は、31.4を何分の1 にした数でしょう。 3.14と31.4を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "31.4 の小数点を左に１つ動かすと、3.14 になる。小数点が左に１つ動くということは、位が１つ小さくなるということなので、10分の1 になる。"
   },
@@ -279,7 +293,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/place-aa7954cd9143.svg",
+      "promptSpeech": "0.314は、31.4を何分の1 にした数でしょう。 0.314と31.4を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "31.4 の小数点を左に２つ動かすと、0.314 になる。小数点が左に２つ動くということは、位が２つ小さくなるということなので、100分の1 になる。"
   },
@@ -349,7 +365,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/place-c719a11384a1.svg",
+      "promptSpeech": "314は、3.14を何倍した数でしょう。 314と3.14を位ごとに並べた表。小数点の位置は固定。"
     },
     "explanation": "3.14 の小数点を右に２つ動かすと、314 になる。小数点が右に２つ動くということは、位が２つ大きくなるということなので、100倍になる。"
   },

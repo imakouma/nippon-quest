@@ -96,7 +96,9 @@
         "12"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g4/visuals/area-1a320db1d80d.svg",
+      "promptImageAlt": "たて6cm、横2cmの長方形。方眼1つの1辺は1cm。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 6cm × 2cm = 12cm^2"
   },
@@ -117,7 +119,9 @@
         "100"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-unit-1f3170213999.svg",
+      "promptImageAlt": "1aは1辺10mの正方形の面積。"
     },
     "explanation": "1aは、一辺が 10m の正方形[せいほうけい]の面積[めんせき]になる。 10m × 10m = 100m^2 = 1a"
   },
@@ -138,7 +142,9 @@
         "1000000"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-unit-2312d69102dc.svg",
+      "promptImageAlt": "1km²は1辺1000mの正方形の面積。"
     },
     "explanation": "1km^2 の面積[めんせき]は、1km×1kmの正方形[せいほうけい]で考えることができる。 1km = 1000cm なので、1000m × 1000m = 1000000m^2"
   },
@@ -159,7 +165,9 @@
         "10000"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-unit-38f46e71ac72.svg",
+      "promptImageAlt": "1haは1辺100mの正方形の面積。"
     },
     "explanation": "1haは、一辺が 100m の正方形[せいほうけい]の面積[めんせき]になる。 100m × 100m = 10000m^2 = 1ha"
   },
@@ -180,7 +188,9 @@
         "12"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g4/visuals/area-missing-60.svg",
+      "promptImageAlt": "面積60平方cm、たて5cmの長方形。横の長さは空欄。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。きかれている横の長さを □cm とすると、次の式をたてられます。 5 × □ = 60cm^2 □ には、12が入るね。"
   },
@@ -245,7 +255,9 @@
         "8"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g4/visuals/area-missing-24.svg",
+      "promptImageAlt": "面積24平方cm、たて3cmの長方形。横の長さは空欄。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。きかれている横の長さを □cm とすると、次の式をたてられます。 3cm × □ = 24cm^2 □ には、8が入るね。"
   },
@@ -277,7 +289,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/area-meaning-7776587c13f9.svg",
+      "promptSpeech": "算数では、「広さ」のことを何というでしょう。 たてと横の長さを持つ四角形。内側の広さに色を付けています。"
     },
     "explanation": "算数では、「広さ」のことを「面積[めんせき]」といいます。"
   },
@@ -298,7 +312,9 @@
         "16"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g4/visuals/area-78f738c85945.svg",
+      "promptImageAlt": "たて4cm、横4cmの正方形。方眼1つの1辺は1cm。"
     },
     "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができます。 4cm × 4cm = 16cm^2"
   },
@@ -351,7 +367,9 @@
         "150"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-912648290299.svg",
+      "promptImageAlt": "たて10m、横15mの長方形。"
     },
     "explanation": "大きな面積[めんせき]でも、長方形[ちょうほうけい]の面積[めんせき]は「たて × 横」で求めることができます。 10m × 15m = 150m^2"
   },
@@ -387,7 +405,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/area-94ab69ca5981.svg",
+      "promptSpeech": "たてが5cm、横が8cmの長方形[ちょうほうけい]の面積[めんせき]はいくつですか。 たて5cm、横8cmの長方形。方眼1つの1辺は1cm。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は「たて × 横」で計算します。「5 × 8 = 40」なので、40㎠が正解です。（※選択肢1はたてと横を足した数、選択肢2は長方形[ちょうほうけい]の周りの長さを計算した引っかけ問題[もんだい]になっています）"
   },
@@ -423,7 +443,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/area-meaning-9c74f9f488de.svg",
+      "promptSpeech": "長方形[ちょうほうけい]の面積[めんせき]の求め方として、正しいものをえらぼう。 たてと横の長さを持つ四角形。内側の広さに色を付けています。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができる。"
   },
@@ -444,7 +466,9 @@
         "4"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-mixed-c50eca8e3f2a.svg",
+      "promptImageAlt": "こくばんは横5m、たて80cm。たてと横の単位をそろえて考える図。"
     },
     "explanation": "「たて 80cm、横 5m」と単位がそろっていないので、cm に単位をそろえてから、面積[めんせき]を出そう。 5m=500cm、長方形[ちょうほうけい]の面積[めんせき]は「たて×横」で求められるので 80cm × 500cm = 40000cm^2 1m^2=10000cm^2 なので、40000cm^2=4m^2"
   },
@@ -465,7 +489,9 @@
         "10000"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g4/visuals/area-unit-c871318a6d0e.svg",
+      "promptImageAlt": "1m²は1辺100cmの正方形の面積。"
     },
     "explanation": "1m^2 の面積[めんせき]は、1m×1mの正方形[せいほうけい]で考えることができる。 1m = 100cm なので、100cm × 100cm = 10000cm^2"
   },
@@ -508,7 +534,9 @@
         "60"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g4/visuals/area-cc8446383e1d.svg",
+      "promptImageAlt": "たて6cm、横10cmの長方形。方眼1つの1辺は1cm。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 6cm × 10cm = 60cm^2"
   },
@@ -544,7 +572,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/area-meaning-d399834aaf20.svg",
+      "promptSpeech": "正方形[せいほうけい]の面積[めんせき]の求め方として、正しいものをえらぼう。 たてと横の長さを持つ四角形。内側の広さに色を付けています。"
     },
     "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができる。"
   },
@@ -565,7 +595,9 @@
         "1.2"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-mixed-da719cf6095b.svg",
+      "promptImageAlt": "テーブルは横2m、たて60cm。たてと横の単位をそろえて考える図。"
     },
     "explanation": "「はば 60cm、横 2m」と単位がそろっていないので、cm に単位をそろえてから、面積[めんせき]を出そう。 2m=200cm、長方形[ちょうほうけい]の面積[めんせき]は「たて×横」で求められるので 60cm × 200cm = 12000cm^2 1m^2=10000cm^2 なので、12000cm^2=1.2m^2"
   },
@@ -644,7 +676,9 @@
         "81"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g4/visuals/area-ead9a402a91a.svg",
+      "promptImageAlt": "たて9cm、横9cmの正方形。方眼1つの1辺は1cm。"
     },
     "explanation": "正方形[せいほうけい]の面積[めんせき]は、「一辺 × 一辺」で求めることができます。 9cm × 9cm = 81cm^2"
   },
@@ -665,7 +699,9 @@
         "144"
       ],
       "template": "{{INPUT}}m^2",
-      "suffix": "m^2"
+      "suffix": "m^2",
+      "promptImage": "questions/sansu/g4/visuals/area-ee8ac93c6894.svg",
+      "promptImageAlt": "たて12m、横12mの正方形。"
     },
     "explanation": "大きな面積[めんせき]でも、正方形[せいほうけい]の面積[めんせき]は「一辺 × 一辺」で求めることができます。 12m × 12m = 144m^2"
   },
@@ -744,7 +780,9 @@
         "36"
       ],
       "template": "{{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g4/visuals/area-fafab2f4791d.svg",
+      "promptImageAlt": "たて4cm、横9cmの長方形。方眼1つの1辺は1cm。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「たて × 横」で求めることができます。 4cm × 9cm = 36 cm^2"
   }
