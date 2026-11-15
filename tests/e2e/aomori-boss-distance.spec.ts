@@ -136,8 +136,11 @@ test('青森の最初のぬしは開始地点から離れた奥地にいて、�
     .toBe(false);
   await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
 
+  const player = page.locator('canvas[data-player-tile]');
+  await expect(player).toHaveAttribute('data-player-tile', '61,69');
+  await walk(page, 'ArrowUp', 1);
   await walk(page, 'ArrowRight', 10);
-  await walk(page, 'ArrowUp', 11);
+  await walk(page, 'ArrowUp', 10);
 
   await page.screenshot({ path: 'test-results/aomori-remote-boss.png' });
   await walk(page, 'ArrowUp', 1, 'regionBoss');
