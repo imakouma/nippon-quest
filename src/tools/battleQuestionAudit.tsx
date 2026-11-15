@@ -99,7 +99,11 @@ function AuditApp() {
         await document.fonts.ready;
         const params = new URLSearchParams(location.search);
         const requested = params.get('q');
-        const questions = requested ? all.filter((question) => question.id === requested) : all;
+        const subject = params.get('subject');
+        const questions = all.filter(
+          (question) =>
+            (!requested || question.id === requested) && (!subject || question.subject === subject),
+        );
         if (requested && questions.length !== 1) throw new Error(`問題IDが見つかりません: ${requested}`);
         setProgress({ done: 0, total: questions.length });
         const found: AuditFailure[] = [];
