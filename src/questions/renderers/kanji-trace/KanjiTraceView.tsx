@@ -26,6 +26,7 @@ interface Props {
 export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
   const [result, setResult] = useState<KanjiTraceDone | null>(null);
   const ended = useRef(false);
+  const writingAttempts = useRef(0);
   const completionTimer = useRef<number | null>(null);
 
   const complete = (next: Omit<KanjiTraceDone, 'timedOut'>, timedOut = false) => {
@@ -44,7 +45,7 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
     else if (ended.current) return;
     ended.current = true;
     completionTimer.current = null;
-    onDone({ score: 0, timedOut: true, attempts: 0 });
+    onDone({ score: 0, timedOut: true, attempts: writingAttempts.current });
   };
 
   useEffect(() => {
@@ -81,7 +82,7 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
       <TimerBar
         ms={ctx.timeLimitMs}
         running={!result}
-        onTimeout={() => complete({ score: 0, attempts: 0, chosen: null }, true)}
+        onTimeout={() => complete({ score: 0, attempts: writingAttempts.current, chosen: null }, true)}
       />
       <div id="nq-question-prompt" class="nq-q-prompt">
         <p>
@@ -139,7 +140,10 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
           payload={payload}
           ctx={ctx}
           disabled={!!result}
-          onSubmit={(score, match) => complete({ score, match, attempts: 1 })}
+          onAttempt={() => {
+            writingAttempts.current += 1;
+          }}
+          onSubmit={(score, match) => complete({ score, match, attempts: writingAttempts.current })}
         />
       )}
       {result && <Feedback kind={feedback} />}
