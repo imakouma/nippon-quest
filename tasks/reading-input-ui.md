@@ -17,3 +17,4 @@
 - 最終画面: [通常](../test-results/g1-onyomi-1440.png)、[不正な入力](../test-results/g1-onyomi-invalid.png)、[長い例文](../test-results/g1-onyomi-long.png)。
 - 自己レビュー: 既存の読みタグで対象を限定。契約/schema/新規依存の変更なし。算数や他の文字入力、既存の読み上げ/時間切れ/IME確定Enterの処理を維持。
 - 実機スマホの日本語キーボード操作は未確認。
+- 最終統合状態の `VITE_NQ_DEV_TOOLS=1 pnpm check:full`: lint、依存境界、教材/学習経路監査、2302テスト、全型検査、build成功。最後の性能予算のみ失敗（content bundle 4,655,351 bytes > 4,000,000 bytes）。基点も4,655,302 bytesで上限超過のため、今回制限値は変更しない。
