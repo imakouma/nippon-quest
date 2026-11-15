@@ -219,6 +219,8 @@ test('旧版の文字入力問題：複数の答えを入力して採点でき�
   await answers.nth(2).fill('1.2');
   await expect(page.locator('button.nq-input-submit')).toBeEnabled();
   await answers.nth(2).press('Enter');
+  await expect(page.getByRole('status')).toHaveText('○ せいかい！');
+  await page.getByRole('button', { name: 'つぎへ' }).click();
   await expectScore(page, '100%');
 });
 
