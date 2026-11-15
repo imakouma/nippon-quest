@@ -88,7 +88,7 @@ export function TextInputView({
       class={numberPad && activeInput === index ? 'nq-input-active' : undefined}
       value={values[index]}
       disabled={done}
-      inputMode="decimal"
+      inputMode={numberPad ? 'decimal' : 'text'}
       onFocus={() => setActiveInput(index)}
       onInput={(event) => {
         const next = [...values];
@@ -96,7 +96,7 @@ export function TextInputView({
         setValues(next);
       }}
       onKeyDown={(event) => {
-        if (event.key !== 'Enter') return;
+        if (event.key !== 'Enter' || event.isComposing || event.keyCode === 229) return;
         const nextEmpty = values.findIndex((value) => !value.trim());
         if (nextEmpty >= 0) {
           if (nextEmpty !== index) {
@@ -172,7 +172,7 @@ export function TextInputView({
         )}
       </div>
       {payload.suffix && !suffixRepeated && <RubyLabel text={payload.suffix} class="nq-input-suffix" />}
-      {numberPad ? (
+      {numberPad && (
         <div class="nq-input-number-pad" role="group" aria-label={t('question.textInputNumberPad')}>
           {['1', '2', '3'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
@@ -210,10 +210,6 @@ export function TextInputView({
             </button>
           )}
         </div>
-      ) : (
-        <p class="nq-input-key-hint">
-          <kbd>Enter</kbd> {t('question.textInputEnterHint')}
-        </p>
       )}
       <button
         type="button"

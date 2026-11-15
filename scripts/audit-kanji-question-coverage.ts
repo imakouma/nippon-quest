@@ -3,6 +3,7 @@ import { relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { choicePayloadSchema } from '../src/questions/renderers/choice/schema';
+import { textInputPayloadSchema } from '../src/questions/renderers/text-input/schema';
 import { MAX_CHOICES } from '../src/questions/renderers/shared/choiceLimit';
 import { kanjiTracePayloadSchema } from '../src/questions/renderers/kanji-trace/schema';
 import { KANJI_UNIT_BY_GRADE } from './generate-kanji-questions';
@@ -146,6 +147,34 @@ export function auditKanjiQuestionCoverage(
     const signatures = new Set<string>();
 
     for (const { question } of categoryQuestions) {
+      if (question.type === 'text-input') {
+        const parsed = textInputPayloadSchema.safeParse(question.payload);
+        if (category !== 'onyomi' || question.grade !== 1 || !parsed.success) {
+          errors.push(`${question.id}: 入力式は1年の音読み問題だけに使用できます`);
+          continue;
+        }
+        const { prompt, answers } = parsed.data;
+        const characters = prompt.match(/\p{Script=Han}/gu) ?? [];
+        const character = characters[0];
+        const record = character ? canonical.get(character) : undefined;
+        if (characters.length !== 1 || !record) {
+          errors.push(`${question.id}: 例文には正規漢字を一字だけ含めてください`);
+          continue;
+        }
+        if (record.grade !== question.grade) errors.push(`${question.id}: 漢字の配当学年が違います`);
+        if (!/^kokugo\.g1\.kanji-onyomi\.\d{4}$/.test(question.id)) {
+          errors.push(`${question.id}: 音読み問題IDが規則に一致しません`);
+        }
+        const validReadings = record.onyomi.map(({ reading }) => normalizeReading(reading));
+        if (answers.length !== 1 || !validReadings.includes(answers[0]!)) {
+          errors.push(`${question.id}: 正解「${answers.join(' / ')}」が正規データの音読みにありません`);
+        }
+        if (/[[\]]/.test(prompt)) errors.push(`${question.id}: 例文に読みのふりがなを含めないでください`);
+        const signature = [prompt, ...answers].join('|');
+        if (signatures.has(signature)) errors.push(`${question.id}: 同じ音読み復習問題が重複しています`);
+        signatures.add(signature);
+        continue;
+      }
       if (question.type !== 'choice') errors.push(`${question.id}: ${label}問題のtypeがchoiceではありません`);
       const parsed = choicePayloadSchema.safeParse(question.payload);
       if (!parsed.success) {

@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { h, render } from 'preact';
+import { act } from 'preact/test-utils';
 import { afterEach, expect, it, vi } from 'vitest';
 import ja from '../../content/i18n/ja.json';
 import { setDictionary } from '../../src/ui/i18n';
@@ -25,4 +26,62 @@ it('offers speech even when the equation replaces the repeated prompt', () => {
   );
   document.querySelector<HTMLButtonElement>('button[aria-label="よみあげ"]')!.click();
   expect(speak).toHaveBeenCalledExactlyOnceWith('3たす2はしかく');
+});
+
+it('かな入力では文字キーボードを使い、変換確定のEnterでは採点しない', async () => {
+  setDictionary(ja);
+  await act(() =>
+    render(
+      h(TextInputView, {
+        ctx: {
+          grade: 1,
+          question: { subject: 'kokugo', grade: 1 },
+          timeLimitMs: 0,
+          speak: vi.fn(),
+        } as unknown as RendererContext,
+        payload: { prompt: '一ばんおいしいパン', template: 'よみかた：{{INPUT}}', answers: ['いち'] },
+        onDone: vi.fn(),
+      }),
+      document.body,
+    ),
+  );
+  const input = document.querySelector('input')!;
+  expect(input.inputMode).toBe('text');
+  await act(() => {
+    input.value = 'いち';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  for (const options of [{ isComposing: true }, { keyCode: 229 }]) {
+    await act(() => {
+      input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, ...options }));
+    });
+    expect(document.querySelector('input')).toBe(input);
+    expect(input.disabled).toBe(false);
+  }
+  await act(() => {
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+  });
+  expect(document.querySelector('input')).toBeNull();
+  expect(document.querySelector('.nq-review')).not.toBeNull();
+  expect(document.querySelector('.nq-feedback-correct')).not.toBeNull();
+});
+
+it.each([['いち'], ['5'], ['4', '2']])('入力問題にEnter操作の説明を表示しない: %j', (...answers) => {
+  setDictionary(ja);
+  render(
+    h(TextInputView, {
+      ctx: {
+        grade: 1,
+        question: { subject: 'kokugo', grade: 1 },
+        timeLimitMs: 0,
+        speak: vi.fn(),
+      } as unknown as RendererContext,
+      payload: { prompt: 'もんだい', answers },
+      onDone: vi.fn(),
+    }),
+    document.body,
+  );
+  expect(document.body.textContent).not.toContain('Enter');
+  expect(document.body.textContent).not.toContain('つぎの らんへ');
+  expect(document.querySelector('.nq-input-key-hint')).toBeNull();
 });
