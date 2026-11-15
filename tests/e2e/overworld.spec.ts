@@ -465,7 +465,7 @@ test('にほんちずで移動した後に入力が戻る', async ({ page }) => 
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
   test.setTimeout(180_000);
   await startField(page);
-  await teleport(page, [58, 66]);
+  await teleport(page, [68, 65]);
 
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(1);
