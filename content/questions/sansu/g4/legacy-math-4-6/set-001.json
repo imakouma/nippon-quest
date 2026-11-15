@@ -46,7 +46,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/decimal-name-1.svg",
+      "promptSpeech": "小数で、点の１つ後ろにある位をなんといいますか。 例の小数2.345の、小数点から1つ後ろの数字を枠で囲んでいる。位の名前は空欄。"
     },
     "explanation": "小数で、点の１つ後にある位（10分の1の位）を、小数第一位という。"
   },
@@ -65,7 +67,9 @@
       "prompt": "0.049 を 10 でわると、いくらになるでしょう。",
       "answers": [
         "0.0049"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/decimal-place-3408e780b66c.svg",
+      "promptImageAlt": "0.049を位ごとに並べた表。小数点を固定し、10でわると右へ1つ位を移す。答えの数字は書いていません。"
     },
     "explanation": "10 でわると 位が１つ小さくなるので、小数点の位置が、左へ１つ動く。 0.049÷10=0.0049"
   },
@@ -116,7 +120,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/decimal-name-2.svg",
+      "promptSpeech": "小数で、点の２つ後ろにある位は、何の位になりますか。 例の小数2.345の、小数点から2つ後ろの数字を枠で囲んでいる。位の名前は空欄。"
     },
     "explanation": "小数で、点の２つ後にある位は、100分の1の位になる。"
   },
@@ -137,7 +143,9 @@
         "703"
       ],
       "template": "70.3cm= {{INPUT}}mm",
-      "suffix": "mm"
+      "suffix": "mm",
+      "promptImage": "questions/sansu/g4/visuals/length-unit-47904d8843c4.svg",
+      "promptImageAlt": "70.3cmを mmに直す。1cmは1mmが10こ。図の1区切りは1mm。"
     },
     "explanation": "1cm は 10mmなので、cm を mm に直す時は 10倍すればいい。 10倍すると 位が１つ大きくなるので、小数点の位置が、右へ１つ動くよ。 70.3cm × 10 = 703mm"
   },
@@ -156,7 +164,9 @@
       "prompt": "0.15 を 10 でわると、いくらになるでしょう。",
       "answers": [
         "0.015"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/decimal-place-4871c609ca04.svg",
+      "promptImageAlt": "0.15を位ごとに並べた表。小数点を固定し、10でわると右へ1つ位を移す。答えの数字は書いていません。"
     },
     "explanation": "10 でわると 位が１つ小さくなるので、小数点の位置が、左へ１つ動く。 0.15÷10=0.015"
   },
@@ -177,7 +187,9 @@
         "1.76"
       ],
       "template": "176cm= {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g4/visuals/length-unit-4f9df88d0397.svg",
+      "promptImageAlt": "176cmを mに直す。1mは1cmが100こ。図の1区切りは10cm。"
     },
     "explanation": "100cm は 1mなので、cm を m に直す時は 100でわればいい。100 でわると 位が２つ小さくなるので、1.76mだ。"
   },
@@ -198,7 +210,9 @@
         "42195"
       ],
       "template": "42.195 km= {{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g4/visuals/length-unit-598b088b4ac6.svg",
+      "promptImageAlt": "42.195kmを mに直す。1kmは1mが1000こ。図の1区切りは100m。"
     },
     "explanation": "1km は 1000mなので、km を m に直す時は 1000倍すればいい。1000倍すると 位が３つ大きくなるので、小数点の位置が、右へ３つ動くよ。 42.195km × 1000 = 42195m"
   },
@@ -230,7 +244,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/decimal-name-1.svg",
+      "promptSpeech": "小数で、点の１つ後ろにある位は、何の位になりますか。 例の小数2.345の、小数点から1つ後ろの数字を枠で囲んでいる。位の名前は空欄。"
     },
     "explanation": "小数で、点の１つ後にある位は、10分の1の位になる。"
   },
@@ -249,7 +265,9 @@
       "prompt": "0.15 を 10倍 すると、いくらになるでしょう。",
       "answers": [
         "1.5"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/decimal-place-784da3c5fb64.svg",
+      "promptImageAlt": "0.15を位ごとに並べた表。小数点を固定し、10倍では左へ1つ位を移す。答えの数字は書いていません。"
     },
     "explanation": "10倍 すると 位が１つ大きくなるので、小数点の位置が、右へ１つ動く。 0.15×10=1.5"
   },
@@ -338,7 +356,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/decimal-name-2.svg",
+      "promptSpeech": "小数で、点の２つ後ろにある位をなんといいますか。 例の小数2.345の、小数点から2つ後ろの数字を枠で囲んでいる。位の名前は空欄。"
     },
     "explanation": "小数で、点の２つ後にある位（100分の1の位）を、小数第二位という。"
   },
@@ -357,7 +377,9 @@
       "prompt": "3 を 10 でわると、いくらになるでしょう。",
       "answers": [
         "0.3"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/decimal-place-cfef99982c64.svg",
+      "promptImageAlt": "3を位ごとに並べた表。小数点を固定し、10でわると右へ1つ位を移す。答えの数字は書いていません。"
     },
     "explanation": "10 でわると 位がひとつ小さくなる。一の位より １つ小さい位は １０分の１の位だ。 3÷10=0.3"
   },
@@ -397,7 +419,9 @@
         "1.259"
       ],
       "template": "1259mL= {{INPUT}}L",
-      "suffix": "L"
+      "suffix": "L",
+      "promptImage": "questions/sansu/g4/visuals/water-1259.svg",
+      "promptImageAlt": "1259mLの水をLで表す。1Lの容器に1000mL、別の容器に259mL。"
     },
     "explanation": "1000mL は 1Lなので、mL を L に直す時は 1000でわればいい。1000でわると 位が３つ小さくなるので、 1.259L になる。"
   },
@@ -416,7 +440,9 @@
       "prompt": "3 を 10倍 すると、いくらになるでしょう。",
       "answers": [
         "30"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/decimal-place-d744981eae2e.svg",
+      "promptImageAlt": "3を位ごとに並べた表。小数点を固定し、10倍では左へ1つ位を移す。答えの数字は書いていません。"
     },
     "explanation": "10倍 すると 位がひとつ大きくなる。 3×10=30"
   },
@@ -454,7 +480,9 @@
       "prompt": "0.049 を 10倍 すると、いくらになるでしょう。",
       "answers": [
         "0.49"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/decimal-place-e33026a3f514.svg",
+      "promptImageAlt": "0.049を位ごとに並べた表。小数点を固定し、10倍では左へ1つ位を移す。答えの数字は書いていません。"
     },
     "explanation": "10倍 すると 位が１つ大きくなるので、小数点の位置が、右へ１つ動く。 0.049×10=0.49"
   },

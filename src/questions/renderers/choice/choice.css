@@ -33,13 +33,23 @@
 /* 比べるための教材図は、文字の横の小さなアイコンに縮めない。 */
 .nq-q-choice
   .nq-choice-content:has(
-    :is(img[src*='/sansu/g1/visuals/'], img[src*='/sansu/g2/visuals/'], img[src*='/sansu/g3/visuals/'])
+    :is(
+      img[src*='/sansu/g1/visuals/'],
+      img[src*='/sansu/g2/visuals/'],
+      img[src*='/sansu/g3/visuals/'],
+      img[src*='/sansu/g4/visuals/']
+    )
   ) {
   flex-direction: column;
 }
 .nq-q-choice
   .nq-choice-content
-  :is(img[src*='/sansu/g1/visuals/'], img[src*='/sansu/g2/visuals/'], img[src*='/sansu/g3/visuals/']) {
+  :is(
+    img[src*='/sansu/g1/visuals/'],
+    img[src*='/sansu/g2/visuals/'],
+    img[src*='/sansu/g3/visuals/'],
+    img[src*='/sansu/g4/visuals/']
+  ) {
   width: 144px;
   height: 104px;
   max-width: 100%;

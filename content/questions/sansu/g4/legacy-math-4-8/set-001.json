@@ -56,7 +56,9 @@
         "42",
         "2058"
       ],
-      "template": "21×98=21×( {{INPUT}} -2) =21× {{INPUT}} -21× {{INPUT}} = {{INPUT}} - {{INPUT}} = {{INPUT}}"
+      "template": "21×98=21×( {{INPUT}} -2) =21× {{INPUT}} -21× {{INPUT}} = {{INPUT}} - {{INPUT}} = {{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/distribute-0ef637459533.svg",
+      "promptImageAlt": "100長さと21の長方形。2の部分を取り除く。部分の積は空欄。"
     },
     "explanation": "21×98 をそのまま計算すると、筆算をしなければならない。98 は 100-2 と見ることができるので、計算のかんたんな２つのかけ算に分けることができる。 21×98 =21×(100-2) =21×100-21×2 =2100-42 =2058"
   },
@@ -79,7 +81,9 @@
         "2500",
         "2475"
       ],
-      "template": "99×25={{INPUT}}×25-{{INPUT}}×25 ={{INPUT}}-25 ={{INPUT}}"
+      "template": "99×25={{INPUT}}×25-{{INPUT}}×25 ={{INPUT}}-25 ={{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/distribute-143a8f44a263.svg",
+      "promptImageAlt": "100長さと25の長方形。1の部分を取り除く。部分の積は空欄。"
     },
     "explanation": "99×25 をそのまま計算すると、筆算をしなければならない。99 は 100-1 と見ることができるので、計算のかんたんな２つのかけ算に分けることができる。 99×25=100×25-1×25 =2500-25 =2475"
   },
@@ -306,7 +310,9 @@
         "900",
         "500"
       ],
-      "template": "(180+100)×5={{INPUT}}×5+{{INPUT}}×5 ={{INPUT}}+{{INPUT}} =1400"
+      "template": "(180+100)×5={{INPUT}}×5+{{INPUT}}×5 ={{INPUT}}+{{INPUT}} =1400",
+      "promptImage": "questions/sansu/g4/visuals/distribute-7c3616ea37c7.svg",
+      "promptImageAlt": "180と100を合わせた長さと5の長方形。部分の積は空欄。"
     },
     "explanation": "かっこの中は先に計算するのがきまりだけど、5 をじゅん番に かっこの中の数にかけてから、足し算することもできる（分配のきまり）。 (180+100)×5=180×5+100×5 =900+500 =1400"
   },
@@ -329,7 +335,9 @@
         "800",
         "832"
       ],
-      "template": "104×8={{INPUT}}×8+{{INPUT}}×8 ={{INPUT}}+32 ={{INPUT}}"
+      "template": "104×8={{INPUT}}×8+{{INPUT}}×8 ={{INPUT}}+32 ={{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/distribute-80833d88165a.svg",
+      "promptImageAlt": "100と4を合わせた長さと8の長方形。部分の積は空欄。"
     },
     "explanation": "104×8 をそのまま計算すると、筆算をしなければならない。104 を 100 と 4 に分けると、計算のかんたんな２つのかけ算に分けることができる。 104×8=100×8+4×8 =800+32 =832"
   },
