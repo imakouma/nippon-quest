@@ -8,6 +8,7 @@ import { ReviewFeedback } from '../shared/ReviewFeedback';
 import { TimerBar } from '../shared/TimerBar';
 import { getTextInputSpeech } from '../shared/questionSpeech';
 import { normalizeInput, textInputScore, type TextInputPayload } from './schema';
+import { ReadingPrompt } from './ReadingPrompt';
 
 export function shouldShowNumberPad(subject: string, grade: number, answers: string[]): boolean {
   return (
@@ -29,6 +30,7 @@ export function TextInputView({
   const [values, setValues] = useState(() => payload.answers.map(() => ''));
   const [activeInput, setActiveInput] = useState(0);
   const [done, setDone] = useState(false);
+  const [composingIndex, setComposingIndex] = useState<number | null>(null);
   const once = useRef(false);
   const completionTimer = useRef<number | null>(null);
   const completed = useRef(false);
@@ -40,6 +42,12 @@ export function TextInputView({
   const numberPad = shouldShowNumberPad(ctx.question.subject, ctx.question.grade, payload.answers);
   const decimalKey = payload.answers.some((value) => normalizeInput(value).includes('.'));
   const negativeKey = payload.answers.some((value) => normalizeInput(value).startsWith('-'));
+  const reading = ctx.question.tags?.some((tag) => tag.startsWith('kanji:reading:')) ?? false;
+  const invalid = values.map(
+    (value, index) =>
+      reading && composingIndex !== index && value !== '' && !/^[ぁ-ゖー]+$/u.test(value.normalize('NFC')),
+  );
+  const invalidIndex = invalid.indexOf(true);
   const inputs = useRef<Array<HTMLInputElement | null>>([]);
   const typeOnPad = (key: string) => {
     setValues((current) => {
@@ -56,6 +64,10 @@ export function TextInputView({
   };
   const finish = (timedOut: boolean) => {
     if (once.current) return;
+    if (!timedOut && (invalidIndex >= 0 || composingIndex !== null)) {
+      inputs.current[invalidIndex >= 0 ? invalidIndex : composingIndex!]?.focus();
+      return;
+    }
     once.current = true;
     setDone(true);
     answer.current = {
@@ -106,7 +118,7 @@ export function TextInputView({
       />
     );
   return (
-    <div class="nq-q nq-q-input">
+    <div class={`nq-q nq-q-input${reading ? ' nq-q-reading' : ''}`}>
       <TimerBar ms={ctx.timeLimitMs} running={!done} onTimeout={() => finish(true)} />
       <button
         type="button"
@@ -124,7 +136,11 @@ export function TextInputView({
           {payload.promptImage && !payload.promptImageAlt && (
             <img class="nq-q-prompt-img" src={ctx.assets.image(payload.promptImage)} alt="" />
           )}
-          <RubyLabel text={payload.prompt} grade={ctx.grade} as="p" />
+          {reading ? (
+            <ReadingPrompt text={payload.prompt} grade={ctx.grade} />
+          ) : (
+            <RubyLabel text={payload.prompt} grade={ctx.grade} as="p" />
+          )}
           {payload.promptImage && payload.promptImageAlt && (
             <div class="nq-input-illustration" tabIndex={0}>
               <img src={ctx.assets.image(payload.promptImage)} alt={payload.promptImageAlt} />
@@ -142,13 +158,19 @@ export function TextInputView({
                   inputs.current[index] = input;
                 }}
                 aria-label={t('question.answerNumber', { n: index + 1 })}
-                aria-describedby={promptId}
+                aria-describedby={`${promptId}${invalid[index] ? ' nq-reading-error' : ''}`}
+                aria-invalid={invalid[index] || undefined}
                 aria-keyshortcuts="Enter"
                 class={numberPad && activeInput === index ? 'nq-input-active' : undefined}
                 value={values[index]}
                 disabled={done}
                 inputMode={numeric ? 'decimal' : 'text'}
                 onFocus={() => setActiveInput(index)}
+                // Preactの独自イベント判定を避け、ブラウザの小文字イベント名を使う。
+                {...{
+                  oncompositionstart: () => setComposingIndex(index),
+                  oncompositionend: () => setComposingIndex(null),
+                }}
                 onInput={(event) => {
                   const next = [...values];
                   next[index] = (event.currentTarget as HTMLInputElement).value;
@@ -217,6 +239,11 @@ export function TextInputView({
               −
             </button>
           )}
+        </div>
+      )}
+      {reading && (
+        <div id="nq-reading-error" class="nq-reading-error" role="alert" aria-atomic="true">
+          {invalidIndex >= 0 && !done ? t('question.hiraganaOnly') : ''}
         </div>
       )}
       <button

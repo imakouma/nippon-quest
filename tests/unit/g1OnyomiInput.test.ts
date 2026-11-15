@@ -36,6 +36,7 @@ describe('1年生の音読み入力問題', () => {
       expect(payload.prompt).not.toMatch(/[[\]]/);
       expect(payload.answers[0]).toMatch(/^[ぁ-ゖー]+$/u);
       expect(payload.template).toBe('よみかた：{{INPUT}}');
+      expect(payload.suffix).toBeUndefined();
       prompts.add(payload.prompt);
     }
     expect(prompts.size).toBe(80);
