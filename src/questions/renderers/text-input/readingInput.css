@@ -1,0 +1,40 @@
+.nq-q-reading .nq-input-speak {
+  position: absolute;
+  top: 56px;
+  right: 24px;
+}
+.nq-q-reading .nq-q-prompt {
+  flex: none;
+  min-height: 104px;
+  margin: 44px 56px 16px;
+  font-size: 40px;
+  text-align: center;
+}
+.nq-q-reading mark {
+  background: #393323;
+  color: #ffd866;
+  padding: 4px 8px;
+}
+.nq-q-reading .nq-input-template {
+  flex: none;
+  min-height: 64px;
+  line-height: 1.5;
+}
+.nq-q-reading .nq-input-template > span > span {
+  font-size: 24px;
+  color: #e9eefb;
+}
+.nq-q-reading .nq-input-template input:focus-visible {
+  outline: 3px solid #ffd866;
+  outline-offset: 5px;
+}
+.nq-q-reading input[aria-invalid='true'] {
+  border-color: #ffd28a;
+}
+.nq-reading-error {
+  min-height: 32px;
+  color: #ffd28a;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+}
