@@ -6,6 +6,58 @@ const MAPS = new URL('../../maps/', import.meta.url);
 const grid = (rows: number[][]) => rows.flat();
 
 describe('フィールドの 見た目（overworldView）', () => {
+  it('4 方向の全マスクで森・砂・道・海の接続を区別する', () => {
+    for (let mask = 0; mask < 16; mask++) {
+      const neighbors = [1, 5, 7, 3];
+      const fixture = (center: number, connected: number[], other: number) => {
+        const bg = Array<number>(9).fill(other);
+        bg[4] = center;
+        neighbors.forEach((index, bit) => {
+          if (mask & (1 << bit)) bg[index] = connected[bit % connected.length]!;
+        });
+        return bg;
+      };
+      expect(viewTileAt(fixture(149, [149, 150, 11], 1), 3, 3, 4)).toBe(VIEW.FOREST + mask);
+      expect(viewTileAt(fixture(163, [163], 999), 3, 3, 4)).toBe(VIEW.ROAD + mask);
+      const sand = viewTileAt(fixture(147, [147, 148, 3], 1), 3, 3, 4);
+      if (mask === 15) expect([VIEW.SAND, VIEW.SAND2]).toContain(sand);
+      else expect(sand).toBe(VIEW.SAND_EDGE + mask);
+      const water = viewTileAt(fixture(3, [1, 147, 163, 999], 3), 3, 3, 4);
+      if (mask === 0) expect([VIEW.WATER, VIEW.WATER_GLINT]).toContain(water);
+      else expect(water).toBe(VIEW.WATER + mask);
+    }
+  });
+
+  it('外周は同種として扱い、未知番号や空配列は元の表示へ戻す', () => {
+    expect(viewTileAt([163], 1, 1, 0)).toBe(VIEW.ROAD + 15);
+    expect(viewTileAt([149], 1, 1, 0)).toBe(VIEW.FOREST + 15);
+    expect(viewTileAt([0], 1, 1, 0)).toBe(-1);
+    expect(overworldView([], 0, 0)).toEqual([]);
+    expect(viewTileAt([0, 0, 0, 0, 3, 0, 0, 0, 0], 3, 3, 4)).toBeOneOf([VIEW.WATER, VIEW.WATER_GLINT]);
+  });
+
+  it('入力を変更せず、同じ座標の表示を決定的に範囲内へ写す', () => {
+    const bg = [
+      1, 13, 14, 147, 148, 149, 150, 11, 151, 152, 12, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163,
+      3, 301, 999, 0,
+    ];
+    const original = [...bg];
+    const first = overworldView(bg, 13, 2);
+    expect(overworldView(bg, 13, 2)).toEqual(first);
+    expect(bg).toEqual(original);
+    expect(first.every((tile) => tile === -1 || (tile >= 0 && tile < VIEW_COUNT))).toBe(true);
+  });
+
+  it('果樹の種類を保ちつつ座標で原画を選ぶ', () => {
+    for (const [ground, variants] of [
+      [157, [VIEW.ORCHARD, VIEW.ORCHARD_ALT]],
+      [158, [VIEW.ORCHARD_PEACH, VIEW.ORCHARD_PEACH_ALT]],
+    ] as const) {
+      const bg = Array<number>(16).fill(ground);
+      expect(new Set(overworldView(bg, 4, 4))).toEqual(new Set(variants));
+    }
+  });
+
   it('海は となりが 陸の がわに 波（北 1・東 2・南 4・西 8）', () => {
     expect(
       viewTileAt(
@@ -57,6 +109,12 @@ describe('フィールドの 見た目（overworldView）', () => {
 
   it('県境の石垣には専用の見た目がある', () => {
     expect(viewTileAt([301], 1, 1, 0)).toBe(VIEW.PREFECTURE_BORDER);
+  });
+
+  it('青森の段丘は崖面と階段を別の形で描く', () => {
+    expect(viewTileAt([305], 1, 1, 0)).toBe(VIEW.CLIFF);
+    expect(viewTileAt([306], 1, 1, 0)).toBe(VIEW.STAIRS);
+    expect(overworldView([306, 306, 306], 3, 1)).toEqual([VIEW.STAIRS_LEFT, VIEW.STAIRS, VIEW.STAIRS_RIGHT]);
   });
 
   it('県の フィールドと 離島に 使っている タイルは ぜんぶ 見た目が ある', () => {

@@ -20,7 +20,7 @@ type Px = (x: number, y: number, col: string) => void;
 const grassAt = (x: number, y: number, v: number): string => {
   // 草の 小さな かげを まばらに（v で 位置を ずらす）
   const k = (x * 7 + y * 13 + v * 5) % 47;
-  if (k === 0 || (k === 1 && (y + v) % 2 === 0)) return NQ.green;
+  if (k === 0) return NQ.green;
   return NQ.leaf;
 };
 const waterAt = (x: number, y: number, glint: boolean, flow = 0): string => {
@@ -78,9 +78,10 @@ function grove(
   const inside = (x: number, y: number) => {
     if (x < 0 || y < 0 || x > 15 || y > 15) return false;
     if ((open.n && y < 2) || (open.s && y > 12) || (open.w && x < 1) || (open.e && x > 14)) return false;
-    const cx = open.w ? 4 - x : open.e ? x - 11 : -1;
-    const cy = open.n ? 5 - y : open.s ? y - 9 : -1;
-    return !(cx > 0 && cy > 0 && cx * cx + cy * cy > 12);
+    for (const cx of [open.w ? 4 - x : -1, open.e ? x - 11 : -1])
+      for (const cy of [open.n ? 5 - y : -1, open.s ? y - 9 : -1])
+        if (cx > 0 && cy > 0 && cx * cx + cy * cy > 12) return false;
+    return true;
   };
   for (let y = 0; y < 16; y++)
     for (let x = 0; x < 16; x++) {
@@ -94,7 +95,7 @@ function grove(
 }
 
 /** 果樹園の 木：草の 上に 1 本（まるい こずえ・みき・足もとの かげ・2×2 の 実） */
-function fruitTree(p: Px, fruit: string, fruitShade: string): void {
+function fruitTree(p: Px, fruit: string, fruitShade: string, alternate = false): void {
   for (let y = 0; y < 16; y++) for (let x = 0; x < 16; x++) p(x, y, grassAt(x, y, 0));
   for (let y = 13; y <= 14; y++)
     for (let x = 4; x <= 11; x++) if (y === 13 || (x > 4 && x < 11)) p(x, y, NQ.green);
@@ -112,11 +113,17 @@ function fruitTree(p: Px, fruit: string, fruitShade: string): void {
     }
   p(5, 3, NQ.lime);
   p(6, 3, NQ.lime);
-  for (const [fx, fy] of [
-    [4, 6],
-    [9, 3],
-    [9, 8],
-  ] as const) {
+  for (const [fx, fy] of alternate
+    ? ([
+        [5, 4],
+        [10, 6],
+        [6, 9],
+      ] as const)
+    : ([
+        [4, 6],
+        [9, 3],
+        [9, 8],
+      ] as const)) {
     p(fx, fy, fruit);
     p(fx + 1, fy, fruit);
     p(fx, fy + 1, fruitShade);
@@ -135,7 +142,7 @@ function peak(p: Px, apexX: number, apexY: number, snow: boolean): void {
       let col: string = x <= apexX ? NQ.sand : NQ.brown;
       if (snow && y <= apexY + 3) col = x <= apexX ? NQ.white : NQ.cloud;
       if (x === left || x === right) col = NQ.bark;
-      if (y === 15) col = NQ.bark;
+      if (y === 15 && (x + apexX) % 4 === 0) col = NQ.bark;
       p(x, y, col);
     }
   }
@@ -155,7 +162,7 @@ function drawView(px: (n: number) => Px): void {
           land & 4 ? 15 - y : 99,
           land & 8 ? x : 99,
         );
-        p(x, y, edge === 0 ? NQ.white : edge <= 2 ? NQ.sky : waterAt(x, y, mask === 16));
+        p(x, y, edge === 0 && (x + y) % 4 !== 0 ? NQ.white : edge <= 2 ? NQ.sky : waterAt(x, y, mask === 16));
       }
   }
   // 沖の通常の波線も固定画ではなく流れるよう、位置をずらした2フレームを用意する。
@@ -237,11 +244,13 @@ function drawView(px: (n: number) => Px): void {
     const p = px(n);
     for (let y = 0; y < 16; y++)
       for (let x = 0; x < 16; x++)
-        p(x, y, y % 4 === 2 && (x + (y % 8 === 2 ? 0 : 2)) % 4 < 2 ? mark : NQ.leaf);
+        p(x, y, y % 4 === 2 && (x + (y % 8 === 2 ? 0 : 2)) % 4 === 0 ? mark : NQ.leaf);
   });
   // 果樹園（1 本ずつ 実の なる 木）
   fruitTree(px(VIEW.ORCHARD), NQ.red, NQ.brick);
   fruitTree(px(VIEW.ORCHARD_PEACH), NQ.blush, NQ.berry);
+  fruitTree(px(VIEW.ORCHARD_ALT), NQ.red, NQ.brick, true);
+  fruitTree(px(VIEW.ORCHARD_PEACH_ALT), NQ.blush, NQ.berry, true);
   // 道：草原の 上の 土の 道。まん中と、となりが 道の がわへ のびる（ふちは 草に なじむ こげ茶の 点）
   for (let mask = 0; mask < 16; mask++) {
     const p = px(VIEW.ROAD + mask);
@@ -256,7 +265,7 @@ function drawView(px: (n: number) => Px): void {
           mask & 8 ? 99 : x,
         );
         if (d === 0) continue;
-        p(x, y, d === 1 ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
+        p(x, y, d === 1 && (x + y) % 3 === 0 ? NQ.tan : (x * 5 + y * 3) % 11 === 0 ? NQ.beige : NQ.sand);
       }
   }
   // 名所エリアの さかいの 山なみ：くらい 岩の 山に 雪。マスの はばいっぱいで すきま なく ならぶ（歩ける 茶色の 山と 見わけ）
@@ -303,6 +312,31 @@ function drawView(px: (n: number) => Px): void {
       p(x, y, NQ.white);
       p(x + 1, y, NQ.cloud);
     }
+  }
+  // 段丘：上端の草、縦に続く岩肌、下端の濃い影で高さを色だけでなく形でも示す。
+  {
+    const p = px(VIEW.CLIFF);
+    for (let y = 0; y < 16; y++)
+      for (let x = 0; x < 16; x++) {
+        if (y < 2) p(x, y, y === 0 ? NQ.leaf : NQ.green);
+        else if (y === 2 || y >= 14) p(x, y, NQ.bark);
+        else p(x, y, (x + Math.floor(y / 3) * 5) % 7 === 0 ? NQ.brown : NQ.tan);
+      }
+  }
+  // 3マス幅の石段：1タイルを1段の天面にし、実高さのriserと重ねても金属板に見せない。
+  for (const [tile, rail] of [
+    [VIEW.STAIRS_LEFT, 'left'],
+    [VIEW.STAIRS, 'none'],
+    [VIEW.STAIRS_RIGHT, 'right'],
+  ] as const) {
+    const p = px(tile);
+    for (let y = 0; y < 16; y++)
+      for (let x = 0; x < 16; x++) {
+        const side = (rail === 'left' && x < 2) || (rail === 'right' && x > 13);
+        const frontEdge = y >= 14;
+        const chip = (x * 5 + y * 3) % 29 === 0;
+        p(x, y, side ? NQ.night : frontEdge ? NQ.slate : chip ? NQ.silver : NQ.gray);
+      }
   }
 }
 

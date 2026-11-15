@@ -725,7 +725,7 @@ Max 24 colors. PALETTE: {NQ-48 から}
 [NEGATIVE]
 ```
 
-### 6.11 タイルセット（128×320＝16×16 を 8 列×20 行）
+### 6.11 タイルセット（128×640＝16×16 を 8 列×40 行）
 
 番号は Tiled のタイル番号（`maps/*.json` の gid）で、コードもこの番号で「通れる・通れない」を決めています。**並び順を変えないこと。**
 
@@ -778,6 +778,10 @@ Max 24 colors. PALETTE: {NQ-48 から}
 | 155〜156 | たんぼ（155 みどりの なえ、156 こがね色の いね。北と 西の はしが あぜ道） | ○ | lime / green / mint、yellow / ochre / cream、あぜ tan |
 | 157〜158 | 果樹園（157 りんご・さくらんぼ、158 もも） | ○ | lime の 地に leaf の 木、red / blush の 実 |
 | 159〜160 | 空き（あとで追加）。県の外の陸地は草原として描くが、県境なので通れない | | |
+
+現行共通 atlas の都市道路は 302（アスファルト）・303（縦の中央線）・304（横の中央線）。
+`src/shared/cityRoadTiles.ts` を描画と生成元で共有する。161〜163 はフィールドの灰砂・蒸気・土道に予約し、都市道路と兼用しない。
+既存都市町の移行は background の道路 3 ID だけを置換し、collision・decor・objects・寸法を変えない。
 
 町とダンジョンは `scripts/scaffold-maps.ts` がシード付き乱数で組み立てます（町は 52×40、ダンジョンは部屋と通路の迷路）。ダンジョンの見た目は県ごとに `DUNGEON_THEMES` で決めます（書いていない県は どうくつ）。町の見た目（地面・木・屋根・広場の名所・畑・街灯・海ぞい・小物）は県ごとに `scripts/data/towns.ts` の `TOWN_THEMES` で決めます（その土地の名所・特産品・気候から。`note` に理由）。61〜146 の絵は `src/rendering/overworld/townTiles.ts`。147〜158 の 地面の 絵は `fieldArt.ts`、フィールドの どこに どの 地面を 置くかは `scaffold-maps.ts` の `groundTiles`（海・湖・丘からの きょり。docs/00 §2.2、`src/core/world/ground.ts`）。フィールドと 離島では、その上に 見た目だけの 別の タイル `overworld-view` を かさねる（`src/rendering/overworld/viewTiles.ts` が 描く 8 列の テクスチャ。どの マスに どれを 使うかは `overworldView.ts`：海の 白い 波・森と すなはまの まるい ふち（となり 4 方向の しるし）・山・田んぼの なえの 列・果樹園の 木）。地面の 判定・エンカウントは 下の background の まま。入口の しるし（家・どうくつ・お城・船）は `entranceIcons.ts`。
 

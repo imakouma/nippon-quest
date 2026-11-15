@@ -129,7 +129,11 @@ async function savedState(page: Page): Promise<SavedFieldState> {
   });
 }
 
-async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<void> {
+async function walkOneTile(
+  page: Page,
+  key: 'ArrowUp' | 'ArrowDown' | 'ArrowLeft' | 'ArrowRight',
+  expected?: [number, number],
+): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
   const before = await canvas.getAttribute('data-player-tile');
   for (let attempt = 0; attempt < 10; attempt += 1) {
@@ -138,7 +142,10 @@ async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<vo
     await page.waitForTimeout(300);
     const decision = await canvas.getAttribute('data-last-movement');
     const after = await canvas.getAttribute('data-player-tile');
-    if (decision === 'move' && after !== before) return;
+    if (decision === 'move' && after !== before) {
+      if (expected) expect(after).toBe(`${expected[0]},${expected[1]}`);
+      return;
+    }
   }
   throw new Error(`${before} から ${key} で一歩進めませんでした`);
 }
@@ -151,6 +158,34 @@ async function skipArrivalStory(page: Page): Promise<void> {
   await expect(page.locator('.nq-dlg')).toBeVisible({ timeout: 10_000 });
   await finishDialogue(page);
 }
+
+test('青森の石段と横道を一段ずつ昇降し、段丘を実地形3Dで描く', async ({ page }) => {
+  test.setTimeout(90_000);
+  await startField(page);
+  await teleport(page, [65, 77], { area: 'aomori', map: 'aomori-field', devAll: true });
+
+  for (const y of [76, 75, 74, 73]) await walkOneTile(page, 'ArrowUp', [65, y]);
+  for (const y of [74, 75, 76, 77]) await walkOneTile(page, 'ArrowDown', [65, y]);
+
+  await teleport(page, [71, 68], { area: 'aomori', map: 'aomori-field', devAll: true });
+  for (const x of [70, 69, 68, 67]) await walkOneTile(page, 'ArrowLeft', [x, 68]);
+  for (const x of [68, 69, 70, 71]) await walkOneTile(page, 'ArrowRight', [x, 68]);
+
+  await expect
+    .poll(() => page.evaluate(() => window.__nq.scene.getScene('Overworld').cameras.main.hasPostPipeline))
+    .toBe(false);
+  expect(
+    await page.evaluate(() =>
+      Math.max(
+        0,
+        ...window.__nq.scene
+          .getScene('Overworld')
+          .children.list.filter((child): child is Phaser.GameObjects.Mesh => child.type === 'Mesh')
+          .map((mesh) => mesh.faces.length),
+      ),
+    ),
+  ).toBeGreaterThan(0);
+});
 
 async function suppressFadeCompletionAndCountRestarts(page: Page): Promise<void> {
   await page.evaluate(() => {
@@ -182,26 +217,130 @@ test('フィールドと町を往復すると対応する入口へ配置され�
   test.setTimeout(90_000);
   await startField(page);
 
-  await walkOneTile(page, 'ArrowUp');
-  await walkOneTile(page, 'ArrowUp');
+  const canvas = page.locator('canvas[data-player-tile]');
+  const townLayer = () =>
+    page.evaluate(() => {
+      const scene = window.__nq.scene.getScene('Overworld');
+      const layer = scene.children.list.find(
+        (child) =>
+          child.type === 'TilemapLayer' && (child as Phaser.Tilemaps.TilemapLayer).layer.name === 'town-view',
+      ) as Phaser.Tilemaps.TilemapLayer | undefined;
+      return layer ? layer.layer.data.flat().filter((tile) => tile.index >= 0).length : 0;
+    });
+  const waitForTransitionReady = () =>
+    expect
+      .poll(() =>
+        page.evaluate(
+          () => (window.__nq.scene.getScene('Overworld') as Phaser.Scene & { canWarp: boolean }).canWarp,
+        ),
+      )
+      .toBe(true);
+  expect(await townLayer()).toBe(0);
+  await waitForTransitionReady();
+  await page.keyboard.down('ArrowUp');
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
+  await page.keyboard.up('ArrowUp');
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
   await skipArrivalStory(page);
+  await expect.poll(townLayer).toBeGreaterThan(0);
+  const presentation = await page.evaluate(() => {
+    const children = window.__nq.scene.getScene('Overworld').children.list;
+    const layers = children.filter(
+      (child) => child.type === 'TilemapLayer',
+    ) as Phaser.Tilemaps.TilemapLayer[];
+    const background = layers.find((layer) => layer.layer.name === 'background')!;
+    const town = layers.find((layer) => layer.layer.name === 'town-view')!;
+    return {
+      visible: town.visible,
+      alpha: town.alpha,
+      aboveBackground:
+        town.depth > background.depth ||
+        (town.depth === background.depth && children.indexOf(town) > children.indexOf(background)),
+      roof: town.getTileAt(11, 13)?.index,
+      paving: town.getTileAt(25, 19)?.index,
+    };
+  });
+  expect(presentation).toEqual({ visible: true, alpha: 1, aboveBackground: true, roof: 25, paving: 15 });
+  const treeStats = () =>
+    page.evaluate(() => {
+      const scene = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+        map: Phaser.Tilemaps.Tilemap;
+      };
+      const original = scene.map.getLayer('decor')!.data;
+      const copy = scene.children.list.find(
+        (child) =>
+          child.type === 'TilemapLayer' &&
+          (child as Phaser.Tilemaps.TilemapLayer).layer.name === 'town-decor',
+      ) as Phaser.Tilemaps.TilemapLayer;
+      const trees = scene.children.list.filter(
+        (child) =>
+          child.type === 'Image' && (child as Phaser.GameObjects.Image).texture.key === 'town-tree-round',
+      ) as Phaser.GameObjects.Image[];
+      const coordinates = original
+        .flat()
+        .filter((tile) => tile.index === 32)
+        .map((tile) => ({ x: tile.x, y: tile.y }));
+      return {
+        expected: coordinates.length,
+        images: trees.length,
+        invalid: coordinates.filter(({ x, y }) => {
+          const matches = trees.filter(
+            (tree) => tree.x === x * 16 + 8 && tree.y === y * 16 + 15 && tree.depth === y * 16 + 8,
+          );
+          return copy.getTileAt(x, y)?.index !== undefined || matches.length !== 1;
+        }).length,
+      };
+    });
+  const initialTrees = await treeStats();
+  expect(initialTrees.expected).toBeGreaterThan(0);
+  expect(initialTrees).toEqual({
+    expected: initialTrees.expected,
+    images: initialTrees.expected,
+    invalid: 0,
+  });
 
-  await page.waitForTimeout(450);
-  await walkOneTile(page, 'ArrowDown');
-  await walkOneTile(page, 'ArrowDown');
-  await walkOneTile(page, 'ArrowDown');
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await waitForTransitionReady();
+  await page.keyboard.down('ArrowDown');
+  await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
+  await page.keyboard.up('ArrowDown');
+  expect(await townLayer()).toBe(0);
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-field', position: { x: 976, y: 1088 } });
 
-  await page.waitForTimeout(450);
-  await walkOneTile(page, 'ArrowUp');
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await waitForTransitionReady();
+  await page.keyboard.down('ArrowUp');
+  await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
+  await page.keyboard.up('ArrowUp');
   await expect
     .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
     .toMatchObject({ currentMap: 'aomori-town', position: { x: 400, y: 560 } });
+
+  for (let trip = 0; trip < 2; trip += 1) {
+    await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+    await waitForTransitionReady();
+    await page.keyboard.down('ArrowDown');
+    await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
+    await page.keyboard.up('ArrowDown');
+    await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+    await waitForTransitionReady();
+    await page.keyboard.down('ArrowUp');
+    await expect(canvas).toHaveAttribute('data-player-tile', '25,35', { timeout: 15_000 });
+    await page.keyboard.up('ArrowUp');
+    await expect.poll(treeStats).toEqual(initialTrees);
+  }
+  await expect(canvas).toHaveAttribute('data-input-ready', 'true');
+  await waitForTransitionReady();
+  await page.keyboard.down('ArrowDown');
+  await expect(canvas).toHaveAttribute('data-player-tile', '61,68', { timeout: 15_000 });
+  await page.keyboard.up('ArrowDown');
+  await expect
+    .poll(async () => (await savedState(page)).progress, { timeout: 10_000 })
+    .toMatchObject({ currentMap: 'aomori-field', position: { x: 976, y: 1088 } });
 });
 
 test('フィールドとダンジョンを往復すると対応する入口へ配置される', async ({ page }) => {
@@ -333,7 +472,7 @@ test('にほんちずで移動した後に入力が戻る', async ({ page }) => 
 test('名所はキーとタップを重ねても一度だけ始まり、閉じた後に移動できる', async ({ page }) => {
   test.setTimeout(180_000);
   await startField(page);
-  await teleport(page, [58, 66]);
+  await teleport(page, [68, 65]);
 
   await interactByKeyAndTap(page);
   await expect(page.locator('.nq-cutin')).toHaveCount(1);

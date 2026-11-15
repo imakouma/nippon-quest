@@ -26,6 +26,9 @@ export const RIDGE_TILE = 159;
 export const ROAD_TILE = 163;
 /** 県境門のない場所を示す石垣（通れない。地面ではない）。 */
 export const PREFECTURE_BORDER_TILE = 301;
+/** フィールドの段丘。崖面は通れず、階段だけを通れる。 */
+export const CLIFF_TILE = 305;
+export const STAIRS_TILE = 306;
 
 export const isRoadTile = (tile: number | undefined): boolean => tile === ROAD_TILE;
 
@@ -40,6 +43,7 @@ const TILE_GROUND = new Map<number, Ground>([
   [ROAD_TILE, 'grass'],
   [161, 'mountain'],
   [162, 'mountain'],
+  [STAIRS_TILE, 'grass'],
 ]);
 
 /** background の タイル番号 → 地面（町の石だたみ・水 など 地面で ない タイルは null） */
