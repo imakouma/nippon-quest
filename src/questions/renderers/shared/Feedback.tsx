@@ -2,7 +2,7 @@
 export type FeedbackKind = 'correct' | 'partial' | 'wrong' | 'timeout';
 
 const TEXT: Record<FeedbackKind, string> = {
-  correct: 'かんぺき！',
+  correct: '○ せいかい！',
   partial: 'おしい！',
   wrong: 'おしい！',
   timeout: 'じかんぎれ',

@@ -24,20 +24,27 @@ export function ReviewFeedback({
   }, [showExplanation]);
   return (
     <div class="nq-q nq-review">
-      <Feedback kind={kind} />
-      {explanation && !showExplanation && (
-        <button type="button" class="nq-btn nq-review-explain" onClick={() => setShowExplanation(true)}>
-          {t('question.showExplanation')}
-        </button>
-      )}
-      {explanation && showExplanation && (
-        <p ref={explanationText} tabIndex={-1}>
-          <RubyLabel text={explanation} grade={grade} />
-        </p>
-      )}
-      <button ref={next} type="button" class="nq-btn nq-review-next" onClick={onNext}>
-        {t('question.next')}
-      </button>
+      <section class="nq-review-panel" aria-labelledby="nq-review-title">
+        <h2 id="nq-review-title" class="nq-review-title">
+          けっか
+        </h2>
+        <Feedback kind={kind} />
+        {explanation && showExplanation && (
+          <p ref={explanationText} tabIndex={-1}>
+            <RubyLabel text={explanation} grade={grade} />
+          </p>
+        )}
+        <div class="nq-review-actions">
+          {explanation && !showExplanation && (
+            <button type="button" class="nq-btn nq-review-explain" onClick={() => setShowExplanation(true)}>
+              {t('question.showExplanation')}
+            </button>
+          )}
+          <button ref={next} type="button" class="nq-btn nq-review-next" onClick={onNext}>
+            {t('question.next')}
+          </button>
+        </div>
+      </section>
     </div>
   );
 }

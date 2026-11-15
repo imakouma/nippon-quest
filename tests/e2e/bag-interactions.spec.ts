@@ -52,7 +52,7 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   const bagDialog = page.getByRole('dialog', { name: /もちもの・へんせい/ });
   await expect(bagDialog).toHaveAttribute('aria-modal', 'true');
   await expect(bagDialog.getByRole('group', { name: /もちもの・へんせい/ })).toBeVisible();
-  await expect(bagDialog.getByText(/バッグ \d+\/9マス/)).toBeVisible();
+  await expect(bagDialog.getByText(/バッグ \d+\/9マス/)).toHaveCount(0);
   const heroCell = page.getByRole('button', { name: 'テスト' });
   await expect(heroCell).toBeFocused();
   const openWidth = await bagWindow.evaluate((el) => el.getBoundingClientRect().width);
@@ -96,18 +96,26 @@ test('装備の詳細を閉じても崩れず、武器をドラッグして装�
   await storedWeapon.click();
   await expect(storedWeapon).toBeFocused();
   await expect(page.locator('.nq-party-name')).toContainText('れんしゅうの ぼう');
+  await expect(bagDialog.getByRole('button', { name: /いれる|バッグから.*ぬく/ })).toHaveCount(0);
   await storedWeapon.click();
   await expect(page.locator('.nq-party-info')).toHaveCount(0);
   await storedWeapon.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
-  const [reserveBox, detailBox] = await Promise.all([
-    reserve.boundingBox(),
+  const [gridBox, detailBox, reserveBox] = await Promise.all([
+    page.locator('.nq-bag-grid').boundingBox(),
     page.locator('.nq-party-info').boundingBox(),
+    reserve.boundingBox(),
   ]);
-  expect(reserveBox!.y + reserveBox!.height).toBeLessThanOrEqual(detailBox!.y);
+  expect(gridBox!.y + gridBox!.height).toBeLessThanOrEqual(detailBox!.y);
+  expect(detailBox!.x).toBeLessThan(reserveBox!.x);
+  expect(await bagDialog.locator('.nq-bag-left').evaluate((el) => el.scrollHeight <= el.clientHeight)).toBe(
+    true,
+  );
   const weaponSlot = page.locator('.nq-bag-empty[data-drop-slot="weapon"]');
   await storedWeapon.dragTo(weaponSlot);
   const weapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
+  await weapon.click();
+  await expect(bagDialog.getByRole('button', { name: /いれる|バッグから.*ぬく/ })).toHaveCount(0);
   await page.locator('.nq-bag-empty').first().click();
   await expect(weapon).toHaveCSS('grid-column-start', '1');
   await expect(reserve).toContainText('ひかえや もちものは ないよ');

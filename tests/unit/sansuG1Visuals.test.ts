@@ -18,7 +18,6 @@ describe('grade 1 visual question review', () => {
     expect(changed).toHaveLength(80);
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
     const rows = questions
-      .filter((q) => q.type !== 'random-calculation')
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
         const p = getRenderer(q.type)!.schema.parse(q.payload) as {
@@ -36,7 +35,7 @@ describe('grade 1 visual question review', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      '02f217825e530158e7617fd648e5513de5c744b1bd93b87a24020b2a494d0c1f',
+      '3fa3ad6a35f076b201117327e5baa9fc44aa973eb477fbd495d0fe90fbb29b28',
     );
   });
   it('uses valid self-contained SVGs with exact object counts and accessible descriptions', () => {

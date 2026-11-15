@@ -61,7 +61,7 @@ it('かな入力では文字キーボードを使い、変換確定のEnterで�
   await act(() => {
     input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
   });
-  expect(input.disabled).toBe(true);
+  expect(input.isConnected).toBe(false);
   expect(document.querySelector('.nq-feedback-correct')).not.toBeNull();
 });
 

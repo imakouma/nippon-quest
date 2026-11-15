@@ -11,10 +11,9 @@ const questions = readdirSync('content/questions/sansu/g2').flatMap((dir) =>
   ),
 );
 describe('grade 2 illustrated learning materials', () => {
-  it('preserves all 320 question identities, learning targets and correct answers', () => {
+  it('preserves all 323 question identities, learning targets and correct answers', () => {
     expect(questions).toHaveLength(323);
     const rows = questions
-      .filter((q) => q.type !== 'random-calculation')
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
         const p = getRenderer(q.type)!.schema.parse(q.payload) as {
@@ -31,7 +30,7 @@ describe('grade 2 illustrated learning materials', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      'b58c96a8fe4741997502e24522e61a6436628344fda172b3d721ffa1cf4cf6da',
+      '39d78ec10b1591d968a0801f6d3c07f9603ca903edb12fcfbc483c779cb99046',
     );
   });
   it('illustrates groups, measurement, time, shape and word problems without printing unknown totals', () => {

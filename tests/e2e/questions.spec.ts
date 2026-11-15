@@ -134,8 +134,22 @@ test('number-build：数直線の矢印操作は1回ずつ進む', async ({ page
 
 test('text-input：小1算数は画面内の数字ボタンだけで答えられる', async ({ page }) => {
   await page.goto('/playground.html?q=sansu.g1.hikizan.0002');
+  await expect(page.locator('.nq-input-template')).not.toContainText('□');
   const numberPad = page.getByRole('group', { name: 'すうじボタン' });
-  await expect(numberPad.getByRole('button')).toHaveCount(12);
+  const buttons = numberPad.getByRole('button');
+  await expect(buttons).toHaveCount(11);
+  await expect(buttons).toHaveText(['1', '2', '3', '4', '5', '6', '❌', '7', '8', '9', '0']);
+  await expect(numberPad.getByRole('button', { name: '1もじ もどす' })).toHaveCount(0);
+  await expect(numberPad.getByRole('button', { name: 'ぜんぶ けす' })).toHaveText('❌');
+  expect(
+    await buttons.evaluateAll((elements) =>
+      elements.map((element) => {
+        const style = getComputedStyle(element);
+        return [style.width, style.height];
+      }),
+    ),
+  ).toEqual(Array.from({ length: 11 }, () => ['96px', '56px']));
+  await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveCSS('outline-style', 'none');
   await expect(page.locator('.nq-input-key-hint')).toHaveCount(0);
   await numberPad.getByRole('button', { name: '5', exact: true }).click();
   await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveValue('5');
@@ -155,6 +169,21 @@ test('text-input：複数欄は押した欄へ数字を入れられる', async (
   expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
   await page.getByRole('button', { name: 'こたえる', exact: true }).click();
   await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeVisible();
+});
+
+test('text-input：数字を記入する問題は教科と学年によらずテンキーを表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=legacy.rika.g5.sci-5-8.143d35c53ce7');
+  const numberPad = page.getByRole('group', { name: 'すうじボタン' });
+  await expect(numberPad).toBeVisible();
+  await numberPad.getByRole('button', { name: '1', exact: true }).click();
+  await numberPad.getByRole('button', { name: '1', exact: true }).click();
+  await numberPad.getByRole('button', { name: '5', exact: true }).click();
+  await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveValue('115');
+  await numberPad.getByRole('button', { name: 'ぜんぶ けす' }).click();
+  await numberPad.getByRole('button', { name: '1', exact: true }).click();
+  await page.getByRole('button', { name: 'こたえる', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'けっか' })).toBeVisible();
+  await expect(page.locator('.nq-feedback-wrong')).toHaveText('おしい！');
 });
 
 test('experiment：予想・操作・結果の状態を読み上げ用に持つ', async ({ page }) => {
@@ -190,6 +219,8 @@ test('旧版の文字入力問題：複数の答えを入力して採点でき�
   await answers.nth(2).fill('1.2');
   await expect(page.locator('button.nq-input-submit')).toBeEnabled();
   await answers.nth(2).press('Enter');
+  await expect(page.getByRole('status')).toHaveText('○ せいかい！');
+  await page.getByRole('button', { name: 'つぎへ' }).click();
   await expectScore(page, '100%');
 });
 
@@ -290,11 +321,16 @@ test('旧版の算数：時計を読み、解説を自分のペースで確認�
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
   await expect(page.locator('.nq-q-prompt-img')).toHaveAttribute('src', /clock-03-30\.svg$/);
   await page.locator('.nq-choice').filter({ hasText: '3じ 30ぷん' }).click();
-  await expect(page.locator('.nq-feedback')).toContainText('かんぺき');
+  const feedback = page.locator('.nq-feedback-correct .nq-feedback-text');
+  await expect(feedback).toHaveText('○ せいかい！');
+  await expect(feedback).toHaveCSS('background-color', 'rgb(108, 192, 112)');
+  await expect(page.getByRole('heading', { name: 'けっか' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'かいせつ', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'かんがえかたを みる' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'つぎへ', exact: true })).toBeFocused();
   await page.waitForTimeout(1200);
   await expect(page.locator('.nq-review')).toBeVisible();
-  await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
+  await page.getByRole('button', { name: 'かいせつ', exact: true }).click();
   await expect(page.locator('.nq-review p')).toContainText('3を すぎている');
   await expect(page.locator('.nq-review p')).toBeFocused();
   await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);

@@ -3,19 +3,14 @@ import type { RendererContext } from '../../contracts';
 import { t } from '../../../ui/i18n';
 import { stripRuby } from '../../../ui/ruby';
 import { RubyLabel } from '../../../ui/RubyLabel';
-import { Feedback } from '../shared/Feedback';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
 import { TimerBar } from '../shared/TimerBar';
 import { getTextInputSpeech } from '../shared/questionSpeech';
 import { normalizeInput, textInputScore, type TextInputPayload } from './schema';
 import { ReadingPrompt } from './ReadingPrompt';
 
-export function shouldShowNumberPad(subject: string, grade: number, answers: string[]): boolean {
-  return (
-    subject === 'sansu' &&
-    grade <= 3 &&
-    answers.every((answer) => /^-?(?:\d+|\d*\.\d+)$/.test(normalizeInput(answer)))
-  );
+export function shouldShowNumberPad(answers: string[]): boolean {
+  return answers.every((answer) => /^-?(?:\d+|\d*\.\d+)$/.test(normalizeInput(answer)));
 }
 
 export function TextInputView({
@@ -32,14 +27,11 @@ export function TextInputView({
   const [done, setDone] = useState(false);
   const [composingIndex, setComposingIndex] = useState<number | null>(null);
   const once = useRef(false);
-  const completionTimer = useRef<number | null>(null);
   const completed = useRef(false);
   const answer = useRef<{ score: number; values: string[]; timedOut: boolean; answeredAt?: number } | null>(
     null,
   );
-  const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
-  const numeric = payload.answers.every((answer) => /^-?(?:\d+|\d*\.\d+)$/.test(normalizeInput(answer)));
-  const numberPad = shouldShowNumberPad(ctx.question.subject, ctx.question.grade, payload.answers);
+  const numberPad = shouldShowNumberPad(payload.answers);
   const decimalKey = payload.answers.some((value) => normalizeInput(value).includes('.'));
   const negativeKey = payload.answers.some((value) => normalizeInput(value).startsWith('-'));
   const reading = ctx.question.tags?.some((tag) => tag.startsWith('kanji:reading:')) ?? false;
@@ -53,8 +45,7 @@ export function TextInputView({
     setValues((current) => {
       const next = [...current];
       const value = next[activeInput] ?? '';
-      if (key === 'backspace') next[activeInput] = value.slice(0, -1);
-      else if (key === 'clear') next[activeInput] = '';
+      if (key === 'clear') next[activeInput] = '';
       else if (key === '.' && value.includes('.')) return current;
       else if (key === '-') next[activeInput] = value.startsWith('-') ? value.slice(1) : `-${value}`;
       else next[activeInput] = value + key;
@@ -74,21 +65,13 @@ export function TextInputView({
       score: timedOut ? 0 : textInputScore(payload, values),
       values,
       timedOut,
-      ...(review ? { answeredAt: performance.now() } : {}),
+      answeredAt: performance.now(),
     };
-    if (!review)
-      completionTimer.current = window.setTimeout(() => {
-        completionTimer.current = null;
-        completed.current = true;
-        onDone(answer.current!);
-      }, 900);
   };
   const cancel = () => {
     if (completed.current) return;
-    if (completionTimer.current !== null) window.clearTimeout(completionTimer.current);
     completed.current = true;
     once.current = true;
-    completionTimer.current = null;
     onDone({ score: 0, values, timedOut: true });
   };
   useEffect(() => {
@@ -97,14 +80,14 @@ export function TextInputView({
     if (ctx.signal?.aborted) abort();
     return () => ctx.signal?.removeEventListener('abort', abort);
   });
-  const template = payload.template ?? '{{INPUT}}';
+  const template = (payload.template ?? '{{INPUT}}').replace(/[□▢]/g, '{{INPUT}}');
   const pieces = template.split('{{INPUT}}');
   const compact = (value: string) => stripRuby(value).replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
   const promptRepeated =
     !!payload.template && !payload.promptImage && compact(template) === compact(payload.prompt);
   const promptId = promptRepeated ? 'nq-question-template' : 'nq-question-prompt';
   const suffixRepeated = !!payload.suffix && template.trimEnd().endsWith(payload.suffix);
-  if (review && done)
+  if (done)
     return (
       <ReviewFeedback
         kind={answer.current?.timedOut ? 'timeout' : answer.current?.score === 1 ? 'correct' : 'wrong'}
@@ -164,7 +147,7 @@ export function TextInputView({
                 class={numberPad && activeInput === index ? 'nq-input-active' : undefined}
                 value={values[index]}
                 disabled={done}
-                inputMode={numeric ? 'decimal' : 'text'}
+                inputMode={numberPad ? 'decimal' : 'text'}
                 onFocus={() => setActiveInput(index)}
                 // Preactの独自イベント判定を避け、ブラウザの小文字イベント名を使う。
                 {...{
@@ -197,20 +180,12 @@ export function TextInputView({
       {payload.suffix && !suffixRepeated && <RubyLabel text={payload.suffix} class="nq-input-suffix" />}
       {numberPad && (
         <div class="nq-input-number-pad" role="group" aria-label={t('question.textInputNumberPad')}>
-          {['7', '8', '9'].map((digit) => (
+          {['1', '2', '3'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
               {digit}
             </button>
           ))}
-          <button
-            type="button"
-            class="nq-btn nq-input-pad-action"
-            aria-label={t('question.textInputBackspace')}
-            disabled={done}
-            onClick={() => typeOnPad('backspace')}
-          >
-            {t('question.textInputBack')}
-          </button>
+          <span class="nq-input-pad-spacer" aria-hidden="true" />
           {['4', '5', '6'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
               {digit}
@@ -219,12 +194,13 @@ export function TextInputView({
           <button
             type="button"
             class="nq-btn nq-input-pad-action"
+            aria-label={t('question.textInputClear')}
             disabled={done}
             onClick={() => typeOnPad('clear')}
           >
-            {t('question.textInputClear')}
+            ❌
           </button>
-          {['1', '2', '3', '0'].map((digit) => (
+          {['7', '8', '9', '0'].map((digit) => (
             <button key={digit} type="button" class="nq-btn" disabled={done} onClick={() => typeOnPad(digit)}>
               {digit}
             </button>
@@ -255,7 +231,6 @@ export function TextInputView({
       >
         {t('question.answerSubmit')}
       </button>
-      {done && <Feedback kind={textInputScore(payload, values) === 1 ? 'correct' : 'wrong'} />}
     </div>
   );
 }

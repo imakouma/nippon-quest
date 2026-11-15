@@ -8,7 +8,7 @@ import { setDictionary } from '../../src/ui/i18n';
 
 beforeEach(() => {
   vi.useFakeTimers();
-  setDictionary({ question: { showExplanation: 'かんがえかたを みる', next: 'つぎへ' } });
+  setDictionary({ question: { showExplanation: 'かいせつ', next: 'つぎへ' } });
 });
 afterEach(() => {
   vi.useRealTimers();
@@ -99,13 +99,16 @@ for (const [renderer, payload] of [
     act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
     expect(await result).toMatchObject({ score: 1 });
   });
-  it(`${renderer.type}: grade 4 math still advances after 900 ms`, async () => {
-    const { result, answer, submit } = mount('sansu', 4);
+  it(`${renderer.type}: grade 4 math follows its review policy`, async () => {
+    const { container, result, answer, submit } = mount('sansu', 4);
     answer();
     submit();
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(900);
-    });
+    if (renderer.type === 'text-input')
+      act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
+    else
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(900);
+      });
     expect(await result).toMatchObject({ score: 1 });
   });
   it(`${renderer.type}: abort during review settles once`, async () => {
@@ -115,13 +118,16 @@ for (const [renderer, payload] of [
     act(() => controller.abort());
     expect(await result).toMatchObject({ score: 0, timedOut: true });
   });
-  it(`${renderer.type}: other subjects still advance after 900 ms`, async () => {
-    const { result, answer, submit } = mount('kokugo', 4);
+  it(`${renderer.type}: other subjects follow their review policy`, async () => {
+    const { container, result, answer, submit } = mount('kokugo', 4);
     answer();
     submit();
-    await act(async () => {
-      await vi.advanceTimersByTimeAsync(900);
-    });
+    if (renderer.type === 'text-input')
+      act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
+    else
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(900);
+      });
     expect(await result).toMatchObject({ score: 1 });
   });
 }
