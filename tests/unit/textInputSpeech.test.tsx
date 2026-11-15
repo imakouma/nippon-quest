@@ -62,7 +62,7 @@ it('かな入力では文字キーボードを使い、変換確定のEnterで�
     input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
   });
   expect(input.disabled).toBe(true);
-  expect(document.querySelector('[role="status"]')?.textContent).toContain('せいかい');
+  expect(document.querySelector('.nq-feedback-correct')).not.toBeNull();
 });
 
 it.each([['いち'], ['5'], ['4', '2']])('入力問題にEnter操作の説明を表示しない: %j', (...answers) => {

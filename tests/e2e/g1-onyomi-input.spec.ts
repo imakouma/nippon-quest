@@ -14,7 +14,7 @@ for (const width of [320, 768, 1024, 1440]) {
     await expect(answer).toHaveAttribute('inputmode', 'text');
     await answer.fill('いち');
     await answer.press('Enter');
-    await expect(stage.getByRole('status')).toContainText('せいかい');
+    await expect(stage.locator('.nq-feedback-correct')).toBeVisible();
     await page.reload();
     await stage.getByRole('textbox', { name: 'こたえ 1', exact: true }).fill('ひと');
     await stage.locator('.nq-input-submit').click();
