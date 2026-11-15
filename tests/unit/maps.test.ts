@@ -58,7 +58,6 @@ const WORLD_MAP = new URL('../../public/worldmap.json', import.meta.url);
 const WORLD = new URL('../../content/world/japan.json', import.meta.url);
 const ITEMS = new URL('../../content/items/', import.meta.url);
 const PREFECTURE_BORDER_TILE = 301;
-const ROAD_TILE = 163;
 const TERRAIN = JSON.parse(
   readFileSync(new URL('../../scripts/data/terrain.json', import.meta.url), 'utf8'),
 ) as { maps: Record<string, TerrainMap> };

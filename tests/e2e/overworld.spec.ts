@@ -129,7 +129,11 @@ async function savedState(page: Page): Promise<SavedFieldState> {
   });
 }
 
-async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<void> {
+async function walkOneTile(
+  page: Page,
+  key: 'ArrowUp' | 'ArrowDown' | 'ArrowLeft' | 'ArrowRight',
+  expected?: [number, number],
+): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
   const before = await canvas.getAttribute('data-player-tile');
   for (let attempt = 0; attempt < 10; attempt += 1) {
@@ -138,7 +142,10 @@ async function walkOneTile(page: Page, key: 'ArrowUp' | 'ArrowDown'): Promise<vo
     await page.waitForTimeout(300);
     const decision = await canvas.getAttribute('data-last-movement');
     const after = await canvas.getAttribute('data-player-tile');
-    if (decision === 'move' && after !== before) return;
+    if (decision === 'move' && after !== before) {
+      if (expected) expect(after).toBe(`${expected[0]},${expected[1]}`);
+      return;
+    }
   }
   throw new Error(`${before} から ${key} で一歩進めませんでした`);
 }

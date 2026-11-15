@@ -69,7 +69,8 @@ test('field terrain and billboards stay projected across camera movement', async
           const scene = game.scene.getScene('Overworld');
           const marker = scene.children.list.find(
             (child): child is Phaser.GameObjects.Image =>
-              child.type === 'Image' && child.texture.key === 'fld.icon.town',
+              child.type === 'Image' &&
+              (child as Phaser.GameObjects.Image).texture.key === 'fld.icon.town',
           );
           if (!marker) return resolve({ moved: false, scaled: false });
           const before = { x: marker.x, y: marker.y, scaleX: marker.scaleX, scaleY: marker.scaleY };
