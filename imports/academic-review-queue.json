@@ -5,13 +5,13 @@
     "reviewIntervalMonths": 12
   },
   "summary": {
-    "pendingFiles": 323,
-    "pendingQuestions": 4829,
+    "pendingFiles": 321,
+    "pendingQuestions": 4788,
     "changingFactFiles": 30,
-    "visualFiles": 94,
+    "visualFiles": 93,
     "invalidReviewFiles": 0,
-    "pilotFiles": 107,
-    "pilotQuestions": 747
+    "pilotFiles": 106,
+    "pilotQuestions": 730
   },
   "invalidReviews": [],
   "nextBatch": [
@@ -265,40 +265,6 @@
       "invalidReviewReasons": []
     },
     {
-      "file": "questions/eigo/g2/animals/set-001.json",
-      "sha256": "da8bc0e44d1d3299c0f56304c5e0f1ca2eeffbb1bb6941ccc98dddb0edfb9459",
-      "questionCount": 8,
-      "subjects": ["eigo"],
-      "grades": [2],
-      "types": ["picture-word"],
-      "changingFactCandidates": 0,
-      "visualQuestions": 8,
-      "priority": 200008,
-      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
-      "questionIds": [
-        "eigo.g2.animals.0001",
-        "eigo.g2.animals.0002",
-        "eigo.g2.animals.0003",
-        "eigo.g2.animals.0004",
-        "eigo.g2.animals.0005",
-        "eigo.g2.animals.0006",
-        "eigo.g2.animals.0007",
-        "eigo.g2.animals.0008"
-      ],
-      "changingFactQuestionIds": [],
-      "visualQuestionIds": [
-        "eigo.g2.animals.0001",
-        "eigo.g2.animals.0002",
-        "eigo.g2.animals.0003",
-        "eigo.g2.animals.0004",
-        "eigo.g2.animals.0005",
-        "eigo.g2.animals.0006",
-        "eigo.g2.animals.0007",
-        "eigo.g2.animals.0008"
-      ],
-      "invalidReviewReasons": []
-    },
-    {
       "file": "questions/sansu/g1/legacy-math-1-4/set-001.json",
       "sha256": "140f6b54087c95ace7f30c20a25de20b08e8949b166363c9d994642fb83e7877",
       "questionCount": 8,
@@ -321,6 +287,38 @@
       ],
       "changingFactQuestionIds": [],
       "visualQuestionIds": ["legacy.sansu.g1.math-1-4.90bf0bce1449", "legacy.sansu.g1.math-1-4.c3f964f63f3a"],
+      "invalidReviewReasons": []
+    },
+    {
+      "file": "questions/sansu/g1/legacy-math-1-5/set-001.json",
+      "sha256": "8558bf0fb225d052efc044028f271a344941fd1200ac294ab8f2d8ce1c1ed3a7",
+      "questionCount": 8,
+      "subjects": ["sansu"],
+      "grades": [1],
+      "types": ["choice", "text-input"],
+      "changingFactCandidates": 0,
+      "visualQuestions": 6,
+      "priority": 200008,
+      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
+      "questionIds": [
+        "legacy.sansu.g1.math-1-5.18033ca31de5",
+        "legacy.sansu.g1.math-1-5.3b2b1b7ef678",
+        "legacy.sansu.g1.math-1-5.57580d0cada2",
+        "legacy.sansu.g1.math-1-5.97c33ad72178",
+        "legacy.sansu.g1.math-1-5.9d2bbdf6748d",
+        "legacy.sansu.g1.math-1-5.9f657e1c2e87",
+        "legacy.sansu.g1.math-1-5.cf075e7e8b74",
+        "legacy.sansu.g1.math-1-5.e5e1ef83fb5f"
+      ],
+      "changingFactQuestionIds": [],
+      "visualQuestionIds": [
+        "legacy.sansu.g1.math-1-5.18033ca31de5",
+        "legacy.sansu.g1.math-1-5.97c33ad72178",
+        "legacy.sansu.g1.math-1-5.9d2bbdf6748d",
+        "legacy.sansu.g1.math-1-5.9f657e1c2e87",
+        "legacy.sansu.g1.math-1-5.cf075e7e8b74",
+        "legacy.sansu.g1.math-1-5.e5e1ef83fb5f"
+      ],
       "invalidReviewReasons": []
     }
   ],
@@ -1668,40 +1666,6 @@
         "legacy.sansu.g3.math-3-12.3f156151b1c4",
         "legacy.sansu.g3.math-3-12.5850b6b50aa0",
         "legacy.sansu.g3.math-3-12.dfc86c09b0b1"
-      ],
-      "invalidReviewReasons": []
-    },
-    {
-      "file": "questions/eigo/g2/animals/set-001.json",
-      "sha256": "da8bc0e44d1d3299c0f56304c5e0f1ca2eeffbb1bb6941ccc98dddb0edfb9459",
-      "questionCount": 8,
-      "subjects": ["eigo"],
-      "grades": [2],
-      "types": ["picture-word"],
-      "changingFactCandidates": 0,
-      "visualQuestions": 8,
-      "priority": 200008,
-      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
-      "questionIds": [
-        "eigo.g2.animals.0001",
-        "eigo.g2.animals.0002",
-        "eigo.g2.animals.0003",
-        "eigo.g2.animals.0004",
-        "eigo.g2.animals.0005",
-        "eigo.g2.animals.0006",
-        "eigo.g2.animals.0007",
-        "eigo.g2.animals.0008"
-      ],
-      "changingFactQuestionIds": [],
-      "visualQuestionIds": [
-        "eigo.g2.animals.0001",
-        "eigo.g2.animals.0002",
-        "eigo.g2.animals.0003",
-        "eigo.g2.animals.0004",
-        "eigo.g2.animals.0005",
-        "eigo.g2.animals.0006",
-        "eigo.g2.animals.0007",
-        "eigo.g2.animals.0008"
       ],
       "invalidReviewReasons": []
     },
@@ -4995,6 +4959,38 @@
       "invalidReviewReasons": []
     },
     {
+      "file": "questions/kokugo/g2/kanji-trace.json",
+      "sha256": "c80e4d2c0b9f21570f1e8c6d6f1fdc6d22addd797d9e6ad95ef2ce5fdf600d83",
+      "questionCount": 1,
+      "subjects": ["kokugo"],
+      "grades": [2],
+      "types": ["kanji-trace"],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300001,
+      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
+      "questionIds": ["kokugo.g2.kanji-trace.0001"],
+      "changingFactQuestionIds": [],
+      "visualQuestionIds": [],
+      "invalidReviewReasons": []
+    },
+    {
+      "file": "questions/kokugo/g1/kanji-trace.json",
+      "sha256": "1d53c534657e6d1e485dd91930864b45b687cdb3e0e433712b8b1c26f26e2fb8",
+      "questionCount": 2,
+      "subjects": ["kokugo"],
+      "grades": [1],
+      "types": ["kanji-trace"],
+      "changingFactCandidates": 0,
+      "visualQuestions": 0,
+      "priority": 300002,
+      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
+      "questionIds": ["kokugo.g1.kanji-trace.0001", "kokugo.g1.kanji-trace.0002"],
+      "changingFactQuestionIds": [],
+      "visualQuestionIds": [],
+      "invalidReviewReasons": []
+    },
+    {
       "file": "questions/kokugo/g3/legacy-jpn-3-19/set-001.json",
       "sha256": "77811fe4431aea366b56b3f9352c43c5ce8bc5503c7dc0815d2bde2a7f85668e",
       "questionCount": 3,
@@ -5452,52 +5448,6 @@
         "legacy.kokugo.g4.jpn-4-33.5c568530cecf",
         "legacy.kokugo.g4.jpn-4-33.71d668dcf83a",
         "legacy.kokugo.g4.jpn-4-33.d72acebfc615"
-      ],
-      "changingFactQuestionIds": [],
-      "visualQuestionIds": [],
-      "invalidReviewReasons": []
-    },
-    {
-      "file": "questions/eigo/g1/alphabet/set-001.json",
-      "sha256": "d31eaadb0465acc79fa90aadaeb98990f665ed3103d9b2e94b0eea7a58a9b397",
-      "questionCount": 6,
-      "subjects": ["eigo"],
-      "grades": [1],
-      "types": ["choice"],
-      "changingFactCandidates": 0,
-      "visualQuestions": 0,
-      "priority": 300006,
-      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
-      "questionIds": [
-        "eigo.g1.alphabet.0001",
-        "eigo.g1.alphabet.0002",
-        "eigo.g1.alphabet.0003",
-        "eigo.g1.alphabet.0004",
-        "eigo.g1.alphabet.0005",
-        "eigo.g1.alphabet.0006"
-      ],
-      "changingFactQuestionIds": [],
-      "visualQuestionIds": [],
-      "invalidReviewReasons": []
-    },
-    {
-      "file": "questions/eigo/g1/fruits/set-001.json",
-      "sha256": "0eae5e4bccc5b33d4c6fad4e85bb400437aa1dc36ff49d148c68f4fe6d8c30ea",
-      "questionCount": 6,
-      "subjects": ["eigo"],
-      "grades": [1],
-      "types": ["choice"],
-      "changingFactCandidates": 0,
-      "visualQuestions": 0,
-      "priority": 300006,
-      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
-      "questionIds": [
-        "eigo.g1.fruits.0001",
-        "eigo.g1.fruits.0002",
-        "eigo.g1.fruits.0003",
-        "eigo.g1.fruits.0004",
-        "eigo.g1.fruits.0005",
-        "eigo.g1.fruits.0006"
       ],
       "changingFactQuestionIds": [],
       "visualQuestionIds": [],
@@ -6057,7 +6007,7 @@
     },
     {
       "file": "questions/kokugo/g1/kotoba-asobi/set-001.json",
-      "sha256": "d0400507ce2270eb6d81b45c3a4965847abed59922028526f6f1e0bad8a29c17",
+      "sha256": "6a74ef218e8bd4f5e35a21bcda147e293f14e5063057e1a26e7ffa514eebd604",
       "questionCount": 7,
       "subjects": ["kokugo"],
       "grades": [1],
@@ -6943,7 +6893,7 @@
     },
     {
       "file": "questions/kokugo/g1/joshi/set-001.json",
-      "sha256": "3ef22ef94ad98359bae8a9a946c390de920c18e54cb7dc2ab1ba3b403a342074",
+      "sha256": "e207357d003de3ae9011196c5b99b710ae464310a668b21309113a718c9fc1f9",
       "questionCount": 10,
       "subjects": ["kokugo"],
       "grades": [1],
@@ -7240,7 +7190,7 @@
     },
     {
       "file": "questions/kokugo/g1/bun-no-kimari/set-001.json",
-      "sha256": "2b5979e47338d403d307b64c2d86ea21415d55761db6028b1ef3a30e82d92032",
+      "sha256": "af0f8ed8f18ef41ca9028d7198ef670d96f3a2aaa75af3f311867aef3b95ab99",
       "questionCount": 11,
       "subjects": ["kokugo"],
       "grades": [1],
@@ -7268,7 +7218,7 @@
     },
     {
       "file": "questions/kokugo/g1/hiragana/set-001.json",
-      "sha256": "32d049e90c6dc816455cc2933dd601fc55742eae789bcbaf707579e3110d6a03",
+      "sha256": "bef055ff020d6ade29bb10ad1d297ea6f9467edbd1a244db612a4d489887343e",
       "questionCount": 11,
       "subjects": ["kokugo"],
       "grades": [1],
@@ -10113,47 +10063,6 @@
         "source.kokugo.g5.jpn-5-kanji-6.e46aef451da1",
         "source.kokugo.g5.jpn-5-kanji-6.fa2b5824e1f2",
         "source.kokugo.g5.jpn-5-kanji-6.ae8ea1fa40b5"
-      ],
-      "changingFactQuestionIds": [],
-      "visualQuestionIds": [],
-      "invalidReviewReasons": []
-    },
-    {
-      "file": "questions/eigo/g2/alphabet-order/set-001.json",
-      "sha256": "4634934fbdc7ab2164c1a37b439ddde23351271b361ecf73b93fabb4e21c4fe9",
-      "questionCount": 24,
-      "subjects": ["eigo"],
-      "grades": [2],
-      "types": ["choice"],
-      "changingFactCandidates": 0,
-      "visualQuestions": 0,
-      "priority": 300024,
-      "suggestedSourceIds": ["mext-elementary-curriculum-2017"],
-      "questionIds": [
-        "eigo.g2.alphabet-order.0001",
-        "eigo.g2.alphabet-order.0002",
-        "eigo.g2.alphabet-order.0003",
-        "eigo.g2.alphabet-order.0004",
-        "eigo.g2.alphabet-order.0005",
-        "eigo.g2.alphabet-order.0006",
-        "eigo.g2.alphabet-order.0007",
-        "eigo.g2.alphabet-order.0008",
-        "eigo.g2.alphabet-order.0009",
-        "eigo.g2.alphabet-order.0010",
-        "eigo.g2.alphabet-order.0011",
-        "eigo.g2.alphabet-order.0012",
-        "eigo.g2.alphabet-order.0013",
-        "eigo.g2.alphabet-order.0014",
-        "eigo.g2.alphabet-order.0015",
-        "eigo.g2.alphabet-order.0016",
-        "eigo.g2.alphabet-order.0017",
-        "eigo.g2.alphabet-order.0018",
-        "eigo.g2.alphabet-order.0019",
-        "eigo.g2.alphabet-order.0020",
-        "eigo.g2.alphabet-order.0021",
-        "eigo.g2.alphabet-order.0022",
-        "eigo.g2.alphabet-order.0023",
-        "eigo.g2.alphabet-order.0024"
       ],
       "changingFactQuestionIds": [],
       "visualQuestionIds": [],

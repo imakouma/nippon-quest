@@ -25,8 +25,8 @@
 | 役割 | 触るフォルダ | 使う道具 |
 |---|---|---|
 | ゲーム本体（あなた） | `src/core`, `src/scenes`, `docs/` | Antigravity（Plan: Gemini / 実装: Claude） |
-| 問題UI担当 | `src/questions/renderers/` | Antigravity（Claude）、Playground |
-| 問題作成者 | `content/questions/` | VS Code（スキーマ補完）、Playground、付録 B のプロンプト |
+| 問題UI担当 | `src/questions/renderers/` | Antigravity（Claude）、問題レビュー |
+| 問題作成者 | `content/questions/` | VS Code（スキーマ補完）、問題レビュー、付録 B のプロンプト |
 | 絵素材担当 | `assets/`, `raw/` | Gemini 画像生成、ChatGPT 画像編集、Aseprite/Piskel、後処理スクリプト |
 | コンテンツ（県・敵・アイテム） | `content/prefectures`, `content/monsters`, `content/items` | Antigravity（Gemini で量産 → 人間が事実確認） |
 
@@ -86,7 +86,7 @@
 ## 進め方の目安
 
 - **週 1〜2 ステップ**のペースで、MVP（`00` §10 の完成定義）まで **8〜12 週間**。絵素材は並行して進める。
-- 最初の 2 週間で Step 0〜2（基盤＋問題システム＋Playground）を終えると、問題作成者と UI 担当が動き出せる。ここを急ぐ価値が一番大きい。
+- 最初の 2 週間で Step 0〜2（基盤＋問題システム＋問題レビュー）を終えると、問題作成者と UI 担当が動き出せる。ここを急ぐ価値が一番大きい。
 - Antigravity が一気に作ろうとしたら止めて、1 ステップずつ。**docs を直してから頼む、Plan を読んでから承認する、Walkthrough を読んでから次へ**。この 3 つを守るだけで手戻りが半分になります。
 
 ## 迷ったときの原則（`00` §1 の再掲）

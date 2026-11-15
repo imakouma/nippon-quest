@@ -12,8 +12,9 @@ const questions = readdirSync('content/questions/sansu/g2').flatMap((dir) =>
 );
 describe('grade 2 illustrated learning materials', () => {
   it('preserves all 320 question identities, learning targets and correct answers', () => {
-    expect(questions).toHaveLength(320);
+    expect(questions).toHaveLength(323);
     const rows = questions
+      .filter((q) => q.type !== 'random-calculation')
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
         const p = getRenderer(q.type)!.schema.parse(q.payload) as {

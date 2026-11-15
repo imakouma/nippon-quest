@@ -255,6 +255,7 @@
   max-height: 216px;
 }
 .nq-input-template {
+  font-size: 133.333333%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -263,7 +264,7 @@
   flex: 1;
   min-height: 0;
   overflow-y: visible;
-  line-height: 48px;
+  line-height: 2;
 }
 .nq-q-input:has(.nq-input-illustrated-prompt) .nq-input-template {
   flex: none;
@@ -276,8 +277,8 @@
   gap: 8px;
 }
 .nq-input-template input {
-  width: 120px;
-  min-height: 48px;
+  width: 4em;
+  min-height: 2em;
   box-sizing: border-box;
   border: 4px solid #f6e7c1;
   background: #090d1d;
@@ -313,24 +314,6 @@
   color: #f3f6ff;
   cursor: not-allowed;
   opacity: 1;
-}
-.nq-input-key-hint {
-  align-self: center;
-  margin: -4px 0 0;
-  color: #e9eefb;
-  font-size: 12px;
-  line-height: 16px;
-}
-.nq-input-key-hint kbd {
-  display: inline-block;
-  min-width: 28px;
-  padding: 0 4px;
-  border: 1px solid #fff;
-  background: #101327;
-  color: #fff;
-  font: inherit;
-  line-height: 16px;
-  text-align: center;
 }
 .nq-input-suffix {
   text-align: center;

@@ -1,7 +1,7 @@
+import { calculationProblem } from '../questions/renderers/random-calculation/schema';
 /**
- * Question Playground（docs/01 §3.4）
- * ゲームを起動せず、任意の問題 JSON をレンダラーで表示し、QuestionResult を確認する。
- * 問題作成者と UI 担当の共通デバッグ画面。ステージの下は content/questions の 問題いちらん（開発用）。
+ * 問題レビュー（docs/01 §3.4）
+ * ゲームを起動せず、問題を探して実際に解き、フォームで編集する開発用ワークスペース。
  */
 import { render } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
@@ -40,6 +40,8 @@ function checkQuestion(file: string, index: number, raw: unknown): QuestionEntry
   const q = b.data as QuestionBase;
   const r = getRenderer(q.type);
   if (!r) return { key, file, index, raw, q, problem: `未登録の問題タイプ "${q.type}"` };
+  const problem = calculationProblem(q);
+  if (problem) return { key, file, index, raw, q, problem };
   const p = r.schema.safeParse(q.payload);
   return p.success
     ? { key, file, index, raw, q: { ...q, payload: p.data }, problem: null }
@@ -94,9 +96,7 @@ function resultStatus(result: QuestionResult): { key: string; label: string } {
 }
 
 function App() {
-  const [files, setFiles] = useState<string[]>([]);
   const [file, setFile] = useState('');
-  const [items, setItems] = useState<QuestionBase[]>([]);
   const [entries, setEntries] = useState<QuestionEntry[]>([]);
   const [units, setUnits] = useState<ReadonlyMap<string, string>>(new Map());
   const [subjects, setSubjects] = useState<ReadonlyMap<string, string>>(new Map());
@@ -133,18 +133,12 @@ function App() {
   const loadAll = async () => {
     try {
       const m = parseContentManifest(await read('manifest.json'));
-      setFiles(m.questions);
       setCatalog(m.questionCatalog);
       const requestedId = new URLSearchParams(location.search).get('q');
       const directFile = requestedId ? m.questionIndex?.[requestedId] : undefined;
       if (requestedId && directFile) {
         const raw = await read(directFile);
         setEntries(toEntries([{ file: directFile, raw }]));
-        setItems(
-          (Array.isArray(raw) ? raw : []).filter(
-            (q) => questionBaseSchema.safeParse(q).success,
-          ) as QuestionBase[],
-        );
         setFile(directFile);
       }
       setEntries(toEntries(await readQuestionFiles(m.questions)));
@@ -219,6 +213,11 @@ function App() {
       );
       return;
     }
+    const problem = calculationProblem(q);
+    if (problem) {
+      setError(problem);
+      return;
+    }
     const container = document.createElement('div');
     stage.current!.replaceChildren(container);
     const ctl = new AbortController();
@@ -289,7 +288,6 @@ function App() {
       return;
     const text = JSON.stringify(e.raw, null, 2);
     sourceSnapshot.current = entries.filter((entry) => entry.file === e.file).map((entry) => entry.raw);
-    setItems(sourceSnapshot.current.filter((q) => questionBaseSchema.safeParse(q).success) as QuestionBase[]);
     setHistory([]);
     setSelected(e.key);
     setFile(e.file);
@@ -326,6 +324,8 @@ function App() {
     setSaving(true);
     setSaveMessage('');
     try {
+      const validation = checkQuestion(file, 0, draft);
+      if (validation.problem) throw new Error(validation.problem);
       const response = await fetch(`${base}/__nq/save-question`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-NQ-Save': '1' },
@@ -516,76 +516,6 @@ function App() {
                 <p class="pg-result-help">{pgText('resultHelp')}</p>
               )}
             </section>
-
-            <details class="pg-technical" hidden>
-              <summary>
-                <span>{pgText('technical')}</span>
-                <small>{pgText('technicalHelp')}</small>
-              </summary>
-              <div class="pg-technical-body">
-                <div class="pg-technical-grid">
-                  <label for="pg-file">
-                    {pgText('questionFile')}
-                    <select
-                      id="pg-file"
-                      value={file}
-                      onChange={(e) => setFile((e.target as HTMLSelectElement).value)}
-                    >
-                      <option value="">{pgText('chooseFile')}</option>
-                      {files.map((f) => (
-                        <option value={f}>{f}</option>
-                      ))}
-                    </select>
-                  </label>
-                  {items.length > 0 && (
-                    <label for="pg-question">
-                      {pgText('questionInFile')}
-                      <select
-                        id="pg-question"
-                        value={String(
-                          Math.max(
-                            0,
-                            items.findIndex((item) => item.id === selectedItemId),
-                          ),
-                        )}
-                        onChange={(e) => {
-                          const item = items[Number((e.target as HTMLSelectElement).value)];
-                          if (!item) return;
-                          setHistory([]);
-                          setSelectedItemId(item.id);
-                          setGrade(item.grade);
-                          setDraft(item);
-                          setJson(JSON.stringify(item, null, 2));
-                        }}
-                      >
-                        {items.map((q, i) => (
-                          <option value={i}>
-                            {q.id} ({q.type})
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  )}
-                </div>
-                <div class="pg-technical-actions">
-                  <button type="button" onClick={() => void run()} disabled={running || !question}>
-                    {pgText('tryQuestion')}
-                  </button>
-                  <span>
-                    {pgText('registeredTypes')}：
-                    {allRenderers()
-                      .map((r) => r.type)
-                      .join(', ')}
-                  </span>
-                </div>
-                <div>
-                  <span class="pg-technical-label">QuestionResult</span>
-                  <pre class="pg-result">
-                    {result ? JSON.stringify(result, null, 2) : `(${pgText('noResult')})`}
-                  </pre>
-                </div>
-              </div>
-            </details>
           </div>
         </div>
       </main>

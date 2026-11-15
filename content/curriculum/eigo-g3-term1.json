@@ -56,60 +56,6 @@
   ],
   "relations": [
     {
-      "from": "eigo.g1.supplementary.greeting-sounds",
-      "to": "eigo.g3.interaction.greetings-preferences",
-      "kind": "transfer",
-      "strength": 0.7,
-      "rationale": "挨拶[あいさつ]や気持[きも]ちの英語[えいご]の音[おと]に親[した]しむ体験[たいけん]を、挨拶[あいさつ]と好[す]きなものを伝[つた]え合[あ]う活動[かつどう]へつなぐ。",
-      "sourceIds": ["mext-h29-eigo-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "eigo.g1.supplementary.fruit-sounds",
-      "to": "eigo.g3.listen.familiar-words",
-      "kind": "transfer",
-      "strength": 0.7,
-      "rationale": "果物[くだもの]の英語[えいご]の音[おと]に親[した]しむ体験[たいけん]を、身近[みぢか]な語[ご]を聞[き]いて意味[いみ]と結[むす]び付[つ]ける活動[かつどう]へつなぐ。",
-      "sourceIds": ["mext-h29-eigo-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "eigo.g2.supplementary.animals",
-      "to": "eigo.g3.listen.familiar-words",
-      "kind": "transfer",
-      "strength": 0.7,
-      "rationale": "動物[どうぶつ]の英語[えいご]の音[おと]に親[した]しむ体験[たいけん]を、身近[みぢか]な語[ご]を聞[き]いて意味[いみ]と結[むす]び付[つ]ける活動[かつどう]へつなぐ。",
-      "sourceIds": ["mext-h29-eigo-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "eigo.g2.supplementary.alphabet-order",
-      "to": "eigo.g2.supplementary.alphabet-order-middle",
-      "kind": "related",
-      "strength": 0.7,
-      "rationale": "前半[ぜんはん]の文字[もじ]の並[なら]びに親[した]しんだ経験[けいけん]を、中盤[ちゅうばん]の文字[もじ]の音[おと]と形[かたち]の遊[あそ]びへ広[ひろ]げる。",
-      "sourceIds": ["mext-h29-eigo-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "eigo.g2.supplementary.alphabet-order-middle",
-      "to": "eigo.g2.supplementary.alphabet-order-late",
-      "kind": "related",
-      "strength": 0.7,
-      "rationale": "中盤[ちゅうばん]の文字[もじ]の並[なら]びに親[した]しんだ経験[けいけん]を、後半[こうはん]の文字[もじ]の音[おと]と形[かたち]の遊[あそ]びへ広[ひろ]げる。",
-      "sourceIds": ["mext-h29-eigo-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
-      "from": "eigo.g2.supplementary.alphabet-order-late",
-      "to": "eigo.g3.listen.letters",
-      "kind": "transfer",
-      "strength": 0.7,
-      "rationale": "文字[もじ]の並[なら]びに親[した]しむ体験[たいけん]を、第三学年[だいさんがくねん]で活字体[かつじたい]の読[よ]み方[かた]を聞[き]く活動[かつどう]へつなぐ。",
-      "sourceIds": ["mext-h29-eigo-progression"],
-      "reviewStatus": "source-checked"
-    },
-    {
       "from": "eigo.g3.listen.familiar-words",
       "to": "eigo.g3.interaction.greetings-preferences",
       "kind": "prerequisite",

@@ -362,17 +362,18 @@ test('バトル：必殺技を えらぶと 問題が出て、答えると採点
   await expect
     .poll(
       async () => {
-        if (await page.locator('.nq-box-next').isVisible())
+        // Winning can queue several reward messages; tap also completes the current typewriter text.
+        if (await page.locator('.nq-box').isVisible())
           await page
             .locator('.nq-box')
-            .click()
+            .click({ timeout: 1_000 })
             .catch(() => undefined);
         return (
           (await page.locator('.nq-cmd[data-cmd="skill"]').isVisible()) ||
           (await page.locator('.nq-result').isVisible())
         );
       },
-      { timeout: 45_000 },
+      { timeout: 45_000, intervals: [250] },
     )
     .toBe(true);
   if (await page.locator('.nq-cmd[data-cmd="skill"]').isVisible()) {

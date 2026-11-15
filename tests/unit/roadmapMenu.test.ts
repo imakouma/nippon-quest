@@ -212,13 +212,13 @@ const nodes: RoadmapNode[] = [
     state: 'locked',
   },
   {
-    id: 'eigo.g1.alphabet',
+    id: 'eigo.g3.alphabet-small',
     name: 'アルファベット',
     subject: 'eigo',
     subjectLabel: '英語[えいご]',
-    grade: 1,
-    recommendedTerms: ['variable'],
-    courseKind: 'supplementary',
+    grade: 3,
+    recommendedTerms: [2],
+    courseKind: 'required-activity',
     mastery: 0,
     attempts: 0,
     retention: 0,
@@ -426,10 +426,11 @@ describe('学習ロードマップの単元選択', () => {
       'sansu',
       'rika',
       'shakai',
+      'eigo',
     ]);
     expect(
       subjectButtons.map((button) => button.querySelector('.nq-roadmap-subject-name')?.textContent),
-    ).toEqual(['全教科', '国語', '算数', '理科', '社会']);
+    ).toEqual(['全教科', '国語', '算数', '理科', '社会', '英語']);
     expect(
       subjectButtons.slice(1).every((button) => button.classList.contains('nq-roadmap-subject-long')),
     ).toBe(true);

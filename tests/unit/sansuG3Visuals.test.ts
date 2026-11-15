@@ -22,8 +22,9 @@ const questions = readdirSync('content/questions/sansu/g3').flatMap((dir) =>
 );
 describe('grade 3 illustrated learning materials', () => {
   it('preserves all 340 identities and targets, with only six explicit fraction-input repairs', () => {
-    expect(questions).toHaveLength(340);
+    expect(questions).toHaveLength(345);
     const rows = questions
+      .filter((q) => q.type !== 'random-calculation')
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
         const p = getRenderer(q.type)!.schema.parse(q.payload) as {

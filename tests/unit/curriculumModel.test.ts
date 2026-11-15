@@ -123,18 +123,28 @@ describe('curriculum unit validation', () => {
     );
   });
 
-  it('rejects an unclassified science, social studies, or English unit in grades 1 and 2', () => {
+  it('rejects an unclassified science or social studies unit in grades 1 and 2', () => {
     const lowGradeUnits = [
       unitSchema.parse({ id: 'rika.g1.observe', name: 'しぜん', subject: 'rika', grade: 1 }),
       unitSchema.parse({ id: 'shakai.g2.town', name: 'まち', subject: 'shakai', grade: 2 }),
-      unitSchema.parse({ id: 'eigo.g1.words', name: 'ことば', subject: 'eigo', grade: 1 }),
     ];
 
     expect(validateCurriculumUnits(lowGradeUnits, [])).toEqual([
       'rika.g1.observe: 1年 rika は supplementary と明記した補助教材だけ登録できます',
       'shakai.g2.town: 2年 shakai は supplementary と明記した補助教材だけ登録できます',
-      'eigo.g1.words: 1年 eigo は supplementary と明記した補助教材だけ登録できます',
     ]);
+  });
+
+  it.each([1, 2] as const)('%i年の英語単元は補助教材でも登録できない', (grade) => {
+    const unit = unitSchema.parse({
+      id: `eigo.g${grade}.words`,
+      name: 'ことば',
+      subject: 'eigo',
+      grade,
+      courseKind: 'supplementary',
+    });
+
+    expect(validateCurriculumUnits([unit], [])).toEqual([`eigo.g${grade}.words: 英語は3年から登録できます`]);
   });
 
   it('reports a question whose subject or grade differs from its unit', () => {

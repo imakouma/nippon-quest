@@ -14,10 +14,13 @@ export default defineConfig({
   testDir: '.',
   testIgnore: [
     'playground-list.spec.ts',
+    'g1-onyomi-input.spec.ts',
+    'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
     'question-mobile.spec.ts',
     'battle-question-audit.spec.ts',
+    'sansu-g*-visuals.spec.ts',
   ],
   timeout: 30_000,
   workers: 1,

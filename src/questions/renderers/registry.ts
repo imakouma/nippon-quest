@@ -5,6 +5,7 @@
 import type { QuestionRenderer } from '../contracts';
 import { withQuestionViewport } from './shared/questionViewport';
 import { choiceRenderer } from './choice';
+import { randomCalculationRenderer } from './random-calculation';
 import { experimentRenderer } from './experiment';
 import { kanjiTraceRenderer } from './kanji-trace';
 import { numberBuildRenderer } from './number-build';
@@ -46,3 +47,5 @@ registerRenderer(sortOrderRenderer);
 registerRenderer(experimentRenderer);
 registerRenderer(kanjiTraceRenderer);
 registerRenderer(pairMatchRenderer);
+
+registerRenderer(randomCalculationRenderer);
