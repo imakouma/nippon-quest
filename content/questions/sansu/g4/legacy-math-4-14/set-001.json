@@ -11,10 +11,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の帯分数を 仮分数にしよう。",
+      "prompt": "2\\dfrac{8}{9}を 仮分数[かぶんすう]にしましょう。",
       "answers": [
         "26"
-      ]
+      ],
+      "template": "{{INPUT}} / 9",
+      "promptImage": "questions/sansu/g4/visuals/fraction-0860a726afbb.svg",
+      "promptImageAlt": "2と8/9の図。1つの枠を9等分し、枠1つは1。"
     },
     "explanation": "整数 2=\\dfrac{18}{9} になる。これと真分数 \\dfrac{8}{9}を合わせて、\\dfrac{26}{9}"
   },
@@ -34,19 +37,24 @@
       "choices": [
         {
           "id": "c1",
-          "text": "\\dfrac{2}{4}"
+          "text": "\\dfrac{2}{4}",
+          "image": "questions/sansu/g4/visuals/equivalent-c1.svg"
         },
         {
           "id": "c2",
-          "text": "\\dfrac{1}{3}"
+          "text": "\\dfrac{1}{3}",
+          "image": "questions/sansu/g4/visuals/equivalent-c2.svg"
         },
         {
           "id": "c3",
-          "text": "\\dfrac{2}{3}"
+          "text": "\\dfrac{2}{3}",
+          "image": "questions/sansu/g4/visuals/equivalent-c3.svg"
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/fraction-17996dbc432c.svg",
+      "promptSpeech": "\\dfrac{1}{2} と等しい分数は、次のうち どれでしょう。 1を2等分したうちの1つ分。これと同じ割合の図を選ぶ。"
     },
     "explanation": "数直線を考えてみよう。\\dfrac{1}{2} は、1 を２つに分けたうちの１つ分の大きさ。つまり、1 の半分になるので、\\dfrac{2}{4} と等しい。"
   },
@@ -62,10 +70,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 2-3/5 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2 − \\dfrac{3}{5} =",
       "answers": [
-        "1,2"
-      ]
+        "1",
+        "2"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 5",
+      "promptImage": "questions/sansu/g4/visuals/fraction-235a7a59b326.svg",
+      "promptImageAlt": "2と3/5を引く図。1つの枠は1で、上は5等分、下は5等分。答えは書いていません。"
     },
     "explanation": "整数から、そのまま分数を引くことができない。整数を仮分数にしてから、引き算しよう。 2-\\dfrac{3}{5} = \\dfrac{10}{5}-\\dfrac{3}{5} = \\dfrac{7}{5} = 1\\dfrac{2}{5}"
   },
@@ -81,7 +93,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数の大きさをくらべて、□に入る 等号や不等号をえらぼう。",
+      "prompt": "次[つぎ]の数[かず]をくらべて、□に入[はい]る きごうをえらぼう。 \\dfrac{1}{3} □ \\dfrac{2}{3}",
       "choices": [
         {
           "id": "c1",
@@ -97,7 +109,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/fraction-2cabcb73feff.svg",
+      "promptSpeech": "次[つぎ]の数[かず]をくらべて、□に入[はい]る きごうをえらぼう。 \\dfrac{1}{3} □ \\dfrac{2}{3} 1/3と2/3を比べる図。1つの枠は1で、上は3等分、下は3等分。答えは書いていません。"
     },
     "explanation": "分母が同じときは、分子の大きさをくらべればいい。 \\dfrac{1}{3} \\lt \\dfrac{2}{3}"
   },
@@ -113,10 +127,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12/4-3/4 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{2}{4} − \\dfrac{3}{4} =",
       "answers": [
         "3"
-      ]
+      ],
+      "template": "{{INPUT}} / 4",
+      "promptImage": "questions/sansu/g4/visuals/fraction-3310a91b7368.svg",
+      "promptImageAlt": "1 と 2/4と3/4を引く図。1つの枠は1で、上は4等分、下は4等分。答えは書いていません。"
     },
     "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{2}{4}-\\dfrac{3}{4} = \\dfrac{6}{4}-\\dfrac{3}{4} = \\dfrac{3}{4}"
   },
@@ -132,10 +149,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 22/8+6/8 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2\\dfrac{2}{8} ＋ \\dfrac{6}{8} =",
       "answers": [
-        "8,3"
-      ]
+        "3"
+      ],
+      "template": "{{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/fraction-3fc704017d2d.svg",
+      "promptImageAlt": "2 と 2/8と6/8を足す図。1つの枠は1で、上は8等分、下は8等分。答えは書いていません。"
     },
     "explanation": "分数の部分どうしを 足し算しよう。 2\\dfrac{2}{8}+\\dfrac{6}{8} = 2\\dfrac{8}{8} \\dfrac{8}{8} は1、整数 1 になるので、答えは 3 になる。"
   },
@@ -151,10 +171,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 5/3-3/3 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 \\dfrac{5}{3} − \\dfrac{3}{3} =",
       "answers": [
         "2"
-      ]
+      ],
+      "template": "{{INPUT}} / 3",
+      "promptImage": "questions/sansu/g4/visuals/fraction-49fe9abad9aa.svg",
+      "promptImageAlt": "5/3と3/3を引く図。1つの枠は1で、上は3等分、下は3等分。答えは書いていません。"
     },
     "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{5}{3}-\\dfrac{3}{3} = \\dfrac{2}{3}"
   },
@@ -170,10 +193,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の帯分数を 仮分数にしよう。",
+      "prompt": "3\\dfrac{2}{7}を 仮分数[かぶんすう]にしましょう。",
       "answers": [
         "23"
-      ]
+      ],
+      "template": "{{INPUT}} / 7",
+      "promptImage": "questions/sansu/g4/visuals/fraction-4e518741d9b2.svg",
+      "promptImageAlt": "3と2/7の図。1つの枠を7等分し、枠1つは1。"
     },
     "explanation": "整数 3=\\dfrac{21}{7} になる。これと真分数 \\dfrac{2}{7}を合わせて、\\dfrac{23}{7}"
   },
@@ -209,7 +235,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/fraction-5661c2418960.svg",
+      "promptSpeech": "分数の大きさについて、正しいものをえらぼう。 れい：1/2とれい：1/3を比べる図。1つの枠は1で、上は2等分、下は3等分。答えは書いていません。"
     },
     "explanation": "「分子が同じ分数は、分母が小さいほど大きくなる。」が正しい。 ・「分母が同じ分数は、分子が小さいほど大きくなる。」は、まちがい。分母が同じ分数は、分子が大きいほど大きくなる。 ・\\dfrac{1}{2}と等しい分数が、\\dfrac{2}{4}, \\dfrac{3}{6} とあるように、ある分数と等しい分数は、たくさん考えることができる。 ・分数と整数も、大きさをくらべることができる。"
   },
@@ -245,7 +273,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/mixed-number-meaning.svg",
+      "promptSpeech": "1\\dfrac{1}{2} のように、整数と真分数で表された分数を 何というでしょう。 1と1/2を、1つ分の枠と半分の枠で表した図。"
     },
     "explanation": "1\\dfrac{1}{2} のように、整数と真分数で表された分数を 帯分数という。仮分数は、帯分数で表すことができる。"
   },
@@ -261,10 +291,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12/3+2/3 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{2}{3} ＋ \\dfrac{2}{3} =",
       "answers": [
-        "4,2,1"
-      ]
+        "2",
+        "1"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 3",
+      "promptImage": "questions/sansu/g4/visuals/fraction-68561e8b48be.svg",
+      "promptImageAlt": "1 と 2/3と2/3を足す図。1つの枠は1で、上は3等分、下は3等分。答えは書いていません。"
     },
     "explanation": "分数の部分どうしを 足し算しよう。 1\\dfrac{2}{3}+\\dfrac{2}{3} = 1\\dfrac{4}{3} \\dfrac{4}{3} を帯分数にすると、1\\dfrac{1}{3} になるので、答えは 2\\dfrac{1}{3} になる。"
   },
@@ -280,10 +314,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 19/7-5/7 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 \\dfrac{19}{7} − \\dfrac{5}{7} =",
       "answers": [
-        "14,2"
-      ]
+        "2"
+      ],
+      "template": "{{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/fraction-6cf01a246af7.svg",
+      "promptImageAlt": "19/7と5/7を引く図。1つの枠は1で、上は7等分、下は7等分。答えは書いていません。"
     },
     "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{19}{7}-\\dfrac{5}{7} = \\dfrac{14}{7} =2 答えが整数になるときは、必ず整数にして答えよう。"
   },
@@ -303,7 +340,9 @@
       "answers": [
         "2"
       ],
-      "template": "\\dfrac{10}{5}= {{INPUT}}"
+      "template": "\\dfrac{10}{5}= {{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/fraction-ten-fifths.svg",
+      "promptImageAlt": "5等分した枠の色の部分が全部で10こ。枠1つが1。"
     },
     "explanation": "分子の 10 の中に 分母の 5は、10÷5=2 で 2つ入っている。 わり切れたので、答えは整数 2 になる。"
   },
@@ -319,10 +358,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12/5+4/5 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{2}{5} ＋ \\dfrac{4}{5} =",
       "answers": [
-        "6,2,1"
-      ]
+        "2",
+        "1"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 5",
+      "promptImage": "questions/sansu/g4/visuals/fraction-8b14f0adbca7.svg",
+      "promptImageAlt": "1 と 2/5と4/5を足す図。1つの枠は1で、上は5等分、下は5等分。答えは書いていません。"
     },
     "explanation": "分数の部分どうしを 足し算しよう。 1\\dfrac{2}{5}+\\dfrac{4}{5} = 1\\dfrac{6}{5} \\dfrac{6}{5} を帯分数にすると、1\\dfrac{1}{5} になるので、答えは 2\\dfrac{1}{5} になる。"
   },
@@ -338,10 +381,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 14/6+2/6 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{4}{6} ＋ \\dfrac{2}{6} =",
       "answers": [
-        "1,6,2"
-      ]
+        "2"
+      ],
+      "template": "{{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/fraction-95e83927566d.svg",
+      "promptImageAlt": "1 と 4/6と2/6を足す図。1つの枠は1で、上は6等分、下は6等分。答えは書いていません。"
     },
     "explanation": "分数の部分どうしを 足し算しよう。 1\\dfrac{4}{6}+\\dfrac{2}{6} = 1\\dfrac{6}{6} \\dfrac{6}{6} は1、整数 1 になるので、答えは 2 になる。"
   },
@@ -357,10 +403,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 2-1/3 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2 − \\dfrac{1}{3} =",
       "answers": [
-        "1,2"
-      ]
+        "1",
+        "2"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 3",
+      "promptImage": "questions/sansu/g4/visuals/fraction-a78485ffaa9a.svg",
+      "promptImageAlt": "2と1/3を引く図。1つの枠は1で、上は3等分、下は3等分。答えは書いていません。"
     },
     "explanation": "整数から、そのまま分数を引くことができない。整数を仮分数にしてから、引き算しよう。 2-\\dfrac{1}{3} = \\dfrac{6}{3}-\\dfrac{1}{3} = \\dfrac{5}{3} =1\\dfrac{2}{3}"
   },
@@ -376,10 +426,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の帯分数を 仮分数にしよう。",
+      "prompt": "1\\dfrac{1}{3}を 仮分数[かぶんすう]にしましょう。",
       "answers": [
         "4"
-      ]
+      ],
+      "template": "{{INPUT}} / 3",
+      "promptImage": "questions/sansu/g4/visuals/fraction-aa2f795f52cb.svg",
+      "promptImageAlt": "1と1/3の図。1つの枠を3等分し、枠1つは1。"
     },
     "explanation": "整数 1=\\dfrac{3}{3} になる。これと真分数 \\dfrac{1}{3}を合わせて、\\dfrac{4}{3}"
   },
@@ -395,10 +448,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "prompt": "\\dfrac{13}{6}を 帯分数[たいぶんすう]にしましょう。",
       "answers": [
-        "2,1"
-      ]
+        "2",
+        "1"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 6",
+      "promptImage": "questions/sansu/g4/visuals/fraction-ac518e6196db.svg",
+      "promptImageAlt": "13/6の図。1つの枠を6等分し、枠1つは1。"
     },
     "explanation": "分子の 13 の中に 分母の 6は、13÷6=2 あまり 1 で 2つ入っている。 これが帯分数の整数の部分、あまりが分子になるので、答えは 2\\dfrac{1}{6} になる。"
   },
@@ -414,10 +471,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "prompt": "\\dfrac{3}{2}を 帯分数[たいぶんすう]にしましょう。",
       "answers": [
-        "1,1"
-      ]
+        "1",
+        "1"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 2",
+      "promptImage": "questions/sansu/g4/visuals/fraction-acb42b4e6766.svg",
+      "promptImageAlt": "3/2の図。1つの枠を2等分し、枠1つは1。"
     },
     "explanation": "分子の 3 の中に 分母の 2は、3÷2=1 あまり 1 で 1つ入っている。 これが帯分数の整数の部分、あまりが分子になるので、答えは 1\\dfrac{1}{2} になる。"
   },
@@ -433,10 +494,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の帯分数を 仮分数にしよう。",
+      "prompt": "2\\dfrac{3}{4}を 仮分数[かぶんすう]にしましょう。",
       "answers": [
         "11"
-      ]
+      ],
+      "template": "{{INPUT}} / 4",
+      "promptImage": "questions/sansu/g4/visuals/fraction-aee5d2c4b87c.svg",
+      "promptImageAlt": "2と3/4の図。1つの枠を4等分し、枠1つは1。"
     },
     "explanation": "整数 2=\\dfrac{8}{4} になる。これと真分数 \\dfrac{3}{4}を合わせて、\\dfrac{11}{4}"
   },
@@ -452,10 +516,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 11/7-6/7 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{1}{7} − \\dfrac{6}{7} =",
       "answers": [
         "2"
-      ]
+      ],
+      "template": "{{INPUT}} / 7",
+      "promptImage": "questions/sansu/g4/visuals/fraction-c0a010c16f09.svg",
+      "promptImageAlt": "1 と 1/7と6/7を引く図。1つの枠は1で、上は7等分、下は7等分。答えは書いていません。"
     },
     "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{1}{7}-\\dfrac{6}{7} = \\dfrac{8}{7}-\\dfrac{6}{7} = \\dfrac{2}{7}"
   },
@@ -471,10 +538,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の仮分数を 整数または帯分数にしよう。",
+      "prompt": "\\dfrac{8}{3}を 帯分数[たいぶんすう]にしましょう。",
       "answers": [
-        "2,2"
-      ]
+        "2",
+        "2"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 3",
+      "promptImage": "questions/sansu/g4/visuals/fraction-cf04e564b113.svg",
+      "promptImageAlt": "8/3の図。1つの枠を3等分し、枠1つは1。"
     },
     "explanation": "分子の 8 の中に 分母の 3は、8÷3=2 あまり 2 で 2つ入っている。 これが帯分数の整数の部分、あまりが分子になるので、答えは 2\\dfrac{2}{3} になる。"
   },
@@ -490,10 +561,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3/4+2/4 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 \\dfrac{3}{4} ＋ \\dfrac{2}{4} =",
       "answers": [
-        "5,1,1"
-      ]
+        "1",
+        "1"
+      ],
+      "template": "{{INPUT}} と {{INPUT}} / 4",
+      "promptImage": "questions/sansu/g4/visuals/fraction-d35715741676.svg",
+      "promptImageAlt": "3/4と2/4を足す図。1つの枠は1で、上は4等分、下は4等分。答えは書いていません。"
     },
     "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{3}{4}+\\dfrac{2}{4} = \\dfrac{5}{4} =1\\dfrac{1}{4}"
   },
@@ -509,7 +584,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の数の大きさをくらべて、□に入る 等号や不等号をえらぼう。",
+      "prompt": "次[つぎ]の数[かず]をくらべて、□に入[はい]る きごうをえらぼう。 \\dfrac{2}{3} □ \\dfrac{2}{4}",
       "choices": [
         {
           "id": "c1",
@@ -525,7 +600,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/fraction-d5e455751a6b.svg",
+      "promptSpeech": "次[つぎ]の数[かず]をくらべて、□に入[はい]る きごうをえらぼう。 \\dfrac{2}{3} □ \\dfrac{2}{4} 2/3と2/4を比べる図。1つの枠は1で、上は3等分、下は4等分。答えは書いていません。"
     },
     "explanation": "分子が同じ分数では、分母が小さいほど、大きくなる。1 を３つに分けたうちの２つ分の方が、４つに分けたうちの２つ分より大きいね。 \\dfrac{2}{3} \\gt \\dfrac{2}{4}"
   },
@@ -541,10 +618,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12/5-4/5 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{2}{5} − \\dfrac{4}{5} =",
       "answers": [
         "3"
-      ]
+      ],
+      "template": "{{INPUT}} / 5",
+      "promptImage": "questions/sansu/g4/visuals/fraction-d7d0333e6aa0.svg",
+      "promptImageAlt": "1 と 2/5と4/5を引く図。1つの枠は1で、上は5等分、下は5等分。答えは書いていません。"
     },
     "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{2}{5}-\\dfrac{4}{5} = \\dfrac{7}{5}-\\dfrac{4}{5} = \\dfrac{3}{5}"
   },
@@ -560,10 +640,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12/8-7/8 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1\\dfrac{2}{8} − \\dfrac{7}{8} =",
       "answers": [
         "3"
-      ]
+      ],
+      "template": "{{INPUT}} / 8",
+      "promptImage": "questions/sansu/g4/visuals/fraction-f47c5f82fff6.svg",
+      "promptImageAlt": "1 と 2/8と7/8を引く図。1つの枠は1で、上は8等分、下は8等分。答えは書いていません。"
     },
     "explanation": "分数部分での引き算ができない。帯分数を仮分数にしてから、引き算しよう。 1\\dfrac{2}{8}-\\dfrac{7}{8} = \\dfrac{10}{8}-\\dfrac{7}{8} = \\dfrac{3}{8}"
   },
@@ -579,10 +662,13 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 4/5+6/5 =",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 \\dfrac{4}{5} ＋ \\dfrac{6}{5} =",
       "answers": [
-        "10,2"
-      ]
+        "2"
+      ],
+      "template": "{{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/fraction-ff7d3a341dc8.svg",
+      "promptImageAlt": "4/5と6/5を足す図。1つの枠は1で、上は5等分、下は5等分。答えは書いていません。"
     },
     "explanation": "分数の足し算・引き算では、分母はそのままに 分子どうしでだけ、足し算や引き算をしよう。 \\dfrac{4}{5}+\\dfrac{6}{5} = \\dfrac{10}{5} =2 答えが整数になるときは、必ず整数にして答えよう。"
   }
