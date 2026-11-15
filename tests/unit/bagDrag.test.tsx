@@ -67,7 +67,9 @@ it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控�
     ] as const) {
       const event = new Event(name, { bubbles: true, cancelable: true });
       Object.defineProperty(event, 'dataTransfer', { value: dataTransfer });
-      act(() => element.dispatchEvent(event));
+      act(() => {
+        element.dispatchEvent(event);
+      });
     }
   };
   const empty = root.querySelector('.nq-bag-empty')!;

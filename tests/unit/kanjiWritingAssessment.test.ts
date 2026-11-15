@@ -24,6 +24,20 @@ describe('grade-one handwriting assessment', () => {
     expect(assessWriting('木', ink('水')).score).toBeLessThan(1);
     expect(assessWriting('日', ink('目')).issue).toBe('count');
   });
+  it('accepts mild synthetic wobble and size variation across all 80 characters', () => {
+    // Generated perturbations exercise tolerance; these are not children's handwriting samples.
+    for (const kanji of grades.byGrade['1']) {
+      for (const scale of [0.96, 1.04]) {
+        const strokes = ink(kanji).map((stroke) =>
+          stroke.map((point, index) => ({
+            x: 0.5 + (point.x - 0.5) * scale + 0.004 * Math.sin((index / 63) * Math.PI * 2),
+            y: 0.5 + (point.y - 0.5) * scale + 0.004 * Math.sin((index / 63) * Math.PI * 2),
+          })),
+        );
+        expect(assessWriting(kanji, strokes).score, `${kanji} scale=${scale}`).toBe(1);
+      }
+    }
+  });
   it('rejects reversed direction and swapped strokes even when the final picture is identical', () => {
     for (const kanji of ['音', '木', '水', '一']) {
       expect(

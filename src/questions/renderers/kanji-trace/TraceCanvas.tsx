@@ -144,6 +144,14 @@ export function TraceCanvas({ payload, ctx, disabled, onAttempt, onSubmit }: Pro
     onSubmit(traceScore(match), match);
   };
 
+  const cancelStroke = (event: PointerEvent) => {
+    if (pointer.current !== event.pointerId) return;
+    pointer.current = null;
+    strokes.current.pop();
+    setHasInk(strokes.current.length > 0);
+    paint();
+  };
+
   return (
     <>
       <canvas
@@ -164,7 +172,8 @@ export function TraceCanvas({ payload, ctx, disabled, onAttempt, onSubmit }: Pro
         }}
         onPointerMove={(event) => {
           if (pointer.current !== event.pointerId || disabled) return;
-          strokes.current.at(-1)!.push(point(event));
+          const samples = event.getCoalescedEvents?.();
+          strokes.current.at(-1)!.push(...(samples?.length ? samples : [event]).map(point));
           paint();
         }}
         onPointerUp={(event) => {
@@ -173,13 +182,8 @@ export function TraceCanvas({ payload, ctx, disabled, onAttempt, onSubmit }: Pro
           pointer.current = null;
           paint();
         }}
-        onPointerCancel={(event) => {
-          if (pointer.current !== event.pointerId) return;
-          pointer.current = null;
-          strokes.current.pop();
-          setHasInk(strokes.current.length > 0);
-          paint();
-        }}
+        onPointerCancel={cancelStroke}
+        onLostPointerCapture={cancelStroke}
       />
       {reference && (
         <div role="status" aria-live="polite">
