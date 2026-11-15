@@ -1,6 +1,8 @@
 import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import g1OnyomiContexts from '../content/kanji/g1-onyomi-contexts.json';
+import type { TextInputPayload } from '../src/questions/renderers/text-input/schema';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { MAX_QUESTIONS_PER_SET, type QuestionSourceFile } from './question-layout';
 
@@ -37,12 +39,10 @@ export interface GeneratedWritingQuestion extends Omit<QuestionBase, 'payload' |
   payload: WritingPayload;
 }
 
-export interface GeneratedReadingQuestion extends Omit<QuestionBase, 'payload' | 'tags' | 'type'> {
-  type: 'choice';
+export type GeneratedReadingQuestion = Omit<QuestionBase, 'payload' | 'tags' | 'type'> & {
   tags: string[];
-  payload: ChoicePayload;
   character: string;
-}
+} & ({ type: 'choice'; payload: ChoicePayload } | { type: 'text-input'; payload: TextInputPayload });
 
 export interface GeneratedKanjiQuestions {
   writing: GeneratedWritingQuestion[];
@@ -184,8 +184,30 @@ function readingQuestions(
     const pool = [...new Set(candidates.map(({ answer }) => answer))];
     const usedSignatures = new Set<string>();
 
-    return Array.from({ length: targetCount }, (_, index) => {
+    return Array.from({ length: targetCount }, (_, index): GeneratedReadingQuestion => {
       const candidate = candidates[index % candidates.length]!;
+      if (grade === 1 && category === 'onyomi') {
+        const contexts: Record<string, string> = g1OnyomiContexts;
+        const prompt = contexts[`${candidate.record.character}:${candidate.answer}`];
+        if (!prompt)
+          throw new Error(`1年の音読み例文がありません: ${candidate.record.character}:${candidate.answer}`);
+        return {
+          id: `kokugo.g1.kanji-onyomi.${String(index + 1).padStart(4, '0')}`,
+          type: 'text-input',
+          subject: 'kokugo',
+          grade,
+          unit: KANJI_UNIT_BY_GRADE[grade],
+          tags: ['kanji:reading:on', 'kanji:canonical'],
+          payload: {
+            prompt,
+            template: 'よみかた：{{INPUT}}',
+            answers: [candidate.answer],
+            suffix: 'ひらがなで こたえよう',
+          },
+          explanation: `「${prompt}」の「${candidate.record.character}」は「${candidate.answer}」と 読[よ]みます。`,
+          character: candidate.record.character,
+        };
+      }
       const occurrence = Math.floor(index / candidates.length);
       const validReadings = new Set(distinctReadings(candidate.record, category));
       const eligiblePool = pool.filter((reading) => !validReadings.has(reading));
