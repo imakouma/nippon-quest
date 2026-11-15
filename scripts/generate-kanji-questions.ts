@@ -202,7 +202,6 @@ function readingQuestions(
             prompt,
             template: 'よみかた：{{INPUT}}',
             answers: [candidate.answer],
-            suffix: 'ひらがなで こたえよう',
           },
           explanation: `「${prompt}」の「${candidate.record.character}」は「${candidate.answer}」と 読[よ]みます。`,
           character: candidate.record.character,
