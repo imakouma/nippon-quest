@@ -49,3 +49,69 @@ test('一年生の一: 逆方向を検出し、細い線で再挑戦できる', 
   await expect(page.locator('.pg-result-summary')).toContainText('100%', { timeout: 10000 });
   await expect(page.locator('.pg-result-summary')).toContainText('2');
 });
+
+for (const pressure of [0.02, 1]) {
+  test(`模擬ペン入力: 筆圧${pressure}でも一を判定できる`, async ({ page }) => {
+    await page.goto('/playground.html?q=kokugo.g1.kanji-writing.0001');
+    const canvas = page.locator('.nq-kt-canvas');
+    await canvas.scrollIntoViewIfNeeded();
+    const box = (await canvas.boundingBox())!;
+    await canvas.evaluate((element) =>
+      element.addEventListener('pointerdown', (event) => {
+        if (!(event instanceof PointerEvent)) return;
+        element.dataset.pointerType = event.pointerType;
+        element.dataset.pressure = String(event.pressure);
+      }),
+    );
+    const pen = await page.context().newCDPSession(page);
+    const points = data.characters['一']![0]!.points.filter((_, i) => i % 4 === 0 || i === 63);
+    const position = (point: { x: number; y: number }) => ({
+      x: box.x + point.x * box.width,
+      y: box.y + point.y * box.height,
+    });
+    try {
+      await pen.send('Input.dispatchMouseEvent', {
+        type: 'mouseMoved',
+        ...position(points[0]!),
+        pointerType: 'pen',
+        button: 'none',
+        buttons: 0,
+        force: 0,
+      });
+      await expect(page.getByRole('button', { name: 'けす', exact: true })).toBeDisabled();
+      await pen.send('Input.dispatchMouseEvent', {
+        type: 'mousePressed',
+        ...position(points[0]!),
+        pointerType: 'pen',
+        button: 'left',
+        buttons: 1,
+        clickCount: 1,
+        force: pressure,
+      });
+      for (const point of points.slice(1))
+        await pen.send('Input.dispatchMouseEvent', {
+          type: 'mouseMoved',
+          ...position(point),
+          pointerType: 'pen',
+          button: 'left',
+          buttons: 1,
+          force: pressure,
+        });
+      await pen.send('Input.dispatchMouseEvent', {
+        type: 'mouseReleased',
+        ...position(points.at(-1)!),
+        pointerType: 'pen',
+        button: 'left',
+        buttons: 0,
+        clickCount: 1,
+        force: 0,
+      });
+      await expect(canvas).toHaveAttribute('data-pointer-type', 'pen');
+      expect(Number(await canvas.getAttribute('data-pressure'))).toBeCloseTo(pressure, 5);
+      await page.getByRole('button', { name: 'できた！', exact: true }).click();
+      await expect(page.locator('.pg-result-summary')).toContainText('100%');
+    } finally {
+      await pen.detach();
+    }
+  });
+}
