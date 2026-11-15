@@ -248,6 +248,7 @@
   max-height: 216px;
 }
 .nq-input-template {
+  font-size: 133.333333%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -256,7 +257,7 @@
   flex: 1;
   min-height: 0;
   overflow-y: visible;
-  line-height: 48px;
+  line-height: 2;
 }
 .nq-q-input:has(.nq-input-illustrated-prompt) .nq-input-template {
   flex: none;
@@ -269,8 +270,8 @@
   gap: 8px;
 }
 .nq-input-template input {
-  width: 120px;
-  min-height: 48px;
+  width: 5em;
+  min-height: 2em;
   box-sizing: border-box;
   border: 4px solid #f6e7c1;
   background: #090d1d;
