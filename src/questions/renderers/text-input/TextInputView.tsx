@@ -7,7 +7,7 @@ import { Feedback } from '../shared/Feedback';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
 import { TimerBar } from '../shared/TimerBar';
 import { getTextInputSpeech } from '../shared/questionSpeech';
-import { textInputScore, type TextInputPayload } from './schema';
+import { normalizeInput, textInputScore, type TextInputPayload } from './schema';
 
 export function TextInputView({
   ctx,
@@ -27,6 +27,7 @@ export function TextInputView({
     null,
   );
   const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
+  const numeric = payload.answers.every((answer) => /^-?(?:\d+|\d*\.\d+)$/.test(normalizeInput(answer)));
   const inputs = useRef<Array<HTMLInputElement | null>>([]);
   const finish = (timedOut: boolean) => {
     if (once.current) return;
@@ -120,14 +121,14 @@ export function TextInputView({
                 aria-keyshortcuts="Enter"
                 value={values[index]}
                 disabled={done}
-                inputMode="decimal"
+                inputMode={numeric ? 'decimal' : 'text'}
                 onInput={(event) => {
                   const next = [...values];
                   next[index] = (event.currentTarget as HTMLInputElement).value;
                   setValues(next);
                 }}
                 onKeyDown={(event) => {
-                  if (event.key !== 'Enter') return;
+                  if (event.key !== 'Enter' || event.isComposing || event.keyCode === 229) return;
                   const nextEmpty = values.findIndex((value) => !value.trim());
                   if (nextEmpty >= 0) {
                     if (nextEmpty !== index) {

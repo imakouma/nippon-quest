@@ -93,6 +93,7 @@ describe('漢字問題生成', () => {
     ] as const) {
       const signatures = new Set<string>();
       for (const question of questions) {
+        if (question.type !== 'choice') continue;
         const record = canonical.get(question.character)!;
         const validReadings = new Set(record[category].map(({ reading }) => normalizeKanjiReading(reading)));
         const texts = question.payload.choices.map(({ text }) => text);
@@ -106,7 +107,7 @@ describe('漢字問題生成', () => {
           [question.character, answer, ...texts.filter((text) => text !== answer).sort()].join('|'),
         );
       }
-      expect(signatures.size).toBe(questions.length);
+      expect(signatures.size).toBe(questions.filter((question) => question.type === 'choice').length);
     }
   });
 
@@ -126,7 +127,7 @@ describe('漢字問題生成', () => {
     const broken = structuredClone(sources);
     const question = broken
       .flatMap((source) => source.questions)
-      .find((candidate) => candidate.id === 'kokugo.g1.kanji-onyomi.0001')!;
+      .find((candidate) => candidate.id === 'kokugo.g2.kanji-onyomi.0001')!;
     const payload = question.payload as {
       choices: { id: string; text: string }[];
       answer: string;
@@ -140,11 +141,28 @@ describe('漢字問題生成', () => {
     ).toBe(true);
   });
 
+  it.each([
+    [{ answers: ['ひと'] }, '正規データの音読みにありません'],
+    [{ answers: ['いち', 'に'] }, '正規データの音読みにありません'],
+    [{ prompt: '一[いち]ばんの パン' }, 'ふりがな'],
+    [{ prompt: '一番の パン' }, '一字だけ'],
+    [{ prompt: '番の パン' }, '配当学年'],
+  ])('音読み入力の不正な教材を拒否する: %j', (patch, error) => {
+    const sources = structuredClone([...preservedSources, ...generatedSources]);
+    const question = sources
+      .flatMap(({ questions }) => questions)
+      .find((q) => q.id === 'kokugo.g1.kanji-onyomi.0001')!;
+    question.payload = { ...(question.payload as object), ...patch };
+    expect(auditKanjiQuestionCoverage(records, sources).some((message) => message.includes(error))).toBe(
+      true,
+    );
+  });
+
   it('正規漢字問題も8択への編集を許可し9択は拒否する', () => {
     const sources = structuredClone([...preservedSources, ...generatedSources]);
     const question = sources
       .flatMap((source) => source.questions)
-      .find((q) => q.id === 'kokugo.g1.kanji-onyomi.0001')!;
+      .find((q) => q.id === 'kokugo.g2.kanji-onyomi.0001')!;
     const payload = question.payload as { choices: { id: string; text: string }[] };
     for (const [index, text] of ['あああ', 'いいい', 'ううう', 'えええ'].entries()) {
       payload.choices.push({ id: `extra-${index}`, text });
@@ -160,7 +178,7 @@ describe('漢字問題生成', () => {
     const sources = structuredClone([...preservedSources, ...generatedSources]);
     const question = sources
       .flatMap((source) => source.questions)
-      .find((q) => q.id === 'kokugo.g1.kanji-onyomi.0001')!;
+      .find((q) => q.id === 'kokugo.g2.kanji-onyomi.0001')!;
     const payload = question.payload as {
       choices: { id: string; text?: string; image?: string }[];
       answer: string;
@@ -179,7 +197,7 @@ describe('漢字問題生成', () => {
     const choice = structuredClone(
       mixed
         .flatMap((source) => source.questions)
-        .find((question) => question.id === 'kokugo.g1.kanji-onyomi.0001')!,
+        .find((question) => question.id === 'kokugo.g2.kanji-onyomi.0001')!,
     );
     choice.id = 'kokugo.g1.misplaced-choice.0001';
     choice.tags = [];
