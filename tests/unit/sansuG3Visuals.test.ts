@@ -21,8 +21,8 @@ const questions = readdirSync('content/questions/sansu/g3').flatMap((dir) =>
   ),
 );
 describe('grade 3 illustrated learning materials', () => {
-  it('preserves all 340 identities and targets, with only six explicit fraction-input repairs', () => {
-    expect(questions).toHaveLength(340);
+  it('preserves all 345 identities and targets, with only six explicit fraction-input repairs', () => {
+    expect(questions).toHaveLength(345);
     const rows = questions
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
@@ -44,7 +44,7 @@ describe('grade 3 illustrated learning materials', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      '1717bb2d74b3831a7b907127ead07ed618c6b8fdaed8fc01242234cfe228fda8',
+      '8e33c01f02ee318d46c7df6bdd50146ad80af91fed8a6ca53df7a19bc0dc476f',
     );
   });
   it('accepts fractions through numerator/denominator fields and rejects concatenated digits', () => {
