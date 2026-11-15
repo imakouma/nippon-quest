@@ -16,7 +16,9 @@
         "720"
       ],
       "template": "{{INPUT}} °",
-      "suffix": "°"
+      "suffix": "°",
+      "promptImage": "questions/sansu/g5/visuals/angles-04898192d0fb.svg",
+      "promptImageAlt": "6角形。1つの頂点から対角線を引き、三角形に分けた図。"
     },
     "explanation": "六角形のすべての角の大きさを合わせた 内角の和は、720° になる。"
   },
@@ -96,7 +98,9 @@
         "900"
       ],
       "template": "{{INPUT}} °",
-      "suffix": "°"
+      "suffix": "°",
+      "promptImage": "questions/sansu/g5/visuals/angles-524c39995cb1.svg",
+      "promptImageAlt": "7角形。1つの頂点から対角線を引き、三角形に分けた図。"
     },
     "explanation": "七角形のすべての角の大きさを合わせた 内角の和は、900° になる。"
   },
@@ -139,7 +143,9 @@
         "360"
       ],
       "template": "{{INPUT}} °",
-      "suffix": "°"
+      "suffix": "°",
+      "promptImage": "questions/sansu/g5/visuals/angles-5dcbce6cda0e.svg",
+      "promptImageAlt": "4角形。1つの頂点から対角線を引き、三角形に分けた図。"
     },
     "explanation": "四角形[しかくけい]のすべての角の大きさを合わせた 内角の和は、360° になる。"
   },
@@ -204,7 +210,9 @@
         "180"
       ],
       "template": "{{INPUT}} °",
-      "suffix": "°"
+      "suffix": "°",
+      "promptImage": "questions/sansu/g5/visuals/angles-83ab4f5e9b88.svg",
+      "promptImageAlt": "3角形。3つの角の数値は空欄。"
     },
     "explanation": "三角形[さんかくけい]のすべての角の大きさを合わせた 内角の和は、180° になる。"
   },
@@ -240,7 +248,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/visuals/triangle-types.svg",
+      "promptSpeech": "正三角形と二等辺三角形についての説明[せつめい]として正しいものを、それぞれえらぼう。 左は正三角形、右は二等辺三角形。辺の長さに対応する形。"
     },
     "explanation": "正三角形：すべての角の大きさが等しい 二等辺三角形：２つの角の大きさが等しい"
   },
@@ -364,7 +374,9 @@
         "60"
       ],
       "template": "{{INPUT}} °",
-      "suffix": "°"
+      "suffix": "°",
+      "promptImage": "questions/sansu/g5/visuals/angles-c74bdd367c6b.svg",
+      "promptImageAlt": "3角形。3つの角の数値は空欄。"
     },
     "explanation": "正三角形では、すべての角が同じ大きさになる。３つの同じ大きさの角を合わせると、180° になるので、１つ分の角の大きさは 180÷3 = 60°"
   },
