@@ -54,7 +54,9 @@
         "6",
         "8"
       ],
-      "template": "ぼうの長さ（m） 1 2 3 4 5 ぼうの重さ（kg） {{INPUT}} 4 {{INPUT}} {{INPUT}} 10"
+      "template": "① {{INPUT}}　② {{INPUT}}　③ {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/table-0dea44d82c7a.svg",
+      "promptImageAlt": "長さ（m）の1から5に対応する重さ（kg）を表に整理。下段は①、4、②、③、10。①〜③は答える空欄。"
     },
     "explanation": "1m の重さが 2kg なので、＜ぼうの重さ＞＝ 2 × ＜ぼうの長さ＞ で求めることができる。"
   },
@@ -86,7 +88,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-options-1679f1da7f39.svg",
+      "promptSpeech": "次の中から、反比例の関係にあるものをえらぼう。 すべての選択肢にある状況を並べた絵。正しい関係は強調していない。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「分けた人数」が 2倍、3倍になれば「１人がもらえるあめの数」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
   },
@@ -122,7 +126,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-change-1a613dba29a9.svg",
+      "promptSpeech": "ある数が 2倍、3倍になると、もう一方の数は \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係を 何というでしょう。 上段の量が1倍、2倍、3倍に増えると、下段は1倍、2分の1倍、3分の1倍になる例。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数は \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係を「反比例」という。"
   },
@@ -191,7 +197,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/graph-337d7e0826ac.svg",
+      "promptSpeech": "比例のグラフの特徴として、正しいものをえらぼう。 比例の例のグラフ。原点を通る右上がりの直線を示す。"
     },
     "explanation": "比例のグラフは、(0, 0) を通る 右上がりの直線になる。"
   },
@@ -227,7 +235,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-change-35508423c21f.svg",
+      "promptSpeech": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係を 何というでしょう。 上段の量が1倍、2倍、3倍に増えると、下段も1倍、2倍、3倍になる例。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係を「比例」という。"
   },
@@ -332,7 +342,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-options-5d4e0868232a.svg",
+      "promptSpeech": "次の中から、比例の関係にあるものをえらぼう。 すべての選択肢にある状況を並べた絵。正しい関係は強調していない。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「水をいれた時間」が 2倍、3倍になれば「水そうの水の量」も 2倍、3倍になるね。"
   },
@@ -353,7 +365,9 @@
         "40"
       ],
       "template": "時速 40km の車の「走った時間（x時間）」と「道のり（ykm）」 y= {{INPUT}} × x",
-      "suffix": "× x"
+      "suffix": "× x",
+      "promptImage": "questions/sansu/g6/visuals/relation-60f7b24a85f0.svg",
+      "promptImageAlt": "車は1時間で40km進む。時間xと道のりyの対応。"
     },
     "explanation": "道のりは、40km × ＜走った時間＞ で求めることができるので、 y=40×x"
   },
@@ -374,7 +388,9 @@
         "20"
       ],
       "template": "20個 のあめを分けるときの 分けた人数（x 人）と １人がもらえるあめの数（y 個） y= {{INPUT}} ÷ x",
-      "suffix": "÷ x"
+      "suffix": "÷ x",
+      "promptImage": "questions/sansu/g6/visuals/relation-69eb5eda5b64.svg",
+      "promptImageAlt": "あめ20こをx人で等しく分け、1人分をyことする。"
     },
     "explanation": "は、 20個 ÷ ＜分けた人数＞ で求めることができるので、 y=20÷x"
   },
@@ -396,7 +412,9 @@
         "20",
         "25"
       ],
-      "template": "時間（分） 1 2 3 4 5 水の量（L） 5 {{INPUT}} 15 {{INPUT}} {{INPUT}}"
+      "template": "① {{INPUT}}　② {{INPUT}}　③ {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/table-762f8811fff0.svg",
+      "promptImageAlt": "時間（分）の1から5に対応する水の量（L）を表に整理。下段は5、①、15、②、③。①〜③は答える空欄。"
     },
     "explanation": "1分間 で入れる水の量が 5L なので、＜水の量＞＝ 5 × ＜時間＞ で求めることができる。"
   },
@@ -418,7 +436,9 @@
         "160",
         "200"
       ],
-      "template": "走った時間（時間） 1 2 3 4 5 道のり（km） {{INPUT}} 80 120 {{INPUT}} {{INPUT}}"
+      "template": "① {{INPUT}}　② {{INPUT}}　③ {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/table-784e2613eb27.svg",
+      "promptImageAlt": "時間（時間）の1から5に対応する道のり（km）を表に整理。下段は①、80、120、②、③。①〜③は答える空欄。"
     },
     "explanation": "× ＜速さ＞ = なので、＜道のり> ＝ 40 × で求めることができる。"
   },
@@ -440,7 +460,9 @@
         "6",
         "9"
       ],
-      "template": "縦の長さ（cm） 1 2 3 4 5 面積（cm^2） {{INPUT}} {{INPUT}} {{INPUT}} 12 15"
+      "template": "① {{INPUT}}　② {{INPUT}}　③ {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/table-9dfc941fa652.svg",
+      "promptImageAlt": "縦（cm）の1から5に対応する面積（cm²）を表に整理。下段は①、②、③、12、15。①〜③は答える空欄。"
     },
     "explanation": "× ＜横の長さ＞ = なので、＜面積[めんせき]> ＝ 3 × で求めることができる。"
   },
@@ -456,13 +478,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "面積[めんせき]が 12cm^2 の長方形[ちょうほうけい]について、縦の長さと横の長さを 下の表にまとめました。空らんに あてはまる数をうめよう。 縦の長さ（cm） 1 2 3 4 5 6 横の長さ（cm） 6 4 3",
+      "prompt": "面積[めんせき]が12cm²の長方形[ちょうほうけい]です。表[ひょう]の①〜③にあてはまる横の長さを求めよう。",
       "answers": [
         "12",
         "2.4",
         "2"
       ],
-      "template": "面積が 12cm^2 の長方形について、縦の長さと横の長さを 下の表にまとめました。空らんに あてはまる数をうめよう。 縦の長さ（cm） 1 2 3 4 5 6 横の長さ（cm） {{INPUT}} 6 4 3 {{INPUT}} {{INPUT}}"
+      "template": "① {{INPUT}}　② {{INPUT}}　③ {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/table-a3176b883657.svg",
+      "promptImageAlt": "縦（cm）の1から6に対応する横（cm）を表に整理。下段は①、6、4、3、②、③。①〜③は答える空欄。"
     },
     "explanation": "面積[めんせき]が 12cm^2 なので、＜縦の長さ＞ × ＜横の長さ＞＝ 12cm^2 で求めることができる。"
   },
@@ -494,7 +518,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-options-a664393671f4.svg",
+      "promptSpeech": "次の中から、比例の関係にあるものをえらぼう。 すべての選択肢にある状況を並べた絵。正しい関係は強調していない。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「縦の長さ」が 2倍、3倍になれば「面積[めんせき]」も 2倍、3倍になるね。"
   },
@@ -672,7 +698,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-options-c6fd59d350a3.svg",
+      "promptSpeech": "次の中から、比例の関係にあるものをえらぼう。 すべての選択肢にある状況を並べた絵。正しい関係は強調していない。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数も 2倍、3倍になるような数の関係が「比例」だ。 「走った時間」が 2倍、3倍になれば「道のり」も 2倍、3倍になるね。"
   },
@@ -693,7 +721,9 @@
         "5"
       ],
       "template": "1分間に 5L ずつ、水そうに水を入れたときの 「水を入れた時間（x 分）」と「水そうの水の量（y L）」 y= {{INPUT}} × x",
-      "suffix": "× x"
+      "suffix": "× x",
+      "promptImage": "questions/sansu/g6/visuals/relation-c9c02fee9e72.svg",
+      "promptImageAlt": "1分に5Lずつ水を入れる。時間xと水の量yの対応。"
     },
     "explanation": "水そうの水の量は、5L × ＜水を入れた時間＞ で求めることができるので、 y=5×x"
   },
@@ -762,7 +792,9 @@
         }
       ],
       "answer": "c3",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/graph-cea54380c2ee.svg",
+      "promptSpeech": "反比例のグラフの特徴として、正しいものをえらぼう。 反比例の例のグラフ。xが1から6へ増える間の曲線を示す。"
     },
     "explanation": "反比例のグラフは、曲線になる。"
   },
@@ -820,7 +852,9 @@
         "4.8",
         "4"
       ],
-      "template": "人数（人） 1 2 3 4 5 6 1人分の量（L） 24 {{INPUT}} 8 6 {{INPUT}} {{INPUT}}"
+      "template": "① {{INPUT}}　② {{INPUT}}　③ {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/table-d6897dce29e9.svg",
+      "promptImageAlt": "人数（人）の1から6に対応する1人分（L）を表に整理。下段は24、①、8、6、②、③。①〜③は答える空欄。"
     },
     "explanation": "ジュースの量が 24L なので、24L ÷ ＜人数＞ ＝ ＜1人分の量＞ で求めることができる。"
   },
@@ -852,7 +886,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-options-e0bc64e5a688.svg",
+      "promptSpeech": "次の中から、反比例の関係にあるものをえらぼう。 すべての選択肢にある状況を並べた絵。正しい関係は強調していない。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「速さ」が 2倍、3倍になれば「かかる時間」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
   },
@@ -884,7 +920,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-options-ff23e6f3babf.svg",
+      "promptSpeech": "次の中から、反比例の関係にあるものをえらぼう。 すべての選択肢にある状況を並べた絵。正しい関係は強調していない。"
     },
     "explanation": "ある数が 2倍、3倍になると、もう一方の数が \\frac{1}{2}倍、\\frac{1}{3}倍になるような数の関係が「反比例」だ。 「底辺」が 2倍、3倍になれば「高さ」は \\frac{1}{2}倍、\\frac{1}{3}倍になる。"
   }

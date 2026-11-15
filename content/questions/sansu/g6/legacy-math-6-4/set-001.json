@@ -13,8 +13,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 3/8÷3/4 =",
       "answers": [
-        "1,2"
-      ]
+        "1",
+        "2"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-05cb6d155eb3.svg",
+      "promptImageAlt": "計算に使う量3/8、3/4を示す。枠1つの大きさは共通。3/8÷3/4の答えは示していない。"
     },
     "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{3}{8}÷\\dfrac{3}{4}=\\dfrac{\\bcancel{3}1}{\\bcancel{8}2}×\\dfrac{\\bcancel{4}1}{\\bcancel{3}1}=\\dfrac{1}{2}"
   },
@@ -32,8 +36,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/2÷2 =",
       "answers": [
-        "1,4"
-      ]
+        "1",
+        "4"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-16f378313dac.svg",
+      "promptImageAlt": "計算に使う量1/2を示す。枠1つの大きさは共通。1/2÷2の答えは示していない。"
     },
     "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。 \\dfrac{1}{2}÷2=\\dfrac{1}{2×2}=\\dfrac{1}{4}"
   },
@@ -54,7 +62,9 @@
         "15"
       ],
       "template": "\\dfrac{1}{4} 分（秒） {{INPUT}}秒",
-      "suffix": "秒"
+      "suffix": "秒",
+      "promptImage": "questions/sansu/g6/visuals/time-1d72e231155c.svg",
+      "promptImageAlt": "1分を4等分し、1つ分が青。1分は60秒。"
     },
     "explanation": "分数で表された「分」を「秒」に直すときは、１分＝６０秒なので、60をかければいい。 \\dfrac{1}{4}×60=15秒 ２分＝60×2=120秒、３分＝60×3=180秒など、整数のときと同じように考えればいい。"
   },
@@ -72,8 +82,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 7/12÷5 =",
       "answers": [
-        "7,60"
-      ]
+        "7",
+        "60"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-1e510081ff3f.svg",
+      "promptImageAlt": "計算に使う量7/12を示す。枠1つの大きさは共通。7/12÷5の答えは示していない。"
     },
     "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。 \\dfrac{7}{12}÷5=\\dfrac{7}{12×5}=\\dfrac{7}{60}"
   },
@@ -94,7 +108,9 @@
         "40"
       ],
       "template": "\\dfrac{2}{3} 時間（分） {{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g6/visuals/time-2b4dd3693c57.svg",
+      "promptImageAlt": "1時間を3等分し、2つ分が青。1時間は60分。"
     },
     "explanation": "分数で表された「時間」を「分」に直すときは、１時間＝６０分なので、60をかければいい。 \\dfrac{2}{3}×60=40分 ２時間＝60×2=120分、３時間＝60×3=180分など、整数のときと同じように考えればいい。"
   },
@@ -151,8 +167,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/6÷1/4 =",
       "answers": [
-        "2,3"
-      ]
+        "2",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-60aaa7d61cf6.svg",
+      "promptImageAlt": "計算に使う量1/6、1/4を示す。枠1つの大きさは共通。1/6÷1/4の答えは示していない。"
     },
     "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{1}{6}÷\\dfrac{1}{4}=\\dfrac{1}{\\bcancel{6}3}×\\dfrac{\\bcancel{4}2}{1}=\\dfrac{2}{3}"
   },
@@ -170,8 +190,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1.1÷11/15×0.6 =",
       "answers": [
-        "9,10"
-      ]
+        "9",
+        "10"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-763c0aa897df.svg",
+      "promptImageAlt": "計算に使う量11/10、11/15、6/10を示す。枠1つの大きさは共通。1.1÷11/15×0.6の答えは示していない。"
     },
     "explanation": "\\require{cancel} まずは 1.1と0.6を分数にしよう。1.1=1\\dfrac{1}{10}=\\dfrac{11}{10} となる。また、0.6=\\dfrac{6}{10}=\\dfrac{3}{5} になる。 1.1÷\\dfrac{11}{15}×0.6=\\dfrac{11}{10}÷\\dfrac{11}{15}×\\dfrac{3}{5}=\\dfrac{\\bcancel{11}1}{10}×\\dfrac{\\bcancel{15}3}{\\bcancel{11}1}×\\dfrac{3}{\\bcancel{5}1}=\\dfrac{9}{10}"
   },
@@ -228,8 +252,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 2/5÷4 =",
       "answers": [
-        "1,10"
-      ]
+        "1",
+        "10"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-9683fdb57e2f.svg",
+      "promptImageAlt": "計算に使う量2/5を示す。枠1つの大きさは共通。2/5÷4の答えは示していない。"
     },
     "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{2}{5}÷4=\\dfrac{\\bcancel{2}1}{5×\\bcancel{4}2}=\\dfrac{1}{10}"
   },
@@ -247,8 +275,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 3/4÷3 =",
       "answers": [
-        "1,4"
-      ]
+        "1",
+        "4"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-9d3dd713ec78.svg",
+      "promptImageAlt": "計算に使う量3/4を示す。枠1つの大きさは共通。3/4÷3の答えは示していない。"
     },
     "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{4}÷3=\\dfrac{\\bcancel{3}1}{4×\\bcancel{3}1}=\\dfrac{1}{4}"
   },
@@ -269,7 +301,9 @@
         "30"
       ],
       "template": "\\dfrac{1}{2} 時間（分） {{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g6/visuals/time-a67f18d54eb4.svg",
+      "promptImageAlt": "1時間を2等分し、1つ分が青。1時間は60分。"
     },
     "explanation": "分数で表された「時間」を「分」に直すときは、１時間＝６０分なので、60をかければいい。 \\dfrac{1}{2}×60=30分 ２時間＝60×2=120分、３時間＝60×3=180分など、整数のときと同じように考えればいい。"
   },
@@ -287,8 +321,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 7/8÷0.4×0.25 =",
       "answers": [
-        "35,64"
-      ]
+        "35",
+        "64"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-b1f05e9a9a83.svg",
+      "promptImageAlt": "計算に使う量7/8、4/10、25/100を示す。枠1つの大きさは共通。7/8÷0.4×0.25の答えは示していない。"
     },
     "explanation": "まずは 0.4と0.25を分数にしよう。0.1=\\dfrac{1}{10} なので、0.4=\\dfrac{4}{10}=\\dfrac{2}{5} になる。また、0.01=\\dfrac{1}{100}なので、0.25=\\dfrac{25}{100}=\\dfrac{1}{4}になる。 \\dfrac{7}{8}÷0.4×0.25=\\dfrac{7}{8}÷\\dfrac{2}{5}×\\dfrac{1}{4}=\\dfrac{7}{8}×\\dfrac{5}{2}×\\dfrac{1}{4}=\\dfrac{35}{64}"
   },
@@ -363,8 +401,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 7/10÷5/14 =",
       "answers": [
-        "49,25"
-      ]
+        "49",
+        "25"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-d7653c3482cc.svg",
+      "promptImageAlt": "計算に使う量7/10、5/14を示す。枠1つの大きさは共通。7/10÷5/14の答えは示していない。"
     },
     "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{7}{10}÷\\dfrac{5}{14}=\\dfrac{7}{\\bcancel{10}5}×\\dfrac{\\bcancel{14}7}{5}=\\dfrac{49}{25}"
   }

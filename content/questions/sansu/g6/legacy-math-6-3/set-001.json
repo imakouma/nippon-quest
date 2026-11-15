@@ -13,8 +13,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/2×1/4 =",
       "answers": [
-        "1,8"
-      ]
+        "1",
+        "8"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-1e40bc4dec54.svg",
+      "promptImageAlt": "計算に使う量1/2、1/4を示す。枠1つの大きさは共通。1/2×1/4の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。 \\dfrac{1}{2}×\\dfrac{1}{4}=\\dfrac{1}{8}"
   },
@@ -32,8 +36,12 @@
     "payload": {
       "prompt": "底辺が 1/3 cm、高さが 2/5 cm の平行四辺形の面積[めんせき]を求めよう。",
       "answers": [
-        "2,15"
-      ]
+        "2",
+        "15"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} cm²",
+      "promptImage": "questions/sansu/g6/visuals/fraction-shape-22ce312d446f.svg",
+      "promptImageAlt": "底辺1/3cm、高さ2/5cmの平行四辺形。高さは底辺に垂直な線。"
     },
     "explanation": "平行四辺形の面積[めんせき]は、「底辺×高さ」で求めることができたね。 \\dfrac{1}{3}×\\dfrac{2}{5}=\\dfrac{2}{15}"
   },
@@ -51,8 +59,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 5/6×4 =",
       "answers": [
-        "10,3"
-      ]
+        "10",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-2911de821182.svg",
+      "promptImageAlt": "計算に使う量5/6を示す。枠1つの大きさは共通。5/6×4の答えは示していない。"
     },
     "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{5}{6}×4=\\dfrac{5×\\bcancel{4}2}{\\bcancel{6}3}=\\dfrac{10}{3}"
   },
@@ -70,8 +82,12 @@
     "payload": {
       "prompt": "縦が 6/7 cm、横が 2/9 cm の長方形[ちょうほうけい]の面積[めんせき]を求めよう。",
       "answers": [
-        "4,21"
-      ]
+        "4",
+        "21"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} cm²",
+      "promptImage": "questions/sansu/g6/visuals/fraction-shape-34776e601258.svg",
+      "promptImageAlt": "縦6/7cm、横2/9cmの長方形。"
     },
     "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「縦×横」で求めることができたね。 \\require{cancel} \\dfrac{6}{7}×\\dfrac{2}{9}=\\dfrac{\\bcancel{6}2}{7}×\\dfrac{2}{\\bcancel{9}3}=\\dfrac{4}{21}"
   },
@@ -108,8 +124,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 2/3×4/5 =",
       "answers": [
-        "8,15"
-      ]
+        "8",
+        "15"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-4b0aeb8bd013.svg",
+      "promptImageAlt": "計算に使う量2/3、4/5を示す。枠1つの大きさは共通。2/3×4/5の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。 \\dfrac{2}{3}×\\dfrac{4}{5}=\\dfrac{8}{15}"
   },
@@ -127,8 +147,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/2×2/3×6/7 =",
       "answers": [
-        "2,7"
-      ]
+        "2",
+        "7"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-4f3f00f1f4e1.svg",
+      "promptImageAlt": "計算に使う量1/2、2/3、6/7を示す。枠1つの大きさは共通。1/2×2/3×6/7の答えは示していない。"
     },
     "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} \\dfrac{1}{2}×\\dfrac{2}{3}×\\dfrac{6}{7}=\\dfrac{1}{\\bcancel{2}1}×\\dfrac{\\bcancel{2}1}{\\bcancel{3}1}×\\dfrac{\\bcancel{6}2}{7}=\\dfrac{2}{7}"
   },
@@ -146,8 +170,12 @@
     "payload": {
       "prompt": "縦が 8/3 cm、横が 9/25 cm、高さが 5/16 cm の直方体の体積を求めよう。",
       "answers": [
-        "3,10"
-      ]
+        "3",
+        "10"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} cm³",
+      "promptImage": "questions/sansu/g6/visuals/fraction-shape-59343703e0ea.svg",
+      "promptImageAlt": "縦8/3cm、横9/25cm、高さ5/16cmの直方体の模式図。"
     },
     "explanation": "直方体の体積は、「縦×横×高さ」で求めることができたね。 \\require{cancel} \\dfrac{8}{3}×\\dfrac{9}{25}×\\dfrac{5}{16}=\\dfrac{\\bcancel{8}1}{\\bcancel{3}1}×\\dfrac{\\bcancel{9}3}{\\bcancel{25}5}×\\dfrac{\\bcancel{5}1}{\\bcancel{16}2}=\\dfrac{3}{10}"
   },
@@ -165,8 +193,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/3×2 =",
       "answers": [
-        "2,3"
-      ]
+        "2",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-6a29ee48837e.svg",
+      "promptImageAlt": "計算に使う量1/3を示す。枠1つの大きさは共通。1/3×2の答えは示していない。"
     },
     "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。 \\dfrac{1}{3}×2=\\dfrac{1×2}{3}=\\dfrac{2}{3}"
   },
@@ -184,8 +216,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 6/11×11/18 =",
       "answers": [
-        "1,3"
-      ]
+        "1",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-6d8e2bb16cb0.svg",
+      "promptImageAlt": "計算に使う量6/11、11/18を示す。枠1つの大きさは共通。6/11×11/18の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{6}{11}×\\dfrac{11}{18}=\\dfrac{\\bcancel{6}1×\\bcancel{11}1}{\\bcancel{11}1×\\bcancel{18}3}=\\dfrac{1}{3}"
   },
@@ -243,8 +279,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 10/7×7/12 =",
       "answers": [
-        "5,6"
-      ]
+        "5",
+        "6"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-8db0971fa074.svg",
+      "promptImageAlt": "計算に使う量10/7、7/12を示す。枠1つの大きさは共通。10/7×7/12の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{10}{7}×\\dfrac{7}{12}=\\dfrac{\\bcancel{10}5}{\\bcancel{7}1}×\\dfrac{\\bcancel{7}1}{\\bcancel{12}6}=\\dfrac{5}{6}"
   },
@@ -262,8 +302,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 4/5×1/2 =",
       "answers": [
-        "2,5"
-      ]
+        "2",
+        "5"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-93498e7e14df.svg",
+      "promptImageAlt": "計算に使う量4/5、1/2を示す。枠1つの大きさは共通。4/5×1/2の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\dfrac{4}{5}×\\dfrac{1}{2}=\\dfrac{4}{10}=\\dfrac{2}{5}"
   },
@@ -281,8 +325,12 @@
     "payload": {
       "prompt": "1辺が 2/3 cm の立方体の体積を求めよう。",
       "answers": [
-        "8,27"
-      ]
+        "8",
+        "27"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} cm³",
+      "promptImage": "questions/sansu/g6/visuals/fraction-shape-9b34c0cc97ee.svg",
+      "promptImageAlt": "1辺2/3cmの立方体。"
     },
     "explanation": "立方体の体積は、「１辺×１辺×１辺」で求めることができたね。 \\dfrac{2}{3}×\\dfrac{2}{3}×\\dfrac{2}{3}=\\dfrac{8}{27}"
   },
@@ -300,8 +348,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 1/2×3 =",
       "answers": [
-        "3,2"
-      ]
+        "3",
+        "2"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-9e50035c8b6d.svg",
+      "promptImageAlt": "計算に使う量1/2を示す。枠1つの大きさは共通。1/2×3の答えは示していない。"
     },
     "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。 \\dfrac{1}{2}×3=\\dfrac{3}{2}"
   },
@@ -319,8 +371,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 15/7×14/25 =",
       "answers": [
-        "6,5"
-      ]
+        "6",
+        "5"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-a676bbefc5aa.svg",
+      "promptImageAlt": "計算に使う量15/7、14/25を示す。枠1つの大きさは共通。15/7×14/25の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{15}{7}×\\dfrac{14}{25}=\\dfrac{\\bcancel{15}3×\\bcancel{14}2}{\\bcancel{7}1×\\bcancel{25}5}=\\dfrac{6}{5}"
   },
@@ -338,8 +394,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 3/10×5 =",
       "answers": [
-        "3,2"
-      ]
+        "3",
+        "2"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-d88bef6ff10c.svg",
+      "promptImageAlt": "計算に使う量3/10を示す。枠1つの大きさは共通。3/10×5の答えは示していない。"
     },
     "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{10}×5=\\dfrac{3×\\bcancel{5}1}{\\bcancel{10}2}=\\dfrac{3}{2}"
   },
@@ -357,8 +417,12 @@
     "payload": {
       "prompt": "次の計算をしましょう。 8/9×3/4 =",
       "answers": [
-        "2,3"
-      ]
+        "2",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/fraction-e26c0a21801b.svg",
+      "promptImageAlt": "計算に使う量8/9、3/4を示す。枠1つの大きさは共通。8/9×3/4の答えは示していない。"
     },
     "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{8}{9}×\\dfrac{3}{4}=\\dfrac{\\bcancel{8}2}{\\bcancel{9}3}×\\dfrac{\\bcancel{3}1}{\\bcancel{4}1}=\\dfrac{2}{3}"
   },

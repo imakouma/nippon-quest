@@ -16,7 +16,9 @@
         "125"
       ],
       "template": "{{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g6/visuals/map-scale-049176cc2663.svg",
+      "promptImageAlt": "2万5千分の1に縮めた地図。地図の0.5cmと実際の長さが対応する。実際の長さは空欄。"
     },
     "explanation": "２万５千分の１の地図上で 0.5cm の長さは、 0.5×25000 = 12500（cm） 12500 cm = 125 m"
   },
@@ -170,7 +172,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/map-scale-45ef7b9abd0f.svg",
+      "promptSpeech": "２万５千分の１の地図上で 0.5cm の長さが、実際何 m かを知るには、どのように計算すればよいでしょう。 2万5千分の1に縮めた地図。地図の0.5cmと実際の長さが対応する。実際の長さは空欄。"
     },
     "explanation": "２万５千分の１の地図は、実際のきょりを２万５千分の１に縮めてかかれている。地図上の長さから実際のきょりを求めるには、地図上の長さを２万５千倍すればよい。よって、２万５千分の１の地図上で 0.5cm の長さが実際何 m あるのかは、 0.5×25000 で求めることができる。"
   },
@@ -398,7 +402,9 @@
         "500"
       ],
       "template": "{{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g6/visuals/map-scale-b21487bbe77b.svg",
+      "promptImageAlt": "2万5千分の1に縮めた地図。地図の2cmと実際の長さが対応する。実際の長さは空欄。"
     },
     "explanation": "２万５千分の１の地図上で 2cm の長さは、 2×25000 = 50000（cm） 50000cm = 500m"
   },
@@ -552,7 +558,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/map-scale-ee904343473d.svg",
+      "promptSpeech": "地図には「２万５千分の１」のように、どのくらいの割合[わりあい]で小さくしたのかがしめされています。この割合[わりあい]のことを何というでしょう。 2万5千分の1に縮めた地図。地図の1cmと実際の長さが対応する。この割合の名前を問う。"
     },
     "explanation": "地図にしめされた「２万５千分の１」のように、実際のきょりをどのくらい小さくしたのかをしめす割合[わりあい]を縮尺[しゅくしゃく]という。"
   }

@@ -16,7 +16,9 @@
         "160"
       ],
       "template": "底面積が 20cm^2、高さが 8cm の六角柱の体積 {{INPUT}}cm^3",
-      "suffix": "cm^3"
+      "suffix": "cm^3",
+      "promptImage": "questions/sansu/g6/visuals/hexagonal-volume.svg",
+      "promptImageAlt": "六角柱。底面積20平方センチメートル、高さ8cm。"
     },
     "explanation": "角柱や円柱の体積は、「底面積 × 高さ」で求めることができるので、 20×8=160cm^3"
   },
@@ -37,7 +39,9 @@
         "12.56"
       ],
       "template": "半径が 2cm の円の面積 {{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g6/visuals/circle-area-04668d8907ed.svg",
+      "promptImageAlt": "円の半径を赤い線で示す。2cm。青い部分の面積を考える。"
     },
     "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができるので、 2×2×3.14=12.56 cm^2"
   },
@@ -80,7 +84,9 @@
         "14.13"
       ],
       "template": "直径が 6cm の半円の面積 {{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g6/visuals/semicircle-area.svg",
+      "promptImageAlt": "直径6cmの半円。直径の中心を点で示す。"
     },
     "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができる。直径[ちょっけい]が 6cm なので、半径[はんけい]は 3cm。半円の面積[めんせき]なので、円の面積[めんせき]を 2 でわればいい。 3×3×3.14÷2=14.13cm^2"
   },
@@ -116,7 +122,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/circle-area-5a221514122d.svg",
+      "promptSpeech": "円の面積[めんせき]の求め方（公式）として、正しいものをえらぼう。 円の半径を赤い線で示す。半径。青い部分の面積を考える。"
     },
     "explanation": "円を半径[はんけい]で切ってばらばらにしたものを集めると、長方形[ちょうほうけい]のような形になる。これの面積[めんせき]を考えればいい（くわしくは、動画を見てみよう）。"
   },
@@ -313,7 +321,9 @@
         "78.5"
       ],
       "template": "半径が 5cm の円の面積 {{INPUT}}cm^2",
-      "suffix": "cm^2"
+      "suffix": "cm^2",
+      "promptImage": "questions/sansu/g6/visuals/circle-area-a2e929d32d94.svg",
+      "promptImageAlt": "円の半径を赤い線で示す。5cm。青い部分の面積を考える。"
     },
     "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができるので、 5×5×3.14=78.5cm^2"
   },

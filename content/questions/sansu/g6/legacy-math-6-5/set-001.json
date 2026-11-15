@@ -74,7 +74,9 @@
       "answers": [
         "30"
       ],
-      "template": "5 : 6 = 25 : {{INPUT}}"
+      "template": "5 : 6 = 25 : {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/equivalent-ratio-1578daec4d1a.svg",
+      "promptImageAlt": "もとの比5対6の2本の帯。それぞれが25と？に対応する。"
     },
     "explanation": "5 : 6の 5に5をかけたら、25 : □の 25になるので、同じように 6にも5をかける。 5 : 6 = 5×5 : 5×6 = 25 : 30"
   },
@@ -95,7 +97,9 @@
         "12"
       ],
       "template": "3 : 11 = {{INPUT}} : 44",
-      "suffix": ": 44"
+      "suffix": ": 44",
+      "promptImage": "questions/sansu/g6/visuals/equivalent-ratio-1858b4ff752a.svg",
+      "promptImageAlt": "もとの比3対11の2本の帯。それぞれが？と44に対応する。"
     },
     "explanation": "3 : 11の 11に4をかけたら、□ : 44の 44になるので、同じように 3にも4をかける。 3 : 11 = 3×4 : 11×4 = 12 : 44"
   },
@@ -155,7 +159,9 @@
       "answers": [
         "3"
       ],
-      "template": "9 : 27 = 1 : {{INPUT}}"
+      "template": "9 : 27 = 1 : {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/equivalent-ratio-4335f38bf005.svg",
+      "promptImageAlt": "もとの比9対27の2本の帯。それぞれが1と？に対応する。"
     },
     "explanation": "9 : 27の 9を9で割ったら、1 : □の 1になるので、同じように 27も9で割る。 9 : 27 = 9÷9 : 27÷9 = 1 :3"
   },
@@ -176,7 +182,9 @@
         "2"
       ],
       "template": "14 : 49 = {{INPUT}} : 7",
-      "suffix": ": 7"
+      "suffix": ": 7",
+      "promptImage": "questions/sansu/g6/visuals/equivalent-ratio-53b644ac1706.svg",
+      "promptImageAlt": "もとの比14対49の2本の帯。それぞれが？と7に対応する。"
     },
     "explanation": "14 : 49の 49を7で割ったら、□ : 7の 7になるので、同じように 14も7で割る。 14 : 49 = 14÷2 : 49÷2 = 2 : 7"
   },
@@ -197,7 +205,9 @@
         "24"
       ],
       "template": "{{INPUT}}こ",
-      "suffix": "こ"
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g6/visuals/ratio-chocolate.svg",
+      "promptImageAlt": "チョコレート42こ。たくま4、弟3の比で分けるため、同じ大きさのまとまり7つを下に示す。各まとまりの個数は空欄。"
     },
     "explanation": "42こを 4:3 に分けるということは、全体を(4+3)=7つに分けることになる。 そのうちの 4 に当たるのが たくまさんのもらうチョコレートになるので、 42×\\dfrac{4}{7} = 24こ"
   },
@@ -290,7 +300,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/dressing-amounts.svg",
+      "promptSpeech": "す が40mL、サラダ油が 50mL あります。す と サラダ油の量の比として、正しいものをえらぼう。 す40mL、サラダ油50mLを、容器の絵と量のラベルで示す。"
     }
   },
   {
@@ -403,7 +415,9 @@
         "200"
       ],
       "template": "{{INPUT}}円",
-      "suffix": "円"
+      "suffix": "円",
+      "promptImage": "questions/sansu/g6/visuals/ratio-money.svg",
+      "promptImageAlt": "全部で600円。たくと2、弟1の比。帯を同じ幅の3つに分ける。"
     },
     "explanation": "600円を 2:1 に分けるということは、全体を(2+1)=3つに分けることになる。 そのうちの 1 に当たるのが弟のもらうおこづかいになるので、 600×\\dfrac{1}{3} = 200円"
   },
@@ -459,7 +473,9 @@
       "answers": [
         "39"
       ],
-      "template": "7 : 3 = 91 : {{INPUT}}"
+      "template": "7 : 3 = 91 : {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/equivalent-ratio-cf985ceaff5c.svg",
+      "promptImageAlt": "もとの比7対3の2本の帯。それぞれが91と？に対応する。"
     },
     "explanation": "7 : 3の 7に13をかけたら、91 : □の 91になるので、同じように 3にも13をかける。 7 : 3 = 7×13 : 3×13 = 91 : 39"
   },
@@ -543,7 +559,9 @@
         "240"
       ],
       "template": "{{INPUT}}mL",
-      "suffix": "mL"
+      "suffix": "mL",
+      "promptImage": "questions/sansu/g6/visuals/dressing-ratio.svg",
+      "promptImageAlt": "すとサラダ油は4対5。サラダ油300mLに対するすの量を求める。"
     },
     "explanation": "すとサラダ油の比 4 : 5 と、実際の量の300mLを使って、□の入った 等しい比の式をつくろう。 4 : 5 = □ : 300 左の比に60かければいいので、4×60 : 5×60 = 240 : 300"
   },
@@ -564,7 +582,9 @@
         "75"
       ],
       "template": "{{INPUT}}m",
-      "suffix": "m"
+      "suffix": "m",
+      "promptImage": "questions/sansu/g6/visuals/football-ratio.svg",
+      "promptImageAlt": "サッカーコートは縦4、横3の比。縦100m、横は未知。"
     },
     "explanation": "縦と横の長さの比 4 : 3 と、実際の長さの100mを使って、□の入った 等しい比の式をつくろう。 4 : 3 = 100 : □ 左の比に25かければいいので、4×25 : 3×25 = 100 : 75"
   }
