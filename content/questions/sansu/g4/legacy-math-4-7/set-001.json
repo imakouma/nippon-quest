@@ -56,7 +56,9 @@
         "3"
       ],
       "template": "{{INPUT}}こ",
-      "suffix": "こ"
+      "suffix": "こ",
+      "promptImage": "questions/sansu/g4/visuals/chocolate-90.svg",
+      "promptImageAlt": "10円玉が9まいで90円。チョコは1こ30円。何こ買えるかを考える図。"
     },
     "explanation": "90は 10が9こ、30は 10が3こ になるので、9÷3=3"
   },
@@ -278,7 +280,9 @@
       "answers": [
         "3"
       ],
-      "template": "120÷40= {{INPUT}}"
+      "template": "120÷40= {{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/tens-division-84c70dd9f267.svg",
+      "promptImageAlt": "10を1本の棒で表す。全部が120、1組が40。"
     },
     "explanation": "120は 10が12こ、40は 10が4こ になるので、12÷4=3"
   },
@@ -317,7 +321,9 @@
       "answers": [
         "4"
       ],
-      "template": "80÷20= {{INPUT}}"
+      "template": "80÷20= {{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/tens-division-8c310a170fe5.svg",
+      "promptImageAlt": "10を1本の棒で表す。全部が80、1組が20。"
     },
     "explanation": "80は 10が8こ、20は 10が2こ になるので、8÷2=4"
   },
@@ -401,7 +407,9 @@
         "2",
         "10"
       ],
-      "template": "70÷30= {{INPUT}} あまり {{INPUT}}"
+      "template": "70÷30= {{INPUT}} あまり {{INPUT}}",
+      "promptImage": "questions/sansu/g4/visuals/tens-division-afc13baed412.svg",
+      "promptImageAlt": "10を1本の棒で表す。全部が70、1組が30。"
     },
     "explanation": "70は 10が7こ、30は 10が3こ になるので、7÷3=2 あまり 1 10が1つ あまっているので、あまりは 10 になる。"
   },
@@ -539,7 +547,9 @@
         "2",
         "20"
       ],
-      "template": "{{INPUT}}つ 買えて、{{INPUT}}円 あまる"
+      "template": "{{INPUT}}つ 買えて、{{INPUT}}円 あまる",
+      "promptImage": "questions/sansu/g4/visuals/chocolate-80.svg",
+      "promptImageAlt": "10円玉が8まいで80円。チョコは1こ30円。何こ買えるかを考える図。"
     },
     "explanation": "80は 10が8こ、30は 10が3こ になるので、8÷3=2 あまり 2 10が2つ あまっているので、あまりは 20 になる。"
   },

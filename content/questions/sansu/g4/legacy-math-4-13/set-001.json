@@ -223,7 +223,9 @@
       "prompt": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm です。お父さんの身長を１とみたとき、さとしくんの身長はいくつにあたるでしょう。",
       "answers": [
         "0.8"
-      ]
+      ],
+      "promptImage": "questions/sansu/g4/visuals/height-relative.svg",
+      "promptImageAlt": "おとうさんは180cm（もとにする1）、さとしくんは144cm。さとしくんの わりあいは ？。同じ長さが同じ量を表す図。"
     },
     "explanation": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm で、さとしくんのお父さんの身長がもとになる数なので、 144÷180=0.8 さとしくんのお父さんの身長が１のとき、さとしくんの身長は 0.8 にあたる。 0. 8 1 8 0 ) 1 4 4. 0 1 4 4 0 0"
   },
@@ -339,7 +341,9 @@
         "1.25"
       ],
       "template": "{{INPUT}}倍",
-      "suffix": "倍"
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g4/visuals/height-times.svg",
+      "promptImageAlt": "おとうさんは180cm、さとしくんは144cm（もとにする1）。おとうさんは なんばい？。同じ長さが同じ量を表す図。"
     },
     "explanation": "さとしくんの身長は 144cm 、さとしくんのお父さんの身長は 180cm で、さとしくんの身長がもとになる数なので、 180÷144=1.25 さとしくんのお父さんの身長は、さとしくんの身長の 1.25倍 になる。"
   },
@@ -398,7 +402,9 @@
         "144"
       ],
       "template": "{{INPUT}}cm",
-      "suffix": "cm"
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g4/visuals/height-2-4-times.svg",
+      "promptImageAlt": "さとしくんは？cm、おとうとは60cm。さとしくんは おとうとの 2.4ばい。同じ長さが同じ量を表す図。"
     },
     "explanation": "さとしくんの弟の身長が 60cm 、さとしくんの身長は弟の2.4倍なので、 60×2.4=144 さとしくんの身長は 144cm 。"
   },

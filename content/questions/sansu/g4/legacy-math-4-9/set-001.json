@@ -11,12 +11,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60cm です。お父さんの身長は、弟の何倍でしょう。 倍",
+      "prompt": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60cm です。お父さんの身長は、弟の何倍でしょう。",
       "answers": [
         "3"
       ],
-      "template": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60cm です。お父さんの身長は、弟の何倍でしょう。 {{INPUT}}倍",
-      "suffix": "倍"
+      "template": "{{INPUT}}倍",
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g4/visuals/height-0cd58ce46ac8.svg",
+      "promptImageAlt": "おとうさんは180cm、おとうとは60cm。なんばい あるかな？。同じ長さが同じ量を表す図。"
     },
     "explanation": "「弟の」何倍かをもとめるので、弟を１つ分として考える。お父さんの身長 180cm は、弟 60cm いくつ分になるかは、お父さんの身長を弟の身長でわればいいね。 180÷60=3倍"
   },
@@ -64,12 +66,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "A町からB町までのきょりは 28kmで、A町からC町までのきょりは 4km です。A町からB町までのきょりは、A町からC町までの きょりの何倍でしょう。 倍",
+      "prompt": "A町からB町までのきょりは 28kmで、A町からC町までのきょりは 4km です。A町からB町までのきょりは、A町からC町までの きょりの何倍でしょう。",
       "answers": [
         "7"
       ],
-      "template": "A町からB町までのきょりは 28kmで、A町からC町までのきょりは 4km です。A町からB町までのきょりは、A町からC町までの きょりの何倍でしょう。 {{INPUT}}倍",
-      "suffix": "倍"
+      "template": "{{INPUT}}倍",
+      "suffix": "倍",
+      "promptImage": "questions/sansu/g4/visuals/town-distance.svg",
+      "promptImageAlt": "AからBは28km、AからCは4km。。同じ長さが同じ量を表す図。"
     },
     "explanation": "「A町からC町までの きょりの」何倍かをもとめるので、A町からC町までの きょりを 1 として考える。A町からB町までのきょり 28km の中に、A町からC町までのきょり 4km がいくつ分あるかを考えるので、わり算でもとめることができる。 28÷4=7倍"
   },
@@ -85,12 +89,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "マラソン大会で ６年生が走るきょりは 6kmで、４年生が走るきょりの 2倍になっています。４年生が走る きょりは、何kmでしょう。 km",
+      "prompt": "マラソン大会で ６年生が走るきょりは 6kmで、４年生が走るきょりの 2倍になっています。４年生が走る きょりは、何kmでしょう。",
       "answers": [
         "3"
       ],
-      "template": "マラソン大会で ６年生が走るきょりは 6kmで、４年生が走るきょりの 2倍になっています。４年生が走る きょりは、何kmでしょう。 {{INPUT}}km",
-      "suffix": "km"
+      "template": "{{INPUT}}km",
+      "suffix": "km",
+      "promptImage": "questions/sansu/g4/visuals/running-distance.svg",
+      "promptImageAlt": "6ねんせいは6km、4ねんせいは？km。6ねんせいは 4ねんせいの 2ばい。同じ長さが同じ量を表す図。"
     },
     "explanation": "６年生が走るきょりが、４年生が走るきょりの 2倍になっている。2つ分が 6kmなので、1つ分をもとめるには、わり算をする。 6÷2=3km"
   },
@@ -126,7 +132,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/bus-fare-3563a6ba44e8.svg",
+      "promptSpeech": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金をもとめるための式として、正しいものをえらぼう。 Aえき→Bえきは630えん、Cえき→Dえきは？えん。A→Bの りょうきんは C→Dの 3ばい。同じ長さが同じ量を表す図。"
     },
     "explanation": "A駅からB駅までの りょう金が、C駅からD駅までの りょう金の3倍 になっている。3つ分が630円なので、1つ分をもとめるには、わり算をする。"
   },
@@ -142,12 +150,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "さとしくんは、ミニトマトを育てています。はじめに植えたとき、なえの大きさは 15cm でしたが、今は 4倍の大きさになりました。今のミニトマトの大きさは、何cm でしょう。 cm",
+      "prompt": "さとしくんは、ミニトマトを育てています。はじめに植えたとき、なえの大きさは 15cm でしたが、今は 4倍の大きさになりました。今のミニトマトの大きさは、何cm でしょう。",
       "answers": [
         "60"
       ],
-      "template": "さとしくんは、ミニトマトを育てています。はじめに植えたとき、なえの大きさは 15cm でしたが、今は 4倍の大きさになりました。今のミニトマトの大きさは、何cm でしょう。 {{INPUT}}cm",
-      "suffix": "cm"
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g4/visuals/tomato-growth.svg",
+      "promptImageAlt": "はじめのミニトマトは15cm。今はその4倍の高さ。今の高さは空欄。"
     },
     "explanation": "4倍の大きさは、はじめの なえの大きさの 4つ分になるので、かけ算をする。 15×4=60cm"
   },
@@ -195,12 +205,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金は、いくらになるでしょう。 円",
+      "prompt": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金は、いくらになるでしょう。",
       "answers": [
         "210"
       ],
-      "template": "A駅からB駅までのバスの りょう金は630円で、C駅からD駅までの りょう金の3倍になっています。C駅からD駅までの りょう金は、いくらになるでしょう。 {{INPUT}}円",
-      "suffix": "円"
+      "template": "{{INPUT}}円",
+      "suffix": "円",
+      "promptImage": "questions/sansu/g4/visuals/bus-fare-bac3831335b9.svg",
+      "promptImageAlt": "Aえき→Bえきは630えん、Cえき→Dえきは？えん。A→Bの りょうきんは C→Dの 3ばい。同じ長さが同じ量を表す図。"
     },
     "explanation": "A駅からB駅までの りょう金が、C駅からD駅までの りょう金の3倍 になっている。3つ分が630円なので、1つ分をもとめるには、わり算をする。 630÷3=210円"
   },
@@ -236,7 +248,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/height-c25078776d73.svg",
+      "promptSpeech": "さとしくんのお父さんの身長は 180cmで、さとしくんの弟の身長は 60㎝ です。お父さんの身長が 弟の何倍かをもとめるための式として、正しいものをえらぼう。 おとうさんは180cm、おとうとは60cm。なんばい あるかな？。同じ長さが同じ量を表す図。"
     },
     "explanation": "「弟の」何倍かをもとめるので、弟を１つ分として考える。お父さんの身長 180cm は、弟 60cm いくつ分になるかは、お父さんの身長を弟の身長でわればいいので、180÷60 になる。"
   },
@@ -252,12 +266,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "さとしくんの弟の身長は 60cmで、さとしくんの身長は、弟の 2倍 あります。さとしくんの身長は、何cmでしょう。 cm",
+      "prompt": "さとしくんの弟の身長は 60cmで、さとしくんの身長は、弟の 2倍 あります。さとしくんの身長は、何cmでしょう。",
       "answers": [
         "120"
       ],
-      "template": "さとしくんの弟の身長は 60cmで、さとしくんの身長は、弟の 2倍 あります。さとしくんの身長は、何cmでしょう。 {{INPUT}} cm",
-      "suffix": "cm"
+      "template": "{{INPUT}}cm",
+      "suffix": "cm",
+      "promptImage": "questions/sansu/g4/visuals/height-c28b485ebd6e.svg",
+      "promptImageAlt": "さとしくんは？cm、おとうとは60cm。さとしくんは おとうとの 2ばい。同じ長さが同じ量を表す図。"
     },
     "explanation": "弟の2倍は、弟の身長 2つ分になるので、かけ算をする。 60×2=120cm"
   },
@@ -293,7 +309,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/visuals/height-f05ac9c64165.svg",
+      "promptSpeech": "さとしくんの弟の身長は 60cm で、さとしくんの身長は、弟の 2倍あります。さとしくんの身長を もとめるための式として、正しいものをえらぼう。 さとしくんは？cm、おとうとは60cm。さとしくんは おとうとの 2ばい。同じ長さが同じ量を表す図。"
     },
     "explanation": "弟の2倍は、弟の身長 2つ分になるので、かけ算をする。"
   }
