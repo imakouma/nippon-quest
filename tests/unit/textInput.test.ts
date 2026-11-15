@@ -4,6 +4,7 @@ import {
   textInputPayloadSchema,
   textInputScore,
 } from '../../src/questions/renderers/text-input/schema';
+import { shouldShowNumberPad } from '../../src/questions/renderers/text-input/TextInputView';
 describe('text-input', () => {
   it('全角数字・空白・桁区切りを正規化する', () => expect(normalizeInput(' ４２,１９５ ')).toBe('42195'));
   it('複数欄を部分点つきで採点する', () =>
@@ -38,4 +39,14 @@ it('画像の代替テキストを保持し、空文字を拒否する', () => {
   expect(textInputPayloadSchema.parse(payload).promptImageAlt).toBe('表の説明');
   expect(textInputPayloadSchema.safeParse({ ...payload, promptImageAlt: '' }).success).toBe(false);
   expect(textInputPayloadSchema.safeParse({ prompt: 'p', answers: ['1'] }).success).toBe(true);
+});
+
+describe('text-input number pad', () => {
+  it('教科と学年によらず通常10進数回答へ表示する', () => {
+    expect(shouldShowNumberPad(['１２'])).toBe(true);
+    expect(shouldShowNumberPad(['-0.5', '2'])).toBe(true);
+    expect(shouldShowNumberPad(['12'])).toBe(true);
+    expect(shouldShowNumberPad(['1/2'])).toBe(false);
+    expect(shouldShowNumberPad(['東京'])).toBe(false);
+  });
 });

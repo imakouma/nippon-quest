@@ -18,6 +18,7 @@ function serveRootDirs(dirs: string[]): Plugin {
   const mime: Record<string, string> = {
     '.json': 'application/json',
     '.png': 'image/png',
+    '.svg': 'image/svg+xml',
     '.webp': 'image/webp',
     '.mp3': 'audio/mpeg',
     '.ogg': 'audio/ogg',

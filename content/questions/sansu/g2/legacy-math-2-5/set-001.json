@@ -16,7 +16,9 @@
         "1",
         "45"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g2/visuals/elapsed-03cbdc1af393.svg",
+      "promptImageAlt": "ごご7じ45ふんからごご9じ30ぷんまで。時こくの線の ひとめもりは15ふん。"
     },
     "explanation": "午後[ごご]７時[じ]４５分[ふん]から、午後[ごご]９時[じ]４５分[ふん]までで、２時間[じかん]ある。そこから、１５分[ふん] もどせばいいので、１時間[じかん]４５分[ぶん]だね。"
   },
@@ -37,7 +39,9 @@
         "5",
         "45"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g2/visuals/time-06349eb0f9b8.svg",
+      "promptImageAlt": "いまは3じ45ふん。2じかん あとの 時こくを もとめます。"
     },
     "explanation": "「２時間後[じかんご]」なので、「時間[じかん]」のみじかいはりを ２すすめて、５時[じ]４５分[ふん]になる。"
   },
@@ -73,7 +77,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/hour-turn.svg",
+      "promptSpeech": "１時間[じかん]は、なん分[ふん]でしょう。 ながい はりが 12から みぎまわりに 1しゅう。時計には 1ぷんごとの めもりがあります。"
     },
     "explanation": "とけいのちいさな「めもり」は、ぜんぶで 60 ある。つまり、１時間[じかん]は６０分[ふん]ってことだね。"
   },
@@ -105,7 +111,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/short-hand-turn.svg",
+      "promptSpeech": "時計[とけい]の みじかいはりが １しゅうすると、なん時間[じかん] たつでしょう。 みじかい はりが 12から みぎまわりに 1しゅう。1から12の めもりを たどります。"
     },
     "explanation": "とけいのすうじは、１から １２まで あるね。このすうじが 時間[じかん]を さしているので、みじかいはりが １しゅうすると、12時間[じかん]になるよ。"
   },
@@ -126,7 +134,9 @@
         "4",
         "30"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g2/visuals/time-23685fb07ce2.svg",
+      "promptImageAlt": "いまは3じ45ふん。45ふん あとの 時こくを もとめます。"
     },
     "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。そこから、さらに３０分[ぷん]すすむので、４時[じ]３０分[ぷん]になる。"
   },
@@ -158,7 +168,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/seven-plus-hour.svg",
+      "promptSpeech": "７時[じ]の１時間後[じかんご]は、なん時[じ] でしょう。 7じの 時計から、1じかん あとへ すすみます。あとの 時こくは はてな。"
     },
     "explanation": "「１時間後[じかんご]」なので、「時間[じかん]」のみじかいはりを １すすめて、８時[じ]になる。"
   },
@@ -212,7 +224,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/one-day.svg",
+      "promptSpeech": "１日[にち]は、なん時間[じかん]でしょう。 よなか0じから、おひる12じを とおり、つぎの よなか0じまで。ひとめもりは1じかん。"
     },
     "explanation": "とけいのすうじは、１から １２まで あるね。午前[ごぜん]で１２時間[じかん]、午後[ごご]で１２時間[じかん]。あわせて、２４時間[じかん]が１日[にち]のながさになる。"
   },
@@ -244,7 +258,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/morning.svg",
+      "promptSpeech": "夜中[よなか]の０時[じ]から、おひるの１２時[じ]までを なんというでしょう。 よなか0じから おひる12じまでを 黄色の帯で示しています。"
     },
     "explanation": "夜中[よなか]の０時[じ]から、おひるの１２時[じ]までを 午前[ごぜん] というよ。"
   },
@@ -265,7 +281,9 @@
         "1",
         "15"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g2/visuals/elapsed-b3ccde0d99f4.svg",
+      "promptImageAlt": "ごぜん6じ15ふんからごぜん7じ30ぷんまで。時こくの線の ひとめもりは15ふん。"
     },
     "explanation": "午前[ごぜん]６時[じ]１５分[ふん]から、午前[ごぜん]７時[じ]１５分[ふん]までで、１時間[じかん]ある。そこから、あと１５分[ふん] すすめたらいいので、１時間[じかん]１５分[ぶん]だね。"
   },
@@ -330,7 +348,9 @@
         "2",
         "15"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g2/visuals/time-c3b026af04b5.svg",
+      "promptImageAlt": "いまは3じ45ふん。1じかん30ぷん まえの 時こくを もとめます。"
     },
     "explanation": "「１時間[じかん]３０分前[ふんまえ]」なので、「時間[じかん]」のみじかいはりを １、「分[ふん]」のながいはりを ３０もどして、２時[じ]１５分[ふん]になる。"
   },
@@ -362,7 +382,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/afternoon.svg",
+      "promptSpeech": "おひるの１２時[じ]から、夜中[よなか]の０時[じ]までを なんというでしょう。 おひる12じから つぎの よなか0じまでを 黄色の帯で示しています。"
     },
     "explanation": "おひるの１２時[じ]から、夜中[よなか]の０時[じ]までを 午後[ごご] というよ。"
   },
@@ -405,7 +427,9 @@
         "6",
         "15"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g2/visuals/elapsed-dc0838b681eb.svg",
+      "promptImageAlt": "ごぜん8じからごご2じ15ふんまで。時こくの線の ひとめもりは15ふん。"
     },
     "explanation": "午前[ごぜん]８時[じ]から、午後[ごご]２時[じ]までで、６時間[じかん]ある。そこから、あと１５分[ふん] すすめたらいいので、６時間[じかん]１５分[ぶん]だね。"
   },

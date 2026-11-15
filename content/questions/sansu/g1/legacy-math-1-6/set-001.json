@@ -34,7 +34,9 @@
       "prompt": "十[じゅう]のくらいが 2 で、一[いち]のくらいが 4 のかずは、いくつに なるでしょう。",
       "answers": [
         "24"
-      ]
+      ],
+      "promptImage": "questions/sansu/g1/visuals/tens-24.svg",
+      "promptImageAlt": "しかくの わく 1つに えんぴつが 10ぽん。わくが 2つ、ばらが 4ほん あります。"
     },
     "explanation": "十[じゅう]のくらいが 2 なので、20 になる。20 と 一[いち]のくらいの 4 で、あわせて 24 だね。"
   },
@@ -69,15 +71,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつ あるでしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "41"
       ],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
-      "promptImage": "questions/legacy/fc0005de2b1ff22e.png"
+      "promptImage": "questions/sansu/g1/visuals/count-apples-41.svg",
+      "promptImageAlt": "しかくの わく 1つに りんごが 10こ。わくが 4つ、ばらが 1こです。"
     },
-    "explanation": "１れつが 10 に なっているね。４れつと 1 あるので、41 になる。"
+    "explanation": "10この まとまりが 4つ、ばらが 1こ。ぜんぶで 41こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-6.4520b07d4ccb",
@@ -152,7 +155,9 @@
       "prompt": "十[じゅう]のくらいが 3 で、一[いち]のくらいが 6 のかずは、いくつに なるでしょう。",
       "answers": [
         "36"
-      ]
+      ],
+      "promptImage": "questions/sansu/g1/visuals/tens-36.svg",
+      "promptImageAlt": "しかくの わく 1つに えんぴつが 10ぽん。わくが 3つ、ばらが 6ほん あります。"
     },
     "explanation": "十[じゅう]のくらいが 3 なので、30 になる。30 と 一[いち]のくらいの 6 で、あわせて 36 だね。"
   },
@@ -246,15 +251,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつ あるでしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "60"
       ],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
-      "promptImage": "questions/legacy/82a1610dc2891f54.png"
+      "promptImage": "questions/sansu/g1/visuals/count-apples-60.svg",
+      "promptImageAlt": "しかくの わく 1つに りんごが 10こ。わくが 6つ、ばらが 0こです。"
     },
-    "explanation": "１れつが 10 に なっているね。６れつ あるので、60 だ。"
+    "explanation": "10この まとまりが 6つ、ばらが 0こ。ぜんぶで 60こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-6.b603d681415b",
@@ -350,7 +356,9 @@
       "prompt": "十[じゅう]のくらいが 5 で、一[いち]のくらいが 7 のかずは、いくつに なるでしょう。",
       "answers": [
         "57"
-      ]
+      ],
+      "promptImage": "questions/sansu/g1/visuals/tens-57.svg",
+      "promptImageAlt": "しかくの わく 1つに えんぴつが 10ぽん。わくが 5つ、ばらが 7ほん あります。"
     },
     "explanation": "十[じゅう]のくらいが 5 なので、50 になる。50 と 一[いち]のくらいの 7 で、あわせて 57 だね。"
   },
@@ -386,14 +394,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "○は、いくつ あるでしょう。",
+      "prompt": "りんごは ぜんぶで なんこ ありますか？",
       "answers": [
         "25"
       ],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
-      "promptImage": "questions/legacy/a912f4c94ef8e008.png"
+      "promptImage": "questions/sansu/g1/visuals/count-apples-25.svg",
+      "promptImageAlt": "しかくの わく 1つに りんごが 10こ。わくが 2つ、ばらが 5こです。"
     },
-    "explanation": "１れつが 10 に なっているね。２れつと 5 あるので、25 になる。"
+    "explanation": "10この まとまりが 2つ、ばらが 5こ。ぜんぶで 25こです。"
   }
 ]

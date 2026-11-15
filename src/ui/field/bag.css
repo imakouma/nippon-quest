@@ -4,6 +4,60 @@
  */
 .nq-bag-left {
   min-height: 0;
+  width: 448px;
+}
+.nq-bag-left > .nq-party-info {
+  flex: 1;
+  min-height: 0;
+  gap: 6px;
+  padding: 8px;
+  border-color: #98734d;
+  background: #171723;
+  box-shadow: inset 0 0 0 2px #3b302b;
+}
+.nq-bag-left .nq-party-head {
+  gap: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #665044;
+}
+.nq-bag-left .nq-party-art {
+  width: 56px;
+  height: 56px;
+  border-color: #80654c;
+  background: #252131;
+}
+.nq-bag-left .nq-party-art img {
+  width: 48px;
+  height: 48px;
+}
+.nq-bag-left .nq-party-name {
+  font-size: 24px;
+  line-height: 28px;
+}
+.nq-bag-left .nq-party-who {
+  min-width: 0;
+  gap: 0;
+}
+.nq-bag-left .nq-party-sub {
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  color: var(--nq-cloud);
+}
+.nq-bag-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  color: var(--nq-white);
+}
+.nq-bag-left .nq-party-blurb {
+  color: var(--nq-cloud);
+}
+.nq-bag-left .nq-party-sub,
+.nq-bag-left .nq-bag-line,
+.nq-bag-left .nq-party-blurb,
+.nq-bag-left .nq-party-stats {
+  font-size: 16px;
+  line-height: 20px;
 }
 .nq-bag-right {
   min-height: 0;
@@ -19,6 +73,9 @@
   flex: 1;
   gap: 8px;
   min-height: 160px;
+  padding: 8px;
+  border: 4px solid #403b50;
+  background: #141726;
 }
 .nq-bag-details-closed .nq-party-msg {
   visibility: hidden;
@@ -52,13 +109,15 @@
 }
 .nq-bag-grid {
   display: grid;
-  gap: 6px;
+  gap: 4px;
+  align-self: center;
   justify-content: center;
   align-content: center;
-  min-height: 252px;
-  padding: 12px;
-  border: 4px solid #31273f;
-  background: #111321;
+  min-height: 0;
+  padding: 10px;
+  border: 4px solid #98734d;
+  background: #493629;
+  box-shadow: inset 0 0 0 4px #2c2223;
   flex: none;
 }
 .nq-bag-cell {
@@ -97,10 +156,10 @@
 .nq-bag-hero img {
   transform: translateY(-8px);
 }
-/* あいている マス：点線の わくだけ */
+/* あいている マス */
 .nq-bag-empty {
-  border-style: dashed;
-  background: transparent;
+  border: 3px solid #80654c;
+  background: #211e27;
 }
 .nq-bag-drop-ok {
   border-color: var(--nq-yellow);
@@ -244,16 +303,6 @@
   height: 12px;
   background: var(--nq-yellow);
   border: 2px solid #000;
-}
-.nq-bag-costline {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 16px;
-  color: var(--nq-yellow);
-}
-.nq-bag-costline .nq-bag-pips {
-  margin-left: 0;
 }
 .nq-bag-line {
   margin: 0;

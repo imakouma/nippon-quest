@@ -1,5 +1,6 @@
 @import '../../../ui/fraction.css';
 @import './questionViewport.css';
+@import '../choice/choice.css';
 @import '../text-input/readingInput.css';
 
 /* 問題UI共通スタイル。基準解像度 960x540 の DOM オーバーレイ内で使う。 */
@@ -241,6 +242,12 @@
   height: auto;
   margin: auto;
 }
+.nq-input-illustration
+  :is(img[src*='/sansu/g1/visuals/'], img[src*='/sansu/g2/visuals/'], img[src*='/sansu/g3/visuals/']) {
+  width: auto;
+  max-width: 100%;
+  max-height: 216px;
+}
 .nq-input-template {
   font-size: 133.333333%;
   display: flex;
@@ -272,6 +279,27 @@
   color: #ffd866;
   font: inherit;
   text-align: center;
+}
+.nq-input-template input.nq-input-active {
+  border-color: #ffd866;
+  outline: none;
+}
+.nq-input-number-pad {
+  display: grid;
+  grid-template-columns: repeat(4, 96px);
+  justify-content: center;
+  gap: 8px;
+}
+.nq-input-number-pad .nq-btn {
+  width: 96px;
+  min-width: 96px;
+  height: 56px;
+  min-height: 56px;
+  box-sizing: border-box;
+  font-size: 28px;
+}
+.nq-input-pad-action {
+  background: #6aa9ff;
 }
 .nq-input-submit {
   align-self: center;
@@ -439,9 +467,72 @@
 .nq-nb-blocks {
   display: flex;
   flex: 1;
-  align-items: stretch;
+  min-height: 0;
+  align-items: center;
   justify-content: center;
   gap: 24px;
+}
+.nq-nb-place-value {
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  gap: 16px;
+  min-width: 0;
+  padding: 8px;
+  border: 4px solid #f6e7c1;
+  background: #101327;
+}
+.nq-nb-place-group {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.nq-nb-place-group > span {
+  color: #ffd866;
+  font-size: 16px;
+}
+.nq-nb-tens,
+.nq-nb-ones {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+}
+.nq-nb-ten {
+  display: grid;
+  grid-template-columns: repeat(5, 18px);
+  gap: 2px;
+  padding: 4px;
+  border: 3px solid #6aa9ff;
+  background: #202842;
+}
+.nq-nb-ten img,
+.nq-nb-ones img,
+.nq-nb-ten i,
+.nq-nb-ones i {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-nb-ten i,
+.nq-nb-ones i {
+  background: #f4a53a;
+}
+.nq-nb-ones img,
+.nq-nb-ones i {
+  width: 28px;
+  height: 28px;
+}
+.nq-nb-block-controls {
+  display: flex;
+  gap: 12px;
 }
 .nq-nb-block-row {
   display: flex;
@@ -486,13 +577,40 @@
   font-size: 24px !important;
 }
 .nq-nb-numberline {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 48px;
 }
+.nq-nb-ticks {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 48px;
+  left: 48px;
+  height: 32px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.nq-nb-tick {
+  position: absolute;
+  top: 8px;
+  width: 3px;
+  height: 16px;
+  transform: translateX(-50%);
+  background: #f6e7c1;
+}
+.nq-nb-tick-current {
+  top: 2px;
+  width: 6px;
+  height: 28px;
+  background: #ffd866;
+}
 .nq-nb-numberline input[type='range'] {
+  position: relative;
+  z-index: 1;
   width: 100%;
   min-height: 64px;
   accent-color: #ffd866;
@@ -664,7 +782,13 @@
   animation: nq-pop 0.35s ease-out;
 }
 .nq-feedback-correct .nq-feedback-text {
-  color: #ffe66d;
+  display: inline-block;
+  padding: 8px 20px;
+  border: 4px solid #f6e7c1;
+  background: #6cc070;
+  color: #101327;
+  text-shadow: none;
+  box-shadow: 0 4px 0 #000;
 }
 .nq-pm-prompt {
   display: flex;
@@ -756,18 +880,70 @@
   justify-content: center;
   text-align: center;
 }
+.nq-review-panel {
+  position: relative;
+  display: flex;
+  width: min(720px, calc(100% - 16px));
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 36px 32px 28px;
+  box-sizing: border-box;
+  border: 6px solid #f6e7c1;
+  background: #172448;
+  box-shadow:
+    inset 0 0 0 4px #2a3561,
+    8px 8px 0 #080b16;
+}
+.nq-review-title {
+  position: absolute;
+  top: -24px;
+  margin: 0;
+  padding: 4px 24px;
+  border: 4px solid #f6e7c1;
+  background: #f4a53a;
+  color: #2a1a05;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.2;
+}
 .nq-review .nq-feedback {
   position: static;
   flex: none;
 }
 .nq-review p {
   margin: 0;
+  width: 100%;
   max-width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 4px solid #f4a53a;
+  background: #f6e7c1;
+  color: #101327;
+  font-size: 22px;
+  line-height: 1.6;
+  text-align: left;
   overflow-y: visible;
+}
+.nq-review-actions {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
 .nq-review .nq-btn {
   flex: none;
-  min-height: 48px;
+  min-width: 220px;
+  min-height: 64px;
+  padding: 8px 24px;
+  font-size: 28px;
+}
+.nq-review-explain {
+  background: #6aa9ff;
+  color: #101327;
 }
 
 .nq-input-speak {

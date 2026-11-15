@@ -10,15 +10,18 @@
       "choices": [
         {
           "id": "a",
-          "text": "ボールの ような まるい かたち"
+          "text": "ボールの ような まるい かたち",
+          "image": "questions/sansu/g1/visuals/solid-a.svg"
         },
         {
           "id": "b",
-          "text": "はこの ような かたち"
+          "text": "はこの ような かたち",
+          "image": "questions/sansu/g1/visuals/solid-b.svg"
         },
         {
           "id": "c",
-          "text": "さいころの ような かたち"
+          "text": "さいころの ような かたち",
+          "image": "questions/sansu/g1/visuals/solid-c.svg"
         }
       ],
       "answer": "a",
@@ -37,15 +40,18 @@
       "choices": [
         {
           "id": "a",
-          "text": "はこを うえと したに かさねる"
+          "text": "はこを うえと したに かさねる",
+          "image": "questions/sansu/g1/visuals/boxes-a.svg"
         },
         {
           "id": "b",
-          "text": "はこを はなして おく"
+          "text": "はこを はなして おく",
+          "image": "questions/sansu/g1/visuals/boxes-b.svg"
         },
         {
           "id": "c",
-          "text": "はこを よこに ならべる"
+          "text": "はこを よこに ならべる",
+          "image": "questions/sansu/g1/visuals/boxes-c.svg"
         }
       ],
       "answer": "a",
@@ -76,7 +82,9 @@
         }
       ],
       "answer": "b",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/cat-chair-bag.svg",
+      "promptSpeech": "ねこは いすの した、かばんは いすの うえに あります。いすの うえに あるのは？。いすの ざめんの うえに かばん、ざめんの したに ねこが います。"
     },
     "explanation": "「うえ・した」の ことばで いちを たしかめると、いすの うえは かばんです。"
   }

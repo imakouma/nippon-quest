@@ -1,0 +1,48 @@
+/* 図のある選択問題は、問題文 → 図 → 選択肢の順で見比べられるようにする。 */
+.nq-q-choice .nq-q-prompt:has(.nq-q-prompt-img) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.nq-q-choice .nq-q-prompt:has(.nq-q-prompt-img) p {
+  grid-column: 1;
+  grid-row: 1;
+}
+.nq-q-choice .nq-q-prompt:has(.nq-q-prompt-img) .nq-btn-speak {
+  grid-column: 2;
+  grid-row: 1;
+}
+.nq-q-choice .nq-q-prompt .nq-q-prompt-img {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-self: center;
+  max-width: 100%;
+  max-height: 216px;
+}
+.nq-q-choice .nq-choice-content:has(img) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.nq-q-choice .nq-choice-content img {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+/* 比べるための教材図は、文字の横の小さなアイコンに縮めない。 */
+.nq-q-choice
+  .nq-choice-content:has(
+    :is(img[src*='/sansu/g1/visuals/'], img[src*='/sansu/g2/visuals/'], img[src*='/sansu/g3/visuals/'])
+  ) {
+  flex-direction: column;
+}
+.nq-q-choice
+  .nq-choice-content
+  :is(img[src*='/sansu/g1/visuals/'], img[src*='/sansu/g2/visuals/'], img[src*='/sansu/g3/visuals/']) {
+  width: 144px;
+  height: 104px;
+  max-width: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+}

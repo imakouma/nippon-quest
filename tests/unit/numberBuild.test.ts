@@ -3,6 +3,7 @@ import {
   numberBuildPayloadSchema,
   numberBuildScore,
 } from '../../src/questions/renderers/number-build/schema';
+import { numberLineTicks, splitPlaceValue } from '../../src/questions/renderers/number-build/NumberBuildView';
 
 describe('number-build', () => {
   it('3モードの payload を検証する', () => {
@@ -70,5 +71,17 @@ describe('number-build', () => {
         max: 99,
       }).success,
     ).toBe(false);
+  });
+
+  it('23を10のまとまり2つと1のばら3つに分ける', () => {
+    expect(splitPlaceValue(23)).toEqual({ tens: 2, ones: 3 });
+  });
+
+  it('0〜10は全11目盛りにし、長い数直線は主要目盛りへ間引く', () => {
+    expect(numberLineTicks(0, 10, 1)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    const long = numberLineTicks(0, 100, 1);
+    expect(long.length).toBeLessThanOrEqual(12);
+    expect(long.at(0)).toBe(0);
+    expect(long.at(-1)).toBe(100);
   });
 });

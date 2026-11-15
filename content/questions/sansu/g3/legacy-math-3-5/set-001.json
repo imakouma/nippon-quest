@@ -16,7 +16,9 @@
         "15"
       ],
       "template": "{{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g3/visuals/time-04ffc8e1c045.svg",
+      "promptImageAlt": "いえを でるの時計は7時45分、がっこうに つくの時計は8時0分。かかった じかんは ？。"
     },
     "explanation": "時計[とけい]をおもいうかべて、数[かぞ]えてみよう。小[ちい]さなめもりが、15 あるので、かかった時間[じかん]は 15 分[ぶん]だ。"
   },
@@ -37,7 +39,9 @@
         "9",
         "30"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-0df57e0c1151.svg",
+      "promptImageAlt": "ごご10じに ねるの時計は10時0分、つぎのひ ごぜん7じ30ぷんの時計は7時30分。よなかの12じを こえる。"
     },
     "explanation": "午後[ごご]10時[じ]から 12時[じ]までは、2時間[じかん]。12時[じ]から 午前[ごぜん]7時[じ]30分[ふん]までは、7時間[じかん]30分[ふん]。あわせて、9時間[じかん]30分[ふん]になるね。"
   },
@@ -58,7 +62,9 @@
         "2",
         "35"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-107217fdb310.svg",
+      "promptImageAlt": "こうえんを でる時刻は2時10分。間の時間は25分。いえに つく時刻は空らん。"
     },
     "explanation": "時計[とけい]をおもいうかべて、2時[じ]10分[ふん]から、25分[ふん] はりをすすめてみよう。2時[じ]35分[ふん]になるね。"
   },
@@ -79,7 +85,9 @@
         "55"
       ],
       "template": "{{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g3/visuals/time-2545c842cd80.svg",
+      "promptImageAlt": "いえを でるの時計は10時35分、がっこうに つくの時計は11時30分。かかった じかんは ？。"
     },
     "explanation": "10時[じ]35分[ふん]から 11時[じ]までかかった時間[じかん]が、25分[ふん]。11時[じ]から 11時[じ]30分[ふん]までかかった時間[じかん]が、30分[ふん]。あわせて、55分[ふん]になるね。"
   },
@@ -100,7 +108,9 @@
         "7",
         "45"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-269206acfb8e.svg",
+      "promptImageAlt": "がっこうに つく時刻は8時15分。間の時間は30分。いえを でる時刻は空らん。"
     },
     "explanation": "時計[とけい]をおもいうかべて、8時[じ]15分[ふん]から、30分[ふん] はりをもどしてみよう。7時[じ]45分[ふん]になるね。"
   },
@@ -121,7 +131,9 @@
         "60"
       ],
       "template": "{{INPUT}}秒",
-      "suffix": "秒"
+      "suffix": "秒",
+      "promptImage": "questions/sansu/g3/visuals/clock-turn-びょう.svg",
+      "promptImageAlt": "びょうしんが1周する図。小さな1目盛りが1びょう。"
     },
     "explanation": "時計[とけい]の小[ちい]さなめもりを 数[かぞ]えてみよう。60こ のめもりがあるね。"
   },
@@ -142,7 +154,9 @@
         "1",
         "55"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-406dafbd4ccd.svg",
+      "promptImageAlt": "おきる時刻は2時45分。間の時間は50分。ひるねを はじめる時刻は空らん。"
     },
     "explanation": "時計[とけい]をおもいうかべて、2時[じ]45分[ふん]から、50分[ふん] はりをもどしてみよう。1時[じ]55分[ふん]になるね。"
   },
@@ -163,7 +177,9 @@
         "3",
         "55"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-53aff7719e40.svg",
+      "promptImageAlt": "としょかんに つく時刻は4時5分。間の時間は10分。いえを でる時刻は空らん。"
     },
     "explanation": "時計[とけい]をおもいうかべて、4時[じ]5分[ふん]から、10分[ふん] はりをもどしてみよう。3時[じ]55分[ふん]になるね。"
   },
@@ -184,7 +200,9 @@
         "60"
       ],
       "template": "{{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g3/visuals/clock-turn-ふん.svg",
+      "promptImageAlt": "ながい はりが1周する図。小さな1目盛りが1ふん。"
     },
     "explanation": "時計[とけい]の小[ちい]さなめもりを 数[かぞ]えてみよう。60こ のめもりがあるね。"
   },
@@ -205,7 +223,9 @@
         "5",
         "50"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分"
+      "template": "{{INPUT}}時{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-627f58a63aaa.svg",
+      "promptImageAlt": "こうえんを でる時刻は5時15分。間の時間は35分。いえに つく時刻は空らん。"
     },
     "explanation": "時計[とけい]をおもいうかべて、5時[じ]15分[ふん]から、35分[ふん] はりをすすめてみよう。5時[じ]50分[ふん]になるね。"
   },
@@ -226,7 +246,9 @@
         "5",
         "30"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-8b8544a0120f.svg",
+      "promptImageAlt": "ごぜん10じの時計は10時0分、ごご3じ30ぷんの時計は3時30分。おひるの12じを こえる。"
     },
     "explanation": "午前[ごぜん]10時[じ]から 12時[じ]までのかかった時間[じかん]が、2時間[じかん]。12時[じ]から、 午後[ごご]3時[じ]30分[ふん]までのかかった時間[じかん]が、3時間[じかん]30分[ふん]。あわせて、5時間[じかん]30分[ふん]になるね。"
   },
@@ -242,12 +264,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "かおるさんがへやにいると、午後[ごご]8時[じ]45分[ふん]に かみなりがなりました。その日[ひ]の夜[よる]ねていると またかみなりがなり、その時[とき]に時計[とけい]を見[み]たら午前[ごぜん]2時[じ]でした。一回目[いっかいめ]のかみなりと 二回目[にかいめ]のかみなりの間[あいだ]は 何時間何分[なんじかんなんぷん]あいていましたか。 時間分[じかんふん]",
+      "prompt": "かみなりがなったときの時計[とけい]は、一回目[いっかいめ]が午後[ごご]8時[じ]45分[ふん]、二回目[にかいめ]がつぎの日[ひ]の午前[ごぜん]2時[じ]でした。間[あいだ]は何時間何分[なんじかんなんぷん]ですか。",
       "answers": [
         "5",
         "15"
       ],
-      "template": "かおるさんがへやにいると、午後8時45分に かみなりがなりました。その日の夜ねていると またかみなりがなり、その時に時計を見たら午前2時でした。一回目のかみなりと 二回目のかみなりの間は 何時間何分あいていましたか。 {{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-98489571fd39.svg",
+      "promptImageAlt": "ごご8じ45ふんの時計は8時45分、つぎのひ ごぜん2じの時計は2時0分。よなかの12じを こえる。"
     },
     "explanation": "午後[ごご]8時[じ]45分[ふん]から 12時[じ]までは、3時間[じかん]15分[ふん]。12時[じ]から、 午前[ごぜん]2時[じ]までは、2時間[じかん]。あわせて、5時間[じかん]15分[ふん]になるね。"
   },
@@ -268,7 +292,9 @@
         "7",
         "15"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分"
+      "template": "{{INPUT}}時間{{INPUT}}分",
+      "promptImage": "questions/sansu/g3/visuals/time-b474f1ff513b.svg",
+      "promptImageAlt": "ごぜん9じの時計は9時0分、ごご4じ15ふんの時計は4時15分。おひるの12じを こえる。"
     },
     "explanation": "午前[ごぜん]9時[じ]から 12時[じ]までのかかった時間[じかん]が、3時間[じかん]。12時[じ]から、 午後[ごご]4時[じ]15分[ふん]までのかかった時間[じかん]が、4時間[じかん]15分[ふん]。あわせて、7時間[じかん]15分[ふん]になるね。"
   },
@@ -289,7 +315,9 @@
         "25"
       ],
       "template": "{{INPUT}}分",
-      "suffix": "分"
+      "suffix": "分",
+      "promptImage": "questions/sansu/g3/visuals/time-e9aad5dc918b.svg",
+      "promptImageAlt": "いえを でるの時計は7時45分、がっこうに つくの時計は8時10分。かかった じかんは ？。"
     },
     "explanation": "7時[じ]45分[ふん]から 8時[じ]までかかった時間[じかん]が、15分[ふん]。8時[じ]から 8時[じ]10分[ふん]までかかった時間[じかん]が、10分[ふん]。あわせて、25分[ふん]になるね。"
   }

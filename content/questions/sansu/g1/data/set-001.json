@@ -6,25 +6,30 @@
     "grade": 1,
     "unit": "sansu.g1.data",
     "payload": {
-      "prompt": "すきな くだものを しらべました。りんご ●●●、みかん ●●、ぶどう ●。いちばん おおいのは？",
+      "prompt": "すきな くだものを しらべました。すきな ひとが いちばん おおいのは？",
       "choices": [
         {
           "id": "a",
-          "text": "りんご"
+          "text": "りんご",
+          "image": "questions/sansu/g1/data/apple.svg"
         },
         {
           "id": "b",
-          "text": "みかん"
+          "text": "みかん",
+          "image": "questions/sansu/g1/data/orange.svg"
         },
         {
           "id": "c",
-          "text": "ぶどう"
+          "text": "ぶどう",
+          "image": "questions/sansu/g1/data/grapes.svg"
         }
       ],
       "answer": "a",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/data/fruit-votes.svg",
+      "promptSpeech": "すきな くだものを しらべました。くだものの え 1つで 1にんです。りんごは 3にん、みかんは 2にん、ぶどうは 1にん。すきな ひとが いちばん おおいのは？"
     },
-    "explanation": "しるしを かぞえると、りんごが 3こで いちばん おおいです。"
+    "explanation": "え 1つが 1にんを あらわします。りんごは 3にん、みかんは 2にん、ぶどうは 1にん。りんごが すきな ひとが いちばん おおいです。"
   },
   {
     "id": "sansu.g1.data.0002",
@@ -33,7 +38,7 @@
     "grade": 1,
     "unit": "sansu.g1.data",
     "payload": {
-      "prompt": "あかい はな ●●●●、しろい はな ●●。あかい はなは しろい はなより なんぼん おおい？",
+      "prompt": "えを みよう。あかい はなは しろい はなより なんぼん おおい？",
       "choices": [
         {
           "id": "a",
@@ -49,7 +54,9 @@
         }
       ],
       "answer": "b",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/visuals/flowers-4-2.svg",
+      "promptSpeech": "えを みよう。あかい はなは しろい はなより なんぼん おおい？。あかい はなは 4ほん、しろい はなは 2ほん。はしを そろえて ならんでいます。"
     },
     "explanation": "あかは 4ほん、しろは 2ほんです。4と 2の ちがいは 2なので、2ほん おおいです。"
   },
@@ -64,15 +71,18 @@
       "choices": [
         {
           "id": "a",
-          "text": "どうぶつごとに しるしを ならべる"
+          "text": "どうぶつごとに しるしを ならべる",
+          "image": "questions/sansu/g1/visuals/sort-animals-a.svg"
         },
         {
           "id": "b",
-          "text": "じゅんばんを きめずに しるしを ちらす"
+          "text": "じゅんばんを きめずに しるしを ちらす",
+          "image": "questions/sansu/g1/visuals/sort-animals-b.svg"
         },
         {
           "id": "c",
-          "text": "かずを かかない"
+          "text": "かずを かかない",
+          "image": "questions/sansu/g1/visuals/sort-animals-c.svg"
         }
       ],
       "answer": "a",

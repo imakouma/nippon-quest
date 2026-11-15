@@ -16,7 +16,9 @@
         "800"
       ],
       "template": "1kg - 200g = {{INPUT}}g",
-      "suffix": "g"
+      "suffix": "g",
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "1kg=1000g なので、 1kg-200g = 1000g-200g = 800g"
   },
@@ -37,7 +39,9 @@
         "1000"
       ],
       "template": "{{INPUT}}kg",
-      "suffix": "kg"
+      "suffix": "kg",
+      "promptImage": "questions/sansu/g3/visuals/tonne.svg",
+      "promptImageAlt": "1tを同じ大きさの10部分に分け、1部分が100kgであることを示す図。"
     },
     "explanation": "1t = 1000kg になる。しっかりおぼえておこう。キリンやカバは、大[おお]きくなると、1tをこえるんだ。"
   },
@@ -57,19 +61,23 @@
       "choices": [
         {
           "id": "c1",
-          "text": "1円玉[えんだま]"
+          "text": "1円玉[えんだま]",
+          "image": "questions/sansu/g3/visuals/coin-1.svg"
         },
         {
           "id": "c2",
-          "text": "500円玉[えんだま]"
+          "text": "500円玉[えんだま]",
+          "image": "questions/sansu/g3/visuals/coin-500.svg"
         },
         {
           "id": "c3",
-          "text": "牛[ぎゅう]にゅうパック1本[ほん]"
+          "text": "牛[ぎゅう]にゅうパック1本[ほん]",
+          "image": "questions/sansu/g3/visuals/milk.svg"
         },
         {
           "id": "c4",
-          "text": "えんぴつ1本[ほん]"
+          "text": "えんぴつ1本[ほん]",
+          "image": "questions/sansu/g3/visuals/pencil.svg"
         }
       ],
       "answer": "c3",
@@ -94,7 +102,9 @@
         "1",
         "500"
       ],
-      "template": "600g + 900g = {{INPUT}}kg {{INPUT}}g"
+      "template": "600g + 900g = {{INPUT}}kg {{INPUT}}g",
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "600g + 900g = 1500g 1000g = 1kg なので、1500g=1kg500g になる。"
   },
@@ -115,7 +125,9 @@
         "900"
       ],
       "template": "800g + 100g = {{INPUT}}g",
-      "suffix": "g"
+      "suffix": "g",
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "そのまま 足[た]し算[ざん]すればいい。 800g + 100g = 900g"
   },
@@ -151,7 +163,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptSpeech": "km や kg のように、たんいにつく k（キロ） は 何[なに]をあらわしているでしょう。 1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "1km=1000m、1kg=1000gです。単位[たんい]の前[まえ]につくk（キロ）は、もとの単位[たんい]の1000倍[ばい]を表[あらわ]します。"
   },
@@ -172,7 +186,9 @@
         "700"
       ],
       "template": "2kg - 1kg 300g = {{INPUT}}g",
-      "suffix": "g"
+      "suffix": "g",
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "1kg=1000g なので、2kg=2000g、1kg300g=1300g になる。 2kg - 1kg300g = 2000g-1300g = 700g"
   },
@@ -229,7 +245,9 @@
         "1000"
       ],
       "template": "{{INPUT}}g",
-      "suffix": "g"
+      "suffix": "g",
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "1km=1000m だったね。kは、同[おな]じ「キロ」をあらわしているので、1kg=1000g だ。"
   },
@@ -249,19 +267,23 @@
       "choices": [
         {
           "id": "c1",
-          "text": "1円玉[えんだま]"
+          "text": "1円玉[えんだま]",
+          "image": "questions/sansu/g3/visuals/coin-1.svg"
         },
         {
           "id": "c2",
-          "text": "500円玉[えんだま]"
+          "text": "500円玉[えんだま]",
+          "image": "questions/sansu/g3/visuals/coin-500.svg"
         },
         {
           "id": "c3",
-          "text": "牛[ぎゅう]にゅうパック1本[ほん]"
+          "text": "牛[ぎゅう]にゅうパック1本[ほん]",
+          "image": "questions/sansu/g3/visuals/milk.svg"
         },
         {
           "id": "c4",
-          "text": "えんぴつ1本[ほん]"
+          "text": "えんぴつ1本[ほん]",
+          "image": "questions/sansu/g3/visuals/pencil.svg"
         }
       ],
       "answer": "c1",
@@ -285,19 +307,23 @@
       "choices": [
         {
           "id": "c1",
-          "text": "キリンの体重[たいじゅう]"
+          "text": "キリンの体重[たいじゅう]",
+          "image": "questions/sansu/g3/visuals/giraffe.svg"
         },
         {
           "id": "c2",
-          "text": "スイカ"
+          "text": "スイカ",
+          "image": "questions/sansu/g3/visuals/watermelon.svg"
         },
         {
           "id": "c3",
-          "text": "学校[がっこう]の机[つくえ]"
+          "text": "学校[がっこう]の机[つくえ]",
+          "image": "questions/sansu/g3/visuals/desk.svg"
         },
         {
           "id": "c4",
-          "text": "ペンギンの体重[たいじゅう]"
+          "text": "ペンギンの体重[たいじゅう]",
+          "image": "questions/sansu/g3/visuals/penguin.svg"
         }
       ],
       "answer": "c1",
@@ -358,7 +384,9 @@
         "1"
       ],
       "template": "700g + 300g ={{INPUT}}kg",
-      "suffix": "kg"
+      "suffix": "kg",
+      "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
+      "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
     },
     "explanation": "700g + 300g = 1000g kg に直[ちょく]して、1000g = 1kg だ。"
   },

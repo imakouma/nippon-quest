@@ -192,19 +192,23 @@
       "choices": [
         {
           "id": "c1",
-          "text": "おり紙[かみ]"
+          "text": "おり紙[かみ]",
+          "image": "questions/sansu/g2/visuals/origami.svg"
         },
         {
           "id": "c2",
-          "text": "はがき"
+          "text": "はがき",
+          "image": "questions/sansu/g2/visuals/postcard.svg"
         },
         {
           "id": "c3",
-          "text": "ノート"
+          "text": "ノート",
+          "image": "questions/sansu/g2/visuals/notebook.svg"
         },
         {
           "id": "c4",
-          "text": "しんぶん紙[かみ]"
+          "text": "しんぶん紙[かみ]",
+          "image": "questions/sansu/g2/visuals/newspaper.svg"
         }
       ],
       "answer": "c1",
@@ -281,7 +285,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/shape-vertices.svg",
+      "promptSpeech": "三角形[さんかくけい]や四角形[しかくけい]の かどの点[てん]を 何[なに]というでしょう。 三角形と四角形の、かどの点を丸と矢印で示した図。"
     },
     "explanation": "三角形[さんかくけい]や四角形[しかくけい]の かどの点[てん]を 「ちょう点[てん]」という。"
   },
@@ -556,7 +562,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/visuals/shape-edges.svg",
+      "promptSpeech": "三角形[さんかくけい]や四角形[しかくけい]の まわりの直線[ちょくせん]を 何[なに]というでしょう。 三角形と四角形の、まわりの直線の1本を太線と矢印で示した図。"
     },
     "explanation": "三角形[さんかくけい]や四角形[しかくけい]の まわりの直線[ちょくせん]を 「辺[へん]」という。"
   },
