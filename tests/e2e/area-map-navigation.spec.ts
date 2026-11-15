@@ -30,11 +30,13 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   const player = page.locator('canvas[data-player-tile]');
   const tileBeforeWalking = await player.getAttribute('data-player-tile');
   await page.keyboard.down('ArrowRight');
-  await page.waitForTimeout(80);
-  await expect(miniMap).toBeVisible();
-  await expect(miniMap.locator('.nq-mini-open')).toHaveText('青森県');
-  await page.keyboard.up('ArrowRight');
-  await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(tileBeforeWalking);
+  try {
+    await expect(miniMap).toBeVisible();
+    await expect(miniMap.locator('.nq-mini-open')).toHaveText('青森県');
+    await expect.poll(() => player.getAttribute('data-player-tile')).not.toBe(tileBeforeWalking);
+  } finally {
+    await page.keyboard.up('ArrowRight');
+  }
   const surroundingPixels = await page
     .locator('.nq-mini-map > canvas:not(.nq-mini-detail)')
     .evaluate((canvas) => {

@@ -3,6 +3,12 @@ import { describe, expect, it } from 'vitest';
 import { EVENT_SPOTS, LANDMARK_SPOTS, type LonLat } from '../../scripts/data/geo';
 import { TOWN_THEMES } from '../../scripts/data/towns';
 import { project, type Proj } from '../../scripts/terrain/raster';
+import {
+  canTraverseElevation,
+  elevationAt,
+  terrainElevationFromObjects,
+} from '../../src/core/world/terrainElevation';
+import { ROAD_TILE } from '../../src/core/world/ground';
 
 /**
  * scaffold:maps が作ったマップが「遊べる」ことを機械的に確かめる。
@@ -52,7 +58,6 @@ const WORLD_MAP = new URL('../../public/worldmap.json', import.meta.url);
 const WORLD = new URL('../../content/world/japan.json', import.meta.url);
 const ITEMS = new URL('../../content/items/', import.meta.url);
 const PREFECTURE_BORDER_TILE = 301;
-const ROAD_TILE = 163;
 const TERRAIN = JSON.parse(
   readFileSync(new URL('../../scripts/data/terrain.json', import.meta.url), 'utf8'),
 ) as { maps: Record<string, TerrainMap> };
@@ -290,6 +295,62 @@ describe('マップ', () => {
     for (const boss of objects.filter((o) => o.type === 'midboss' || o.type === 'regionBoss')) {
       const distance = Math.abs(Math.floor(boss.x / 16) - sx) + Math.abs(Math.floor(boss.y / 16) - sy);
       expect(distance, `${boss.name} が開始地点に近すぎる`).toBeGreaterThanOrEqual(16);
+    }
+  });
+
+  it('青森の果樹園段丘は4段高く、3マスの階段だけを通れる', () => {
+    const aomori = maps.get('aomori-field')!;
+    const background = aomori.layers.find((layer) => layer.name === 'background')!.data!;
+    const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    const elevationObjects = aomori.layers.find((layer) => layer.name === 'elevation')?.objects ?? [];
+    const elevation = terrainElevationFromObjects(aomori.width, aomori.height, 16, elevationObjects);
+    const at = (x: number, y: number) => y * aomori.width + x;
+
+    for (const x of [64, 65, 66]) {
+      expect([73, 74, 75, 76, 77].map((y) => elevationAt(elevation, x, y))).toEqual([4, 3, 2, 1, 0]);
+      expect([74, 75, 76].map((y) => background[at(x, y)])).toEqual([306, 306, 306]);
+      expect(canTraverseElevation(elevationAt(elevation, x, 73), elevationAt(elevation, x, 74))).toBe(true);
+    }
+    for (let x = 57; x <= 70; x++) {
+      const index = at(x, 74);
+      if (x >= 64 && x <= 66) {
+        expect(collision[index]).not.toBe(3);
+      } else {
+        expect(canTraverseElevation(elevationAt(elevation, x, 73), elevationAt(elevation, x, 74))).toBe(
+          false,
+        );
+        expect(collision[index]).toBe(3);
+      }
+    }
+  });
+
+  it('青森の横道は段丘の高さ判定で通行不能にならない', () => {
+    const aomori = maps.get('aomori-field')!;
+    const background = aomori.layers.find((layer) => layer.name === 'background')!.data!;
+    const collision = aomori.layers.find((layer) => layer.name === 'collision')!.data!;
+    const elevation = terrainElevationFromObjects(
+      aomori.width,
+      aomori.height,
+      16,
+      aomori.layers.find((layer) => layer.name === 'elevation')?.objects ?? [],
+    );
+
+    for (let y = 0; y < aomori.height; y++) {
+      for (let x = 0; x < aomori.width - 1; x++) {
+        const left = y * aomori.width + x;
+        const right = left + 1;
+        if (
+          background[left] !== ROAD_TILE ||
+          background[right] !== ROAD_TILE ||
+          collision[left] === 3 ||
+          collision[right] === 3
+        )
+          continue;
+        expect(
+          canTraverseElevation(elevationAt(elevation, x, y), elevationAt(elevation, x + 1, y)),
+          `横道 (${x}, ${y}) → (${x + 1}, ${y})`,
+        ).toBe(true);
+      }
     }
   });
 

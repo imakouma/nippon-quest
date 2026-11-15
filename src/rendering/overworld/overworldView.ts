@@ -8,7 +8,7 @@
  *  - 草原・すなはま・みずべ：場所で きまる 2〜3 しゅるいを まぜて、同じ 絵が マス目に ならばないように
  * 純粋関数（Phaser を 使わない）。知らない 番号は -1（background の 絵を そのまま 見せる）
  */
-import { PREFECTURE_BORDER_TILE } from '../../core/world/ground';
+import { CLIFF_TILE, PREFECTURE_BORDER_TILE, STAIRS_TILE } from '../../core/world/ground';
 
 /** 見た目の タイルの 番号（テクスチャ 'overworld-view' の 中。0 から） */
 export const VIEW = {
@@ -52,8 +52,14 @@ export const VIEW = {
   ROAD: 72,
   /** 門のない県境を示す石垣 */
   PREFECTURE_BORDER: 88,
+  ORCHARD_ALT: 89,
+  ORCHARD_PEACH_ALT: 90,
+  CLIFF: 91,
+  STAIRS_LEFT: 92,
+  STAIRS: 93,
+  STAIRS_RIGHT: 94,
 } as const;
-export const VIEW_COUNT = 89;
+export const VIEW_COUNT = 95;
 
 /** background の 番号（fieldArt.ts・core/world/ground.ts） */
 const WATER = 3;
@@ -86,7 +92,10 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
     const m = mask((n) => FOREST.has(n));
     return m === 15 && t === 150 ? VIEW.FOREST_PINE : VIEW.FOREST + m;
   }
-  if (ORCHARD.has(t)) return t === 158 ? VIEW.ORCHARD_PEACH : VIEW.ORCHARD;
+  if (ORCHARD.has(t)) {
+    if (t === 158) return r % 5 < 2 ? VIEW.ORCHARD_PEACH_ALT : VIEW.ORCHARD_PEACH;
+    return r % 5 < 2 ? VIEW.ORCHARD_ALT : VIEW.ORCHARD;
+  }
   if (MOUNTAIN.has(t)) return t === 12 ? VIEW.PEAK_SNOW : r % 3 === 0 ? VIEW.PEAK2 : VIEW.PEAK;
   switch (t) {
     case 159:
@@ -101,6 +110,13 @@ export function viewTileAt(bg: readonly number[], w: number, h: number, i: numbe
       return VIEW.ROAD + mask((n) => n === 163);
     case PREFECTURE_BORDER_TILE:
       return VIEW.PREFECTURE_BORDER;
+    case CLIFF_TILE:
+      return VIEW.CLIFF;
+    case STAIRS_TILE: {
+      const left = x > 0 && bg[i - 1] === STAIRS_TILE;
+      const right = x + 1 < w && bg[i + 1] === STAIRS_TILE;
+      return !left && right ? VIEW.STAIRS_LEFT : left && !right ? VIEW.STAIRS_RIGHT : VIEW.STAIRS;
+    }
     case 1:
     case 13:
     case 14:

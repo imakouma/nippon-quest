@@ -14,6 +14,13 @@ import {
 } from '../core/encounter/policy';
 import { groundOfTile, type Ground } from '../core/world/ground';
 import type { LocomotionEvent } from '../core/world/playerLocomotion';
+import {
+  canTraverseElevation,
+  elevationAt,
+  projectedWorldY,
+  terrainElevationFromObjects,
+  type TerrainElevation,
+} from '../core/world/terrainElevation';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
@@ -108,7 +115,6 @@ import { monsterMenuArtUrl } from '../rendering/menuArt';
 import { addSheet } from '../rendering/sheet';
 import type { BattleEndEvent, BattleLaunchData, BattleSceneData } from './battle/contracts';
 import { buildFieldTextures } from '../rendering/overworld/fieldArt';
-import { addOverworldViewLayer } from '../rendering/overworld/viewLayer';
 import {
   attachPlayerContactEffects,
   type PlayerContactEffects,
@@ -152,6 +158,8 @@ import { PlayerLocomotionController } from './overworld/playerLocomotionControll
 import { FieldInputController } from './overworld/fieldInput';
 import { attachFieldCamera, type FieldCameraController } from './overworld/fieldCameraController';
 import { FieldContextActions } from './overworld/fieldContextActions';
+import { createMapLayers } from './overworld/mapLayers';
+import { addTransitionMarker } from './overworld/transitionMarker';
 import { buildStructureArt, structureKey, type StructureKind } from '../rendering/overworld/structureArt';
 import { fieldRewardDialogue } from './overworld/eventRewardText';
 import { createFieldFlowRuntime, type FieldFlowRuntime } from './overworld/fieldFlowRuntime';
@@ -162,7 +170,6 @@ import { executeFieldInteractionDecision } from './overworld/fieldInteractionRun
 import {
   collectOverworldFieldInteractionCandidates,
   dispatchOverworldFieldInteraction,
-  fieldGateIcon,
   isHarborTransition,
 } from './overworld/overworldFieldInteraction';
 import { runMapTransition, type MapTransitionRequest } from './overworld/mapTransitionPipeline';
@@ -306,6 +313,7 @@ export class OverworldScene extends Phaser.Scene {
   private pendingDebugBattle: DebugBattle | null = null;
   private map!: Phaser.Tilemaps.Tilemap;
   private colLayer: Phaser.Tilemaps.TilemapLayer | null = null;
+  private terrainElevation: TerrainElevation = terrainElevationFromObjects(0, 0, TILE);
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Image;
   private michiru!: Phaser.GameObjects.Sprite;
@@ -479,19 +487,9 @@ export class OverworldScene extends Phaser.Scene {
       if (!hadFieldFlow) this.cleanupTransientUi();
     });
 
-    this.map = this.make.tilemap({ key: this.mapKey });
-    const tileset = this.map.addTilesetImage('overworld-tiles', 'overworld-tiles');
-    if (!tileset) {
-      console.error('[Overworld] タイルセットを読み込めません');
-      return;
-    }
-    this.map.createLayer('background', tileset, 0, 0);
-    // フィールド・離島は 見た目用の レイヤーを 上に しく（データの background は そのまま。地面の 判定に つかう）
-    if (this.kind() === 'field' || this.kind() === 'enclave') addOverworldViewLayer(this, this.map, TILE);
-    // 町・ダンジョンの 木・かざり・たいまつ など（地面の上に重ねる）
-    if (this.map.getLayer('decor')) this.map.createLayer('decor', tileset, 0, 0);
-    this.colLayer = this.map.createLayer('collision', tileset, 0, 0);
-    this.colLayer?.setVisible(this.map.getLayer('collision')?.visible ?? true);
+    const presentedMap = createMapLayers(this, this.mapKey, this.kind(), TILE);
+    if (!presentedMap) return;
+    [this.map, this.terrainElevation, this.colLayer] = presentedMap;
 
     const objects = this.map.getObjectLayer('objects');
     this.setupObjects(objects);
@@ -614,6 +612,7 @@ export class OverworldScene extends Phaser.Scene {
     this.transitionIcons = new Map();
     this.stampIds = [];
     this.baseMap = null;
+    this.terrainElevation = terrainElevationFromObjects(0, 0, TILE);
     this.fieldResume.reset();
   }
 
@@ -654,6 +653,7 @@ export class OverworldScene extends Phaser.Scene {
       this.facing,
       { x: tx, y: ty },
       this.heroTex,
+      (x, y) => elevationAt(this.terrainElevation, x, y),
     );
   }
 
@@ -743,6 +743,11 @@ export class OverworldScene extends Phaser.Scene {
       areaBossTile: this.areaBoss?.tile ?? null,
       lastBossTile: this.lastBoss?.tile ?? null,
       blocked: (x, y) => this.isBlocked(x, y),
+      canTraverse: (fromX, fromY, toX, toY) =>
+        canTraverseElevation(
+          elevationAt(this.terrainElevation, fromX, fromY),
+          elevationAt(this.terrainElevation, toX, toY),
+        ),
     });
     this.game.canvas.dataset.lastMovement = decision.kind;
     const command = locomotionCommandFromDecision(dir, this.playerTile(), decision);
@@ -805,7 +810,10 @@ export class OverworldScene extends Phaser.Scene {
         type: 'footPlanted',
         ground: this.kind() === 'field' || this.kind() === 'enclave' ? groundOfTile(tile) : null,
         x: event.at.x * TILE + TILE / 2,
-        y: (event.at.y + 1) * TILE,
+        y: projectedWorldY(
+          (event.at.y + 1) * TILE,
+          elevationAt(this.terrainElevation, event.at.x, event.at.y),
+        ),
       });
       return;
     }
@@ -1012,30 +1020,17 @@ export class OverworldScene extends Phaser.Scene {
       const i = this.idx(tx + k, ty);
       this.transitions.set(i, { map: target, spawn });
       if (typeof lock === 'string') this.lockedGates.set(i, lock);
-      const icon = fieldGateIcon(this.kind(), target);
-      const isTown = icon === 'fld.icon.town';
-      const pad = this.add
-        .image((tx + k) * TILE + 8, (ty + 1) * TILE, icon)
-        .setOrigin(0.5, isTown ? 1 : 0.5)
-        .setDepth(isTown ? (ty + 1) * TILE - 1 : ty * TILE);
-      this.transitionIcons.set(i, pad);
-      if (isTown) pad.setDisplaySize(TILE * 3, TILE * 3);
-      // まだ ひらかない 入口（裏ステージ）は くらく、光らせない
-      if (this.isLocked(i)) {
-        pad.setTint(0x555566);
-        continue;
-      }
-      // フィールドの 入口は 町・どうくつ・お城・港の 絵（光らせない）。町・ダンジョンの 出口だけ 光る 床
-      if (icon !== 'fld.gate') continue;
-      this.tweens.add({
-        targets: pad,
-        alpha: 0.55,
-        yoyo: true,
-        repeat: -1,
-        duration: 700,
-        ease: 'Stepped',
-        easeParams: [3],
+      const elevation = elevationAt(this.terrainElevation, tx + k, ty);
+      const pad = addTransitionMarker(this, {
+        kind: this.kind(),
+        target,
+        x: tx + k,
+        y: ty,
+        tileSize: TILE,
+        elevation,
+        locked: this.isLocked(i),
       });
+      this.transitionIcons.set(i, pad);
     }
   }
 

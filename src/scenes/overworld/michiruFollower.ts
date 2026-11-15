@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { FIELD_ELEVATION_DATA_KEY } from '../../core/world/terrainElevation';
 import type { Dir } from '../../rendering/characters';
 
 /** 主人公のそばを飛ぶミチルを生成し、案内を開く入力だけを接続する。 */
@@ -34,5 +35,6 @@ export function positionMichiruFollower(
     Phaser.Math.Linear(michiru.x, targetX, 0.2),
     Phaser.Math.Linear(michiru.y, targetY, 0.2),
   );
+  michiru.setData(FIELD_ELEVATION_DATA_KEY, player.getData(FIELD_ELEVATION_DATA_KEY));
   michiru.setDepth(player.y + 1);
 }
