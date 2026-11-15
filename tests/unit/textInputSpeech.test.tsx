@@ -64,3 +64,23 @@ it('かな入力では文字キーボードを使い、変換確定のEnterで�
   expect(input.disabled).toBe(true);
   expect(document.querySelector('[role="status"]')?.textContent).toContain('せいかい');
 });
+
+it.each([['いち'], ['5'], ['4', '2']])('入力問題にEnter操作の説明を表示しない: %j', (...answers) => {
+  setDictionary(ja);
+  render(
+    h(TextInputView, {
+      ctx: {
+        grade: 1,
+        question: { subject: 'kokugo', grade: 1 },
+        timeLimitMs: 0,
+        speak: vi.fn(),
+      } as unknown as RendererContext,
+      payload: { prompt: 'もんだい', answers },
+      onDone: vi.fn(),
+    }),
+    document.body,
+  );
+  expect(document.body.textContent).not.toContain('Enter');
+  expect(document.body.textContent).not.toContain('つぎの らんへ');
+  expect(document.querySelector('.nq-input-key-hint')).toBeNull();
+});

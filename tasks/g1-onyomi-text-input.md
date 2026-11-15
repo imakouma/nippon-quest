@@ -31,3 +31,11 @@
 - `pnpm typecheck:tests` は基点にも存在する `tests/unit/bagDrag.test.tsx:70` のTS2322のみで失敗。今回の担当範囲外のため変更しない。
 - 教材の人による学術承認、実機スマホのIME操作、全E2Eは今回実施していない。
 - 基点 `4129ff35`、作業ブランチ `codex/g1-onyomi-text-input`。共有ブランチへ自動マージしない。
+
+## 追修正：Enterの操作説明を廃止
+
+- 入力画面の説明段落と翻訳キー、テスト用辞書から該当文言を削除。文字・数字・複数欄すべてで非表示を回帰テストする。
+- Enterによる送信・IME変換確定の保護は維持。
+- `pnpm test`：247ファイル、2308テスト成功。lint、依存境界、教材検証、buildも成功。
+- ブラウザ検査：音読み入力4サイズ、question-viewport、battle-question-audit代表検査、計32件成功。
+- 更新済み画面：[説明を削除した問題](../test-results/g1-onyomi-1440.png)。

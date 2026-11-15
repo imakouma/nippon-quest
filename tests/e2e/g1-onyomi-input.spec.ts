@@ -8,6 +8,8 @@ for (const width of [320, 768, 1024, 1440]) {
     await expect(stage.getByText('一ばんおいしいパン', { exact: true })).toBeVisible();
     await expect(stage.locator('ruby')).toHaveCount(0);
     await expect(stage.locator('.nq-q-choice')).toHaveCount(0);
+    await expect(stage).not.toContainText('Enter');
+    await expect(stage.locator('.nq-input-key-hint')).toHaveCount(0);
     const answer = stage.getByRole('textbox', { name: 'こたえ 1', exact: true });
     await expect(answer).toHaveAttribute('inputmode', 'text');
     await answer.fill('いち');
