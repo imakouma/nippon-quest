@@ -90,7 +90,7 @@ test('スマホで回転後に時計をタップして解説を開ける', async
   await page.setViewportSize({ width: 844, height: 390 });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.locator('.nq-choice').filter({ hasText: '3じ 30ぷん' }).tap();
-  await page.getByRole('button', { name: 'かんがえかたを みる' }).tap();
+  await page.getByRole('button', { name: 'かいせつ' }).tap();
   await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
   await page.locator('.pg-preview').screenshot({ path: testInfo.outputPath('clock-review-mobile.png') });
   await page.getByRole('button', { name: 'つぎへ', exact: true }).tap();

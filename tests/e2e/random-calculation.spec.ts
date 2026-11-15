@@ -57,7 +57,7 @@ test('ランダム計算の条件を保存・再読込し、式を固定して�
   }
   await page.locator('.nq-q-input input').fill('4');
   await page.locator('.nq-input-submit').click();
-  await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
+  await page.getByRole('button', { name: 'かいせつ' }).click();
   await expect(page.locator('.pg-stage')).toContainText('1 ＋ 3 ＝ 4');
   await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
   await expectScore(page, '100%');
@@ -154,7 +154,7 @@ for (const [id, left, right, carry, remainder, answers, symbol] of [
     await expect(inputs).toHaveCount(answers.length);
     for (let i = 0; i < answers.length; i++) await inputs.nth(i).fill(answers[i]!);
     await page.locator('.nq-input-submit').click();
-    await page.getByRole('button', { name: 'かんがえかたを みる' }).click();
+    await page.getByRole('button', { name: 'かいせつ' }).click();
     await expect(page.locator('.pg-stage')).toContainText(`${left} ${symbol} ${right} ＝ ${answers[0]}`);
     if (remainder) await expect(page.locator('.pg-stage')).toContainText('5 × 3 ＋ 2 ＝ 17');
     await page.getByRole('button', { name: 'つぎへ', exact: true }).click();
