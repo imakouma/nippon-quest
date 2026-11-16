@@ -27,7 +27,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/apple-profit.svg",
+      "promptSpeech": "１つ50円で仕入れたリンゴを、70円で売ります。売る個数をx個、利益をy円として、xとyの関係を表す式をえらぼう。 りんご1こを50円で仕入れ、70円で売る。個数はx、利益はy円。"
     },
     "explanation": "１つ50円で x個のリンゴを仕入れると、50×x円。これを１つ70円で売ると、売り上げは 70×x円になる。利益は、この２つの差になるので y=70×x-50×x"
   },
@@ -83,7 +85,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/variable-square-1b47a5379c91.svg",
+      "promptSpeech": "１辺が xcm の正方形[せいほうけい]があります。このとき、下の式は何を表しているでしょう。次の中からえらぼう。 x×4 4辺が等しい正方形。1辺をx cmとする。"
     },
     "explanation": "実際に正方形[せいほうけい]をかいて考えてみよう。x×4 は、辺４つ分の長さになるので、正方形[せいほうけい]のまわりの長さになる。"
   },
@@ -139,7 +143,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/money-variable.svg",
+      "promptSpeech": "1000円を持って買い物に行き、x円のものを買いました。残ったお金を y円として、xとyの関係を式にしたものをえらぼう。 持っていた1000円を、使ったx円と残ったy円に分ける図。各部分の長さは一例。"
     },
     "explanation": "100円のものを買うと 1000-100、200円のものを買うと 1000-200になる。これと同じように考えて、x円のものを買うと、1000-xになるね。"
   },
@@ -175,7 +181,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/candy-variable.svg",
+      "promptSpeech": "24個のあめを、x人で分けます。１人分のあめの個数を y個として、xとyの関係を式にしたものをえらぼう。 あめ24こ。x人で等しく分け、1人分をyことする。人数や分配結果の答えは示していない。"
     },
     "explanation": "2人で分けると 24÷2、3人で分けると 24÷3になる。これと同じように考えて、x人で分けると、24÷xになるね。"
   },
@@ -211,7 +219,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/variable-square-76886e123974.svg",
+      "promptSpeech": "１辺が xcm の正方形[せいほうけい]があります。このとき、下の式は何を表しているでしょう。次の中からえらぼう。 x×x 4辺が等しい正方形。1辺をx cmとする。"
     },
     "explanation": "実際に正方形[せいほうけい]をかいて考えてみよう。x×x は、１辺×１辺を表すので、正方形[せいほうけい]の面積[めんせき]になる。"
   },
@@ -247,7 +257,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/apple-variable.svg",
+      "promptSpeech": "１つ 80円のりんごを、x個買いました。代金を y円として、xとyの関係を式にしたものをえらぼう。 りんごは1こ80円。xこ買ったときの代金はy円。"
     },
     "explanation": "80円のりんごを2つ買うと 80×2、3つ買うと 80×3になる。これと同じように考えて、80円のりんごをx個買うと、80×xになるね。"
   },
@@ -413,7 +425,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/shirt-discount.svg",
+      "promptSpeech": "x円で買った服を、買った値段から ２割引いて、インターネットで売ろうと思います。このときの売値を y 円として、xとyの関係を表す式をえらぼう。 服の元の値段x円を10等分した帯。そのうち2つ分を値引きし、残りが売値y円。"
     },
     "explanation": "「２割引」で売るとは、全体の８割の値段で売るということなので、0.8を元の値段にかければいい。 y=x×0.8"
   }

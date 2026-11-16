@@ -3,6 +3,7 @@ import { PlayerLocomotionController } from '../../src/scenes/overworld/playerLoc
 
 const sprite = () => ({
   active: true,
+  data: new Map<string, unknown>(),
   texture: { key: 'hero' },
   setTexture(key: string) {
     this.texture.key = key;
@@ -17,13 +18,26 @@ const sprite = () => ({
   setDepth() {
     return this;
   },
+  setData(key: string, value: unknown) {
+    this.data.set(key, value);
+    return this;
+  },
 });
 
 const shadow = () => ({
-  setPosition() {
+  x: 0,
+  y: 0,
+  data: new Map<string, unknown>(),
+  setPosition(x: number, y: number) {
+    this.x = x;
+    this.y = y;
     return this;
   },
   setScale() {
+    return this;
+  },
+  setData(key: string, value: unknown) {
+    this.data.set(key, value);
     return this;
   },
 });
@@ -51,5 +65,33 @@ describe('PlayerLocomotionController', () => {
     expect(controller.advance(80).map((event) => event.type)).toEqual(['footPlanted', 'stepCompleted']);
     expect(controller.advance(160)).toEqual([]);
     expect(controller.tile()).toEqual([3, 3]);
+  });
+
+  it('interpolates one shared terrain height for the player and shadow while stepping', () => {
+    const player = sprite();
+    const playerShadow = shadow();
+    const controller = new PlayerLocomotionController(
+      player as never,
+      playerShadow as never,
+      16,
+      'down',
+      { x: 1, y: 73 },
+      'hero',
+      (_x, y) => (y === 73 ? 4 : y === 74 ? 3 : 0),
+    );
+
+    expect(playerShadow.y).toBe(73 * 16 + 8 - 4 * 4 + 6);
+    expect(player.data.get('fieldElevation')).toBe(4);
+    controller.dispatch({
+      type: 'step',
+      direction: 'down',
+      from: { x: 1, y: 73 },
+      to: { x: 1, y: 74 },
+    });
+    controller.advance(80);
+    expect(playerShadow.y).toBe(73.5 * 16 + 8 - 3.5 * 4 + 6);
+    expect(player.data.get('fieldElevation')).toBe(3.5);
+    controller.advance(80);
+    expect(playerShadow.y).toBe(74 * 16 + 8 - 3 * 4 + 6);
   });
 });

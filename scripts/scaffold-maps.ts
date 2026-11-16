@@ -6,6 +6,7 @@
  *   pnpm scaffold:maps --links-only --only=aomori  (既存フィールドを保ち、県間入口だけ同期)
  *   pnpm scaffold:maps --force --worldmap-only  (にほんちずだけ作りなおす)
  *   pnpm scaffold:maps --towns-only  (全県の町マップだけ作りなおす)
+ *   pnpm scaffold:maps --towns-only --only=aomori  (指定県の町だけ作りなおす)
  *
  * フィールド・離島・にほんちずの地形は scripts/data/terrain.json（pnpm gen:terrain が実在の地理から作る）を使う。
  * 町（県庁所在地）・ダンジョン・名所・港も、実際の場所に置く（位置は scripts/data/geo.ts）。
@@ -64,19 +65,16 @@ import { orientLandBorderLinks } from './maps/landBorderDirections.js';
 import { paintGeneratedPrefectureBorders } from './maps/prefectureBoundary.js';
 import { syncInterPrefectureMapFile } from './maps/syncInterPrefectureMap.js';
 import { terrainLayers } from './maps/terrainLayers.js';
+import { mapGenerationOptions } from './maps/generationOptions.js';
 import { createRng } from '../src/core/rng.js';
 import { GROUND_TILES, type Ground } from '../src/core/world/ground.js';
+import { CITY_ROAD_TILES } from '../src/shared/cityRoadTiles.js';
 import type { TerrainMap } from './gen-terrain.js';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 /** マップの唯一の編集・生成先。Vite が dev では直接配信し、build では dist/maps へコピーする。 */
 const MAPS_DIR = `${ROOT}maps/`;
-const args = process.argv.slice(2);
-const force = args.includes('--force');
-const townsOnly = args.includes('--towns-only');
-const only = args.find((a) => a.startsWith('--only='))?.slice('--only='.length);
-const worldMapOnly = args.includes('--worldmap-only');
-const linksOnly = args.includes('--links-only');
+const { force, townsOnly, only, worldMapOnly, linksOnly } = mapGenerationOptions(process.argv.slice(2));
 if (!existsSync(MAPS_DIR)) mkdirSync(MAPS_DIR, { recursive: true });
 
 const TERRAIN_DATA = JSON.parse(readFileSync(`${ROOT}scripts/data/terrain.json`, 'utf8')) as {
@@ -1433,10 +1431,10 @@ const T = {
   dino: 133,
   /** 137〜146 の 2×5 */
   pagoda: 137,
-  // ───── 都会の 町（161〜220。src/rendering/overworld/townTiles.ts） ─────
-  road: 161,
-  roadLineV: 162,
-  roadLineH: 163,
+  // ───── 都会の 町（164〜220、302〜304。src/rendering/overworld/townTiles.ts） ─────
+  road: CITY_ROAD_TILES.road,
+  roadLineV: CITY_ROAD_TILES.lineV,
+  roadLineH: CITY_ROAD_TILES.lineH,
   crossH: 164,
   crossV: 165,
   sidewalk: 166,
@@ -2646,6 +2644,7 @@ function dungeonMap(prefId: string, eventNames: string[], kind: 'dungeon' | 'sec
 
 const triggers = eventTriggers();
 for (const pref of PREFECTURES) {
+  if (only && pref.id !== only) continue;
   const events = (triggers.get(`${pref.id}-field`) ?? []).map((e) => e.name);
   if (linksOnly) {
     const filename = `${pref.id}-field.json`;

@@ -22,8 +22,8 @@ const TILE_COLS = 8;
 /**
  * 仮タイルセット（128×640 = 16×16 タイル×320。8 列×40 行）。番号は scripts/scaffold-maps.ts の TILE・T と対応。
  * 13〜37 は町、38〜60 はダンジョン（4 つのテーマ）、61〜146 は 県ごとの 町の テーマ（townTiles.ts）、
- * 147〜156 は フィールドの たんぼ など。161〜220 は 都会の 町、221〜300 は ダンジョンの テーマ、
- * 301 は 県境の石垣。
+ * 147〜163 は フィールド地形。164〜220 は 都会の 町、221〜300 は ダンジョンの テーマ、
+ * 301 は 県境の石垣、302〜304 は 都市道路。
  * 「すけ」と書いたタイルは地面の上に重ねる（decor レイヤー）
  */
 function tilesetCanvas(): HTMLCanvasElement {
@@ -185,8 +185,13 @@ function tilesetCanvas(): HTMLCanvasElement {
   const wall = (r: Rect) => {
     r(0, 0, 16, 16, NQ.beige);
     r(0, 0, 16, 2, NQ.tan);
+    r(0, 0, 16, 1, NQ.brown);
     r(0, 0, 1, 16, NQ.brown);
-    r(0, 14, 16, 2, NQ.tan);
+    r(1, 2, 1, 11, NQ.paper);
+    r(15, 2, 1, 11, NQ.tan);
+    r(0, 13, 16, 1, NQ.cloud);
+    r(0, 14, 16, 1, NQ.silver);
+    r(0, 15, 16, 1, NQ.gray);
   };
   // 13 花の咲いた草原
   tile(13, (r) => {
