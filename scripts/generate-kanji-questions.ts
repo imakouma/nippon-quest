@@ -3,6 +3,12 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import g1OnyomiContexts from '../content/kanji/g1-onyomi-contexts.json';
 import g1KunyomiContexts from '../content/kanji/g1-kunyomi-contexts.json';
+import g2OnyomiContexts from '../content/kanji/g2-onyomi-contexts.json';
+import g2KunyomiContexts from '../content/kanji/g2-kunyomi-contexts.json';
+import g3OnyomiContexts from '../content/kanji/g3-onyomi-contexts.json';
+import g3KunyomiContexts from '../content/kanji/g3-kunyomi-contexts.json';
+import g4OnyomiContexts from '../content/kanji/g4-onyomi-contexts.json';
+import g4KunyomiContexts from '../content/kanji/g4-kunyomi-contexts.json';
 import type { TextInputPayload } from '../src/questions/renderers/text-input/schema';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { MAX_QUESTIONS_PER_SET, type QuestionSourceFile } from './question-layout';
@@ -71,6 +77,18 @@ const CATEGORY_SLUG: Record<KanjiQuestionCategory, string> = {
 const READING_LABEL: Record<ReadingCategory, string> = {
   onyomi: '音[おん]読[よ]み',
   kunyomi: '訓[くん]読[よ]み',
+};
+const READING_CONTEXTS = {
+  1: {
+    onyomi: Object.entries(g1OnyomiContexts).map(([key, prompt]) => {
+      const [character, reading] = key.split(':');
+      return { character: character!, reading: reading!, prompt };
+    }),
+    kunyomi: g1KunyomiContexts,
+  },
+  2: { onyomi: g2OnyomiContexts, kunyomi: g2KunyomiContexts },
+  3: { onyomi: g3OnyomiContexts, kunyomi: g3KunyomiContexts },
+  4: { onyomi: g4OnyomiContexts, kunyomi: g4KunyomiContexts },
 };
 
 export function normalizeKanjiReading(reading: string): string {
@@ -181,32 +199,26 @@ function readingQuestions(
     const gradeRecords = records.filter((record) => record.grade === grade);
     const candidates = readingCandidates(gradeRecords, category);
     const targetCount = gradeRecords.length;
-    if (grade === 1 && category === 'kunyomi' && g1KunyomiContexts.length !== targetCount)
-      throw new Error(`1年の訓読み例文は${targetCount}問必要です`);
+    const contexts = grade <= 4 ? READING_CONTEXTS[grade as 1 | 2 | 3 | 4][category] : undefined;
+    if (contexts && contexts.length !== targetCount)
+      throw new Error(`${grade}年の${category}例文は${targetCount}問必要です`);
     if (candidates.length === 0) throw new Error(`${grade}年の${category}候補がありません`);
     const pool = [...new Set(candidates.map(({ answer }) => answer))];
     const usedSignatures = new Set<string>();
 
     return Array.from({ length: targetCount }, (_, index): GeneratedReadingQuestion => {
       const candidate = candidates[index % candidates.length]!;
-      if (grade === 1) {
-        const contexts: Record<string, string> = g1OnyomiContexts;
+      if (contexts) {
         const context:
           { character: string; reading: string; prompt?: string; okurigana?: string } | undefined =
-          category === 'onyomi'
-            ? {
-                character: candidate.record.character,
-                reading: candidate.answer,
-                prompt: contexts[`${candidate.record.character}:${candidate.answer}`],
-              }
-            : g1KunyomiContexts[index];
-        if (!context?.prompt) throw new Error(`1年の${category}例文がありません: ${index + 1}`);
+          contexts[index];
+        if (!context?.prompt) throw new Error(`${grade}年の${category}例文がありません: ${index + 1}`);
         const { character, reading, prompt, okurigana = '' } = context;
         if (!reading.endsWith(okurigana) || !prompt.includes(character + okurigana))
-          throw new Error(`1年の${category}例文と送り仮名が一致しません: ${character}`);
+          throw new Error(`${grade}年の${category}例文と送り仮名が一致しません: ${character}`);
         const answer = okurigana ? reading.slice(0, -okurigana.length) : reading;
         return {
-          id: `kokugo.g1.kanji-${category}.${String(index + 1).padStart(4, '0')}`,
+          id: `kokugo.g${grade}.kanji-${category}.${String(index + 1).padStart(4, '0')}`,
           type: 'text-input',
           subject: 'kokugo',
           grade,
