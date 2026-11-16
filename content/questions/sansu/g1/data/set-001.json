@@ -89,5 +89,179 @@
       "shuffle": true
     },
     "explanation": "しゅるいごとに しるしを そろえて ならべると、かずの ちがいを みつけやすく なります。"
+  },
+  {
+    "id": "sansu.g1.data.0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "カードを かたちで なかまわけ します。さんかくは なんまい？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4まい"
+        },
+        {
+          "id": "b",
+          "text": "2まい"
+        },
+        {
+          "id": "c",
+          "text": "3まい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/scattered-cards.svg",
+      "promptSpeech": "カードを かたちで なかまわけ します。さんかくは なんまい？ まるが 4まい、さんかくが 2まい、しかくが 3まい、まざって おかれています。"
+    },
+    "explanation": "いろいろな かたちが まざっています。さんかくだけを 1まいずつ かぞえると 2まいです。しるしを つけながら かぞえると、かぞえもれを ふせげます。"
+  },
+  {
+    "id": "sansu.g1.data.0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "まるの カードは 4まいです。1まいに しるし 1こで あらわした ずは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あ"
+        },
+        {
+          "id": "b",
+          "text": "い"
+        },
+        {
+          "id": "c",
+          "text": "う"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/represent-four.svg",
+      "promptSpeech": "まるの カードは 4まいです。1まいに しるし 1こで あらわした ずは？ あの ずは しるし 3こ、いの ずは 4こ、うの ずは 5こです。"
+    },
+    "explanation": "まるの カードは 4まいです。1まいに 1こずつ しるしを つけると、しるしが 4この「い」に なります。"
+  },
+  {
+    "id": "sansu.g1.data.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "しるし 1こで 1まいです。おなじ かずの カードは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まる と しかく"
+        },
+        {
+          "id": "b",
+          "text": "さんかく と しかく"
+        },
+        {
+          "id": "c",
+          "text": "まる と さんかく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/equal-counts.svg",
+      "promptSpeech": "しるし 1こで 1まいです。おなじ かずの カードは？ まるの しるしは 3こ、さんかくは 3こ、しかくは 1こです。"
+    },
+    "explanation": "まるも さんかくも、しるしが 3こずつ あります。しるしを ひとつずつ くみにすると あまりが ないので、おなじ かずです。"
+  },
+  {
+    "id": "sansu.g1.data.0007",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "しらべた カードを ぜんぶ ずに しました。さんかくは なんまい？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0まい"
+        },
+        {
+          "id": "b",
+          "text": "1まい"
+        },
+        {
+          "id": "c",
+          "text": "3まい"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/zero-count.svg",
+      "promptSpeech": "しらべた カードを ぜんぶ ずに しました。さんかくは なんまい？ まるの しるしは 3こ、さんかくの ところに しるしは なく、しかくは 2こです。"
+    },
+    "explanation": "さんかくの ところには、しるしが ありません。さんかくの カードは 1まいも ないので、0まいです。"
+  },
+  {
+    "id": "sansu.g1.data.0008",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "まるの カードは、しかくの カードより なんまい おおい？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2まい"
+        },
+        {
+          "id": "b",
+          "text": "1まい"
+        },
+        {
+          "id": "c",
+          "text": "7まい"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/compare-counts.svg",
+      "promptSpeech": "まるの カードは、しかくの カードより なんまい おおい？ まるの しるしは 4こ、さんかくは 2こ、しかくは 3こです。しるし 1こで 1まいです。"
+    },
+    "explanation": "まるは 4まい、しかくは 3まいです。ひとつずつ くみにすると、まるが 1まい あまります。だから 1まい おおいです。"
+  },
+  {
+    "id": "sansu.g1.data.0009",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.data",
+    "payload": {
+      "prompt": "ならびの ながさではなく、カードの かずを くらべます。おおいのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まる"
+        },
+        {
+          "id": "b",
+          "text": "おなじ"
+        },
+        {
+          "id": "c",
+          "text": "しかく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/uneven-spacing.svg",
+      "promptSpeech": "ならびの ながさではなく、カードの かずを くらべます。おおいのは？ まるが 3まい、あいだを ひろく あけて ならんでいます。しかくが 4まい、あいだを せまくして ならんでいます。"
+    },
+    "explanation": "まるは 3まい、しかくは 4まいです。あいだの ひろさが ちがうので、ならびの ながさでは くらべられません。1まいずつ かぞえると、しかくが おおいです。"
   }
 ]

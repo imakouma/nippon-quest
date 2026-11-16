@@ -355,12 +355,13 @@
       "id": "sansu-g1-pictograms",
       "pathPrefixes": [
         "assets/questions/sansu/g1/data/",
-        "assets/questions/sansu/g1/visuals/"
+        "assets/questions/sansu/g1/visuals/",
+        "assets/questions/sansu/g1/three-domains/"
       ],
       "status": "hold",
       "origin": "NIHON QUEST内の果物・動物ドット絵の再利用、およびSVGの基本図形で作成した教材図版。外部画像・外部生成サービスは不使用。",
       "author": "NIHON QUEST project",
-      "source": "scripts/generate-sansu-g1-visuals.ts; tasks/sansu-g1-fruit-pictogram-walkthrough.md",
+      "source": "scripts/generate-sansu-g1-visuals.ts; tasks/sansu-g1-fruit-pictogram-walkthrough.md; tasks/sansu-g1-three-domains-walkthrough.md",
       "license": "制作根拠を記録済み。公開承認は未実施。",
       "licenseEvidence": "assets/questions/sansu/PROVENANCE.md",
       "modificationAllowed": null,

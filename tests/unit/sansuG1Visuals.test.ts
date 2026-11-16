@@ -14,8 +14,8 @@ const questions = readdirSync('content/questions/sansu/g1').flatMap((dir) =>
 const changed = review.filter((r) => r.decision === 'illustrated');
 describe('grade 1 visual question review', () => {
   it('reviews every question and preserves all learning targets and correct answers', () => {
-    expect(questions).toHaveLength(188);
-    expect(changed).toHaveLength(80);
+    expect(questions).toHaveLength(206);
+    expect(changed).toHaveLength(98);
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
     const rows = questions
       .sort((a, b) => a.id.localeCompare(b.id))
@@ -35,7 +35,7 @@ describe('grade 1 visual question review', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      '3fa3ad6a35f076b201117327e5baa9fc44aa973eb477fbd495d0fe90fbb29b28',
+      '38839a0d6eb1a782a982bbf0c2949c70a177d7f4e07567893c0f597e31b8e405',
     );
   });
   it('uses valid self-contained SVGs with exact object counts and accessible descriptions', () => {

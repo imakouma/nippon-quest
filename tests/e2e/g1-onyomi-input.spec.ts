@@ -273,14 +273,18 @@ test('5・6年の長い例文も問題枠に収まる', async ({ page }) => {
   }
 });
 
-test('縦長画面の読み上げボタンが漢字の例文に重ならない', async ({ page }) => {
+test('縦長画面の漢字読みは読み上げなしで例文を表示して解答できる', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 900 });
   await page.goto('/playground.html?q=kokugo.g1.kanji-kunyomi.0001');
   const stage = page.locator('.pg-stage');
-  await expect(stage.getByRole('textbox', { name: 'こたえ 1', exact: true })).toBeVisible();
-  const speaker = (await stage.getByRole('button', { name: 'よみあげ', exact: true }).boundingBox())!;
-  const prompt = (await stage.locator('.nq-q-prompt').boundingBox())!;
-  expect(prompt.y).toBeGreaterThanOrEqual(speaker.y + speaker.height + 4);
+  const input = stage.getByRole('textbox', { name: 'こたえ 1', exact: true });
+  await expect(input).toBeVisible();
+  await expect(stage.getByRole('button', { name: 'よみあげ', exact: true })).toHaveCount(0);
+  await expect(stage.locator('.nq-q-prompt')).toContainText('りんご');
+  await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
+  await input.fill('ひと');
+  await input.press('Enter');
+  await expect(stage.locator('.nq-feedback-correct')).toBeVisible();
 });
 
 test('例文に合う別読みを入力しても文字が欠けず正解になる', async ({ page }) => {
