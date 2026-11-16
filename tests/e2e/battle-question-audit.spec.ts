@@ -137,13 +137,7 @@ test('全問題をバトル問題枠で描画してレイアウトを検査す�
 
 test('理科689問の図と文章がスマホを含む4サイズに収まる', async ({ page }, testInfo) => {
   test.setTimeout(240_000);
-  await page.route('**/content/manifest.json', async (route) => {
-    const response = await route.fetch();
-    const manifest = await response.json();
-    manifest.questions = manifest.questions.filter((file: string) => file.startsWith('questions/rika/'));
-    await route.fulfill({ response, json: manifest });
-  });
-  await page.goto('/battle-question-audit.html?matrix');
+  await page.goto('/battle-question-audit.html?subject=rika&matrix');
   const audit = page.locator('[data-audit-status]');
   await expect(audit).toHaveAttribute('data-audit-status', /^(?:complete|failed)$/, { timeout: 220_000 });
   const report = (await page.locator('#question-layout-report').textContent())!;
