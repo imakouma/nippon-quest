@@ -83,10 +83,10 @@ export function integratedPreview(): Plugin {
       if (server.config.server.port === 4174)
         throw new Error('4174 では開発サーバーを起動できません。pnpm nrd を使ってください。');
     },
-    async configurePreviewServer(server) {
+    configurePreviewServer(server) {
       if (server.config.preview.port !== 4174) return;
       assertIntegrationRoot(root);
-      await ensureCurrent();
+      // Bind the port before building so concurrent launchers reuse this server.
       server.middlewares.use((req, res, next) => {
         void ensureCurrent()
           .then(() => {
