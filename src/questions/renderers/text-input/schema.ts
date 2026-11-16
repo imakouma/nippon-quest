@@ -1,4 +1,10 @@
 import { z } from 'zod/v3';
+const variantsByCharacter: Record<string, readonly string[]> = {
+  貴: ['とうと', 'たっと'],
+  尊: ['とうと', 'たっと'],
+  私: ['わたし', 'わたくし'],
+  得: ['え', 'う'],
+};
 
 export const textInputPayloadSchema = z.object({
   prompt: z.string().min(1),
@@ -26,8 +32,17 @@ function normalizeAnswer(value: string): string {
 
 export function textInputScore(payload: TextInputPayload, values: string[]): number {
   if (values.length !== payload.answers.length) return 0;
-  const correct = values.filter(
-    (value, index) => normalizeAnswer(value) === normalizeAnswer(payload.answers[index]!),
-  );
+  const characters = payload.prompt.match(/\p{Script=Han}/gu);
+  const variants =
+    payload.answers.length === 1 &&
+    characters?.length === 1 &&
+    (characters[0] !== '得' || payload.prompt.includes('得る'))
+      ? variantsByCharacter[characters[0]!]
+      : undefined;
+  const correct = values.filter((value, index) => {
+    const actual = normalizeAnswer(value);
+    const expected = normalizeAnswer(payload.answers[index]!);
+    return actual === expected || (variants?.includes(expected) && variants.includes(actual));
+  });
   return correct.length / payload.answers.length;
 }

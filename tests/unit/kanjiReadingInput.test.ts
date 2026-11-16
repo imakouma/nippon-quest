@@ -13,8 +13,8 @@ const records = JSON.parse(
 ) as CanonicalKanjiRecord[];
 const generated = generateKanjiQuestions(records, new Set(['山', '石', '風']));
 
-describe('2〜4年生の漢字の読み入力', () => {
-  for (const grade of [2, 3, 4]) {
+describe('全学年の漢字の読み入力', () => {
+  for (const grade of [1, 2, 3, 4, 5, 6]) {
     for (const category of ['onyomi', 'kunyomi'] as const) {
       it(`${grade}年${category}の全問が例文入力になり、正規読みと対象漢字を保つ`, () => {
         const questions = generated[category].filter((q) => q.grade === grade);
