@@ -9,6 +9,10 @@ import g3OnyomiContexts from '../content/kanji/g3-onyomi-contexts.json';
 import g3KunyomiContexts from '../content/kanji/g3-kunyomi-contexts.json';
 import g4OnyomiContexts from '../content/kanji/g4-onyomi-contexts.json';
 import g4KunyomiContexts from '../content/kanji/g4-kunyomi-contexts.json';
+import g5OnyomiContexts from '../content/kanji/g5-onyomi-contexts.json';
+import g5KunyomiContexts from '../content/kanji/g5-kunyomi-contexts.json';
+import g6OnyomiContexts from '../content/kanji/g6-onyomi-contexts.json';
+import g6KunyomiContexts from '../content/kanji/g6-kunyomi-contexts.json';
 import type { TextInputPayload } from '../src/questions/renderers/text-input/schema';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { MAX_QUESTIONS_PER_SET, type QuestionSourceFile } from './question-layout';
@@ -33,13 +37,6 @@ interface WritingPayload {
   hintWord: string;
 }
 
-interface ChoicePayload {
-  prompt: string;
-  choices: { id: string; text: string }[];
-  answer: string;
-  shuffle: true;
-}
-
 export interface GeneratedWritingQuestion extends Omit<QuestionBase, 'payload' | 'tags' | 'type'> {
   type: 'kanji-trace';
   tags: string[];
@@ -49,7 +46,9 @@ export interface GeneratedWritingQuestion extends Omit<QuestionBase, 'payload' |
 export type GeneratedReadingQuestion = Omit<QuestionBase, 'payload' | 'tags' | 'type'> & {
   tags: string[];
   character: string;
-} & ({ type: 'choice'; payload: ChoicePayload } | { type: 'text-input'; payload: TextInputPayload });
+  type: 'text-input';
+  payload: TextInputPayload;
+};
 
 export interface GeneratedKanjiQuestions {
   writing: GeneratedWritingQuestion[];
@@ -74,10 +73,6 @@ const CATEGORY_SLUG: Record<KanjiQuestionCategory, string> = {
   onyomi: 'kanji-onyomi',
   kunyomi: 'kanji-kunyomi',
 };
-const READING_LABEL: Record<ReadingCategory, string> = {
-  onyomi: '音[おん]読[よ]み',
-  kunyomi: '訓[くん]読[よ]み',
-};
 const READING_CONTEXTS = {
   1: {
     onyomi: Object.entries(g1OnyomiContexts).map(([key, prompt]) => {
@@ -89,6 +84,8 @@ const READING_CONTEXTS = {
   2: { onyomi: g2OnyomiContexts, kunyomi: g2KunyomiContexts },
   3: { onyomi: g3OnyomiContexts, kunyomi: g3KunyomiContexts },
   4: { onyomi: g4OnyomiContexts, kunyomi: g4KunyomiContexts },
+  5: { onyomi: g5OnyomiContexts, kunyomi: g5KunyomiContexts },
+  6: { onyomi: g6OnyomiContexts, kunyomi: g6KunyomiContexts },
 };
 
 export function normalizeKanjiReading(reading: string): string {
@@ -136,84 +133,22 @@ function writingQuestions(
   });
 }
 
-interface ReadingCandidate {
-  record: CanonicalKanjiRecord;
-  answer: string;
-  readingIndex: number;
-  recordIndex: number;
-}
-
-function readingCandidates(
-  records: readonly CanonicalKanjiRecord[],
-  category: ReadingCategory,
-): ReadingCandidate[] {
-  const byRecord = records.map((record, recordIndex) =>
-    distinctReadings(record, category).map((answer, readingIndex) => ({
-      record,
-      answer,
-      readingIndex,
-      recordIndex,
-    })),
-  );
-  return [
-    ...byRecord.flatMap((candidates) => candidates.slice(0, 1)),
-    ...byRecord.flatMap((candidates) => candidates.slice(1)),
-  ];
-}
-
-function readingChoices(
-  candidate: ReadingCandidate,
-  pool: readonly string[],
-  occurrence: number,
-  questionIndex: number,
-  usedSignatures: Set<string>,
-): ChoicePayload['choices'] {
-  const eligible = pool.filter((reading) => reading !== candidate.answer);
-  if (eligible.length < 3) throw new Error('読み問題の誤答候補が3件未満です');
-
-  for (let attempt = 0; attempt < eligible.length; attempt += 1) {
-    const start =
-      (candidate.recordIndex * 11 + candidate.readingIndex * 5 + occurrence * 3 + attempt) % eligible.length;
-    const distractors: string[] = [];
-    for (let offset = 0; distractors.length < 3 && offset < eligible.length; offset += 1) {
-      const reading = eligible[(start + offset) % eligible.length]!;
-      if (!distractors.includes(reading)) distractors.push(reading);
-    }
-    const signature = [candidate.record.character, candidate.answer, ...distractors.slice().sort()].join('|');
-    if (usedSignatures.has(signature)) continue;
-    usedSignatures.add(signature);
-
-    const answerPosition = questionIndex % 4;
-    const texts = distractors.slice();
-    texts.splice(answerPosition, 0, candidate.answer);
-    return texts.map((text, index) => ({ id: String.fromCharCode(97 + index), text }));
-  }
-  throw new Error(`漢字「${candidate.record.character}」の復習問題に異なる誤答を作れません`);
-}
-
 function readingQuestions(
   records: readonly CanonicalKanjiRecord[],
   category: ReadingCategory,
 ): GeneratedReadingQuestion[] {
   return GRADES.flatMap((grade) => {
     const gradeRecords = records.filter((record) => record.grade === grade);
-    const candidates = readingCandidates(gradeRecords, category);
-    const targetCount = gradeRecords.length;
-    const contexts = grade <= 4 ? READING_CONTEXTS[grade as 1 | 2 | 3 | 4][category] : undefined;
-    if (contexts && contexts.length !== targetCount)
-      throw new Error(`${grade}年の${category}例文は${targetCount}問必要です`);
-    if (candidates.length === 0) throw new Error(`${grade}年の${category}候補がありません`);
-    const pool = [...new Set(candidates.map(({ answer }) => answer))];
-    const usedSignatures = new Set<string>();
-
-    return Array.from({ length: targetCount }, (_, index): GeneratedReadingQuestion => {
-      const candidate = candidates[index % candidates.length]!;
-      if (contexts) {
-        const context:
-          { character: string; reading: string; prompt?: string; okurigana?: string } | undefined =
-          contexts[index];
-        if (!context?.prompt) throw new Error(`${grade}年の${category}例文がありません: ${index + 1}`);
+    const contexts = READING_CONTEXTS[grade][category];
+    if (contexts.length !== gradeRecords.length)
+      throw new Error(`${grade}年の${category}例文は${gradeRecords.length}問必要です`);
+    return contexts.map(
+      (
+        context: { character: string; reading: string; prompt: string; okurigana?: string },
+        index,
+      ): GeneratedReadingQuestion => {
         const { character, reading, prompt, okurigana = '' } = context;
+        if (!prompt) throw new Error(`${grade}年の${category}例文がありません: ${index + 1}`);
         if (!reading.endsWith(okurigana) || !prompt.includes(character + okurigana))
           throw new Error(`${grade}年の${category}例文と送り仮名が一致しません: ${character}`);
         const answer = okurigana ? reading.slice(0, -okurigana.length) : reading;
@@ -224,38 +159,12 @@ function readingQuestions(
           grade,
           unit: KANJI_UNIT_BY_GRADE[grade],
           tags: [`kanji:reading:${category === 'onyomi' ? 'on' : 'kun'}`, 'kanji:canonical'],
-          payload: {
-            prompt,
-            template: `よみかた：{{INPUT}}${okurigana}`,
-            answers: [answer],
-          },
+          payload: { prompt, template: `よみかた：{{INPUT}}${okurigana}`, answers: [answer] },
           explanation: `「${prompt}」の「${character}」は「${answer}」と 読[よ]みます。`,
           character,
         };
-      }
-      const occurrence = Math.floor(index / candidates.length);
-      const validReadings = new Set(distinctReadings(candidate.record, category));
-      const eligiblePool = pool.filter((reading) => !validReadings.has(reading));
-      const choices = readingChoices(candidate, eligiblePool, occurrence, index, usedSignatures);
-      const answer = choices.find(({ text }) => text === candidate.answer)!.id;
-      const label = READING_LABEL[category];
-      return {
-        id: `kokugo.g${grade}.kanji-${category}.${String(index + 1).padStart(4, '0')}`,
-        type: 'choice',
-        subject: 'kokugo',
-        grade,
-        unit: KANJI_UNIT_BY_GRADE[grade],
-        tags: [`kanji:reading:${category === 'onyomi' ? 'on' : 'kun'}`, 'kanji:canonical'],
-        payload: {
-          prompt: `「${candidate.record.character}」の ${label}の 一[ひと]つは どれ？`,
-          choices,
-          answer,
-          shuffle: true,
-        },
-        explanation: `「${candidate.record.character}」の ${label}の 一[ひと]つは「${candidate.answer}」です。`,
-        character: candidate.record.character,
-      };
-    });
+      },
+    );
   });
 }
 

@@ -30,6 +30,22 @@ function readJson(path: string): unknown {
   return JSON.parse(readFileSync(`${CONTENT}${path}`, 'utf8'));
 }
 
+// 編集UIで選択式へ変更した場合も独立監査の対象にする。
+function makeChoice(question: QuestionBase): void {
+  question.type = 'choice';
+  question.payload = {
+    prompt: '「圧」の 音[おん]読[よ]みの 一[ひと]つは どれ？',
+    choices: [
+      { id: 'a', text: 'あつ' },
+      { id: 'b', text: 'いん' },
+      { id: 'c', text: 'えい' },
+      { id: 'd', text: 'えき' },
+    ],
+    answer: 'a',
+    shuffle: true,
+  };
+}
+
 describe('漢字問題生成', () => {
   it('読みを選択肢用の平仮名へ正規化する', () => {
     expect(normalizeKanjiReading('ガク')).toBe('がく');
@@ -85,33 +101,7 @@ describe('漢字問題生成', () => {
     ).toBe(false);
   });
 
-  it('読み問題を正規の正解と安全な4択だけで作る', () => {
-    const canonical = new Map(records.map((record) => [record.character, record]));
-    for (const [category, questions] of [
-      ['onyomi', generated.onyomi],
-      ['kunyomi', generated.kunyomi],
-    ] as const) {
-      const signatures = new Set<string>();
-      for (const question of questions) {
-        if (question.type !== 'choice') continue;
-        const record = canonical.get(question.character)!;
-        const validReadings = new Set(record[category].map(({ reading }) => normalizeKanjiReading(reading)));
-        const texts = question.payload.choices.map(({ text }) => text);
-        const answer = question.payload.choices.find(({ id }) => id === question.payload.answer)!.text;
-
-        expect(texts).toHaveLength(4);
-        expect(new Set(texts).size).toBe(4);
-        expect(validReadings.has(answer)).toBe(true);
-        expect(texts.filter((text) => validReadings.has(text))).toEqual([answer]);
-        signatures.add(
-          [question.character, answer, ...texts.filter((text) => text !== answer).sort()].join('|'),
-        );
-      }
-      expect(signatures.size).toBe(questions.filter((question) => question.type === 'choice').length);
-    }
-  });
-
-  it('同じ入力から同じID・順序・選択肢と30問以下のセットを作る', () => {
+  it('同じ入力から同じID・順序・例文と30問以下のセットを作る', () => {
     expect(generateKanjiQuestions(records, preservedWritingCharacters)).toEqual(generated);
     const files = buildKanjiQuestionFiles('kunyomi', generated.kunyomi);
 
@@ -128,6 +118,7 @@ describe('漢字問題生成', () => {
     const question = broken
       .flatMap((source) => source.questions)
       .find((candidate) => candidate.id === 'kokugo.g5.kanji-onyomi.0001')!;
+    makeChoice(question);
     const payload = question.payload as {
       choices: { id: string; text: string }[];
       answer: string;
@@ -141,8 +132,8 @@ describe('漢字問題生成', () => {
     ).toBe(true);
   });
 
-  it('2〜4年の入力問題も正規読み・学年・送り仮名を独立監査する', () => {
-    for (const grade of [2, 3, 4]) {
+  it('2〜6年の入力問題も正規読み・学年・送り仮名を独立監査する', () => {
+    for (const grade of [2, 3, 4, 5, 6]) {
       for (const category of ['onyomi', 'kunyomi']) {
         for (const [patch, expected] of [
           [{ answers: ['でたらめ'] }, '正規データ'],
@@ -185,6 +176,7 @@ describe('漢字問題生成', () => {
     const question = sources
       .flatMap((source) => source.questions)
       .find((q) => q.id === 'kokugo.g5.kanji-onyomi.0001')!;
+    makeChoice(question);
     const payload = question.payload as { choices: { id: string; text: string }[] };
     for (const [index, text] of ['あああ', 'いいい', 'ううう', 'えええ'].entries()) {
       payload.choices.push({ id: `extra-${index}`, text });
@@ -201,6 +193,7 @@ describe('漢字問題生成', () => {
     const question = sources
       .flatMap((source) => source.questions)
       .find((q) => q.id === 'kokugo.g5.kanji-onyomi.0001')!;
+    makeChoice(question);
     const payload = question.payload as {
       choices: { id: string; text?: string; image?: string }[];
       answer: string;
@@ -221,6 +214,7 @@ describe('漢字問題生成', () => {
         .flatMap((source) => source.questions)
         .find((question) => question.id === 'kokugo.g5.kanji-onyomi.0001')!,
     );
+    makeChoice(choice);
     choice.id = 'kokugo.g1.misplaced-choice.0001';
     choice.tags = [];
     writingFile.questions.push(choice);

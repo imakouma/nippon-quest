@@ -46,8 +46,8 @@ describe('1年生の音読み入力問題', () => {
       ).toEqual(file.questions);
     }
   });
-  it('5〜6年の音読みと訓読みは選択式のまま', () => {
-    expect(generated.onyomi.filter((q) => q.grade > 4).every((q) => q.type === 'choice')).toBe(true);
-    expect(generated.kunyomi.filter((q) => q.grade > 4).every((q) => q.type === 'choice')).toBe(true);
+  it('5〜6年の音読みと訓読みも入力式にそろえる', () => {
+    expect(generated.onyomi.filter((q) => q.grade > 4).every((q) => q.type === 'text-input')).toBe(true);
+    expect(generated.kunyomi.filter((q) => q.grade > 4).every((q) => q.type === 'text-input')).toBe(true);
   });
 });

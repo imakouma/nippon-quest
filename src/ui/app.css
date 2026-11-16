@@ -503,3 +503,39 @@ body {
     transition-duration: 0.01s !important;
   }
 }
+
+/* 問題を解く間は、横長のゲームCanvasではなくスマホの縦の領域を使う。 */
+@media (max-width: 600px) and (orientation: portrait) {
+  body:has(#ui-layer .nq-bq) > #nq-orientation-notice {
+    display: none;
+  }
+  #ui-layer:has(.nq-bq) {
+    position: fixed;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+  }
+  #ui-layer .nq-bq {
+    inset: max(4px, env(safe-area-inset-top)) max(4px, env(safe-area-inset-right))
+      max(4px, env(safe-area-inset-bottom)) max(4px, env(safe-area-inset-left));
+  }
+  #ui-layer .nq-bq-head {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    padding: 4px 8px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  #ui-layer .nq-bq-name {
+    min-width: 0;
+    flex: 1;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+  #ui-layer .nq-qstrip {
+    flex-wrap: wrap;
+    max-width: 100%;
+    gap: 4px 8px;
+  }
+}

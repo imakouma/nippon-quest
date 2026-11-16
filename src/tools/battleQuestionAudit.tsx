@@ -43,7 +43,7 @@ const auditSizes = new URLSearchParams(location.search).has('matrix')
   ? [
       [960, 540],
       [720, 405],
-      [390, 219],
+      [390, 844],
       [844, 390],
     ]
   : [[960, 540]];

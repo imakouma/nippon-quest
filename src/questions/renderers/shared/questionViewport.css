@@ -13,7 +13,7 @@
 .nq-question-canvas > .nq-q {
   position: relative;
   inset: auto;
-  min-height: 540px;
+  min-height: inherit;
   overflow: visible;
 }
 .nq-question-canvas .nq-q > * {

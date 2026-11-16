@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { advanceQuestionFeedback } from './helpers/questionReview';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
 const questions = [
@@ -28,7 +29,7 @@ for (const id of questions) {
     for (const [width, height] of [
       [960, 540],
       [720, 405],
-      [390, 219],
+      [390, 844],
       [844, 390],
     ]) {
       await page.locator('.nq-audit-stage').evaluate(
@@ -44,8 +45,8 @@ for (const id of questions) {
           page.locator('.nq-question-viewport').evaluate((viewport) => {
             const canvas = viewport.querySelector<HTMLElement>('.nq-question-canvas')!;
             const expected = Math.min(
-              viewport.clientWidth / 960,
-              viewport.clientHeight / Math.max(540, canvas.scrollHeight),
+              viewport.clientWidth / canvas.offsetWidth,
+              viewport.clientHeight / canvas.scrollHeight,
             );
             return Math.abs(Number(viewport.dataset.scale) - expected) < 0.00001;
           }),
@@ -201,3 +202,43 @@ for (const [type, id, selector] of [
     }
   });
 }
+
+test('スマホのバトル問題は縦の画面を使い、解答後にゲームの倍率へ戻る', async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.goto('/?debug=battle&enemy=aomori-ringoron&lv=1');
+  await expect(page.locator('.nq-box-text')).toContainText('リンゴロン', { timeout: 60_000 });
+  await expect(page.locator('.nq-box-next')).toBeVisible();
+  await page.locator('.nq-box').click();
+  await page.locator('.nq-cmd[data-cmd="skill"]').click();
+  await page.locator('[data-skill="sk-tashizan-giri"]').click();
+  const frame = page.locator('.nq-bq');
+  await expect(frame.locator('.nq-q')).toBeVisible();
+  for (const size of [
+    { width: 390, height: 844 },
+    { width: 844, height: 390 },
+    { width: 390, height: 844 },
+  ]) {
+    await page.setViewportSize(size);
+    await expect.poll(() => frame.evaluate(inspectQuestion)).toEqual([]);
+  }
+  await expect(page.locator('#nq-orientation-notice')).toBeHidden();
+  const box = (await frame.boundingBox())!;
+  expect(box.height).toBeGreaterThan(750);
+  expect(box.width).toBeGreaterThan(360);
+  const font = await frame.locator('.nq-q-prompt').evaluate((prompt) => {
+    const scale = prompt.getBoundingClientRect().width / (prompt as HTMLElement).offsetWidth;
+    return parseFloat(getComputedStyle(prompt).fontSize) * scale;
+  });
+  expect(font).toBeGreaterThanOrEqual(18);
+  if (await frame.locator('.nq-choice').count()) {
+    await frame.locator('.nq-choice').first().click();
+  } else {
+    for (const input of await frame.locator('.nq-q-input input').all()) await input.fill('0');
+    await frame.locator('.nq-input-submit').click();
+  }
+  await advanceQuestionFeedback(page);
+  await expect(frame).toHaveCount(0);
+  await expect(page.locator('#ui-layer')).toHaveCSS('width', '960px');
+  await expect(page.locator('#nq-orientation-notice')).toBeVisible();
+});

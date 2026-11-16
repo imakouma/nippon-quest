@@ -23,5 +23,10 @@ test('保護者設定で練習を時間制限なしにしてロードマップ�
   await page.locator('.nq-roadmap-practice').click();
   await expect(page.locator('.nq-bq-slot .nq-q')).toBeVisible();
   await expect(page.locator('.nq-bq-slot .nq-timer')).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator('#nq-orientation-notice')).toBeHidden();
+  await expect(page.locator('.nq-question-canvas')).toHaveAttribute('data-layout', 'portrait');
+  const frame = (await page.locator('.nq-bq').boundingBox())!;
+  expect(frame.height).toBeGreaterThan(750);
   await page.screenshot({ path: 'test-results/sansu-untimed-practice.png' });
 });

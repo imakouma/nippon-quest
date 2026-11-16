@@ -149,8 +149,8 @@ export function auditKanjiQuestionCoverage(
     for (const { question } of categoryQuestions) {
       if (question.type === 'text-input') {
         const parsed = textInputPayloadSchema.safeParse(question.payload);
-        if (question.grade > 4 || !parsed.success) {
-          errors.push(`${question.id}: 入力式は1〜4年の読み問題だけに使用できます`);
+        if (!parsed.success) {
+          errors.push(`${question.id}: 入力式の読み問題データが不正です`);
           continue;
         }
         const { prompt, answers } = parsed.data;

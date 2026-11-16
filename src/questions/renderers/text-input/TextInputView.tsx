@@ -102,6 +102,9 @@ export function TextInputView({
       value={values[index]}
       disabled={done}
       inputMode={numberPad ? 'decimal' : 'text'}
+      style={
+        reading ? { width: `${Math.max(4, Math.min(12, (values[index]?.length ?? 0) + 1))}em` } : undefined
+      }
       onFocus={() => setActiveInput(index)}
       // Preactの独自イベント判定を避け、ブラウザの小文字イベント名を使う。
       {...{
