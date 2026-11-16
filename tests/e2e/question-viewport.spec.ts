@@ -106,8 +106,21 @@ test('縮小後も漢字をなぞる座標が描画位置と一致する', async
   expect(
     await canvas.evaluate((element: HTMLCanvasElement) => {
       const context = element.getContext('2d')!;
-      const [r, g, b, a] = context.getImageData(element.width * 0.3, element.height * 0.5, 1, 1).data;
-      return b! > r! && b! > g! && a! > 200;
+      // 細い線では縮小時のポインター座標の丸めが見えるため、1 CSS px以内で照合する。
+      const radius = Math.ceil(element.width / element.getBoundingClientRect().width);
+      const pixels = context.getImageData(
+        element.width * 0.3 - radius,
+        element.height * 0.5 - radius,
+        radius * 2 + 1,
+        radius * 2 + 1,
+      ).data;
+      return pixels.some(
+        (_, index) =>
+          index % 4 === 0 &&
+          pixels[index + 2]! > pixels[index]! &&
+          pixels[index + 2]! > pixels[index + 1]! &&
+          pixels[index + 3]! > 200,
+      );
     }),
   ).toBe(true);
 });

@@ -18,6 +18,7 @@ for (const viewport of [
   test(`リンゴロンの待機と実際の攻撃がコマ再生される ${viewport.width}`, async ({ page }, info) => {
     test.setTimeout(120_000);
     await page.setViewportSize(viewport);
+    await page.bringToFront();
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     page.on('response', (response) => {

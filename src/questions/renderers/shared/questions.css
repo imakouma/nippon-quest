@@ -278,6 +278,22 @@
   align-items: center;
   gap: 8px;
 }
+.nq-input-template-stacked {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 16px;
+}
+.nq-input-template-stacked .nq-input-question-text {
+  display: block;
+  width: 100%;
+  line-height: 1.6;
+  text-align: left;
+}
+.nq-input-template-stacked .nq-input-answer-row {
+  align-self: center;
+  white-space: nowrap;
+}
 .nq-input-template input {
   width: 4em;
   min-height: 2em;

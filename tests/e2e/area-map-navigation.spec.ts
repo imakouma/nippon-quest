@@ -37,6 +37,9 @@ test('歩行中も県名付きミニマップが残り、県マップを拡大�
   } finally {
     await page.keyboard.up('ArrowRight');
   }
+  await page.waitForFunction(
+    () => !(window.__nq.scene.getScene('Overworld') as unknown as { moving: boolean }).moving,
+  );
   const surroundingPixels = await page
     .locator('.nq-mini-map > canvas:not(.nq-mini-detail)')
     .evaluate((canvas) => {

@@ -136,18 +136,33 @@ async function walkOneTile(
 ): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
   const before = await canvas.getAttribute('data-player-tile');
-  for (let attempt = 0; attempt < 10; attempt += 1) {
-    await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
-    await page.keyboard.press(key);
-    await page.waitForTimeout(300);
-    const decision = await canvas.getAttribute('data-last-movement');
-    const after = await canvas.getAttribute('data-player-tile');
-    if (decision === 'move' && after !== before) {
-      if (expected) expect(after).toBe(`${expected[0]},${expected[1]}`);
-      return;
-    }
+  await canvas.evaluate((element) => {
+    delete (element as HTMLElement).dataset.lastMovement;
+    delete (element as HTMLElement).dataset.testStepStarted;
+  });
+  await page.evaluate((key) => {
+    const scene = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+      playerLocomotion: { phase: string };
+    };
+    const keyCode = { ArrowUp: 38, ArrowDown: 40, ArrowLeft: 37, ArrowRight: 39 }[key];
+    // CIとの往復中に2歩進まないよう、開始フレーム内でキーを離す。
+    const release = () => {
+      if (scene.playerLocomotion.phase !== 'stepping') return;
+      window.dispatchEvent(new KeyboardEvent('keyup', { key, code: key, keyCode, bubbles: true }));
+      scene.events.off('postupdate', release);
+      scene.game.canvas.dataset.testStepStarted = 'true';
+    };
+    scene.events.on('postupdate', release);
+  }, key);
+  await page.keyboard.down(key);
+  try {
+    await expect(canvas).toHaveAttribute('data-test-step-started', 'true');
+  } finally {
+    await page.keyboard.up(key);
   }
-  throw new Error(`${before} から ${key} で一歩進めませんでした`);
+  await expect(canvas).toHaveAttribute('data-last-movement', 'move');
+  await expect(canvas).not.toHaveAttribute('data-player-tile', before!);
+  if (expected) await expect(canvas).toHaveAttribute('data-player-tile', `${expected[0]},${expected[1]}`);
 }
 
 async function skipArrivalStory(page: Page): Promise<void> {
