@@ -360,6 +360,7 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
   );
   await grade.locator(':scope > summary').click();
 
+  await grade.locator('.pg-original-math-folders > summary').click();
   const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
   await expect(unit).toHaveAccessibleDescription('21問');
   await unit.click();
