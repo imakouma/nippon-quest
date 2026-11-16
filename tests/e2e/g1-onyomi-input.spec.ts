@@ -22,6 +22,43 @@ test('2〜4年の長い読み例文も問題枠に収まる', async ({ page }) =
 
 for (const { grade, category, id, prompt, character, answer, ending } of [
   {
+    grade: 5,
+    category: 'onyomi',
+    id: '0001',
+    prompt: 'たいじゅうで 圧りょくを かける',
+    character: '圧',
+    answer: 'あつ',
+    ending: '',
+  },
+  {
+    grade: 5,
+    category: 'kunyomi',
+    id: '0001',
+    prompt: 'みんなで つくえを 囲む',
+    character: '囲',
+    answer: 'かこ',
+    ending: 'む',
+  },
+  {
+    grade: 6,
+    category: 'onyomi',
+    id: '0001',
+    prompt: '胃の はたらきを しらべる',
+    character: '胃',
+    answer: 'い',
+    ending: '',
+  },
+  {
+    grade: 6,
+    category: 'kunyomi',
+    id: '0004',
+    prompt: 'かわに 沿う みちを あるく',
+    character: '沿',
+    answer: 'そ',
+    ending: 'う',
+  },
+
+  {
     grade: 2,
     category: 'onyomi',
     id: '0001',
@@ -191,4 +228,47 @@ test('読み入力のIME変換を終えてから案内し、長い例文も枠�
   expect(answerBox.y + answerBox.height).toBeLessThan(submitBox.y);
   expect(submitBox.y + submitBox.height).toBeLessThanOrEqual(stageBox.y + stageBox.height);
   await stage.screenshot({ path: 'test-results/g1-onyomi-long.png' });
+});
+
+for (const { grade, id, answer } of [
+  { grade: 5, id: '0068', answer: 'まつりごと' },
+  { grade: 5, id: '0142', answer: 'え' },
+  { grade: 5, id: '0019', answer: 'まなこ' },
+  { grade: 6, id: '0098', answer: 'はら' },
+  { grade: 6, id: '0054', answer: 'うけたまわ' },
+  { grade: 6, id: '0014', answer: 'たっと' },
+  { grade: 6, id: '0076', answer: 'たっと' },
+  { grade: 6, id: '0042', answer: 'わたくし' },
+]) {
+  test(`高学年の長い読み・別の読みも入力して正解になる: ${grade}-${id} ${answer}`, async ({ page }) => {
+    for (const width of [320, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(`/playground.html?q=kokugo.g${grade}.kanji-kunyomi.${id}`);
+      const stage = page.locator('.pg-stage');
+      const input = stage.getByRole('textbox', { name: 'こたえ 1', exact: true });
+      await input.fill(answer);
+      await expect.poll(() => input.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+      await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
+      await stage.screenshot({ path: `test-results/g${grade}-reading-${id}-${width}.png` });
+      await input.press('Enter');
+      await expect(stage.locator('.nq-feedback-correct')).toBeVisible();
+    }
+  });
+}
+
+test('5・6年の長い例文も問題枠に収まる', async ({ page }) => {
+  for (const id of [
+    'kokugo.g5.kanji-onyomi.0132',
+    'kokugo.g5.kanji-kunyomi.0140',
+    'kokugo.g6.kanji-onyomi.0035',
+    'kokugo.g6.kanji-kunyomi.0064',
+  ]) {
+    await page.goto(`/playground.html?q=${id}`);
+    const stage = page.locator('.pg-stage');
+    await expect(stage.getByRole('textbox', { name: 'こたえ 1', exact: true })).toBeVisible();
+    for (const width of [320, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
+    }
+  }
 });
