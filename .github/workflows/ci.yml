@@ -127,7 +127,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - run: BASE_PATH=/${{ github.event.repository.name }}/ pnpm build
+      - name: Build the game and problem review
+        run: VITE_NQ_DEV_TOOLS=1 BASE_PATH=/${{ github.event.repository.name }}/ pnpm build
+      - name: Verify the online problem review is included
+        run: test -f dist/playground.html
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - id: deployment
