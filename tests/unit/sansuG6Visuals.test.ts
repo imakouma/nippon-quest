@@ -12,6 +12,12 @@ const questions = readdirSync('content/questions/sansu/g6').flatMap((d) =>
   ),
 );
 const repairs = [
+  '350742bfbbc4',
+  '3f37cc35e0f6',
+  'ba6d3d429270',
+  '7af63ede6c3e',
+  'b46ba27c2b46',
+  'c7e70d5bef36',
   '1e40bc4dec54',
   '2911de821182',
   '4b0aeb8bd013',
@@ -64,7 +70,7 @@ it('preserves all 193 learning targets, with separated fraction input fields', (
     '131caee06318ea9a687949f06c756c51580e78b5fecc500eecf42ab0d842f5b6',
   );
 });
-it('illustrates volume, proportion, averages, speed, percentages and changing quantities', () => {
+it('illustrates symmetry, ratios, fractions, volume, data and combinations', () => {
   for (const hash of [
     '6a2c98a49876',
     'b21487bbe77b',
@@ -85,7 +91,10 @@ it('covers every question in the review and validates local image structure and 
     reason: string;
   }[];
   expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-  expect(review.filter((r) => r.decision === 'illustrated').length).toBeGreaterThan(70);
+  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(114);
+  expect(
+    review.filter((r) => r.decision.includes('missing') || r.decision.includes('source-expression')),
+  ).toEqual([]);
   for (const r of review) {
     expect(r.reason).toBeTruthy();
     if (r.decision !== 'illustrated') continue;
@@ -115,6 +124,75 @@ it('covers every question in the review and validates local image structure and 
     for (const g of doc.querySelectorAll('[data-count]'))
       expect(g.querySelectorAll('use').length).toBe(Number(g.getAttribute('data-count')));
   }
+});
+
+it('restores source conditions and preserves the mathematical answers of the six fraction repairs', () => {
+  for (const [hash, value] of [
+    ['350742bfbbc4', (2 + 1 / 2) * (1 + 3 / 4)],
+    ['3f37cc35e0f6', (1 + 7 / 8) / (3 + 4 / 7) / (7 / 16)],
+    ['ba6d3d429270', (1 + 2 / 5) / (2 + 1 / 10)],
+    ['7af63ede6c3e', 15 / 60],
+    ['b46ba27c2b46', 10 / 60],
+    ['c7e70d5bef36', 24 / 60],
+  ] as const) {
+    const p = textInputPayloadSchema.parse(questions.find((q) => q.id.endsWith(hash))!.payload);
+    expect(p.answers).toHaveLength(2);
+    expect(Number(p.answers[0]) / Number(p.answers[1])).toBeCloseTo(value);
+    expect(textInputScore(p, p.answers)).toBe(1);
+    expect(textInputScore(p, [p.answers[0]!, '99'])).toBeLessThan(1);
+    expect(textInputScore(p, ['99', '99'])).toBe(0);
+  }
+  for (const [hash, condition] of [
+    ['350742bfbbc4', '2\\dfrac{1}{2} × 1\\dfrac{3}{4}'],
+    ['3f37cc35e0f6', '1\\dfrac{7}{8} ÷ 3\\dfrac{4}{7}'],
+    ['ba6d3d429270', '1\\dfrac{2}{5} ÷ 2\\dfrac{1}{10}'],
+    ['7af63ede6c3e', '15分'],
+    ['b46ba27c2b46', '10分'],
+    ['c7e70d5bef36', '24分'],
+    ['0003f834b146', '0.3 : 6'],
+    ['0475b7014f1e', '40 : 10'],
+    ['2c2ebe308727', '\\dfrac{1}{3} : \\dfrac{1}{9}'],
+    ['6b550af8178d', '15 : 21'],
+    ['84d190bf58bf', '68 : 17'],
+    ['97ac545842e7', '40 : 50'],
+    ['c610a527fcd1', '4 : 10'],
+    ['5b5250351724', '2kg'],
+    ['a7a24237e6f2', '3cm'],
+    ['aa7dcca63249', '12cm²'],
+    ['d4f604baf9f3', '30km'],
+  ]) {
+    const p = questions.find((q) => q.id.endsWith(hash!))!.payload as { prompt: string };
+    expect(p.prompt, hash).toContain(condition);
+  }
+  for (const hash of ['064f0be02d26', '5c7bc62997cc', 'e5da9f91183c']) {
+    const p = questions.find((q) => q.id.endsWith(hash))!.payload as {
+      prompt: string;
+      choices: { text: string }[];
+    };
+    expect(p.prompt).toContain('（①）');
+    expect(p.prompt).toContain('（②）');
+    expect(p.choices.every((c) => c.text.split('・').length === 2)).toBe(true);
+    expect(new Set(p.choices.map((c) => c.text)).size).toBe(4);
+  }
+});
+
+it('draws the restored minute counts and ratios to scale without displaying the answers', () => {
+  for (const minutes of [10, 15, 24]) {
+    const doc = new DOMParser().parseFromString(
+      readFileSync(`assets/questions/sansu/g6/visuals/time-${minutes}-minutes.svg`, 'utf8'),
+      'image/svg+xml',
+    );
+    expect(doc.querySelectorAll('[data-minute]')).toHaveLength(60);
+    expect(doc.querySelectorAll('[data-minute][fill="#80c6ff"]')).toHaveLength(minutes);
+  }
+  const doc = new DOMParser().parseFromString(
+    readFileSync('assets/questions/sansu/g6/visuals/restored-ratio-0003f834b146.svg', 'utf8'),
+    'image/svg+xml',
+  );
+  const bars = [...doc.querySelectorAll('[data-ratio-value]')];
+  expect(bars.map((b) => Number(b.getAttribute('data-ratio-value')))).toEqual([0.3, 6]);
+  expect(Number(bars[0]!.getAttribute('width')) / Number(bars[1]!.getAttribute('width'))).toBeCloseTo(0.05);
+  expect(doc.querySelector('text')?.textContent).not.toContain('0.05');
 });
 it('grades fractions separately and represents equal wholes without changing their values', () => {
   for (const hash of repairs) {

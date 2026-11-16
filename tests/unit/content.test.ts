@@ -37,6 +37,20 @@ function loadContent(reader: FileReader, opts?: Parameters<typeof loadContentFro
 afterEach(() => vi.unstubAllGlobals());
 
 describe('content loader', () => {
+  it('起動用bundleだけで全コンテンツを読み込め、制作データを重複配信しない', async () => {
+    const bundle = (await read('content-bundle.json')) as Record<string, unknown>;
+    const manifest = parseContentManifest(bundle['manifest.json']);
+    expect(Object.keys(bundle).sort()).toEqual(
+      ['manifest.json', ...Object.values(manifest.files).flat()].sort(),
+    );
+    const content = await loadContentFromFiles(async (path) => {
+      expect(Object.hasOwn(bundle, path)).toBe(true);
+      return bundle[path];
+    });
+    expect(content.areas.size).toBeGreaterThan(0);
+    expect(findBrokenReferences(content)).toEqual([]);
+  });
+
   it('問題カタログを後方互換に検証する', () => {
     const base = { generatedAt: '2026-10-29T00:00:00.000Z', files: {}, questions: [] };
     expect(parseContentManifest(base).questionCatalog).toBeUndefined();

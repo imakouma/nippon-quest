@@ -127,7 +127,7 @@ describe('漢字問題生成', () => {
     const broken = structuredClone(sources);
     const question = broken
       .flatMap((source) => source.questions)
-      .find((candidate) => candidate.id === 'kokugo.g2.kanji-onyomi.0001')!;
+      .find((candidate) => candidate.id === 'kokugo.g5.kanji-onyomi.0001')!;
     const payload = question.payload as {
       choices: { id: string; text: string }[];
       answer: string;
@@ -139,6 +139,28 @@ describe('漢字問題生成', () => {
         error.includes('正規データの音読みにありません'),
       ),
     ).toBe(true);
+  });
+
+  it('2〜4年の入力問題も正規読み・学年・送り仮名を独立監査する', () => {
+    for (const grade of [2, 3, 4]) {
+      for (const category of ['onyomi', 'kunyomi']) {
+        for (const [patch, expected] of [
+          [{ answers: ['でたらめ'] }, '正規データ'],
+          [{ prompt: '一ばんの パン' }, '配当学年'],
+          [{ template: 'よみかた：{{INPUT}}るるる' }, '送り仮名'],
+        ] as const) {
+          const sources = structuredClone([...preservedSources, ...generatedSources]);
+          const id = `kokugo.g${grade}.kanji-${category}.0001`;
+          const question = sources.flatMap((source) => source.questions).find((q) => q.id === id)!;
+          question.payload = { ...(question.payload as object), ...patch };
+          expect(
+            auditKanjiQuestionCoverage(records, sources).some(
+              (error) => error.startsWith(id) && error.includes(expected),
+            ),
+          ).toBe(true);
+        }
+      }
+    }
   });
 
   it.each([
@@ -162,7 +184,7 @@ describe('漢字問題生成', () => {
     const sources = structuredClone([...preservedSources, ...generatedSources]);
     const question = sources
       .flatMap((source) => source.questions)
-      .find((q) => q.id === 'kokugo.g2.kanji-onyomi.0001')!;
+      .find((q) => q.id === 'kokugo.g5.kanji-onyomi.0001')!;
     const payload = question.payload as { choices: { id: string; text: string }[] };
     for (const [index, text] of ['あああ', 'いいい', 'ううう', 'えええ'].entries()) {
       payload.choices.push({ id: `extra-${index}`, text });
@@ -178,7 +200,7 @@ describe('漢字問題生成', () => {
     const sources = structuredClone([...preservedSources, ...generatedSources]);
     const question = sources
       .flatMap((source) => source.questions)
-      .find((q) => q.id === 'kokugo.g2.kanji-onyomi.0001')!;
+      .find((q) => q.id === 'kokugo.g5.kanji-onyomi.0001')!;
     const payload = question.payload as {
       choices: { id: string; text?: string; image?: string }[];
       answer: string;
@@ -197,7 +219,7 @@ describe('漢字問題生成', () => {
     const choice = structuredClone(
       mixed
         .flatMap((source) => source.questions)
-        .find((question) => question.id === 'kokugo.g2.kanji-onyomi.0001')!,
+        .find((question) => question.id === 'kokugo.g5.kanji-onyomi.0001')!,
     );
     choice.id = 'kokugo.g1.misplaced-choice.0001';
     choice.tags = [];
