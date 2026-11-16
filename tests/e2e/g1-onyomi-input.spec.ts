@@ -1,6 +1,110 @@
 import { expect, test } from '@playwright/test';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
+test('2〜4年の長い読み例文も問題枠に収まる', async ({ page }) => {
+  for (const id of [
+    'kokugo.g2.kanji-onyomi.0158',
+    'kokugo.g2.kanji-kunyomi.0054',
+    'kokugo.g3.kanji-onyomi.0075',
+    'kokugo.g3.kanji-kunyomi.0091',
+    'kokugo.g4.kanji-onyomi.0009',
+    'kokugo.g4.kanji-kunyomi.0116',
+  ]) {
+    await page.goto(`/playground.html?q=${id}`);
+    const stage = page.locator('.pg-stage');
+    await expect(stage.getByRole('textbox', { name: 'こたえ 1', exact: true })).toBeVisible();
+    for (const width of [320, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
+    }
+  }
+});
+
+for (const { grade, category, id, prompt, character, answer, ending } of [
+  {
+    grade: 2,
+    category: 'onyomi',
+    id: '0001',
+    prompt: 'じてんの さく引で しらべる',
+    character: '引',
+    answer: 'いん',
+    ending: '',
+  },
+  {
+    grade: 2,
+    category: 'kunyomi',
+    id: '0001',
+    prompt: 'ひもを 引く',
+    character: '引',
+    answer: 'ひ',
+    ending: 'く',
+  },
+  {
+    grade: 3,
+    category: 'onyomi',
+    id: '0001',
+    prompt: '悪にんが つかまる',
+    character: '悪',
+    answer: 'あく',
+    ending: '',
+  },
+  {
+    grade: 3,
+    category: 'kunyomi',
+    id: '0001',
+    prompt: 'きょうは てんきが 悪い',
+    character: '悪',
+    answer: 'わる',
+    ending: 'い',
+  },
+  {
+    grade: 4,
+    category: 'onyomi',
+    id: '0001',
+    prompt: 'いきものに 愛じょうを そそぐ',
+    character: '愛',
+    answer: 'あい',
+    ending: '',
+  },
+  {
+    grade: 4,
+    category: 'kunyomi',
+    id: '0008',
+    prompt: 'スープに しおを 加える',
+    character: '加',
+    answer: 'くわ',
+    ending: 'える',
+  },
+]) {
+  for (const width of [320, 1440]) {
+    test(`${grade}年${category}の例文を入力して採点する（${width}px）`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(`/playground.html?q=kokugo.g${grade}.kanji-${category}.${id}`);
+      await expect(page.getByRole('heading', { name: '問題レビュー', exact: true })).toBeVisible();
+      const stage = page.locator('.pg-stage');
+      await expect(stage.getByText(prompt, { exact: true })).toBeVisible();
+      await expect(stage.locator('mark')).toHaveText(character);
+      await expect(stage.locator('.nq-input-template')).toHaveText(`よみかた：${ending}`);
+      await expect(stage).not.toContainText('Enter');
+      await expect(stage).not.toContainText('ひらがなで');
+      await expect(stage.locator('.nq-q-choice')).toHaveCount(0);
+      await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
+      const input = stage.getByRole('textbox', { name: 'こたえ 1', exact: true });
+      await input.fill('abc');
+      await expect(stage.getByRole('alert')).toHaveText('ひらがなで こたえよう');
+      await stage.locator('.nq-input-submit').click();
+      await expect(input).toBeEnabled();
+      await input.fill(answer);
+      await expect(stage).not.toContainText('ひらがなで');
+      await input.press('Enter');
+      await expect(stage.locator('.nq-feedback-correct')).toBeVisible();
+      await page.reload();
+      await expect(stage.getByText(prompt, { exact: true })).toBeVisible();
+      await stage.screenshot({ path: `test-results/g${grade}-${category}-${width}.png` });
+    });
+  }
+}
+
 test('訓読みの長い例文と送り仮名つき入力が狭い画面でも収まる', async ({ page }) => {
   for (const id of ['0027', '0012']) {
     await page.goto(`/playground.html?q=kokugo.g1.kanji-kunyomi.${id}`);

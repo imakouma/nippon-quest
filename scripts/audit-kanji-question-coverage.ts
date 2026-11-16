@@ -149,8 +149,8 @@ export function auditKanjiQuestionCoverage(
     for (const { question } of categoryQuestions) {
       if (question.type === 'text-input') {
         const parsed = textInputPayloadSchema.safeParse(question.payload);
-        if (question.grade !== 1 || !parsed.success) {
-          errors.push(`${question.id}: 入力式は1年の読み問題だけに使用できます`);
+        if (question.grade > 4 || !parsed.success) {
+          errors.push(`${question.id}: 入力式は1〜4年の読み問題だけに使用できます`);
           continue;
         }
         const { prompt, answers } = parsed.data;
@@ -162,7 +162,7 @@ export function auditKanjiQuestionCoverage(
           continue;
         }
         if (record.grade !== question.grade) errors.push(`${question.id}: 漢字の配当学年が違います`);
-        if (!new RegExp(`^kokugo\\.g1\\.kanji-${category}\\.\\d{4}$`).test(question.id)) {
+        if (!new RegExp(`^kokugo\\.g${question.grade}\\.kanji-${category}\\.\\d{4}$`).test(question.id)) {
           errors.push(`${question.id}: ${label}問題IDが規則に一致しません`);
         }
         const template = /^[^{}]*\{\{INPUT\}\}([ぁ-ゖー]*)$/u.exec(parsed.data.template ?? '{{INPUT}}');
