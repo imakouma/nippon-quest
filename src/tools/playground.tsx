@@ -224,18 +224,24 @@ function App() {
     abort.current = ctl;
     setRunning(true);
     const started = performance.now();
-    const res = await r.mount({
-      container,
-      question: { ...q, payload: p.data },
-      grade: q.grade,
-      assets,
-      speak,
-      timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
-      signal: ctl.signal,
-    });
-    if (id !== runId.current) return;
-    setRunning(false);
-    setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
+    try {
+      const res = await r.mount({
+        container,
+        question: { ...q, payload: p.data },
+        grade: q.grade,
+        assets,
+        speak,
+        timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
+        signal: ctl.signal,
+      });
+      if (id !== runId.current) return;
+      setRunning(false);
+      setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
+    } catch {
+      if (id !== runId.current) return;
+      setRunning(false);
+      setError(tOpt('ui.loadError') ?? '');
+    }
   };
 
   const replaceUrl = (questionId: string | undefined) => {

@@ -115,3 +115,54 @@ for (const pressure of [0.02, 1]) {
     }
   });
 }
+
+for (const [grade, id, kanji] of [
+  [2, 'kokugo.g2.kanji-trace.0001', '風'],
+  [3, 'kokugo.g3.kanji-writing.0001', '悪'],
+  [4, 'kokugo.g4.kanji-writing.0001', '愛'],
+  [5, 'kokugo.g5.kanji-writing.0001', '圧'],
+  [6, 'kokugo.g6.kanji-writing.0001', '胃'],
+] as const) {
+  test(`小${grade} ${kanji}: 必要学年だけ読み込み、逆向きを拒否して正しく書ける`, async ({ page }) => {
+    const requests: string[] = [];
+    page.on('request', (request) => requests.push(new URL(request.url()).pathname));
+    const source: { coordinateScale: number; characters: Record<string, { points: number[][] }[]> } =
+      JSON.parse(
+        readFileSync(new URL(`../../content/kanji/grade-${grade}-strokes.json`, import.meta.url), 'utf8'),
+      );
+    const strokes = source.characters[kanji]!.map((s) => {
+      let x = 0,
+        y = 0;
+      return s.points.map((p) => ({
+        x: (x += p[0]!) / source.coordinateScale,
+        y: (y += p[1]!) / source.coordinateScale,
+      }));
+    });
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-kt-canvas')).toBeVisible();
+    await draw(
+      page,
+      strokes.map((s, i) => (i === 0 ? [...s].reverse() : s)),
+    );
+    await expect(page.getByRole('status')).toContainText(/向|むき/);
+    await page.getByRole('button', { name: 'けす', exact: true }).click();
+    await draw(page, strokes);
+    await expect(page.locator('.pg-result-summary')).toContainText('100%');
+    expect(requests.filter((path) => /grade-[2-6]-strokes/.test(path))).toEqual([
+      expect.stringContaining(`grade-${grade}-strokes`),
+    ]);
+    if (grade === 6) await page.screenshot({ path: 'test-results/kanji-grade-six.png', fullPage: true });
+  });
+}
+
+test('学年別データの読み込み失敗を問題レビューに表示し、採点しない', async ({ page }) => {
+  await page.route(/grade-2-strokes.*\.json$/, (route) => route.abort('failed'));
+  await page.goto('/playground.html?q=kokugo.g2.kanji-trace.0001');
+  await expect(page.getByRole('alert')).toContainText('よみこみに しっぱいしました');
+  await expect(page.locator('.nq-kt-canvas')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '再生', exact: true })).toBeEnabled();
+  await expect(page.locator('.pg-result-summary dd')).toHaveCount(0);
+  await page.unroute(/grade-2-strokes.*\.json$/);
+  await page.getByRole('button', { name: '再生', exact: true }).click();
+  await expect(page.locator('.nq-kt-canvas')).toBeVisible();
+});

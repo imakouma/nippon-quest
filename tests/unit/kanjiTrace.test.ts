@@ -224,7 +224,10 @@ describe('kanji-trace renderer', () => {
   });
 
   it('does not award full credit when a legacy guide cannot be rendered', async () => {
-    const { container, result } = mount({ kanji: '風', reading: 'かぜ' });
+    const { container, result } = mount({ kanji: '龍', reading: 'りゅう' });
+    await act(async () => {
+      await Promise.resolve();
+    });
     const canvas = container.querySelector('canvas')!;
     const down = new MouseEvent('pointerdown', { bubbles: true });
     Object.defineProperty(down, 'pointerId', { value: 1 });
