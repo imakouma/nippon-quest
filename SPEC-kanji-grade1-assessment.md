@@ -22,3 +22,7 @@ Status: approved direction (2026-11-15 user: 既存ライブラリで小学1年�
 ## Verification
 
 Vitestで80字の基準筆跡、揺らぎ、誤順序、逆向き、欠落、余分な画、別字を検証。実ブラウザで問題レビューの正解/不正解/消去と細い線、狭い画面を検証。`pnpm lint`、`pnpm check:architecture`、`pnpm test`、`pnpm validate:content`、`pnpm build`を実行。人間の子どもの筆跡による感度校正は未実施として明記する。
+
+## V2: 全学年への展開（2026-11-16 承認）
+
+小1の誤入力検証後、小2〜小6も含む1026字を対象にする。学年別データを遅延読み込みし、読み込み失敗時は採点へ進まない。詳細は `tasks/kanji-all-grades-plan.md`。実機ペン検証はユーザー指示で対象外。
