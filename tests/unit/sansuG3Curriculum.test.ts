@@ -34,7 +34,7 @@ describe('grade 3 curriculum and recovered source context', () => {
       ['multiply-one', 'multiply-two'],
       ['decimal', 'fraction'],
       ['numbers', 'soroban'],
-    ])
+    ] as const)
       expect(groups.indexOf(before)).toBeLessThan(groups.indexOf(after));
   });
   it('gives all 356 fixed questions a readable explanation without broken TeX', () => {
@@ -72,7 +72,7 @@ describe('grade 3 curriculum and recovered source context', () => {
     for (const [hash, answer] of [
       ['9c9ecd05ef31', '3'],
       ['ad7e2d83c1a7', '2'],
-    ]) {
+    ] as const) {
       const q = questions.find((q) => q.id.endsWith(hash))!;
       expect(q.payload.answers).toEqual([answer]);
       expect(q.payload.prompt).toContain('同[おな]じ大[おお]きさの角');
@@ -86,7 +86,7 @@ describe('grade 3 curriculum and recovered source context', () => {
       ['4edb33dd8f60', '42+39'],
       ['b375fc9721b5', '37+53'],
       ['cd8591c437d6', '45+47'],
-    ])
+    ] as const)
       expect(questions.find((q) => q.id.endsWith(hash))!.payload.prompt).toContain(expression);
   });
 });

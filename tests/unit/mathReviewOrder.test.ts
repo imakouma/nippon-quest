@@ -82,3 +82,7 @@ for (const [grade, groups] of Object.entries(mathReviewGroupsByGrade)) {
     }
   });
 }
+
+it('小1から小6まで学ぶ順を登録する', () => {
+  expect(Object.keys(mathReviewGroupsByGrade)).toEqual(['1', '2', '3', '4', '5', '6']);
+});

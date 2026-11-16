@@ -6,9 +6,10 @@ import { questionHasAnswerContext } from '../../src/questions/engine/questionQua
 import { getRenderer } from '../../src/questions/renderers/registry';
 const questions = readdirSync('content/questions/sansu/g4').flatMap((dir) =>
   readdirSync(`content/questions/sansu/g4/${dir}`).flatMap((file) =>
-    (JSON.parse(readFileSync(`content/questions/sansu/g4/${dir}/${file}`, 'utf8')) as unknown[]).map((q) =>
-      questionBaseSchema.parse(q),
-    ),
+    (JSON.parse(readFileSync(`content/questions/sansu/g4/${dir}/${file}`, 'utf8')) as unknown[]).map((q) => {
+      const parsed = questionBaseSchema.parse(q);
+      return { ...parsed, payload: parsed.payload };
+    }),
   ),
 );
 const order = JSON.parse(readFileSync('content/review/sansu-g4-order.json', 'utf8')) as {
