@@ -1,12 +1,10 @@
 .nq-q-reading .nq-input-speak {
-  position: absolute;
-  top: 56px;
-  right: 24px;
+  position: static;
 }
 .nq-q-reading .nq-q-prompt {
   flex: none;
   min-height: 104px;
-  margin: 44px 56px 16px;
+  margin: 0 56px 16px;
   font-size: 40px;
   text-align: center;
 }
