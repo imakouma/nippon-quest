@@ -874,6 +874,7 @@ draw(
     arrow(220, 135, 55) +
     group(365, 105, beaker(), 0.7) +
     group(365, 190, scale()),
+  230,
 );
 draw(
   'solution-mass-a3fd7dd5cc5b',
@@ -888,6 +889,7 @@ draw(
     arrow(260, 110, 45) +
     group(385, 100, beaker(), 0.65) +
     text('110 g', 385, 205, 25),
+  230,
 );
 draw(
   'solution-mass-d9451562aebe',
@@ -901,6 +903,7 @@ draw(
     arrow(260, 110, 45) +
     group(385, 100, beaker(), 0.65) +
     text('？g', 385, 205, 25),
+  230,
 );
 draw(
   'solution-weight',
