@@ -1,6 +1,10 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { questionScale, withQuestionViewport } from '../../src/questions/renderers/shared/questionViewport';
+import {
+  fitQuestionViewport,
+  questionScale,
+  withQuestionViewport,
+} from '../../src/questions/renderers/shared/questionViewport';
 import type { QuestionRenderer, RendererContext } from '../../src/questions/contracts';
 
 afterEach(() => {
@@ -14,6 +18,32 @@ describe('proportional question viewport', () => {
     expect(questionScale(720, 200, 540)).toBeCloseTo(200 / 540);
     expect(questionScale(480, 270, 1080)).toBe(0.25);
     expect(questionScale(0, 0, 540)).toBe(0);
+  });
+  it('uses the portrait width before scaling narrow tall frames', () => {
+    expect(questionScale(360, 640, 640)).toBe(0.9);
+    expect(questionScale(320, 568, 800)).toBeCloseTo(568 / 800);
+    expect(questionScale(844, 390, 540)).toBeCloseTo(390 / 540);
+  });
+  it('measures wrapping at the selected width and restores landscape after rotation', () => {
+    const viewport = document.createElement('div');
+    const canvas = document.createElement('div');
+    let size = { width: 360, height: 640 };
+    Object.defineProperties(viewport, {
+      clientWidth: { get: () => size.width },
+      clientHeight: { get: () => size.height },
+    });
+    Object.defineProperty(canvas, 'scrollHeight', {
+      get: () => (canvas.style.width === '400px' ? 800 : 540),
+    });
+    fitQuestionViewport(viewport, canvas);
+    expect(canvas.dataset.layout).toBe('portrait');
+    expect(canvas.style.transform).toBe('scale(0.8)');
+    expect(canvas.style.left).toBe('20px');
+    size = { width: 960, height: 540 };
+    fitQuestionViewport(viewport, canvas);
+    expect(canvas.dataset.layout).toBe('landscape');
+    expect(canvas.style.width).toBe('960px');
+    expect(canvas.style.transform).toBe('scale(1)');
   });
   it('preserves result and abort, and disconnects resizing when the renderer finishes', async () => {
     const disconnect = vi.fn();

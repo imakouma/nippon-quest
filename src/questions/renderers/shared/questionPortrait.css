@@ -1,0 +1,88 @@
+/* 縦の問題枠では400px幅に組み直してから、共通viewportで全体を同率拡縮する。 */
+.nq-question-canvas[data-layout='portrait'] > .nq-q {
+  gap: 8px;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-q-prompt {
+  min-height: 48px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-q-prompt p {
+  line-height: 1.45;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-btn {
+  min-height: 56px;
+}
+.nq-question-canvas[data-layout='portrait'] :is(.nq-q-choices, .nq-pw-words, .nq-pm-grid, .nq-exp-choices) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-choice {
+  padding: 8px 8px 8px 40px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-choice-key {
+  left: 4px;
+  top: 4px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-choice-content:has(img) {
+  flex-direction: column;
+  gap: 4px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-input-illustration img {
+  width: auto;
+  max-width: 100%;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-input-template {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-input-template span {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-input-number-pad {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-input-number-pad .nq-btn {
+  width: auto;
+  min-width: 0;
+  height: 60px;
+  min-height: 60px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-q-reading .nq-q-prompt {
+  margin: 44px 0 16px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-nb-blocks {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-nb-block-controls {
+  gap: 8px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-sort-cards:not(.nq-sort-vertical) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.nq-question-canvas[data-layout='portrait'] .nq-sort-card {
+  min-width: 0;
+  padding: 8px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-exp-control {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-exp-control > label {
+  grid-column: 1 / -1;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-exp-toggle {
+  grid-column: 1 / -1;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-review-panel {
+  width: 100%;
+  padding: 32px 12px 16px;
+  gap: 16px;
+}
+.nq-question-canvas[data-layout='portrait'] .nq-feedback-text {
+  font-size: 36px;
+}
