@@ -39,12 +39,14 @@ describe('小1算数の学習順レビュー', () => {
     expect(mathReviewMatches(question, 'math-review:addition')).toBe(false);
     expect(mathReviewMatches(question, 'math-review:carry-addition')).toBe(true);
   });
-  it('式欠落13問は修復待ちで、通常の計算には混ぜない', () => {
-    const quarantined = questions.filter((q) => q.tags?.includes('runtime:quarantined-missing-context'));
-    expect(quarantined).toHaveLength(13);
-    for (const question of quarantined) {
-      expect(mathReviewMatches(question, 'math-review:repair')).toBe(true);
-      expect(mathReviewMatches(question, 'math-review:addition')).toBe(false);
+  it('復元済み13問を基本加減へ戻し、修復待ちに残さない', () => {
+    const repaired = questions.filter((q) => q.tags?.includes('repaired:source-template-v1'));
+    expect(repaired).toHaveLength(13);
+    expect(questions.some((q) => q.tags?.includes('runtime:quarantined-missing-context'))).toBe(false);
+    for (const q of repaired) {
+      const group = q.unit.endsWith('math-1-2') ? 'addition' : 'subtraction';
+      expect(mathReviewMatches(q, `math-review:${group}`)).toBe(true);
+      expect(mathReviewMatches(q, 'math-review:repair')).toBe(false);
     }
   });
   it('新しい小1問題は未分類へ出し、他学年・教科は含めない', () => {
