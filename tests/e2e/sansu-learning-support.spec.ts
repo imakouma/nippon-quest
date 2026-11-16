@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
+import { advanceQuestionFeedback } from './helpers/questionReview';
 
 test('保護者設定で練習を時間制限なしにしてロードマップから解く', async ({ page }) => {
   test.setTimeout(90_000);
@@ -24,9 +25,19 @@ test('保護者設定で練習を時間制限なしにしてロードマップ�
   await expect(page.locator('.nq-bq-slot .nq-q')).toBeVisible();
   await expect(page.locator('.nq-bq-slot .nq-timer')).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator('#nq-orientation-notice')).toBeVisible();
+  await page.setViewportSize({ width: 844, height: 390 });
   await expect(page.locator('#nq-orientation-notice')).toBeHidden();
-  await expect(page.locator('.nq-question-canvas')).toHaveAttribute('data-layout', 'portrait');
-  const frame = (await page.locator('.nq-bq').boundingBox())!;
-  expect(frame.height).toBeGreaterThan(750);
+  await expect(page.locator('.nq-question-canvas')).toHaveAttribute('data-layout', 'landscape');
+  await expect(page.locator('.nq-bq-slot .nq-timer')).toHaveCount(0);
   await page.screenshot({ path: 'test-results/sansu-untimed-practice.png' });
+  const frame = page.locator('.nq-bq');
+  if (await frame.locator('.nq-choice').count()) {
+    await frame.locator('.nq-choice').first().click();
+  } else {
+    for (const input of await frame.locator('.nq-q-input input').all()) await input.fill('0');
+    await frame.locator('.nq-input-submit').click();
+  }
+  await advanceQuestionFeedback(page);
+  await expect(frame).toHaveCount(0);
 });
