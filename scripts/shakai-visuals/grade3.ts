@@ -195,11 +195,11 @@ export function grade3(draw: Draw) {
     'origin-label',
     ['2f95c2ee2a0a', 'eb888d26b8cd'],
     '果物と、青森県産と書かれた産地表示の例。',
-    group(105, 125, fruit(), 1.3) +
-      rect(215, 65, 230, 130, '#fff8dc') +
-      text('表示の例', 330, 105) +
-      text('青森県産', 330, 160, 30),
-    220,
+    group(105, 95, fruit(), 1.3) +
+      rect(215, 35, 230, 130, '#fff8dc') +
+      text('表示の例', 330, 75) +
+      text('青森県産', 330, 130, 30),
+    190,
   );
   draw(
     'import',

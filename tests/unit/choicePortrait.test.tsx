@@ -16,6 +16,7 @@ it('marks long prose for a portrait row without counting ruby annotations as vis
   } as unknown as RendererContext;
   for (const [text, long] of [
     ['水[みず]と電気[でんき]', false],
+    ['大工場[だいこうじょう]は数[かず]が多[おお]いから出荷額[しゅっかがく]が大[おお]きい。', true],
     ['工場が海外へ移り、国内の産業が衰えてしまうこと。', true],
   ] as const) {
     const payload = {

@@ -97,7 +97,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
   const correct = chosen === payload.answer;
   // アルファベット 1〜2 もじ だけの 選択肢は、形が 見やすいよう 大きく
   const big = choices.every((c) => !c.image && /^[A-Za-z]{1,2}$/.test(c.text ?? ''));
-  const prose = choices.some((c) => stripRuby(c.text ?? '').length >= 24);
+  const prose = choices.some((c) => stripRuby(c.text ?? '').length >= 18);
 
   if (review && phase === 'feedback')
     return (

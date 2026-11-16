@@ -102,11 +102,16 @@ export function grade5(draw: Draw) {
     'food-trace',
     ['0f6792cb3e62'],
     '食品の記録を、生産地、運送、店までたどる模式図。',
-    flow([
-      ['生産地', field()],
-      ['運送', truck()],
-      ['店', house()],
-    ]) + text('いつ・どこで・だれが', 240, 35, 24),
+    group(
+      0,
+      -20,
+      flow([
+        ['生産地', field()],
+        ['運送', truck()],
+        ['店', house()],
+      ]),
+    ),
+    230,
   );
   draw(
     'fishing-distance',
@@ -162,13 +167,13 @@ export function grade5(draw: Draw) {
     'factory-relocation',
     ['7b385ea8e988'],
     '国内の工場の仕事が海外へ移り、国内側の工場が閉まる例。',
-    group(95, 110, factory()) +
-      arrow(180, 110, 100) +
-      group(385, 110, factory()) +
-      text('国内', 95, 230) +
-      text('海外', 385, 230) +
-      path('M40 170H150', 'none', '#a26148', 5),
-    235,
+    group(95, 70, factory(), 0.8) +
+      arrow(180, 70, 100) +
+      group(385, 70, factory(), 0.8) +
+      text('国内', 95, 145) +
+      text('海外', 385, 145) +
+      path('M50 120H140', 'none', '#a26148', 5),
+    160,
   );
   draw(
     'iot',
@@ -241,13 +246,13 @@ export function grade5(draw: Draw) {
       ]
         .map(
           ([label, big, small], i) =>
-            text(String(label), 75, 82 + i * 56, 24) +
-            rect(150, 52 + i * 56, 300, 25, '#c2d9e9') +
-            rect(150, 52 + i * 56, Number(big) * 3, 25, '#cf9d6d') +
-            text(`${big}% / ${small}%`, 300, 101 + i * 56, 24),
+            text(String(label), 75, 82 + i * 50, 24) +
+            rect(150, 52 + i * 50, 300, 25, '#c2d9e9') +
+            rect(150, 52 + i * 50, Number(big) * 3, 25, '#cf9d6d') +
+            text(`${big}% / ${small}%`, 300, 101 + i * 50, 24),
         )
         .join(''),
-    225,
+    213,
   );
   draw(
     'trade-chart',
@@ -289,22 +294,22 @@ export function grade5(draw: Draw) {
           const v = values as number[];
           let start = 145;
           return (
-            text(String(kind), 75, 75 + i * 60, 24) +
-            text(String(year), 75, 102 + i * 60, 24) +
+            text(String(kind), 75, 75 + i * 55, 24) +
+            text(String(year), 75, 102 + i * 55, 24) +
             v
               .map((n, j) => {
                 const x = start;
                 start += n * 3;
                 return n
-                  ? rect(x, 60 + i * 60, n * 3, 38, ['#a6c7df', '#e0b88d', '#bad3a1', '#d2b8da'][j]) +
-                      (n > 20 ? text(String(n), x + n * 1.5, 88 + i * 60, 24) : '')
+                  ? rect(x, 60 + i * 55, n * 3, 38, ['#a6c7df', '#e0b88d', '#bad3a1', '#d2b8da'][j]) +
+                      (n > 20 ? text(String(n), x + n * 1.5, 88 + i * 55, 24) : '')
                   : '';
               })
               .join('')
           );
         })
         .join('') +
-      text('割合（%）／元資料の値', 285, 307, 24),
-    320,
+      text('割合（%）／元資料の値', 285, 292, 24),
+    305,
   );
 }
