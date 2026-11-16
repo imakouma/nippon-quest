@@ -174,3 +174,25 @@ test('820px以下は1列、広い画面は2列になる', async ({ page }) => {
     ).toBe(true);
   }
 });
+
+for (const id of ['sansu.g1.data.0001', 'legacy.sansu.g6.math-6-4.7af63ede6c3e']) {
+  test(`縦画面の教材の本文と回答ボタンが小さくなりすぎない: ${id}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-q')).toBeVisible();
+    const metrics = await page.locator('.nq-q').evaluate((question) => {
+      const scale = question.getBoundingClientRect().width / question.offsetWidth;
+      const prompt = question.querySelector('.nq-q-prompt')!;
+      const buttons = [...question.querySelectorAll<HTMLElement>('.nq-choice, .nq-input-number-pad .nq-btn')];
+      return {
+        font: parseFloat(getComputedStyle(prompt).fontSize) * scale,
+        targets: buttons.map((b) => b.getBoundingClientRect().height),
+        image: question.querySelector('img')!.getBoundingClientRect().width,
+      };
+    });
+    expect(metrics.font).toBeGreaterThanOrEqual(18);
+    expect(Math.min(...metrics.targets)).toBeGreaterThanOrEqual(40);
+    expect(metrics.image).toBeGreaterThanOrEqual(280);
+    expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  });
+}
