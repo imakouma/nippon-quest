@@ -290,7 +290,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "prompt": "1mの重[おも]さが2kgの金属[きんぞく]のぼうがあります。長[なが]さ x m と重[おも]さ y kg の関係[かんけい]を表[あらわ]す式[しき]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -310,7 +310,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-metal-rod.svg",
+      "promptSpeech": "1mの重[おも]さが2kgの金属[きんぞく]のぼうがあります。長[なが]さ x m と重[おも]さ y kg の関係[かんけい]を表[あらわ]す式[しき]をえらぼう。 1mあたり2kgの金属のぼう。ぼう全体の長さをx m、重さをy kgとした模式図。"
     },
     "explanation": "ぼうの重さは、2kg × ＜ぼうの長さ＞ で求めることができるので、 y=2×x"
   },
@@ -536,7 +538,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "prompt": "横[よこ]3cmの長方形[ちょうほうけい]があります。縦[たて]の長[なが]さ x cm と面積[めんせき] y cm² の関係[かんけい]を表[あらわ]す式[しき]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -556,7 +558,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-rectangle-area.svg",
+      "promptSpeech": "横[よこ]3cmの長方形[ちょうほうけい]があります。縦[たて]の長[なが]さ x cm と面積[めんせき] y cm² の関係[かんけい]を表[あらわ]す式[しき]をえらぼう。 横3cm、縦x cmの長方形。中に面積y cm²と書かれた模式図。"
     },
     "explanation": "面積[めんせき]は、3cm × ＜縦の長さ＞ で求めることができるので、 y=3×x"
   },
@@ -572,7 +576,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "prompt": "面積[めんせき]12cm²の長方形[ちょうほうけい]があります。縦[たて]の長[なが]さ x cm と横[よこ]の長[なが]さ y cm の関係[かんけい]を表[あらわ]す式[しき]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -592,9 +596,11 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-rectangle-fixed-area.svg",
+      "promptSpeech": "面積[めんせき]12cm²の長方形[ちょうほうけい]があります。縦[たて]の長[なが]さ x cm と横[よこ]の長[なが]さ y cm の関係[かんけい]を表[あらわ]す式[しき]をえらぼう。 面積12cm²の長方形。縦x cm、横y cmとした模式図。"
     },
-    "explanation": "は、 × = より、 12cm^2 ÷ ＜縦の長さ＞ で求めることができるので、 y=12÷x"
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は「縦[たて]×横[よこ]」です。x × y = 12 なので、横[よこ]の長[なが]さは面積[めんせき]を縦[たて]の長[なが]さで割[わ]って求[もと]めます。y = 12 ÷ x。"
   },
   {
     "id": "legacy.sansu.g6.math-6-9.b33ab6181153",
@@ -810,7 +816,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の２つの数の関係を表した式として、正しいものをえらぼう。",
+      "prompt": "30kmの道[みち]のりを移動[いどう]します。速[はや]さが時速[じそく] x km のとき、かかる時間[じかん] y 時間[じかん]との関係[かんけい]を表[あらわ]す式[しき]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -830,9 +836,11 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/visuals/relation-fixed-distance.svg",
+      "promptSpeech": "30kmの道[みち]のりを移動[いどう]します。速[はや]さが時速[じそく] x km のとき、かかる時間[じかん] y 時間[じかん]との関係[かんけい]を表[あらわ]す式[しき]をえらぼう。 出発点から到着点まで30kmの道のり。速さを時速x km、かかる時間をy時間とした図。"
     },
-    "explanation": "は、 30km ÷ ＜速さ＞ で求めることができるので、 y=30÷x"
+    "explanation": "時間[じかん]は「道[みち]のり÷速[はや]さ」で求[もと]めます。30kmを時速[じそく] x kmで移動[いどう]する時間[じかん]は、y = 30 ÷ x。"
   },
   {
     "id": "legacy.sansu.g6.math-6-9.d6897dce29e9",

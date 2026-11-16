@@ -20,6 +20,7 @@ export default defineConfig({
     'question-viewport.spec.ts',
     'question-mobile.spec.ts',
     'battle-question-audit.spec.ts',
+    'sansu-g*-visuals.spec.ts',
   ],
   timeout: 30_000,
   workers: 1,
