@@ -84,6 +84,7 @@ const sets = readdirSync('content/questions/sansu/g6')
 const all = sets.flatMap((s) => s.questions);
 assert.equal(all.length, 193, 'Review new/deleted questions before regenerating');
 const answerRepairs = new Map<string, string[]>();
+const choiceRepairs = new Map<string, { id: string; text: string }[]>();
 const signature = () =>
   JSON.stringify(
     all.map((q) => [
@@ -94,7 +95,7 @@ const signature = () =>
       q.tags,
       q.payload.answer,
       answerRepairs.get(q.id) ?? q.payload.answers,
-      q.payload.choices?.map((c) => [c.id, c.text]),
+      (choiceRepairs.get(q.id) ?? q.payload.choices)?.map((c) => [c.id, c.text]),
     ]),
   );
 const before = signature();
@@ -765,30 +766,212 @@ for (const [hash, n, k, roles] of [
   );
 }
 
-assert.equal(signature(), before, 'Only verified fraction input representation may change');
+// 旧データのqtext_templateを原資料の問題番号で照合した20問だけを復元する。
+const sourceCorrections = JSON.parse(readFileSync('scripts/data/sansu-g6-source-repairs.json', 'utf8')) as {
+  id: string;
+  source: { contentId: string; subSectionOrder: string; questionNumber: string; questionId: string };
+  finding: string;
+  prompt?: string;
+  choices?: string[];
+  fractionAnswer?: [number, number];
+  suffix?: string;
+  explanation?: string;
+}[];
+assert.equal(sourceCorrections.length, 21);
+const sourceReviewed = new Map(sourceCorrections.map((r) => [r.id, r]));
+for (const r of sourceCorrections) {
+  const q = get(r.id);
+  if (r.prompt) q.payload.prompt = r.prompt;
+  if (r.explanation) q.explanation = r.explanation;
+  if (r.fractionAnswer) separate(q, r.fractionAnswer[0] / r.fractionAnswer[1], r.suffix);
+  if (r.choices) {
+    const choices = q.payload.choices!;
+    const correctIndex = choices.findIndex((c) => c.id === q.payload.answer);
+    assert.equal(choices[correctIndex]!.text, r.choices[correctIndex]);
+    assert.equal(r.choices.length, choices.length);
+    choiceRepairs.set(q.id, choices);
+    q.payload.choices = choices.map((c, i) => ({ ...c, text: r.choices![i]! }));
+  }
+}
+
+drawHash(
+  '064f0be02d26',
+  'symmetry-line-properties',
+  '線対称な台形。中央の軸と、対応する点AとBを結ぶ線を示す。交点はM。',
+  polygon('280,60 520,60 590,200 210,200') +
+    `<path d="M400 25V230" stroke="#c2405a" stroke-width="4" stroke-dasharray="8 6"/><path d="M245 130H555" fill="none" ${line}/>` +
+    [245, 400, 555].map((x) => `<circle cx="${x}" cy="130" r="5"/>`).join('') +
+    text('A', 215, 125) +
+    text('M', 410, 120) +
+    text('B', 565, 125) +
+    text('対称の軸', 435, 35, 22),
+);
+drawHash(
+  '5c7bc62997cc',
+  'symmetry-point-properties',
+  '点対称な平行四辺形。対応する頂点AとBを結ぶ線と、その間にある点Oを示す。',
+  polygon('250,80 600,80 550,200 200,200') +
+    `<path d="M250 80L550 200" fill="none" ${line}/><circle cx="400" cy="140" r="6" fill="#c2405a"/>` +
+    text('A', 225, 66) +
+    text('B', 555, 225) +
+    text('O', 408, 132),
+);
+
+for (const [hash, values] of [
+  [
+    '350742bfbbc4',
+    [
+      [5, 2],
+      [7, 4],
+    ],
+  ],
+  [
+    '3f37cc35e0f6',
+    [
+      [15, 8],
+      [25, 7],
+      [7, 16],
+    ],
+  ],
+  [
+    'ba6d3d429270',
+    [
+      [7, 5],
+      [21, 10],
+    ],
+  ],
+] as [string, [number, number][]][]) {
+  drawHash(
+    hash,
+    `restored-mixed-${hash}`,
+    `帯分数を仮分数に直した量${values.map(([n, d]) => `${n}/${d}`).join('、')}。枠1つが1で、答えは示していない。`,
+    strips(values, '枠1つが1。色つきの部分が計算する量'),
+  );
+}
+for (const [hash, minutes] of [
+  ['7af63ede6c3e', 15],
+  ['b46ba27c2b46', 10],
+  ['c7e70d5bef36', 24],
+] as const) {
+  drawHash(
+    hash,
+    `time-${minutes}-minutes`,
+    `1時間を60個の1分に等分した帯。そのうち${minutes}分を青く示す。分数の答えは示していない。`,
+    text('全体：1時間 = 60分', 250, 45, 28) +
+      Array.from(
+        { length: 60 },
+        (_, i) =>
+          `<rect data-minute="${i + 1}" x="${90 + i * 10}" y="85" width="10" height="60" fill="${i < minutes ? '#80c6ff' : '#fff'}" stroke="#273449"/>`,
+      ).join('') +
+      text('0分', 75, 180, 22) +
+      text('60分', 660, 180, 22) +
+      text(`色つき：${minutes}分`, 280, 225),
+  );
+}
+for (const [hash, a, b, labelA, labelB] of [
+  ['0003f834b146', 0.3, 6, '0.3', '6'],
+  ['0475b7014f1e', 40, 10, '40', '10'],
+  ['2c2ebe308727', 1 / 3, 1 / 9, '1/3', '1/9'],
+  ['6b550af8178d', 15, 21, '15', '21'],
+  ['84d190bf58bf', 68, 17, '68', '17'],
+  ['97ac545842e7', 40, 50, '40', '50'],
+  ['c610a527fcd1', 4, 10, '4', '10'],
+] as const) {
+  const scale = 500 / Math.max(a, b);
+  drawHash(
+    hash,
+    `restored-ratio-${hash}`,
+    `${labelA}と${labelB}を同じ尺度の帯で比較する図。比の値や等しい比の答えは示していない。`,
+    text('同じ尺度で2つの量を比べよう', 180, 35, 24) +
+      [a, b]
+        .map(
+          (v, i) =>
+            text(i === 0 ? labelA : labelB, 55, 100 + i * 90, 28) +
+            `<rect data-ratio-value="${v}" x="175" y="${65 + i * 90}" width="${v * scale}" height="55" fill="${i === 0 ? '#80c6ff' : '#ffe0a6'}" ${line}/>`,
+        )
+        .join(''),
+  );
+}
+drawHash(
+  'e5da9f91183c',
+  'prism-volume-properties',
+  '同じ面積の層が積み重なった角柱。青い底の面を①、積み重ねた方向の長さを②で示す。',
+  rect(250, 70, 200, 140) +
+    polygon('250,70 300,40 500,40 450,70', '#eaf3f7') +
+    polygon('450,70 500,40 500,180 450,210', '#ffe0a6') +
+    Array.from(
+      { length: 4 },
+      (_, i) => `<path d="M250 ${98 + i * 28}H450l50 -30" fill="none" ${line}/>`,
+    ).join('') +
+    polygon('250,210 450,210 500,180 300,180', '#80c6ff') +
+    `<path d="M535 70h20m-10 0v140m-10 0h20" fill="none" ${line}/>` +
+    text('①', 345, 248, 30) +
+    text('②', 565, 135, 30),
+);
+drawHash(
+  '5b5250351724',
+  'relation-metal-rod',
+  '1mあたり2kgの金属のぼう。ぼう全体の長さをx m、重さをy kgとした模式図。',
+  text('1mあたり 2kg', 290, 45, 28) +
+    rect(180, 95, 440, 55, '#bcc8d8') +
+    `<path d="M180 175v15h440v-15" fill="none" ${line}/>` +
+    text('長さ x m', 330, 225) +
+    text('重さ y kg', 330, 85, 24),
+);
+drawHash(
+  'a7a24237e6f2',
+  'relation-rectangle-area',
+  '横3cm、縦x cmの長方形。中に面積y cm²と書かれた模式図。',
+  rect(260, 60, 260, 125, '#c8f4ff') +
+    text('3cm', 350, 225) +
+    text('x cm', 550, 130) +
+    text('面積 y cm²', 310, 135),
+);
+drawHash(
+  'aa7dcca63249',
+  'relation-rectangle-fixed-area',
+  '面積12cm²の長方形。縦x cm、横y cmとした模式図。',
+  rect(260, 60, 260, 125, '#c8f4ff') +
+    text('y cm', 350, 225) +
+    text('x cm', 550, 130) +
+    text('面積 12cm²', 310, 135),
+);
+drawHash(
+  'd4f604baf9f3',
+  'relation-fixed-distance',
+  '出発点から到着点まで30kmの道のり。速さを時速x km、かかる時間をy時間とした図。',
+  text('道のり 30km', 300, 40) +
+    arrow(130, 160, 540) +
+    use('car', 155, 55, 95) +
+    text('時速 x km', 280, 100) +
+    text('時間 y 時間', 280, 140, 22) +
+    text('出発', 100, 210, 24) +
+    text('到着', 640, 210, 24),
+);
+
+assert.equal(signature(), before, 'Only source-verified answer representations and distractors may change');
 for (const s of sets) writeFileSync(s.file, JSON.stringify(s.questions, null, 2) + '\n');
 const review = all.map((q) => {
   const p = q.payload;
-  const inconsistent = ['350742bfbbc4', '3f37cc35e0f6', 'ba6d3d429270'].some((h) => q.id.endsWith(h));
+  const source = sourceReviewed.get(q.id);
   const missing =
-    q.tags?.includes('runtime:quarantined-missing-context') ||
-    (!p.promptImage && !p.template && /次の|下の文/.test(p.prompt) && !/[0-9]/.test(p.prompt));
+    !source &&
+    (q.tags?.includes('runtime:quarantined-missing-context') ||
+      (!p.promptImage && !p.template && /次の|下の文/.test(p.prompt) && !/[0-9]/.test(p.prompt)));
   const decision = changed.has(q.id)
     ? 'illustrated'
-    : inconsistent
-      ? 'source-expression-review'
-      : p.promptImage
-        ? 'existing-visual'
-        : missing
-          ? 'missing-source-context'
-          : 'symbol-practice';
+    : p.promptImage
+      ? 'existing-visual'
+      : missing
+        ? 'missing-source-context'
+        : 'symbol-practice';
   return {
     id: q.id,
     decision,
     reason:
       changed.get(q.id) ??
-      (inconsistent
-        ? '表示式と正解が不一致。帯分数の結合などを原資料で確認する'
+      (source
+        ? `${source.finding}（元問題 ${source.source.questionId}）`
         : missing
           ? '元の条件・数・本文が不足しているため、推測で補わない'
           : decision === 'existing-visual'
