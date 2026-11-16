@@ -129,10 +129,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_15",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "小学５年生のテレビのしちょう時間について調べた表をもとに、円グラフを作成しました。",
+      "prompt": "小学５年生のテレビのしちょう時間について調べた表をもとに、円グラフを作成しました。 円グラフで「３時間」を表しているのは、①〜④のうち どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -331,10 +332,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_15",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "小学５年生のテレビのしちょう時間について調べた表をもとに、帯グラフを作成しました。",
+      "prompt": "小学５年生のテレビのしちょう時間について調べた表をもとに、帯グラフを作成しました。 帯グラフで「２時間」を表しているのは、①〜④のうち どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -358,5 +360,71 @@
       "promptImage": "questions/legacy/18c727cb5b3f178d.png"
     },
     "explanation": "表から「２時間」と答えた人の割合[わりあい]は、23% になっていることが分かる。帯グラフで 23% を表しているのは、②だ。"
+  },
+  {
+    "id": "sansu.g5.curriculum.ratio-compare",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "賛成[さんせい]した人[ひと]の 割合[わりあい]が 大[おお]きいのは どちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A組[ぐみ]"
+        },
+        {
+          "id": "c2",
+          "text": "B組[ぐみ]"
+        },
+        {
+          "id": "c3",
+          "text": "同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/ratio-classes.svg",
+      "promptImageAlt": "A組は全員20人で賛成12人。B組は全員30人で賛成15人。"
+    },
+    "explanation": "人数[にんずう]だけでなく 全員[ぜんいん]に 対[たい]する 割合[わりあい]で 比[くら]べます。A組[ぐみ]は 12÷20＝0.6、B組[ぐみ]は 15÷30＝0.5なので、A組[ぐみ]です。"
+  },
+  {
+    "id": "sansu.g5.curriculum.ratio-percent",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-15",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "B組[ぐみ]で 賛成[さんせい]した人[ひと]は、全員[ぜんいん]の 何％[なんぱーせんと]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "50％"
+        },
+        {
+          "id": "c2",
+          "text": "15％"
+        },
+        {
+          "id": "c3",
+          "text": "60％"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/ratio-classes.svg",
+      "promptImageAlt": "A組は全員20人で賛成12人。B組は全員30人で賛成15人。"
+    },
+    "explanation": "もとにする量[りょう]は B組[ぐみ]の 全員[ぜんいん]30人[にん]です。15÷30＝0.5、0.5×100＝50％です。"
   }
 ]

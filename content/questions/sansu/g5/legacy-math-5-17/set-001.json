@@ -8,10 +8,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_17",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "prompt": "円の周りの長さである （　） は、必ず円の （　） の約 3.14 倍になっている。この倍率のことを、（　） という。 （　）に 入[はい]る 言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -44,10 +45,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_17",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "prompt": "三角形や四角形、五角形のように直線で囲まれた形を （　） という。その中でも、すべての辺が等しく、角の大きさも等しいものを （　） という。 （　）に 入[はい]る 言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -83,7 +85,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の図形[ずけい]のまわりの長さをもとめよう。",
+      "prompt": "次の図形[ずけい]のまわりの長さをもとめよう。 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "51.4"
       ],
@@ -138,7 +140,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "直径[ちょっけい] 3cm の円の円周を求めよう。 cm",
+      "prompt": "直径[ちょっけい] 3cm の円の円周を求めよう。 cm 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "9.42"
       ],
@@ -161,7 +163,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "半径[はんけい] 4m の円の円周を求めよう。 m",
+      "prompt": "半径[はんけい] 4m の円の円周を求めよう。 m 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "25.12"
       ],
@@ -184,7 +186,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "直径[ちょっけい] 2cm の円の円周を求めよう。 cm",
+      "prompt": "直径[ちょっけい] 2cm の円の円周を求めよう。 cm 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "6.28"
       ],
@@ -207,7 +209,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "円周が 14cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm",
+      "prompt": "円周が 14cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "4.46"
       ],
@@ -230,7 +232,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "円周が 20cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm",
+      "prompt": "円周が 20cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "6.37"
       ],
@@ -273,5 +275,137 @@
       "promptImage": "questions/legacy/8adae8a3751ff7a0.png"
     },
     "explanation": "すべての辺や角が等しい正八角形だ。"
+  },
+  {
+    "id": "sansu.g5.curriculum.circle-ratio",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "円周[えんしゅう]÷直径[ちょっけい]を 計算[けいさん]すると、どちらの 円[えん]も いくつになりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3.14"
+        },
+        {
+          "id": "c2",
+          "text": "31.4"
+        },
+        {
+          "id": "c3",
+          "text": "2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/circle-measure.svg",
+      "promptImageAlt": "円Aは直径10cmで円周31.4cm。円Bは直径20cmで円周62.8cm。"
+    },
+    "explanation": "Aは 31.4÷10＝3.14、Bは 62.8÷20＝3.14です。円[えん]の 大[おお]きさが 違[ちが]っても、この割合[わりあい]は 同[おな]じです。"
+  },
+  {
+    "id": "sansu.g5.curriculum.circle-double",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "円A[えんえー]に 比[くら]べ、円B[えんびー]の 円周[えんしゅう]は 何倍[なんばい]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2倍[ばい]"
+        },
+        {
+          "id": "c2",
+          "text": "4倍[ばい]"
+        },
+        {
+          "id": "c3",
+          "text": "同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/circle-measure.svg",
+      "promptImageAlt": "円Aは直径10cmで円周31.4cm。円Bは直径20cmで円周62.8cm。"
+    },
+    "explanation": "直径[ちょっけい]が 20÷10＝2倍[ばい]になると、円周[えんしゅう]も 62.8÷31.4＝2倍[ばい]になります。"
+  },
+  {
+    "id": "sansu.g5.curriculum.hexagon-central-angle",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "正六角形[せいろっかくけい]の 中心[ちゅうしん]のまわりを 6つに 等[ひと]しく 分[わ]けた 角[かく]AOBは 何度[なんど]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "60°"
+        },
+        {
+          "id": "c2",
+          "text": "120°"
+        },
+        {
+          "id": "c3",
+          "text": "30°"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/regular-hexagon.svg",
+      "promptImageAlt": "円の中心Oと正六角形の6頂点を線で結んだ図。"
+    },
+    "explanation": "中心[ちゅうしん]の まわりは 360°です。6つの 角[かく]は 等[ひと]しいので、360÷6＝60°です。"
+  },
+  {
+    "id": "sansu.g5.curriculum.hexagon-construction",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-17",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "中心[ちゅうしん]の まわりを 60°ずつに 分[わ]け、円周上[えんしゅうじょう]の 点[てん]を 順[じゅん]に 結[むす]ぶと 何[なに]ができますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "正六角形[せいろっかくけい]"
+        },
+        {
+          "id": "c2",
+          "text": "正三角形[せいさんかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "正八角形[せいはっかくけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/regular-hexagon.svg",
+      "promptImageAlt": "円の中心Oと正六角形の6頂点を線で結んだ図。"
+    },
+    "explanation": "360÷60＝6なので、円周上[えんしゅうじょう]に 等間隔[とうかんかく]の 6つの 点[てん]ができます。順[じゅん]に 結[むす]ぶと 正六角形[せいろっかくけい]です。"
   }
 ]
