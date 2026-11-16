@@ -181,7 +181,7 @@ for (const id of ['sansu.g1.data.0001', 'legacy.sansu.g6.math-6-4.7af63ede6c3e']
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
     const metrics = await page.locator('.nq-q').evaluate((question) => {
-      const scale = question.getBoundingClientRect().width / question.offsetWidth;
+      const scale = question.getBoundingClientRect().width / (question as HTMLElement).offsetWidth;
       const prompt = question.querySelector('.nq-q-prompt')!;
       const buttons = [...question.querySelectorAll<HTMLElement>('.nq-choice, .nq-input-number-pad .nq-btn')];
       return {
