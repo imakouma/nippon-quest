@@ -57,7 +57,7 @@ describe('1年生の訓読み入力問題', () => {
         JSON.parse(readFileSync(new URL(`../../content/${file.file}`, import.meta.url), 'utf8')),
       ).toEqual(file.questions);
     }
-    expect(generated.kunyomi.filter((q) => q.grade > 4).every((q) => q.type === 'choice')).toBe(true);
+    expect(generated.kunyomi.filter((q) => q.grade > 4).every((q) => q.type === 'text-input')).toBe(true);
   });
 
   it.each([
