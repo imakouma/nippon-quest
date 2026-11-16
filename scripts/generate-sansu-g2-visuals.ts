@@ -63,7 +63,7 @@ const sets = readdirSync('content/questions/sansu/g2')
     return { file, questions: JSON.parse(readFileSync(file, 'utf8')) as Question[] };
   });
 const all = sets.flatMap((s) => s.questions);
-assert.equal(all.length, 320, 'Review new/deleted questions before regenerating');
+assert.equal(all.length, 323, 'Review new/deleted questions before regenerating');
 const signature = () =>
   JSON.stringify(
     all.map((q) => [

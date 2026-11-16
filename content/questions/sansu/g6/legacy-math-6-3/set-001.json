@@ -103,12 +103,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 21/2×13/4 =",
+      "prompt": "2\\dfrac{1}{2} × 1\\dfrac{3}{4} を計算[けいさん]し、仮分数[かぶんすう]で答[こた]えよう。",
       "answers": [
-        "35,8"
-      ]
+        "35",
+        "8"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/restored-mixed-350742bfbbc4.svg",
+      "promptImageAlt": "帯分数を仮分数に直した量5/2、7/4。枠1つが1で、答えは示していない。"
     },
-    "explanation": "帯分数のままでは、かけ算することができない。仮分数に直してから計算しよう。 \\require{cancel} 2\\dfrac{1}{2}×1\\dfrac{3}{4}=\\dfrac{5}{2}×\\dfrac{7}{4}=\\dfrac{35}{8}"
+    "explanation": "帯分数[たいぶんすう]を仮分数[かぶんすう]に直[なお]してから計算[けいさん]します。2\\dfrac{1}{2} × 1\\dfrac{3}{4} = \\dfrac{5}{2} × \\dfrac{7}{4} = \\dfrac{35}{8}。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.4b0aeb8bd013",

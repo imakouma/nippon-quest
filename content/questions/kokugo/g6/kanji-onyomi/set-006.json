@@ -1,7 +1,7 @@
 [
   {
     "id": "kokugo.g6.kanji-onyomi.0151",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -10,33 +10,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「班」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "が"
-        },
-        {
-          "id": "b",
-          "text": "かい"
-        },
-        {
-          "id": "c",
-          "text": "はん"
-        },
-        {
-          "id": "d",
-          "text": "かく"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "班に わかれる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "はん"
+      ]
     },
-    "explanation": "「班」の 音[おん]読[よ]みの 一[ひと]つは「はん」です。"
+    "explanation": "「班に わかれる」の「班」は「はん」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0152",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -45,33 +29,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「晩」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "げき"
-        },
-        {
-          "id": "b",
-          "text": "けつ"
-        },
-        {
-          "id": "c",
-          "text": "けん"
-        },
-        {
-          "id": "d",
-          "text": "ばん"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "晩ごはんを たべる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ばん"
+      ]
     },
-    "explanation": "「晩」の 音[おん]読[よ]みの 一[ひと]つは「ばん」です。"
+    "explanation": "「晩ごはんを たべる」の「晩」は「ばん」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0153",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -80,33 +48,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「否」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ひ"
-        },
-        {
-          "id": "b",
-          "text": "ざ"
-        },
-        {
-          "id": "c",
-          "text": "さい"
-        },
-        {
-          "id": "d",
-          "text": "さく"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "じじつを 否ていしない",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ひ"
+      ]
     },
-    "explanation": "「否」の 音[おん]読[よ]みの 一[ひと]つは「ひ」です。"
+    "explanation": "「じじつを 否ていしない」の「否」は「ひ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0154",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -115,33 +67,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「批」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "しゅう"
-        },
-        {
-          "id": "b",
-          "text": "ひ"
-        },
-        {
-          "id": "c",
-          "text": "じゅう"
-        },
-        {
-          "id": "d",
-          "text": "しゅく"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "さくひんを 批ひょうする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ひ"
+      ]
     },
-    "explanation": "「批」の 音[おん]読[よ]みの 一[ひと]つは「ひ」です。"
+    "explanation": "「さくひんを 批ひょうする」の「批」は「ひ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0155",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -150,33 +86,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「秘」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "すい"
-        },
-        {
-          "id": "b",
-          "text": "すん"
-        },
-        {
-          "id": "c",
-          "text": "ひ"
-        },
-        {
-          "id": "d",
-          "text": "せい"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "秘みつを まもる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ひ"
+      ]
     },
-    "explanation": "「秘」の 音[おん]読[よ]みの 一[ひと]つは「ひ」です。"
+    "explanation": "「秘みつを まもる」の「秘」は「ひ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0156",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -185,33 +105,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「俵」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "たん"
-        },
-        {
-          "id": "b",
-          "text": "だん"
-        },
-        {
-          "id": "c",
-          "text": "ち"
-        },
-        {
-          "id": "d",
-          "text": "ひょう"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "ど俵で すもうを とる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ひょう"
+      ]
     },
-    "explanation": "「俵」の 音[おん]読[よ]みの 一[ひと]つは「ひょう」です。"
+    "explanation": "「ど俵で すもうを とる」の「俵」は「ひょう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0157",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -220,33 +124,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「腹」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ふく"
-        },
-        {
-          "id": "b",
-          "text": "なん"
-        },
-        {
-          "id": "c",
-          "text": "にゅう"
-        },
-        {
-          "id": "d",
-          "text": "にん"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "腹ぶの きんにくを きたえる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ふく"
+      ]
     },
-    "explanation": "「腹」の 音[おん]読[よ]みの 一[ひと]つは「ふく」です。"
+    "explanation": "「腹ぶの きんにくを きたえる」の「腹」は「ふく」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0158",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -255,33 +143,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「奮」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "へい"
-        },
-        {
-          "id": "b",
-          "text": "ふん"
-        },
-        {
-          "id": "c",
-          "text": "へん"
-        },
-        {
-          "id": "d",
-          "text": "ほ"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "つらくても 奮とうする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ふん"
+      ]
     },
-    "explanation": "「奮」の 音[おん]読[よ]みの 一[ひと]つは「ふん」です。"
+    "explanation": "「つらくても 奮とうする」の「奮」は「ふん」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0159",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -290,33 +162,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「並」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "やく"
-        },
-        {
-          "id": "b",
-          "text": "ゆう"
-        },
-        {
-          "id": "c",
-          "text": "へい"
-        },
-        {
-          "id": "d",
-          "text": "よ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "２つの みちが 並こうする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "へい"
+      ]
     },
-    "explanation": "「並」の 音[おん]読[よ]みの 一[ひと]つは「へい」です。"
+    "explanation": "「２つの みちが 並こうする」の「並」は「へい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0160",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -325,33 +181,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「陛」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ゆい"
-        },
-        {
-          "id": "b",
-          "text": "く"
-        },
-        {
-          "id": "c",
-          "text": "ごう"
-        },
-        {
-          "id": "d",
-          "text": "へい"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "こくおう陛かの はなしを よむ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "へい"
+      ]
     },
-    "explanation": "「陛」の 音[おん]読[よ]みの 一[ひと]つは「へい」です。"
+    "explanation": "「こくおう陛かの はなしを よむ」の「陛」は「へい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0161",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -360,33 +200,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「閉」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "へい"
-        },
-        {
-          "id": "b",
-          "text": "もう"
-        },
-        {
-          "id": "c",
-          "text": "ばく"
-        },
-        {
-          "id": "d",
-          "text": "りち"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "みせが 閉てんする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "へい"
+      ]
     },
-    "explanation": "「閉」の 音[おん]読[よ]みの 一[ひと]つは「へい」です。"
+    "explanation": "「みせが 閉てんする」の「閉」は「へい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0162",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -395,33 +219,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「片」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "かく"
-        },
-        {
-          "id": "b",
-          "text": "へん"
-        },
-        {
-          "id": "c",
-          "text": "かつ"
-        },
-        {
-          "id": "d",
-          "text": "かん"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "かみの だん片を あつめる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "へん"
+      ]
     },
-    "explanation": "「片」の 音[おん]読[よ]みの 一[ひと]つは「へん」です。"
+    "explanation": "「かみの だん片を あつめる」の「片」は「へん」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0163",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -430,33 +238,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「補」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "けん"
-        },
-        {
-          "id": "b",
-          "text": "げん"
-        },
-        {
-          "id": "c",
-          "text": "ほ"
-        },
-        {
-          "id": "d",
-          "text": "こ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "たりない ぶんを 補じゅうする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ほ"
+      ]
     },
-    "explanation": "「補」の 音[おん]読[よ]みの 一[ひと]つは「ほ」です。"
+    "explanation": "「たりない ぶんを 補じゅうする」の「補」は「ほ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0164",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -465,33 +257,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「暮」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "さく"
-        },
-        {
-          "id": "b",
-          "text": "さつ"
-        },
-        {
-          "id": "c",
-          "text": "さん"
-        },
-        {
-          "id": "d",
-          "text": "ぼ"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "おせい暮を おくる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ぼ"
+      ]
     },
-    "explanation": "「暮」の 音[おん]読[よ]みの 一[ひと]つは「ぼ」です。"
+    "explanation": "「おせい暮を おくる」の「暮」は「ぼ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0165",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -500,33 +276,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「宝」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ほう"
-        },
-        {
-          "id": "b",
-          "text": "しゅく"
-        },
-        {
-          "id": "c",
-          "text": "じゅく"
-        },
-        {
-          "id": "d",
-          "text": "じゅん"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "こく宝を けんがくする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ほう"
+      ]
     },
-    "explanation": "「宝」の 音[おん]読[よ]みの 一[ひと]つは「ほう」です。"
+    "explanation": "「こく宝を けんがくする」の「宝」は「ほう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0166",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -535,33 +295,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「訪」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "せい"
-        },
-        {
-          "id": "b",
-          "text": "ほう"
-        },
-        {
-          "id": "c",
-          "text": "ぜつ"
-        },
-        {
-          "id": "d",
-          "text": "せん"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "ともだちの いえを 訪もんする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ほう"
+      ]
     },
-    "explanation": "「訪」の 音[おん]読[よ]みの 一[ひと]つは「ほう」です。"
+    "explanation": "「ともだちの いえを 訪もんする」の「訪」は「ほう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0167",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -570,33 +314,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「亡」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "はん"
-        },
-        {
-          "id": "b",
-          "text": "ばん"
-        },
-        {
-          "id": "c",
-          "text": "ぼう"
-        },
-        {
-          "id": "d",
-          "text": "ひ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "おうさまが 亡めいする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ぼう"
+      ]
     },
-    "explanation": "「亡」の 音[おん]読[よ]みの 一[ひと]つは「ぼう」です。"
+    "explanation": "「おうさまが 亡めいする」の「亡」は「ぼう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0168",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -605,33 +333,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「忘」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "にん"
-        },
-        {
-          "id": "b",
-          "text": "のう"
-        },
-        {
-          "id": "c",
-          "text": "は"
-        },
-        {
-          "id": "d",
-          "text": "ぼう"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "忘ねんかいを ひらく",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ぼう"
+      ]
     },
-    "explanation": "「忘」の 音[おん]読[よ]みの 一[ひと]つは「ぼう」です。"
+    "explanation": "「忘ねんかいを ひらく」の「忘」は「ぼう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0169",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -640,33 +352,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「棒」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ぼう"
-        },
-        {
-          "id": "b",
-          "text": "へん"
-        },
-        {
-          "id": "c",
-          "text": "ほ"
-        },
-        {
-          "id": "d",
-          "text": "ぼ"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "棒を つかって はかる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ぼう"
+      ]
     },
-    "explanation": "「棒」の 音[おん]読[よ]みの 一[ひと]つは「ぼう」です。"
+    "explanation": "「棒を つかって はかる」の「棒」は「ぼう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0170",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -675,33 +371,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「枚」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "よ"
-        },
-        {
-          "id": "b",
-          "text": "まい"
-        },
-        {
-          "id": "c",
-          "text": "よう"
-        },
-        {
-          "id": "d",
-          "text": "よく"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "かみを ２枚 かさねる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "まい"
+      ]
     },
-    "explanation": "「枚」の 音[おん]読[よ]みの 一[ひと]つは「まい」です。"
+    "explanation": "「かみを ２枚 かさねる」の「枚」は「まい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0171",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -710,33 +390,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「幕」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "えん"
-        },
-        {
-          "id": "b",
-          "text": "おん"
-        },
-        {
-          "id": "c",
-          "text": "まく"
-        },
-        {
-          "id": "d",
-          "text": "が"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "げきの 幕が あく",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "まく"
+      ]
     },
-    "explanation": "「幕」の 音[おん]読[よ]みの 一[ひと]つは「まく」です。"
+    "explanation": "「げきの 幕が あく」の「幕」は「まく」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0172",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -745,33 +409,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「密」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "りち"
-        },
-        {
-          "id": "b",
-          "text": "い"
-        },
-        {
-          "id": "c",
-          "text": "いき"
-        },
-        {
-          "id": "d",
-          "text": "みつ"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "ひ密を まもる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "みつ"
+      ]
     },
-    "explanation": "「密」の 音[おん]読[よ]みの 一[ひと]つは「みつ」です。"
+    "explanation": "「ひ密を まもる」の「密」は「みつ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0173",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -780,33 +428,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「盟」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "めい"
-        },
-        {
-          "id": "b",
-          "text": "かん"
-        },
-        {
-          "id": "c",
-          "text": "き"
-        },
-        {
-          "id": "d",
-          "text": "ぎ"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "こくさい れん盟を しらべる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "めい"
+      ]
     },
-    "explanation": "「盟」の 音[おん]読[よ]みの 一[ひと]つは「めい」です。"
+    "explanation": "「こくさい れん盟を しらべる」の「盟」は「めい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0174",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -815,33 +447,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「模」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "じゃく"
-        },
-        {
-          "id": "b",
-          "text": "も"
-        },
-        {
-          "id": "c",
-          "text": "じゅ"
-        },
-        {
-          "id": "d",
-          "text": "しゅう"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "模けいを つくる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "も"
+      ]
     },
-    "explanation": "「模」の 音[おん]読[よ]みの 一[ひと]つは「も」です。"
+    "explanation": "「模けいを つくる」の「模」は「も」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0175",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -850,33 +466,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「訳」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "さん"
-        },
-        {
-          "id": "b",
-          "text": "し"
-        },
-        {
-          "id": "c",
-          "text": "やく"
-        },
-        {
-          "id": "d",
-          "text": "じ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "えいごを ほん訳する",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "やく"
+      ]
     },
-    "explanation": "「訳」の 音[おん]読[よ]みの 一[ひと]つは「やく」です。"
+    "explanation": "「えいごを ほん訳する」の「訳」は「やく」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0176",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -885,33 +485,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「郵」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "じゅん"
-        },
-        {
-          "id": "b",
-          "text": "しょ"
-        },
-        {
-          "id": "c",
-          "text": "じょ"
-        },
-        {
-          "id": "d",
-          "text": "ゆう"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "郵びんを おくる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ゆう"
+      ]
     },
-    "explanation": "「郵」の 音[おん]読[よ]みの 一[ひと]つは「ゆう」です。"
+    "explanation": "「郵びんを おくる」の「郵」は「ゆう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0177",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -920,33 +504,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「優」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ゆう"
-        },
-        {
-          "id": "b",
-          "text": "せん"
-        },
-        {
-          "id": "c",
-          "text": "ぜん"
-        },
-        {
-          "id": "d",
-          "text": "そう"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "しあいで 優しょうする",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ゆう"
+      ]
     },
-    "explanation": "「優」の 音[おん]読[よ]みの 一[ひと]つは「ゆう」です。"
+    "explanation": "「しあいで 優しょうする」の「優」は「ゆう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0178",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -955,33 +523,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「預」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ちょ"
-        },
-        {
-          "id": "b",
-          "text": "よ"
-        },
-        {
-          "id": "c",
-          "text": "ちょう"
-        },
-        {
-          "id": "d",
-          "text": "ちん"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "ぎんこうの 預きんを しらべる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "よ"
+      ]
     },
-    "explanation": "「預」の 音[おん]読[よ]みの 一[ひと]つは「よ」です。"
+    "explanation": "「ぎんこうの 預きんを しらべる」の「預」は「よ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0179",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -990,33 +542,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「幼」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "は"
-        },
-        {
-          "id": "b",
-          "text": "はい"
-        },
-        {
-          "id": "c",
-          "text": "よう"
-        },
-        {
-          "id": "d",
-          "text": "はん"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "幼ちえんに かよう",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "よう"
+      ]
     },
-    "explanation": "「幼」の 音[おん]読[よ]みの 一[ひと]つは「よう」です。"
+    "explanation": "「幼ちえんに かよう」の「幼」は「よう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g6.kanji-onyomi.0180",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-1",
@@ -1025,28 +561,12 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「欲」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ぼ"
-        },
-        {
-          "id": "b",
-          "text": "ほう"
-        },
-        {
-          "id": "c",
-          "text": "ぼう"
-        },
-        {
-          "id": "d",
-          "text": "よく"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "い欲を もって とりくむ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "よく"
+      ]
     },
-    "explanation": "「欲」の 音[おん]読[よ]みの 一[ひと]つは「よく」です。"
+    "explanation": "「い欲を もって とりくむ」の「欲」は「よく」と 読[よ]みます。"
   }
 ]

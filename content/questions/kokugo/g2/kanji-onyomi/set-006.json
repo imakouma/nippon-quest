@@ -1,7 +1,7 @@
 [
   {
     "id": "kokugo.g2.kanji-onyomi.0151",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -10,33 +10,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「門」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "がん"
-        },
-        {
-          "id": "b",
-          "text": "き"
-        },
-        {
-          "id": "c",
-          "text": "もん"
-        },
-        {
-          "id": "d",
-          "text": "きゅう"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "こう門を くぐる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "もん"
+      ]
     },
-    "explanation": "「門」の 音[おん]読[よ]みの 一[ひと]つは「もん」です。"
+    "explanation": "「こう門を くぐる」の「門」は「もん」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0152",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -45,33 +29,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「夜」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "こう"
-        },
-        {
-          "id": "b",
-          "text": "ごう"
-        },
-        {
-          "id": "c",
-          "text": "こく"
-        },
-        {
-          "id": "d",
-          "text": "や"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "夜けいを ながめる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "や"
+      ]
     },
-    "explanation": "「夜」の 音[おん]読[よ]みの 一[ひと]つは「や」です。"
+    "explanation": "「夜けいを ながめる」の「夜」は「や」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0153",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -80,33 +48,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「野」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "や"
-        },
-        {
-          "id": "b",
-          "text": "じゃく"
-        },
-        {
-          "id": "c",
-          "text": "しゅ"
-        },
-        {
-          "id": "d",
-          "text": "しゅう"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "野きゅうを する",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "や"
+      ]
     },
-    "explanation": "「野」の 音[おん]読[よ]みの 一[ひと]つは「や」です。"
+    "explanation": "「野きゅうを する」の「野」は「や」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0154",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -115,33 +67,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「友」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "せい"
-        },
-        {
-          "id": "b",
-          "text": "ゆう"
-        },
-        {
-          "id": "c",
-          "text": "せつ"
-        },
-        {
-          "id": "d",
-          "text": "せん"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "友じんと あう",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ゆう"
+      ]
     },
-    "explanation": "「友」の 音[おん]読[よ]みの 一[ひと]つは「ゆう」です。"
+    "explanation": "「友じんと あう」の「友」は「ゆう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0155",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -150,33 +86,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「用」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ちゅう"
-        },
-        {
-          "id": "b",
-          "text": "ちょう"
-        },
-        {
-          "id": "c",
-          "text": "よう"
-        },
-        {
-          "id": "d",
-          "text": "ちょく"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "ようぐを し用する",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "よう"
+      ]
     },
-    "explanation": "「用」の 音[おん]読[よ]みの 一[ひと]つは「よう」です。"
+    "explanation": "「ようぐを し用する」の「用」は「よう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0156",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -185,33 +105,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「曜」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "なん"
-        },
-        {
-          "id": "b",
-          "text": "にく"
-        },
-        {
-          "id": "c",
-          "text": "ば"
-        },
-        {
-          "id": "d",
-          "text": "よう"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "にち曜びに あそぶ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "よう"
+      ]
     },
-    "explanation": "「曜」の 音[おん]読[よ]みの 一[ひと]つは「よう」です。"
+    "explanation": "「にち曜びに あそぶ」の「曜」は「よう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0157",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -220,33 +124,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「来」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "らい"
-        },
-        {
-          "id": "b",
-          "text": "ほ"
-        },
-        {
-          "id": "c",
-          "text": "ぼ"
-        },
-        {
-          "id": "d",
-          "text": "ほう"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "来ねんの よていを たてる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "らい"
+      ]
     },
-    "explanation": "「来」の 音[おん]読[よ]みの 一[ひと]つは「らい」です。"
+    "explanation": "「来ねんの よていを たてる」の「来」は「らい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0158",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -255,33 +143,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「里」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "よう"
-        },
-        {
-          "id": "b",
-          "text": "り"
-        },
-        {
-          "id": "c",
-          "text": "らい"
-        },
-        {
-          "id": "d",
-          "text": "わ"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "１里は やく ４キロメートルだ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "り"
+      ]
     },
-    "explanation": "「里」の 音[おん]読[よ]みの 一[ひと]つは「り」です。"
+    "explanation": "「１里は やく ４キロメートルだ」の「里」は「り」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0159",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -290,33 +162,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「理」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "く"
-        },
-        {
-          "id": "b",
-          "text": "あん"
-        },
-        {
-          "id": "c",
-          "text": "り"
-        },
-        {
-          "id": "d",
-          "text": "おう"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "理かの じっけんを する",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "り"
+      ]
     },
-    "explanation": "「理」の 音[おん]読[よ]みの 一[ひと]つは「り」です。"
+    "explanation": "「理かの じっけんを する」の「理」は「り」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g2.kanji-onyomi.0160",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 2,
     "unit": "kokugo.g2.kanji",
@@ -325,28 +181,12 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「話」の 音[おん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "で"
-        },
-        {
-          "id": "b",
-          "text": "とく"
-        },
-        {
-          "id": "c",
-          "text": "な"
-        },
-        {
-          "id": "d",
-          "text": "わ"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "でん話を かける",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "わ"
+      ]
     },
-    "explanation": "「話」の 音[おん]読[よ]みの 一[ひと]つは「わ」です。"
+    "explanation": "「でん話を かける」の「話」は「わ」と 読[よ]みます。"
   }
 ]

@@ -114,7 +114,7 @@ const files = readdirSync('content/questions/sansu/g1')
   .map((dir) => `content/questions/sansu/g1/${dir}/set-001.json`);
 const sets = files.map((file) => ({ file, questions: JSON.parse(readFileSync(file, 'utf8')) as Question[] }));
 const all = sets.flatMap((set) => set.questions);
-assert.equal(all.length, 186, 'Review new/deleted questions before regenerating');
+assert.equal(all.length, 188, 'Review new/deleted questions before regenerating');
 const changed = new Map<string, string>();
 const answers = (q: Question) => {
   const p = q.payload;

@@ -70,7 +70,7 @@ const sets = readdirSync('content/questions/sansu/g3')
     return { file, questions: JSON.parse(readFileSync(file, 'utf8')) as Question[] };
   });
 const all = sets.flatMap((s) => s.questions);
-assert.equal(all.length, 340, 'Review new/deleted questions before regenerating');
+assert.equal(all.length, 345, 'Review new/deleted questions before regenerating');
 // 旧データの「3,8」は現行採点では38になる。解説と一致する分子・分母の入力に直す。
 for (const [hash, old, answers] of [
   ['08d029c598af', '3,8', ['3', '8']],

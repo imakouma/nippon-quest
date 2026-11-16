@@ -3,15 +3,26 @@ import type { QuestionRenderer } from '../../contracts';
 const DESIGN_WIDTH = 960;
 const DESIGN_HEIGHT = 540;
 
+function questionDesign(width: number, height: number) {
+  return width > 0 && width <= 600 && height > width
+    ? { width: 400, height: 640, layout: 'portrait' }
+    : { width: DESIGN_WIDTH, height: DESIGN_HEIGHT, layout: 'landscape' };
+}
+
 export function questionScale(width: number, height: number, contentHeight: number): number {
-  return Math.max(0, Math.min(width / DESIGN_WIDTH, height / Math.max(DESIGN_HEIGHT, contentHeight)));
+  const design = questionDesign(width, height);
+  return Math.max(0, Math.min(width / design.width, height / Math.max(design.height, contentHeight)));
 }
 
 export function fitQuestionViewport(viewport: HTMLElement, canvas: HTMLElement): void {
-  const height = Math.max(DESIGN_HEIGHT, canvas.scrollHeight);
+  const design = questionDesign(viewport.clientWidth, viewport.clientHeight);
+  canvas.dataset.layout = design.layout;
+  canvas.style.width = `${design.width}px`;
+  canvas.style.minHeight = `${design.height}px`;
+  const height = Math.max(design.height, canvas.scrollHeight);
   const scale = questionScale(viewport.clientWidth, viewport.clientHeight, height);
   canvas.style.transform = `scale(${scale})`;
-  canvas.style.left = `${Math.max(0, (viewport.clientWidth - DESIGN_WIDTH * scale) / 2)}px`;
+  canvas.style.left = `${Math.max(0, (viewport.clientWidth - design.width * scale) / 2)}px`;
   canvas.style.top = `${Math.max(0, (viewport.clientHeight - height * scale) / 2)}px`;
   viewport.dataset.scale = String(scale);
   viewport.dataset.contentHeight = String(height);

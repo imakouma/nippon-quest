@@ -1081,3 +1081,13 @@ button:disabled {
     display: none;
   }
 }
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .pg-stage-shell {
+    padding: 4px;
+  }
+  .pg-stage {
+    aspect-ratio: 5 / 8;
+    min-height: 560px;
+  }
+}
