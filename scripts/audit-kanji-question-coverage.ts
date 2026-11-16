@@ -149,8 +149,8 @@ export function auditKanjiQuestionCoverage(
     for (const { question } of categoryQuestions) {
       if (question.type === 'text-input') {
         const parsed = textInputPayloadSchema.safeParse(question.payload);
-        if (category !== 'onyomi' || question.grade !== 1 || !parsed.success) {
-          errors.push(`${question.id}: 入力式は1年の音読み問題だけに使用できます`);
+        if (question.grade !== 1 || !parsed.success) {
+          errors.push(`${question.id}: 入力式は1年の読み問題だけに使用できます`);
           continue;
         }
         const { prompt, answers } = parsed.data;
@@ -162,16 +162,20 @@ export function auditKanjiQuestionCoverage(
           continue;
         }
         if (record.grade !== question.grade) errors.push(`${question.id}: 漢字の配当学年が違います`);
-        if (!/^kokugo\.g1\.kanji-onyomi\.\d{4}$/.test(question.id)) {
-          errors.push(`${question.id}: 音読み問題IDが規則に一致しません`);
+        if (!new RegExp(`^kokugo\\.g1\\.kanji-${category}\\.\\d{4}$`).test(question.id)) {
+          errors.push(`${question.id}: ${label}問題IDが規則に一致しません`);
         }
-        const validReadings = record.onyomi.map(({ reading }) => normalizeReading(reading));
-        if (answers.length !== 1 || !validReadings.includes(answers[0]!)) {
-          errors.push(`${question.id}: 正解「${answers.join(' / ')}」が正規データの音読みにありません`);
+        const template = /^[^{}]*\{\{INPUT\}\}([ぁ-ゖー]*)$/u.exec(parsed.data.template ?? '{{INPUT}}');
+        const okurigana = template?.[1] ?? '';
+        if (!template || !prompt.includes(character + okurigana) || (category === 'onyomi' && okurigana))
+          errors.push(`${question.id}: 入力欄の送り仮名が例文と一致しません`);
+        const validReadings = record[category].map(({ reading }) => normalizeReading(reading));
+        if (answers.length !== 1 || !validReadings.includes(answers[0]! + okurigana)) {
+          errors.push(`${question.id}: 正解「${answers.join(' / ')}」が正規データの${label}にありません`);
         }
         if (/[[\]]/.test(prompt)) errors.push(`${question.id}: 例文に読みのふりがなを含めないでください`);
         const signature = [prompt, ...answers].join('|');
-        if (signatures.has(signature)) errors.push(`${question.id}: 同じ音読み復習問題が重複しています`);
+        if (signatures.has(signature)) errors.push(`${question.id}: 同じ${label}復習問題が重複しています`);
         signatures.add(signature);
         continue;
       }
