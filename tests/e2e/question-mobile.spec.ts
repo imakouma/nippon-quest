@@ -187,19 +187,27 @@ for (const id of [
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
-    const metrics = await page.locator('.nq-q').evaluate((question) => {
-      const scale = question.getBoundingClientRect().width / (question as HTMLElement).offsetWidth;
-      const prompt = question.querySelector('.nq-q-prompt')!;
-      const buttons = [...question.querySelectorAll<HTMLElement>('.nq-choice, .nq-input-number-pad .nq-btn')];
-      return {
-        font: parseFloat(getComputedStyle(prompt).fontSize) * scale,
-        targets: buttons.map((b) => b.getBoundingClientRect().height),
-        image: question.querySelector('img')!.getBoundingClientRect().width,
-      };
-    });
-    expect(metrics.font).toBeGreaterThanOrEqual(18);
-    expect(Math.min(...metrics.targets)).toBeGreaterThanOrEqual(40);
-    expect(metrics.image).toBeGreaterThanOrEqual(280);
-    expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    await page
+      .locator('.nq-q img')
+      .evaluateAll((images: HTMLImageElement[]) => Promise.all(images.map((image) => image.decode())));
+    // 画像読み込み後のResizeObserverによる倍率更新まで、全条件を一緒に待つ。
+    await expect(async () => {
+      const metrics = await page.locator('.nq-q').evaluate((question) => {
+        const scale = question.getBoundingClientRect().width / (question as HTMLElement).offsetWidth;
+        const prompt = question.querySelector('.nq-q-prompt')!;
+        const buttons = [
+          ...question.querySelectorAll<HTMLElement>('.nq-choice, .nq-input-number-pad .nq-btn'),
+        ];
+        return {
+          font: parseFloat(getComputedStyle(prompt).fontSize) * scale,
+          targets: buttons.map((b) => b.getBoundingClientRect().height),
+          image: question.querySelector('img')!.getBoundingClientRect().width,
+        };
+      });
+      expect(metrics.font).toBeGreaterThanOrEqual(18);
+      expect(Math.min(...metrics.targets)).toBeGreaterThanOrEqual(40);
+      expect(metrics.image).toBeGreaterThanOrEqual(280);
+      expect(await page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    }).toPass({ timeout: 10_000 });
   });
 }
