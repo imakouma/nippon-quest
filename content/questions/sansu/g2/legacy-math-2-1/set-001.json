@@ -18,7 +18,7 @@
       "promptImage": "questions/sansu/g2/visuals/meal-votes-table.svg",
       "promptImageAlt": "にくじゃがは3にん、ハンバーグは4にん、やきそばは3にん、スパゲティは4にん、カレーは6にん、からあげは5にん。え1つが1にん。ひょうは上から3、4、ア、イ、6、ウ。"
     },
-    "explanation": "グラフの 人[ひと]の えの かずが、ひょうの すう字[じ]です。"
+    "explanation": "ウは からあげの 人数[にんずう]です。人[ひと]の えが 5つなので、5人[にん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.0d0288b30c74",
@@ -123,7 +123,7 @@
       "promptImage": "questions/sansu/g2/visuals/meal-votes-table.svg",
       "promptImageAlt": "にくじゃがは3にん、ハンバーグは4にん、やきそばは3にん、スパゲティは4にん、カレーは6にん、からあげは5にん。え1つが1にん。ひょうは上から3、4、ア、イ、6、ウ。"
     },
-    "explanation": "グラフの 人[ひと]の えの かずが、ひょうの すう字[じ]です。"
+    "explanation": "イは スパゲティの 人数[にんずう]です。人[ひと]の えが 4つなので、4人[にん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.5e2eccb90428",
@@ -182,7 +182,7 @@
       "promptImage": "questions/sansu/g2/visuals/meal-votes-table.svg",
       "promptImageAlt": "にくじゃがは3にん、ハンバーグは4にん、やきそばは3にん、スパゲティは4にん、カレーは6にん、からあげは5にん。え1つが1にん。ひょうは上から3、4、ア、イ、6、ウ。"
     },
-    "explanation": "グラフの 人[ひと]の えの かずが、ひょうの すう字[じ]です。"
+    "explanation": "アは やきそばの 人数[にんずう]です。人[ひと]の えが 3つなので、3人[にん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.ac73faced8c7",
@@ -205,7 +205,7 @@
       "promptImage": "questions/sansu/g2/visuals/meal-votes.svg",
       "promptImageAlt": "にくじゃがは3にん、ハンバーグは4にん、やきそばは3にん、スパゲティは4にん、カレーは6にん、からあげは5にん。え1つが1にん。"
     },
-    "explanation": "グラフの にくじゃが の ところに ある 人[ひと]の えの かずを かぞえよう。"
+    "explanation": "グラフの にくじゃが の ところに ある 人[ひと]の えの かずを かぞえよう。え 1つが 1人[ひとり]なので、3つの えは 3人[にん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.b38b4d2428a9",
@@ -243,7 +243,7 @@
       "promptImage": "questions/sansu/g2/visuals/play-votes.svg",
       "promptSpeech": "クラスの みんなが すきな そとあそびを、グラフに まとめました。 グラフから わかることを えらぼう。 おにごっこは5にん、かくれんぼは4にん、なわとびは2にん、サッカーは3にん、ドッジボールは6にん。え1つが1にん。"
     },
-    "explanation": "おにごっこが すきな人[ひと]の かずと、サッカーが すきな 人[ひと]の かずを くらべましょう。"
+    "explanation": "おにごっこは 5人[にん]、サッカーは 3人[にん]です。5−3＝2なので、おにごっこが 2人[ふたり] 多[おお]いと わかります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.c180e1dfdd4a",
@@ -266,7 +266,7 @@
       "promptImage": "questions/sansu/g2/visuals/meal-votes.svg",
       "promptImageAlt": "にくじゃがは3にん、ハンバーグは4にん、やきそばは3にん、スパゲティは4にん、カレーは6にん、からあげは5にん。え1つが1にん。"
     },
-    "explanation": "グラフの ハンバーグ の ところに ある 人[ひと]の えの かずを かぞえよう。"
+    "explanation": "グラフの ハンバーグ の ところに ある 人[ひと]の えの かずを かぞえよう。え 1つが 1人[ひとり]なので、4つの えは 4人[にん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.d3a784d0f3f1",
@@ -289,7 +289,7 @@
       "promptImage": "questions/sansu/g2/visuals/meal-votes.svg",
       "promptImageAlt": "にくじゃがは3にん、ハンバーグは4にん、やきそばは3にん、スパゲティは4にん、カレーは6にん、からあげは5にん。え1つが1にん。"
     },
-    "explanation": "グラフの カレー の ところに ある 人[ひと]の えの かずを かぞえよう。"
+    "explanation": "グラフの カレー の ところに ある 人[ひと]の えの かずを かぞえよう。え 1つが 1人[ひとり]なので、6つの えは 6人[にん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-1.e0d7170d99d8",
@@ -313,5 +313,71 @@
       "promptImageAlt": "1まいが1にんの投票カード。上から1だんずつ、左から読むと、カレー、やきそば、カレー、スパゲティ、からあげ、からあげ、ハンバーグ、やきそば、ハンバーグ、ハンバーグ、スパゲティ、からあげ、からあげ、スパゲティ、にくじゃが、カレー、ハンバーグ、カレー、にくじゃが、カレー、やきそば、からあげ、スパゲティ、カレー、にくじゃが。"
     },
     "explanation": "あつめたカードを しゅるいごとに ならべると、スパゲティのカードは 4まい あります。"
+  },
+  {
+    "id": "sansu.g2.curriculum.zero-data",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "なわとびを えらんだ 人[ひと]は 何人[なんにん]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0人[にん]"
+        },
+        {
+          "id": "c2",
+          "text": "2人[にん]"
+        },
+        {
+          "id": "c3",
+          "text": "4人[にん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/zero-data.svg",
+      "promptSpeech": "●1つが1人[ひとり]です。おにごっこは●4つ、なわとびは●なし、すなあそびは●2つです。"
+    },
+    "explanation": "なわとびの ところには ●が 1つも ありません。1人[ひとり]も いないことを、表[ひょう]には 0と 書[か]きます。"
+  },
+  {
+    "id": "sansu.g2.curriculum.data-total",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-1",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "この グラフは 1人[ひとり]が 1つずつ えらんだものです。全部[ぜんぶ]で 何人[なんにん]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6人[にん]"
+        },
+        {
+          "id": "c2",
+          "text": "4人[にん]"
+        },
+        {
+          "id": "c3",
+          "text": "3人[にん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/zero-data.svg",
+      "promptSpeech": "●1つが1人[ひとり]です。おにごっこは4人[にん]、なわとびは0人[にん]、すなあそびは2人[にん]です。"
+    },
+    "explanation": "おにごっこの 4人[にん]と、なわとびの 0人[にん]と、すなあそびの 2人[にん]を 合[あ]わせます。4＋0＋2＝6人[にん]です。"
   }
 ]
