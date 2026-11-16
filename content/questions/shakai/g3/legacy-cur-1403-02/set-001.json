@@ -139,7 +139,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/assembly-line.svg",
+      "promptSpeech": "自動車工場や食品工場などで、作業を分担して効率よく製品を作るために、ベルトコンベアに乗せて順々に組み立てていく生産方法を何といいますか。 ベルトの上を部品が順に進み、人が作業している工場。"
     },
     "explanation": "それぞれの人が決まった一部分の作業を順番に行う「流れ作業」により、短時間で大量[たいりょう]の製品を作ることができます。"
   },
@@ -175,7 +177,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/shopping-bag.svg",
+      "promptSpeech": "私たちが日常の買い物で、プラスチックごみを減らすために「レジ袋を買わずに自分の袋を使う」買い物の工夫を何といいますか。 買い物で使い、家からくり返し持っていく袋。"
     },
     "explanation": "マイバッグを持ち歩くことで、使い捨てのレジ袋（プラスチックごみ）を減らし、環境を守る買い物ができます。"
   },
@@ -211,7 +215,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/cold-delivery.svg",
+      "promptSpeech": "生鮮食品（野菜や肉、魚など）を、産地[さんち]からお店まで冷たい温度のまま凍らせずに運ぶ、便利な運送の仕組みを何といいますか。 生産地から店へ、温度を低く保って運ぶ流れの模式図。"
     },
     "explanation": "生産[せいさん]・収穫から輸送、消費地での店舗保管まで、一貫して低温に保って鮮度を守る流通[りゅうつう]システムを「コールドチェーン」と呼びます。"
   },
@@ -247,7 +253,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/origin-label.svg",
+      "promptSpeech": "スーパーマーケットで売られている野菜やくだもの、肉などについて、それらが「つくられた場所（都道府県名や国名）」のことを何といいますか。 果物と、青森県産と書かれた産地表示の例。"
     },
     "explanation": "農産物や水産物などが生産[せいさん]された場所を「産地[さんち]」といいます。"
   },
@@ -263,7 +271,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、他地域や外国とのつながりとして正しいものはどれですか。",
+      "prompt": "図を見て、他地域や外国とのつながりとして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -284,7 +292,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/d983689fa8a0f1e2.png"
+      "promptImage": "questions/shakai/visuals/import.svg",
+      "promptSpeech": "図を見て、他地域や外国とのつながりとして正しいものはどれですか。 外国から日本へ、品物が運ばれる向き。"
     },
     "explanation": "スーパーには県外や外国から運ばれてきた商品も並んでいます。地図帳で産地[さんち]を調べましょう。"
   },
@@ -428,7 +437,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/shopping-area.svg",
+      "promptSpeech": "屋根がある道（アーケード）にそって、専門店や色々なお店が集まっている場所を何といいますか。 道路にそって店や事務所の建物が集まる町の模式図。"
     },
     "explanation": "地元の商店が集まり、アーケードなどを設けて買い物しやすくした通りを商店街[しょうてんがい]といいます。"
   },
@@ -464,7 +475,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/bar-graph.svg",
+      "promptSpeech": "物事を比べるのに適した、データの大きさごとに棒の長さで表すグラフを何といいますか。 好きな遊びを調べた架空の例。人数を棒の長さで表している。"
     },
     "explanation": "データの大小を比較するのには「棒グラフ」が適しています。"
   },
@@ -500,7 +513,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/store-sections.svg",
+      "promptSpeech": "スーパーマーケットなどで、お客さんが欲しい商品をすぐに見つけられるように、売り場を「野菜」「お肉」「魚」などに分けることを何といいますか。 店の中が野菜、魚、肉の売り場に分かれた例。"
     },
     "explanation": "商品を種類ごとに分類して並べることで、お客さんが買い物をしやすくなるよう配置を工夫しています。"
   },
@@ -536,7 +551,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/import.svg",
+      "promptSpeech": "日本が、外国からたくさんのバナナや小麦、石油などを買うことを何といいますか。 外国から日本へ、品物が運ばれる向き。"
     },
     "explanation": "外国の製品や資源を自国へ買い入れることを「輸入[ゆにゅう]」、逆に自国の製品を外国へ売ることを「輸出[ゆしゅつ]」といいます。"
   },
@@ -572,7 +589,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/distribution.svg",
+      "promptSpeech": "農家が育てた野菜をトラックに乗せて、大量[たいりょう]に集めてセリ（競り）を行い、スーパーや八百屋に売り分ける大きな施設を何といいますか。 生産された野菜が大きな施設に集まり、複数の店に分かれて運ばれる模式図。"
     },
     "explanation": "卸売市場[おろしうりしじょう]には全国から野菜や魚が集まり、競り売りによって適正な価格が決められて全国の小売店へと出荷されます。"
   },
@@ -608,7 +627,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/barcode.svg",
+      "promptSpeech": "お店のレジで商品のバーコードを読み取り、売れた商品の種類や時間を記録して、仕入れや品揃えに役立てる情報システムを何といいますか。 レジでバーコードを読み、売れた品物の情報を画面に記録する模式図。"
     },
     "explanation": "販売時点の情報管理を行う「POSシステム」により、どの商品が何時にどれだけ売れたかを記録し、品切れないように発注を行います。"
   },
@@ -768,7 +789,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "スーパーの商品[しょうひん]がどこから来[き]たかを調[しら]べるとき、産地[さんち]ラベルを記録[きろく]した後[あと]にするとよいことはどれですか。",
+      "prompt": "産地[さんち]ラベルを記録[きろく]したあと、何[なに]を調[しら]べるとよいですか。",
       "choices": [
         {
           "id": "c1",
@@ -788,7 +809,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/origin-label.svg",
+      "promptSpeech": "産地[さんち]ラベルを記録[きろく]したあと、何[なに]を調[しら]べるとよいですか。 果物と、青森県産と書かれた産地表示の例。"
     },
     "explanation": "産地[さんち]ラベルを資料[しりょう]として記録[きろく]し、地図帳[ちずちょう]で位置[いち]を確[たし]かめてまとめると、品物[しなもの]が他地域[たりいき]や外国[がいこく]から届[とど]く様子[ようす]が分[わ]かります。"
   },
@@ -896,7 +919,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/distribution.svg",
+      "promptSpeech": "工場で作られた製品が、お店や消費者に届くまでに、運送トラックや倉庫を経由して運ばれる一連の流れを何といいますか。 生産された野菜が大きな施設に集まり、複数の店に分かれて運ばれる模式図。"
     },
     "explanation": "生産者から消費者に品物が運ばれて届くまでの全体の道のりを「流通[りゅうつう]」といいます。"
   }

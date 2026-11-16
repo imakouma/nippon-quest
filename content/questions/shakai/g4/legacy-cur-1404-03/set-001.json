@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、大雨で山の斜面が崩れたり土砂が流れてきたりする災害を何といいますか。",
+      "prompt": "図を見て、大雨で山の斜面が崩れたり土砂が流れてきたりする災害を何といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -32,7 +32,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/be9a86f590735486.png"
+      "promptImage": "questions/shakai/visuals/landslide.svg",
+      "promptSpeech": "図を見て、大雨で山の斜面が崩れたり土砂が流れてきたりする災害を何といいますか。 雨で山の斜面から土や石が家のある方へ流れる模式図。"
     },
     "explanation": "長時間の大雨で地盤が緩むと、崖崩れや土石流が発生して住宅地を襲う危険があります。"
   },
@@ -68,7 +69,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/tsunami.svg",
+      "promptSpeech": "海底で大きな地震が起きたとき、海岸に押し寄せる非常に高い波を何といいますか。 海底が大きく動き、海面の広い範囲に波が伝わる断面模式図。高さや長さは実際の比ではない。"
     },
     "explanation": "海底の地盤変動で生じる津波[つなみ]は凄まじい破壊力を持ち、揺れを感じたら直ちに高台へ避難する必要があります。"
   },
@@ -120,7 +123,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、大雨で川の水位が上昇[じょうしょう]し、堤防[ていぼう]を越えて街に流れ込む災害は何でしょう。",
+      "prompt": "図を見て、大雨で川の水位が上昇[じょうしょう]し、堤防[ていぼう]を越えて街に流れ込む災害は何でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -141,7 +144,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/64279aeb465f9ab7.png"
+      "promptImage": "questions/shakai/visuals/flood.svg",
+      "promptSpeech": "図を見て、大雨で川の水位が上昇[じょうしょう]し、堤防[ていぼう]を越えて街に流れ込む災害は何でしょう。 増えた川の水が堤防を越えて、家のある側へ流れる断面模式図。"
     },
     "explanation": "降水量が河川の容量を超えると氾濫[はんらん]を起こし、家屋の床上浸水や道路の通行止め被害が発生します。"
   },
@@ -193,7 +197,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、家庭に準備しておく「非常用持ち出し袋」に入れるべきものとして最も適切なセットはどれですか。",
+      "prompt": "非常用[ひじょうよう]の持[も]ち出[だ]し袋[ぶくろ]に入[い]れる、適切[てきせつ]なセットはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -214,7 +218,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/8d6b8ee843548d55.png"
+      "promptImage": "questions/shakai/visuals/emergency-bag.svg",
+      "promptSpeech": "非常用[ひじょうよう]の持[も]ち出[だ]し袋[ぶくろ]に入[い]れる、適切[てきせつ]なセットはどれですか。 家に準備しておく持ち出し用の袋。中身は、はてな。"
     },
     "explanation": "電気や水道が止まっても数日間安全に避難生活を過ごせる非常用品を準備しておくことが重要です。"
   },
@@ -266,7 +271,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、災害で「自分や家族[かぞく]の身は自分で守る」ことを何といいますか。",
+      "prompt": "図を見て、災害で「自分や家族[かぞく]の身は自分で守る」ことを何といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -287,7 +292,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/250b8c89b8311107.png"
+      "promptImage": "questions/shakai/visuals/self-help.svg",
+      "promptSpeech": "図を見て、災害で「自分や家族[かぞく]の身は自分で守る」ことを何といいますか。 家族が自分の家で、家具の固定や持ち出す物を確かめている例。"
     },
     "explanation": "防災は、自分を守る「自助[じじょ]」、地域で助け合う「共助[きょうじょ]」、行政や消防が助ける「公助」の三つの連携で成り立ちます。"
   },
@@ -339,7 +345,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、災害発生時に消防・警察・自衛隊や自治体が最初に行う最優先の活動は何ですか。",
+      "prompt": "図を見て、災害発生時に消防・警察・自衛隊や自治体が最初に行う最優先の活動は何ですか。",
       "choices": [
         {
           "id": "c1",
@@ -360,7 +366,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/be9a86f590735486.png"
+      "promptImage": "questions/shakai/visuals/rescue.svg",
+      "promptSpeech": "図を見て、災害発生時に消防・警察・自衛隊や自治体が最初に行う最優先の活動は何ですか。 災害の起きた場所に、消防・警察などの人が駆けつける模式図。活動の優先順位は示さない。"
     },
     "explanation": "関係機関が連携し、倒壊した建物からの救出作業や避難所への安全な誘導を優先して行います。"
   },
@@ -432,7 +439,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/levee.svg",
+      "promptSpeech": "大雨による川の氾濫[はんらん]を防ぐため、川の土手を高く頑丈にする工事は何でしょう。 川と町の間に土を高く盛った部分がある断面模式図。"
     },
     "explanation": "堤防[ていぼう]を設置することで、増水した川の水が市街地や農地に溢れ出るのを防ぎます。"
   },
@@ -484,7 +493,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、山あいの谷に建設され、土砂や大きな岩が住宅地へ流れるのを食い止める施設は何でしょう。",
+      "prompt": "図を見て、山あいの谷に建設され、土砂や大きな岩が住宅地へ流れるのを食い止める施設は何でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -505,7 +514,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/7513865491af2fbd.png"
+      "promptImage": "questions/shakai/visuals/sabo-dam.svg",
+      "promptSpeech": "図を見て、山あいの谷に建設され、土砂や大きな岩が住宅地へ流れるのを食い止める施設は何でしょう。 谷を流れる土砂の先に、土砂をせき止める壁があり、その下流に家がある。"
     },
     "explanation": "砂防ダムは山崩れで発生した土砂を受け止め、下流にある家々や道路を守る役割を果たします。"
   },
@@ -541,7 +551,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/pyroclastic-flow.svg",
+      "promptSpeech": "火山の噴火によって、数百度の熱い岩石や火山灰が高速で坂を流れ下ってくる現象を何といいますか。 火口から出た熱い岩石や灰が山の斜面を下る模式図。"
     },
     "explanation": "火砕流[かさいりゅう]は時速100km以上のスピードで襲いかかるため、噴火の予兆があれば事前の避難指示に従うことが重要です。"
   }

@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/map-up.svg",
+      "promptSpeech": "地図はふつう、どの方角を上にして表すのがきまりですか。 地図の上の向きに矢印。向きの名前は空欄。"
     },
     "explanation": "地図は原則として、上の方向を「北」にして描かれます。"
   },
@@ -83,7 +85,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "横浜市の「中山駅」を通っている、横浜駅と八王子駅を結ぶJR東日本の路線名は何ですか。",
+      "prompt": "横浜市[よこはまし]の中山駅[なかやまえき]を通[とお]り、東神奈川駅[ひがしかながわえき]と八王子駅[はちおうじえき]を結[むす]ぶJRの路線[ろせん]は何[なん]ですか。",
       "choices": [
         {
           "id": "c1",
@@ -175,7 +177,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/underground-train.svg",
+      "promptSpeech": "福岡空港と博多駅、天神などを結び、地下を通って多くの人を運ぶ交通機関は何ですか。 建物の下の地下を走る電車の断面模式図。"
     },
     "explanation": "福岡空港から博多駅や天神などの都心部へは、地下鉄が直接結んでいます。"
   },
@@ -211,7 +215,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/map-scale.svg",
+      "promptSpeech": "実際の距離を地図上に縮めて表した割合を「縮尺（しゅくしゃく）」といいますが、1万分の1の縮尺の地図で、地図上の1cmは実際には何mですか。 地図で1cmの長さと、1:10,000という比。実際の長さは書かない。"
     },
     "explanation": "1cm の 10000倍は 10000cm。100cm = 1m なので、10000cm = 100m となります。"
   },
@@ -227,7 +233,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "丸の中に小さな点がある記号[きごう]（リンゴやナシなどをイメージした記号[きごう]）は、何を表していますか。",
+      "prompt": "図[ず]の地図記号[ちずきごう]は、どのような土地[とち]を表[あらわ]していますか。",
       "choices": [
         {
           "id": "c1",
@@ -247,7 +253,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/symbol-orchard.svg",
+      "promptSpeech": "図[ず]の地図記号[ちずきごう]は、どのような土地[とち]を表[あらわ]していますか。 丸い実の上に短い枝がのびる地図記号。"
     },
     "explanation": "果物の形や木の形をデザインした記号[きごう]は「かじゅ園」を表します。"
   },
@@ -371,7 +379,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "地図をかくときに、文字を使わずに「地図記号」を使う理由[りゆう]として、正しいものはどれですか。",
+      "prompt": "地図[ちず]で記号[きごう]を使[つか]うのは、なぜですか。",
       "choices": [
         {
           "id": "c1",
@@ -391,7 +399,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/legend.svg",
+      "promptSpeech": "地図[ちず]で記号[きごう]を使[つか]うのは、なぜですか。 道のそばに記号のある地図と、記号の意味をまとめた欄。"
     },
     "explanation": "地図記号を使うことで、限られた地図のスペースにどんな施設があるかをひと目でわかりやすく表すことができます。"
   },
@@ -535,7 +545,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/direction-northwest.svg",
+      "promptSpeech": "「東」と「北」の間の方向を「北東」といいますが、「西」と「北」の間の方向は何といいますか。 北・東・南・西と、北と西の間を指す矢印。"
     },
     "explanation": "北と西の間の方向を「北西」といいます。"
   },
@@ -571,7 +583,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/compass.svg",
+      "promptSpeech": "方位じしんを使うとき、色のついた針の先が指ししめすのは、東・西・南・北のどの方位ですか。 丸い器具の中に、赤い先と白い先の針がある。方位の名前は書かない。"
     },
     "explanation": "方位じしんの色のついた針（多くは赤や青）は、地球の磁力によって常に「北」を指すようになっています。"
   },
@@ -623,7 +637,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、古くから残る建造物として正しいものをえらぼう。",
+      "prompt": "図を見て、古くから残る建造物として正しいものをえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -644,7 +658,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/533789e8fd964f3d.png"
+      "promptImage": "questions/shakai/visuals/old-buildings.svg",
+      "promptSpeech": "図を見て、古くから残る建造物として正しいものをえらぼう。 昔から残る木の家と石の橋の例。特定の実在建造物の復元図ではない。"
     },
     "explanation": "古い家や橋など、昔から残る建造物は、その地域の歴史や人々のくらしを教えてくれます。"
   },
@@ -697,7 +712,7 @@
     ],
     "payload": {
       "prompt": "地図の中から「郵便局（〒）」の記号[きごう]がある場所をクリックして選ぼう。",
-      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "image": "questions/shakai/visuals/town-symbol-map.svg",
       "hotspots": [
         {
           "x": 45,
@@ -829,7 +844,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/public-facilities.svg",
+      "promptSpeech": "学校[がっこう]や公園、図書館など、みんなの生活のために国や地方自治体によってつくられた建物や場所をまとめて何といいますか。 学校・公園・図書館の例。"
     },
     "explanation": "みんなのために作られた施設を「公共施設」といいます。"
   },
@@ -865,7 +882,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/map-scale.svg",
+      "promptSpeech": "地図中の右上などに「1:10000」や「1:25000」のように書かれている、実際の距離を縮めた割合[わりあい]のことを何といいますか。 地図で1cmの長さと、1:10,000という比。実際の長さは書かない。"
     },
     "explanation": "実際の距離を地図上に縮めて表した割合[わりあい]を「縮尺[しゅくしゃく]」といいます。"
   },
@@ -901,7 +920,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/shopping-area.svg",
+      "promptSpeech": "市の中心部で、市役所や銀行[ぎんこう]、デパートなどが多く集まり、たくさんの人が働く場所を何といいますか。 道路にそって店や事務所の建物が集まる町の模式図。"
     },
     "explanation": "市の行政や経済の中心であり、高いビルやデパートが立ち並ぶ場所を「中心業務地区（都心）」と呼びます。"
   },
@@ -937,7 +958,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/symbol-port.svg",
+      "promptSpeech": "船がいかりを下ろしているマーク（⚓の形）の地図記号は、何を表していますか。 輪と横棒があり、下が左右に曲がったいかりの形の地図記号。"
     },
     "explanation": "船のいかりのマークは「港（おもな港）」を表す地図記号です。"
   },
@@ -989,7 +1012,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、この建造物から読み取れることとして正しいものはどれですか。",
+      "prompt": "図を見て、この建造物から読み取れることとして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -1010,7 +1033,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/708c6eb390697301.png"
+      "promptImage": "questions/shakai/visuals/old-buildings.svg",
+      "promptSpeech": "図を見て、この建造物から読み取れることとして正しいものはどれですか。 昔から残る木の家と石の橋の例。特定の実在建造物の復元図ではない。"
     },
     "explanation": "古い建造物や橋は、なぜその場所に作られたのか、どんな役割があったのかを考える手がかりになります。"
   },
@@ -1027,7 +1051,7 @@
     ],
     "payload": {
       "prompt": "地図の中から「卍（寺）」の記号[きごう]がある場所をクリックして選ぼう。",
-      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "image": "questions/shakai/visuals/town-symbol-map.svg",
       "hotspots": [
         {
           "x": 28,
@@ -1067,7 +1091,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次のうち、消火栓[しょうかせん]や消防署など「消防（火事の防止や消火）」に関係する古い地図記号（Yの形に似た記号[きごう]）が表す建物はどれですか。",
+      "prompt": "図[ず]の地図記号[ちずきごう]は、どの施設[しせつ]を表[あらわ]していますか。",
       "choices": [
         {
           "id": "c1",
@@ -1087,7 +1111,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/symbol-fire.svg",
+      "promptSpeech": "図[ず]の地図記号[ちずきごう]は、どの施設[しせつ]を表[あらわ]していますか。 上が二つに分かれたYの形の地図記号。"
     },
     "explanation": "Y字型の記号[きごう]は、昔の消火道具である「さすまた（刺又）」の形から作られた「消防署」の地図記号です。"
   }

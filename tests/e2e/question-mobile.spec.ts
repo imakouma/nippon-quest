@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
@@ -182,6 +183,12 @@ for (const id of [
   'legacy.rika.g4.cur-1504-05.600963ece2ca',
   'legacy.rika.g5.sci-5-8.a3fd7dd5cc5b',
   'legacy.rika.g6.sci-6-10.7120e72536af',
+  'legacy.shakai.g3.cur-1403-04.0547e5f3c29a',
+  'legacy.shakai.g4.cur-1404-02.b7b25c6bf36e',
+  'legacy.shakai.g5.soc-5-6.27a4c2358cd2',
+  'legacy.shakai.g5.soc-5-6.a8c96b1c1aa6',
+  'legacy.shakai.g5.soc-5-6.b059945f3dcc',
+  'legacy.shakai.g6.soc-6-2.38e654ff9d87',
 ]) {
   test(`縦画面の教材の本文と回答ボタンが小さくなりすぎない: ${id}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -211,3 +218,61 @@ for (const id of [
     }).toPass({ timeout: 10_000 });
   });
 }
+
+for (const [hash, x, y] of [
+  ['6d0e031ce36a', 45, 70],
+  ['ac17d998e6b9', 28, 35],
+  ['c1db6b8cc38e', 68, 25],
+  ['ffeb4560d45d', 75, 75],
+  ['e2f89bc12f06', 70.8333, 34.6154],
+  ['e2f89bc12f06', 83.3333, 34.6154],
+  ['e2f89bc12f06', 58.3333, 34.6154],
+  ['e2f89bc12f06', 70.8333, 25],
+  ['e2f89bc12f06', 70.8333, 44.2308],
+] as const) {
+  test(`社会の図中の正しい位置をタップして回答できる: ${hash} (${x}, ${y})`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/playground.html?q=legacy.shakai.g3.cur-1403-01.${hash}`);
+    const map = page.locator('.nq-map-tap');
+    await expect(map).toBeVisible();
+    await map.locator('img').evaluate((img: HTMLImageElement) => img.decode());
+    await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    const box = (await map.boundingBox())!;
+    await map.tap({ position: { x: (box.width * x) / 100, y: (box.height * y) / 100 } });
+    await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
+  });
+}
+
+test('社会で更新した全図版の本文がスマホ縦画面で読める', async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  const rows = JSON.parse(readFileSync('scripts/data/shakai-visual-review.json', 'utf8')) as {
+    id: string;
+    decision: string;
+  }[];
+  const issues: { id: string; font: number; image: number }[] = [];
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const { id } of rows.filter((r) => r.decision === 'illustrated')) {
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-q')).toBeVisible();
+    await page
+      .locator('.nq-q img')
+      .evaluateAll((images: HTMLImageElement[]) => Promise.all(images.map((i) => i.decode())));
+    await page.evaluate(
+      () =>
+        new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))),
+    );
+    const metrics = await page.locator('.nq-q').evaluate((q) => {
+      const scale = q.getBoundingClientRect().width / (q as HTMLElement).offsetWidth;
+      return {
+        font: parseFloat(getComputedStyle(q.querySelector('.nq-q-prompt')!).fontSize) * scale,
+        image: q.querySelector('img')!.getBoundingClientRect().width,
+      };
+    });
+    if (metrics.font < 18 || metrics.image < 280) issues.push({ id, ...metrics });
+  }
+  await testInfo.attach('social-studies-mobile-readability', {
+    body: JSON.stringify(issues, null, 2),
+    contentType: 'application/json',
+  });
+  expect(issues).toEqual([]);
+});

@@ -170,3 +170,15 @@ test('書き取り教材の読み込みを待ってからレイアウトを監�
   await expect(page.locator('[data-audit-status]')).toHaveAttribute('data-audit-status', 'complete');
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });
+
+test('社会の全469問とサンプルがスマホを含む4サイズに収まる', async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  await page.goto('/battle-question-audit.html?subject=shakai&matrix');
+  const audit = page.locator('[data-audit-status]');
+  await expect(audit).toHaveAttribute('data-audit-status', /^(?:complete|failed)$/, { timeout: 220_000 });
+  const report = (await page.locator('#question-layout-report').textContent())!;
+  await testInfo.attach('social-studies-question-layout', { body: report, contentType: 'application/json' });
+  expect(JSON.parse(report).progress.total).toBeGreaterThanOrEqual(469);
+  await expect(audit).toHaveAttribute('data-audit-status', 'complete');
+  await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
+});

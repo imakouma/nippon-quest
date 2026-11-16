@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/renewable.svg",
+      "promptSpeech": "太陽光や風力、地熱など、温室効果ガスを出さずに繰り返し利用できるエネルギーを何といいますか。 太陽の光と、風で回る羽根を使って発電する設備の例。"
     },
     "explanation": "自然の力を利用する再生可能エネルギーは、地球環境の保護と持続可能な社会作りに貢献します。"
   },
@@ -47,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域に住む外国人の人々が安全に安心して暮らせるように自治体が行っている工夫はどれですか。",
+      "prompt": "外国人[がいこくじん]の住民[じゅうみん]に、役所[やくしょ]はどんな工夫[くふう]をしていますか。",
       "choices": [
         {
           "id": "c1",
@@ -68,7 +70,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/bad8af212d806043.png"
+      "promptImage": "questions/shakai/visuals/multilingual.svg",
+      "promptSpeech": "外国人[がいこくじん]の住民[じゅうみん]に、役所[やくしょ]はどんな工夫[くふう]をしていますか。 役所のお知らせを複数の言語で案内する例。"
     },
     "explanation": "やさしい日本語や多言語での広報・避難案内を用意することで、言葉の壁を越えて住民全員の安全を守ります。"
   },
@@ -156,7 +159,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域の特色あるまちづくりを進める際に最も大切な協力関係はどれですか。",
+      "prompt": "まちづくりで大切[たいせつ]な協力[きょうりょく]は、どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -177,7 +180,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/377bda97576d0089.jpg"
+      "promptImage": "questions/shakai/visuals/community-cooperation.svg",
+      "promptSpeech": "まちづくりで大切[たいせつ]な協力[きょうりょく]は、どれですか。 住民、役所、店や会社の人が、一つのテーブルを囲んで話す例。"
     },
     "explanation": "住んでいる人々と自治体、地元企業が目標を共有して助け合うことで、持続可能なまちづくりが実現します。"
   },
@@ -229,7 +233,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、森林を適切に手入れ（間伐など）して育てることで得られる環境上の効果は何でしょう。",
+      "prompt": "図を見て、森林を適切に手入れ（間伐など）して育てることで得られる環境上の効果は何でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -250,7 +254,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/076fd8ffd8d7c9c2.png"
+      "promptImage": "questions/shakai/visuals/forest.svg",
+      "promptSpeech": "図を見て、森林を適切に手入れ（間伐など）して育てることで得られる環境上の効果は何でしょう。 森に育つ木と、手入れのための道。"
     },
     "explanation": "適切に管理された森林は「緑のダム」と呼ばれ、根が土を抱えて大雨時の土砂流出を防ぎ、地球温暖化を抑制します。"
   },
@@ -266,7 +271,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、国際交流を学ぶときに私たちが大切にすべき姿勢として正しいものはどれですか。",
+      "prompt": "国際交流[こくさいこうりゅう]で大切[たいせつ]な姿勢[しせい]は、どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -287,7 +292,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/de7c7fddf8c0fb9a.png"
+      "promptImage": "questions/shakai/visuals/culture-respect.svg",
+      "promptSpeech": "国際交流[こくさいこうりゅう]で大切[たいせつ]な姿勢[しせい]は、どれですか。 異なる言葉や文化を持つ人たちが、向き合って話している例。"
     },
     "explanation": "国旗や伝統習慣の違いをお互いに認め合い尊重することが、平和で豊かな共生社会の土台となります。"
   },
@@ -411,7 +417,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地場産業[じばさんぎょう]の製品を日本中や世界へ発信して売り伸ばす取り組みはどれですか。",
+      "prompt": "地場産業[じばさんぎょう]の製品[せいひん]を広[ひろ]く知[し]ってもらい、販売[はんばい]を増[ふ]やす方法[ほうほう]は何[なん]ですか。",
       "choices": [
         {
           "id": "c1",
@@ -432,7 +438,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/d79becb54c201fb8.png"
+      "promptImage": "questions/shakai/visuals/online-crafts.svg",
+      "promptSpeech": "地場産業[じばさんぎょう]の製品[せいひん]を広[ひろ]く知[し]ってもらい、販売[はんばい]を増[ふ]やす方法[ほうほう]は何[なん]ですか。 地域で作る焼き物と、それを紹介する画面の例。"
     },
     "explanation": "伝統の技法で作られた製品の魅力をネットや海外展示会で紹介し、新しいファンや市場を開拓しています。"
   },
@@ -448,7 +455,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、陶磁器（焼き物）の地場産業[じばさんぎょう]が発達した地域に共通する自然条件は何でしょう。",
+      "prompt": "焼[や]き物[もの]づくりに適[てき]した自然条件[しぜんじょうけん]は、どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -469,7 +476,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/bb03e7328ae6ec71.png"
+      "promptImage": "questions/shakai/visuals/pottery-resources.svg",
+      "promptSpeech": "焼[や]き物[もの]づくりに適[てき]した自然条件[しぜんじょうけん]は、どれですか。 焼き物づくりの近くに、粘土のとれる地面と木のある山がある模式図。"
     },
     "explanation": "陶磁器作りには、良質の土（陶石や粘土）と、高温の窯を燃やし続けるための豊かな森林資源が不可欠でした。"
   },

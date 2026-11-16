@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、家や工場で使ったあとの汚れた水（下水）をキレイにして川や海へ戻す施設はどこでしょう。",
+      "prompt": "図を見て、家や工場で使ったあとの汚れた水（下水）をキレイにして川や海へ戻す施設はどこでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -32,7 +32,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/e78e7b9a5c123e3e.png"
+      "promptImage": "questions/shakai/visuals/wastewater.svg",
+      "promptSpeech": "図を見て、家や工場で使ったあとの汚れた水（下水）をキレイにして川や海へ戻す施設はどこでしょう。 家庭で使った水を、施設できれいにして川へ戻す模式図。"
     },
     "explanation": "下水処理場では、微生物の力を活用して水の汚れを分解・沈殿させ、きれいな水に戻してから河川や海に流します。"
   },
@@ -48,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、発電所で作られた高い電圧の電気を、家庭で使える電圧に変える施設は何でしょう。",
+      "prompt": "図を見て、発電所で作られた高い電圧の電気を、家庭で使える電圧に変える施設は何でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -69,7 +70,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/699232f8f659797e.png"
+      "promptImage": "questions/shakai/visuals/substation.svg",
+      "promptSpeech": "図を見て、発電所で作られた高い電圧の電気を、家庭で使える電圧に変える施設は何でしょう。 発電所からの電気が、途中の施設を通って家庭へ送られる模式図。"
     },
     "explanation": "発電所から届く高い電圧の電気は、各地の変電所[へんでんしょ]で段階的に電圧を下げることで、安全に家や学校[がっこう]に届けられます。"
   },
@@ -121,7 +123,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、着なくなった服を弟や友達に譲ったり、洗剤の詰替え容器を何度も使い続ける行動は「3R」のどれにあたりますか。",
+      "prompt": "図を見て、着なくなった服を弟や友達に譲ったり、洗剤の詰替え容器を何度も使い続ける行動は「3R」のどれにあたりますか。",
       "choices": [
         {
           "id": "c1",
@@ -142,7 +144,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/e78e7b9a5c123e3e.png"
+      "promptImage": "questions/shakai/visuals/reuse.svg",
+      "promptSpeech": "図を見て、着なくなった服を弟や友達に譲ったり、洗剤の詰替え容器を何度も使い続ける行動は「3R」のどれにあたりますか。 小さくなった服を次の人に渡して、また使う例。"
     },
     "explanation": "捨てずにそのままの形で何度も大切に使う取り組みを「Reuse（リユース）」と呼びます。"
   },
@@ -158,7 +161,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、水道水や電気・ガスを家庭へいつでも安全に届けるために行われている大切な取り組みはどれですか。",
+      "prompt": "水[みず]や電気[でんき]を安全[あんぜん]に届[とど]けるため、何[なに]をしていますか。",
       "choices": [
         {
           "id": "c1",
@@ -179,7 +182,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/8c6cc6083154ae9b.png"
+      "promptImage": "questions/shakai/visuals/infrastructure-monitor.svg",
+      "promptSpeech": "水[みず]や電気[でんき]を安全[あんぜん]に届[とど]けるため、何[なに]をしていますか。 水や電気を届ける設備を、担当者が画面で確認し、点検している。"
     },
     "explanation": "ライフライン（水・電気・ガス）が止まると人々の命や生活に直結するため、24時間態勢で安全監視と保守点検が行われています。"
   },
@@ -267,7 +271,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、清掃工場（ごみ焼却場）でごみを燃やす際に出る熱の有効な活用方法はどれですか。",
+      "prompt": "ごみを燃[も]やした熱[ねつ]は、何[なに]に使[つか]えますか。",
       "choices": [
         {
           "id": "c1",
@@ -288,7 +292,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/d8e6f6ed0c339bca.png"
+      "promptImage": "questions/shakai/visuals/incinerator-heat.svg",
+      "promptSpeech": "ごみを燃[も]やした熱[ねつ]は、何[なに]に使[つか]えますか。 ごみを燃やす施設と、そこから外へ運ばれる熱。利用先は、はてな。"
     },
     "explanation": "焼却熱を利用してサーマルリサイクルを行い、地域施設の温水供給や発電に役立てています。"
   },
@@ -304,7 +309,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、私たちが家庭で電気や水を無駄遣いしないように注意することのメリットは何でしょう。",
+      "prompt": "水[みず]や電気[でんき]をむだにしないと、どんなよさがありますか。",
       "choices": [
         {
           "id": "c1",
@@ -325,7 +330,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/8c6cc6083154ae9b.png"
+      "promptImage": "questions/shakai/visuals/conservation.svg",
+      "promptSpeech": "水[みず]や電気[でんき]をむだにしないと、どんなよさがありますか。 水道の蛇口と照明。日常で使う水と電気を考える図。"
     },
     "explanation": "節水・節電は、発電にかかる燃料消費や浄水にかかるエネルギーを削減し、地球温暖化防止に寄与します。"
   },
@@ -361,7 +367,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/landfill.svg",
+      "promptSpeech": "ごみを燃やした後の灰や、リサイクルできないごみは最終的にどこへ運ばれて処理されますか。 ごみを運ぶ車と、地面を区切って埋める場所の断面模式図。"
     },
     "explanation": "最終処分場は土地の限度があるため、埋め立てるごみの量を少しでも減らす取り組みが重要です。"
   },
@@ -377,7 +385,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ごみを減らすための「3R（スリーアール）」のうち、買い物にマイバッグを持参してレジ袋をもらわない行動はどれでしょう。",
+      "prompt": "マイバッグでレジ袋[ぶくろ]をもらわない行動[こうどう]は、3Rのどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -397,7 +405,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/shopping-bag.svg",
+      "promptSpeech": "マイバッグでレジ袋[ぶくろ]をもらわない行動[こうどう]は、3Rのどれですか。 買い物で使い、家からくり返し持っていく袋。"
     },
     "explanation": "余分な包装やレジ袋を断り、最初から出るごみそのものを減らすことを「Reduce（リデュース）」といいます。"
   },
@@ -413,7 +423,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "家庭から出るごみを「燃やすごみ」「プラスチック」「ペットボトル」などに分別して出す一番の理由[りゆう]は何でしょう。",
+      "prompt": "ごみを種類[しゅるい]ごとに分[わ]けて出[だ]す、一番[いちばん]の理由[りゆう]は何[なん]ですか。",
       "choices": [
         {
           "id": "c1",
@@ -433,7 +443,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/waste-sorting.svg",
+      "promptSpeech": "ごみを種類[しゅるい]ごとに分[わ]けて出[だ]す、一番[いちばん]の理由[りゆう]は何[なん]ですか。 紙、容器、生ごみを、別の入れ物に分ける例。分け方は地域で異なる。"
     },
     "explanation": "分別収集により、プラスチックや金属、紙などを資源として再利用し、燃やしたり埋め立てたりするゴミを減らせます。"
   },
@@ -505,7 +517,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/water-cleaning.svg",
+      "promptSpeech": "川やダムから取った水を、消毒・ろ過して安心して飲める水道水にする施設はどこでしょう。 川から取り入れた水を、施設できれいにして家庭へ送る模式図。"
     },
     "explanation": "浄水場[じょうすいじょう]では、泥やゴミを取り除き、消毒を行って安全で美味しい水道水を作り、配水池や水道管を通じて家庭に送っています。"
   },
@@ -541,7 +555,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/water-delivery.svg",
+      "promptSpeech": "地震や台風で水道管が破損したとき、断水した避難所に飲料水を素早く届ける特別な車両は何でしょう。 タンクを載せた車から、水を容器に入れて届けている。"
     },
     "explanation": "給水車[きゅうすいしゃ]はタンクに清浄な水を積んで出動し、災害時に人々の命を守る飲料水を配給します。"
   }
