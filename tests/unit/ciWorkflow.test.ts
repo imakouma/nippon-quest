@@ -34,6 +34,13 @@ describe('CI workflow', () => {
     expect(prebuiltConfig).toContain("screenshot: 'only-on-failure'");
   });
 
+  it('runs handwriting and math visual checks with development pages', () => {
+    for (const file of ['kanji-writing.spec.ts', 'sansu-g*-visuals.spec.ts']) {
+      expect(prebuiltConfig).toContain(`'${file}'`);
+      expect(workflow).toContain(`tests/e2e/${file}`);
+    }
+  });
+
   it('deploys Pages only after game, developer-tool and mobile quality gates succeed', () => {
     expect(workflow).toContain('needs: [check, e2e, developer-tools, mobile-layout]');
   });

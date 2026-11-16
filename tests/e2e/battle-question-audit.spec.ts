@@ -83,6 +83,28 @@ test('画像英単語問題はバトル問題枠に収まる', async ({ page }) 
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });
 
+test('全件監査は教科を絞り込める', async ({ page }) => {
+  await page.goto('/battle-question-audit.html?subject=rika&q=sample.picture-word.0001');
+  await expect(page.locator('[data-audit-status]')).toHaveAttribute('data-audit-status', 'failed', {
+    timeout: 20_000,
+  });
+  await expect(page.locator('.nq-audit-failures')).toContainText('問題IDが見つかりません');
+});
+
+test('理科の長文記入問題は答え欄が読みやすい大きさで並ぶ', async ({ page }) => {
+  for (const [id, inputs] of [
+    ['legacy.rika.g5.sci-5-10.450bc1320191', 2],
+    ['legacy.rika.g6.sci-6-8.978e2e27fb66', 4],
+    ['legacy.rika.g6.sci-6-8.d3947df3e5e0', 5],
+  ] as const) {
+    await page.goto(`/battle-question-audit.html?q=${id}`);
+    await expect(page.locator('.nq-input-template input')).toHaveCount(inputs);
+    await expect(page.locator('[data-audit-status="complete"]')).toBeVisible({ timeout: 20_000 });
+    const scale = Number(await page.locator('.nq-question-viewport').getAttribute('data-scale'));
+    expect(scale, id).toBeGreaterThanOrEqual(0.69);
+  }
+});
+
 test('長い選択肢と縦並びカードも全体を縮小して問題枠内に収める', async ({ page }) => {
   const questionIds = [
     'kokugo.g2.observation-writing.0003',

@@ -87,6 +87,50 @@ export function TextInputView({
     !!payload.template && !payload.promptImage && compact(template) === compact(payload.prompt);
   const promptId = promptRepeated ? 'nq-question-template' : 'nq-question-prompt';
   const suffixRepeated = !!payload.suffix && template.trimEnd().endsWith(payload.suffix);
+  // shortcut: 32文字を超える単一回答は独立行にする。複数欄の長文が必要になったらレイアウトモデルへ分ける。
+  const answerOnOwnRow = payload.answers.length === 1 && compact(pieces[0] ?? '').length > 32;
+  const inputAt = (index: number) => (
+    <input
+      ref={(input) => {
+        inputs.current[index] = input;
+      }}
+      aria-label={t('question.answerNumber', { n: index + 1 })}
+      aria-describedby={`${promptId}${invalid[index] ? ' nq-reading-error' : ''}`}
+      aria-invalid={invalid[index] || undefined}
+      aria-keyshortcuts="Enter"
+      class={numberPad && activeInput === index ? 'nq-input-active' : undefined}
+      value={values[index]}
+      disabled={done}
+      inputMode={numberPad ? 'decimal' : 'text'}
+      style={
+        reading ? { width: `${Math.max(4, Math.min(12, (values[index]?.length ?? 0) + 1))}em` } : undefined
+      }
+      onFocus={() => setActiveInput(index)}
+      // Preactの独自イベント判定を避け、ブラウザの小文字イベント名を使う。
+      {...{
+        oncompositionstart: () => setComposingIndex(index),
+        oncompositionend: () => setComposingIndex(null),
+      }}
+      onInput={(event) => {
+        const next = [...values];
+        next[index] = (event.currentTarget as HTMLInputElement).value;
+        setValues(next);
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== 'Enter' || event.isComposing || event.keyCode === 229) return;
+        const nextEmpty = values.findIndex((value) => !value.trim());
+        if (nextEmpty >= 0) {
+          if (nextEmpty !== index) {
+            event.preventDefault();
+            inputs.current[nextEmpty]?.focus();
+          }
+          return;
+        }
+        event.preventDefault();
+        finish(false);
+      }}
+    />
+  );
   if (done)
     return (
       <ReviewFeedback
@@ -131,56 +175,26 @@ export function TextInputView({
           )}
         </div>
       )}
-      <div id={promptRepeated ? 'nq-question-template' : undefined} class="nq-input-template">
-        {pieces.map((piece, index) => (
-          <span key={index}>
-            <RubyLabel text={piece} grade={ctx.grade} />
-            {index < payload.answers.length && (
-              <input
-                ref={(input) => {
-                  inputs.current[index] = input;
-                }}
-                aria-label={t('question.answerNumber', { n: index + 1 })}
-                aria-describedby={`${promptId}${invalid[index] ? ' nq-reading-error' : ''}`}
-                aria-invalid={invalid[index] || undefined}
-                aria-keyshortcuts="Enter"
-                class={numberPad && activeInput === index ? 'nq-input-active' : undefined}
-                value={values[index]}
-                disabled={done}
-                inputMode={numberPad ? 'decimal' : 'text'}
-                style={
-                  reading
-                    ? { width: `${Math.max(4, Math.min(12, (values[index]?.length ?? 0) + 1))}em` }
-                    : undefined
-                }
-                onFocus={() => setActiveInput(index)}
-                // Preactの独自イベント判定を避け、ブラウザの小文字イベント名を使う。
-                {...{
-                  oncompositionstart: () => setComposingIndex(index),
-                  oncompositionend: () => setComposingIndex(null),
-                }}
-                onInput={(event) => {
-                  const next = [...values];
-                  next[index] = (event.currentTarget as HTMLInputElement).value;
-                  setValues(next);
-                }}
-                onKeyDown={(event) => {
-                  if (event.key !== 'Enter' || event.isComposing || event.keyCode === 229) return;
-                  const nextEmpty = values.findIndex((value) => !value.trim());
-                  if (nextEmpty >= 0) {
-                    if (nextEmpty !== index) {
-                      event.preventDefault();
-                      inputs.current[nextEmpty]?.focus();
-                    }
-                    return;
-                  }
-                  event.preventDefault();
-                  finish(false);
-                }}
-              />
-            )}
-          </span>
-        ))}
+      <div
+        id={promptRepeated ? 'nq-question-template' : undefined}
+        class={`nq-input-template${answerOnOwnRow ? ' nq-input-template-stacked' : ''}`}
+      >
+        {answerOnOwnRow ? (
+          <>
+            <RubyLabel text={pieces[0] ?? ''} grade={ctx.grade} class="nq-input-question-text" />
+            <span class="nq-input-answer-row">
+              {inputAt(0)}
+              <RubyLabel text={pieces[1] ?? ''} grade={ctx.grade} />
+            </span>
+          </>
+        ) : (
+          pieces.map((piece, index) => (
+            <span key={index}>
+              <RubyLabel text={piece} grade={ctx.grade} />
+              {index < payload.answers.length && inputAt(index)}
+            </span>
+          ))
+        )}
       </div>
       {payload.suffix && !suffixRepeated && <RubyLabel text={payload.suffix} class="nq-input-suffix" />}
       {numberPad && (

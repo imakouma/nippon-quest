@@ -149,7 +149,19 @@ for (const viewport of [
         targetIds: [battle.state.ally.hero.id],
         command: 'attack',
       });
-      const recovered = battle.enemySprite.anims.currentAnim?.key;
+      return animations;
+    });
+    expect(integration).toContain(`${manifest[0]!.key}.attack`);
+    // 移動演出のPromiseとは別に完了するスプライトの復帰を待つ。
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () => (window.__nq.scene.getScene('Battle') as Battle).enemySprite.anims.currentAnim?.key,
+        ),
+      )
+      .toBe(`${manifest[0]!.key}.idle`);
+    const knockout = await page.evaluate(async () => {
+      const battle = window.__nq.scene.getScene('Battle') as Battle;
       await battle.animate({
         t: 'ko',
         actionId: 'turn:1:action:1',
@@ -157,16 +169,12 @@ for (const viewport of [
         targetId: battle.state.enemy.id,
       });
       return {
-        animations,
-        recovered,
         playing: battle.enemySprite.anims.isPlaying,
         alpha: battle.enemySprite.alpha,
       };
     });
-    expect(integration.animations).toContain(`${manifest[0]!.key}.attack`);
-    expect(integration.recovered).toBe(`${manifest[0]!.key}.idle`);
-    expect(integration.playing).toBe(false);
-    expect(integration.alpha).toBe(0);
+    expect(knockout.playing).toBe(false);
+    expect(knockout.alpha).toBe(0);
     expect(browserErrors).toEqual([]);
   });
 }
