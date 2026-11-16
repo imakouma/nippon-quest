@@ -103,10 +103,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_8",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "次のうち、データの特ちょうを表す代表値として、適切でないものをえらぼう。",
+      "prompt": "データの中心的[ちゅうしんてき]な傾向[けいこう]を表[あらわ]す代表値[だいひょうち]に当[あ]てはまらないものをえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -128,7 +129,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "平均値、最頻値（モード）、中央値（メジアン）のように、そのデータの特ちょうを表す値を 代表値という。"
+    "explanation": "平均値[へいきんち]、中央値[ちゅうおうち]、最頻値[さいひんち]は中心的[ちゅうしんてき]な傾向[けいこう]を表[あらわ]す代表値[だいひょうち]です。最小値[さいしょうち]は最[もっと]も小[ちい]さい値[あたい]で、広[ひろ]がりを調[しら]べる手[て]がかりになります。"
   },
   {
     "id": "legacy.sansu.g6.math-6-8.594e99c92c46",
@@ -286,7 +287,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_8",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
       "prompt": "中央値（メジアン）の説明として、正しいものをえらぼう。",
@@ -297,7 +299,7 @@
         },
         {
           "id": "c2",
-          "text": "データを小さいものから並べたとき、真ん中にくる値のこと。"
+          "text": "小[ちい]さい順[じゅん]に並[なら]べた中央[ちゅうおう]の値[あたい]。個数[こすう]が偶数[ぐうすう]なら中央[ちゅうおう]2つの平均[へいきん]。"
         },
         {
           "id": "c3",
@@ -311,9 +313,9 @@
       "answer": "c2",
       "shuffle": true,
       "promptImage": "questions/sansu/g6/visuals/data-example-9197a4c0b137.svg",
-      "promptSpeech": "中央値（メジアン）の説明として、正しいものをえらぼう。 例として5人の記録2、4、4、6、9を小さい順に並べる。特定の値を強調していない。"
+      "promptSpeech": "中央値（メジアン）の説明として、正しいものをえらぼう。"
     },
-    "explanation": "データを小さいものから並べたとき、真ん中にくる値を、中央値（メジアン）という。 ・最頻値：データの中で最もよく出てくる値のこと。 ・最大値：データの中で、最も大きい値のこと。 ・平均値：データの合計をデータの個数で割った値のこと。"
+    "explanation": "中央値[ちゅうおうち]は順[じゅん]に並[なら]べた中央[ちゅうおう]の値[あたい]です。5個[こ]なら3番目[ばんめ]。6個[こ]なら3番目[ばんめ]と4番目[ばんめ]を足[た]して2で割[わ]ります。"
   },
   {
     "id": "legacy.sansu.g6.math-6-8.a08cd2930228",
@@ -364,10 +366,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_8",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "６年１組で体力測定をしたところ、上体起こしの回数について、左図のようになりました。",
+      "prompt": "上体[じょうたい]起[お]こしの回数[かいすう]を、数直線[すうちょくせん]上[じょう]に点[てん]で表[あらわ]しました。このグラフを何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -452,5 +455,133 @@
       "promptSpeech": "10以上15未満に当てはまらない数は、次のうちどれでしょう。 10以上15未満の範囲。10の端は塗った丸、15の端は白い丸。"
     },
     "explanation": "「以上」や「以下」は、その数をふくみ、「未満」はその数をふくまないので、「10以上15未満」には、10はふくまれるけど、15はふくまれない。"
+  },
+  {
+    "id": "sansu.g6.curriculum.median-even",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "4人[にん]の記録[きろく]を小[ちい]さい順[じゅん]に並[なら]べました。中央値[ちゅうおうち]はいくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4.5回[かい]"
+        },
+        {
+          "id": "c2",
+          "text": "3回[かい]"
+        },
+        {
+          "id": "c3",
+          "text": "6回[かい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/median-even.svg",
+      "promptImageAlt": "小さい順に2、3、6、7回の4つの記録。"
+    },
+    "explanation": "データが4個[こ]なので中央[ちゅうおう]は2番目[ばんめ]と3番目[ばんめ]です。3と6の平均[へいきん]をとり、(3＋6)÷2＝4.5回[かい]です。"
+  },
+  {
+    "id": "sansu.g6.curriculum.spread",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "A班[はん]もB班[はん]も平均[へいきん]は5回[かい]です。表[ひょう]から分[わ]かることはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B班[はん]の方[ほう]が記録[きろく]の広[ひろ]がりが大[おお]きい"
+        },
+        {
+          "id": "c2",
+          "text": "全員[ぜんいん]の記録[きろく]が同[おな]じ"
+        },
+        {
+          "id": "c3",
+          "text": "A班[はん]の方[ほう]が最大値[さいだいち]が大[おお]きい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/spread.svg",
+      "promptImageAlt": "A班は4、5、6回。B班は1、5、9回。"
+    },
+    "explanation": "A班[はん]は4〜6回[かい]、B班[はん]は1〜9回[かい]に広[ひろ]がっています。平均[へいきん]が同[おな]じでも、記録[きろく]の散[ち]らばりは違[ちが]います。"
+  },
+  {
+    "id": "sansu.g6.curriculum.survey",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "6年生[ねんせい]全体[ぜんたい]の読書[どくしょ]時間[じかん]を調[しら]べます。偏[かたよ]りを減[へ]らす集[あつ]め方[かた]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "各[かく]学級[がっきゅう]からくじで同[おな]じ人数[にんずう]を選[えら]ぶ"
+        },
+        {
+          "id": "c2",
+          "text": "図書[としょ]委員[いいん]だけに聞[き]く"
+        },
+        {
+          "id": "c3",
+          "text": "読書[どくしょ]が好[す]きな友達[ともだち]だけに聞[き]く"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/survey.svg",
+      "promptImageAlt": "同じ人数の1組、2組、3組を示す。"
+    },
+    "explanation": "読書[どくしょ]が好[す]きな人[ひと]だけでは長[なが]い時間[じかん]に偏[かたよ]るおそれがあります。各[かく]学級[がっきゅう]からくじで選[えら]び、学年[がくねん]全体[ぜんたい]に近[ちか]い集[あつ]め方[かた]を考[かんが]えます。"
+  },
+  {
+    "id": "sansu.g6.curriculum.interval",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-8",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "10分[ぷん]以上[いじょう]15分[ふん]未満[みまん]の記録[きろく]は、何個[なんこ]ありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2個[こ]"
+        },
+        {
+          "id": "c2",
+          "text": "3個[こ]"
+        },
+        {
+          "id": "c3",
+          "text": "1個[こ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/interval.svg",
+      "promptImageAlt": "8、10、12、15、19分の5つの記録。"
+    },
+    "explanation": "10以上[いじょう]には10を含[ふく]み、15未満[みまん]には15を含[ふく]みません。該当[がいとう]するのは10分[ぷん]と12分[ふん]の2個[こ]です。"
   }
 ]
