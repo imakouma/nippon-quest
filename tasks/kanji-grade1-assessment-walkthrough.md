@@ -41,3 +41,9 @@ JSONモジュールのimportが開発サーバーの生JSON配信に奪われる
 入力イベント処理の根拠: [W3C Pointer Events: coalesced events](https://www.w3.org/TR/pointerevents3/#coalesced-events)。
 
 追補の最終検査: 全型検査（app/tests/tools）、lint、architecture、全体テスト248ファイル2313件、content検証、本番buildが成功。関連テスト20ファイル182件、ペン単体9件、漢字ブラウザE2E4件（弱い筆圧0.02／強い筆圧1を含む）も成功。作業専用4193のサーバーを最新buildで再起動。実機・実筆跡の校正と共有ブランチへの統合は未実施。
+
+## 2026-11-16 共有ブランチ統合
+
+ユーザーの指示で `codex/publish-problem-review-20261116` に統合（`75116960`）。統合後のlint、architecture、全2426テスト、型検査、教材検証、buildと漢字E2E4件が成功。正規4174を統合後buildで起動。
+
+`check:full`の最終性能予算検査は失敗: initial JS 610,519 bytes / 上限550,000、content bundle 5,328,633 bytes / 上限4,000,000。閾値を変更せず残課題とする。実機・実筆跡の校正は未実施。リモートpushはしていない。
