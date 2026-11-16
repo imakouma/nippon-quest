@@ -243,7 +243,7 @@ test('ゲームは問題中も横画面を案内し、横に戻すと解答で�
 });
 
 for (const id of ['kokugo.g1.kanji-onyomi.0004', 'kokugo.g2.kanji-onyomi.0158']) {
-  test(`読み上げボタンが問題文やタイマーと重ならない: ${id}`, async ({ page }) => {
+  test(`漢字の読み問題は読み上げなしで枠内に収まる: ${id}`, async ({ page }) => {
     await page.goto(`/playground.html?q=${id}`);
     const stage = page.locator('.pg-stage');
     await expect(stage.locator('.nq-q-reading')).toBeVisible();
@@ -254,16 +254,7 @@ for (const id of ['kokugo.g1.kanji-onyomi.0004', 'kokugo.g2.kanji-onyomi.0158'])
       { width: 1440, height: 900 },
     ]) {
       await page.setViewportSize(size);
-      await expect
-        .poll(() =>
-          stage.evaluate((host) => {
-            const button = host.querySelector('.nq-input-speak')!.getBoundingClientRect();
-            const prompt = host.querySelector('.nq-q-prompt')!.getBoundingClientRect();
-            const timer = host.querySelector('.nq-timer-row')!.getBoundingClientRect();
-            return timer.bottom <= button.top && button.bottom <= prompt.top;
-          }),
-        )
-        .toBe(true);
+      await expect(stage.getByRole('button', { name: 'よみあげ', exact: true })).toHaveCount(0);
       await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
     }
   });
