@@ -25,7 +25,10 @@ const assets = {
 };
 const speak = createSpeaker();
 const nextFrame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
-const waitForImages = async (host: HTMLElement) => {
+const waitForContent = async (host: HTMLElement) => {
+  // 教材を非同期で読み込むレンダラーも、解答待ちのmount Promiseとは別に描画を待つ。
+  const deadline = performance.now() + 10_000;
+  while (!host.querySelector('.nq-q') && performance.now() < deadline) await nextFrame();
   await Promise.all(
     [...host.querySelectorAll('img')].map(
       (image) =>
@@ -133,7 +136,7 @@ function AuditApp() {
               signal: abort.signal,
             })
             .catch((error: unknown) => console.error('question mount failed', question.id, error));
-          await waitForImages(host.current);
+          await waitForContent(host.current);
           if (!disposed) {
             for (const [width, height] of auditSizes) {
               stage.current!.style.width = `${width}px`;
