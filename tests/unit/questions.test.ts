@@ -89,13 +89,13 @@ describe('QuestionBank', () => {
     expect((await subjects(3)).some((question) => question.subject === 'eigo')).toBe(true);
   });
 
-  it('1年生の旧問題は表示材料不足を通常警告へ残さず、復元不能分だけ明示的に隔離する', async () => {
+  it('1年生の旧問題は元式の復元後に欠落・隔離なしで読み込める', async () => {
     const manifest = (await read('manifest.json')) as { questions: string[] };
     const files = manifest.questions.filter((file) => file.startsWith('questions/sansu/g1/legacy-math-1-'));
     const { report } = await QuestionBank.load(files, read);
 
     expect(report.omitted).toBe(0);
-    expect(report).toMatchObject({ quarantined: 13 });
+    expect(report).toMatchObject({ quarantined: 0 });
   });
 
   it('式も図もない旧入力問題を出題候補へ入れない', async () => {

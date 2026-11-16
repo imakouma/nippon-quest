@@ -23,7 +23,7 @@ test('小1算数の学ぶ順は単元を跨いで基礎をまとめ、保存フ�
   const grade = subject.locator('details[data-grade="1"]');
   await grade.locator(':scope > summary').click();
   const groups = grade.locator('[data-math-scope]');
-  await expect(groups).toHaveCount(22, { timeout: 20_000 });
+  await expect(groups).toHaveCount(21, { timeout: 20_000 });
   await expect(groups.first()).toHaveAttribute('data-math-scope', 'correspondence');
   await grade.locator('[data-math-scope="correspondence"]').click();
   await expect(grade.locator('.pg-question-row')).toHaveCount(3);
@@ -46,23 +46,19 @@ test('小1算数の学ぶ順は単元を跨いで基礎をまとめ、保存フ�
   }
 });
 
-test('繰り上がりと修復待ちを分離し、欠落問題を形式OKと表示しない', async ({ page }) => {
+test('繰り上がりを分離し、復元した計算を基本加減へ戻す', async ({ page }) => {
   await page.goto('/playground.html');
   const subject = page.locator('details[data-subject="sansu"]');
   await subject.locator(':scope > summary').click();
   const grade = subject.locator('details[data-grade="1"]');
   await grade.locator(':scope > summary').click();
   await grade.locator('[data-math-scope="addition"]').click();
-  await expect(grade.locator('.pg-question-row')).toHaveCount(17);
+  await expect(grade.locator('.pg-question-row')).toHaveCount(26);
   await expect(grade.locator('.pg-question-row').filter({ hasText: '9 + 3' })).toHaveCount(0);
   await grade.locator('[data-math-scope="carry-addition"]').click();
   await expect(grade.locator('.pg-question-row').filter({ hasText: '9 + 3' })).toHaveCount(1);
-  await grade.locator('[data-math-scope="repair"]').click();
-  await expect(grade.locator('.pg-question-row')).toHaveCount(13);
-  await expect(grade.locator('.pg-question-row.pg-bad')).toHaveCount(13);
-  await expect(grade.locator('.pg-question-row').first()).toContainText('修復');
-  await grade.locator('.pg-question-row').first().click();
-  await page.getByRole('button', { name: '再生', exact: true }).click();
-  await expect(page.locator('.pg-stage .nq-q')).toHaveCount(0);
-  await expect(page.locator('.pg-preview')).toContainText('式や図が不足');
+  await expect(grade.locator('[data-math-scope="repair"]')).toHaveCount(0);
+  await grade.locator('[data-math-scope="subtraction"]').click();
+  await expect(grade.locator('.pg-question-row')).toHaveCount(20);
+  await expect(grade.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 });
