@@ -126,12 +126,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 17/8÷34/7÷7/16 =",
+      "prompt": "1\\dfrac{7}{8} ÷ 3\\dfrac{4}{7} ÷ \\dfrac{7}{16} を計算[けいさん]し、仮分数[かぶんすう]で答[こた]えよう。",
       "answers": [
-        "6,5"
-      ]
+        "6",
+        "5"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/restored-mixed-3f37cc35e0f6.svg",
+      "promptImageAlt": "帯分数を仮分数に直した量15/8、25/7、7/16。枠1つが1で、答えは示していない。"
     },
-    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} 1\\dfrac{7}{8}÷3\\dfrac{4}{7}÷\\dfrac{7}{16}=\\dfrac{\\bcancel{15}3}{\\bcancel{8}1}×\\dfrac{\\bcancel{7}1}{\\bcancel{25}5}×\\dfrac{\\bcancel{16}2}{\\bcancel{7}1}=\\dfrac{6}{5}"
+    "explanation": "帯分数[たいぶんすう]を仮分数[かぶんすう]に直[なお]し、割[わ]る数[かず]を逆数[ぎゃくすう]にしてかけます。\\dfrac{15}{8} × \\dfrac{7}{25} × \\dfrac{16}{7} = \\dfrac{6}{5}。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.50ef96afb265",
@@ -211,10 +215,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "prompt": "15分[ふん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。",
       "answers": [
-        "1,4"
-      ]
+        "1",
+        "4"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} 時間[じかん]",
+      "promptImage": "questions/sansu/g6/visuals/time-15-minutes.svg",
+      "promptImageAlt": "1時間を60個の1分に等分した帯。そのうち15分を青く示す。分数の答えは示していない。"
     },
     "explanation": "１時間は ６０分なので、これを分母にし、１５分を分子にして分数をつくる。 \\dfrac{15}{60}=\\dfrac{1}{4} 時間"
   },
@@ -342,10 +350,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "prompt": "10分[ぷん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。",
       "answers": [
-        "1,6"
-      ]
+        "1",
+        "6"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} 時間[じかん]",
+      "promptImage": "questions/sansu/g6/visuals/time-10-minutes.svg",
+      "promptImageAlt": "1時間を60個の1分に等分した帯。そのうち10分を青く示す。分数の答えは示していない。"
     },
     "explanation": "１時間は ６０分なので、これを分母にし、１０分を分子にして分数をつくる。 \\dfrac{10}{60}=\\dfrac{1}{6} 時間"
   },
@@ -361,12 +373,16 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12/5÷21/10 =",
+      "prompt": "1\\dfrac{2}{5} ÷ 2\\dfrac{1}{10} を計算[けいさん]しよう。",
       "answers": [
-        "2,3"
-      ]
+        "2",
+        "3"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}}",
+      "promptImage": "questions/sansu/g6/visuals/restored-mixed-ba6d3d429270.svg",
+      "promptImageAlt": "帯分数を仮分数に直した量7/5、21/10。枠1つが1で、答えは示していない。"
     },
-    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} 1\\dfrac{2}{5}÷2\\dfrac{1}{10}=\\dfrac{\\bcancel{7}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{10}2}{\\bcancel{21}3}=\\dfrac{2}{3}"
+    "explanation": "帯分数[たいぶんすう]を仮分数[かぶんすう]に直[なお]し、割[わ]る数[かず]を逆数[ぎゃくすう]にしてかけます。\\dfrac{7}{5} × \\dfrac{10}{21} = \\dfrac{2}{3}。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.c7e70d5bef36",
@@ -380,10 +396,14 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の時間を（ ）内の単位で表そう。",
+      "prompt": "24分[ふん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。",
       "answers": [
-        "2,5"
-      ]
+        "2",
+        "5"
+      ],
+      "template": "分子 {{INPUT}} ／ 分母 {{INPUT}} 時間[じかん]",
+      "promptImage": "questions/sansu/g6/visuals/time-24-minutes.svg",
+      "promptImageAlt": "1時間を60個の1分に等分した帯。そのうち24分を青く示す。分数の答えは示していない。"
     },
     "explanation": "１時間は ６０分なので、これを分母にし、２４分を分子にして分数をつくる。 \\dfrac{24}{60}=\\dfrac{2}{5} 時間"
   },
