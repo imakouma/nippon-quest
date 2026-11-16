@@ -25,6 +25,7 @@ export default defineConfig({
     'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
+    'question-speech.spec.ts',
     'question-mobile.spec.ts',
     'battle-question-audit.spec.ts',
   ],

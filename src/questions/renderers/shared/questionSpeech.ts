@@ -2,6 +2,11 @@ import { fractionSpeech } from '../../../ui/fraction';
 import { stripRuby } from '../../../ui/ruby';
 import { t } from '../../../ui/i18n';
 import type { TextInputPayload } from '../text-input/schema';
+import type { QuestionBase } from '../../contracts';
+
+export function canSpeakPrompt(question: Pick<QuestionBase, 'tags'>): boolean {
+  return !question.tags?.some((tag) => tag === 'speech:disabled' || tag.startsWith('kanji:reading:'));
+}
 
 export function mathSpeech(text: string): string {
   const symbols: Record<string, string> = {
@@ -31,7 +36,8 @@ export function getTextInputSpeech(payload: TextInputPayload, mathematical = tru
   const compact = (text: string) => stripRuby(text).replaceAll('{{INPUT}}', '').replace(/\s+/g, '');
   const template = payload.template ?? '{{INPUT}}';
   const repeated = compact(template) === compact(payload.prompt);
-  const parts = [repeated ? '' : payload.prompt, payload.promptImageAlt, template];
+  // 図の説明には、数えさせる個数などの答えが含まれるため音声へ足さない。
+  const parts = [repeated ? '' : payload.prompt, template];
   if (payload.suffix && !template.trimEnd().endsWith(payload.suffix)) parts.push(payload.suffix);
   const text = parts.filter(Boolean).join('。');
   return mathematical
