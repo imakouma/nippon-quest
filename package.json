@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "VITE_NQ_DEV_TOOLS=1 pnpm build && VITE_NQ_DEV_TOOLS=1 vite preview --host 127.0.0.1 --port 5173 --strictPort",
     "dev:hmr": "pnpm gen:manifest && vite --host 127.0.0.1 --port 5173 --strictPort",
-    "nrd": "npm run dev",
+    "nrd": "node --import tsx scripts/start-integrated-preview.ts",
     "prebuild": "pnpm gen:manifest && pnpm gen:schemas && pnpm validate:content",
     "build": "pnpm typecheck:app && vite build",
     "preview": "vite preview",
@@ -100,6 +100,7 @@
     "check": "pnpm check:full"
   },
   "dependencies": {
+    "kanji-recognizer": "0.2.0",
     "localforage": "^1.10.0",
     "phaser": "^3.87.0",
     "preact": "^10.24.0",
@@ -118,6 +119,7 @@
     "globals": "^15.11.0",
     "jsdom": "^25.0.1",
     "prettier": "^3.3.3",
+    "svg-path-properties": "2.2.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.9.0",

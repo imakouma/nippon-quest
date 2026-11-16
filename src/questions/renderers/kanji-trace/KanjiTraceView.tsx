@@ -7,6 +7,7 @@ import { Feedback, type FeedbackKind } from '../shared/Feedback';
 import { TimerBar } from '../shared/TimerBar';
 import type { KanjiTracePayload } from './schema';
 import { TraceCanvas } from './TraceCanvas';
+import type { WritingData } from './writingAssessment';
 
 export interface KanjiTraceDone {
   score: number;
@@ -17,15 +18,17 @@ export interface KanjiTraceDone {
 }
 
 interface Props {
+  writing?: WritingData;
   payload: KanjiTracePayload;
   ctx: RendererContext;
   order: string[];
   onDone: (result: KanjiTraceDone) => void;
 }
 
-export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
+export function KanjiTraceView({ payload, ctx, order, onDone, writing }: Props) {
   const [result, setResult] = useState<KanjiTraceDone | null>(null);
   const ended = useRef(false);
+  const writingAttempts = useRef(0);
   const completionTimer = useRef<number | null>(null);
 
   const complete = (next: Omit<KanjiTraceDone, 'timedOut'>, timedOut = false) => {
@@ -44,7 +47,7 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
     else if (ended.current) return;
     ended.current = true;
     completionTimer.current = null;
-    onDone({ score: 0, timedOut: true, attempts: 0 });
+    onDone({ score: 0, timedOut: true, attempts: writingAttempts.current });
   };
 
   useEffect(() => {
@@ -81,7 +84,7 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
       <TimerBar
         ms={ctx.timeLimitMs}
         running={!result}
-        onTimeout={() => complete({ score: 0, attempts: 0, chosen: null }, true)}
+        onTimeout={() => complete({ score: 0, attempts: writingAttempts.current, chosen: null }, true)}
       />
       <div id="nq-question-prompt" class="nq-q-prompt">
         <p>
@@ -136,10 +139,14 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
         </div>
       ) : (
         <TraceCanvas
+          writing={writing}
           payload={payload}
           ctx={ctx}
           disabled={!!result}
-          onSubmit={(score, match) => complete({ score, match, attempts: 1 })}
+          onAttempt={() => {
+            writingAttempts.current += 1;
+          }}
+          onSubmit={(score, match) => complete({ score, match, attempts: writingAttempts.current })}
         />
       )}
       {result && <Feedback kind={feedback} />}

@@ -71,8 +71,8 @@ const manifest = {
 writeFileSync(join(ROOT, 'manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
 const readEntries = (paths: string[]) =>
   Object.fromEntries(paths.map((file) => [file, JSON.parse(readFileSync(join(ROOT, file), 'utf8'))]));
-// 起動時のloaderが読むものだけを束ね、静的import済みの教材・制作資料を重複配信しない。
-const bundle = readEntries(['manifest.json', ...Object.values(files).flat()]);
+// Boot only consumes manifest.files; other JSON is loaded by its owning feature.
+const bundle = readEntries(['manifest.json', ...new Set(Object.values(files).flat())]);
 const questionBundle = readEntries(questions);
 writeFileSync(join(ROOT, 'content-bundle.json'), JSON.stringify(bundle));
 writeFileSync(join(ROOT, 'questions-bundle.json'), JSON.stringify(questionBundle));

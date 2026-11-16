@@ -6,6 +6,7 @@ import { existsSync, statSync, createReadStream, cpSync } from 'node:fs';
 import { isGameAssetPath } from './scripts/game-asset-policy';
 import { questionSaveMiddleware } from './scripts/question-save-server';
 import { folderSaveMiddleware } from './scripts/folder-save-server';
+import { integratedPreview } from './scripts/integrated-preview';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -29,6 +30,8 @@ function serveRootDirs(dirs: string[]): Plugin {
     name: 'nihonquest:serve-root-dirs',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
+        // JSON module imports need Vite's transform, not the raw content response.
+        if (new URLSearchParams((req.url ?? '').split('?')[1]).has('import')) return next();
         const url = (req.url ?? '').split('?')[0] ?? '';
         const dir = dirs.find((d) => url.startsWith(`/${d}/`));
         if (!dir) return next();
@@ -89,7 +92,13 @@ function questionSave(): Plugin {
 export default defineConfig({
   base: process.env.BASE_PATH ?? '/',
   esbuild: { sourcemap: false },
-  plugins: [preact(), questionSave(), serveRootDirs(['content', 'assets', 'schemas', 'maps'])],
+  plugins: [
+    preact(),
+    integratedPreview(),
+    questionSave(),
+    serveRootDirs(['content', 'assets', 'schemas', 'maps']),
+  ],
+  preview: { strictPort: true },
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',

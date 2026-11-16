@@ -218,24 +218,33 @@ function App() {
       setError(problem);
       return;
     }
+    // Apply the selected grade before mounting; a later state render must not resize handwriting UI.
+    setGrade(q.grade);
+    if (kanji) setKanjiLevel({ grade: q.grade, table: kanji.table, names: kanji.names });
     const container = document.createElement('div');
     stage.current!.replaceChildren(container);
     const ctl = new AbortController();
     abort.current = ctl;
     setRunning(true);
     const started = performance.now();
-    const res = await r.mount({
-      container,
-      question: { ...q, payload: p.data },
-      grade: q.grade,
-      assets,
-      speak,
-      timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
-      signal: ctl.signal,
-    });
-    if (id !== runId.current) return;
-    setRunning(false);
-    setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
+    try {
+      const res = await r.mount({
+        container,
+        question: { ...q, payload: p.data },
+        grade: q.grade,
+        assets,
+        speak,
+        timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
+        signal: ctl.signal,
+      });
+      if (id !== runId.current) return;
+      setRunning(false);
+      setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
+    } catch {
+      if (id !== runId.current) return;
+      setRunning(false);
+      setError(tOpt('ui.loadError') ?? '');
+    }
   };
 
   const replaceUrl = (questionId: string | undefined) => {

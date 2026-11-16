@@ -19,7 +19,7 @@ import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
 import { bundledFetchReader, fetchReader, loadContent, type ContentIndex } from './core/content/loader';
-import { QuestionBank } from './questions/engine/bank';
+import type { QuestionBank } from './questions/engine/bank';
 import { isLocalDevelopmentUrl } from './core/localDevelopment';
 import { setDictionary, t } from './ui/i18n';
 import { recordPlayDuration } from './core/state/playTime';
@@ -277,6 +277,7 @@ function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBan
     const read = bundledFetchReader(`${base}/content`, `questions-g${grade}-bundle.json`);
     const filesByGrade = content.questionFilesByGrade ?? {};
     const files = filesByGrade[String(grade)] ?? [];
+    const { QuestionBank } = await import('./questions/engine/bank');
     const { bank, report } = await QuestionBank.load(files, read);
     if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
     if (report.omitted)

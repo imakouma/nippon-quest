@@ -157,6 +157,7 @@ describe('question renderer cancellation', () => {
         kanjiTraceCanvas: '{kanji}',
         kanjiTraceClear: 'けす',
         kanjiTraceDone: 'できた',
+        kanjiWriting: { guide: '{count}かく' },
       },
     });
   });

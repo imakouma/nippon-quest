@@ -1,5 +1,7 @@
 // @vitest-environment jsdom
 
+import { gradeOneWriting } from '../../src/questions/renderers/kanji-trace/writingAssessment';
+import dictionary from '../../content/i18n/ja.json';
 import { act } from 'preact/test-utils';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -126,6 +128,7 @@ describe('kanji-trace renderer', () => {
     vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null);
     setDictionary({
       question: {
+        kanjiWriting: dictionary.question.kanjiWriting,
         speak: 'よみあげ',
         remainingTime: 'のこり {n} びょう',
         kanjiTracePrompt: 'うすい 字[じ]を なぞろう',
@@ -195,8 +198,22 @@ describe('kanji-trace renderer', () => {
     expect(done!.disabled).toBe(false);
     act(() => clear!.click());
     expect(done!.disabled).toBe(true);
+    vi.spyOn(canvas, 'getBoundingClientRect').mockReturnValue({
+      left: 0,
+      top: 0,
+      width: 240,
+      height: 240,
+    } as DOMRect);
     act(() => {
-      canvas.dispatchEvent(touch('pointerdown', { clientX: 5, clientY: 5 }));
+      for (const stroke of gradeOneWriting['山']!) {
+        stroke.points.forEach((p, index) =>
+          canvas.dispatchEvent(
+            touch(index ? 'pointermove' : 'pointerdown', { clientX: p.x * 240, clientY: p.y * 240 }),
+          ),
+        );
+        const end = stroke.points.at(-1)!;
+        canvas.dispatchEvent(touch('pointerup', { clientX: end.x * 240, clientY: end.y * 240 }));
+      }
     });
     expect(done!.disabled).toBe(false);
     act(() => done!.click());
@@ -204,6 +221,27 @@ describe('kanji-trace renderer', () => {
       await vi.advanceTimersByTimeAsync(1_000);
     });
     await expect(result).resolves.toMatchObject({ score: 1, attempts: 1, timedOut: false });
+  });
+
+  it('does not award full credit when a legacy guide cannot be rendered', async () => {
+    const { container, result } = mount({ kanji: '龍', reading: 'りゅう' });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    const canvas = container.querySelector('canvas')!;
+    const down = new MouseEvent('pointerdown', { bubbles: true });
+    Object.defineProperty(down, 'pointerId', { value: 1 });
+    const up = new MouseEvent('pointerup', { bubbles: true });
+    Object.defineProperty(up, 'pointerId', { value: 1 });
+    act(() => {
+      canvas.dispatchEvent(down);
+      canvas.dispatchEvent(up);
+    });
+    act(() => container.querySelector<HTMLButtonElement>('.nq-kt-submit')!.click());
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1000);
+    });
+    await expect(result).resolves.toMatchObject({ score: 0, attempts: 1 });
   });
 
   it('scores reading choices and aborts immediately during feedback', async () => {
