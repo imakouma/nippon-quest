@@ -34,3 +34,20 @@ it('routes a task worktree to the integrated checkout and rejects serving the ta
   git('branch', '-m', 'codex/renamed');
   expect(() => integrationRoot(task)).toThrow('worktree がありません');
 });
+
+it('keeps automated browser servers separate from the canonical preview', async () => {
+  const configs = [
+    (await import('../../playwright.config')).default,
+    (await import('../e2e/playwright.prebuilt.config')).default,
+    (await import('../e2e/playwright.mobile.config')).default,
+  ];
+  for (const config of configs) {
+    const server = config.webServer as { port: number; command: string };
+    expect(server.port).not.toBe(4174);
+    expect(new URL(config.use!.baseURL!).port).toBe(String(server.port));
+    expect(server.command).toContain(`--port ${server.port}`);
+  }
+  expect(configs[1].testIgnore).toEqual(
+    expect.arrayContaining(['math-review-order.spec.ts', 'sansu-g1-content-repair.spec.ts']),
+  );
+});
