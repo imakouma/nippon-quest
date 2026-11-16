@@ -7,10 +7,10 @@
       "subject": "sansu",
       "name": "たしざん",
       "goals": 5,
-      "questions": 27,
+      "questions": 28,
       "confirmedTermQuestions": 25,
       "linked": 27,
-      "unreviewed": 0,
+      "unreviewed": 1,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -67,10 +67,10 @@
       "subject": "kokugo",
       "name": "1年[ねん]の漢字[かんじ]",
       "goals": 2,
-      "questions": 59,
+      "questions": 297,
       "confirmedTermQuestions": 0,
       "linked": 57,
-      "unreviewed": 2,
+      "unreviewed": 240,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -344,6 +344,11 @@
     {
       "unitId": "sansu.g1.tashizan",
       "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "sansu.g1.tashizan",
+      "kind": "some-questions-unreviewed",
       "severity": "review"
     },
     {

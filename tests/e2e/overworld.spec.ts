@@ -136,18 +136,26 @@ async function walkOneTile(
 ): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
   const before = await canvas.getAttribute('data-player-tile');
-  for (let attempt = 0; attempt < 10; attempt += 1) {
-    await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
-    await page.keyboard.press(key);
-    await page.waitForTimeout(300);
-    const decision = await canvas.getAttribute('data-last-movement');
-    const after = await canvas.getAttribute('data-player-tile');
-    if (decision === 'move' && after !== before) {
-      if (expected) expect(after).toBe(`${expected[0]},${expected[1]}`);
-      return;
-    }
+  await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
+  await page.keyboard.down(key);
+  try {
+    // 1フレーム未満のキー押下を避け、1歩が始まった時点で離す。
+    await page.waitForFunction(
+      () =>
+        (
+          window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+            playerLocomotion: { phase: string };
+          }
+        ).playerLocomotion.phase === 'stepping',
+      undefined,
+      { timeout: 5_000 },
+    );
+  } finally {
+    await page.keyboard.up(key);
   }
-  throw new Error(`${before} から ${key} で一歩進めませんでした`);
+  await expect(canvas).toHaveAttribute('data-last-movement', 'move');
+  await expect(canvas).not.toHaveAttribute('data-player-tile', before!);
+  if (expected) await expect(canvas).toHaveAttribute('data-player-tile', `${expected[0]},${expected[1]}`);
 }
 
 async function skipArrivalStory(page: Page): Promise<void> {
