@@ -1,0 +1,314 @@
+{
+  "sources": [
+    "https://ten.tokyo-shoseki.co.jp/text/shou/sansu/data/sansu_keikaku_ryakuan_1.pdf",
+    "https://www.shinko-keirin.co.jp/keirinkan/sho_r6/sansu/file/sansu_guidance_plan01.pdf"
+  ],
+  "groups": [
+    {
+      "id": "correspondence",
+      "name": "1つずつ くみあわせる",
+      "questionIds": [
+        "sansu.g1.kazu-100.correspondence-0001",
+        "sansu.g1.kazu-100.correspondence-0002",
+        "sansu.g1.kazu-100.correspondence-0003"
+      ]
+    },
+    {
+      "id": "count-five",
+      "name": "1から 5までを かぞえる",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-1.1fa82b870bfb",
+        "legacy.sansu.g1.math-1-1.7510c0c387c6",
+        "sansu.g1.kazu-100.count-0003",
+        "legacy.sansu.g1.math-1-1.f3f78aa5166c"
+      ]
+    },
+    {
+      "id": "count-ten",
+      "name": "6から 10までを かぞえる",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-1.46333eaf85df",
+        "sansu.g1.kazu-100.count-0001",
+        "legacy.sansu.g1.math-1-1.49a2b5845c29"
+      ]
+    },
+    {
+      "id": "number-order",
+      "name": "かずの おおきさと ならび",
+      "questionIds": [
+        "sansu.g1.kazu-100.order-0001",
+        "sansu.g1.kazu-100.order-0002",
+        "sansu.g1.kazu-100.ringo-numberline-0001"
+      ]
+    },
+    {
+      "id": "ordinal",
+      "name": "なんばんめ",
+      "questionIds": [
+        "sansu.g1.kazu-100.count-0002",
+        "legacy.sansu.g1.math-1-1.27834d1ff3be",
+        "legacy.sansu.g1.math-1-1.27fbf3853465",
+        "legacy.sansu.g1.math-1-1.35ffbbb8abf8",
+        "legacy.sansu.g1.math-1-1.5ad5d8d0e228",
+        "legacy.sansu.g1.math-1-1.8cd9f811aae4",
+        "legacy.sansu.g1.math-1-1.a06214fa3e95",
+        "legacy.sansu.g1.math-1-1.c4e9cc78ba25",
+        "legacy.sansu.g1.math-1-1.d29b83d0c753"
+      ]
+    },
+    {
+      "id": "decompose",
+      "name": "いくつと いくつ",
+      "questionIds": [
+        "sansu.g1.kazu-100.legacy-bunkai-0001",
+        "legacy.sansu.g1.math-1-1.ed72da1f9db3",
+        "sansu.g1.kazu-100.legacy-bunkai-0002",
+        "legacy.sansu.g1.math-1-1.46b4b8263a5d",
+        "legacy.sansu.g1.math-1-1.f00c1aaeba17",
+        "sansu.g1.kazu-100.legacy-bunkai-0003",
+        "legacy.sansu.g1.math-1-1.1af41b0cec87",
+        "legacy.sansu.g1.math-1-1.ee63affe5648",
+        "sansu.g1.kazu-100.legacy-bunkai-0004",
+        "legacy.sansu.g1.math-1-1.1f7c6dd3b91a"
+      ]
+    },
+    {
+      "id": "make-ten",
+      "name": "10を つくる",
+      "questionIds": [
+        "sansu.g1.kazu-100.make-ten-0001",
+        "sansu.g1.kazu-100.make-ten-0002",
+        "sansu.g1.kazu-100.make-ten-0003"
+      ]
+    },
+    {
+      "id": "addition",
+      "name": "たしざん（10まで）",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-2.3f3907084891",
+        "legacy.sansu.g1.math-1-2.477bb611b8fb",
+        "legacy.sansu.g1.math-1-2.4e9ff3694ce4",
+        "legacy.sansu.g1.math-1-2.7ae7d695d354",
+        "legacy.sansu.g1.math-1-2.970865a03225",
+        "legacy.sansu.g1.math-1-2.b46234534d9d",
+        "legacy.sansu.g1.math-1-2.b5c59541a762",
+        "legacy.sansu.g1.math-1-2.c8626ce3711f",
+        "legacy.sansu.g1.math-1-2.cab18fc902e1",
+        "legacy.sansu.g1.math-1-2.fc26d7226bfe",
+        "sansu.g1.tashizan.0001",
+        "sansu.g1.tashizan.0002",
+        "sansu.g1.tashizan.0003",
+        "sansu.g1.tashizan.0004",
+        "sansu.g1.tashizan.0006",
+        "sansu.g1.tashizan.0007",
+        "sansu.g1.tashizan.random.0001"
+      ]
+    },
+    {
+      "id": "subtraction",
+      "name": "ひきざん（10まで）",
+      "questionIds": [
+        "sansu.g1.hikizan.0001",
+        "sansu.g1.hikizan.0002",
+        "sansu.g1.hikizan.0003",
+        "sansu.g1.hikizan.0004",
+        "sansu.g1.hikizan.0005",
+        "sansu.g1.hikizan.0006",
+        "sansu.g1.hikizan.0007",
+        "legacy.sansu.g1.math-1-3.334599058766",
+        "legacy.sansu.g1.math-1-3.617c22787295",
+        "legacy.sansu.g1.math-1-3.828be8a15da8",
+        "legacy.sansu.g1.math-1-3.95ee1b626954",
+        "legacy.sansu.g1.math-1-3.97a5435eca00",
+        "legacy.sansu.g1.math-1-3.a0cc8743250a",
+        "legacy.sansu.g1.math-1-3.adb80c3ad7af",
+        "legacy.sansu.g1.math-1-3.bc5ddf12769f",
+        "legacy.sansu.g1.math-1-3.f6cd1c7fd19d"
+      ]
+    },
+    {
+      "id": "shape",
+      "name": "かたちと いち",
+      "questionIds": ["sansu.g1.katachi.0001", "sansu.g1.katachi.0002", "sansu.g1.katachi.0003"]
+    },
+    {
+      "id": "compare",
+      "name": "ながさ・かさを くらべる",
+      "questionIds": ["sansu.g1.kurabekata.0001", "sansu.g1.kurabekata.0002", "sansu.g1.kurabekata.0003"]
+    },
+    {
+      "id": "data",
+      "name": "えや ずで せいりする",
+      "questionIds": ["sansu.g1.data.0001", "sansu.g1.data.0002", "sansu.g1.data.0003"]
+    },
+    {
+      "id": "twenty",
+      "name": "20までの かずと けいさん",
+      "questionIds": [
+        "sansu.g1.kazu-20.0001",
+        "sansu.g1.kazu-20.0002",
+        "sansu.g1.kazu-20.0003",
+        "sansu.g1.kazu-20.0004",
+        "sansu.g1.kazu-20.0005",
+        "sansu.g1.kazu-20.0006",
+        "legacy.sansu.g1.math-1-4.1cbc2264a1ee",
+        "legacy.sansu.g1.math-1-4.31a736f90b43",
+        "legacy.sansu.g1.math-1-4.6dd4c9af22c3",
+        "legacy.sansu.g1.math-1-4.90bf0bce1449",
+        "legacy.sansu.g1.math-1-4.91bda509042f",
+        "legacy.sansu.g1.math-1-4.c3f964f63f3a",
+        "legacy.sansu.g1.math-1-4.e2ac63761c6b",
+        "legacy.sansu.g1.math-1-4.fd58036ae425"
+      ]
+    },
+    {
+      "id": "clock-basic",
+      "name": "なんじ・なんじはん",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-8.7bed5fa2e4a0",
+        "sansu.g1.tokei.0001",
+        "sansu.g1.tokei.0003",
+        "legacy.sansu.g1.math-1-8.13b5d9e4304f",
+        "legacy.sansu.g1.math-1-8.6c2c0a80bec3",
+        "legacy.sansu.g1.math-1-8.c6e63b71e522",
+        "sansu.g1.tokei.0002",
+        "sansu.g1.tokei.0004",
+        "sansu.g1.tokei.0005",
+        "sansu.g1.tokei.0006"
+      ]
+    },
+    {
+      "id": "carry-addition",
+      "name": "たしざん（くりあがり）",
+      "questionIds": [
+        "sansu.g1.kazu-100.ringo-keypad-0001",
+        "sansu.g1.kuriagari-kurisagari.0001",
+        "sansu.g1.kuriagari-kurisagari.0002",
+        "sansu.g1.kuriagari-kurisagari.0003",
+        "legacy.sansu.g1.math-1-5.18033ca31de5",
+        "legacy.sansu.g1.math-1-5.57580d0cada2",
+        "legacy.sansu.g1.math-1-5.9f657e1c2e87",
+        "legacy.sansu.g1.math-1-5.cf075e7e8b74",
+        "sansu.g1.tashizan.0005",
+        "sansu.g1.tashizan.0008"
+      ]
+    },
+    {
+      "id": "carry-subtraction",
+      "name": "ひきざん（くりさがり）",
+      "questionIds": [
+        "sansu.g1.kuriagari-kurisagari.0004",
+        "sansu.g1.kuriagari-kurisagari.0005",
+        "sansu.g1.kuriagari-kurisagari.0006",
+        "legacy.sansu.g1.math-1-5.3b2b1b7ef678",
+        "legacy.sansu.g1.math-1-5.97c33ad72178",
+        "legacy.sansu.g1.math-1-5.9d2bbdf6748d",
+        "legacy.sansu.g1.math-1-5.e5e1ef83fb5f"
+      ]
+    },
+    {
+      "id": "large-numbers",
+      "name": "おおきい かず",
+      "questionIds": [
+        "sansu.g1.kazu-100.place-value-0001",
+        "sansu.g1.kazu-100.place-value-0002",
+        "sansu.g1.kazu-100.place-value-0003",
+        "sansu.g1.kazu-100.ringo-blocks-0001",
+        "legacy.sansu.g1.math-1-6.0028cd1e9454",
+        "legacy.sansu.g1.math-1-6.0d5b59f1d0b1",
+        "legacy.sansu.g1.math-1-6.256da7111221",
+        "legacy.sansu.g1.math-1-6.392c6f803a77",
+        "legacy.sansu.g1.math-1-6.4520b07d4ccb",
+        "legacy.sansu.g1.math-1-6.4a5ecb6dfb0f",
+        "legacy.sansu.g1.math-1-6.4a9fa52b28f3",
+        "legacy.sansu.g1.math-1-6.582c47dfbafd",
+        "legacy.sansu.g1.math-1-6.76bdd12e3d89",
+        "legacy.sansu.g1.math-1-6.77a6f5ef6b43",
+        "legacy.sansu.g1.math-1-6.7b588cd0c820",
+        "legacy.sansu.g1.math-1-6.9599d1629996",
+        "legacy.sansu.g1.math-1-6.a382bc3ef2ab",
+        "legacy.sansu.g1.math-1-6.b603d681415b",
+        "legacy.sansu.g1.math-1-6.be2e2c092c35",
+        "legacy.sansu.g1.math-1-6.c7841ad0eb14",
+        "legacy.sansu.g1.math-1-6.cefe86ef8762",
+        "legacy.sansu.g1.math-1-6.d29acb17630b",
+        "legacy.sansu.g1.math-1-6.e7036378edfa",
+        "legacy.sansu.g1.math-1-6.ffb22b7264ce"
+      ]
+    },
+    {
+      "id": "large-calculation",
+      "name": "10の まとまりで けいさん",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-7.031e107b1bac",
+        "legacy.sansu.g1.math-1-7.05cb1911f461",
+        "legacy.sansu.g1.math-1-7.097f78d581ba",
+        "legacy.sansu.g1.math-1-7.37113fa61aae",
+        "legacy.sansu.g1.math-1-7.51bcd1362377",
+        "legacy.sansu.g1.math-1-7.64dfc03bf80f",
+        "legacy.sansu.g1.math-1-7.ab9c77c27df3",
+        "legacy.sansu.g1.math-1-7.aca550ddeaca",
+        "legacy.sansu.g1.math-1-7.cf4dbfa42bc6",
+        "legacy.sansu.g1.math-1-7.e1500ffc6265",
+        "legacy.sansu.g1.math-1-7.e98db62653aa",
+        "legacy.sansu.g1.math-1-7.ff14c365537b"
+      ]
+    },
+    {
+      "id": "clock-minutes",
+      "name": "なんじ なんぷん",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-8.7b4e7e51b9eb",
+        "legacy.sansu.g1.math-1-8.64c4ef4d45b9",
+        "legacy.sansu.g1.math-1-8.3c5ad93789a3",
+        "legacy.sansu.g1.math-1-8.7f09e0a90aba",
+        "legacy.sansu.g1.math-1-8.bf1c1121fe83",
+        "legacy.sansu.g1.math-1-8.ef8dff9d637a"
+      ]
+    },
+    {
+      "id": "word-problems",
+      "name": "おはなしと おなじ かずずつ",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-9.0ae1b28a84da",
+        "legacy.sansu.g1.math-1-9.21c817506842",
+        "legacy.sansu.g1.math-1-9.3e2f1449e1d8",
+        "legacy.sansu.g1.math-1-9.51c44ae28310",
+        "legacy.sansu.g1.math-1-9.696022d14077",
+        "legacy.sansu.g1.math-1-9.6c0325c6e9af",
+        "legacy.sansu.g1.math-1-9.77899e75da75",
+        "legacy.sansu.g1.math-1-9.7cbc728997f0",
+        "legacy.sansu.g1.math-1-9.8aa8ea763eae",
+        "legacy.sansu.g1.math-1-9.91fcf0312a4a",
+        "legacy.sansu.g1.math-1-9.a76d953c1d33",
+        "legacy.sansu.g1.math-1-9.d3a516ae95c3",
+        "legacy.sansu.g1.math-1-9.d565d918d645",
+        "legacy.sansu.g1.math-1-9.e3bac09b0df6"
+      ]
+    },
+    {
+      "id": "practice",
+      "name": "けいさんの れんしゅう",
+      "questionIds": ["sansu.g1.random-add.0001", "sansu.g1.random-subtract.0001"]
+    },
+    {
+      "id": "repair",
+      "name": "修復[しゅうふく]待[ま]ち（出題[しゅつだい]しない）",
+      "questionIds": [
+        "legacy.sansu.g1.math-1-2.0a4fffa0cf06",
+        "legacy.sansu.g1.math-1-2.68d9eeada7e3",
+        "legacy.sansu.g1.math-1-2.7c0b6d84fba5",
+        "legacy.sansu.g1.math-1-2.81d683bc4bd3",
+        "legacy.sansu.g1.math-1-2.8934316bf2b9",
+        "legacy.sansu.g1.math-1-2.b87cfd2e6ff3",
+        "legacy.sansu.g1.math-1-2.cc8d4eeb4ed4",
+        "legacy.sansu.g1.math-1-2.e9f788c88077",
+        "legacy.sansu.g1.math-1-2.f1ef7b73549b",
+        "legacy.sansu.g1.math-1-3.58b9bb14fbad",
+        "legacy.sansu.g1.math-1-3.8266536db113",
+        "legacy.sansu.g1.math-1-3.a26fac7b675a",
+        "legacy.sansu.g1.math-1-3.e8b22f2abbd7"
+      ]
+    }
+  ]
+}
