@@ -5,16 +5,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。",
-      "answers": [
-        "2100000"
-      ]
+      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。 練習用[れんしゅうよう]の数[かず] 2099759",
+      "answers": ["2100000"]
     },
     "explanation": "「万の位までのがい数」なので、1つ下の「千の位」を見る。 千の位は、9で「切り上げ」になるので、答えは 2100000 になる。切り上げる位が 9のときは、次の位まで 位が上がる。"
   },
@@ -24,11 +18,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "みはるさんは、スポーツ店で２つの商品を買いました。 ・ランニングシューズ 4835円 ・Tシャツ 1882円 それぞれの値段を、四捨五入で 百の位までのがい数にした。このとき 代金を求めたときの式として、正しいものをえらぼう。",
       "choices": [
@@ -62,11 +52,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "四捨五入で、ある数を 百の位までのがい数にするとき、何の位を見ればいいですか。",
       "choices": [
@@ -98,16 +84,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。",
-      "answers": [
-        "5540000"
-      ]
+      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。 練習用[れんしゅうよう]の数[かず] 5536989",
+      "answers": ["5540000"]
     },
     "explanation": "「万の位までのがい数」なので、1つ下の「千の位」を見る。 千の位は、6で「切り上げ」になるので、答えは 5540000 になる。"
   },
@@ -117,16 +97,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。",
-      "answers": [
-        "5500000"
-      ]
+      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。 練習用[れんしゅうよう]の数[かず] 5536989",
+      "answers": ["5500000"]
     },
     "explanation": "「上から２けたのがい数」なので、１つ下の「上から３けたの位（万の位）」を見る。 「万の位」は、3で「切り捨て」になるので、答えは 5500000 になる。"
   },
@@ -136,16 +110,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。",
-      "answers": [
-        "1900"
-      ]
+      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。 1882",
+      "answers": ["1900"]
     },
     "explanation": "「百の位までのがい数」なので、1つ下の「十の位」を見る。 十の位は、8で「切り上げ」になるので、答えは 1900 になる。"
   },
@@ -155,11 +123,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "四捨五入で、千の位までのがい数にしたとき、12000になる整数の範囲は、次のうち どれでしょう。",
       "choices": [
@@ -189,11 +153,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「120cm 以上 180cm 以下」に入らない数字は、次のうちどれでしょう。",
       "choices": [
@@ -227,16 +187,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。",
-      "answers": [
-        "2100000"
-      ]
+      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。 練習用[れんしゅうよう]の数[かず] 2099759",
+      "answers": ["2100000"]
     },
     "explanation": "「上から２けたのがい数」なので、１つ下の「上から３けたの位（万の位）」を見る。 「万の位」は、9で「切り上げ」になるので、答えは 2100000 になる。"
   },
@@ -246,16 +200,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。",
-      "answers": [
-        "14000000"
-      ]
+      "prompt": "四捨五入で、次の数を 上から２けたのがい数にしよう。 練習用[れんしゅうよう]の数[かず] 13513734",
+      "answers": ["14000000"]
     },
     "explanation": "「上から２けたのがい数」なので、１つ下の「上から３けたの位（十万の位）」を見る。 「十万の位」は、5で「切り上げ」になるので、答えは 14000000 になる。"
   },
@@ -265,16 +213,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。",
-      "answers": [
-        "13510000"
-      ]
+      "prompt": "四捨五入で、次の数を 万の位までのがい数にしよう。 練習用[れんしゅうよう]の数[かず] 13513734",
+      "answers": ["13510000"]
     },
     "explanation": "「万の位までのがい数」なので、1つ下の「千の位」を見る。 千の位は、3で「切り捨て」になるので、答えは 13510000 になる。"
   },
@@ -284,11 +226,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「30kg 以上 70kg 未満」に入らない数字は、次のうちどれでしょう。",
       "choices": [
@@ -322,13 +260,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。 ある数を およその大きさで表したものを （ ） といい、（ ） で表すことが多い。",
       "choices": [
         {
           "id": "c1",
@@ -358,11 +292,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "遠足にかかるお金は、１人390円です。４年生109人で行ったときにかかる金額を、四捨五入で 上から１けたまでのがい数で求めた。このときの式として、正しいものをえらぼう。",
       "choices": [
@@ -396,11 +326,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "中村先生は、クラス28人分の分度器を買いに、文ぼう具店に行きました。4246円持っていたとき、およそ１ついくらの分度器なら買えるでしょう。持っていたお金を「上から２けた」、クラスの人数を「上から１けた」までのがい数として 四捨五入して求めたとき、正しいものをえらぼう。",
       "choices": [
@@ -434,11 +360,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "四捨五入で、百の位までのがい数にしたとき、4500になる整数の範囲は、次のうち どれでしょう。",
       "choices": [
@@ -468,11 +390,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の文の中から、四捨五入について、正しいものをえらぼう。",
       "choices": [
@@ -500,16 +418,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。",
-      "answers": [
-        "4800"
-      ]
+      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。 4835",
+      "answers": ["4800"]
     },
     "explanation": "「百の位までのがい数」なので、1つ下の「十の位」を見る。 十の位は、3で「切り捨て」になるので、答えは 4800 になる。"
   },
@@ -519,11 +431,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の２つの都道府県の人口を、それぞれ四捨五入で 上から２けたまでのがい数にした後、人口のちがいを求めた。このときの式として、正しいものをえらぼう。 ・北海道[ほっかいどう] 5383579人 ・沖縄県[おきなわけん] 1434138人",
       "choices": [
@@ -557,17 +465,71 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-10",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_10",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_10", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。",
-      "answers": [
-        "2900"
-      ]
+      "prompt": "四捨五入で、次の数を 百の位までのがい数にしよう。 2903",
+      "answers": ["2900"]
     },
     "explanation": "「百の位までのがい数」なので、1つ下の「十の位」を見る。 十の位は、0で「切り捨て」になるので、答えは 2900 になる。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-10.round-budget",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "色紙[いろがみ]とのりを1つずつ買[か]います。500円[えん]で足[た]りるか、確実[かくじつ]に判断[はんだん]できるのはどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "200+300=500なので必[かなら]ず足[た]りる"
+        },
+        {
+          "id": "b",
+          "text": "198+305=503なので足[た]りない"
+        },
+        {
+          "id": "c",
+          "text": "約[やく]500円[えん]だからおつりがある"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/prices.svg",
+      "promptSpeech": "色紙[いろがみ]とのりを1つずつ買[か]います。500円[えん]で足[た]りるか、確実[かくじつ]に判断[はんだん]できるのはどれですか。 色紙198円、のり305円。"
+    },
+    "explanation": "がい数[すう]の500円[えん]は、およその値[あたい]です。実際[じっさい]は198+305=503円[えん]で、3円[えん]足[た]りません。予算[よさん]ぎりぎりでは正確[せいかく]に確[たし]かめます。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-10.round-up",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-10",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "代金[だいきん]を多[おお]めに見積[みつ]もるため、各[かく]値段[ねだん]を百[ひゃく]の位[くらい]に切[き]り上[あ]げます。合計[ごうけい]はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "500円[えん]"
+        },
+        {
+          "id": "b",
+          "text": "600円[えん]"
+        },
+        {
+          "id": "c",
+          "text": "400円[えん]"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/prices.svg",
+      "promptSpeech": "代金[だいきん]を多[おお]めに見積[みつ]もるため、各[かく]値段[ねだん]を百[ひゃく]の位[くらい]に切[き]り上[あ]げます。合計[ごうけい]はどれですか。 色紙198円、のり305円。"
+    },
+    "explanation": "198円[えん]は200円[えん]、305円[えん]は400円[えん]に切[き]り上[あ]げます。200+400=600円[えん]。四捨五入[ししゃごにゅう]とは使[つか]い方[かた]が違[ちが]います。"
   }
 ]

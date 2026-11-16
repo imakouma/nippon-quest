@@ -5,16 +5,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "この正方形[せいほうけい]の面積[めんせき]は、何cm^2ですか。",
-      "answers": [
-        "16"
-      ],
+      "answers": ["16"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/b88e43762b3ab021.png"
@@ -27,11 +21,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "面積の単位「1ha」は、なんとよむでしょう。",
       "choices": [
@@ -63,16 +53,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図形[ずけい]の面積[めんせき]を 求めよう。",
-      "answers": [
-        "28"
-      ],
+      "answers": ["28"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/3ceb92134a26347a.png"
@@ -85,16 +69,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たて 6cm、横 2cmの長方形[ちょうほうけい]の面積[めんせき]は、いくらになるでしょう。",
-      "answers": [
-        "12"
-      ],
+      "answers": ["12"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g4/visuals/area-1a320db1d80d.svg",
@@ -108,16 +86,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1aは、何m^2ですか。",
-      "answers": [
-        "100"
-      ],
+      "answers": ["100"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-unit-1f3170213999.svg",
@@ -131,16 +103,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1km^2は、何m^2ですか。",
-      "answers": [
-        "1000000"
-      ],
+      "answers": ["1000000"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-unit-2312d69102dc.svg",
@@ -154,16 +120,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1haは、何m^2ですか。",
-      "answers": [
-        "10000"
-      ],
+      "answers": ["10000"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-unit-38f46e71ac72.svg",
@@ -177,16 +137,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "面積[めんせき]が60cm^2の長方形[ちょうほうけい]があります。たての長さが、5cmのとき、横の長さは、いくらになるでしょう。",
-      "answers": [
-        "12"
-      ],
+      "answers": ["12"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g4/visuals/area-missing-60.svg",
@@ -200,16 +154,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小さな正方形[せいほうけい]ひとつ分が、1cm^2です。この図の面積[めんせき]は、何cm^2ですか。",
-      "answers": [
-        "9"
-      ],
+      "answers": ["9"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/5f3e991f2425b055.png"
@@ -222,16 +170,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "この長方形[ちょうほうけい]の面積[めんせき]は、何cm^2ですか。",
-      "answers": [
-        "15"
-      ],
+      "answers": ["15"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/1d3cf786d496c505.png"
@@ -244,16 +186,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "面積[めんせき]が 24cm^2の長方形[ちょうほうけい]があります。たての長さが、3cmのとき、横の長さは、いくらになるでしょう。",
-      "answers": [
-        "8"
-      ],
+      "answers": ["8"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g4/visuals/area-missing-24.svg",
@@ -267,11 +203,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "算数では、「広さ」のことを何というでしょう。",
       "choices": [
@@ -293,7 +225,7 @@
       "promptImage": "questions/sansu/g4/visuals/area-meaning-7776587c13f9.svg",
       "promptSpeech": "算数では、「広さ」のことを何というでしょう。 たてと横の長さを持つ四角形。内側の広さに色を付けています。"
     },
-    "explanation": "算数では、「広さ」のことを「面積[めんせき]」といいます。"
+    "explanation": "広[ひろ]さのことを面積[めんせき]といいます。同[おな]じ大[おお]きさの正方形[せいほうけい]がいくつ入[はい]るかで、広[ひろ]さを比[くら]べられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-11.78f738c85945",
@@ -301,16 +233,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "１辺が 4cm の正方形[せいほうけい]の面積[めんせき]は、何 cm^2 ですか。",
-      "answers": [
-        "16"
-      ],
+      "answers": ["16"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g4/visuals/area-78f738c85945.svg",
@@ -324,13 +250,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の面積の単位の、読み方を答えよう。",
+      "prompt": "次の面積の単位の、読み方を答えよう。 cm^2",
       "choices": [
         {
           "id": "c1",
@@ -348,7 +270,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "cm^2 は、平方（へいほう）センチメートルとよむ。"
+    "explanation": "cm²は平方[へいほう]センチメートルと読[よ]みます。1cm²は、1辺[ぺん]1cmの正方形[せいほうけい]1つ分[ぶん]の面積[めんせき]です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-11.912648290299",
@@ -356,16 +278,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たて 10m、横 15mの田んぼがあります。この田んぼの面積[めんせき]を求めましょう。",
-      "answers": [
-        "150"
-      ],
+      "answers": ["150"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-912648290299.svg",
@@ -379,11 +295,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たてが5cm、横が8cmの長方形[ちょうほうけい]の面積[めんせき]はいくつですか。",
       "choices": [
@@ -417,11 +329,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "長方形[ちょうほうけい]の面積[めんせき]の求め方として、正しいものをえらぼう。",
       "choices": [
@@ -455,16 +363,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たて 80cm、横 5mの黒板の面積[めんせき]は、何m^2ですか。",
-      "answers": [
-        "4"
-      ],
+      "answers": ["4"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-mixed-c50eca8e3f2a.svg",
@@ -478,16 +380,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1m^2は何cm^2ですか。",
-      "answers": [
-        "10000"
-      ],
+      "answers": ["10000"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g4/visuals/area-unit-c871318a6d0e.svg",
@@ -501,16 +397,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図形[ずけい]の面積[めんせき]を 求めよう。",
-      "answers": [
-        "95"
-      ],
+      "answers": ["95"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/d73b6f5751989aba.png"
@@ -523,16 +413,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たて 6cm、横 10cmの長方形[ちょうほうけい]の面積[めんせき]は、いくらになるでしょう。",
-      "answers": [
-        "60"
-      ],
+      "answers": ["60"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g4/visuals/area-cc8446383e1d.svg",
@@ -546,11 +430,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "正方形[せいほうけい]の面積[めんせき]の求め方として、正しいものをえらぼう。",
       "choices": [
@@ -584,16 +464,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "はば 60cm、横 2mのテーブルの面積[めんせき]は、何m^2ですか。",
-      "answers": [
-        "1.2"
-      ],
+      "answers": ["1.2"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-mixed-da719cf6095b.svg",
@@ -607,16 +481,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小さな正方形[せいほうけい]ひとつ分が、1cm^2です。この図の面積[めんせき]は、何cm^2ですか。",
-      "answers": [
-        "10"
-      ],
+      "answers": ["10"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/e1b00a5a492324d4.png"
@@ -629,11 +497,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "面積の単位「1a」は、なんとよむでしょう。",
       "choices": [
@@ -665,16 +529,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "１辺が 9cmの正方形[せいほうけい]の面積[めんせき]は、いくらになるでしょう。",
-      "answers": [
-        "81"
-      ],
+      "answers": ["81"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g4/visuals/area-ead9a402a91a.svg",
@@ -688,16 +546,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "１辺が 12mの、正方形[せいほうけい]の教室があります。この教室の面積[めんせき]を求めましょう。",
-      "answers": [
-        "144"
-      ],
+      "answers": ["144"],
       "template": "{{INPUT}}m^2",
       "suffix": "m^2",
       "promptImage": "questions/sansu/g4/visuals/area-ee8ac93c6894.svg",
@@ -711,16 +563,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小さな正方形[せいほうけい]ひとつ分が、1cm^2です。この図の面積[めんせき]は、何cm^2ですか。",
-      "answers": [
-        "4"
-      ],
+      "answers": ["4"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/legacy/3e9e9163e7937568.png"
@@ -733,11 +579,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の中から、面積[めんせき]が小さいじゅんになっているものを えらぼう。",
       "choices": [
@@ -769,16 +611,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-11",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_11",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_11", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たて 4cm、横 9cmの長方形[ちょうほうけい]の面積[めんせき]は、いくらになるでしょう。",
-      "answers": [
-        "36"
-      ],
+      "answers": ["36"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g4/visuals/area-fafab2f4791d.svg",
