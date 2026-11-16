@@ -1,3 +1,4 @@
+import { questionHasAnswerContext } from '../questions/engine/questionQuality';
 import { calculationProblem } from '../questions/renderers/random-calculation/schema';
 /**
  * 問題レビュー（docs/01 §3.4）
@@ -43,6 +44,8 @@ function checkQuestion(file: string, index: number, raw: unknown): QuestionEntry
   const problem = calculationProblem(q);
   if (problem) return { key, file, index, raw, q, problem };
   const p = r.schema.safeParse(q.payload);
+  if (p.success && !questionHasAnswerContext({ ...q, payload: p.data }))
+    return { key, file, index, raw, q, problem: pgText('missingQuestionContext') };
   return p.success
     ? { key, file, index, raw, q: { ...q, payload: p.data }, problem: null }
     : { key, file, index, raw, q, problem: `payload: ${issues(p.error)}` };
@@ -213,7 +216,8 @@ function App() {
       );
       return;
     }
-    const problem = calculationProblem(q);
+    const problem =
+      calculationProblem(q) ?? (!questionHasAnswerContext(q) ? pgText('missingQuestionContext') : null);
     if (problem) {
       setError(problem);
       return;

@@ -1,3 +1,4 @@
+import { mathReviewMatches, mathReviewRank } from './mathReviewOrder';
 /**
  * 問題いちらん（開発用。問題レビューの左側に出す）。
  * content/questions の 問題を ぜんぶ 表にして、教科・学年・タイプ・単元・ことばで しぼりこむ。
@@ -145,27 +146,30 @@ export function QuestionList({
       ),
     ),
   );
+  const learningScope = scopeUnit?.startsWith('math-review:') ?? false;
   const pool = entries.filter(
     (e) =>
       (samples || !isSample(e)) &&
       (!scopeUnit ||
-        (scopeUnit.startsWith('kanji-scope:')
-          ? !!e.q &&
-            folderSubject(e.q, units) === 'kanji' &&
-            kanjiScopeMatches(e.q, scopeUnit) &&
-            !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)
-          : scopeUnit.startsWith('custom:')
+        (learningScope
+          ? mathReviewMatches(e.q, scopeUnit)
+          : scopeUnit.startsWith('kanji-scope:')
             ? !!e.q &&
-              !!folderTools.state &&
-              folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
-              !isUnfiled(e.q, units, folderTools.state.layout)
-            : scopeUnit.startsWith('unfiled:')
+              folderSubject(e.q, units) === 'kanji' &&
+              kanjiScopeMatches(e.q, scopeUnit) &&
+              !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)
+            : scopeUnit.startsWith('custom:')
               ? !!e.q &&
                 !!folderTools.state &&
-                isUnfiled(e.q, units, folderTools.state.layout) &&
-                `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
-              : unitFiles.has(e.file) &&
-                (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
+                folderTools.state.layout.assignments[e.q.id] === scopeUnit.slice(7) &&
+                !isUnfiled(e.q, units, folderTools.state.layout)
+              : scopeUnit.startsWith('unfiled:')
+                ? !!e.q &&
+                  !!folderTools.state &&
+                  isUnfiled(e.q, units, folderTools.state.layout) &&
+                  `unfiled:${folderSubject(e.q, units)}:${e.q.grade}` === scopeUnit
+                : unitFiles.has(e.file) &&
+                  (!e.q || !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, e.q.id)))) &&
       (!scopeCategory || kanjiCategory(e.q) === scopeCategory),
   );
   const valueOf = (e: QuestionEntry, k: Facet) => (e.q ? String(e.q[k]) : '');
@@ -178,6 +182,7 @@ export function QuestionList({
     (!needle || (search.get(e.key) ?? '').includes(needle));
   const awaitingFolder = !!catalog && scopeUnit === undefined && !filtering;
   const shown = awaitingFolder ? [] : pool.filter((e) => match(e));
+  if (learningScope) shown.sort((a, b) => mathReviewRank(a.q) - mathReviewRank(b.q));
   const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;
 
@@ -221,6 +226,7 @@ export function QuestionList({
           onPick={onPick}
           imageUrl={imageUrl}
           folderTools={activeFolderTools}
+          allowFolderMove={!learningScope}
           units={units}
         />
       ))}
@@ -333,6 +339,7 @@ export function QuestionList({
 }
 
 interface RowProps {
+  allowFolderMove: boolean;
   e: QuestionEntry;
   unitName?: string;
   selected: boolean;
@@ -342,7 +349,7 @@ interface RowProps {
   units: ReadonlyMap<string, string>;
 }
 
-function Row({ e, unitName, selected, onPick, imageUrl, folderTools, units }: RowProps) {
+function Row({ e, unitName, selected, onPick, imageUrl, folderTools, units, allowFolderMove }: RowProps) {
   const q = e.q;
   const s = q ? summarize(q) : null;
   const cls = [selected && 'pg-sel', e.problem && 'pg-bad'].filter(Boolean).join(' ');
@@ -390,7 +397,7 @@ function Row({ e, unitName, selected, onPick, imageUrl, folderTools, units }: Ro
           ›
         </span>
       </button>
-      {q && !e.problem && selected && !isSample(e) && folderTools.state && (
+      {allowFolderMove && q && !e.problem && selected && !isSample(e) && folderTools.state && (
         <select
           class="pg-folder-move"
           aria-label={`${pgText('folderMove')}: ${s?.prompt ?? q.id}`}
