@@ -67,14 +67,17 @@ test('繰り上がりを分離し、復元した計算を基本加減へ戻す',
 const mathReviewGroupsByGrade = Object.fromEntries(
   readdirSync('content/review')
     .filter((file) => /^sansu-g[1-6]-order\.json$/.test(file))
-    .map((file) => [
-      file.match(/g([1-6])/)![1],
-      (
-        JSON.parse(readFileSync(`content/review/${file}`, 'utf8')) as {
-          groups: { id: string; questionIds: string[] }[];
-        }
-      ).groups,
-    ]),
+    .map(
+      (file) =>
+        [
+          file.match(/g([1-6])/)![1]!,
+          (
+            JSON.parse(readFileSync(`content/review/${file}`, 'utf8')) as {
+              groups: { id: string; questionIds: string[] }[];
+            }
+          ).groups,
+        ] as const,
+    ),
 );
 
 for (const [gradeNumber, groups] of Object.entries(mathReviewGroupsByGrade)) {
