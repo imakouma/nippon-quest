@@ -42,4 +42,8 @@
 - Graphifyはcode-onlyで更新。追加の依存・契約変更はない。
 - 端末実機は未確認。ブラウザのスマホ相当サイズで検証する。
 
-最終ゲートと本番確認は完了後に追記。
+- `VITEST_MAX_WORKERS=2 pnpm check:full` 成功（279ファイル・2535テスト、lint、architecture、教材・学習順監査、型、ビルド、性能予算）。
+- スマホChromium 43件、全教科4サイズ監査を含むviewport・battle監査37件成功。福岡カード端の追加後もスマホ全件を再実行済み。
+- アプリ内ブラウザの「問題レビュー」で図と選択肢の表示、洗濯板問題の正答フィードバックを確認。
+- macOS上のWebKitは起動時に異常終了するため、WebKitの最終判定はUbuntu CIで行う。
+- 本番のマージ・配信記録: https://github.com/imakouma/nippon-quest/pull/97
