@@ -157,7 +157,7 @@ for (const [grade, id, kanji] of [
 test('学年別データの読み込み失敗を問題レビューに表示し、採点しない', async ({ page }) => {
   await page.route(/grade-2-strokes.*\.json$/, (route) => route.abort('failed'));
   await page.goto('/playground.html?q=kokugo.g2.kanji-trace.0001');
-  await expect(page.getByRole('alert')).toContainText('よみこみに しっぱいしました');
+  await expect(page.locator('.pg-warn[role="alert"]')).toContainText('よみこみに しっぱいしました');
   await expect(page.locator('.nq-kt-canvas')).toHaveCount(0);
   await expect(page.getByRole('button', { name: '再生', exact: true })).toBeEnabled();
   await expect(page.locator('.pg-result-summary dd')).toHaveCount(0);
