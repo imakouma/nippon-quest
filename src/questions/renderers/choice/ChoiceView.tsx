@@ -40,7 +40,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
     chosen: string | null;
     answeredAt?: number;
   } | null>(null);
-  const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
+  const review = ctx.question.subject === 'sansu';
   const choices = useMemo(
     () => order.map((id) => payload.choices.find((c) => c.id === id)!),
     [order, payload.choices],
