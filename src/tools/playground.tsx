@@ -1,3 +1,4 @@
+import { questionHasAnswerContext } from '../questions/engine/questionQuality';
 import { calculationProblem } from '../questions/renderers/random-calculation/schema';
 /**
  * 問題レビュー（docs/01 §3.4）
@@ -43,6 +44,8 @@ function checkQuestion(file: string, index: number, raw: unknown): QuestionEntry
   const problem = calculationProblem(q);
   if (problem) return { key, file, index, raw, q, problem };
   const p = r.schema.safeParse(q.payload);
+  if (p.success && !questionHasAnswerContext({ ...q, payload: p.data }))
+    return { key, file, index, raw, q, problem: pgText('missingQuestionContext') };
   return p.success
     ? { key, file, index, raw, q: { ...q, payload: p.data }, problem: null }
     : { key, file, index, raw, q, problem: `payload: ${issues(p.error)}` };
@@ -213,29 +216,39 @@ function App() {
       );
       return;
     }
-    const problem = calculationProblem(q);
+    const problem =
+      calculationProblem(q) ?? (!questionHasAnswerContext(q) ? pgText('missingQuestionContext') : null);
     if (problem) {
       setError(problem);
       return;
     }
+    // Apply the selected grade before mounting; a later state render must not resize handwriting UI.
+    setGrade(q.grade);
+    if (kanji) setKanjiLevel({ grade: q.grade, table: kanji.table, names: kanji.names });
     const container = document.createElement('div');
     stage.current!.replaceChildren(container);
     const ctl = new AbortController();
     abort.current = ctl;
     setRunning(true);
     const started = performance.now();
-    const res = await r.mount({
-      container,
-      question: { ...q, payload: p.data },
-      grade: q.grade,
-      assets,
-      speak,
-      timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
-      signal: ctl.signal,
-    });
-    if (id !== runId.current) return;
-    setRunning(false);
-    setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
+    try {
+      const res = await r.mount({
+        container,
+        question: { ...q, payload: p.data },
+        grade: q.grade,
+        assets,
+        speak,
+        timeLimitMs: (q.timeLimitSec ?? 20) * 1000,
+        signal: ctl.signal,
+      });
+      if (id !== runId.current) return;
+      setRunning(false);
+      setResult({ ...res, timeMs: res.timeMs || Math.round(performance.now() - started) });
+    } catch {
+      if (id !== runId.current) return;
+      setRunning(false);
+      setError(tOpt('ui.loadError') ?? '');
+    }
   };
 
   const replaceUrl = (questionId: string | undefined) => {

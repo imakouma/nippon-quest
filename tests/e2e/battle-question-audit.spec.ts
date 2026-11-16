@@ -134,3 +134,39 @@ test('全問題をバトル問題枠で描画してレイアウトを検査す�
   await expect(audit).toHaveAttribute('data-audit-status', 'complete');
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });
+
+test('理科689問とサンプル2問の図と文章がスマホを含む4サイズに収まる', async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  await page.goto('/battle-question-audit.html?subject=rika&matrix');
+  const audit = page.locator('[data-audit-status]');
+  await expect(audit).toHaveAttribute('data-audit-status', /^(?:complete|failed)$/, { timeout: 220_000 });
+  const report = (await page.locator('#question-layout-report').textContent())!;
+  await testInfo.attach('science-question-layout', { body: report, contentType: 'application/json' });
+  expect(JSON.parse(report).progress.total).toBe(691);
+  await expect(audit).toHaveAttribute('data-audit-status', 'complete');
+  await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
+});
+
+test('書き取り教材の読み込みを待ってからレイアウトを監査する', async ({ page }) => {
+  let release!: () => void;
+  const gate = new Promise<void>((resolve) => (release = resolve));
+  await page.route('**/grade-2-strokes*', async (route) => {
+    if (route.request().resourceType() === 'fetch') await gate;
+    await route.continue();
+  });
+  try {
+    await page.goto('/battle-question-audit.html?q=kokugo.g2.kanji-writing.0001', {
+      waitUntil: 'domcontentloaded',
+    });
+    await expect(page.getByRole('status')).toBeVisible();
+    await page.evaluate(
+      () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+    );
+    await expect(page.locator('[data-audit-status]')).toHaveAttribute('data-audit-status', 'loading');
+  } finally {
+    release();
+  }
+  await expect(page.locator('.nq-q')).toBeVisible();
+  await expect(page.locator('[data-audit-status]')).toHaveAttribute('data-audit-status', 'complete');
+  await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
+});

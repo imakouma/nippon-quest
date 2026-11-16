@@ -7,6 +7,7 @@ import { Feedback, type FeedbackKind } from '../shared/Feedback';
 import { TimerBar } from '../shared/TimerBar';
 import type { KanjiTracePayload } from './schema';
 import { TraceCanvas } from './TraceCanvas';
+import type { WritingData } from './writingAssessment';
 
 export interface KanjiTraceDone {
   score: number;
@@ -17,13 +18,14 @@ export interface KanjiTraceDone {
 }
 
 interface Props {
+  writing?: WritingData;
   payload: KanjiTracePayload;
   ctx: RendererContext;
   order: string[];
   onDone: (result: KanjiTraceDone) => void;
 }
 
-export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
+export function KanjiTraceView({ payload, ctx, order, onDone, writing }: Props) {
   const [result, setResult] = useState<KanjiTraceDone | null>(null);
   const ended = useRef(false);
   const writingAttempts = useRef(0);
@@ -137,6 +139,7 @@ export function KanjiTraceView({ payload, ctx, order, onDone }: Props) {
         </div>
       ) : (
         <TraceCanvas
+          writing={writing}
           payload={payload}
           ctx={ctx}
           disabled={!!result}

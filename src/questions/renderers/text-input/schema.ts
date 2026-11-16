@@ -1,10 +1,5 @@
 import { z } from 'zod/v3';
-const variantsByCharacter: Record<string, readonly string[]> = {
-  貴: ['とうと', 'たっと'],
-  尊: ['とうと', 'たっと'],
-  私: ['わたし', 'わたくし'],
-  得: ['え', 'う'],
-};
+import readingVariants from '../../../../content/kanji/reading-variants.json';
 
 export const textInputPayloadSchema = z.object({
   prompt: z.string().min(1),
@@ -34,10 +29,11 @@ export function textInputScore(payload: TextInputPayload, values: string[]): num
   if (values.length !== payload.answers.length) return 0;
   const characters = payload.prompt.match(/\p{Script=Han}/gu);
   const variants =
-    payload.answers.length === 1 &&
-    characters?.length === 1 &&
-    (characters[0] !== '得' || payload.prompt.includes('得る'))
-      ? variantsByCharacter[characters[0]!]
+    payload.answers.length === 1 && characters?.length === 1
+      ? readingVariants.find(
+          ({ context, readings }) =>
+            payload.prompt.includes(context) && readings.includes(normalizeAnswer(payload.answers[0]!)),
+        )?.readings
       : undefined;
   const correct = values.filter((value, index) => {
     const actual = normalizeAnswer(value);

@@ -2,7 +2,12 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 
 import { t } from '../../../ui/i18n';
 import { RubyLabel } from '../../../ui/RubyLabel';
-import { assessWriting, gradeOneWriting, type WritingAssessment } from './writingAssessment';
+import {
+  assessWriting,
+  gradeOneWriting,
+  type WritingAssessment,
+  type WritingData,
+} from './writingAssessment';
 import type { RendererContext } from '../../contracts';
 import {
   rasterizeStrokes,
@@ -46,6 +51,7 @@ function guideMask(kanji: string, image: HTMLImageElement | null): Uint8Array | 
 }
 
 interface Props {
+  writing?: WritingData;
   payload: KanjiTracePayload;
   ctx: RendererContext;
   disabled: boolean;
@@ -53,12 +59,19 @@ interface Props {
   onSubmit: (score: number, match: number) => void;
 }
 
-export function TraceCanvas({ payload, ctx, disabled, onAttempt, onSubmit }: Props) {
+export function TraceCanvas({
+  payload,
+  ctx,
+  disabled,
+  onAttempt,
+  onSubmit,
+  writing = gradeOneWriting,
+}: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const strokes = useRef<TracePoint[][]>([]);
   const pointer = useRef<number | null>(null);
   const [assessment, setAssessment] = useState<WritingAssessment | null>(null);
-  const reference = ctx.question.grade === 1 ? gradeOneWriting[payload.kanji] : undefined;
+  const reference = writing[payload.kanji];
   const image = useRef<HTMLImageElement | null>(null);
   const [hasInk, setHasInk] = useState(false);
 
@@ -134,7 +147,7 @@ export function TraceCanvas({ payload, ctx, disabled, onAttempt, onSubmit }: Pro
     if (pointer.current !== null) return;
     onAttempt();
     if (reference) {
-      const next = assessWriting(payload.kanji, strokes.current);
+      const next = assessWriting(payload.kanji, strokes.current, writing);
       setAssessment(next);
       if (next.score === 1) onSubmit(1, 1);
       return;

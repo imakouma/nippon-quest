@@ -6,6 +6,7 @@ import { existsSync, statSync, createReadStream, cpSync } from 'node:fs';
 import { isGameAssetPath } from './scripts/game-asset-policy';
 import { questionSaveMiddleware } from './scripts/question-save-server';
 import { folderSaveMiddleware } from './scripts/folder-save-server';
+import { integratedPreview } from './scripts/integrated-preview';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -91,7 +92,13 @@ function questionSave(): Plugin {
 export default defineConfig({
   base: process.env.BASE_PATH ?? '/',
   esbuild: { sourcemap: false },
-  plugins: [preact(), questionSave(), serveRootDirs(['content', 'assets', 'schemas', 'maps'])],
+  plugins: [
+    preact(),
+    integratedPreview(),
+    questionSave(),
+    serveRootDirs(['content', 'assets', 'schemas', 'maps']),
+  ],
+  preview: { strictPort: true },
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',

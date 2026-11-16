@@ -47,3 +47,11 @@
 - ５・６年は「個」「余」「冊」「退」の正解判定と、375px幅での表示を確認。ブラウザのコンソールエラーはなし。確認用サーバーは検証後に停止した。
 - スクリーンショット: `test-results/kanji-number-g2-mobile.png`、`test-results/kanji-number-g3.png`、`test-results/kanji-number-g6-mobile.png`、`test-results/kanji-number-g6.png`。
 - 共有ブランチと正規プレビュー4174への反映は統合担当が行う。
+
+## 共有版への統合（2026-11-16）
+
+- ユーザーの依頼により、最新 main を基点に数量表記だけを取り込んだ `codex/publish-kanji-number-context` を作成。１年生の修正を含む全28問で、問題文・解説以外が変わっていないことを機械比較した。
+- 共有PR: https://github.com/imakouma/nippon-quest/pull/89
+- 正規プレビュー用 `codex/publish-problem-review-20261116` に統合。manifest 生成の競合は、既存の遅延読み込みと重複除去を保持して解消した。
+- 統合状態で lint、依存境界、教材・カリキュラム監査、全型検査、ビルド、性能予算が成功。全2,488テスト中2,486件が成功し、15秒を超過した既存の描画・筆記テスト２件は、同じ制限時間で２ファイルを直列再実行して全12件が成功した。
+- 正規4174は統合フォルダの `pnpm nrd` と既存サーバーの自動再ビルドで更新する。作業用サーバーへ置き換えない。

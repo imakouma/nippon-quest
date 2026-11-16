@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/electromagnet.svg",
+      "promptSpeech": "電磁石について説明[せつめい]した次の文のうち、正しいものをえらぼう。 鉄しんに導線を巻いたコイルと乾電池の回路。電磁石の極や力の強さは描かない。"
     },
     "explanation": "コイルに流す電流を大きくすると、電磁石は強くなる。また、コイルのまき数を多くすると、電磁石は強くなる。"
   },
@@ -536,7 +538,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/electromagnet.svg",
+      "promptSpeech": "流れる電流の向きを逆にすると、電磁石はどうなるでしょう。正しい説明[せつめい]をえらぼう。 鉄しんに導線を巻いたコイルと乾電池の回路。電磁石の極や力の強さは描かない。"
     },
     "explanation": "流れる電流の向きを逆にすると、電磁石のN極とS極が入れかわる。"
   },
@@ -572,7 +576,9 @@
         }
       ],
       "answer": "c4",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/electromagnet.svg",
+      "promptSpeech": "電磁石について説明[せつめい]した次の文のうち、まちがっている ものをえらぼう。 鉄しんに導線を巻いたコイルと乾電池の回路。電磁石の極や力の強さは描かない。"
     },
     "explanation": "電磁石は、電流が流れているときだけ磁石の性質をもつのに対して、ぼう磁石はいつも磁石の性質をもつ。"
   },
@@ -608,7 +614,9 @@
         }
       ],
       "answer": "c4",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/electromagnet.svg",
+      "promptSpeech": "電磁石の性質について説明[せつめい]した次の文のうち、ふつうの磁石と同じ性質をえらぼう。 鉄しんに導線を巻いたコイルと乾電池の回路。電磁石の極や力の強さは描かない。"
     },
     "explanation": "電磁石と磁石の同じところ：Ｎ極とＳ極がある。鉄を引きつける。 電磁石と磁石のちがうところ：（電磁石は）電流を流した時だけ磁石になる。磁石の力を変えられる。磁石の極を変えられる。"
   },
@@ -624,7 +632,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "電流の単位は ① で表し、② と読む。1 A = ③ mA になる。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",

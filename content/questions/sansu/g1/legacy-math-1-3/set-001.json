@@ -33,14 +33,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_3",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けいさんを、しましょう。",
       "answers": [
         "4"
-      ]
-    }
+      ],
+      "template": "5 - 1 = {{INPUT}}"
+    },
+    "explanation": "5から 1つ へらします。4と かぞえるので、5 - 1 = 4です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-3.617c22787295",
@@ -74,14 +76,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_3",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けいさんを、しましょう。",
       "answers": [
         "3"
-      ]
-    }
+      ],
+      "template": "6 - 3 = {{INPUT}}"
+    },
+    "explanation": "6から 3つ へらします。5、4、3と かぞえるので、6 - 3 = 3です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-3.828be8a15da8",
@@ -124,7 +128,8 @@
       "template": "{{INPUT}}だい",
       "suffix": "だい",
       "promptImage": "questions/legacy/640274628e280010.png"
-    }
+    },
+    "explanation": "はじめの 6だいから、でていく 4だいを ひきます。6 - 4 = 2。のこる ばすは 2だいです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-3.97a5435eca00",
@@ -182,14 +187,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_3",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けいさんを、しましょう。",
       "answers": [
         "6"
-      ]
-    }
+      ],
+      "template": "8 - 2 = {{INPUT}}"
+    },
+    "explanation": "8から 2つ へらします。7、6と かぞえるので、8 - 2 = 6です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-3.adb80c3ad7af",
@@ -234,7 +241,8 @@
       "template": "{{INPUT}}ぴき",
       "suffix": "ぴき",
       "promptImage": "questions/legacy/5031e723c6d0b265.png"
-    }
+    },
+    "explanation": "はじめの 6ぴきから、いなくなる 5ひきを ひきます。6 - 5 = 1。のこる いぬは 1ぴきです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-3.e8b22f2abbd7",
@@ -246,14 +254,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_3",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けいさんを、しましょう。",
       "answers": [
         "1"
-      ]
-    }
+      ],
+      "template": "3 - 2 = {{INPUT}}"
+    },
+    "explanation": "3から 2つ へらします。2、1と かぞえるので、3 - 2 = 1です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-3.f6cd1c7fd19d",
@@ -274,6 +284,7 @@
       "template": "{{INPUT}}ほん",
       "suffix": "ほん",
       "promptImage": "questions/legacy/122888be41f3a45c.png"
-    }
+    },
+    "explanation": "はじめの 7ほんから、たべる 2ほんを ひきます。7 - 2 = 5。のこる ばななは 5ほんです。"
   }
 ]

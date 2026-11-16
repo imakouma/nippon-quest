@@ -50,8 +50,12 @@
   height: 60px;
   min-height: 60px;
 }
+.nq-question-canvas[data-layout='portrait'] .nq-q-reading .nq-input-speak {
+  position: static;
+  align-self: flex-end;
+}
 .nq-question-canvas[data-layout='portrait'] .nq-q-reading .nq-q-prompt {
-  margin: 44px 0 16px;
+  margin: 0 0 16px;
 }
 .nq-question-canvas[data-layout='portrait'] .nq-nb-blocks {
   flex-wrap: wrap;

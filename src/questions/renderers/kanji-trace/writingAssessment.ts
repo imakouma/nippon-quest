@@ -6,7 +6,8 @@ export interface WritingStroke {
   type: string;
   points: TracePoint[];
 }
-export const gradeOneWriting: Readonly<Record<string, WritingStroke[]>> = data.characters;
+export type WritingData = Readonly<Record<string, WritingStroke[]>>;
+export const gradeOneWriting: WritingData = data.characters;
 export type WritingIssue = 'count' | 'shape' | 'order' | 'direction' | 'ending';
 export interface WritingAssessment {
   score: number;
@@ -21,8 +22,8 @@ const shapeDistance = (a: TracePoint[], b: TracePoint[]) =>
   Math.min(deviation(a, b), deviation(a, [...b].reverse()));
 
 // Stroke order and direction are assessed separately from character identification.
-function identify(strokes: TracePoint[][]): string | null {
-  const candidates = Object.entries(gradeOneWriting).filter(([, target]) => target.length === strokes.length);
+function identify(strokes: TracePoint[][], writing: WritingData): string | null {
+  const candidates = Object.entries(writing).filter(([, target]) => target.length === strokes.length);
   const ranked = candidates
     .map(([kanji, target]) => {
       const forward = strokes.map((s) => Math.min(...target.map((t) => shapeDistance(s, t.points))));
@@ -33,8 +34,12 @@ function identify(strokes: TracePoint[][]): string | null {
   return ranked[0] && ranked[0].error < 0.075 ? ranked[0].kanji : null;
 }
 
-export function assessWriting(kanji: string, raw: TracePoint[][]): WritingAssessment {
-  const target = gradeOneWriting[kanji];
+export function assessWriting(
+  kanji: string,
+  raw: TracePoint[][],
+  writing: WritingData = gradeOneWriting,
+): WritingAssessment {
+  const target = writing[kanji];
   const fail = (
     issue: WritingIssue,
     stroke: number | null = null,
@@ -53,7 +58,7 @@ export function assessWriting(kanji: string, raw: TracePoint[][]): WritingAssess
   )
     return fail('shape');
   const strokes = raw.map((s) => GeometryUtil.resample(s, 64).slice(0, 64));
-  const recognized = identify(strokes);
+  const recognized = identify(strokes, writing);
   for (let index = 0; index < strokes.length; index += 1) {
     const drawn = strokes[index]!;
     const expected = target[index]!.points;

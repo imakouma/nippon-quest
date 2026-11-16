@@ -4,8 +4,8 @@
 [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)。
 
 元データ: https://github.com/KanjiVG/kanjivg/tree/610091c
-変更: 1年生配当80字だけを抽出し、各画を64点、座標0〜1へ変換。
-派生データ `content/kanji/grade-one-strokes.json` も同じCC BY-SA 3.0で提供する。
+変更: 小学1〜6年生配当1026字を学年別に抽出し、各画を64点、座標0〜1へ変換。小2〜小6は10000倍した整数座標の差分ペアで保存し、読み込み時に復元（座標の丸め誤差は240px枠で0.012px以下）。
+派生データ `content/kanji/grade-one-strokes.json` と `grade-2-strokes.json`〜`grade-6-strokes.json` も同じCC BY-SA 3.0で提供する。
 同JSONに出典・著作権・ライセンス・変更内容を含め、配信物にも同梱する。
 再生成: `node scripts/generate-grade-one-strokes.mjs /path/to/pinned/kanjivg`
 

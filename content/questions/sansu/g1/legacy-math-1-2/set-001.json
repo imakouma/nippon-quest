@@ -9,14 +9,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "10"
-      ]
-    }
+      ],
+      "template": "5 + 5 = {{INPUT}}"
+    },
+    "explanation": "5から 5つ ふやします。6、7、8、9、10と かぞえるので、5 + 5 = 10です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.3f3907084891",
@@ -37,7 +39,8 @@
       "template": "{{INPUT}}ひき",
       "suffix": "ひき",
       "promptImage": "questions/legacy/af203523a17c1f87.png"
-    }
+    },
+    "explanation": "いぬが 4ひき、ねこが 4ひき います。あわせるので 4 + 4 = 8。ぜんぶで 8ひきです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.477bb611b8fb",
@@ -58,7 +61,8 @@
       "template": "{{INPUT}}だい",
       "suffix": "だい",
       "promptImage": "questions/legacy/86197bfe17a56520.png"
-    }
+    },
+    "explanation": "くるまが 2だい、ばすが 4だい あります。あわせるので 2 + 4 = 6。ぜんぶで 6だいです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.4e9ff3694ce4",
@@ -79,7 +83,8 @@
       "template": "{{INPUT}}ひき",
       "suffix": "ひき",
       "promptImage": "questions/legacy/be0d25c0182e899c.png"
-    }
+    },
+    "explanation": "いぬが 2ひき、ねこが 2ひき います。あわせるので 2 + 2 = 4。ぜんぶで 4ひきです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.68d9eeada7e3",
@@ -91,14 +96,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "7"
-      ]
-    }
+      ],
+      "template": "3 + 4 = {{INPUT}}"
+    },
+    "explanation": "3から 4つ ふやします。4、5、6、7と かぞえるので、3 + 4 = 7です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.7ae7d695d354",
@@ -119,7 +126,8 @@
       "template": "{{INPUT}}つ",
       "suffix": "つ",
       "promptImage": "questions/legacy/fb77ef976350a4a5.png"
-    }
+    },
+    "explanation": "りんごが 2つ、ばななが 3ぼん あります。くだものを あわせるので 2 + 3 = 5。ぜんぶで 5つです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.7c0b6d84fba5",
@@ -131,14 +139,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "6"
-      ]
-    }
+      ],
+      "template": "3 + 3 = {{INPUT}}"
+    },
+    "explanation": "3から 3つ ふやします。4、5、6と かぞえるので、3 + 3 = 6です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.81d683bc4bd3",
@@ -150,14 +160,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "8"
-      ]
-    }
+      ],
+      "template": "2 + 6 = {{INPUT}}"
+    },
+    "explanation": "2から 6つ ふやします。3、4、5、6、7、8と かぞえるので、2 + 6 = 8です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.8934316bf2b9",
@@ -169,14 +181,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "3"
-      ]
-    }
+      ],
+      "template": "1 + 2 = {{INPUT}}"
+    },
+    "explanation": "1から 2つ ふやします。2、3と かぞえるので、1 + 2 = 3です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.970865a03225",
@@ -197,7 +211,8 @@
       ],
       "template": "{{INPUT}} + 1 = {{INPUT}}",
       "promptImage": "questions/legacy/e129e59ab68c4fae.png"
-    }
+    },
+    "explanation": "くるまの 3だいと ばすの 1だいを あわせます。しきは 3 + 1 = 4。はじめの あなに 3、こたえの あなに 4を いれます。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.b46234534d9d",
@@ -218,7 +233,8 @@
       ],
       "template": "2 + {{INPUT}} = {{INPUT}}",
       "promptImage": "questions/legacy/55f5ac09a126f878.png"
-    }
+    },
+    "explanation": "くるまの 2だいと ばすの 4だいを あわせます。しきは 2 + 4 = 6。たす かずの あなに 4、こたえの あなに 6を いれます。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.b5c59541a762",
@@ -239,7 +255,8 @@
       "template": "{{INPUT}}つ",
       "suffix": "つ",
       "promptImage": "questions/legacy/5b93f653170787c0.png"
-    }
+    },
+    "explanation": "りんごが 1つ、ばななが 2ほん あります。くだものを あわせるので 1 + 2 = 3。ぜんぶで 3つです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.b87cfd2e6ff3",
@@ -251,14 +268,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けいさんを、しましょう。",
       "answers": [
         "5"
-      ]
-    }
+      ],
+      "template": "2 + 3 = {{INPUT}}"
+    },
+    "explanation": "2から 3つ ふやします。3、4、5と かぞえるので、2 + 3 = 5です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.c8626ce3711f",
@@ -279,7 +298,8 @@
       ],
       "template": "{{INPUT}} + 2 = {{INPUT}}",
       "promptImage": "questions/legacy/5b93f653170787c0.png"
-    }
+    },
+    "explanation": "りんごの 1つと ばななの 2ほんを あわせます。しきは 1 + 2 = 3。はじめの あなに 1、こたえの あなに 3を いれます。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.cab18fc902e1",
@@ -300,7 +320,8 @@
       ],
       "template": "2 + {{INPUT}} = {{INPUT}}",
       "promptImage": "questions/legacy/fb77ef976350a4a5.png"
-    }
+    },
+    "explanation": "りんごの 2つと ばななの 3ぼんを あわせます。しきは 2 + 3 = 5。たす かずの あなに 3、こたえの あなに 5を いれます。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.cc8d4eeb4ed4",
@@ -312,14 +333,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "9"
-      ]
-    }
+      ],
+      "template": "7 + 2 = {{INPUT}}"
+    },
+    "explanation": "7から 2つ ふやします。8、9と かぞえるので、7 + 2 = 9です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.e9f788c88077",
@@ -331,14 +354,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けいさんを、しましょう。",
       "answers": [
         "2"
-      ]
-    }
+      ],
+      "template": "1 + 1 = {{INPUT}}"
+    },
+    "explanation": "1から 1つ ふやします。2と かぞえるので、1 + 1 = 2です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.f1ef7b73549b",
@@ -350,14 +375,16 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_1_2",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "4"
-      ]
-    }
+      ],
+      "template": "3 + 1 = {{INPUT}}"
+    },
+    "explanation": "3から 1つ ふやします。4と かぞえるので、3 + 1 = 4です。"
   },
   {
     "id": "legacy.sansu.g1.math-1-2.fc26d7226bfe",
@@ -378,6 +405,7 @@
       "template": "{{INPUT}}だい",
       "suffix": "だい",
       "promptImage": "questions/legacy/1e10eee9112a54eb.png"
-    }
+    },
+    "explanation": "くるまが 3だい、ばすが 1だい あります。あわせるので 3 + 1 = 4。ぜんぶで 4だいです。"
   }
 ]

@@ -203,7 +203,7 @@ for (const [type, id, selector] of [
   });
 }
 
-test('スマホのバトル問題は縦の画面を使い、解答後にゲームの倍率へ戻る', async ({ page }) => {
+test('ゲームは問題中も横画面を案内し、横に戻すと解答できる', async ({ page }) => {
   test.setTimeout(90_000);
   await page.setViewportSize({ width: 844, height: 390 });
   await page.goto('/?debug=battle&enemy=aomori-ringoron&lv=1');
@@ -216,21 +216,19 @@ test('スマホのバトル問題は縦の画面を使い、解答後にゲー�
   await expect(frame.locator('.nq-q')).toBeVisible();
   for (const size of [
     { width: 390, height: 844 },
+    { width: 768, height: 1024 },
     { width: 844, height: 390 },
-    { width: 390, height: 844 },
   ]) {
     await page.setViewportSize(size);
-    await expect.poll(() => frame.evaluate(inspectQuestion)).toEqual([]);
+    const notice = page.locator('#nq-orientation-notice');
+    if (size.height > size.width) {
+      await expect(notice).toBeVisible();
+    } else {
+      await expect(notice).toBeHidden();
+      await expect.poll(() => frame.evaluate(inspectQuestion)).toEqual([]);
+    }
+    await expect(page.locator('#ui-layer')).toHaveCSS('width', '960px');
   }
-  await expect(page.locator('#nq-orientation-notice')).toBeHidden();
-  const box = (await frame.boundingBox())!;
-  expect(box.height).toBeGreaterThan(750);
-  expect(box.width).toBeGreaterThan(360);
-  const font = await frame.locator('.nq-q-prompt').evaluate((prompt) => {
-    const scale = prompt.getBoundingClientRect().width / (prompt as HTMLElement).offsetWidth;
-    return parseFloat(getComputedStyle(prompt).fontSize) * scale;
-  });
-  expect(font).toBeGreaterThanOrEqual(18);
   if (await frame.locator('.nq-choice').count()) {
     await frame.locator('.nq-choice').first().click();
   } else {
@@ -240,5 +238,33 @@ test('スマホのバトル問題は縦の画面を使い、解答後にゲー�
   await advanceQuestionFeedback(page);
   await expect(frame).toHaveCount(0);
   await expect(page.locator('#ui-layer')).toHaveCSS('width', '960px');
+  await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator('#nq-orientation-notice')).toBeVisible();
 });
+
+for (const id of ['kokugo.g1.kanji-onyomi.0004', 'kokugo.g2.kanji-onyomi.0158']) {
+  test(`読み上げボタンが問題文やタイマーと重ならない: ${id}`, async ({ page }) => {
+    await page.goto(`/playground.html?q=${id}`);
+    const stage = page.locator('.pg-stage');
+    await expect(stage.locator('.nq-q-reading')).toBeVisible();
+    for (const size of [
+      { width: 320, height: 568 },
+      { width: 844, height: 390 },
+      { width: 1024, height: 768 },
+      { width: 1440, height: 900 },
+    ]) {
+      await page.setViewportSize(size);
+      await expect
+        .poll(() =>
+          stage.evaluate((host) => {
+            const button = host.querySelector('.nq-input-speak')!.getBoundingClientRect();
+            const prompt = host.querySelector('.nq-q-prompt')!.getBoundingClientRect();
+            const timer = host.querySelector('.nq-timer-row')!.getBoundingClientRect();
+            return timer.bottom <= button.top && button.bottom <= prompt.top;
+          }),
+        )
+        .toBe(true);
+      await expect.poll(() => stage.evaluate(inspectQuestion)).toEqual([]);
+    }
+  });
+}

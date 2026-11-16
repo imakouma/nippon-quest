@@ -1,3 +1,4 @@
+import { MathReviewFolders, OriginalMathFolders } from './MathReviewFolders';
 import type { QuestionCatalog } from '../core/content/manifest';
 import type { ComponentChildren } from 'preact';
 import { tOpt } from '../ui/i18n';
@@ -70,6 +71,8 @@ export function QuestionTree({
   );
   const selectionIn = (subject: string, grade?: number) => {
     if (!selectedUnit) return false;
+    if (selectedUnit.startsWith('math-review:'))
+      return subject === 'sansu' && (grade === undefined || grade === 1);
     if (selectedUnit.startsWith('kanji-scope:')) {
       const selectedGrade = Number(selectedUnit.split(':')[1]);
       return subject === 'kanji' && (grade === undefined || grade === selectedGrade);
@@ -265,207 +268,219 @@ export function QuestionTree({
                     {pgText('questionSuffix')}
                   </span>
                 </summary>
-                {subject.subject === 'kanji'
-                  ? (['reading', 'writing', 'review'] as const)
-                      .filter(
-                        (category) =>
-                          !folderTools.state?.layout.hidden.includes(`kanji:${grade.grade}:${category}:*`),
-                      )
-                      .map((category) => {
-                        const defaultEntries = entries.filter(
-                          ({ file, q }) =>
-                            !file.startsWith('questions/_samples/') &&
-                            q &&
-                            q.grade === grade.grade &&
-                            folderSubject(q, units) === 'kanji' &&
-                            kanjiCategory(q) === category &&
-                            !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
-                        );
-                        const assignedCount = entries.filter(
-                          ({ file, q }) =>
-                            !file.startsWith('questions/_samples/') &&
-                            q &&
-                            q.grade === grade.grade &&
-                            folderSubject(q, units) === 'kanji' &&
-                            folderTools.state?.layout.folders.some(
-                              (folder) =>
-                                folder.id === folderTools.state?.layout.assignments[q.id] &&
-                                folder.category === category,
-                            ),
-                        ).length;
-                        const categoryName = pgText(
-                          `kanjiCategory${category[0]!.toUpperCase()}${category.slice(1)}`,
-                        );
-                        const directKind: KanjiScopeKind | undefined =
-                          category === 'writing' ? 'writing' : category === 'review' ? 'misc' : undefined;
-                        const directScope = directKind ? kanjiScope(grade.grade, directKind) : undefined;
-                        const scopeFolder = (
-                          kind: KanjiScopeKind,
-                          label: string,
-                          attribute: 'reading' | 'other',
-                        ) => {
-                          const scope = kanjiScope(grade.grade, kind);
-                          const count = defaultEntries.filter(
-                            ({ q }) => q && kanjiScopeMatches(q, scope),
+                {subject.subject === 'sansu' && grade.grade === 1 && (
+                  <MathReviewFolders
+                    entries={entries}
+                    selected={selectedUnit}
+                    onSelect={onSelectUnit}
+                    questions={questions}
+                  />
+                )}
+                <OriginalMathFolders active={subject.subject === 'sansu' && grade.grade === 1}>
+                  {subject.subject === 'kanji'
+                    ? (['reading', 'writing', 'review'] as const)
+                        .filter(
+                          (category) =>
+                            !folderTools.state?.layout.hidden.includes(`kanji:${grade.grade}:${category}:*`),
+                        )
+                        .map((category) => {
+                          const defaultEntries = entries.filter(
+                            ({ file, q }) =>
+                              !file.startsWith('questions/_samples/') &&
+                              q &&
+                              q.grade === grade.grade &&
+                              folderSubject(q, units) === 'kanji' &&
+                              kanjiCategory(q) === category &&
+                              !Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
+                          );
+                          const assignedCount = entries.filter(
+                            ({ file, q }) =>
+                              !file.startsWith('questions/_samples/') &&
+                              q &&
+                              q.grade === grade.grade &&
+                              folderSubject(q, units) === 'kanji' &&
+                              folderTools.state?.layout.folders.some(
+                                (folder) =>
+                                  folder.id === folderTools.state?.layout.assignments[q.id] &&
+                                  folder.category === category,
+                              ),
                           ).length;
+                          const categoryName = pgText(
+                            `kanjiCategory${category[0]!.toUpperCase()}${category.slice(1)}`,
+                          );
+                          const directKind: KanjiScopeKind | undefined =
+                            category === 'writing' ? 'writing' : category === 'review' ? 'misc' : undefined;
+                          const directScope = directKind ? kanjiScope(grade.grade, directKind) : undefined;
+                          const scopeFolder = (
+                            kind: KanjiScopeKind,
+                            label: string,
+                            attribute: 'reading' | 'other',
+                          ) => {
+                            const scope = kanjiScope(grade.grade, kind);
+                            const count = defaultEntries.filter(
+                              ({ q }) => q && kanjiScopeMatches(q, scope),
+                            ).length;
+                            return (
+                              <details
+                                name="question-tree-kanji-subcategory"
+                                data-kanji-reading-kind={attribute === 'reading' ? kind : undefined}
+                                data-kanji-other-kind={attribute === 'other' ? kind : undefined}
+                                onToggle={(event) => {
+                                  const open = (event.currentTarget as HTMLDetailsElement).open;
+                                  if (open) onSelectUnit(scope, category);
+                                  else if (selectedUnit === scope) onSelectUnit(undefined);
+                                }}
+                              >
+                                <summary>
+                                  <span class="pg-tree-label">{label}</span>
+                                  <span class="pg-tree-count">
+                                    {count}
+                                    {pgText('questionSuffix')}
+                                  </span>
+                                </summary>
+                                {selectedUnit === scope && questions}
+                              </details>
+                            );
+                          };
                           return (
                             <details
-                              name="question-tree-kanji-subcategory"
-                              data-kanji-reading-kind={attribute === 'reading' ? kind : undefined}
-                              data-kanji-other-kind={attribute === 'other' ? kind : undefined}
+                              name="question-tree-kanji-category"
+                              data-kanji-category={category}
                               onToggle={(event) => {
                                 const open = (event.currentTarget as HTMLDetailsElement).open;
-                                if (open) onSelectUnit(scope, category);
-                                else if (selectedUnit === scope) onSelectUnit(undefined);
+                                if (open && directScope) onSelectUnit(directScope, category);
+                                else if (!open && selectedCategory === category) onSelectUnit(undefined);
                               }}
                             >
                               <summary>
-                                <span class="pg-tree-label">{label}</span>
+                                <span class="pg-tree-label">{categoryName}</span>
                                 <span class="pg-tree-count">
-                                  {count}
+                                  {defaultEntries.length + assignedCount}
                                   {pgText('questionSuffix')}
                                 </span>
                               </summary>
-                              {selectedUnit === scope && questions}
-                            </details>
-                          );
-                        };
-                        return (
-                          <details
-                            name="question-tree-kanji-category"
-                            data-kanji-category={category}
-                            onToggle={(event) => {
-                              const open = (event.currentTarget as HTMLDetailsElement).open;
-                              if (open && directScope) onSelectUnit(directScope, category);
-                              else if (!open && selectedCategory === category) onSelectUnit(undefined);
-                            }}
-                          >
-                            <summary>
-                              <span class="pg-tree-label">{categoryName}</span>
-                              <span class="pg-tree-count">
-                                {defaultEntries.length + assignedCount}
-                                {pgText('questionSuffix')}
-                              </span>
-                            </summary>
-                            {folderTools.state && (
-                              <div class="pg-folder-actions">
-                                <button
-                                  type="button"
-                                  disabled={folderTools.busy}
-                                  onClick={() => deleteCategory(grade.grade, category, categoryName)}
-                                >
-                                  {pgText('folderDelete')}
-                                </button>
-                              </div>
-                            )}
-                            {category === 'reading' && (
-                              <div class="pg-kanji-subfolders">
-                                {scopeFolder('on', pgText('kanjiReadingOn'), 'reading')}
-                                {scopeFolder('kun', pgText('kanjiReadingKun'), 'reading')}
-                              </div>
-                            )}
-                            {category === 'review' && (
-                              <div class="pg-kanji-subfolders">
-                                {scopeFolder('idiom', pgText('kanjiOtherIdioms'), 'other')}
-                                {scopeFolder('relation', pgText('kanjiOtherRelations'), 'other')}
-                              </div>
-                            )}
-                            {directScope && selectedUnit === directScope && questions}
-                            <CustomFolders
-                              tools={folderTools}
-                              subject={subject.subject}
-                              grade={grade.grade}
-                              category={category}
-                              selected={selectedUnit}
-                              onSelect={(id) => onSelectUnit(id)}
-                              questions={questions}
-                              count={(id) =>
-                                entries.filter(
-                                  ({ file, q }) =>
-                                    !file.startsWith('questions/_samples/') &&
-                                    q &&
-                                    q.grade === grade.grade &&
-                                    folderSubject(q, units) === subject.subject &&
-                                    folderTools.state?.layout.assignments[q.id] === id,
-                                ).length
-                              }
-                            />
-                          </details>
-                        );
-                      })
-                  : grade.units
-                      .filter(
-                        (unit) =>
-                          !folderTools.state?.layout.hidden.includes(
-                            `${subject.subject}:${grade.grade}::${unit.unit}`,
-                          ),
-                      )
-                      .map((unit) => (
-                        <div>
-                          <div class="pg-unit-card">
-                            <button
-                              type="button"
-                              data-unit={unit.unit}
-                              aria-describedby={`pg-unit-count-${unit.unit}`}
-                              aria-pressed={selectedUnit === unit.unit}
-                              onClick={() => onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)}
-                            >
-                              <span class="pg-tree-label">
-                                {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
-                              </span>
-                            </button>
-                            <div class="pg-unit-meta">
                               {folderTools.state && (
-                                <button
-                                  type="button"
-                                  class="pg-folder-delete"
-                                  disabled={folderTools.busy}
-                                  aria-label={`${stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')} ${pgText('folderDelete')}`}
-                                  onClick={() =>
-                                    deleteUnit(
-                                      `${subject.subject}:${grade.grade}::${unit.unit}`,
-                                      stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji'),
-                                    )
-                                  }
-                                >
-                                  <span aria-hidden="true">❌</span>
-                                </button>
+                                <div class="pg-folder-actions">
+                                  <button
+                                    type="button"
+                                    disabled={folderTools.busy}
+                                    onClick={() => deleteCategory(grade.grade, category, categoryName)}
+                                  >
+                                    {pgText('folderDelete')}
+                                  </button>
+                                </div>
                               )}
-                              <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
-                                {unit.count -
+                              {category === 'reading' && (
+                                <div class="pg-kanji-subfolders">
+                                  {scopeFolder('on', pgText('kanjiReadingOn'), 'reading')}
+                                  {scopeFolder('kun', pgText('kanjiReadingKun'), 'reading')}
+                                </div>
+                              )}
+                              {category === 'review' && (
+                                <div class="pg-kanji-subfolders">
+                                  {scopeFolder('idiom', pgText('kanjiOtherIdioms'), 'other')}
+                                  {scopeFolder('relation', pgText('kanjiOtherRelations'), 'other')}
+                                </div>
+                              )}
+                              {directScope && selectedUnit === directScope && questions}
+                              <CustomFolders
+                                tools={folderTools}
+                                subject={subject.subject}
+                                grade={grade.grade}
+                                category={category}
+                                selected={selectedUnit}
+                                onSelect={(id) => onSelectUnit(id)}
+                                questions={questions}
+                                count={(id) =>
                                   entries.filter(
                                     ({ file, q }) =>
-                                      unit.sets.some((set) => set.file === file) &&
+                                      !file.startsWith('questions/_samples/') &&
                                       q &&
-                                      Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
-                                  ).length}
-                                {pgText('questionSuffix')}
-                              </span>
+                                      q.grade === grade.grade &&
+                                      folderSubject(q, units) === subject.subject &&
+                                      folderTools.state?.layout.assignments[q.id] === id,
+                                  ).length
+                                }
+                              />
+                            </details>
+                          );
+                        })
+                    : grade.units
+                        .filter(
+                          (unit) =>
+                            !folderTools.state?.layout.hidden.includes(
+                              `${subject.subject}:${grade.grade}::${unit.unit}`,
+                            ),
+                        )
+                        .map((unit) => (
+                          <div>
+                            <div class="pg-unit-card">
+                              <button
+                                type="button"
+                                data-unit={unit.unit}
+                                aria-describedby={`pg-unit-count-${unit.unit}`}
+                                aria-pressed={selectedUnit === unit.unit}
+                                onClick={() =>
+                                  onSelectUnit(selectedUnit === unit.unit ? undefined : unit.unit)
+                                }
+                              >
+                                <span class="pg-tree-label">
+                                  {stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')}
+                                </span>
+                              </button>
+                              <div class="pg-unit-meta">
+                                {folderTools.state && (
+                                  <button
+                                    type="button"
+                                    class="pg-folder-delete"
+                                    disabled={folderTools.busy}
+                                    aria-label={`${stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji')} ${pgText('folderDelete')}`}
+                                    onClick={() =>
+                                      deleteUnit(
+                                        `${subject.subject}:${grade.grade}::${unit.unit}`,
+                                        stripRuby(units.get(unit.unit) ?? unit.unit, 'kanji'),
+                                      )
+                                    }
+                                  >
+                                    <span aria-hidden="true">❌</span>
+                                  </button>
+                                )}
+                                <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
+                                  {unit.count -
+                                    entries.filter(
+                                      ({ file, q }) =>
+                                        unit.sets.some((set) => set.file === file) &&
+                                        q &&
+                                        Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
+                                    ).length}
+                                  {pgText('questionSuffix')}
+                                </span>
+                              </div>
                             </div>
+                            {selectedUnit === unit.unit && questions}
                           </div>
-                          {selectedUnit === unit.unit && questions}
-                        </div>
-                      ))}
-                <CustomFolders
-                  tools={folderTools}
-                  subject={subject.subject}
-                  grade={grade.grade}
-                  selected={selectedUnit}
-                  onSelect={(id) => onSelectUnit(id)}
-                  questions={questions}
-                  count={(id) =>
-                    entries.filter(
-                      ({ file, q }) =>
-                        !file.startsWith('questions/_samples/') &&
-                        q &&
-                        q.grade === grade.grade &&
-                        folderSubject(q, units) === subject.subject &&
-                        (id === null && folderTools.state
-                          ? isUnfiled(q, units, folderTools.state.layout)
-                          : folderTools.state?.layout.assignments[q.id] === id),
-                    ).length
-                  }
-                />
+                        ))}
+                  <CustomFolders
+                    tools={folderTools}
+                    subject={subject.subject}
+                    grade={grade.grade}
+                    selected={selectedUnit}
+                    onSelect={(id) => onSelectUnit(id)}
+                    questions={questions}
+                    count={(id) =>
+                      entries.filter(
+                        ({ file, q }) =>
+                          !file.startsWith('questions/_samples/') &&
+                          q &&
+                          q.grade === grade.grade &&
+                          folderSubject(q, units) === subject.subject &&
+                          (id === null && folderTools.state
+                            ? isUnfiled(q, units, folderTools.state.layout)
+                            : folderTools.state?.layout.assignments[q.id] === id),
+                      ).length
+                    }
+                  />
+                </OriginalMathFolders>
               </details>
             ))}
           </details>

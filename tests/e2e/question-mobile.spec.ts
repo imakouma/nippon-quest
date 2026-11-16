@@ -175,7 +175,14 @@ test('820px以下は1列、広い画面は2列になる', async ({ page }) => {
   }
 });
 
-for (const id of ['sansu.g1.data.0001', 'legacy.sansu.g6.math-6-4.7af63ede6c3e']) {
+for (const id of [
+  'sansu.g1.data.0001',
+  'legacy.sansu.g6.math-6-4.7af63ede6c3e',
+  'legacy.rika.g3.cur-1503-08.e9416fa6bbec',
+  'legacy.rika.g4.cur-1504-05.600963ece2ca',
+  'legacy.rika.g5.sci-5-8.a3fd7dd5cc5b',
+  'legacy.rika.g6.sci-6-10.7120e72536af',
+]) {
   test(`縦画面の教材の本文と回答ボタンが小さくなりすぎない: ${id}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
