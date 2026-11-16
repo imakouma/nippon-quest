@@ -1,7 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-test.use({ baseURL: `http://127.0.0.1:${process.env.E2E_PORT ?? 4174}` });
 const data: { characters: Record<string, { points: { x: number; y: number }[] }[]> } = JSON.parse(
   readFileSync(new URL('../../content/kanji/grade-one-strokes.json', import.meta.url), 'utf8'),
 );
