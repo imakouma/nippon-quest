@@ -5,13 +5,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の式では、はじめにどこを計算しますか。",
+      "prompt": "次の式では、はじめにどこを計算しますか。 300+200-120×2",
       "choices": [
         {
           "id": "c1",
@@ -41,21 +37,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "分配のきまりを使って、計算してみよう。",
-      "answers": [
-        "100",
-        "100",
-        "2",
-        "2100",
-        "42",
-        "2058"
-      ],
+      "answers": ["100", "100", "2", "2100", "42", "2058"],
       "template": "21×98=21×( {{INPUT}} -2) =21× {{INPUT}} -21× {{INPUT}} = {{INPUT}} - {{INPUT}} = {{INPUT}}",
       "promptImage": "questions/sansu/g4/visuals/distribute-0ef637459533.svg",
       "promptImageAlt": "100長さと21の長方形。2の部分を取り除く。部分の積は空欄。"
@@ -68,19 +53,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "分配のきまりを使って、計算してみよう。",
-      "answers": [
-        "100",
-        "1",
-        "2500",
-        "2475"
-      ],
+      "answers": ["100", "1", "2500", "2475"],
       "template": "99×25={{INPUT}}×25-{{INPUT}}×25 ={{INPUT}}-25 ={{INPUT}}",
       "promptImage": "questions/sansu/g4/visuals/distribute-143a8f44a263.svg",
       "promptImageAlt": "100長さと25の長方形。1の部分を取り除く。部分の積は空欄。"
@@ -93,16 +69,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 20÷4 =",
-      "answers": [
-        "14"
-      ]
+      "prompt": "次の計算を しましょう。 20÷4+63÷7 =",
+      "answers": ["14"]
     },
     "explanation": "×, ÷は、＋, －より先に計算するので、20÷4 と 63÷7 を先に計算しよう。 20÷4+63÷7 = 5+9 = 14"
   },
@@ -112,16 +82,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 90-65 =",
-      "answers": [
-        "25"
-      ]
+      "prompt": "次の計算を しましょう。 90-(120-55) =",
+      "answers": ["25"]
     },
     "explanation": "かっこ（）の中は、先に計算するので、(120-55) を先に計算しよう。 90-(120-55) = 90-65 = 25"
   },
@@ -131,11 +95,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "計算のきまりとして、正しいものをえらぼう。",
       "choices": [
@@ -158,7 +118,8 @@
       ],
       "answer": "c1",
       "shuffle": true
-    }
+    },
+    "explanation": "かっこは、ひとまとまりにして先[さき]に計算[けいさん]する部分[ぶぶん]を表[あらわ]します。例[たと]えば(3+5)×2は8×2=16です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-8.2d70913a43e8",
@@ -166,16 +127,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 16÷4 =",
-      "answers": [
-        "36"
-      ]
+      "prompt": "次の計算を しましょう。 32+16÷4",
+      "answers": ["36"]
     },
     "explanation": "×, ÷は、＋, －より先に計算するので、16÷4 を先に計算しよう。 32+16÷4 = 32+4 = 36"
   },
@@ -185,16 +140,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 8×9 =",
-      "answers": [
-        "72"
-      ]
+      "prompt": "次の計算を しましょう。 (3+5)×9 =",
+      "answers": ["72"]
     },
     "explanation": "かっこ（）の中は、先に計算するので、(3+5) を先に計算しよう。 (3+5)×9 = 8×9 = 72"
   },
@@ -204,16 +153,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "くふうして 計算しよう。",
-      "answers": [
-        "12.9"
-      ]
+      "prompt": "くふうして 計算しよう。 2.9+3.3+6.7=",
+      "answers": ["12.9"]
     },
     "explanation": "足し算はじゅん番を変えても、答えは変わらない。3.3+6.7=10 を先に計算すると、計算が楽になるね。 2.9+3.3+6.7 =2.9+(3.3+6.7) =2.9+10 =12.9"
   },
@@ -223,16 +166,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 49÷7 =",
-      "answers": [
-        "7"
-      ]
+      "prompt": "次の計算を しましょう。 (40+9)÷7 =",
+      "answers": ["7"]
     },
     "explanation": "かっこ（）の中は、先に計算するので、(40+9) を先に計算しよう。 (40+9)÷7 = 49÷7 = 7"
   },
@@ -242,13 +179,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の式では、はじめにどこを計算しますか。",
+      "prompt": "次の式では、はじめにどこを計算しますか。 500-(120+80)+60",
       "choices": [
         {
           "id": "c1",
@@ -278,16 +211,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 72÷8 =",
-      "answers": [
-        "61"
-      ]
+      "prompt": "次の計算を しましょう。 70-(48+24)÷8 =",
+      "answers": ["61"]
     },
     "explanation": "① かっこ（） ② ×, ÷ ③ ＋, － のじゅん番で、計算する。 70-(48+24)÷8 = 70-72÷8 = 70-9 = 61"
   },
@@ -297,19 +224,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数を書いて、答えを求めよう。",
-      "answers": [
-        "180",
-        "100",
-        "900",
-        "500"
-      ],
+      "answers": ["180", "100", "900", "500"],
       "template": "(180+100)×5={{INPUT}}×5+{{INPUT}}×5 ={{INPUT}}+{{INPUT}} =1400",
       "promptImage": "questions/sansu/g4/visuals/distribute-7c3616ea37c7.svg",
       "promptImageAlt": "180と100を合わせた長さと5の長方形。部分の積は空欄。"
@@ -322,19 +240,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "分配のきまりを使って、計算してみよう。",
-      "answers": [
-        "100",
-        "4",
-        "800",
-        "832"
-      ],
+      "answers": ["100", "4", "800", "832"],
       "template": "104×8={{INPUT}}×8+{{INPUT}}×8 ={{INPUT}}+32 ={{INPUT}}",
       "promptImage": "questions/sansu/g4/visuals/distribute-80833d88165a.svg",
       "promptImageAlt": "100と4を合わせた長さと8の長方形。部分の積は空欄。"
@@ -347,16 +256,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 70-42÷7 =",
-      "answers": [
-        "88"
-      ]
+      "prompt": "次の計算を しましょう。 24+(70-42÷7) =",
+      "answers": ["88"]
     },
     "explanation": "① かっこ（） ② ×, ÷ ③ ＋, － のじゅん番で、計算する。 24+(70-42÷7) = 24+(70-6) = 24+64 = 88"
   },
@@ -366,13 +269,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の文章題の答えを求める 式をえらぼう。",
+      "prompt": "次の文章題の答えを求める 式をえらぼう。 120円のチョコと 80円のグミを、買いました。500円 はらうと、おつりは いくらになるでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -398,16 +297,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "くふうして 計算しよう。",
-      "answers": [
-        "147"
-      ]
+      "prompt": "くふうして 計算しよう。 47+86+14=",
+      "answers": ["147"]
     },
     "explanation": "足し算はじゅん番を変えても、答えは変わらない。86+14=100 を先に計算すると、計算が楽になるね。 47+86+14 =47+(86+14) =47+100 =147"
   },
@@ -417,16 +310,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 9×6 =",
-      "answers": [
-        "70"
-      ]
+      "prompt": "次の計算を しましょう。 9×6+2×8 =",
+      "answers": ["70"]
     },
     "explanation": "×, ÷は、＋, －より先に計算するので、9×6 と 2×8 を先に計算しよう。 9×6+2×8 = 54+16 = 70"
   },
@@ -436,16 +323,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "くふうして 計算しよう。",
-      "answers": [
-        "1200"
-      ]
+      "prompt": "くふうして 計算しよう。 4×12×25=",
+      "answers": ["1200"]
     },
     "explanation": "かけ算はじゅん番を変えても、答えは変わらない。25×4=100 を先に計算すると、計算が楽になるね。 4×12×25 =4×25×12 =100×12 =1200"
   },
@@ -455,16 +336,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 24÷4 =",
-      "answers": [
-        "13"
-      ]
+      "prompt": "次の計算を しましょう。 15-24÷4+4 =",
+      "answers": ["13"]
     },
     "explanation": "×, ÷は、＋, －より先に計算するので、24÷4 を先に計算しよう。 15-24÷4+4 = 15-6+4 = 13"
   },
@@ -474,16 +349,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 90-8×7 =",
-      "answers": [
-        "18"
-      ]
+      "prompt": "次の計算を しましょう。 52-(90-8×7) =",
+      "answers": ["18"]
     },
     "explanation": "① かっこ（） ② ×, ÷ ③ ＋, － のじゅん番で、計算する。 52-(90-8×7) = 52-(90-56) = 52-34 = 18"
   },
@@ -493,16 +362,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 86+68 =",
-      "answers": [
-        "154"
-      ]
+      "prompt": "次の計算を しましょう。 86+(100-32) =",
+      "answers": ["154"]
     },
     "explanation": "かっこ（）の中は、先に計算するので、(100-32) を先に計算しよう。 86+(100-32) = 86+68 = 154"
   },
@@ -512,16 +375,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "くふうして 計算しよう。",
-      "answers": [
-        "31000"
-      ]
+      "prompt": "くふうして 計算しよう。 125×31×8=",
+      "answers": ["31000"]
     },
     "explanation": "かけ算はじゅん番を変えても、答えは変わらない。125×8=1000 を先に計算すると、計算が楽になるね。 125×31×8 =125×8×31 =1000×31 =31000"
   },
@@ -531,13 +388,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の文章題の答えを求める 式をえらぼう。",
+      "prompt": "次の文章題の答えを求める 式をえらぼう。 120円 のチョコを、２つ買いました。500円 はらうと、おつりは いくらになるでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -563,16 +416,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 4×4 =",
-      "answers": [
-        "32"
-      ]
+      "prompt": "次の計算を しましょう。 16+(24-20)×4 =",
+      "answers": ["32"]
     },
     "explanation": "① かっこ（） ② ×, ÷ ③ ＋, － のじゅん番で、計算する。 16+(24-20)×4 = 16+4×4 = 16+16 = 32"
   },
@@ -582,16 +429,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 5×3 =",
-      "answers": [
-        "25"
-      ]
+      "prompt": "次の計算を しましょう。 40-5×3 =",
+      "answers": ["25"]
     },
     "explanation": "×, ÷は、＋, －より先に計算するので、5×3 を先に計算しよう。 40-5×3 = 40-15 = 25"
   },
@@ -601,16 +442,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 7×5 =",
-      "answers": [
-        "3"
-      ]
+      "prompt": "次の計算を しましょう。 7×5-8×4 =",
+      "answers": ["3"]
     },
     "explanation": "×, ÷は、＋, －より先に計算するので、7×5 と 8×4 を先に計算しよう。 7×5-8×4 = 35-32 = 3"
   },
@@ -620,11 +455,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "計算のきまりとして、正しいものをえらぼう。",
       "choices": [

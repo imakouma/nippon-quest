@@ -5,11 +5,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -42,16 +38,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、②に当てはまる数は いくつでしょう。",
-      "answers": [
-        "4"
-      ],
+      "answers": ["4"],
       "promptImage": "questions/legacy/4ad35922a8e37959.png"
     },
     "explanation": "②は「体育館」の「合計」の列なので、「体育館で ねっ中しょう になった人の数の合計」になる。左の表から、当てはまる人の数を数えると、4 になる。"
@@ -62,11 +52,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、②に当てはまるのは、次のうちどれでしょう。",
       "choices": [
@@ -95,11 +81,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図のようなグラフを、何グラフというでしょう。",
       "choices": [
@@ -132,11 +114,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -169,11 +147,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -206,11 +180,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -243,11 +213,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -280,19 +246,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、下の表のようになりました。表の①〜④に当てはまる数をうめよう。",
-      "answers": [
-        "7",
-        "0",
-        "3",
-        "20"
-      ],
+      "answers": ["7", "0", "3", "20"],
       "template": "① {{INPUT}}人　② {{INPUT}}人　③ {{INPUT}}人　④ {{INPUT}}人",
       "promptImage": "questions/sansu/g4/visuals/heat-table-blanks.svg",
       "promptImageAlt": "行は教室、校庭、体育館、その他、合計。列は授業中、休み時間、給食中、放課後、合計。きょうしつ：3、1、2、1、①。こうてい：6、0、0、1、7。たいいくかん：3、1、②、0、4。そのほか：0、1、0、1、2。ごうけい：12、③、2、3、④"
@@ -305,11 +262,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -342,11 +295,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、①に当てはまるのは、次のうちどれでしょう。",
       "choices": [
@@ -375,11 +324,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図のようなグラフを、何グラフというでしょう。",
       "choices": [
@@ -412,11 +357,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "A市内の熱中症発生数は、教室7人、校庭7人、体育館4人、その他2人でした。授業中は12人、休み時間は3人、給食中は2人、放課後は3人です。この表から言えることとして正しいものを選ぼう。",
       "choices": [
@@ -441,7 +382,8 @@
       "shuffle": true,
       "promptImage": "questions/sansu/g4/visuals/heat-table-complete.svg",
       "promptSpeech": "A市内の熱中症発生数は、教室7人、校庭7人、体育館4人、その他2人でした。授業中は12人、休み時間は3人、給食中は2人、放課後は3人です。この表から言えることとして正しいものを選ぼう。 行は教室、校庭、体育館、その他、合計。列は授業中、休み時間、給食中、放課後、合計。きょうしつ：3、1、2、1、7。こうてい：6、0、0、1、7。たいいくかん：3、1、0、0、4。そのほか：0、1、0、1、2。ごうけい：12、3、2、3、20"
-    }
+    },
+    "explanation": "授業中[じゅぎょうちゅう]の列[れつ]では、校庭[こうてい]が6人[にん]、体育館[たいいくかん]が3人[にん]です。休[やす]み時間[じかん]は合計[ごうけい]3人[にん]で最多[さいた]ではなく、学年別[がくねんべつ]の情報[じょうほう]はこの表[ひょう]にはありません。"
   },
   {
     "id": "legacy.sansu.g4.math-4-2.ca71f3ca3730",
@@ -449,11 +391,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "折れ線グラフについて、正しいものをえらぼう。",
       "choices": [
@@ -487,11 +425,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -524,11 +458,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -561,16 +491,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "A市内の３つの小学校で、今週の ねっ中しょう の発生について調べたところ、左の表のようになりました。これを右の表に整理するとき、①に当てはまる数は いくつでしょう。",
-      "answers": [
-        "3"
-      ],
+      "answers": ["3"],
       "promptImage": "questions/legacy/4ad35922a8e37959.png"
     },
     "explanation": "①は「授業中」と「教室」が重なるところなので、「授業中に教室で ねっ中しょう になった人の数」になる。左の表から、当てはまる人の数を数えると、3 になる。"
@@ -581,11 +505,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -618,11 +538,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -655,11 +571,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
       "choices": [
@@ -685,5 +597,125 @@
       "promptImage": "questions/legacy/f5c8c9a81ff3b848.png"
     },
     "explanation": "「気温が一番上がった」時間は、かたむきが急に上むきになる（右上がり）。一番急なのは、午前9時 から 午前12時だね。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-2.two-way-total",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "表[ひょう]の全員[ぜんいん]は何人[なんにん]ですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "10人[にん]"
+        },
+        {
+          "id": "b",
+          "text": "14人[にん]"
+        },
+        {
+          "id": "c",
+          "text": "20人[にん]"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/two-way.svg",
+      "promptSpeech": "表[ひょう]の全員[ぜんいん]は何人[なんにん]ですか。 図書室利用かつ外遊び6人、利用し外遊びなし4人、利用せず外遊び8人、どちらもしない2人。"
+    },
+    "explanation": "4つの場所[ばしょ]は重[かさ]ならず、全員[ぜんいん]を分[わ]けています。6+4+8+2=20人[にん]です。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-2.two-way-either",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "図書室[としょしつ]を利用[りよう]した人[ひと]は何人[なんにん]ですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "10人[にん]"
+        },
+        {
+          "id": "b",
+          "text": "6人[にん]"
+        },
+        {
+          "id": "c",
+          "text": "14人[にん]"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/two-way.svg",
+      "promptSpeech": "図書室[としょしつ]を利用[りよう]した人[ひと]は何人[なんにん]ですか。 図書室利用かつ外遊び6人、利用し外遊びなし4人、利用せず外遊び8人、どちらもしない2人。"
+    },
+    "explanation": "図書室[としょしつ]を利用[りよう]した行[ぎょう]を読[よ]みます。外遊[そとあそ]びをした6人[にん]と、しなかった4人[にん]を足[た]して10人[にん]です。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-2.line-compare",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "11時[じ]の気温[きおん]の差[さ]は何[なん]℃ですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1℃"
+        },
+        {
+          "id": "b",
+          "text": "2℃"
+        },
+        {
+          "id": "c",
+          "text": "3℃"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/two-lines.svg",
+      "promptSpeech": "11時[じ]の気温[きおん]の差[さ]は何[なん]℃ですか。 9時、10時、11時、12時の順に、A地点は12、16、19、22℃。B地点は14、15、17、20℃。"
+    },
+    "explanation": "同[おな]じ11時[じ]で比[くら]べます。Aは19℃、Bは17℃なので、19−17=2℃です。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-2.line-change",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-2",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "9時[じ]から10時[じ]に、気温[きおん]がより大[おお]きく上[あ]がった地点[ちてん]はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A"
+        },
+        {
+          "id": "b",
+          "text": "B"
+        },
+        {
+          "id": "c",
+          "text": "同[おな]じ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/two-lines.svg",
+      "promptSpeech": "9時[じ]から10時[じ]に、気温[きおん]がより大[おお]きく上[あ]がった地点[ちてん]はどれですか。 9時、10時、11時、12時の順に、A地点は12、16、19、22℃。B地点は14、15、17、20℃。"
+    },
+    "explanation": "Aは16−12=4℃、Bは15−14=1℃上[あ]がりました。4℃のほうが大[おお]きいのでAです。"
   }
 ]

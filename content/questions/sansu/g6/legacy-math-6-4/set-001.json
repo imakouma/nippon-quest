@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3/8÷3/4 =",
+      "prompt": "次の計算をしましょう。 3/8÷3/4 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "2"
@@ -20,7 +20,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-05cb6d155eb3.svg",
       "promptImageAlt": "計算に使う量3/8、3/4を示す。枠1つの大きさは共通。3/8÷3/4の答えは示していない。"
     },
-    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{3}{8}÷\\dfrac{3}{4}=\\dfrac{\\bcancel{3}1}{\\bcancel{8}2}×\\dfrac{\\bcancel{4}1}{\\bcancel{3}1}=\\dfrac{1}{2}"
+    "explanation": "割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{3}{8} × \\dfrac{4}{3} = \\dfrac{12}{24} = \\dfrac{1}{2}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.16f378313dac",
@@ -34,7 +34,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1/2÷2 =",
+      "prompt": "次の計算をしましょう。 1/2÷2 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "4"
@@ -80,7 +80,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 7/12÷5 =",
+      "prompt": "次の計算をしましょう。 7/12÷5 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "7",
         "60"
@@ -126,7 +126,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1\\dfrac{7}{8} ÷ 3\\dfrac{4}{7} ÷ \\dfrac{7}{16} を計算[けいさん]し、仮分数[かぶんすう]で答[こた]えよう。",
+      "prompt": "1\\dfrac{7}{8} ÷ 3\\dfrac{4}{7} ÷ \\dfrac{7}{16} を計算[けいさん]し、仮分数[かぶんすう]で答[こた]えよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "6",
         "5"
@@ -155,7 +155,7 @@
       ],
       "template": "\\dfrac{5}{6} ÷ \\dfrac{2}{9} ÷ \\dfrac{5}{12} = {{INPUT}}"
     },
-    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{5}{6}÷\\dfrac{2}{9}÷\\dfrac{5}{12}=\\dfrac{\\bcancel{5}1}{\\bcancel{6}1}×\\dfrac{9}{\\bcancel{2}1}×\\dfrac{\\bcancel{12}1}{\\bcancel{5}1}=9"
+    "explanation": "割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{5}{6} × \\dfrac{9}{2} × \\dfrac{12}{5} = \\dfrac{540}{60} = 9。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.60aaa7d61cf6",
@@ -169,7 +169,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1/6÷1/4 =",
+      "prompt": "次の計算をしましょう。 1/6÷1/4 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "3"
@@ -178,7 +178,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-60aaa7d61cf6.svg",
       "promptImageAlt": "計算に使う量1/6、1/4を示す。枠1つの大きさは共通。1/6÷1/4の答えは示していない。"
     },
-    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{1}{6}÷\\dfrac{1}{4}=\\dfrac{1}{\\bcancel{6}3}×\\dfrac{\\bcancel{4}2}{1}=\\dfrac{2}{3}"
+    "explanation": "割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{1}{6} × 4 = \\dfrac{4}{6} = \\dfrac{2}{3}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.763c0aa897df",
@@ -192,7 +192,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1.1÷11/15×0.6 =",
+      "prompt": "次の計算をしましょう。 1.1÷11/15×0.6 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "9",
         "10"
@@ -201,7 +201,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-763c0aa897df.svg",
       "promptImageAlt": "計算に使う量11/10、11/15、6/10を示す。枠1つの大きさは共通。1.1÷11/15×0.6の答えは示していない。"
     },
-    "explanation": "\\require{cancel} まずは 1.1と0.6を分数にしよう。1.1=1\\dfrac{1}{10}=\\dfrac{11}{10} となる。また、0.6=\\dfrac{6}{10}=\\dfrac{3}{5} になる。 1.1÷\\dfrac{11}{15}×0.6=\\dfrac{11}{10}÷\\dfrac{11}{15}×\\dfrac{3}{5}=\\dfrac{\\bcancel{11}1}{10}×\\dfrac{\\bcancel{15}3}{\\bcancel{11}1}×\\dfrac{3}{\\bcancel{5}1}=\\dfrac{9}{10}"
+    "explanation": "帯分数[たいぶんすう]や小数[しょうすう]を分数[ぶんすう]に直[なお]します。割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{11}{10} × \\dfrac{15}{11} × \\dfrac{3}{5} = \\dfrac{495}{550} = \\dfrac{9}{10}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.7af63ede6c3e",
@@ -215,7 +215,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "15分[ふん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。",
+      "prompt": "15分[ふん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "4"
@@ -244,7 +244,7 @@
       ],
       "template": "\\dfrac{3}{5} ÷ 0.3 = {{INPUT}}"
     },
-    "explanation": "\\require{cancel} まずは 0.3を分数にしよう。0.1=\\dfrac{1}{10} なので、0.3=\\dfrac{3}{10} になる。 \\dfrac{3}{5}÷0.3= \\dfrac{3}{5}÷\\dfrac{3}{10}=\\dfrac{\\bcancel{3}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{10}2}{\\bcancel{3}1}=2"
+    "explanation": "帯分数[たいぶんすう]や小数[しょうすう]を分数[ぶんすう]に直[なお]します。割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{3}{5} × \\dfrac{10}{3} = \\dfrac{30}{15} = 2。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.9683fdb57e2f",
@@ -258,7 +258,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 2/5÷4 =",
+      "prompt": "次の計算をしましょう。 2/5÷4 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "10"
@@ -267,7 +267,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-9683fdb57e2f.svg",
       "promptImageAlt": "計算に使う量2/5を示す。枠1つの大きさは共通。2/5÷4の答えは示していない。"
     },
-    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{2}{5}÷4=\\dfrac{\\bcancel{2}1}{5×\\bcancel{4}2}=\\dfrac{1}{10}"
+    "explanation": "割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{2}{5} × \\dfrac{1}{4} = \\dfrac{2}{20} = \\dfrac{1}{10}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.9d3dd713ec78",
@@ -281,7 +281,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3/4÷3 =",
+      "prompt": "次の計算をしましょう。 3/4÷3 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "4"
@@ -290,7 +290,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-9d3dd713ec78.svg",
       "promptImageAlt": "計算に使う量3/4を示す。枠1つの大きさは共通。3/4÷3の答えは示していない。"
     },
-    "explanation": "分数÷整数 では、分数の分母にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{4}÷3=\\dfrac{\\bcancel{3}1}{4×\\bcancel{3}1}=\\dfrac{1}{4}"
+    "explanation": "割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{3}{4} × \\dfrac{1}{3} = \\dfrac{3}{12} = \\dfrac{1}{4}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-4.a67f18d54eb4",
@@ -327,7 +327,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 7/8÷0.4×0.25 =",
+      "prompt": "次の計算をしましょう。 7/8÷0.4×0.25 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "35",
         "64"
@@ -350,7 +350,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "10分[ぷん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。",
+      "prompt": "10分[ぷん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "6"
@@ -373,7 +373,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1\\dfrac{2}{5} ÷ 2\\dfrac{1}{10} を計算[けいさん]しよう。",
+      "prompt": "1\\dfrac{2}{5} ÷ 2\\dfrac{1}{10} を計算[けいさん]しよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "3"
@@ -396,7 +396,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "24分[ふん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。",
+      "prompt": "24分[ふん]は何時間[なんじかん]ですか。約分[やくぶん]した分数[ぶんすう]で答[こた]えよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "5"
@@ -419,7 +419,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 7/10÷5/14 =",
+      "prompt": "次の計算をしましょう。 7/10÷5/14 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "49",
         "25"
@@ -428,6 +428,38 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-d7653c3482cc.svg",
       "promptImageAlt": "計算に使う量7/10、5/14を示す。枠1つの大きさは共通。7/10÷5/14の答えは示していない。"
     },
-    "explanation": "分数の割り算では、「÷」の後にあるわる数を、逆数にしてかければいい。 \\require{cancel} \\dfrac{7}{10}÷\\dfrac{5}{14}=\\dfrac{7}{\\bcancel{10}5}×\\dfrac{\\bcancel{14}7}{5}=\\dfrac{49}{25}"
+    "explanation": "割[わ]る数[かず]の逆数[ぎゃくすう]をかけ、分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{7}{10} × \\dfrac{14}{5} = \\dfrac{98}{50} = \\dfrac{49}{25}。最後[さいご]に約分[やくぶん]します。"
+  },
+  {
+    "id": "sansu.g6.curriculum.fraction-divide-meaning",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-4",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "3/4Lのジュースを、1/4Lずつコップに入[い]れます。何杯[なんばい]できますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3杯[ばい]"
+        },
+        {
+          "id": "c2",
+          "text": "1杯[ぱい]"
+        },
+        {
+          "id": "c3",
+          "text": "4杯[はい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/fraction-meaning.svg",
+      "promptImageAlt": "1Lを4等分し、3つ分に色を付けた図。"
+    },
+    "explanation": "3/4Lの中[なか]には1/4Lが3つあります。いくつ分[ぶん]かを求[もと]めるので3/4÷1/4＝3です。"
   }
 ]

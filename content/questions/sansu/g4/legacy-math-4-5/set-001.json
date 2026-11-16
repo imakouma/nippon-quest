@@ -5,11 +5,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の直角三角形で、辺ABと垂直な関係にある辺をえらぼう。",
       "choices": [
@@ -38,11 +34,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "向かい合った２組の辺が どちらも平行な四角形[しかくけい]を、何といいますか。",
       "choices": [
@@ -76,11 +68,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "平行四辺形の「辺」のきまりとして、正しいものをえらぼう。",
       "choices": [
@@ -110,11 +98,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の四角形[しかくけい]の中から、平行四辺形の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -147,11 +131,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "平行四辺形の対角線について、正しいものをえらぼう。",
       "choices": [
@@ -181,11 +161,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "すべての辺の長さが等しい四角形[しかくけい]を、何といいますか。",
       "choices": [
@@ -219,13 +195,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "向かい合う角どうしをむすんだ直線を 何といいますか。",
+      "prompt": "四角形[しかくけい]の、向[む]かい合[あ]う頂点[ちょうてん]どうしを結[むす]ぶ直線[ちょくせん]を何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -249,7 +221,7 @@
       "promptImage": "questions/sansu/g4/visuals/quadrilateral-3efa16b5add3.svg",
       "promptSpeech": "向かい合う角どうしをむすんだ直線を 何といいますか。 平行四辺形の図。向かい合う頂点を結んだ2本の補助線。"
     },
-    "explanation": "向かい合う角どうしをむすんだ直線を 「対角線」という。"
+    "explanation": "となり合[あ]う頂点[ちょうてん]を結[むす]ぶと辺[へん]になります。向[む]かい合[あ]う頂点[ちょうてん]を結[むす]んだものが対角線[たいかくせん]で、四角形[しかくけい]には2本[ほん]あります。"
   },
   {
     "id": "legacy.sansu.g4.math-4-5.53229288da6a",
@@ -257,11 +229,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図で、垂直である直線の組み合わせは、どれでしょう。",
       "choices": [
@@ -294,16 +262,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の四角形[しかくけい]は、平行四辺形です。",
-      "answers": [
-        "60"
-      ],
+      "answers": ["60"],
       "template": "角Dの大きさは、何度になるでしょう。 {{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/c403e909ba9493b5.png"
@@ -316,11 +278,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図で、直線アと直線イ、直線ウと直線エ は、それぞれ平行になっている。このとき、● がついた角と同じ大きさの角は、次のうちどれでしょう。",
       "choices": [
@@ -353,16 +311,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の四角形[しかくけい]は、平行四辺形です。",
-      "answers": [
-        "9"
-      ],
+      "answers": ["9"],
       "template": "辺ADの長さは、何cmになるでしょう。 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/c403e909ba9493b5.png"
@@ -375,13 +327,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を じゅん番にえらぼう。",
+      "prompt": "2本[ほん]の直線[ちょくせん]が直角[ちょっかく]に交[まじ]わるときは（　）、同[おな]じ平面[へいめん]でどこまでものばしても交[まじ]わらないときは（　）です。",
       "choices": [
         {
           "id": "c1",
@@ -412,11 +360,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の長方形[ちょうほうけい]で、辺ABと垂直な関係にある辺の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -449,18 +393,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図で、直線アと直線イ、直線ウと直線エ は、それぞれ平行になっている。次の角の大きさをもとめよう。",
-      "answers": [
-        "40",
-        "40",
-        "140"
-      ],
+      "answers": ["40", "40", "140"],
       "template": "角あ {{INPUT}}° 角い {{INPUT}}° 角う {{INPUT}}°",
       "promptImage": "questions/legacy/3520c597b56b0adb.png"
     },
@@ -472,16 +408,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の四角形[しかくけい]は、平行四辺形です。",
-      "answers": [
-        "5"
-      ],
+      "answers": ["5"],
       "template": "AEの長さは、何cmになるでしょう。 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/5929ff4c5cc06c56.png"
@@ -494,11 +424,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図で、平行である直線の組み合わせは、どれでしょう。",
       "choices": [
@@ -531,11 +457,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "ひし形の対角線について、正しいものをえらぼう。",
       "choices": [
@@ -565,11 +487,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の長方形[ちょうほうけい]で、辺ABと平行な関係にある辺の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -602,11 +520,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の四角形[しかくけい]の中から、台形の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -639,11 +553,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "平行四辺形の「角」のきまりとして、正しいものをえらぼう。",
       "choices": [
@@ -673,16 +583,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の四角形[しかくけい]は、ひし形です。しるしをつけた角の大きさは、何度になるでしょう。",
-      "answers": [
-        "90"
-      ],
+      "answers": ["90"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/9e6ec20584ca90a3.png"
@@ -695,11 +599,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "向かい合った１組の辺が 平行な四角形[しかくけい]を、何といいますか。",
       "choices": [

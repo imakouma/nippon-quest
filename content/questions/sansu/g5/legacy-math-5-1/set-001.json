@@ -8,15 +8,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (40.3)",
+      "prompt": "計算[けいさん]しましょう。",
       "answers": [
         "40.3"
-      ]
+      ],
+      "template": "4.03 × 10 = {{INPUT}}"
     },
-    "explanation": "10倍すると、位が１つ大きくなり、小数点は右に１つ動く。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、403×10＝4030です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 40.3です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-1.1cc857d26ba7",
@@ -61,13 +63,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (0.4)",
+      "prompt": "計算[けいさん]しましょう。",
       "answers": [
         "0.4"
-      ]
+      ],
+      "template": "40 ÷ 100 = {{INPUT}}"
     },
     "explanation": "÷100すると、位が２つ小さくなり、小数点は左に２つ動く。"
   },
@@ -140,13 +144,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (1.23)",
+      "prompt": "計算[けいさん]しましょう。",
       "answers": [
         "1.23"
-      ]
+      ],
+      "template": "12.3 ÷ 10 = {{INPUT}}"
     },
     "explanation": "÷10すると、位が１つ小さくなり、小数点は左に１つ動く。"
   },
@@ -308,13 +314,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (0.00569)",
+      "prompt": "計算[けいさん]しましょう。",
       "answers": [
         "0.00569"
-      ]
+      ],
+      "template": "5.69 ÷ 1000 = {{INPUT}}"
     },
     "explanation": "÷1000すると、位が３つ小さくなり、小数点は左に３つ動く。"
   },
@@ -327,15 +335,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (8720)",
+      "prompt": "計算[けいさん]しましょう。",
       "answers": [
         "8720"
-      ]
+      ],
+      "template": "87.2 × 100 = {{INPUT}}"
     },
-    "explanation": "100倍すると、位が２つ大きくなり、小数点は右に２つ動く。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、872×100＝87200です。小数部分[しょうすうぶぶん]は 合[あ]わせて 1けたなので、積[せき]の 右[みぎ]から 1けたの 位置[いち]に 小数点[しょうすうてん]を つけると 8720です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-1.c719a11384a1",
@@ -380,14 +390,16 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (590)",
+      "prompt": "計算[けいさん]しましょう。",
       "answers": [
         "590"
-      ]
+      ],
+      "template": "0.59 × 1000 = {{INPUT}}"
     },
-    "explanation": "1000倍すると、位が３つ大きくなり、小数点は右に３つ動く。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、59×1000＝59000です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 590です。"
   }
 ]

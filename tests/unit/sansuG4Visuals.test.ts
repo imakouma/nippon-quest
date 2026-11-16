@@ -22,13 +22,17 @@ const repairs: Record<string, [string[], string[]]> = {
 };
 
 const questions = readdirSync('content/questions/sansu/g4').flatMap((dir) =>
-  (JSON.parse(readFileSync(`content/questions/sansu/g4/${dir}/set-001.json`, 'utf8')) as unknown[]).map(
-    (q) => questionBaseSchema.parse(q) as QuestionBase,
-  ),
+  readdirSync(`content/questions/sansu/g4/${dir}`)
+    .filter((name) => name.endsWith('.json'))
+    .flatMap((name) =>
+      (JSON.parse(readFileSync(`content/questions/sansu/g4/${dir}/${name}`, 'utf8')) as unknown[]).map(
+        (q) => questionBaseSchema.parse(q) as QuestionBase,
+      ),
+    ),
 );
 describe('grade 4 illustrated learning materials', () => {
-  it('preserves all 362 identities and targets with documented fraction-input repairs', () => {
-    expect(questions).toHaveLength(362);
+  it('covers all 377 identities and targets with documented fraction-input repairs', () => {
+    expect(questions).toHaveLength(377);
     const rows = questions
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
@@ -48,7 +52,7 @@ describe('grade 4 illustrated learning materials', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      'ed4c8b38b6bfc373a1d7f5ed0fceb8eadd4206201341d2fb0eb659287abd90a4',
+      '168626a140c735e6e86f4812d52a7e4adc2539daa3e34abf7c086e9b4d04ea3b',
     );
   });
   it('illustrates groups, measurement, time, shape and word problems without printing unknown totals', () => {
@@ -71,7 +75,7 @@ describe('grade 4 illustrated learning materials', () => {
       reason: string;
     }[];
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(101);
+    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(113);
     for (const r of review) {
       expect(r.reason).toBeTruthy();
       if (r.decision !== 'illustrated') continue;

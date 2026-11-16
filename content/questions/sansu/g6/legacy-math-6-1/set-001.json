@@ -110,7 +110,7 @@
       "promptImage": "questions/sansu/g6/visuals/symmetry-line-146ac196a443.svg",
       "promptSpeech": "線対称な図形[ずけい]で、折り目となる直線のことを、何というでしょう。 左右が折り重なる図形。中央の縦の直線を赤い破線で示す。"
     },
-    "explanation": "線対称な図形[ずけい]で、折り目となる直線のことを、「対称の軸じく」という。"
+    "explanation": "線対称な図形[ずけい]で、折り目となる直線のことを、「対称[たいしょう]の軸[じく]」という。"
   },
   {
     "id": "legacy.sansu.g6.math-6-1.23d3e3b20e6c",
@@ -282,7 +282,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/f2f8ea37bc31a996.png"
     },
-    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線せん対称たいしょう」という。"
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線対称[せんたいしょう]」という。"
   },
   {
     "id": "legacy.sansu.g6.math-6-1.4f3247deb13b",
@@ -420,7 +420,7 @@
       "promptImage": "questions/sansu/g6/visuals/symmetry-line-628778091ecb.svg",
       "promptSpeech": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、何というでしょう。 左右が折り重なる図形。中央の縦の直線を赤い破線で示す。"
     },
-    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線せん対称たいしょう」という。"
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線対称[せんたいしょう]」という。"
   },
   {
     "id": "legacy.sansu.g6.math-6-1.6452a798c984",
@@ -457,7 +457,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/2c933078254927a9.png"
     },
-    "explanation": "「対応する点」とは、対称の中で回転させたときに、ぴったり重なる点のこと。 点Aは、点Fと重なるね。"
+    "explanation": "「対応する点」とは、対称[たいしょう]の中心[ちゅうしん]のまわりに180°回転させたときに、ぴったり重なる点のこと。 点Aは、点Fと重なるね。"
   },
   {
     "id": "legacy.sansu.g6.math-6-1.7b43764bb9a2",
@@ -532,7 +532,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/2e12a9d5d37e3894.png"
     },
-    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線せん対称たいしょう」という。"
+    "explanation": "１つの直線を折り目にして 折ったとき、ぴったり重なる図形[ずけい]を、「線対称[せんたいしょう]」という。"
   },
   {
     "id": "legacy.sansu.g6.math-6-1.e71e9c63b60e",
@@ -570,5 +570,69 @@
       "promptImage": "questions/legacy/173127d3dd8de61d.png"
     },
     "explanation": "「対応する点」とは、対称の軸で折ったときに、ぴったり重なる点のこと。 点Bは、点Jと重なるね。"
+  },
+  {
+    "id": "sansu.g6.curriculum.line-construct",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "赤[あか]い直線[ちょくせん]を軸[じく]に折[お]ると、点[てん]Pと重[かさ]なる点[てん]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/symmetry-points.svg",
+      "promptImageAlt": "縦の赤線が対称の軸。PとAは同じ高さで軸から左右2ます。Oは中央。"
+    },
+    "explanation": "軸[じく]から同[おな]じ距離[きょり]で、軸[じく]に垂直[すいちょく]な線[せん]上[じょう]の点[てん]を探[さが]します。Pの右側[みぎがわ]で同[おな]じ高[たか]さにあるAです。"
+  },
+  {
+    "id": "sansu.g6.curriculum.point-construct",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-1",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "点[てん]Oを中心[ちゅうしん]に180°回転[かいてん]すると、点[てん]Pはどこに移[うつ]りますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "B"
+        },
+        {
+          "id": "c2",
+          "text": "A"
+        },
+        {
+          "id": "c3",
+          "text": "C"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/symmetry-points.svg",
+      "promptImageAlt": "PはOの左上、Bは右下。OからPとBまでの距離は等しい。"
+    },
+    "explanation": "PからOへ進[すす]んだ向[む]きと長[なが]さだけ、Oからさらに進[すす]むとBです。OがPとBの真[ま]ん中[なか]になるので、180°回転[かいてん]で重[かさ]なります。"
   }
 ]

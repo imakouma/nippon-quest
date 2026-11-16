@@ -8,10 +8,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。 「五千五」",
       "answers": [
         "5005"
       ]
@@ -27,13 +28,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "8000"
-      ]
+      ],
+      "template": "7960　7970　7980　7990　{{INPUT}}"
     },
     "explanation": "数[かず]は、10 ずつふえているね。ちょうど くらいが上[あ]がって、1000 が 8つになる 8000 だ。"
   },
@@ -104,10 +107,10 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "prompt": "つぎの 数[かず]の 読[よ]みかたとして、正[ただ]しいものを えらぼう。 6802",
       "choices": [
         {
           "id": "c1",
@@ -129,7 +132,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "0 になっているくらいは、とばして読[よ]もう。"
+    "explanation": "6802は、千[せん]の 位[くらい]から 6、8、0、2です。十[じゅう]の 位[くらい]の 0は 読[よ]まず、六千八百二[ろくせんはっぴゃくに]と 読[よ]みます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.3c0c83e6efd1",
@@ -140,10 +143,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。 「八千十三」",
       "answers": [
         "8013"
       ]
@@ -159,13 +163,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "9900"
-      ]
+      ],
+      "template": "9700　9800　{{INPUT}}　10000　10100"
     },
     "explanation": "数[かず]は、100 ずつふえているね。10000 より、100 小[ちい]さい数[かず]なので、9900 だ。"
   },
@@ -231,13 +237,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "10000"
-      ]
+      ],
+      "template": "6000　7000　8000　9000　{{INPUT}}"
     },
     "explanation": "数[かず]は、1000 ずつふえているので、□には、1000が 10こ あつまった数[かず]が はいる。10000（１万[まん]）だね。"
   },
@@ -271,7 +279,7 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "数[かず]の大小[だいしょう]をくらべるときは、大[おお]きなくらいの数[かず]から、じゅんばんに 見[み]ていこう。千[せん]のくらいと 百[ひゃく]のくらいが 54と大[おお]きくなっている 5430 が一[いち]ばん大[おお]きいね。"
+    "explanation": "千[せん]の 位[くらい]が 5の 5430と 5340を くらべます。百[ひゃく]の 位[くらい]は 4が 3より 大[おお]きいので、5430が いちばん 大[おお]きい 数[かず]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.8f8305c216db",
@@ -282,10 +290,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。 「千百二」",
       "answers": [
         "1102"
       ]
@@ -322,13 +331,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる 数[かず]は、いくつでしょう。",
       "answers": [
         "5000"
-      ]
+      ],
+      "template": "4800　4900　{{INPUT}}　5100　5200"
     },
     "explanation": "数[かず]は、100 ずつふえているね。ちょうど くらいが上[あ]がって、1000 が 5つになる 5000 だ。"
   },
@@ -363,10 +374,10 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "prompt": "つぎの 数[かず]の 読[よ]みかたとして、正[ただ]しいものを えらぼう。 9750",
       "choices": [
         {
           "id": "c1",
@@ -388,7 +399,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "0 になっているくらいは、とばして読[よ]もう。"
+    "explanation": "9750は、9000と 700と 50を 合[あ]わせた 数[かず]です。一[いち]の 位[くらい]の 0は 読[よ]まず、九千七百五十[きゅうせんななひゃくごじゅう]と 読[よ]みます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.d62a8c39ddd3",
@@ -399,10 +410,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。",
+      "prompt": "次[つぎ]の漢字[かんじ]を、数字[すうじ]になおしましょう。 「四千五百七十四」",
       "answers": [
         "4574"
       ]
@@ -419,10 +431,10 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_2_16",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "つぎの数の 読みかたとして、正しいものを えらぼう。",
+      "prompt": "つぎの 数[かず]の 読[よ]みかたとして、正[ただ]しいものを えらぼう。 1040",
       "choices": [
         {
           "id": "c1",
@@ -444,7 +456,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "0 になっているくらいは、とばして読[よ]もう。"
+    "explanation": "1040は、1000と 40を 合[あ]わせた 数[かず]です。0の 位[くらい]は 読[よ]まず、千四十[せんよんじゅう]と 読[よ]みます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-16.ea34d5d396f4",

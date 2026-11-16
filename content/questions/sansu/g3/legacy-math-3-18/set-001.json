@@ -5,20 +5,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "250"
-      ],
+      "answers": ["250"],
       "template": "{{INPUT}} - 100 = 150",
       "suffix": "- 100 = 150"
     },
-    "explanation": "100を引[ひ]いて、150になるのは、250だね。"
+    "explanation": "引[ひ]く前[まえ]に もどすため、のこり150に100を 足[た]します。150+100=250です。□に250を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.28a4b749d728",
@@ -33,7 +27,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "チョコが 1ふくろと、ばらで 6こあります。ふくろをあけて数[かぞ]えると、全部[ぜんぶ]で 20こになりました。ふくろには、いくつ入[はい]っていたでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -63,20 +57,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "9"
-      ],
+      "answers": ["9"],
       "template": "{{INPUT}} × 7 = 63",
       "suffix": "× 7 = 63"
     },
-    "explanation": "7をかけて、63になるのは、9だね。"
+    "explanation": "7つ分[ぶん]で63なので、1つ分[ぶん]は63÷7=9です。□に9を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.532403b16d1b",
@@ -84,20 +72,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "62"
-      ],
+      "answers": ["62"],
       "template": "52 + {{INPUT}} = 114",
       "suffix": "= 114"
     },
-    "explanation": "52に足[た]して、114になるのは、62だね。"
+    "explanation": "合[あ]わせた114から、わかっている52を 引[ひ]きます。114-52=62です。□に62を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.5dd703a8e8dd",
@@ -105,20 +87,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "15"
-      ],
+      "answers": ["15"],
       "template": "{{INPUT}} × 3 = 45",
       "suffix": "× 3 = 45"
     },
-    "explanation": "3をかけて、45になるのは、15だね。"
+    "explanation": "3つ分[ぶん]で45なので、1つ分[ぶん]は45÷3=15です。□に15を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.641782793ff8",
@@ -126,20 +102,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "140"
-      ],
+      "answers": ["140"],
       "template": "{{INPUT}} +120 = 260",
       "suffix": "+120 = 260"
     },
-    "explanation": "120を足[た]して、260になるのは、140だね。"
+    "explanation": "合[あ]わせた260から、わかっている120を 引[ひ]きます。260-120=140です。□に140を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.6a4af24fc3b9",
@@ -147,20 +117,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "14"
-      ],
+      "answers": ["14"],
       "template": "{{INPUT}} +6 = 20",
       "suffix": "+6 = 20"
     },
-    "explanation": "6を足[た]して、20になるのは、14だね。"
+    "explanation": "合[あ]わせた20から、わかっている6を 引[ひ]きます。20-6=14です。□に14を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.7fc9bf4f7f8f",
@@ -168,20 +132,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "42"
-      ],
+      "answers": ["42"],
       "template": "{{INPUT}} ÷6 = 7",
       "suffix": "÷6 = 7"
     },
-    "explanation": "6でわって、7になるのは、42だね。"
+    "explanation": "1つ分[ぶん]の7が6つ あるので、全体[ぜんたい]は7×6=42です。□に42を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.8301c8293841",
@@ -196,7 +154,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "チョコを 6人[にん]で分[わ]けると、１人[にん]7つになりました。チョコは、はじめに いくつあったでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -226,20 +184,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "5"
-      ],
+      "answers": ["5"],
       "template": "80 × {{INPUT}} = 400",
       "suffix": "= 400"
     },
-    "explanation": "80にかけて、400になるのは、5だね。"
+    "explanation": "80の いくつ分[ぶん]が400かを 求[もと]めます。400÷80=5です。□に5を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.9c4f141bdf39",
@@ -254,7 +206,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "お茶[ちゃ]１本[ほん]と 120円[えん]のおにぎり１こを買[か]うと、合[あ]わせて 260円[えん]になりました。お茶[ちゃ]１本[ほん]は、いくらだったでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -291,7 +243,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "チョコが、 18こ ありました。お兄[にい]さんと二人[ふたり]で食[た]べて、6こ のこりました。いくつ食[た]べたでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -321,20 +273,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "6"
-      ],
+      "answers": ["6"],
       "template": "48 ÷ {{INPUT}} = 8",
       "suffix": "= 8"
     },
-    "explanation": "48をわって、8になるのは、6だね。"
+    "explanation": "8×□=48と 考[かんが]えます。48÷8=6です。□に6を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.a426013b9173",
@@ -342,20 +288,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "96"
-      ],
+      "answers": ["96"],
       "template": "145 - {{INPUT}} = 49",
       "suffix": "= 49"
     },
-    "explanation": "145から引[ひ]いて、49になるのは、96だね。"
+    "explanation": "はじめの145から のこり49を 引[ひ]くと、取[と]った数[かず]が わかります。145-49=96です。□に96を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.a7e235b0a501",
@@ -370,7 +310,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "お水[みず]が入[はい]ったカップがあります。100mL使[つか]ったあとに見[み]ると、のこりは 150mLになっていました。はじめに 何[なに]mLあったでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -400,20 +340,14 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-18",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_18",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_18", "reviewed:structural-v1"],
     "payload": {
       "prompt": "□にあてはまる数[かず]を もとめよう。",
-      "answers": [
-        "12"
-      ],
+      "answers": ["12"],
       "template": "18 - {{INPUT}} = 6",
       "suffix": "= 6"
     },
-    "explanation": "18から引[ひ]いて、6になるのは、12だね。"
+    "explanation": "はじめの18から のこり6を 引[ひ]くと、取[と]った数[かず]が わかります。18-6=12です。□に12を 入[い]れて、もとの式[しき]が 成[な]り立[た]つか たしかめましょう。"
   },
   {
     "id": "legacy.sansu.g3.math-3-18.d037a27ee191",
@@ -428,7 +362,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "チョコが 3ふくろ ありました。ふくろを開[あ]けて数[かぞ]えると、全部[ぜんぶ]で45こ ありました。1ふくろには、いくつ入[はい]っていたでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -465,7 +399,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "45こ のチョコを 何人[なんにん]かで分[わ]けると、1人[にん]9こ になりました。何人[なんにん]で分[わ]けたでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",
@@ -502,7 +436,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを □として、答えを求める □の入った式 をつくろう。",
+      "prompt": "１つ80円[えん]の おにぎりをいくつか買[か]うと、全部[ぜんぶ]で 400円[えん]になりました。おにぎりを いくつ  買[か]ったでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを □として、答[こた]えを求[もと]める □の入[はい]った式[しき] をつくろう。",
       "choices": [
         {
           "id": "c1",

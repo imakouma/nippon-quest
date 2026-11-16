@@ -423,5 +423,38 @@
       "promptImage": "questions/legacy/3d78c977acc8867d.png"
     },
     "explanation": "大[おお]きなめもり １つ、そこから 小[ちい]さなめもりが、４つ分[ぶん]あるので、1cm4mm になる。"
+  },
+  {
+    "id": "sansu.g2.curriculum.ruler-start",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤[あか]い 線[せん]の 長[なが]さは 何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5cm"
+        },
+        {
+          "id": "c2",
+          "text": "7cm"
+        },
+        {
+          "id": "c3",
+          "text": "2cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/ruler-start.svg",
+      "promptSpeech": "赤[あか]い線[せん]は、ものさしの2cmのめもりから7cmのめもりまでです。"
+    },
+    "explanation": "左[ひだり]は 2cm、右[みぎ]は 7cmの めもりです。間[あいだ]には 1cmが 5つあります。7−2＝5で、5cmです。"
   }
 ]

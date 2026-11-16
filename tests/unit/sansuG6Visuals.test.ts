@@ -7,8 +7,10 @@ import { getRenderer } from '../../src/questions/renderers/registry';
 import { textInputPayloadSchema, textInputScore } from '../../src/questions/renderers/text-input/schema';
 
 const questions = readdirSync('content/questions/sansu/g6').flatMap((d) =>
-  (JSON.parse(readFileSync(`content/questions/sansu/g6/${d}/set-001.json`, 'utf8')) as unknown[]).map((q) =>
-    questionBaseSchema.parse(q),
+  readdirSync(`content/questions/sansu/g6/${d}`).flatMap((file) =>
+    (JSON.parse(readFileSync(`content/questions/sansu/g6/${d}/${file}`, 'utf8')) as unknown[]).map((q) =>
+      questionBaseSchema.parse(q),
+    ),
   ),
 );
 const repairs = [
@@ -44,8 +46,8 @@ const repairs = [
   '59343703e0ea',
   '9b34c0cc97ee',
 ];
-it('preserves all 193 learning targets, with separated fraction input fields', () => {
-  expect(questions).toHaveLength(193);
+it('covers all 209 learning targets, with separated fraction input fields', () => {
+  expect(questions).toHaveLength(209);
   const rows = questions
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((q) => {
@@ -67,7 +69,7 @@ it('preserves all 193 learning targets, with separated fraction input fields', (
       ];
     });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '131caee06318ea9a687949f06c756c51580e78b5fecc500eecf42ab0d842f5b6',
+    '04da5f66bb7fd1777a3f890fcdc56dafcb3c5a6a6f7a6838cc64093d67316e5f',
   );
 });
 it('illustrates symmetry, ratios, fractions, volume, data and combinations', () => {
@@ -91,7 +93,7 @@ it('covers every question in the review and validates local image structure and 
     reason: string;
   }[];
   expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(114);
+  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(130);
   expect(
     review.filter((r) => r.decision.includes('missing') || r.decision.includes('source-expression')),
   ).toEqual([]);

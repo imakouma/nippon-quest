@@ -101,7 +101,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。",
+      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "18.84"
       ],
@@ -265,10 +265,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_18",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "prompt": "円柱や角柱の上下の面を （　） といい、横の面を （　） という。 （　）に 入[はい]る 言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -304,7 +305,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。",
+      "prompt": "下の２つの図形[ずけい]は、同じ円柱の見取図と展開図です。 円周率[えんしゅうりつ]は 3.14とします。",
       "answers": [
         "9.42"
       ],

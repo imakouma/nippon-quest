@@ -5,16 +5,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "800"
-      ],
+      "answers": ["800"],
       "template": "1kg - 200g = {{INPUT}}g",
       "suffix": "g",
       "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
@@ -28,16 +22,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1tは、何[なん]kg でしょう。",
-      "answers": [
-        "1000"
-      ],
+      "answers": ["1000"],
       "template": "{{INPUT}}kg",
       "suffix": "kg",
       "promptImage": "questions/sansu/g3/visuals/tonne.svg",
@@ -51,13 +39,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]のうち、１キログラムの「重[おも]さ」になるものは、どれでしょう。",
+      "prompt": "次[つぎ]のうち、重[おも]さが 約[やく]1kgに なるものは どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -71,7 +55,7 @@
         },
         {
           "id": "c3",
-          "text": "牛[ぎゅう]にゅうパック1本[ほん]",
+          "text": "1L入[い]りの牛[ぎゅう]にゅうパック1本[ほん]",
           "image": "questions/sansu/g3/visuals/milk.svg"
         },
         {
@@ -83,7 +67,7 @@
       "answer": "c3",
       "shuffle": true
     },
-    "explanation": "中身[なかみ]の入[はい]った1Lの牛乳[ぎゅうにゅう]パック1本[ぽん]は、およそ1kgです。身近[みぢか]な重[おも]さの目安[めやす]にできます。"
+    "explanation": "1L入[い]りの牛[ぎゅう]にゅうパック1本[ほん]は、約[やく]1kgです。中身[なかみ]の量[りょう]によって 重[おも]さは かわるので、「1L入[い]り」を 目安[めやす]にします。"
   },
   {
     "id": "legacy.sansu.g3.math-3-13.1fc33d03fb2c",
@@ -91,17 +75,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "1",
-        "500"
-      ],
+      "answers": ["1", "500"],
       "template": "600g + 900g = {{INPUT}}kg {{INPUT}}g",
       "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
       "promptImageAlt": "1kgを同じ大きさの10部分に分け、1部分が100gであることを示す図。"
@@ -114,16 +91,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "900"
-      ],
+      "answers": ["900"],
       "template": "800g + 100g = {{INPUT}}g",
       "suffix": "g",
       "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
@@ -137,11 +108,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "km や kg のように、たんいにつく k（キロ） は 何[なに]をあらわしているでしょう。",
       "choices": [
@@ -175,16 +142,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "700"
-      ],
+      "answers": ["700"],
       "template": "2kg - 1kg 300g = {{INPUT}}g",
       "suffix": "g",
       "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
@@ -198,11 +159,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "トンを あらわしているものは、どれでしょう。",
       "choices": [
@@ -234,16 +191,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1kgは、何[なん]g でしょう。",
-      "answers": [
-        "1000"
-      ],
+      "answers": ["1000"],
       "template": "{{INPUT}}g",
       "suffix": "g",
       "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
@@ -257,11 +208,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]のうち、１グラムの「重[おも]さ」になるものは、どれでしょう。",
       "choices": [
@@ -297,11 +244,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]のうち、１トンの「重[おも]さ」に 一[いち]ばん近[ちか]いものは、どれでしょう。",
       "choices": [
@@ -337,11 +280,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "キログラムを あらわしているものは、どれでしょう。",
       "choices": [
@@ -373,16 +312,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の重[おも]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "1"
-      ],
+      "answers": ["1"],
       "template": "700g + 300g ={{INPUT}}kg",
       "suffix": "kg",
       "promptImage": "questions/sansu/g3/visuals/kilogram.svg",
@@ -396,11 +329,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "グラムを あらわしているものは、どれでしょう。",
       "choices": [

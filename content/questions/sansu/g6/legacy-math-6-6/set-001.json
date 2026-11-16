@@ -31,10 +31,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "辺ABと辺DE、角Cと角Fのように、拡大図や縮図をもとの大きさにしたときに、重なる辺や角のことを ① （　） する辺・① する角といいます。 （　）に入[はい]る言葉[ことば]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -149,10 +150,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "２万５千分の１の地図上で 0.5cm の長さが、実際何 m かを知るには、どのように計算すればよいでしょう。",
+      "prompt": "縮尺[しゅくしゃく]が25000分[ぶん]の1の地図[ちず]で0.5cmの長[なが]さです。実際[じっさい]の長[なが]さをcmで求[もと]める式[しき]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -174,9 +176,9 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g6/visuals/map-scale-45ef7b9abd0f.svg",
-      "promptSpeech": "２万５千分の１の地図上で 0.5cm の長さが、実際何 m かを知るには、どのように計算すればよいでしょう。 2万5千分の1に縮めた地図。地図の0.5cmと実際の長さが対応する。実際の長さは空欄。"
+      "promptSpeech": "縮尺[しゅくしゃく]が25000分[ぶん]の1の地図[ちず]で0.5cmの長[なが]さです。実際[じっさい]の長[なが]さをcmで求[もと]める式[しき]をえらぼう。"
     },
-    "explanation": "２万５千分の１の地図は、実際のきょりを２万５千分の１に縮めてかかれている。地図上の長さから実際のきょりを求めるには、地図上の長さを２万５千倍すればよい。よって、２万５千分の１の地図上で 0.5cm の長さが実際何 m あるのかは、 0.5×25000 で求めることができる。"
+    "explanation": "地図[ちず]の長[なが]さを25000倍[ばい]すると実際[じっさい]の長[なが]さになります。0.5×25000＝12500cm。mに直[なお]すときはさらに100で割[わ]り、125mになります。"
   },
   {
     "id": "legacy.sansu.g6.math-6-6.4672b8714d71",
@@ -246,10 +248,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "三角形DEFは、三角形ABCを\\dfrac{1}{2}にしたものです。三角形DEFは、三角形ABCの （　） です。 （　）に入[はい]る言葉[ことば]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -439,10 +442,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "三角形GHIは、三角形ABCを２倍にしたものです。三角形GHIは、三角形ABCの （　） です。 （　）に入[はい]る言葉[ことば]をえらぼう。",
       "choices": [
         {
           "id": "c1",

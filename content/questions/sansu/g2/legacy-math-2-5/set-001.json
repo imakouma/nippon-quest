@@ -8,19 +8,19 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "午後[ごご]７時[じ]４５分[ふん]から、午後[ごご]９時[じ]３０分[ふん]までは、なん時間[じかん]なん分[ふん] あるでしょう。",
+      "prompt": "午後[ごご]7時[じ]45分[ふん]から、午後[ごご]8時[じ]45分[ふん]まで、何時間[なんじかん]ありますか。",
       "answers": [
-        "1",
-        "45"
+        "1"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
-      "promptImage": "questions/sansu/g2/visuals/elapsed-03cbdc1af393.svg",
-      "promptImageAlt": "ごご7じ45ふんからごご9じ30ぷんまで。時こくの線の ひとめもりは15ふん。"
+      "template": "{{INPUT}}時間[じかん]",
+      "promptImage": "questions/sansu/g2/curriculum/elapsed-hour-evening.svg",
+      "promptImageAlt": "7時45分の時計、8時45分の時計"
     },
-    "explanation": "午後[ごご]７時[じ]４５分[ふん]から、午後[ごご]９時[じ]４５分[ふん]までで、２時間[じかん]ある。そこから、１５分[ふん] もどせばいいので、１時間[じかん]４５分[ぶん]だね。"
+    "explanation": "分[ふん]は どちらも45分[ふん]です。短[みじか]い はりが7から8へ1つ分[ぶん]進[すす]むので、1時間[じかん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.06349eb0f9b8",
@@ -126,19 +126,19 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "いま ３時[じ]４５分[ふん] です。４５分後[ふんご]は、なん時[じ]なん分[ふん] でしょう。",
+      "prompt": "長[なが]い はりが この 場所[ばしょ]から 1しゅうすると、何分[なんぷん]たちますか。",
       "answers": [
-        "4",
-        "30"
+        "60"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分",
-      "promptImage": "questions/sansu/g2/visuals/time-23685fb07ce2.svg",
-      "promptImageAlt": "いまは3じ45ふん。45ふん あとの 時こくを もとめます。"
+      "template": "{{INPUT}}分[ふん]",
+      "promptImage": "questions/sansu/g2/curriculum/clock-three-fortyfive.svg",
+      "promptImageAlt": "3時45分の時計"
     },
-    "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。そこから、さらに３０分[ぷん]すすむので、４時[じ]３０分[ぷん]になる。"
+    "explanation": "時計[とけい]の 小[ちい]さい めもり1つ分[ぶん]が1分[ぷん]です。1しゅうは60めもり分[ぶん]なので、60分[ふん]、つまり1時間[じかん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.4a71d5b0e8de",
@@ -273,19 +273,19 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "午前[ごぜん]６時[じ]１５分[ふん]から、午前[ごぜん]７時[じ]３０分[ふん]までは、なん時間[じかん]なん分[ふん] あるでしょう。",
+      "prompt": "午前[ごぜん]6時[じ]15分[ふん]から、午前[ごぜん]7時[じ]15分[ふん]まで、何時間[なんじかん]ありますか。",
       "answers": [
-        "1",
-        "15"
+        "1"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
-      "promptImage": "questions/sansu/g2/visuals/elapsed-b3ccde0d99f4.svg",
-      "promptImageAlt": "ごぜん6じ15ふんからごぜん7じ30ぷんまで。時こくの線の ひとめもりは15ふん。"
+      "template": "{{INPUT}}時間[じかん]",
+      "promptImage": "questions/sansu/g2/curriculum/elapsed-hour-morning.svg",
+      "promptImageAlt": "6時15分の時計、7時15分の時計"
     },
-    "explanation": "午前[ごぜん]６時[じ]１５分[ふん]から、午前[ごぜん]７時[じ]１５分[ふん]までで、１時間[じかん]ある。そこから、あと１５分[ふん] すすめたらいいので、１時間[じかん]１５分[ぶん]だね。"
+    "explanation": "分[ふん]は どちらも15分[ふん]です。6時[じ]から7時[じ]へ1時間[じかん]進[すす]んでいます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.bb292b503443",
@@ -318,18 +318,19 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "午前[ごぜん]６時[じ]から、午前[ごぜん]７時[じ]３０分[ふん]までは、なん時間[じかん]なん分[ふん] あるでしょう。",
+      "prompt": "午前[ごぜん]6時[じ]から、午前[ごぜん]7時[じ]まで、何時間[なんじかん]ありますか。",
       "answers": [
-        "1",
-        "30"
+        "1"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
-      "promptImage": "questions/legacy/1b4d92ed74abeb1c.png"
+      "template": "{{INPUT}}時間[じかん]",
+      "promptImage": "questions/sansu/g2/curriculum/elapsed-hour-six.svg",
+      "promptImageAlt": "6時0分の時計、7時0分の時計"
     },
-    "explanation": "午前[ごぜん]６時[じ]から、午前[ごぜん]７時[じ]までで、１時間[じかん]ある。そこから、あと３０分[ふん] すすめたらいいので、１時間[じかん]３０分[ぶん]だね。"
+    "explanation": "短[みじか]い はりが6から7へ進[すす]む 間[あいだ]に、長[なが]い はりは1しゅうします。1時間[じかん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.c3b026af04b5",
@@ -340,19 +341,20 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "いま ３時[じ]４５分[ふん] です。１時間[じかん]３０分前[ふんまえ]は、なん時[じ]なん分[ふん] でしょう。",
+      "prompt": "いま 3時[じ]45分[ふん]です。1時間前[じかんまえ]は 何時[なんじ]何分[なんぷん]ですか。",
       "answers": [
         "2",
-        "15"
+        "45"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分",
-      "promptImage": "questions/sansu/g2/visuals/time-c3b026af04b5.svg",
-      "promptImageAlt": "いまは3じ45ふん。1じかん30ぷん まえの 時こくを もとめます。"
+      "template": "{{INPUT}}時[じ] {{INPUT}}分[ふん]",
+      "promptImage": "questions/sansu/g2/curriculum/clock-three-fortyfive.svg",
+      "promptImageAlt": "3時45分の時計"
     },
-    "explanation": "「１時間[じかん]３０分前[ふんまえ]」なので、「時間[じかん]」のみじかいはりを １、「分[ふん]」のながいはりを ３０もどして、２時[じ]１５分[ふん]になる。"
+    "explanation": "1時間[じかん]前[まえ]では、分[ふん]は45分[ふん]のままです。時[じ]の 数[かず]を1もどして、2時[じ]45分[ふん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.c58ed39dd4eb",
@@ -397,18 +399,19 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "いま ３時[じ]４５分[ふん] です。３０分後[ふんご]は、なん時[じ]なん分[ふん] でしょう。",
+      "prompt": "時計[とけい]の 時[じ]こくは、3時[じ] 何分[なんぷん]ですか。",
       "answers": [
-        "4",
-        "15"
+        "45"
       ],
-      "template": "{{INPUT}}時{{INPUT}}分",
-      "promptImage": "questions/legacy/454fc9bd73743995.png"
+      "template": "3時[じ] {{INPUT}}分[ふん]",
+      "promptImage": "questions/sansu/g2/curriculum/clock-three-fortyfive.svg",
+      "promptImageAlt": "3時45分の時計"
     },
-    "explanation": "３時[じ]４５分[ふん]から１５分[ふん]すすむと４時[じ]。のこりの１５分[ふん]をすすむので、４時[じ]１５分[ふん]になる。"
+    "explanation": "長[なが]い はりは9を さしています。数字[すうじ]1つ分[ぶん]が5分[ふん]なので、5×9＝45分[ふん]です。短[みじか]い はりは3と4の 間[あいだ]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.dc0838b681eb",
@@ -419,19 +422,19 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:grade2-time-scope-v1"
     ],
     "payload": {
-      "prompt": "午前[ごぜん]８時[じ]から、午後[ごご]２時[じ]１５分[ふん]までは、なん時間[じかん]なん分[ふん] あるでしょう。",
+      "prompt": "午前[ごぜん]8時[じ]から、正午[しょうご]まで、何時間[なんじかん]ありますか。",
       "answers": [
-        "6",
-        "15"
+        "4"
       ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
-      "promptImage": "questions/sansu/g2/visuals/elapsed-dc0838b681eb.svg",
-      "promptImageAlt": "ごぜん8じからごご2じ15ふんまで。時こくの線の ひとめもりは15ふん。"
+      "template": "{{INPUT}}時間[じかん]",
+      "promptImage": "questions/sansu/g2/curriculum/eight-to-noon.svg",
+      "promptImageAlt": "8時0分の時計、12時0分の時計"
     },
-    "explanation": "午前[ごぜん]８時[じ]から、午後[ごご]２時[じ]までで、６時間[じかん]ある。そこから、あと１５分[ふん] すすめたらいいので、６時間[じかん]１５分[ぶん]だね。"
+    "explanation": "正午[しょうご]は おひるの12時[じ]です。8時[じ]から9時[じ]、10時[じ]、11時[じ]、12時[じ]と、1時間[じかん]ずつ4回[かい]進[すす]むので、4時間[じかん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-5.ed2e9903f60a",

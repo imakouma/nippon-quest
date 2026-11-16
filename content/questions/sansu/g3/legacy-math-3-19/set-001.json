@@ -5,17 +5,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "あおいさんは、25mおよげます。妹[いもうと]は、5mおよげます。あおいさんは、妹[いもうと]の何倍[なんばい]およげますか。",
-      "answers": [
-        "5"
-      ],
-      "template": "{{INPUT}}倍",
+      "answers": ["5"],
+      "template": "{{INPUT}}倍[ばい]",
       "suffix": "倍",
       "promptImage": "questions/sansu/g3/visuals/times-0cc801110e91.svg",
       "promptImageAlt": "あおいさんは25m、いもうとは5m。同じ長さが同じ量を表す図。"
@@ -28,17 +22,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "30円[えん]のおかしを、5つ買[か]いました。500円[えん]はらうと、おつりは いくらになるでしょう。",
-      "answers": [
-        "350"
-      ],
-      "template": "{{INPUT}}円",
+      "answers": ["350"],
+      "template": "{{INPUT}}円[えん]",
       "suffix": "円",
       "promptImage": "questions/sansu/g3/visuals/shopping-change.svg",
       "promptImageAlt": "1こ30円のおかし5こ。500円玉でしはらう。おつりは空らん。"
@@ -51,17 +39,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "１こ50円[えん] のチョコを 4こ、１こ80円[えん] のガムを 4こ 買[か]いました。全部[ぜんぶ]でいくらになるでしょう。",
-      "answers": [
-        "520"
-      ],
-      "template": "{{INPUT}}円",
+      "answers": ["520"],
+      "template": "{{INPUT}}円[えん]",
       "suffix": "円",
       "promptImage": "questions/sansu/g3/visuals/paired-shopping-4-50-80.svg",
       "promptImageAlt": "50円のチョコと80円のガムの組が4つ。"
@@ -74,17 +56,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "300円[えん] のおこづかいから 60円[えん]の消[け]しゴムを買[か]い、のこりを３人[にん]で分[わ]けました。分[わ]けたあと、それぞれが持[も]っているお金[かね]は、いくらになりますか。",
-      "answers": [
-        "80"
-      ],
-      "template": "{{INPUT}}円",
+      "answers": ["80"],
+      "template": "{{INPUT}}円[えん]",
       "suffix": "円",
       "promptImage": "questions/sansu/g3/visuals/buy-then-share.svg",
       "promptImageAlt": "300円から60円の消しゴムを買い、のこりを3人に同じ金がくずつ分ける。"
@@ -104,7 +80,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "500円[えん]のお金[かね]から 100円[えん]のペンを買[か]い、のこりを 兄弟[きょうだい]２人[にん]で分[わ]けました。分[わ]けたあと、それぞれが持[も]っているお金[かね]は、いくらになりますか。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを求[もと]める式[しき]として、正[ただ]しいものをえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -134,11 +110,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の式[しき]をまとめて計算[けいさん]すると、どういう式[しき]になるでしょう。 30 × 3 + 50 × 3",
       "choices": [
@@ -172,11 +144,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の式[しき]をまとめて計算[けいさん]すると、どういう式[しき]になるでしょう。 50 × 4 + 80 × 4",
       "choices": [
@@ -217,7 +185,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "１こ30円[えん] のチョコを 3こ、１こ50円[えん] のガムを 3こ 買[か]いました。全部[ぜんぶ]でいくらになるでしょう。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを求[もと]める式[しき]として、正[ただ]しいものをえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -247,17 +215,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たかしくんは、おこづかいを 800円[えん]もらったので、弟[おとうと]と２人[ふたり]で同[おな]じ金[きん]がく ずつ分[わ]け、150円[えん]のアイスを買[か]いました。たかしくんは、のこりいくら持[も]っているでしょう。",
-      "answers": [
-        "250"
-      ],
-      "template": "{{INPUT}}円",
+      "answers": ["250"],
+      "template": "{{INPUT}}円[えん]",
       "suffix": "円",
       "promptImage": "questions/sansu/g3/visuals/share-then-buy.svg",
       "promptImageAlt": "800円を2人で同じ金がくずつ分ける。たかしくんが150円のアイスを買い、のこりを求める。"
@@ -270,16 +232,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
       "prompt": "あめを 6人[にん]で分[わ]けると、１人[ひとり]8つ になり、5つあまりました。あめは、全部[ぜんぶ]でいくつありましたか。",
-      "answers": [
-        "53"
-      ],
+      "answers": ["53"],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
       "promptImage": "questions/sansu/g3/visuals/candy-total.svg",
@@ -300,7 +256,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "お父[とう]さんは、36才[さい]です。妹[いもうと]は、6才[さい]です。お父[とう]さんのとしは、妹[いもうと]の何倍[なんばい]ですか。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを求[もと]める式[しき]として、正[ただ]しいものをえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -330,17 +286,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-19",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_19",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_19", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "お父[ちち]さんは、32才[さい]です。妹[いもうと]は、4才[さい]です。お父[ちち]さんのとしは、妹[いもうと]の何倍[なんばい]ですか。",
-      "answers": [
-        "8"
-      ],
-      "template": "{{INPUT}}倍",
+      "prompt": "お父[とう]さんは、32才[さい]です。妹[いもうと]は、4才[さい]です。お父[とう]さんのとしは、妹[いもうと]の何倍[なんばい]ですか。",
+      "answers": ["8"],
+      "template": "{{INPUT}}倍[ばい]",
       "suffix": "倍",
       "promptImage": "questions/sansu/g3/visuals/times-cdd3d5549b93.svg",
       "promptImageAlt": "おとうさんは32さい、いもうとは4さい。同じ長さが同じ量を表す図。"
@@ -360,7 +310,7 @@
       "runtime:quarantined-missing-context"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "クッキーを 5人[にん]で分[わ]けると、１人[にん]4枚[まい] になり、3枚[まい]あまりました。クッキーは、全部[ぜんぶ]でいくつありましたか。 次[つぎ]の文章題[ぶんしょうだい]の答[こた]えを求[もと]める式[しき]として、正[ただ]しいものをえらぼう。",
       "choices": [
         {
           "id": "c1",

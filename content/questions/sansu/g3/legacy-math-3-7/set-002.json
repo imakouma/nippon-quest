@@ -1,0 +1,62 @@
+[
+  {
+    "id": "sansu.g3.curriculum.bar-scale",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "ぼうグラフの 1めもりは何人[なんにん]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1人[にん]"
+        },
+        {
+          "id": "c2",
+          "text": "2人[にん]"
+        },
+        {
+          "id": "c3",
+          "text": "5人[にん]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/bar-scale.svg",
+      "promptSpeech": "ぼうグラフの 1めもりは何人[なんにん]ですか。 たての目盛りは0、2、4、6、8、10人。"
+    },
+    "explanation": "0人[にん]から10人[にん]までが、同[おな]じ間[あいだ]の5めもりです。10÷5=2なので、1めもりは2人[にん]です。"
+  },
+  {
+    "id": "sansu.g3.curriculum.bar-difference",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-7",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "ボールあそびは、なわとびより何人[なんにん]多[おお]いですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3人[にん]"
+        },
+        {
+          "id": "c2",
+          "text": "6人[にん]"
+        },
+        {
+          "id": "c3",
+          "text": "14人[にん]"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/bar-scale.svg",
+      "promptSpeech": "ボールあそびは、なわとびより何人[なんにん]多[おお]いですか。 好きな遊びをひとり一つ選んだグラフ。"
+    },
+    "explanation": "1めもりは2人[にん]です。ボールあそびは10人[にん]、なわとびは4人[にん]なので、10-4=6人[にん]多[おお]いです。"
+  }
+]
