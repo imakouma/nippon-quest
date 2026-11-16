@@ -147,14 +147,16 @@ export function TextInputView({
   return (
     <div class={`nq-q nq-q-input${reading ? ' nq-q-reading' : ''}`}>
       <TimerBar ms={ctx.timeLimitMs} running={!done} onTimeout={() => finish(true)} />
-      <button
-        type="button"
-        class="nq-btn nq-btn-speak nq-input-speak"
-        aria-label={t('question.speak')}
-        onClick={() => ctx.speak(getTextInputSpeech(payload, ctx.question.subject === 'sansu'))}
-      >
-        🔊
-      </button>
+      {!reading && (
+        <button
+          type="button"
+          class="nq-btn nq-btn-speak nq-input-speak"
+          aria-label={t('question.speak')}
+          onClick={() => ctx.speak(getTextInputSpeech(payload, ctx.question.subject === 'sansu'))}
+        >
+          🔊
+        </button>
+      )}
       {!promptRepeated && (
         <div
           id="nq-question-prompt"
