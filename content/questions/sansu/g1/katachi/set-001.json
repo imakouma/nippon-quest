@@ -87,5 +87,179 @@
       "promptSpeech": "ねこは いすの した、かばんは いすの うえに あります。いすの うえに あるのは？。いすの ざめんの うえに かばん、ざめんの したに ねこが います。"
     },
     "explanation": "「うえ・した」の ことばで いちを たしかめると、いすの うえは かばんです。"
+  },
+  {
+    "id": "sansu.g1.katachi.0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "いろではなく、かたちで なかまわけを します。はこの なかまは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あ と い"
+        },
+        {
+          "id": "b",
+          "text": "あ と う"
+        },
+        {
+          "id": "c",
+          "text": "い と う"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/shape-families.svg",
+      "promptSpeech": "いろではなく、かたちで なかまわけを します。はこの なかまは？ あは あおい はこ、いは あかい はこ、うは ボールです。"
+    },
+    "explanation": "あ と いは、たいらな ところを したにして おける はこの かたちです。いろや おおきさが ちがっても、かたちで なかまに できます。"
+  },
+  {
+    "id": "sansu.g1.katachi.0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "かんの そこを かみに あてて、まわりを なぞります。できる かたちは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さんかく"
+        },
+        {
+          "id": "b",
+          "text": "しかく"
+        },
+        {
+          "id": "c",
+          "text": "まる"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/trace-can.svg",
+      "promptSpeech": "かんの そこを かみに あてて、まわりを なぞります。できる かたちは？ そこが まるい かんと、かみが あります。"
+    },
+    "explanation": "かんの そこは まるい かたちです。そこを かみに あてて まわりを なぞると、まるが できます。"
+  },
+  {
+    "id": "sansu.g1.katachi.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "さんかくの いろいたを、えのように あわせました。そとの かたちは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まる"
+        },
+        {
+          "id": "b",
+          "text": "しかく"
+        },
+        {
+          "id": "c",
+          "text": "さんかく"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/join-triangles.svg",
+      "promptSpeech": "さんかくの いろいたを、えのように あわせました。そとの かたちは？ おなじ さんかくの いろいた 2まいを、ながい ところで あわせています。そとの かどは 4つです。"
+    },
+    "explanation": "2まいの ながい ところを ぴったり あわせると、そとの かたちは しかくに なります。なかの ななめの せんではなく、そとを みましょう。"
+  },
+  {
+    "id": "sansu.g1.katachi.0007",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "ぼうの はしを つないで、えの さんかくを つくります。ぼうは なんぼん？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2ほん"
+        },
+        {
+          "id": "b",
+          "text": "3ぼん"
+        },
+        {
+          "id": "c",
+          "text": "4ほん"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/stick-triangle.svg",
+      "promptSpeech": "ぼうの はしを つないで、えの さんかくを つくります。ぼうは なんぼん？ ぼうは かさねません。さんかくの 3つの まっすぐな ところに、1ぽんずつ おきます。"
+    },
+    "explanation": "さんかくの まわりを たどると、まっすぐな ところが 3つ あります。ひとつに 1ぽんずつ つかうので、3ぼんです。"
+  },
+  {
+    "id": "sansu.g1.katachi.0008",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "しかくい かみを、えの ななめの せんで きります。なにが 2まい できる？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "さんかく"
+        },
+        {
+          "id": "b",
+          "text": "まる"
+        },
+        {
+          "id": "c",
+          "text": "しかく"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/split-square.svg",
+      "promptSpeech": "しかくい かみを、えの ななめの せんで きります。なにが 2まい できる？ しかくの ひだりうえの かどから、みぎしたの かどへ せんが あります。"
+    },
+    "explanation": "ななめの せんで わけると、まわりが 3つの まっすぐな せんで できた かたちが 2つに なります。どちらも さんかくです。"
+  },
+  {
+    "id": "sansu.g1.katachi.0009",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.katachi",
+    "payload": {
+      "prompt": "やじるしの ほうが「まえ」です。さんかくの すぐ うしろに あるのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "まる"
+        },
+        {
+          "id": "b",
+          "text": "さんかく"
+        },
+        {
+          "id": "c",
+          "text": "しかく"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/front-back.svg",
+      "promptSpeech": "やじるしの ほうが「まえ」です。さんかくの すぐ うしろに あるのは？ まえの やじるしは ひだりを むいています。ひだりから まる、さんかく、しかくが ならんでいます。"
+    },
+    "explanation": "まえは ひだりなので、うしろは みぎです。さんかくの すぐ みぎに ある しかくが、すぐ うしろです。"
   }
 ]

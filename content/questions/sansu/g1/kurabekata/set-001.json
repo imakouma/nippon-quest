@@ -86,5 +86,179 @@
       "promptSpeech": "かたちの ちがう 2つの いれものに はいる みずの りょうを くらべるには？。ほそくて たかい いれものと、ひくくて はばの ひろい いれものが あります。"
     },
     "explanation": "おなじ コップを ものさしの かわりにして なんばいかを かぞえると、かさを くらべられます。"
+  },
+  {
+    "id": "sansu.g1.kurabekata.0004",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kurabekata",
+    "payload": {
+      "prompt": "はしを そろえた リボンです。ながいのは どちら？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あ"
+        },
+        {
+          "id": "b",
+          "text": "い"
+        },
+        {
+          "id": "c",
+          "text": "おなじ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/ribbons.svg",
+      "promptSpeech": "はしを そろえた リボンです。ながいのは どちら？ あ と いの リボンは、ひだりの はしが そろっています。あの みぎの はしが、いより さきに でています。"
+    },
+    "explanation": "ひだりの はしが そろっています。みぎの はしが とおくまで のびている あの リボンが、ながいです。"
+  },
+  {
+    "id": "sansu.g1.kurabekata.0005",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kurabekata",
+    "payload": {
+      "prompt": "うごかせない つくえの ながさを テープに うつしました。ながい つくえは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あの つくえ"
+        },
+        {
+          "id": "b",
+          "text": "いの つくえ"
+        },
+        {
+          "id": "c",
+          "text": "おなじ"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/copied-lengths.svg",
+      "promptSpeech": "うごかせない つくえの ながさを テープに うつしました。ながい つくえは？ つくえと おなじ ながさの テープを つくりました。はしを そろえると、いの テープが あより ながく のびています。"
+    },
+    "explanation": "つくえと おなじ ながさに した テープなら、もってきて くらべられます。はしを そろえると いの テープが ながいので、いの つくえが ながいです。"
+  },
+  {
+    "id": "sansu.g1.kurabekata.0006",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kurabekata",
+    "payload": {
+      "prompt": "あは ながい つみき 3こ、いは みじかい つみき 4こ。かずで ながさを くらべるには？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4こある いを ながいと きめる"
+        },
+        {
+          "id": "b",
+          "text": "3こある あを ながいと きめる"
+        },
+        {
+          "id": "c",
+          "text": "おなじ ながさの つみきで はかる"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/same-unit.svg",
+      "promptSpeech": "あは ながい つみき 3こ、いは みじかい つみき 4こ。かずで ながさを くらべるには？ あの ながい つみき 3こと、いの みじかい つみき 4こは、どちらも おなじ はしから おなじ ところまで ならんでいます。"
+    },
+    "explanation": "つみきの ながさが ちがうと、かずだけでは くらべられません。おなじ ながさの つみきを、すきまなく ならべて はかりなおします。"
+  },
+  {
+    "id": "sansu.g1.kurabekata.0007",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kurabekata",
+    "payload": {
+      "prompt": "あを いっぱいにした みずを、からの いに うつすと、いが いっぱいで あにも のこりました。たくさん はいるのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "おなじ"
+        },
+        {
+          "id": "b",
+          "text": "あ"
+        },
+        {
+          "id": "c",
+          "text": "い"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/pour-capacity.svg",
+      "promptSpeech": "あを いっぱいにした みずを、からの いに うつすと、いが いっぱいで あにも のこりました。たくさん はいるのは？ うつした あとの えです。いは みずで いっぱいです。あにも みずが のこっています。"
+    },
+    "explanation": "あに はいっていた みずは、いを いっぱいにしても のこります。だから、あの ほうが たくさんの みずを いれられます。"
+  },
+  {
+    "id": "sansu.g1.kurabekata.0008",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kurabekata",
+    "payload": {
+      "prompt": "2まいの かみを かさねました。ひろいのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "い"
+        },
+        {
+          "id": "b",
+          "text": "おなじ"
+        },
+        {
+          "id": "c",
+          "text": "あ"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/overlap-area.svg",
+      "promptSpeech": "2まいの かみを かさねました。ひろいのは？ いの かみは あの かみの なかに ぜんぶ おさまり、あの かみが みぎと したに はみだしています。"
+    },
+    "explanation": "いの かみは、あの かみの なかに ぜんぶ おさまります。あは いより はみだしているので、あの ほうが ひろいです。"
+  },
+  {
+    "id": "sansu.g1.kurabekata.0009",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kurabekata",
+    "payload": {
+      "prompt": "おなじ おおきさの マスで くらべます。ひろいのは？",
+      "choices": [
+        {
+          "id": "a",
+          "text": "あ"
+        },
+        {
+          "id": "b",
+          "text": "い"
+        },
+        {
+          "id": "c",
+          "text": "おなじ"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/three-domains/area-tiles.svg",
+      "promptSpeech": "おなじ おおきさの マスで くらべます。ひろいのは？ マスの おおきさは おなじです。あには 6こ、いには 4この マスが すきまなく ならんでいます。"
+    },
+    "explanation": "あは 6マスぶん、いは 4マスぶんです。おなじ マスで すきまなく うめているので、マスの かずが おおい あが ひろいです。"
   }
 ]
