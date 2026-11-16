@@ -112,3 +112,21 @@ test('全問題をバトル問題枠で描画してレイアウトを検査す�
   await expect(audit).toHaveAttribute('data-audit-status', 'complete');
   await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
 });
+
+test('理科689問の図と文章がスマホを含む4サイズに収まる', async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  await page.route('**/content/manifest.json', async (route) => {
+    const response = await route.fetch();
+    const manifest = await response.json();
+    manifest.questions = manifest.questions.filter((file: string) => file.startsWith('questions/rika/'));
+    await route.fulfill({ response, json: manifest });
+  });
+  await page.goto('/battle-question-audit.html?matrix');
+  const audit = page.locator('[data-audit-status]');
+  await expect(audit).toHaveAttribute('data-audit-status', /^(?:complete|failed)$/, { timeout: 220_000 });
+  const report = (await page.locator('#question-layout-report').textContent())!;
+  await testInfo.attach('science-question-layout', { body: report, contentType: 'application/json' });
+  expect(JSON.parse(report).progress.total).toBe(689);
+  await expect(audit).toHaveAttribute('data-audit-status', 'complete');
+  await expect(page.locator('[data-audit-failure-count]')).toHaveAttribute('data-audit-failure-count', '0');
+});

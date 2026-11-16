@@ -67,7 +67,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/circuit-parallel.svg",
+      "promptSpeech": "電池2こを並列につなぐと、1ことのときにくらべてモーターの速さはどうなりますか。 電池のプラスどうし、マイナスどうしをつないだ回路。モーターの速さは示さない。"
     },
     "explanation": "並列では速さは1ことのときとほぼ同じです。"
   },
@@ -139,7 +141,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/parallel-bulb.svg",
+      "promptSpeech": "電池2こを並列につないだとき、豆電球の明るさは1ことのくらべてどうなりますか。 2この電池のプラスどうしとマイナスどうしをつないで豆電球につなぐ回路。明るさは示さない。"
     },
     "explanation": "並列では明るさは1ことのときとほぼ同じです。"
   },
@@ -175,7 +179,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/circuit-series.svg",
+      "promptSpeech": "直列つなぎで電流はどうなりやすいですか。 電池を2こ一列につなぎ、電球と回路にした図。電流や明るさの変化は示さない。"
     },
     "explanation": "直列では電流が大きくなりやすいです。"
   },
@@ -211,7 +217,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/series-motor.svg",
+      "promptSpeech": "電池2こを直列につなぐと、1ことのときにくらべてモーターはどうなりますか。 電池2ことモーターをひとつの輪につないだ回路。回る速さは示さない。"
     },
     "explanation": "直列では電流が大きくなり、モーターは速く回りやすいです。"
   },
@@ -247,7 +255,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/circuit-parallel.svg",
+      "promptSpeech": "電池の＋どうし、−どうしをつなぐつなぎ方を何といいますか。 電池のプラスどうし、マイナスどうしをつないだ回路。モーターの速さは示さない。"
     },
     "explanation": "＋どうし・−どうしをつなぐのが並列つなぎです。"
   },
@@ -283,7 +293,9 @@
         }
       ],
       "answer": "c2",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/rika/visuals/circuit-series.svg",
+      "promptSpeech": "電池を一列につなぐつなぎ方を何といいますか。 電池を2こ一列につなぎ、電球と回路にした図。電流や明るさの変化は示さない。"
     },
     "explanation": "＋と−を一列につなぐのが直列つなぎです。"
   }
