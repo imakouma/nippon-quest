@@ -167,13 +167,13 @@ export function grade5(draw: Draw) {
     'factory-relocation',
     ['7b385ea8e988'],
     '国内の工場の仕事が海外へ移り、国内側の工場が閉まる例。',
-    group(95, 70, factory(), 0.8) +
-      arrow(180, 70, 100) +
-      group(385, 70, factory(), 0.8) +
-      text('国内', 95, 145) +
-      text('海外', 385, 145) +
-      path('M50 120H140', 'none', '#a26148', 5),
-    160,
+    group(95, 50, factory(), 0.6) +
+      arrow(180, 50, 100) +
+      group(385, 50, factory(), 0.6) +
+      text('国内', 95, 110) +
+      text('海外', 385, 110) +
+      path('M60 82H130', 'none', '#a26148', 5),
+    120,
   );
   draw(
     'iot',
@@ -246,13 +246,13 @@ export function grade5(draw: Draw) {
       ]
         .map(
           ([label, big, small], i) =>
-            text(String(label), 75, 82 + i * 50, 24) +
-            rect(150, 52 + i * 50, 300, 25, '#c2d9e9') +
-            rect(150, 52 + i * 50, Number(big) * 3, 25, '#cf9d6d') +
-            text(`${big}% / ${small}%`, 300, 101 + i * 50, 24),
+            text(String(label), 75, 65 + i * 44, 24) +
+            rect(150, 43 + i * 44, 300, 30, '#c2d9e9') +
+            rect(150, 43 + i * 44, Number(big) * 3, 30, '#cf9d6d') +
+            text(`${big}% / ${small}%`, 300, 65 + i * 44, 24),
         )
         .join(''),
-    213,
+    170,
   );
   draw(
     'trade-chart',

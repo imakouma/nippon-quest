@@ -323,14 +323,10 @@ export function grade4(draw: Draw) {
     'forest',
     ['9f9622ede0f6', '66a95ebcfbba', 'a50cc9907fff'],
     '森に育つ木と、手入れのための道。',
-    group(
-      0,
-      -25,
-      [-70, 30, 130].map((x, i) => group(120 + x, 95 + i * 25, tree(), 0.6)).join('') +
-        path('M220 185q-20-50 100-105', 'none', '#d6c4a2', 32) +
-        group(385, 155, person(), 0.6),
-    ),
-    180,
+    [50, 150, 250].map((x, i) => group(x, 65 + i * 10, tree(), 0.55)).join('') +
+      path('M240 120q-20-40 80-75', 'none', '#d6c4a2', 24) +
+      group(385, 80, person(), 0.6),
+    140,
   );
   draw(
     'renewable',
