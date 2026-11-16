@@ -18,5 +18,6 @@
     "types": ["vite/client", "node"],
     "baseUrl": ".",
     "paths": { "@/*": ["src/*"] }
-  }
+  },
+  "files": ["src/questions/renderers/kanji-trace/kanji-recognizer.d.ts"]
 }

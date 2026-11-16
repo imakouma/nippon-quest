@@ -29,6 +29,8 @@ function serveRootDirs(dirs: string[]): Plugin {
     name: 'nihonquest:serve-root-dirs',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
+        // JSON module imports need Vite's transform, not the raw content response.
+        if (new URLSearchParams((req.url ?? '').split('?')[1]).has('import')) return next();
         const url = (req.url ?? '').split('?')[0] ?? '';
         const dir = dirs.find((d) => url.startsWith(`/${d}/`));
         if (!dir) return next();
