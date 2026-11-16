@@ -1,0 +1,242 @@
+[
+  {
+    "id": "sansu.g3.curriculum.abacus-read-6",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "そろばんが 表[あらわ]す数[かず]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6"
+        },
+        {
+          "id": "c2",
+          "text": "11"
+        },
+        {
+          "id": "c3",
+          "text": "16"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-6.svg",
+      "promptSpeech": "そろばんが 表[あらわ]す数[かず]は どれですか。 はりに寄った玉を読みます。"
+    },
+    "explanation": "はりに つけた玉[たま]を 読[よ]みます。上[うえ]の玉[たま]は5、下[した]の玉[たま]は1を 表[あらわ]します。一[いち]の位[くらい]は5+1=6です。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-read-23",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "そろばんが 表[あらわ]す数[かず]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "23"
+        },
+        {
+          "id": "c2",
+          "text": "28"
+        },
+        {
+          "id": "c3",
+          "text": "33"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-23.svg",
+      "promptSpeech": "そろばんが 表[あらわ]す数[かず]は どれですか。 はりに寄った玉を読みます。"
+    },
+    "explanation": "はりに つけた玉[たま]を 読[よ]みます。上[うえ]の玉[たま]は5、下[した]の玉[たま]は1を 表[あらわ]します。十[じゅう]の位[くらい]が2、一[いち]の位[くらい]が3なので、20+3=23です。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-read-105",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "そろばんが 表[あらわ]す数[かず]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "105"
+        },
+        {
+          "id": "c2",
+          "text": "110"
+        },
+        {
+          "id": "c3",
+          "text": "115"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-105.svg",
+      "promptSpeech": "そろばんが 表[あらわ]す数[かず]は どれですか。 はりに寄った玉を読みます。"
+    },
+    "explanation": "はりに つけた玉[たま]を 読[よ]みます。上[うえ]の玉[たま]は5、下[した]の玉[たま]は1を 表[あらわ]します。百[ひゃく]の位[くらい]が1、十[じゅう]の位[くらい]が0、一[いち]の位[くらい]が5なので、100+5=105です。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-calc-34",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "図[ず]の数[かず]から、34+2を そろばんで計算[けいさん]します。答[こた]えはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "36"
+        },
+        {
+          "id": "c2",
+          "text": "46"
+        },
+        {
+          "id": "c3",
+          "text": "34"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-34.svg",
+      "promptSpeech": "図[ず]の数[かず]から、34+2を そろばんで計算[けいさん]します。答[こた]えはどれですか。 そろばんに34を置いています。"
+    },
+    "explanation": "一[いち]の位[くらい]の4に2を 足[た]すと6です。下[した]の玉[たま]4つを はらい、上[うえ]の5の玉[たま]と 下[した]の1の玉[たま]を はりに つけます。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-calc-52",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "図[ず]の数[かず]から、52-1を そろばんで計算[けいさん]します。答[こた]えはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "51"
+        },
+        {
+          "id": "c2",
+          "text": "61"
+        },
+        {
+          "id": "c3",
+          "text": "49"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-52.svg",
+      "promptSpeech": "図[ず]の数[かず]から、52-1を そろばんで計算[けいさん]します。答[こた]えはどれですか。 そろばんに52を置いています。"
+    },
+    "explanation": "一[いち]の位[くらい]の2から1を 引[ひ]くので、下[した]の玉[たま]を1つ はりから はなします。十[じゅう]の位[くらい]は5のままです。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-calc-80",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "図[ず]の数[かず]から、80+10を そろばんで計算[けいさん]します。答[こた]えはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "90"
+        },
+        {
+          "id": "c2",
+          "text": "100"
+        },
+        {
+          "id": "c3",
+          "text": "88"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-80.svg",
+      "promptSpeech": "図[ず]の数[かず]から、80+10を そろばんで計算[けいさん]します。答[こた]えはどれですか。 そろばんに80を置いています。"
+    },
+    "explanation": "10は 十[じゅう]の位[くらい]の玉[たま]1つ分[ぶん]です。十[じゅう]の位[くらい]の8に1を 足[た]して9にするので、90です。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-decimal-23",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "赤[あか]い点[てん]のある けたを 一[いち]の位[くらい]とします。そろばんが 表[あらわ]す数[かず]はどれですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "2.3"
+        },
+        {
+          "id": "c1",
+          "text": "23"
+        },
+        {
+          "id": "c2",
+          "text": "0.23"
+        }
+      ],
+      "answer": "c0",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-decimal-23.svg",
+      "promptSpeech": "左から十の位、一の位、0.1の位。赤い点が一の位。"
+    },
+    "explanation": "一[いち]の位[くらい]の 右[みぎ]は0.1の位[くらい]です。2と0.3を 合[あ]わせて、2.3です。"
+  },
+  {
+    "id": "sansu.g3.curriculum.abacus-decimal-105",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "赤[あか]い点[てん]のある けたを 一[いち]の位[くらい]とします。そろばんが 表[あらわ]す数[かず]はどれですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "10.5"
+        },
+        {
+          "id": "c1",
+          "text": "1.5"
+        },
+        {
+          "id": "c2",
+          "text": "105"
+        }
+      ],
+      "answer": "c0",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/abacus-decimal-105.svg",
+      "promptSpeech": "左から十の位、一の位、0.1の位。赤い点が一の位。"
+    },
+    "explanation": "一[いち]の位[くらい]の 右[みぎ]は0.1の位[くらい]です。十[じゅう]の位[くらい]が1、一[いち]の位[くらい]が0、0.1の位[くらい]が5なので、10と0.5を 合[あ]わせて10.5です。"
+  }
+]

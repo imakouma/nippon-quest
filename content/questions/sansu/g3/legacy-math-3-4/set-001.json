@@ -5,18 +5,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "1000"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 991+9 =",
+      "answers": ["1000"]
     },
-    "explanation": "\\require{cancel} 1 1 9 9 1 + 9 1 0 0 0"
+    "explanation": "一[いち]の位[くらい]の1に9を 足[た]すと、1+9=10です。10のまとまりに くり上[あ]げて、990+10=1000になります。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.03eda80e379a",
@@ -24,18 +18,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "376"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 603-227 =",
+      "answers": ["376"]
     },
-    "explanation": "\\require{cancel} 5 9 1 \\bcancel{6} \\bcancel{0} 3 - 2 2 7 3 7 6"
+    "explanation": "227を 200と20と7に 分[わ]けて、順[じゅん]に 引[ひ]きます。603-200=403、403-20=383、383-7=376。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.08da26f4528a",
@@ -43,18 +31,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "6493"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2844+3649 =",
+      "answers": ["6493"]
     },
-    "explanation": "\\require{cancel} 1 1 2 8 4 4 + 3 6 4 9 6 4 9 3"
+    "explanation": "3649を 3000と600と40と9に 分[わ]けて、順[じゅん]に 足[た]します。2844+3000=5844、5844+600=6444、6444+40=6484、6484+9=6493。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.0d89bc8b9a80",
@@ -62,18 +44,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "1082"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 594+488 =",
+      "answers": ["1082"]
     },
-    "explanation": "\\require{cancel} 1 1 5 9 4 + 4 8 8 1 0 8 2"
+    "explanation": "488を 400と80と8に 分[わ]けて、順[じゅん]に 足[た]します。594+400=994、994+80=1074、1074+8=1082。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.17f69aff8827",
@@ -81,18 +57,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "1110"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 777+333 =",
+      "answers": ["1110"]
     },
-    "explanation": "\\require{cancel} 1 1 7 7 7 + 3 3 3 1 1 1 0"
+    "explanation": "333を 300と30と3に 分[わ]けて、順[じゅん]に 足[た]します。777+300=1077、1077+30=1107、1107+3=1110。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.21cf910faadf",
@@ -100,18 +70,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "392"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 560-168 =",
+      "answers": ["392"]
     },
-    "explanation": "\\require{cancel} 4 5 1 \\bcancel{5} \\bcancel{6} 0 - 1 6 8 3 9 2"
+    "explanation": "168を 100と60と8に 分[わ]けて、順[じゅん]に 引[ひ]きます。560-100=460、460-60=400、400-8=392。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.33627290fc10",
@@ -119,18 +83,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "1466"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 654+812 =",
+      "answers": ["1466"]
     },
-    "explanation": "\\require{cancel} 6 5 4 + 8 1 2 1 4 6 6"
+    "explanation": "812を 800と10と2に 分[わ]けて、順[じゅん]に 足[た]します。654+800=1454、1454+10=1464、1464+2=1466。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.377dec573ba3",
@@ -138,18 +96,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "803"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 704+99 =",
+      "answers": ["803"]
     },
-    "explanation": "\\require{cancel} 1 1 7 0 4 + 9 9 8 0 3"
+    "explanation": "99を 90と9に 分[わ]けて、順[じゅん]に 足[た]します。704+90=794、794+9=803。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.4716c5bddd2c",
@@ -157,18 +109,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "732"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 485+247 =",
+      "answers": ["732"]
     },
-    "explanation": "\\require{cancel} 1 1 4 8 5 + 2 4 7 7 3 2"
+    "explanation": "247を 200と40と7に 分[わ]けて、順[じゅん]に 足[た]します。485+200=685、685+40=725、725+7=732。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.5bfdf63e479d",
@@ -176,18 +122,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "1515"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 7364-5849 =",
+      "answers": ["1515"]
     },
-    "explanation": "\\require{cancel} 6 1 5 1 \\bcancel{7} 3 \\bcancel{6} 4 - 5 8 4 9 1 5 1 5"
+    "explanation": "5849を 5000と800と40と9に 分[わ]けて、順[じゅん]に 引[ひ]きます。7364-5000=2364、2364-800=1564、1564-40=1524、1524-9=1515。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.654d6d6747d5",
@@ -195,18 +135,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "347"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 902-555 =",
+      "answers": ["347"]
     },
-    "explanation": "\\require{cancel} 8 9 1 \\bcancel{9} \\bcancel{0} 2 - 5 5 5 3 4 7"
+    "explanation": "555を 500と50と5に 分[わ]けて、順[じゅん]に 引[ひ]きます。902-500=402、402-50=352、352-5=347。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.6ec8e16c5bff",
@@ -214,18 +148,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "8194"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4267+3927 =",
+      "answers": ["8194"]
     },
-    "explanation": "\\require{cancel} 1 1 4 2 6 7 + 3 9 2 7 8 1 9 4"
+    "explanation": "3927を 3000と900と20と7に 分[わ]けて、順[じゅん]に 足[た]します。4267+3000=7267、7267+900=8167、8167+20=8187、8187+7=8194。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.91c99e3ffff0",
@@ -233,18 +161,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "4628"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 8256-3628 =",
+      "answers": ["4628"]
     },
-    "explanation": "\\require{cancel} 7 1 4 1 \\bcancel{8} 2 \\bcancel{5} 6 - 3 6 2 8 4 6 2 8"
+    "explanation": "3628を 3000と600と20と8に 分[わ]けて、順[じゅん]に 引[ひ]きます。8256-3000=5256、5256-600=4656、4656-20=4636、4636-8=4628。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.a309b97ded52",
@@ -252,18 +174,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "296"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 302-6 =",
+      "answers": ["296"]
     },
-    "explanation": "\\require{cancel} 2 9 1 \\bcancel{3} \\bcancel{0} 2 - 6 2 9 6"
+    "explanation": "上[うえ]の位[くらい]から10を くり下[さ]げ、302を290と12に 分[わ]けます。12-6=6なので、290+6=296です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.b5af41de0580",
@@ -271,18 +187,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "462"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 319+143 =",
+      "answers": ["462"]
     },
-    "explanation": "\\require{cancel} 1 3 1 9 + 1 4 3 4 6 2"
+    "explanation": "143を 100と40と3に 分[わ]けて、順[じゅん]に 足[た]します。319+100=419、419+40=459、459+3=462。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.caa647d1b66d",
@@ -290,18 +200,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "231"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 722-491 =",
+      "answers": ["231"]
     },
-    "explanation": "\\require{cancel} 6 1 \\bcancel{7} 2 2 - 4 9 1 2 3 1"
+    "explanation": "491を 400と90と1に 分[わ]けて、順[じゅん]に 引[ひ]きます。722-400=322、322-90=232、232-1=231。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.cefd9ac97164",
@@ -309,18 +213,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "9"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 978-969 =",
+      "answers": ["9"]
     },
-    "explanation": "\\require{cancel} 6 1 9 \\bcancel{7} 8 - 9 6 9 9"
+    "explanation": "969を 900と60と9に 分[わ]けて、順[じゅん]に 引[ひ]きます。978-900=78、78-60=18、18-9=9。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.e36f1d4f2b89",
@@ -328,18 +226,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "4"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 542-538 =",
+      "answers": ["4"]
     },
-    "explanation": "\\require{cancel} 3 1 5 \\bcancel{4} 2 - 5 3 8 4"
+    "explanation": "538を 500と30と8に 分[わ]けて、順[じゅん]に 引[ひ]きます。542-500=42、42-30=12、12-8=4。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.e8b347078477",
@@ -347,18 +239,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "303"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 400-97 =",
+      "answers": ["303"]
     },
-    "explanation": "\\require{cancel} 3 9 1 \\bcancel{4} \\bcancel{0} 0 - 9 7 3 0 3"
+    "explanation": "97を 90と7に 分[わ]けて、順[じゅん]に 引[ひ]きます。400-90=310、310-7=303。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-4.f591ec32044c",
@@ -366,17 +252,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_4", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのけいさんを、しましょう。",
-      "answers": [
-        "205"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 364-159 =",
+      "answers": ["205"]
     },
-    "explanation": "\\require{cancel} 5 1 3 \\bcancel{6} 4 - 1 5 9 2 0 5"
+    "explanation": "159を 100と50と9に 分[わ]けて、順[じゅん]に 引[ひ]きます。364-100=264、264-50=214、214-9=205。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   }
 ]

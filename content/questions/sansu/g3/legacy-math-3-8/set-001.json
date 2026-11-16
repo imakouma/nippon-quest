@@ -5,18 +5,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 43-18 =",
-      "answers": [
-        "25"
-      ]
+      "answers": ["25"]
     },
-    "explanation": "２けたの引[ひ]き算[ざん]の暗算[あんざん]には、２つのやり方[かた]がある。 ① 近[ちか]い数[かず]をさがして計算[けいさん]する。 18 に近[ちか]い 20 として計算[けいさん]し、あとで 2 たす。 43-20=23 23+2=25 ② くりさがりが、おこらないように計算[けいさん]する。 18 を 13 と 5 に分[わ]けて考[かんが]える。 43-13=30 30-5=25"
+    "explanation": "18を 10と8に 分[わ]けて、順[じゅん]に 引[ひ]きます。43-10=33、33-8=25。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.0d0304a60c74",
@@ -24,18 +18,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 21 + 22 =",
-      "answers": [
-        "43"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 19+24 =",
+      "answers": ["43"]
     },
-    "explanation": "22を20と2に分[わ]けると、21+20=41、41+2=43です。"
+    "explanation": "24を 20と4に 分[わ]けて、順[じゅん]に 足[た]します。19+20=39、39+4=43。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.0e29bd01e951",
@@ -43,18 +31,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 44 - 25 =",
-      "answers": [
-        "19"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 31-12 =",
+      "answers": ["19"]
     },
-    "explanation": "25を20と5に分[わ]けると、44-20=24、24-5=19です。"
+    "explanation": "12を 10と2に 分[わ]けて、順[じゅん]に 引[ひ]きます。31-10=21、21-2=19。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.1a72160af9fb",
@@ -62,18 +44,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 36 + 37 =",
-      "answers": [
-        "73"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 58+15 =",
+      "answers": ["73"]
     },
-    "explanation": "37を40と考[かんが]えて36+40=76。多[おお]く足[た]した3を引[ひ]いて73です。"
+    "explanation": "15を 10と5に 分[わ]けて、順[じゅん]に 足[た]します。58+10=68、68+5=73。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.284cfb5e6552",
@@ -81,18 +57,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 49 - 25 =",
-      "answers": [
-        "24"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 50-26 =",
+      "answers": ["24"]
     },
-    "explanation": "25を20と5に分[わ]けると、49-20=29、29-5=24です。"
+    "explanation": "26を 20と6に 分[わ]けて、順[じゅん]に 引[ひ]きます。50-20=30、30-6=24。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.29d29facc04e",
@@ -100,18 +70,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 42 - 25 =",
-      "answers": [
-        "17"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 95-78 =",
+      "answers": ["17"]
     },
-    "explanation": "25を20と5に分[わ]けると、42-20=22、22-5=17です。"
+    "explanation": "78を 70と8に 分[わ]けて、順[じゅん]に 引[ひ]きます。95-70=25、25-8=17。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.34c3b6874eba",
@@ -119,18 +83,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100-32 =",
-      "answers": [
-        "68"
-      ]
+      "answers": ["68"]
     },
-    "explanation": "100 からひく引[ひ]き算[ざん]には、いくつかのやり方[かた]がある。① 32 を30と2に分[わ]ける。100-30=70、70-2=68。② 32に何[なに]をたしたら100になるか考[かんが]える。32+8=40、40+60=100なので、60+8=68。③ 100を99として計算[けいさん]してから1をたす。99-32=67、67+1=68。"
+    "explanation": "32を 30と2に 分[わ]けて、順[じゅん]に 引[ひ]きます。100-30=70、70-2=68。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.38f34016f0a4",
@@ -138,18 +96,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 59 - 25 =",
-      "answers": [
-        "34"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 63-29 =",
+      "answers": ["34"]
     },
-    "explanation": "25を20と5に分[わ]けると、59-20=39、39-5=34です。"
+    "explanation": "29を 20と9に 分[わ]けて、順[じゅん]に 引[ひ]きます。63-20=43、43-9=34。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.4abceaa7ea76",
@@ -157,18 +109,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 29 + 30 =",
-      "answers": [
-        "59"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 41+18 =",
+      "answers": ["59"]
     },
-    "explanation": "29に30を足[た]すと、29+30=59です。"
+    "explanation": "18を 10と8に 分[わ]けて、順[じゅん]に 足[た]します。41+10=51、51+8=59。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.4edb33dd8f60",
@@ -176,18 +122,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 40 + 41 =",
-      "answers": [
-        "81"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 42+39 =",
+      "answers": ["81"]
     },
-    "explanation": "40+40=80で、さらに1を足[た]して81です。"
+    "explanation": "39を 30と9に 分[わ]けて、順[じゅん]に 足[た]します。42+30=72、72+9=81。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.53d9670b1183",
@@ -195,18 +135,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100 - 14 =",
-      "answers": [
-        "86"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100-14 =",
+      "answers": ["86"]
     },
-    "explanation": "14を10と4に分[わ]けると、100-10=90、90-4=86です。"
+    "explanation": "14を 10と4に 分[わ]けて、順[じゅん]に 引[ひ]きます。100-10=90、90-4=86。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.6956333714c3",
@@ -214,18 +148,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 51 - 25 =",
-      "answers": [
-        "26"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 77-51 =",
+      "answers": ["26"]
     },
-    "explanation": "25を20と5に分[わ]けると、51-20=31、31-5=26です。"
+    "explanation": "51を 50と1に 分[わ]けて、順[じゅん]に 引[ひ]きます。77-50=27、27-1=26。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.6f2249b5239c",
@@ -233,18 +161,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 62 - 25 =",
-      "answers": [
-        "37"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 84-47 =",
+      "answers": ["37"]
     },
-    "explanation": "25を20と5に分[わ]けると、62-20=42、42-5=37です。"
+    "explanation": "47を 40と7に 分[わ]けて、順[じゅん]に 引[ひ]きます。84-40=44、44-7=37。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.70b6cbbf8918",
@@ -252,18 +174,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 26+49 =",
-      "answers": [
-        "75"
-      ]
+      "answers": ["75"]
     },
-    "explanation": "２けたの足[た]し算[ざん]の暗算[あんざん]には、２つのやり方[かた]がある。 ① 数[かず]を小[ちい]さく分[わ]けて考[かんが]える。 26 を 20 と 6 に分[わ]ける。 49 を 40 と 9 に分[わ]ける。 6+9=15、20+40=60 15+60=75 ② 近[ちか]い数[かず]をさがして計算[けいさん]する。 49 に近[ちか]い 50 として計算[けいさん]し、あとで 1 ひく。 26+50=76 76-1=75"
+    "explanation": "49を 40と9に 分[わ]けて、順[じゅん]に 足[た]します。26+40=66、66+9=75。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.b375fc9721b5",
@@ -271,18 +187,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 45 + 45 =",
-      "answers": [
-        "90"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 37+53 =",
+      "answers": ["90"]
     },
-    "explanation": "45+45は45の2倍[ばい]なので、90です。"
+    "explanation": "53を 50と3に 分[わ]けて、順[じゅん]に 足[た]します。37+50=87、87+3=90。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.c744d738e5b7",
@@ -290,18 +200,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100 - 69 =",
-      "answers": [
-        "31"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100-69 =",
+      "answers": ["31"]
     },
-    "explanation": "69に31を足[た]すと100になるので、100-69=31です。"
+    "explanation": "69を 60と9に 分[わ]けて、順[じゅん]に 引[ひ]きます。100-60=40、40-9=31。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.cd8591c437d6",
@@ -309,18 +213,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 46 + 46 =",
-      "answers": [
-        "92"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 45+47 =",
+      "answers": ["92"]
     },
-    "explanation": "46+46は46の2倍[ばい]なので、92です。"
+    "explanation": "47を 40と7に 分[わ]けて、順[じゅん]に 足[た]します。45+40=85、85+7=92。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.d727d812b533",
@@ -328,18 +226,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100 - 77 =",
-      "answers": [
-        "23"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100-77 =",
+      "answers": ["23"]
     },
-    "explanation": "77に23を足[た]すと100になるので、100-77=23です。"
+    "explanation": "77を 70と7に 分[わ]けて、順[じゅん]に 引[ひ]きます。100-70=30、30-7=23。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-8.f34fecc8b35a",
@@ -347,17 +239,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-8",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_8",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_8", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100 - 25 =",
-      "answers": [
-        "75"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 100-25 =",
+      "answers": ["75"]
     },
-    "explanation": "100の半分[はんぶん]は50で、25を引[ひ]くと75です。"
+    "explanation": "25を 20と5に 分[わ]けて、順[じゅん]に 引[ひ]きます。100-20=80、80-5=75。位[くらい]を そろえた筆算[ひっさん]でも たしかめられます。"
   }
 ]
