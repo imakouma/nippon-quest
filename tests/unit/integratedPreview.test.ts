@@ -40,7 +40,7 @@ it('keeps automated browser servers separate from the canonical preview', async 
     (await import('../../playwright.config')).default,
     (await import('../e2e/playwright.prebuilt.config')).default,
     (await import('../e2e/playwright.mobile.config')).default,
-  ];
+  ] as const;
   for (const config of configs) {
     const server = config.webServer as { port: number; command: string };
     expect(server.port).not.toBe(4174);
