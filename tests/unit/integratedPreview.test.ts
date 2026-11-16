@@ -47,4 +47,7 @@ it('keeps automated browser servers separate from the canonical preview', async 
     expect(new URL(config.use!.baseURL!).port).toBe(String(server.port));
     expect(server.command).toContain(`--port ${server.port}`);
   }
+  expect(configs[1].testIgnore).toEqual(
+    expect.arrayContaining(['math-review-order.spec.ts', 'sansu-g1-content-repair.spec.ts']),
+  );
 });

@@ -17,6 +17,8 @@ export default defineConfig({
     'g1-onyomi-input.spec.ts',
     'kanji-writing.spec.ts',
     'sansu-g*-visuals.spec.ts',
+    'math-review-order.spec.ts',
+    'sansu-g1-content-repair.spec.ts',
     'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
