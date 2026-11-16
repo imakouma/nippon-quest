@@ -1,7 +1,8 @@
 import order from '../../content/review/sansu-g1-order.json';
 import type { QuestionBase } from '../questions/contracts';
 
-export const mathReviewGroups = order.groups;
+export const mathReviewGroupsByGrade: Record<number, typeof order.groups> = { 1: order.groups };
+const mathReviewGroups = Object.values(mathReviewGroupsByGrade).flat();
 const groupByQuestion = new Map(
   mathReviewGroups.flatMap((group) => group.questionIds.map((id) => [id, group.id] as const)),
 );
@@ -13,8 +14,9 @@ export function mathReviewMatches(q: QuestionBase | null, scope: string): boolea
   return (
     !!q &&
     q.subject === 'sansu' &&
-    q.grade === 1 &&
-    scope === `math-review:${groupByQuestion.get(q.id) ?? 'unclassified'}`
+    q.grade >= 1 &&
+    q.grade <= 6 &&
+    scope === `math-review:${q.grade}:${groupByQuestion.get(q.id) ?? 'unclassified'}`
   );
 }
 

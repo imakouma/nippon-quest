@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync, readdirSync } from 'node:fs';
 
 test('小1算数の学ぶ順は単元を跨いで基礎をまとめ、保存フォルダを変更しない', async ({ page }) => {
   const actions: string[] = [];
@@ -62,3 +63,41 @@ test('繰り上がりを分離し、復元した計算を基本加減へ戻す',
   await expect(grade.locator('.pg-question-row')).toHaveCount(20);
   await expect(grade.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 });
+
+const mathReviewGroupsByGrade = Object.fromEntries(
+  readdirSync('content/review')
+    .filter((file) => /^sansu-g[1-6]-order\.json$/.test(file))
+    .map((file) => [
+      file.match(/g([1-6])/)![1],
+      (
+        JSON.parse(readFileSync(`content/review/${file}`, 'utf8')) as {
+          groups: { id: string; questionIds: string[] }[];
+        }
+      ).groups,
+    ]),
+);
+
+for (const [gradeNumber, groups] of Object.entries(mathReviewGroupsByGrade)) {
+  test(`小${gradeNumber}の学ぶ順で先頭・末尾の問題を開き、学年間で表示IDを重複させない`, async ({ page }) => {
+    await page.goto('/playground.html');
+    const subject = page.locator('details[data-subject="sansu"]');
+    await subject.locator(':scope > summary').click();
+    const grade = subject.locator(`details[data-grade="${gradeNumber}"]`);
+    await grade.locator(':scope > summary').click();
+    await expect(grade.locator('[data-math-scope]')).toHaveCount(groups.length, { timeout: 20_000 });
+    for (const group of [groups[0]!, groups.at(-1)!]) {
+      const button = grade.locator(`[data-math-scope="${group.id}"]`);
+      await button.click();
+      await expect(grade.locator('.pg-question-row')).toHaveCount(Math.min(200, group.questionIds.length));
+      await grade.locator('.pg-question-row').first().click();
+      await expect(page.locator('#ed-question-id')).toHaveValue(group.questionIds[0]!);
+      await expect(button).toHaveAttribute('aria-pressed', 'true');
+      await expect(grade.locator('.pg-question-row')).toHaveCount(Math.min(200, group.questionIds.length));
+    }
+    const duplicates = await page.locator('[id^="pg-math-count-"]').evaluateAll((nodes) => {
+      const ids = nodes.map((node) => node.id);
+      return ids.length - new Set(ids).size;
+    });
+    expect(duplicates).toBe(0);
+  });
+}
