@@ -136,20 +136,27 @@ async function walkOneTile(
 ): Promise<void> {
   const canvas = page.locator('canvas[data-player-tile]');
   const before = await canvas.getAttribute('data-player-tile');
-  await canvas.evaluate((element) => delete (element as HTMLElement).dataset.lastMovement);
+  await canvas.evaluate((element) => {
+    delete (element as HTMLElement).dataset.lastMovement;
+    delete (element as HTMLElement).dataset.testStepStarted;
+  });
+  await page.evaluate((key) => {
+    const scene = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+      playerLocomotion: { phase: string };
+    };
+    const keyCode = { ArrowUp: 38, ArrowDown: 40, ArrowLeft: 37, ArrowRight: 39 }[key];
+    // CIとの往復中に2歩進まないよう、開始フレーム内でキーを離す。
+    const release = () => {
+      if (scene.playerLocomotion.phase !== 'stepping') return;
+      window.dispatchEvent(new KeyboardEvent('keyup', { key, code: key, keyCode, bubbles: true }));
+      scene.events.off('postupdate', release);
+      scene.game.canvas.dataset.testStepStarted = 'true';
+    };
+    scene.events.on('postupdate', release);
+  }, key);
   await page.keyboard.down(key);
   try {
-    // 1フレーム未満のキー押下を避け、1歩が始まった時点で離す。
-    await page.waitForFunction(
-      () =>
-        (
-          window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
-            playerLocomotion: { phase: string };
-          }
-        ).playerLocomotion.phase === 'stepping',
-      undefined,
-      { timeout: 5_000 },
-    );
+    await expect(canvas).toHaveAttribute('data-test-step-started', 'true');
   } finally {
     await page.keyboard.up(key);
   }
