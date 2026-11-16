@@ -19,6 +19,7 @@ export default defineConfig({
     'sansu-g*-visuals.spec.ts',
     'math-review-order.spec.ts',
     'sansu-g1-content-repair.spec.ts',
+    'sansu-g1-domains.spec.ts',
     'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
