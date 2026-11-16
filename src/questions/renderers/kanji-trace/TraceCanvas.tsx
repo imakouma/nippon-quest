@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 
 import { t } from '../../../ui/i18n';
+import { RubyLabel } from '../../../ui/RubyLabel';
+import { assessWriting, gradeOneWriting, type WritingAssessment } from './writingAssessment';
 import type { RendererContext } from '../../contracts';
 import {
   rasterizeStrokes,
@@ -47,13 +49,16 @@ interface Props {
   payload: KanjiTracePayload;
   ctx: RendererContext;
   disabled: boolean;
+  onAttempt: () => void;
   onSubmit: (score: number, match: number) => void;
 }
 
-export function TraceCanvas({ payload, ctx, disabled, onSubmit }: Props) {
+export function TraceCanvas({ payload, ctx, disabled, onAttempt, onSubmit }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const strokes = useRef<TracePoint[][]>([]);
-  const drawing = useRef(false);
+  const pointer = useRef<number | null>(null);
+  const [assessment, setAssessment] = useState<WritingAssessment | null>(null);
+  const reference = ctx.question.grade === 1 ? gradeOneWriting[payload.kanji] : undefined;
   const image = useRef<HTMLImageElement | null>(null);
   const [hasInk, setHasInk] = useState(false);
 
@@ -63,9 +68,22 @@ export function TraceCanvas({ payload, ctx, disabled, onSubmit }: Props) {
     if (!canvas || !context) return;
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = 'rgba(42, 26, 5, 0.22)';
-    drawGuide(context, canvas.width, payload.kanji, image.current);
+    if (reference) {
+      context.strokeStyle = 'rgba(42, 26, 5, 0.28)';
+      context.lineWidth = canvas.width / 40;
+      context.lineCap = context.lineJoin = 'round';
+      for (const stroke of reference) {
+        context.beginPath();
+        stroke.points.forEach((point, index) =>
+          index
+            ? context.lineTo(point.x * canvas.width, point.y * canvas.height)
+            : context.moveTo(point.x * canvas.width, point.y * canvas.height),
+        );
+        context.stroke();
+      }
+    } else drawGuide(context, canvas.width, payload.kanji, image.current);
     context.strokeStyle = '#1d3f8f';
-    context.lineWidth = canvas.width / 10;
+    context.lineWidth = canvas.width / 30;
     context.lineCap = context.lineJoin = 'round';
     for (const stroke of strokes.current) {
       context.beginPath();
@@ -106,14 +124,32 @@ export function TraceCanvas({ payload, ctx, disabled, onSubmit }: Props) {
   };
 
   const clear = () => {
+    pointer.current = null;
+    setAssessment(null);
     strokes.current = [];
     setHasInk(false);
     paint();
   };
   const submit = () => {
+    if (pointer.current !== null) return;
+    onAttempt();
+    if (reference) {
+      const next = assessWriting(payload.kanji, strokes.current);
+      setAssessment(next);
+      if (next.score === 1) onSubmit(1, 1);
+      return;
+    }
     const guide = guideMask(payload.kanji, image.current);
-    const match = guide ? traceMatch(guide, rasterizeStrokes(strokes.current)).match : 1;
+    const match = guide ? traceMatch(guide, rasterizeStrokes(strokes.current)).match : 0;
     onSubmit(traceScore(match), match);
+  };
+
+  const cancelStroke = (event: PointerEvent) => {
+    if (pointer.current !== event.pointerId) return;
+    pointer.current = null;
+    strokes.current.pop();
+    setHasInk(strokes.current.length > 0);
+    paint();
   };
 
   return (
@@ -126,22 +162,46 @@ export function TraceCanvas({ payload, ctx, disabled, onSubmit }: Props) {
         aria-label={t('question.kanjiTraceCanvas', { kanji: payload.kanji })}
         aria-describedby="nq-question-prompt"
         onPointerDown={(event) => {
-          if (disabled) return;
-          drawing.current = true;
+          if (disabled || pointer.current !== null || event.button !== 0) return;
+          pointer.current = event.pointerId;
+          setAssessment(null);
           canvasRef.current?.setPointerCapture?.(event.pointerId);
           strokes.current.push([point(event)]);
           setHasInk(true);
           paint();
         }}
         onPointerMove={(event) => {
-          if (!drawing.current || disabled) return;
-          strokes.current.at(-1)!.push(point(event));
+          if (pointer.current !== event.pointerId || disabled) return;
+          const samples = event.getCoalescedEvents?.();
+          strokes.current.at(-1)!.push(...(samples?.length ? samples : [event]).map(point));
           paint();
         }}
-        onPointerUp={() => (drawing.current = false)}
-        onPointerCancel={() => (drawing.current = false)}
-        onPointerLeave={() => (drawing.current = false)}
+        onPointerUp={(event) => {
+          if (pointer.current !== event.pointerId) return;
+          strokes.current.at(-1)?.push(point(event));
+          pointer.current = null;
+          paint();
+        }}
+        onPointerCancel={cancelStroke}
+        onLostPointerCapture={cancelStroke}
       />
+      {reference && (
+        <div role="status" aria-live="polite">
+          <RubyLabel
+            as="p"
+            class="nq-kt-hint"
+            grade={ctx.grade}
+            text={
+              assessment?.issue
+                ? t(`question.kanjiWriting.${assessment.issue}`, {
+                    n: assessment.stroke ?? 1,
+                    count: reference.length,
+                  })
+                : t('question.kanjiWriting.guide', { count: reference.length })
+            }
+          />
+        </div>
+      )}
       <div class="nq-kt-actions">
         <button type="button" class="nq-btn" disabled={disabled || !hasInk} onClick={clear}>
           {t('question.kanjiTraceClear')}

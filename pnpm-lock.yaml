@@ -13,6 +13,9 @@ importers:
 
   .:
     dependencies:
+      kanji-recognizer:
+        specifier: 0.2.0
+        version: 0.2.0
       localforage:
         specifier: ^1.10.0
         version: 1.10.0
@@ -62,6 +65,9 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.9.6
+      svg-path-properties:
+        specifier: 2.2.0
+        version: 2.2.0
       tsx:
         specifier: ^4.19.1
         version: 4.23.13
@@ -1318,6 +1324,9 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  kanji-recognizer@0.2.0:
+    resolution: {integrity: sha512-WVcZeb1HqkTg9v+/rQbpuGifFl06syJOECfoxG7otI/Qd3gYNzQ0Eo283VT/W9bvU94LE+zJIyRUtfklylQ5lg==}
+
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
@@ -1549,6 +1558,10 @@ packages:
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
     engines: {node: '>=8'}
+
+  svg-path-properties@2.2.0:
+    resolution: {integrity: sha512-sHyCQCJXfPXbxG6Nj3eWZ6gUsRpkjRia+3hPwy8iWt0AIdnLRacY5SnGxLnjWtsPhE0ICS8fY7xOUNl+90yLSw==}
+    engines: {node: '>=22.0.0'}
 
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
@@ -2946,6 +2959,8 @@ snapshots:
 
   json5@2.2.3: {}
 
+  kanji-recognizer@0.2.0: {}
+
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
@@ -3156,6 +3171,8 @@ snapshots:
   supports-color@7.2.0:
     dependencies:
       has-flag: 4.0.0
+
+  svg-path-properties@2.2.0: {}
 
   symbol-tree@3.2.4: {}
 
