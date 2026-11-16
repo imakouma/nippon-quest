@@ -15,6 +15,8 @@ export default defineConfig({
   testIgnore: [
     'playground-list.spec.ts',
     'g1-onyomi-input.spec.ts',
+    'kanji-writing.spec.ts',
+    'sansu-g*-visuals.spec.ts',
     'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
