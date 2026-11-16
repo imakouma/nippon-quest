@@ -1,7 +1,7 @@
 [
   {
     "id": "kokugo.g1.kanji-kunyomi.0031",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -10,33 +10,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「手」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ね"
-        },
-        {
-          "id": "b",
-          "text": "しも"
-        },
-        {
-          "id": "c",
-          "text": "て"
-        },
-        {
-          "id": "d",
-          "text": "さげる"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "手を あらう",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "て"
+      ]
     },
-    "explanation": "「手」の 訓[くん]読[よ]みの 一[ひと]つは「て」です。"
+    "explanation": "「手を あらう」の「手」は「て」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0032",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -45,33 +29,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「十」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ここのつ"
-        },
-        {
-          "id": "b",
-          "text": "やすまる"
-        },
-        {
-          "id": "c",
-          "text": "やすめる"
-        },
-        {
-          "id": "d",
-          "text": "とお"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "りんごを 十 かぞえる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "とお"
+      ]
     },
-    "explanation": "「十」の 訓[くん]読[よ]みの 一[ひと]つは「とお」です。"
+    "explanation": "「りんごを 十 かぞえる」の「十」は「とお」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0033",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -80,33 +48,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「出」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "でる"
-        },
-        {
-          "id": "b",
-          "text": "みっつ"
-        },
-        {
-          "id": "c",
-          "text": "よつ"
-        },
-        {
-          "id": "d",
-          "text": "よっつ"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "へやを 出る",
+      "template": "よみかた：{{INPUT}}る",
+      "answers": [
+        "で"
+      ]
     },
-    "explanation": "「出」の 訓[くん]読[よ]みの 一[ひと]つは「でる」です。"
+    "explanation": "「へやを 出る」の「出」は「で」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0034",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -115,33 +67,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「女」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "あがる"
-        },
-        {
-          "id": "b",
-          "text": "おんな"
-        },
-        {
-          "id": "c",
-          "text": "のぼる"
-        },
-        {
-          "id": "d",
-          "text": "のぼせる"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "女の ひと",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "おんな"
+      ]
     },
-    "explanation": "「女」の 訓[くん]読[よ]みの 一[ひと]つは「おんな」です。"
+    "explanation": "「女の ひと」の「女」は「おんな」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0035",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -150,33 +86,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「小」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "あおい"
-        },
-        {
-          "id": "b",
-          "text": "あかい"
-        },
-        {
-          "id": "c",
-          "text": "ちいさい"
-        },
-        {
-          "id": "d",
-          "text": "あからむ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "小さい いぬ",
+      "template": "よみかた：{{INPUT}}さい",
+      "answers": [
+        "ちい"
+      ]
     },
-    "explanation": "「小」の 訓[くん]読[よ]みの 一[ひと]つは「ちいさい」です。"
+    "explanation": "「小さい いぬ」の「小」は「ちい」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0036",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -185,33 +105,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「上」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "みぎ"
-        },
-        {
-          "id": "b",
-          "text": "あめ"
-        },
-        {
-          "id": "c",
-          "text": "まるい"
-        },
-        {
-          "id": "d",
-          "text": "うえ"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "つくえの 上に おく",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "うえ"
+      ]
     },
-    "explanation": "「上」の 訓[くん]読[よ]みの 一[ひと]つは「うえ」です。"
+    "explanation": "「つくえの 上に おく」の「上」は「うえ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0037",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -220,33 +124,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「森」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "もり"
-        },
-        {
-          "id": "b",
-          "text": "しろい"
-        },
-        {
-          "id": "c",
-          "text": "やつ"
-        },
-        {
-          "id": "d",
-          "text": "やっつ"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "森で あそぶ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "もり"
+      ]
     },
-    "explanation": "「森」の 訓[くん]読[よ]みの 一[ひと]つは「もり」です。"
+    "explanation": "「森で あそぶ」の「森」は「もり」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0038",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -255,33 +143,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「人」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "まるい"
-        },
-        {
-          "id": "b",
-          "text": "ひと"
-        },
-        {
-          "id": "c",
-          "text": "おと"
-        },
-        {
-          "id": "d",
-          "text": "した"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "人が あつまる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ひと"
+      ]
     },
-    "explanation": "「人」の 訓[くん]読[よ]みの 一[ひと]つは「ひと」です。"
+    "explanation": "「人が あつまる」の「人」は「ひと」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0039",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -290,33 +162,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「水」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "かね"
-        },
-        {
-          "id": "b",
-          "text": "そら"
-        },
-        {
-          "id": "c",
-          "text": "みず"
-        },
-        {
-          "id": "d",
-          "text": "つき"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "水を のむ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "みず"
+      ]
     },
-    "explanation": "「水」の 訓[くん]読[よ]みの 一[ひと]つは「みず」です。"
+    "explanation": "「水を のむ」の「水」は「みず」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0040",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -325,33 +181,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「正」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "て"
-        },
-        {
-          "id": "b",
-          "text": "とお"
-        },
-        {
-          "id": "c",
-          "text": "でる"
-        },
-        {
-          "id": "d",
-          "text": "ただしい"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "正しい こたえ",
+      "template": "よみかた：{{INPUT}}しい",
+      "answers": [
+        "ただ"
+      ]
     },
-    "explanation": "「正」の 訓[くん]読[よ]みの 一[ひと]つは「ただしい」です。"
+    "explanation": "「正しい こたえ」の「正」は「ただ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0041",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -360,33 +200,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「生」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "いきる"
-        },
-        {
-          "id": "b",
-          "text": "や"
-        },
-        {
-          "id": "c",
-          "text": "ふみ"
-        },
-        {
-          "id": "d",
-          "text": "もと"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "さかなが 生きる",
+      "template": "よみかた：{{INPUT}}きる",
+      "answers": [
+        "い"
+      ]
     },
-    "explanation": "「生」の 訓[くん]読[よ]みの 一[ひと]つは「いきる」です。"
+    "explanation": "「さかなが 生きる」の「生」は「い」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0042",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -395,33 +219,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「青」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "むら"
-        },
-        {
-          "id": "b",
-          "text": "あお"
-        },
-        {
-          "id": "c",
-          "text": "おお"
-        },
-        {
-          "id": "d",
-          "text": "おとこ"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "青の えのぐ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "あお"
+      ]
     },
-    "explanation": "「青」の 訓[くん]読[よ]みの 一[ひと]つは「あお」です。"
+    "explanation": "「青の えのぐ」の「青」は「あお」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0043",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -430,33 +238,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「夕」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "つち"
-        },
-        {
-          "id": "b",
-          "text": "ふた"
-        },
-        {
-          "id": "c",
-          "text": "ゆう"
-        },
-        {
-          "id": "d",
-          "text": "いる"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "夕やけを みる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ゆう"
+      ]
     },
-    "explanation": "「夕」の 訓[くん]読[よ]みの 一[ひと]つは「ゆう」です。"
+    "explanation": "「夕やけを みる」の「夕」は「ゆう」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0044",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -465,33 +257,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「石」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "たつ"
-        },
-        {
-          "id": "b",
-          "text": "ちから"
-        },
-        {
-          "id": "c",
-          "text": "はやし"
-        },
-        {
-          "id": "d",
-          "text": "いし"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "石を ひろう",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "いし"
+      ]
     },
-    "explanation": "「石」の 訓[くん]読[よ]みの 一[ひと]つは「いし」です。"
+    "explanation": "「石を ひろう」の「石」は「いし」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0045",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -500,33 +276,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「赤」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "あか"
-        },
-        {
-          "id": "b",
-          "text": "あく"
-        },
-        {
-          "id": "c",
-          "text": "あける"
-        },
-        {
-          "id": "d",
-          "text": "から"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "赤の えんぴつ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "あか"
+      ]
     },
-    "explanation": "「赤」の 訓[くん]読[よ]みの 一[ひと]つは「あか」です。"
+    "explanation": "「赤の えんぴつ」の「赤」は「あか」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0046",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -535,33 +295,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「千」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "から"
-        },
-        {
-          "id": "b",
-          "text": "ち"
-        },
-        {
-          "id": "c",
-          "text": "みえる"
-        },
-        {
-          "id": "d",
-          "text": "みせる"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "千ぐさの はなが さく",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "ち"
+      ]
     },
-    "explanation": "「千」の 訓[くん]読[よ]みの 一[ひと]つは「ち」です。"
+    "explanation": "「千ぐさの はなが さく」の「千」は「ち」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0047",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -570,33 +314,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「川」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "と"
-        },
-        {
-          "id": "b",
-          "text": "だす"
-        },
-        {
-          "id": "c",
-          "text": "かわ"
-        },
-        {
-          "id": "d",
-          "text": "お"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "川で あそぶ",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "かわ"
+      ]
     },
-    "explanation": "「川」の 訓[くん]読[よ]みの 一[ひと]つは「かわ」です。"
+    "explanation": "「川で あそぶ」の「川」は「かわ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0048",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -605,33 +333,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「先」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "まさ"
-        },
-        {
-          "id": "b",
-          "text": "いかす"
-        },
-        {
-          "id": "c",
-          "text": "いける"
-        },
-        {
-          "id": "d",
-          "text": "さき"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "先に かえる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "さき"
+      ]
     },
-    "explanation": "「先」の 訓[くん]読[よ]みの 一[ひと]つは「さき」です。"
+    "explanation": "「先に かえる」の「先」は「さき」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0049",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -640,33 +352,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「早」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "はやい"
-        },
-        {
-          "id": "b",
-          "text": "おおいに"
-        },
-        {
-          "id": "c",
-          "text": "ふたつ"
-        },
-        {
-          "id": "d",
-          "text": "か"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "あさが 早い",
+      "template": "よみかた：{{INPUT}}い",
+      "answers": [
+        "はや"
+      ]
     },
-    "explanation": "「早」の 訓[くん]読[よ]みの 一[ひと]つは「はやい」です。"
+    "explanation": "「あさが 早い」の「早」は「はや」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0050",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -675,33 +371,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「草」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "いれる"
-        },
-        {
-          "id": "b",
-          "text": "くさ"
-        },
-        {
-          "id": "c",
-          "text": "はいる"
-        },
-        {
-          "id": "d",
-          "text": "しら"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "草を ぬく",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "くさ"
+      ]
     },
-    "explanation": "「草」の 訓[くん]読[よ]みの 一[ひと]つは「くさ」です。"
+    "explanation": "「草を ぬく」の「草」は「くさ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0051",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -710,33 +390,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「足」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "やすむ"
-        },
-        {
-          "id": "b",
-          "text": "たま"
-        },
-        {
-          "id": "c",
-          "text": "あし"
-        },
-        {
-          "id": "d",
-          "text": "かね"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "足を あらう",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "あし"
+      ]
     },
-    "explanation": "「足」の 訓[くん]読[よ]みの 一[ひと]つは「あし」です。"
+    "explanation": "「足を あらう」の「足」は「あし」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0052",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -745,33 +409,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「村」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "ここの"
-        },
-        {
-          "id": "b",
-          "text": "やすむ"
-        },
-        {
-          "id": "c",
-          "text": "たま"
-        },
-        {
-          "id": "d",
-          "text": "むら"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "村の まつり",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "むら"
+      ]
     },
-    "explanation": "「村」の 訓[くん]読[よ]みの 一[ひと]つは「むら」です。"
+    "explanation": "「村の まつり」の「村」は「むら」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0053",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -780,33 +428,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「大」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "おお"
-        },
-        {
-          "id": "b",
-          "text": "くるま"
-        },
-        {
-          "id": "c",
-          "text": "て"
-        },
-        {
-          "id": "d",
-          "text": "とお"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "大きい いえ",
+      "template": "よみかた：{{INPUT}}きい",
+      "answers": [
+        "おお"
+      ]
     },
-    "explanation": "「大」の 訓[くん]読[よ]みの 一[ひと]つは「おお」です。"
+    "explanation": "「大きい いえ」の「大」は「おお」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0054",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -815,33 +447,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「男」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "でる"
-        },
-        {
-          "id": "b",
-          "text": "おとこ"
-        },
-        {
-          "id": "c",
-          "text": "おんな"
-        },
-        {
-          "id": "d",
-          "text": "ちいさい"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "男の ひと",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "おとこ"
+      ]
     },
-    "explanation": "「男」の 訓[くん]読[よ]みの 一[ひと]つは「おとこ」です。"
+    "explanation": "「男の ひと」の「男」は「おとこ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0055",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -850,33 +466,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「竹」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "あか"
-        },
-        {
-          "id": "b",
-          "text": "ち"
-        },
-        {
-          "id": "c",
-          "text": "たけ"
-        },
-        {
-          "id": "d",
-          "text": "かわ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "竹が のびる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "たけ"
+      ]
     },
-    "explanation": "「竹」の 訓[くん]読[よ]みの 一[ひと]つは「たけ」です。"
+    "explanation": "「竹が のびる」の「竹」は「たけ」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0056",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -885,33 +485,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「中」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "むし"
-        },
-        {
-          "id": "b",
-          "text": "まち"
-        },
-        {
-          "id": "c",
-          "text": "た"
-        },
-        {
-          "id": "d",
-          "text": "なか"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "はこの 中を みる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "なか"
+      ]
     },
-    "explanation": "「中」の 訓[くん]読[よ]みの 一[ひと]つは「なか」です。"
+    "explanation": "「はこの 中を みる」の「中」は「なか」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0057",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -920,33 +504,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「虫」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "むし"
-        },
-        {
-          "id": "b",
-          "text": "もと"
-        },
-        {
-          "id": "c",
-          "text": "な"
-        },
-        {
-          "id": "d",
-          "text": "め"
-        }
-      ],
-      "answer": "a",
-      "shuffle": true
+      "prompt": "虫を さがす",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "むし"
+      ]
     },
-    "explanation": "「虫」の 訓[くん]読[よ]みの 一[ひと]つは「むし」です。"
+    "explanation": "「虫を さがす」の「虫」は「むし」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0058",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -955,33 +523,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「町」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "さげる"
-        },
-        {
-          "id": "b",
-          "text": "まち"
-        },
-        {
-          "id": "c",
-          "text": "さがる"
-        },
-        {
-          "id": "d",
-          "text": "くだる"
-        }
-      ],
-      "answer": "b",
-      "shuffle": true
+      "prompt": "町を あるく",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "まち"
+      ]
     },
-    "explanation": "「町」の 訓[くん]読[よ]みの 一[ひと]つは「まち」です。"
+    "explanation": "「町を あるく」の「町」は「まち」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0059",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -990,33 +542,17 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「天」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "みせる"
-        },
-        {
-          "id": "b",
-          "text": "いつつ"
-        },
-        {
-          "id": "c",
-          "text": "あめ"
-        },
-        {
-          "id": "d",
-          "text": "みつ"
-        }
-      ],
-      "answer": "c",
-      "shuffle": true
+      "prompt": "天のがわを みる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "あま"
+      ]
     },
-    "explanation": "「天」の 訓[くん]読[よ]みの 一[ひと]つは「あめ」です。"
+    "explanation": "「天のがわを みる」の「天」は「あま」と 読[よ]みます。"
   },
   {
     "id": "kokugo.g1.kanji-kunyomi.0060",
-    "type": "choice",
+    "type": "text-input",
     "subject": "kokugo",
     "grade": 1,
     "unit": "kokugo.g1.kanji",
@@ -1025,28 +561,12 @@
       "kanji:canonical"
     ],
     "payload": {
-      "prompt": "「田」の 訓[くん]読[よ]みの 一[ひと]つは どれ？",
-      "choices": [
-        {
-          "id": "a",
-          "text": "よん"
-        },
-        {
-          "id": "b",
-          "text": "ななつ"
-        },
-        {
-          "id": "c",
-          "text": "なの"
-        },
-        {
-          "id": "d",
-          "text": "た"
-        }
-      ],
-      "answer": "d",
-      "shuffle": true
+      "prompt": "田に いねを うえる",
+      "template": "よみかた：{{INPUT}}",
+      "answers": [
+        "た"
+      ]
     },
-    "explanation": "「田」の 訓[くん]読[よ]みの 一[ひと]つは「た」です。"
+    "explanation": "「田に いねを うえる」の「田」は「た」と 読[よ]みます。"
   }
 ]

@@ -2,6 +2,7 @@ import { mkdir, readFile, readdir, unlink, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import g1OnyomiContexts from '../content/kanji/g1-onyomi-contexts.json';
+import g1KunyomiContexts from '../content/kanji/g1-kunyomi-contexts.json';
 import type { TextInputPayload } from '../src/questions/renderers/text-input/schema';
 import type { Grade, QuestionBase } from '../src/questions/contracts';
 import { MAX_QUESTIONS_PER_SET, type QuestionSourceFile } from './question-layout';
@@ -180,31 +181,44 @@ function readingQuestions(
     const gradeRecords = records.filter((record) => record.grade === grade);
     const candidates = readingCandidates(gradeRecords, category);
     const targetCount = gradeRecords.length;
+    if (grade === 1 && category === 'kunyomi' && g1KunyomiContexts.length !== targetCount)
+      throw new Error(`1年の訓読み例文は${targetCount}問必要です`);
     if (candidates.length === 0) throw new Error(`${grade}年の${category}候補がありません`);
     const pool = [...new Set(candidates.map(({ answer }) => answer))];
     const usedSignatures = new Set<string>();
 
     return Array.from({ length: targetCount }, (_, index): GeneratedReadingQuestion => {
       const candidate = candidates[index % candidates.length]!;
-      if (grade === 1 && category === 'onyomi') {
+      if (grade === 1) {
         const contexts: Record<string, string> = g1OnyomiContexts;
-        const prompt = contexts[`${candidate.record.character}:${candidate.answer}`];
-        if (!prompt)
-          throw new Error(`1年の音読み例文がありません: ${candidate.record.character}:${candidate.answer}`);
+        const context:
+          { character: string; reading: string; prompt?: string; okurigana?: string } | undefined =
+          category === 'onyomi'
+            ? {
+                character: candidate.record.character,
+                reading: candidate.answer,
+                prompt: contexts[`${candidate.record.character}:${candidate.answer}`],
+              }
+            : g1KunyomiContexts[index];
+        if (!context?.prompt) throw new Error(`1年の${category}例文がありません: ${index + 1}`);
+        const { character, reading, prompt, okurigana = '' } = context;
+        if (!reading.endsWith(okurigana) || !prompt.includes(character + okurigana))
+          throw new Error(`1年の${category}例文と送り仮名が一致しません: ${character}`);
+        const answer = okurigana ? reading.slice(0, -okurigana.length) : reading;
         return {
-          id: `kokugo.g1.kanji-onyomi.${String(index + 1).padStart(4, '0')}`,
+          id: `kokugo.g1.kanji-${category}.${String(index + 1).padStart(4, '0')}`,
           type: 'text-input',
           subject: 'kokugo',
           grade,
           unit: KANJI_UNIT_BY_GRADE[grade],
-          tags: ['kanji:reading:on', 'kanji:canonical'],
+          tags: [`kanji:reading:${category === 'onyomi' ? 'on' : 'kun'}`, 'kanji:canonical'],
           payload: {
             prompt,
-            template: 'よみかた：{{INPUT}}',
-            answers: [candidate.answer],
+            template: `よみかた：{{INPUT}}${okurigana}`,
+            answers: [answer],
           },
-          explanation: `「${prompt}」の「${candidate.record.character}」は「${candidate.answer}」と 読[よ]みます。`,
-          character: candidate.record.character,
+          explanation: `「${prompt}」の「${character}」は「${answer}」と 読[よ]みます。`,
+          character,
         };
       }
       const occurrence = Math.floor(index / candidates.length);
