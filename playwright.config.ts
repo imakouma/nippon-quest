@@ -8,7 +8,7 @@ const preinstalled = [
   '/usr/bin/chromium',
 ].find((p) => existsSync(p));
 // 開発用 preview と共有すると、別タスクの終了・再ビルドでE2E中に接続が切れる。
-const port = Number(process.env.E2E_PORT ?? 4174);
+const port = Number(process.env.E2E_PORT ?? 4175);
 const useDevServer = process.env.E2E_USE_DEV_SERVER === '1';
 
 export default defineConfig({
