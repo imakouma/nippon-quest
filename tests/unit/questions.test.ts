@@ -60,7 +60,7 @@ describe('QuestionBank', () => {
     const manifest = (await read('manifest.json')) as { questions: string[] };
     const { bank, report } = await QuestionBank.load(manifest.questions, read);
     expect(bank.size).toBeGreaterThan(0);
-    expect(report.omitted).toBeGreaterThan(0);
+    expect(report.omitted).toBe(0);
     expect(report.skipped).toEqual([]);
   }, 15_000);
 

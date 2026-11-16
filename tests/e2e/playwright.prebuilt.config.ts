@@ -20,6 +20,8 @@ export default defineConfig({
     'math-review-order.spec.ts',
     'sansu-g1-content-repair.spec.ts',
     'sansu-g1-domains.spec.ts',
+    'sansu-g*-curriculum.spec.ts',
+    'sansu-g*-review.spec.ts',
     'random-calculation.spec.ts',
     'questions.spec.ts',
     'question-viewport.spec.ts',
