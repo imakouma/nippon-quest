@@ -10,15 +10,18 @@
       "questionIds": [
         "sansu.g1.kazu-100.correspondence-0001",
         "sansu.g1.kazu-100.correspondence-0002",
-        "sansu.g1.kazu-100.correspondence-0003"
+        "sansu.g1.kazu-100.correspondence-0003",
+        "sansu.g1.balance.one-to-one-spacing"
       ]
     },
     {
       "id": "count-five",
       "name": "1から 5までを かぞえる",
       "questionIds": [
+        "sansu.g1.balance.count-1",
         "legacy.sansu.g1.math-1-1.1fa82b870bfb",
         "legacy.sansu.g1.math-1-1.7510c0c387c6",
+        "sansu.g1.balance.count-4",
         "sansu.g1.kazu-100.count-0003",
         "legacy.sansu.g1.math-1-1.f3f78aa5166c"
       ]
@@ -29,7 +32,10 @@
       "questionIds": [
         "legacy.sansu.g1.math-1-1.46333eaf85df",
         "sansu.g1.kazu-100.count-0001",
-        "legacy.sansu.g1.math-1-1.49a2b5845c29"
+        "legacy.sansu.g1.math-1-1.49a2b5845c29",
+        "sansu.g1.balance.count-8",
+        "sansu.g1.balance.count-9",
+        "sansu.g1.balance.count-10"
       ]
     },
     {
@@ -38,7 +44,8 @@
       "questionIds": [
         "sansu.g1.kazu-100.order-0001",
         "sansu.g1.kazu-100.ringo-numberline-0001",
-        "sansu.g1.kazu-100.order-0002"
+        "sansu.g1.kazu-100.order-0002",
+        "sansu.g1.balance.reverse-order"
       ]
     },
     {
@@ -69,16 +76,21 @@
         "legacy.sansu.g1.math-1-1.1af41b0cec87",
         "legacy.sansu.g1.math-1-1.ee63affe5648",
         "sansu.g1.kazu-100.legacy-bunkai-0004",
-        "legacy.sansu.g1.math-1-1.1f7c6dd3b91a"
+        "legacy.sansu.g1.math-1-1.1f7c6dd3b91a",
+        "sansu.g1.balance.split-7",
+        "sansu.g1.balance.split-8",
+        "sansu.g1.balance.split-9"
       ]
     },
     {
       "id": "make-ten",
       "name": "10を つくる",
       "questionIds": [
+        "sansu.g1.balance.ten-nine",
         "sansu.g1.kazu-100.make-ten-0001",
         "sansu.g1.kazu-100.make-ten-0002",
-        "sansu.g1.kazu-100.make-ten-0003"
+        "sansu.g1.kazu-100.make-ten-0003",
+        "sansu.g1.balance.ten-five"
       ]
     },
     {
@@ -231,7 +243,8 @@
         "sansu.g1.reaudit.add-three",
         "sansu.g1.reaudit.subtract-three",
         "sansu.g1.reaudit.add-then-subtract",
-        "sansu.g1.reaudit.subtract-then-add"
+        "sansu.g1.reaudit.subtract-then-add",
+        "sansu.g1.balance.three-story"
       ]
     },
     {
@@ -260,7 +273,8 @@
         "legacy.sansu.g1.math-1-5.e5e1ef83fb5f",
         "sansu.g1.kuriagari-kurisagari.0006",
         "sansu.g1.kuriagari-kurisagari.0005",
-        "legacy.sansu.g1.math-1-5.3b2b1b7ef678"
+        "legacy.sansu.g1.math-1-5.3b2b1b7ef678",
+        "sansu.g1.balance.subtract-nine-method"
       ]
     },
     {
@@ -308,7 +322,8 @@
         "legacy.sansu.g1.math-1-7.37113fa61aae",
         "legacy.sansu.g1.math-1-7.ab9c77c27df3",
         "legacy.sansu.g1.math-1-7.aca550ddeaca",
-        "legacy.sansu.g1.math-1-7.ff14c365537b"
+        "legacy.sansu.g1.math-1-7.ff14c365537b",
+        "sansu.g1.balance.tens-reason"
       ]
     },
     {
@@ -316,6 +331,7 @@
       "name": "なんじ なんぷん",
       "questionIds": [
         "legacy.sansu.g1.math-1-8.7b4e7e51b9eb",
+        "sansu.g1.balance.minute-mark",
         "legacy.sansu.g1.math-1-8.64c4ef4d45b9",
         "legacy.sansu.g1.math-1-8.3c5ad93789a3",
         "legacy.sansu.g1.math-1-8.7f09e0a90aba",
@@ -347,7 +363,10 @@
     {
       "id": "practice",
       "name": "けいさんの れんしゅう",
-      "questionIds": ["sansu.g1.random-add.0001", "sansu.g1.random-subtract.0001"]
+      "questionIds": [
+        "sansu.g1.random-add.0001",
+        "sansu.g1.random-subtract.0001"
+      ]
     }
   ]
 }

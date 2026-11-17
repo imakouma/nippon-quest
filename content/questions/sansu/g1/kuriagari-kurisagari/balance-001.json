@@ -1,0 +1,20 @@
+[
+  {
+    "id": "sansu.g1.balance.subtract-nine-method",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kuriagari-kurisagari",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "13 - 9。まず 3を ひいて 10に しました。つぎに ひく かずは？",
+      "template": "{{INPUT}}",
+      "answers": [
+        "6"
+      ]
+    },
+    "explanation": "ひく 9を、3と 6に わけます。もう 3を ひいたので、つぎは 6を ひきます。10 - 6 = 4が こたえです。"
+  }
+]

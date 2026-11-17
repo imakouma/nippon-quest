@@ -14,15 +14,15 @@ const questions = readdirSync(directory).flatMap((unit) =>
 const find = (id: string) => questions.find((q) => q.id === id)!;
 
 describe('小1算数の学習順レビュー', () => {
-  it('現行216問を学習順に一度だけ収録する', () => {
+  it('現行232問を学習順に一度だけ収録する', () => {
     const ids = mathReviewGroups.flatMap((group) => group.questionIds);
-    expect(questions).toHaveLength(216);
+    expect(questions).toHaveLength(232);
     expect(new Set(ids).size).toBe(ids.length);
     expect([...ids].sort()).toEqual(questions.map((q) => q.id).sort());
   });
-  it('基礎35問を対応から10づくりへ並べ、元の単元を変更しない', () => {
+  it('基礎47問を対応から10づくりへ並べ、元の単元を変更しない', () => {
     const before = JSON.stringify(questions);
-    expect(mathReviewGroups.slice(0, 7).reduce((n, group) => n + group.questionIds.length, 0)).toBe(35);
+    expect(mathReviewGroups.slice(0, 7).reduce((n, group) => n + group.questionIds.length, 0)).toBe(47);
     expect(
       mathReviewMatches(find('sansu.g1.kazu-100.correspondence-0001'), 'math-review:1:correspondence'),
     ).toBe(true);
