@@ -15,6 +15,7 @@ const examples = questions.filter(
   (q) =>
     q.tags.includes('source:original-curriculum-review') ||
     [
+      '6ffcff525c34',
       '3067e6e62169',
       '0e2787ecd5a4',
       '059ff8d0c43f',
