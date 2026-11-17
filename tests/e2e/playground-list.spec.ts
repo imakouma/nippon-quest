@@ -362,18 +362,19 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
 
   await grade.locator('.pg-original-math-folders > summary').click();
   const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
-  await expect(unit).toHaveAccessibleDescription('21問');
+  await expect(unit).toHaveAccessibleDescription('34問');
   await unit.click();
   await expect(unit).toHaveAttribute('aria-pressed', 'true');
   await expect(tree.getByText('set-001.json')).toHaveCount(0);
-  await expect(rows).toHaveCount(21);
+  await expect(rows).toHaveCount(34);
   await expect(rows.first().locator('strong')).not.toBeEmpty();
-  await expect(rows.first().locator('.pg-question-options')).toBeVisible();
+  await expect(rows.filter({ has: page.locator('.pg-question-options') }).first()).toBeVisible();
   await expect(rows.first().locator('.pg-question-facts, .pg-id')).toHaveCount(0);
   await expect(page.locator('.pg-question-explanation')).toHaveCount(0);
-  expect(await rows.evaluateAll((items) => items.map((item) => item.getAttribute('title')))).toEqual(
-    Array(21).fill('questions/sansu/g1/kazu-100/set-001.json'),
-  );
+  expect(await rows.evaluateAll((items) => items.map((item) => item.getAttribute('title')).sort())).toEqual([
+    ...Array(13).fill('questions/sansu/g1/kazu-100/balance-001.json'),
+    ...Array(21).fill('questions/sansu/g1/kazu-100/set-001.json'),
+  ]);
 
   await grade.locator(':scope > summary').click();
   await expect(rows).toHaveCount(0);
