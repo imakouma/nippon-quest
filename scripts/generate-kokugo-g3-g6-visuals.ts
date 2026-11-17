@@ -27,6 +27,20 @@ const sets = readdirSync('content/questions/kokugo', { recursive: true })
     questions: JSON.parse(readFileSync(`content/questions/kokugo/${file}`, 'utf8')) as Question[],
   }));
 const all = sets.flatMap((s) => s.questions);
+// 補う根拠が同じ問題セットにある欠落文と、複数正答になる条件だけを明記する。
+const promptRepairs: Record<string, string> = {
+  '021e66a343fb':
+    '「白い雲が青い空にゆっくりと広がる。」という文で、「青い空に」という言葉は、どの言葉を修飾（説明）していますか。',
+  ec309ca0d71a:
+    '「白い雲が青い空にゆっくりと広がる。」という文で、「ゆっくりと」という言葉は、どの言葉を修飾していますか。',
+  c4d48e6fc1be: '「見る」を、特別な言い方の尊敬語に直したものはどれですか。◆先生が 本を（見る）。',
+};
+for (const [suffix, prompt] of Object.entries(promptRepairs)) {
+  const matches = all.filter((q) => q.id.endsWith(suffix));
+  assert.equal(matches.length, 1, suffix);
+  matches[0]!.payload.prompt = prompt;
+  matches[0]!.payload.promptSpeech = prompt;
+}
 const signature = () =>
   JSON.stringify(
     all.map((q) => [q.id, q.type, q.grade, q.unit, q.payload.answer, q.payload.answers, q.payload.choices]),
@@ -232,20 +246,94 @@ assert(changed.size >= 20);
 for (const s of sets)
   if (s.questions.some((q) => changed.has(q.id)))
     writeFileSync(s.file, JSON.stringify(s.questions, null, 2) + '\n');
+const deferred = new Map<string, { decision: string; reason: string }>();
+const defer = (ids: string[], decision: string, reason: string) => {
+  for (const suffix of ids) {
+    const matches = all.filter((q) => q.id.endsWith(suffix));
+    assert.equal(matches.length, 1, suffix);
+    deferred.set(matches[0]!.id, { decision, reason });
+  }
+};
+defer(
+  ['0cc07d0d5f15'],
+  'deferred-ambiguous',
+  '「兄のかいた」「小さな」の双方が空欄に入る。正答を一意にする条件が必要で、図による誘導は行わない。',
+);
+defer(
+  ['374a54969b35'],
+  'deferred-ambiguous',
+  '様子を表す選択肢に「こんな」と「そう」が含まれ、分類条件の確認が必要。図で正答を誘導しない。',
+);
+defer(
+  ['6739f15cc737'],
+  'deferred-ambiguous',
+  '「保健室」「共通語」の双方が漢字三文字である。選択肢または出題条件の別途修正が必要。',
+);
+defer(
+  ['c4499447c517', 'e392172ca672'],
+  'needs-source',
+  '物語「りんごどろぼう」の本文が未提示で、情景や心情の根拠を確認できない。出典本文の確認後に補う。',
+);
+defer(
+  ['2f10f53b2af5', '79f54db33e7d', '848362467da6'],
+  'needs-source',
+  'じんざと男の子の物語本文が未提示。短い引用のみでは心情の理由が決まらず、本文の確認が必要。',
+);
+defer(
+  ['1bc2578e027c', '6c6faa38d290', '72fbcbc2c72f', 'd2c8f30eef1d'],
+  'needs-source',
+  'かっちゃんとさむらいの物語本文が未提示。行動や心情の原因を図で創作せず、本文の確認を待つ。',
+);
+defer(
+  ['b7adfb821ddb', 'c7c16f373027'],
+  'needs-source',
+  'ぎ手・ぎ足の説明文で指示語の指す前後の本文が未提示。指示対象を確定できる本文が必要。',
+);
+defer(
+  ['51a081fff200', '530cc8361ed8', '98feb53edf80'],
+  'needs-source',
+  '冬眠の説明文の該当段落が未提示。本文の構成や比較内容を確認してから補う。',
+);
+defer(
+  ['6b30823de3da', '70d7c5b1832e'],
+  'needs-source',
+  '都会とアブラコウモリの説明文が未提示。一般知識で本文の内容を代用せず、出典本文を確認する。',
+);
+defer(
+  ['a94e12e7a508'],
+  'needs-source',
+  '複数の短歌を参照する設問だが全文が未提示。対象の歌と読解条件を確認してから補う。',
+);
+defer(
+  ['6d99d371877a'],
+  'needs-source',
+  '物語「牛のリオと陸」の本文が未提示。心情変化の根拠を確認できず、絵で答えを創作しない。',
+);
+defer(
+  ['8a4784d5eb93'],
+  'needs-source',
+  '説明文「奈良公園とコガネムシ」の本文が未提示。一般知識の図で本文読解を代用しない。',
+);
 const review = all.map((q) => ({
   id: q.id,
-  decision: changed.has(q.id) ? 'illustrated' : q.payload.promptImage ? 'existing-visual' : 'text-sufficient',
+  decision:
+    deferred.get(q.id)?.decision ??
+    (changed.has(q.id) ? 'illustrated' : q.payload.promptImage ? 'existing-visual' : 'text-sufficient'),
   reason:
-    changed.get(q.id) ??
-    (q.payload.promptImage
-      ? '既存の図版を維持。'
-      : q.type === 'kanji-trace'
-        ? '字形・筆順の練習であり、文字の描画が観察対象。'
-        : /kanji|読み|読[むみ]|漢字|ローマ字/.test(
-              q.unit + ' ' + (q.payload.prompt ?? q.payload.template ?? ''),
-            )
-          ? '読み・字形・表記を判断する課題。正答を別表記や絵で示さず、提示された文字を維持。'
-          : '文や選択肢そのものを比較して意味・表現を判断する課題。問題文にない情景や意味の解釈を図で追加しない。'),
+    deferred.get(q.id)?.reason ??
+    (changed.has(q.id)
+      ? '本文の場面を図で補い、文法の分類名や正答は示さない。' + changed.get(q.id)
+      : q.payload.promptImage
+        ? '既存の図版を維持。'
+        : q.type === 'kanji-trace'
+          ? '字形・筆順の練習であり、文字の描画が観察対象。'
+          : /kanji|読み|漢字|ローマ字/.test(
+                q.id +
+                  ' ' +
+                  (q.payload.prompt ?? q.payload.template ?? '').replace(/\[[^|\]]+\|([^\]]+)\]/g, '$1'),
+              )
+            ? '読み・字形・表記を判断する課題。正答を別表記や絵で示さず、提示された文字を維持。'
+            : '文や選択肢そのものを比較して意味・表現を判断する課題。問題文にない情景や意味の解釈を図で追加しない。'),
 }));
 writeFileSync('scripts/data/kokugo-g3-g6-visual-review.json', JSON.stringify(review, null, 2) + '\n');
 console.log(`${changed.size} / ${all.length} upper-grade questions illustrated`);
