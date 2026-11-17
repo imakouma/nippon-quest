@@ -38,6 +38,7 @@ describe('CI workflow', () => {
     for (const file of [
       'kanji-writing.spec.ts',
       'question-speech.spec.ts',
+      'sansu-g*-balance.spec.ts',
       'sansu-g*-visuals.spec.ts',
       'sansu-g*-curriculum.spec.ts',
       'sansu-g*-review.spec.ts',

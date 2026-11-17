@@ -25,6 +25,7 @@ const questions: Q[] = readdirSync('content/questions/sansu/g3').flatMap((d) =>
 const representative = questions.filter(
   (q) =>
     q.id.startsWith('sansu.g3.curriculum.') ||
+    q.id.startsWith('sansu.g3.balance.') ||
     [
       '1ed3374f6fe6',
       '9c9ecd05ef31',

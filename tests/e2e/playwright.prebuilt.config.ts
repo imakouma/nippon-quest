@@ -16,6 +16,7 @@ export default defineConfig({
     'playground-list.spec.ts',
     'g1-onyomi-input.spec.ts',
     'kanji-writing.spec.ts',
+    'sansu-g*-balance.spec.ts',
     'sansu-g*-visuals.spec.ts',
     'math-review-order.spec.ts',
     'sansu-g1-content-repair.spec.ts',

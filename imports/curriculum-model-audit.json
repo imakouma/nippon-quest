@@ -7,10 +7,10 @@
       "subject": "sansu",
       "name": "たしざん",
       "goals": 5,
-      "questions": 34,
+      "questions": 35,
       "confirmedTermQuestions": 25,
       "linked": 27,
-      "unreviewed": 7,
+      "unreviewed": 8,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -31,10 +31,10 @@
       "subject": "sansu",
       "name": "100までの かず",
       "goals": 3,
-      "questions": 41,
+      "questions": 54,
       "confirmedTermQuestions": 16,
       "linked": 41,
-      "unreviewed": 0,
+      "unreviewed": 13,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -43,10 +43,10 @@
       "subject": "sansu",
       "name": "とけいと せいかつ",
       "goals": 2,
-      "questions": 16,
+      "questions": 17,
       "confirmedTermQuestions": 0,
       "linked": 16,
-      "unreviewed": 0,
+      "unreviewed": 1,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -367,8 +367,18 @@
       "severity": "review"
     },
     {
+      "unitId": "sansu.g1.kazu-100",
+      "kind": "some-questions-unreviewed",
+      "severity": "review"
+    },
+    {
       "unitId": "sansu.g1.tokei",
       "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "sansu.g1.tokei",
+      "kind": "some-questions-unreviewed",
       "severity": "review"
     },
     {
