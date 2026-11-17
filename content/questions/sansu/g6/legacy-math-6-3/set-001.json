@@ -571,5 +571,65 @@
       "shuffle": true
     },
     "explanation": "かっこの中[なか]の両方[りょうほう]に12をかけます。1/3×12＋1/6×12＝4＋2＝6。もとの式[しき]も(1/3＋1/6)×12＝1/2×12＝6です。"
+  },
+  {
+    "id": "sansu.g6.balance.fraction-packets",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "1袋[ふくろ]に3/8kgの米[こめ]が入[はい]っています。同[おな]じ袋[ふくろ]4袋分[ふくろぶん]の重[おも]さは何kgですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3/2kg"
+        },
+        {
+          "id": "c2",
+          "text": "3/32kg"
+        },
+        {
+          "id": "c3",
+          "text": "7/8kg"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "3/8kgを4つ合[あ]わせるので、3/8×4＝12/8＝3/2kgです。分母[ぶんぼ]の8は1つ分[ぶん]の大[おお]きさを表[あらわ]し、分子[ぶんし]の3を4倍[ばい]します。"
+  },
+  {
+    "id": "sansu.g6.balance.fraction-share",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "3/5Lのジュースを3人[にん]に同[おな]じ量[りょう]ずつ分[わ]けます。1人分[ひとりぶん]は何Lですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1/5L"
+        },
+        {
+          "id": "c2",
+          "text": "9/5L"
+        },
+        {
+          "id": "c3",
+          "text": "3/2L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "3/5Lは1/5Lの3つ分[ぶん]です。3人[にん]で等分[とうぶん]すると1人分[ひとりぶん]は1/5Lです。式[しき]は3/5÷3＝3/15＝1/5です。"
   }
 ]

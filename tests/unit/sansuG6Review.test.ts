@@ -21,12 +21,12 @@ it('states the scale question in the unit actually calculated', () => {
   const q = questions.find((q) => q.id.endsWith('45ef7b9abd0f'))!;
   expect((q.payload as { prompt: string }).prompt).toContain('さをcmで');
 });
-it('orders all 218 questions once and teaches circle area before volume', () => {
+it('orders all 226 questions once and teaches circle area before volume', () => {
   const order = JSON.parse(readFileSync('content/review/sansu-g6-order.json', 'utf8')) as {
     groups: { id: string; questionIds: string[] }[];
   };
   const ids = order.groups.flatMap((g) => g.questionIds);
-  expect(questions).toHaveLength(218);
+  expect(questions).toHaveLength(226);
   expect(new Set(ids).size).toBe(ids.length);
   expect([...ids].sort()).toEqual(questions.map((q) => q.id).sort());
   const groups = order.groups.map((g) => g.id);
