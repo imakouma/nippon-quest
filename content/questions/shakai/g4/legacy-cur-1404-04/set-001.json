@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/irrigation.svg",
+      "promptSpeech": "水不足に悩んでいた台地に、遠くの川から水を引いて新しい田畑を開くために作られた人工の川は何でしょう。 川から水を分け、人工の水路で田畑へ届ける模式図。"
     },
     "explanation": "玉川上水や見沼代用水のように、先人たちが困難な工事を経て開削した用水路[ようすいろ]により、多くの農地が潤いました。"
   },
@@ -155,7 +157,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、神楽や和太鼓、伝統舞踊のように「形はないが人の技術や表現」である文化財[ぶんかざい]を何といいますか。",
+      "prompt": "図を見て、神楽や和太鼓、伝統舞踊のように「形はないが人の技術や表現」である文化財[ぶんかざい]を何といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -176,7 +178,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f9c9df9de2a64c67.png"
+      "promptImage": "questions/shakai/visuals/traditional-performance.svg",
+      "promptSpeech": "図を見て、神楽や和太鼓、伝統舞踊のように「形はないが人の技術や表現」である文化財[ぶんかざい]を何といいますか。 太鼓をたたく人と、見学したり一緒に学んだりする人々の例。"
     },
     "explanation": "建造物や仏像のような「有形文化財」に対し、演劇や音楽・工芸技術など形の定まらない文化の技を「無形文化財[むけいぶんかざい]」といいます。"
   },
@@ -192,7 +195,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、江戸時代などに海や湖の浅瀬を堤防[ていぼう]で囲んで排水し、新しい農地（新田）を作った事業は何でしょう。",
+      "prompt": "図を見て、江戸時代などに海や湖の浅瀬を堤防[ていぼう]で囲んで排水し、新しい農地（新田）を作った事業は何でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -213,7 +216,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f9c9df9de2a64c67.png"
+      "promptImage": "questions/shakai/visuals/land-reclamation.svg",
+      "promptSpeech": "図を見て、江戸時代などに海や湖の浅瀬を堤防[ていぼう]で囲んで排水し、新しい農地（新田）を作った事業は何でしょう。 浅い海を堤防で囲み、中の水を外へ出して土地にする断面模式図。"
     },
     "explanation": "八郎潟の干拓[かんたく]などのように、浅い水域の水を取り除いて豊かな田んぼへ生まれ変わらせる事業を干拓[かんたく]といいます。"
   },
@@ -301,7 +305,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、昔の先人たちが用水路[ようすいろ]や開墾などの大事業を完成させる際に直面した一番の苦労は何ですか。",
+      "prompt": "重機[じゅうき]のなかった昔[むかし]、用水路[ようすいろ]を作[つく]る苦労[くろう]は何[なん]でしたか。",
       "choices": [
         {
           "id": "c1",
@@ -322,7 +326,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/426eb76ff2173ffe.png"
+      "promptImage": "questions/shakai/visuals/human-construction.svg",
+      "promptSpeech": "重機[じゅうき]のなかった昔[むかし]、用水路[ようすいろ]を作[つく]る苦労[くろう]は何[なん]でしたか。 人が道具を使って土や石を運び、水路を掘っている昔の工事の模式図。"
     },
     "explanation": "ショベルカーやダイナマイトがない時代、ツルハシやモッコを使い、地域住民と協力して命がけで工事を成し遂げました。"
   },
@@ -374,7 +379,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、学校[がっこう]や地域で子どもたちが太鼓やお囃子を習う取り組みの目的にあてはまるものはどれですか。",
+      "prompt": "子[こ]どもが地域[ちいき]の太鼓[たいこ]やお囃子[はやし]を習[なら]う目的[もくてき]は何[なん]ですか。",
       "choices": [
         {
           "id": "c1",
@@ -395,7 +400,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f9c9df9de2a64c67.png"
+      "promptImage": "questions/shakai/visuals/traditional-performance.svg",
+      "promptSpeech": "子[こ]どもが地域[ちいき]の太鼓[たいこ]やお囃子[はやし]を習[なら]う目的[もくてき]は何[なん]ですか。 太鼓をたたく人と、見学したり一緒に学んだりする人々の例。"
     },
     "explanation": "子どもたちが地域の伝統に触れて親しむことで、次世代へ文化を継承する意識が高まります。"
   },
@@ -411,7 +417,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域の祭りや伝統行事の後継者が少なくなっている主な理由[りゆう]は何でしょう。",
+      "prompt": "地域[ちいき]の祭[まつ]りで、後継者[こうけいしゃ]が減[へ]る主[おも]な理由[りゆう]は何[なん]ですか。",
       "choices": [
         {
           "id": "c1",
@@ -432,7 +438,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/5f7b47d3efe2b12d.jpg"
+      "promptImage": "questions/shakai/visuals/traditional-performance.svg",
+      "promptSpeech": "地域[ちいき]の祭[まつ]りで、後継者[こうけいしゃ]が減[へ]る主[おも]な理由[りゆう]は何[なん]ですか。 太鼓をたたく人と、見学したり一緒に学んだりする人々の例。"
     },
     "explanation": "過疎化や少子化が進む地域では、行事を支える若手が不足し、伝統の維持が大きな課題となっています。"
   },
@@ -448,7 +455,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "何百年も前に先人たちが作った用水路[ようすいろ]や堤防[ていぼう]は、現代の私たちの暮らしにどのように役立っていますか。",
+      "prompt": "昔[むかし]の用水路[ようすいろ]や堤防[ていぼう]は、今[いま]どう役立[やくだ]っていますか。",
       "choices": [
         {
           "id": "c1",
@@ -468,7 +475,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/irrigation.svg",
+      "promptSpeech": "昔[むかし]の用水路[ようすいろ]や堤防[ていぼう]は、今[いま]どう役立[やくだ]っていますか。 川から水を分け、人工の水路で田畑へ届ける模式図。"
     },
     "explanation": "先人の残したインフラは補修を受け継ぎながら、今日の私たちの食べ物や水害からの安全を支え続けています。"
   },
@@ -520,7 +529,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域の伝統的な「祭りや年中行事」に込められている、昔の人々の願いは何でしょう。",
+      "prompt": "地域[ちいき]の祭[まつ]りに、昔[むかし]の人[ひと]は何[なに]を願[ねが]いましたか。",
       "choices": [
         {
           "id": "c1",
@@ -541,7 +550,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/5f7b47d3efe2b12d.jpg"
+      "promptImage": "questions/shakai/visuals/traditional-performance.svg",
+      "promptSpeech": "地域[ちいき]の祭[まつ]りに、昔[むかし]の人[ひと]は何[なに]を願[ねが]いましたか。 太鼓をたたく人と、見学したり一緒に学んだりする人々の例。"
     },
     "explanation": "伝統の行事は、神様や自然の恵みに感謝し、疫病や自然災害から地域を守る祈りが受け継がれてできたものです。"
   }

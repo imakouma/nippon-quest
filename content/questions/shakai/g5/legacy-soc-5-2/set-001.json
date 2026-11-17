@@ -71,13 +71,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "海水[かいすい]の大[おお]きな流[なが]れについて答[こた]えよう。",
       "answers": [
         "海流",
         "暖流",
         "寒流"
       ],
-      "template": "決まった向きの海水の大きな流れを ① {{INPUT}} という。① には、あたたかい海水を運んでくる {{INPUT}} と、冷たい海水を運んでくる {{INPUT}} がある。"
+      "template": "決[き]まった向[む]きの流[なが]れ：{{INPUT}}\n暖[あたた]かい海水[かいすい]：{{INPUT}}\n冷[つめ]たい海水[かいすい]：{{INPUT}}",
+      "promptImage": "questions/shakai/visuals/ocean-current.svg",
+      "promptImageAlt": "海の中を、あたたかい水と冷たい水が、それぞれ一定の向きに流れる模式図。"
     },
     "explanation": "決まった向きの海水の大きな流れを ①（海流）という。① 海流には、あたたかい海水を運んでくる（暖だん流） と、冷たい海水を運んでくる（寒流）がある。"
   },
@@ -267,7 +269,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/seasonal-wind.svg",
+      "promptSpeech": "季節によって ふく向きが変わる風を、何というでしょう。 夏と冬で風がふく向きが変わる模式図。左右は大陸側と海側。"
     },
     "explanation": "季節によって ふく向きが変わる風を、季節風 という。冬は 大陸から大洋に、夏は 大洋から大陸に向かって ふく。"
   },

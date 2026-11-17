@@ -20,13 +20,13 @@ it('separates fraction input values and keeps the original fraction to solve', (
   expect(p.template).toContain('0.012');
   expect(p.template.match(/\{\{INPUT\}\}/g)).toHaveLength(2);
 });
-it('covers all 353 questions once in learning order, with explanations and valid input slots', () => {
+it('covers all 359 questions once in learning order, with explanations and valid input slots', () => {
   const order = JSON.parse(readFileSync('content/review/sansu-g5-order.json', 'utf8')) as {
     groups: { questionIds: string[] }[];
   };
   const ids = order.groups.flatMap((g) => g.questionIds);
-  expect(questions).toHaveLength(353);
-  expect(ids).toHaveLength(353);
+  expect(questions).toHaveLength(359);
+  expect(ids).toHaveLength(359);
   expect(new Set(ids)).toEqual(new Set(questions.map((q) => q.id)));
   for (const q of questions) {
     expect(q.explanation?.length, q.id).toBeGreaterThan(15);
@@ -46,4 +46,21 @@ it('fills missing conditions in changing quantities and corrects the walking exp
   expect((find('83684515e4e8').payload as { prompt: string }).prompt).toContain('8');
   expect(find('7377bc97226a').explanation).toContain('4560×2＝9120');
   expect(find('7377bc97226a').explanation).not.toContain('45600');
+});
+
+it('keeps approximate results separate from exact equations and removes migration residue', () => {
+  for (const hash of ['11e2c1df85ad', '80504e20a9a0', '997027008cb6']) {
+    const p = find(hash).payload as { prompt: string; template: string };
+    expect(p.prompt).toContain('÷');
+    expect(p.template).toContain('概数');
+    expect(p.template).not.toContain('=');
+  }
+  for (const q of questions) {
+    const p = q.payload as { prompt: string };
+    expect(p.prompt, q.id).not.toContain('{{INPUT}}');
+    expect(p.prompt, q.id).not.toContain('\r');
+    expect(q.explanation, q.id).not.toMatch(/\dE[+]\d/);
+  }
+  expect((find('87b322595f48').payload as { prompt: string }).prompt).not.toContain('21/4');
+  expect((find('d143c05b3d36').payload as { prompt: string }).prompt).not.toContain('41/12');
 });

@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "１つの事件について、原則として３回まで裁判を受けられる三審制さんしんせいというしくみがある。三審制をとる目的として、正しいものをえらぼう。",
+      "prompt": "原則[げんそく]3回[かい]まで裁判[さいばん]を受[う]けられる「三審制[さんしんせい]」の目的[もくてき]は何[なん]ですか。",
       "choices": [
         {
           "id": "c1",
@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/three-trials.svg",
+      "promptSpeech": "原則[げんそく]3回[かい]まで裁判[さいばん]を受[う]けられる「三審制[さんしんせい]」の目的[もくてき]は何[なん]ですか。 一つの事件で、第一審の判断をさらに上の段階で確かめる道すじ。必ず三回行うことを意味しない。"
     },
     "explanation": "人権を守り、裁判のまちがいを防ぐため、三審制というしくみがある。"
   },
@@ -47,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "地方自治において、「地方の時代」「住民が主人公」と呼ばれるように、都道府県や市区町村の政治（地方政治）の基本理念は何ですか。",
+      "prompt": "地域[ちいき]の政治[せいじ]で大切[たいせつ]な考[かんが]え方[かた]は、どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -67,7 +69,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/local-government.svg",
+      "promptSpeech": "地域[ちいき]の政治[せいじ]で大切[たいせつ]な考[かんが]え方[かた]は、どれですか。 地域に暮らす人と、地域の議会や役所が意見をやりとりする模式図。"
     },
     "explanation": "地方政治は住民の最も身近な課題を扱うため、住民自身が参加して解決を図る「民主主義の基礎（学校[がっこう]）」と位置づけられます。"
   },
@@ -103,7 +107,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/tax-public-services.svg",
+      "promptSpeech": "国民が国に納め、国がおこなう仕事につかわれるお金のことを何というでしょう。 人々が納めたお金が、公共の仕事や施設のために使われる模式図。"
     },
     "explanation": "国民が国に納め、国がおこなう仕事につかわれるお金を税金という。国だけなく、都道府県や市区町村に納める税金もある。"
   },
@@ -119,7 +125,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "衆議院・参議院についての説明[せつめい]として、正しくないものをえらぼう。",
+      "prompt": "衆議院[しゅうぎいん]・参議院[さんぎいん]について、正[ただ]しくないものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -139,7 +145,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/two-houses.svg",
+      "promptSpeech": "衆議院[しゅうぎいん]・参議院[さんぎいん]について、正[ただ]しくないものはどれですか。 国会の中に二つの議院がある模式図。どちらの決定が優先するかは示さない。"
     },
     "explanation": "衆議院と参議院には、任期や議員数などにちがいがあり、衆議院のみ解散があるという特ちょうがある。政治の方針ほうしんを慎重に決定するために２つの議院がある。 選出方法に多少のちがいはあるものの、衆議院・参議院、どちらの議員も国民による選挙で選ばれる。"
   },
@@ -175,7 +183,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/three-powers.svg",
+      "promptSpeech": "立法・行政・司法の３つの権力をそれぞれ別の機関が持ち、権力のバランスを保とうとするしくみを何というでしょう。 国会・内閣・裁判所の三つの機関が、互いに関わり合う図。権力の名前は書かない。"
     },
     "explanation": "立法・行政・司法の３つの権力をそれぞれ別の機関が持ち、権力のバランスを保とうとするしくみを三権分立[さんけんぶんりつ]という。 ・三大原則：３つの重要な原則のことで、日本国憲法の三大原則は、国民主権、基本的人権の尊重、平和主義[へいわしゅぎ] ・非核三原則：日本がかかげている「核兵器を持たず、つくらず、持ちこませず」という原則 ・三審制：１つの事件につき原則として３回まで裁判を受けられるしくみ"
   },
@@ -211,7 +221,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/consumption-tax.svg",
+      "promptSpeech": "私たちがお店で買い物をするときに代金と一緒に支払う、購入した商品の価格に応じて国や地方に納める税金を何といいますか。 買い物で、品物の代金と、それに加えて納めるお金を支払う例。"
     },
     "explanation": "消費税[しょうひぜい]は、商品やサービスの購入に対してかかる間接税で、主に社会保障（医療や福祉・年金など）の財源に使われます。"
   },
@@ -247,7 +259,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/local-government.svg",
+      "promptSpeech": "地域の政治が、その地域の住民によって行われることを、何というでしょう。 地域に暮らす人と、地域の議会や役所が意見をやりとりする模式図。"
     },
     "explanation": "地域の政治が、その地域の住民によって行われることを、地方自治という。地域によってかかえる問題[もんだい]がちがうため、よりよい生活のために、住民の意見を地域の政治に反映させることが大切になっている。 ・地方分権：権力を政府に集中させることなく、それぞれの地方に分けること ・中央集権：権力を政府に集中させること ・中央政府：国の行政府（内閣）"
   },
@@ -269,7 +283,9 @@
         "行政",
         "司法"
       ],
-      "template": "日本では、国会が {{INPUT}} 権、内閣が {{INPUT}} 権、裁判所が {{INPUT}} 権をもつ。３つの権力をそれぞれ別の機関が持って、権力のバランスを保っている。"
+      "template": "日本では、国会が {{INPUT}} 権、内閣が {{INPUT}} 権、裁判所が {{INPUT}} 権をもつ。３つの権力をそれぞれ別の機関が持って、権力のバランスを保っている。",
+      "promptImage": "questions/shakai/visuals/three-powers.svg",
+      "promptImageAlt": "国会・内閣・裁判所の三つの機関が、互いに関わり合う図。権力の名前は書かない。"
     },
     "explanation": "日本では、国会が（立法）権、内閣が（行政）権、裁判所が（司法）権をもつ。３つの権力をそれぞれ別の機関が持って、権力のバランスを保っている。"
   },
@@ -305,7 +321,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/local-government.svg",
+      "promptSpeech": "地方議会で定められる、その地方公共団体だけの決まりを、何というでしょう。 地域に暮らす人と、地域の議会や役所が意見をやりとりする模式図。"
     },
     "explanation": "地方議会で定められる、その地方公共団体だけの決まりを、条例という。"
   },
@@ -437,7 +455,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/two-house-names.svg",
+      "promptSpeech": "国会を構成する２つの議院の組み合わせとして、正しいものをえらぼう。 国会が二つの議院から成る模式図。二つの名前は書かない。"
     },
     "explanation": "国会は衆議院・参議院の２つの議院で構成されている。"
   },
@@ -541,7 +561,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/two-houses.svg",
+      "promptSpeech": "衆議院と参議院の意見が一致しなかった場合（法律案や予算の議決など）、最終的にどちらの議院の決定が優先されますか。 国会の中に二つの議院がある模式図。どちらの決定が優先するかは示さない。"
     },
     "explanation": "解散があり任期も短い（4年）衆議院は、より国民の意見を強く反映しているため、「衆議院の優越」が認められています。"
   },
@@ -577,7 +599,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/three-powers.svg",
+      "promptSpeech": "国会・内閣・裁判所の3つの機関が互いに監視し合い、一つの機関に権力が集中して国民の権利が侵されないようにする仕組みを何といいますか。 国会・内閣・裁判所の三つの機関が、互いに関わり合う図。権力の名前は書かない。"
     },
     "explanation": "立法（国会）・行政（内閣）・司法（裁判所）の3つの権力を分離し、互いに制約と均衡を保つ仕組みを三権分立[さんけんぶんりつ]といいます。"
   },
@@ -593,7 +617,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "税金についての説明[せつめい]として、正しくないものをえらぼう。",
+      "prompt": "税金[ぜいきん]について、正[ただ]しくないものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -613,7 +637,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/tax-public-services.svg",
+      "promptSpeech": "税金[ぜいきん]について、正[ただ]しくないものはどれですか。 人々が納めたお金が、公共の仕事や施設のために使われる模式図。"
     },
     "explanation": "税金の使い道は、裁判所ではなく、議会で話し合って決められる。"
   }

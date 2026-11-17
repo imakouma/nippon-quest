@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/climate-chart.svg",
+      "promptSpeech": "地域の気候の特色を調べるときに、月ごとの「気温」と「降水量」をグラフにしたものを何といいますか。 月ごとの雨の量を棒、気温を折れ線で表した架空の資料。"
     },
     "explanation": "雨温図は、気温の変化（折れ線グラフ）と降水量（棒グラフ）を組み合わせて、その地域の気候の傾向を表したものです。"
   },
@@ -47,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、日本で最も面積[めんせき]が広い「北海道[ほっかいどう]」の次に面積[めんせき]が広い都道府県はどこでしょう。",
+      "prompt": "図を見て、日本で最も面積[めんせき]が広い「北海道[ほっかいどう]」の次に面積[めんせき]が広い都道府県はどこでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -68,7 +70,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/823ba85223df25c6.png"
+      "promptImage": "questions/shakai/visuals/prefecture-area.svg",
+      "promptSpeech": "図を見て、日本で最も面積[めんせき]が広い「北海道[ほっかいどう]」の次に面積[めんせき]が広い都道府県はどこでしょう。 都道府県の面積を比べる資料。北海道が一番広いことを示し、二番目の名前ははてな。"
     },
     "explanation": "日本の都道府県で最も広いのは北海道[ほっかいどう]で、2番目に広いのが東北地方の岩手県です。"
   },
@@ -140,7 +143,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/globe-grid.svg",
+      "promptSpeech": "都道府県の場所や地球上の位置を確かめる際に、南北の位置を示す「緯線」と東西の位置を示す何を使いますか。 地球の南北の軸と、東西・南北に走る線。線や角度の名前は書かない。"
     },
     "explanation": "地球上の位置は、南北の位置を表す「緯線（緯度）」と、東西の位置を表す「経線[けいせん]（経度）」を使って正確に示します。"
   },
@@ -156,7 +161,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "県の地理的環境（平野や川など）と、人々の暮らしの関係について正しい説明[せつめい]はどれですか。",
+      "prompt": "地形[ちけい]とくらしの関係[かんけい]で、正[ただ]しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -176,7 +181,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/river-settlement.svg",
+      "promptSpeech": "地形[ちけい]とくらしの関係[かんけい]で、正[ただ]しいものはどれですか。 山から平地を通って海へ流れる川と、平地に集まる家を描いた模式図。"
     },
     "explanation": "平野や川の周辺は生活用水や農業用水が得やすく、建物や道路を建てやすいため、古くから人が集まり都市が発展しました。"
   },
@@ -192,7 +199,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、日本海側の地域で冬に雪が多く降る主な理由[りゆう]は何でしょう。",
+      "prompt": "日本海側[にほんかいがわ]で、冬[ふゆ]に雪[ゆき]が多[おお]いのはなぜですか。",
       "choices": [
         {
           "id": "c1",
@@ -213,7 +220,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/94bbeed2555ff1c1.png"
+      "promptImage": "questions/shakai/visuals/winter-monsoon.svg",
+      "promptSpeech": "日本海側[にほんかいがわ]で、冬[ふゆ]に雪[ゆき]が多[おお]いのはなぜですか。 大陸から日本海を渡った風が山地へ向かい、日本海側で雪が降る断面模式図。"
     },
     "explanation": "冬の北西の季節風が日本海で水蒸気を吸い込み、奥羽山脈や日本アルプスなどの高い山にぶつかって日本海側に大雪を降らせます。"
   },
@@ -265,7 +273,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、県の地理的環境として調べるものとして正しいものはどれですか。",
+      "prompt": "図を見て、県の地理的環境として調べるものとして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -286,7 +294,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/589c7873d8b41ca9.png"
+      "promptImage": "questions/shakai/visuals/river-settlement.svg",
+      "promptSpeech": "図を見て、県の地理的環境として調べるものとして正しいものはどれですか。 山から平地を通って海へ流れる川と、平地に集まる家を描いた模式図。"
     },
     "explanation": "4年生からの社会科では、県全体の地形（山地、平野、河川、海岸など）や位置の特色を地図帳で確認します。"
   },
@@ -395,7 +404,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/57e5f76af2d2ba75.png"
+      "promptImage": "questions/shakai/visuals/alluvial-fan.svg",
+      "promptSpeech": "山から平地へ出た場所にできる水はけが良い「扇状地」で、米作りより「果樹栽培」がさかんな理由[りゆう]は何でしょう。 山から平地へ出た川の周囲に、扇形の土地が広がる模式図。石や砂の粒を断面に示す。"
     },
     "explanation": "扇状地は石や砂が多く水が地下へ抜けやすいため、水をためる田んぼよりも、水はけを好む果物（ぶどうや桃など）の栽培に適しています。"
   },
@@ -447,7 +457,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "本州と四国を結ぶ「本州四国連絡橋」のように、海をはさんだ地域同士をつなぐ交通網の役割は何でしょう。",
+      "prompt": "海[うみ]をはさんだ地域[ちいき]を橋[はし]で結[むす]ぶと、何[なに]がよくなりますか。",
       "choices": [
         {
           "id": "c1",
@@ -467,7 +477,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/bridge.svg",
+      "promptSpeech": "海[うみ]をはさんだ地域[ちいき]を橋[はし]で結[むす]ぶと、何[なに]がよくなりますか。 海をはさんだ陸地を橋でつなぎ、人や車が通る模式図。"
     },
     "explanation": "橋や高速道路が開通したことで、フェリーを使わずに自動車や列車で短時間で行き来できるようになり、地域の生活が便利になりました。"
   },
@@ -483,7 +495,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、九州地方の一番南に位置し、屋久島や種子島などの島々も含まれる県はどこですか。",
+      "prompt": "図を見て、九州地方の一番南に位置し、屋久島や種子島などの島々も含まれる県はどこですか。",
       "choices": [
         {
           "id": "c1",
@@ -504,7 +516,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/9e789c5aeacd00da.png"
+      "promptImage": "questions/shakai/visuals/kyushu-islands.svg",
+      "promptSpeech": "図を見て、九州地方の一番南に位置し、屋久島や種子島などの島々も含まれる県はどこですか。 九州とその南にある種子島・屋久島の位置関係の模式図。県名は書かない。"
     },
     "explanation": "鹿児島県は九州本島の最南端に位置し、桜島や屋久島・種子島などの豊かな自然や島々を有しています。"
   },
@@ -541,7 +554,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/589c7873d8b41ca9.png"
+      "promptImage": "questions/shakai/visuals/map-scale-comparison.svg",
+      "promptSpeech": "地図帳の「縮尺（しゅくしゃく）」で、同じ範囲をより詳しく拡大して表しているのはどちらの地図でしょう。 同じ町を、1:25,000と1:50,000で表した模式図。同じ家と道路は左で二倍の大きさになる。"
     },
     "explanation": "縮尺[しゅくしゃく]の分母が小さい「1:25,000」の地図の方が、実際の土地を大きく拡大[かくだい]して細かく表示することができます。"
   }

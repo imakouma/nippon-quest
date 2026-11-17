@@ -247,7 +247,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/sprinkler.svg",
+      "promptSpeech": "火事が起きたときに、天井から自動的に水がスプレーのように出て、初期の消火を行うための設備を何といいますか。 天井の小さな器具から、下へ広がって水が出ている模式図。"
     },
     "explanation": "デパートやホテルの天井にあり、火災の熱を感知して自動で水をまく消火設備を「スプリンクラー」といいます。"
   },
@@ -299,7 +301,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、社会生活を営むうえで大切なこととして正しいものはどれですか。",
+      "prompt": "図を見て、社会生活を営むうえで大切なこととして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -320,7 +322,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/250b8c89b8311107.png"
+      "promptImage": "questions/shakai/visuals/safe-crossing.svg",
+      "promptSpeech": "図を見て、社会生活を営むうえで大切なこととして正しいものはどれですか。 信号と横断歩道のある道路。歩く人は歩道で待っている。"
     },
     "explanation": "社会生活を営むうえでは、交通ルールなど大切な法やきまりを守ることが求められます。"
   },
@@ -356,7 +359,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/crosswalk.svg",
+      "promptSpeech": "歩行者が安全に道路を横断できるように、道路上に白い平行な線で描かれている場所を何といいますか。 道路を横切るように白い帯が平行に並んだ場所。"
     },
     "explanation": "歩行者が安全に渡れるように指定された場所を「横断歩道[おうだんほどう]」といいます。"
   },
@@ -372,7 +377,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、緊急時に使う番号として正しいものはどれですか。",
+      "prompt": "図を見て、緊急時に使う番号として正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -393,7 +398,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/250b8c89b8311107.png"
+      "promptImage": "questions/shakai/visuals/emergency-call.svg",
+      "promptSpeech": "図を見て、緊急時に使う番号として正しいものはどれですか。 火事・救急と、事件・事故の場面から、電話で通報する模式図。電話番号は書かない。"
     },
     "explanation": "火事や救急のときは119番、警察のときは110番に電話[でんわ]します。"
   },
@@ -445,7 +451,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、火災や事故を防ぐために大切なこととして正しいものはどれですか。",
+      "prompt": "図を見て、火災や事故を防ぐために大切なこととして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -466,7 +472,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/64279aeb465f9ab7.png"
+      "promptImage": "questions/shakai/visuals/safe-crossing.svg",
+      "promptSpeech": "図を見て、火災や事故を防ぐために大切なこととして正しいものはどれですか。 信号と横断歩道のある道路。歩く人は歩道で待っている。"
     },
     "explanation": "関係機関は地域の人々と協力して、火災や交通事故などを未然に防ぐ活動を行っています。"
   },
@@ -502,7 +509,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/fire-door.svg",
+      "promptSpeech": "火事のときに、煙や炎が他の部屋や階段に広がるのを防ぎ、安全に逃げる時間を確保するために設置されている、熱を感知して自動的に閉まる重い扉を何といいますか。 部屋と廊下の間を、厚い扉で閉じる模式図。"
     },
     "explanation": "炎や煙を通さない特殊な金属のドア（防火扉）が閉まることで、避難する通路を守ることができます。"
   },

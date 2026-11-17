@@ -438,5 +438,38 @@
       ]
     },
     "explanation": "百[ひゃく]のくらいが 6、一[いち]のくらいが 2 になるので、602 だ。十[じゅう]のくらいがないので、0 をわすれないように しよう。"
+  },
+  {
+    "id": "sansu.g2.curriculum.compare-symbol",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に 入[はい]る 記号[きごう]は どれですか。 305 □ 350",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "＜"
+        },
+        {
+          "id": "c2",
+          "text": "＞"
+        },
+        {
+          "id": "c3",
+          "text": "＝"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/compare-symbol.svg",
+      "promptSpeech": "305と350の 大[おお]きさを くらべます。305は100が3こ、1が5こ。350は100が3こ、10が5こです。"
+    },
+    "explanation": "百[ひゃく]の 位[くらい]は 同[おな]じ3です。十[じゅう]の 位[くらい]は 0が5より 小[ちい]さいので、305＜350です。記号[きごう]の 開[ひら]いた ほうが 大[おお]きい 数[かず]に 向[む]きます。"
   }
 ]

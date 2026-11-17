@@ -48,6 +48,10 @@ it('keeps automated browser servers separate from the canonical preview', async 
     expect(server.command).toContain(`--port ${server.port}`);
   }
   expect(configs[1].testIgnore).toEqual(
-    expect.arrayContaining(['math-review-order.spec.ts', 'sansu-g1-content-repair.spec.ts']),
+    expect.arrayContaining([
+      'math-review-order.spec.ts',
+      'sansu-g1-content-repair.spec.ts',
+      'sansu-g1-domains.spec.ts',
+    ]),
   );
 });

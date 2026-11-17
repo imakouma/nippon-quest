@@ -62,5 +62,35 @@
       "promptImageAlt": "縦2、3、4cmに対し横6、4、3cmの表。"
     },
     "explanation": "2×6、3×4、4×3はすべて12です。縦[たて]×横[よこ]、つまり面積[めんせき]が一定[いってい]になっています。"
+  },
+  {
+    "id": "sansu.g6.reaudit.proportion-paper",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:original-curriculum-reaudit"
+    ],
+    "payload": {
+      "prompt": "同[おな]じ紙[かみ]20枚[まい]の重[おも]さは80gです。箱[はこ]を除[のぞ]いた紙[かみ]の重[おも]さが600gなら、紙[かみ]は何枚[なんまい]ありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "150枚[まい]"
+        },
+        {
+          "id": "c2",
+          "text": "300枚[まい]"
+        },
+        {
+          "id": "c3",
+          "text": "240枚[まい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同[おな]じ紙[かみ]なら枚数[まいすう]と重[おも]さは比例[ひれい]します。1枚[まい]は80÷20＝4gなので、600÷4＝150枚[まい]です。"
   }
 ]

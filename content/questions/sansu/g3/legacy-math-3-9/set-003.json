@@ -1,0 +1,92 @@
+[
+  {
+    "id": "sansu.g3.reaudit.route",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": ["original:curriculum-20261117"],
+    "payload": {
+      "prompt": "青[あお]い道[みち]を 通[とお]って 家[いえ]から 公園[こうえん]へ 行[い]きます。道[みち]のりは何[なん]mですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "500m"
+        },
+        {
+          "id": "c1",
+          "text": "700m"
+        },
+        {
+          "id": "c2",
+          "text": "1200m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/reaudit/route.svg",
+      "promptSpeech": "青[あお]い道[みち]を 通[とお]って 家[いえ]から 公園[こうえん]へ 行[い]きます。道[みち]のりは何[なん]mですか。 青い道は300mと400m。赤い直線は500m。"
+    },
+    "explanation": "道[みち]のりは、道[みち]に そって はかった長[なが]さです。300+400=700mです。まっすぐ はかった500mは、きょりです。"
+  },
+  {
+    "id": "sansu.g3.reaudit.distance",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": ["original:curriculum-20261117"],
+    "payload": {
+      "prompt": "家[いえ]から 公園[こうえん]までの「きょり」は何[なん]mですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "300m"
+        },
+        {
+          "id": "c1",
+          "text": "700m"
+        },
+        {
+          "id": "c2",
+          "text": "500m"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/reaudit/route.svg",
+      "promptSpeech": "家[いえ]から 公園[こうえん]までの「きょり」は何[なん]mですか。 青い道は300mと400m。赤い直線は500m。"
+    },
+    "explanation": "きょりは、2つの場所[ばしょ]の間[あいだ]を まっすぐ はかった長[なが]さです。赤[あか]い線[せん]の500mです。"
+  },
+  {
+    "id": "sansu.g3.reaudit.instrument",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": ["original:curriculum-20261117"],
+    "payload": {
+      "prompt": "木[き]のみきの まわりの長[なが]さを はかります。曲[ま]がる道具[どうぐ]はどれですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "まきじゃく"
+        },
+        {
+          "id": "c1",
+          "text": "30cmの かたいものさし"
+        },
+        {
+          "id": "c2",
+          "text": "はかり"
+        }
+      ],
+      "answer": "c0",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/reaudit/tape.svg",
+      "promptSpeech": "木[き]のみきの まわりの長[なが]さを はかります。曲[ま]がる道具[どうぐ]はどれですか。 木の幹にテープを巻いています。"
+    },
+    "explanation": "まきじゃくは 曲[ま]がるので、木[き]のみきの まわりに そわせて 長[なが]さを はかれます。はかりは 重[おも]さを はかる道具[どうぐ]です。"
+  }
+]

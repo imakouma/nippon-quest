@@ -20,7 +20,7 @@
       "promptImage": "questions/sansu/g1/visuals/family-bread.svg",
       "promptImageAlt": "5にんが それぞれ パンを 2こずつ もっています。"
     },
-    "explanation": "2 つのパンを もっている人[ひと]が5 人[にん]いるので、2 を 5 かい たしざんしよう。 2+2+2+2+2=10 ぜんぶで、10 このパンがあるね。"
+    "explanation": "5にんが 2こずつ もっています。2こを 5つ あわせると、2 + 2 + 2 + 2 + 2 = 10。パンは ぜんぶで 10こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.21c817506842",
@@ -43,7 +43,7 @@
       "promptImage": "questions/sansu/g1/visuals/make-pairs.svg",
       "promptImageAlt": "こども 8にん。2にんで 1つの はんに します。"
     },
-    "explanation": "2人[ふたり]で １つのはんを つくるので、たしざんでかんがえよう。 2+2+2+2=8 2 を ４つたしたら、8 になるね。"
+    "explanation": "8にんを 2にんずつ くみにします。2、4、6、8と かぞえると、2にんの くみが 4つ できます。はんは 4つです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.3e2f1449e1d8",
@@ -66,7 +66,7 @@
       "promptImage": "questions/sansu/g1/visuals/share-bread.svg",
       "promptImageAlt": "わける まえの パンが 15こ。もらう こどもは 5にん。"
     },
-    "explanation": "1人[ひとり]が 3 このパンを もらうと、3+3+3+3+3=15。3 を 5人分[にんぶん] あわせると、15 になるね。"
+    "explanation": "5にんに 1こずつ くばると、パンを 5こ つかいます。もう 1こずつで 10こ、さらに 1こずつで 15こ。1にんが もらう パンは 3こです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.51c44ae28310",
@@ -89,7 +89,7 @@
       "promptImage": "questions/sansu/g1/visuals/money-difference.svg",
       "promptImageAlt": "みくさんは 90えん。いもうとは 30えん。"
     },
-    "explanation": "「いくらおおく…」ときかれているので、ひきざんをしよう。 90-30=60 みくさんは、60 えん おおくもっているね。"
+    "explanation": "みくさんの 90えんから、いもうとと おなじ 30えんを のぞきます。90 - 30 = 60。みくさんが 60えん おおく もっています。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.696022d14077",
@@ -107,12 +107,12 @@
       "answers": [
         "12"
       ],
-      "template": "{{INPUT}}人",
-      "suffix": "人",
+      "template": "{{INPUT}}人[にん]",
+      "suffix": "人[にん]",
       "promptImage": "questions/sansu/g1/visuals/four-groups.svg",
       "promptImageAlt": "4つの はんが あります。1つの はんに こどもが 3にんずつ います。"
     },
-    "explanation": "3 人[にん]のはんを、4つ つくるので、3 を 4 かい たしざんしよう。 3+3+3+3=12 ぜんぶで、12 人[にん]のこどもが いるね。"
+    "explanation": "3にんの はんが 4つ あるので、3にんを 4つ あわせます。3 + 3 + 3 + 3 = 12。こどもは ぜんぶで 12にんです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.6c0325c6e9af",
@@ -133,9 +133,9 @@
       "template": "{{INPUT}}えん",
       "suffix": "えん",
       "promptImage": "questions/sansu/g1/visuals/money-addition.svg",
-      "promptImageAlt": "もっているは 55えん。もらうは 30えん。"
+      "promptImageAlt": "はじめに 55えん もっています。あとから 30えん もらいます。"
     },
-    "explanation": "「あわせて…」ときかれているので、たしざんをしよう。 55+30=85 あわせて、85えん になるね。"
+    "explanation": "もっている 55えんに、もらった 30えんを たします。10の まとまりが 3つ ふえて、55 + 30 = 85。85えんに なります。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.77899e75da75",
@@ -153,12 +153,12 @@
       "answers": [
         "6"
       ],
-      "template": "{{INPUT}}人",
-      "suffix": "人",
+      "template": "{{INPUT}}人[にん]",
+      "suffix": "人[にん]",
       "promptImage": "questions/sansu/g1/visuals/class-difference.svg",
       "promptImageAlt": "1くみは 36にん。2くみは 30にん。"
     },
-    "explanation": "「なん人[にん]おおい…」ときかれているので、ひきざんをしよう。 36-30=6 １くみは、6人[にん] おおいね。"
+    "explanation": "1くみの 36にんから、2くみと おなじ 30にんを のぞきます。36 - 30 = 6。1くみが 6にん おおいです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.7cbc728997f0",
@@ -181,7 +181,7 @@
       "promptImage": "questions/sansu/g1/visuals/pencils-fewer.svg",
       "promptImageAlt": "はるかさんは 12ほん。たくまさんは 3ほん すくなく、かずは はてな。"
     },
-    "explanation": "たくまさんは、「3 ほん すくない」ので、はるかさんの もっている ほんすうから、ひきざんしよう。12-3=9。たくまさんは、9 ほん もっている。"
+    "explanation": "はるかさんの 12ほんより 3ぼん すくない かずを もとめます。12 - 3 = 9。たくまさんは 9ほん もっています。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.8aa8ea763eae",
@@ -204,7 +204,7 @@
       "promptImage": "questions/sansu/g1/visuals/apples-fewer.svg",
       "promptImageAlt": "ゆいさんは 15こ。りこさんは 7こ すくなく、かずは はてな。"
     },
-    "explanation": "りこさんは、「7 こ すくない」ので、ゆいさんの もっている こすうから、ひきざんしよう。15-7=8。りこさんは、8 こ もっている。"
+    "explanation": "ゆいさんの 15こより 7こ すくない かずを もとめます。15 - 7 = 8。りこさんは 8こ もっています。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.91fcf0312a4a",
@@ -222,12 +222,12 @@
       "answers": [
         "55"
       ],
-      "template": "{{INPUT}}人",
-      "suffix": "人",
+      "template": "{{INPUT}}人[にん]",
+      "suffix": "人[にん]",
       "promptImage": "questions/sansu/g1/visuals/children-addition.svg",
-      "promptImageAlt": "はじめは 15にん。あとからは 40にん。"
+      "promptImageAlt": "はじめに 15にん います。あとから 40にん きます。"
     },
-    "explanation": "「あわせて…」ときかれているので、たしざんをしよう。 15+40=55 あわせて、55人[にん] になるね。"
+    "explanation": "はじめの 15にんに、あとから きた 40にんを たします。15 + 40 = 55。たいいくかんには 55にん います。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.a76d953c1d33",
@@ -250,7 +250,7 @@
       "promptImage": "questions/sansu/g1/visuals/brother-age.svg",
       "promptImageAlt": "りょうさんは 6さい。おにいさんは 2さい おおく、かずは はてな。"
     },
-    "explanation": "おにいさんは、「としうえ」なので、りょうさん のとしに、たしざんしてあげよう。 6+2=8 おにいさんは、8 さいだね。"
+    "explanation": "りょうさんの 6さいより 2さい おおい としを もとめます。6 + 2 = 8。おにいさんは 8さいです。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.d3a516ae95c3",
@@ -273,7 +273,7 @@
       "promptImage": "questions/sansu/g1/visuals/children-chocolate.svg",
       "promptImageAlt": "4にんに チョコを 2こずつ くばります。"
     },
-    "explanation": "１人[ひとり]に 2こずつ、4人[にん] にくばるので、2 を 4 かい たしざんしよう。 2+2+2+2=8 ぜんぶで、8 こ チョコがいるね。"
+    "explanation": "4にんに 2こずつ くばるので、2こを 4つ あわせます。2 + 2 + 2 + 2 = 8。チョコは ぜんぶで 8こ いります。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.d565d918d645",
@@ -296,7 +296,7 @@
       "promptImage": "questions/sansu/g1/visuals/brother-candy.svg",
       "promptImageAlt": "ゆうとさんは 5こ。おにいさんは 5こ おおく、かずは はてな。"
     },
-    "explanation": "おにいさんは、ゆうとさんより、5つあめを おおくもっているので、ゆうとさん のもっていた かずに、たしざんしてあげよう。 5+5=10 おにいさんは、10 この あめを もっているね。"
+    "explanation": "ゆうとさんの 5こより 5こ おおい かずを もとめます。5 + 5 = 10。おにいさんは あめを 10こ もっています。"
   },
   {
     "id": "legacy.sansu.g1.math-1-9.e3bac09b0df6",
@@ -314,11 +314,11 @@
       "answers": [
         "3"
       ],
-      "template": "{{INPUT}}人",
-      "suffix": "人",
+      "template": "{{INPUT}}人[にん]",
+      "suffix": "人[にん]",
       "promptImage": "questions/sansu/g1/visuals/share-candy.svg",
       "promptImageAlt": "あめが 9こ。1にんに 3こずつ くばります。"
     },
-    "explanation": "1人[ひとり]に 3 こずつ くばるので、たしざんでかんがえよう。 3+3+3=9 3 を ３つたしたら、9 になるね。"
+    "explanation": "あめを 3こずつ くみにします。3、6、9と かぞえると、3この くみが 3つ できます。1にんに 1くみずつ くばるので、3にんに くばれます。"
   }
 ]
