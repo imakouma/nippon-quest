@@ -20,13 +20,13 @@ it('separates fraction input values and keeps the original fraction to solve', (
   expect(p.template).toContain('0.012');
   expect(p.template.match(/\{\{INPUT\}\}/g)).toHaveLength(2);
 });
-it('covers all 359 questions once in learning order, with explanations and valid input slots', () => {
+it('covers all 371 questions once in learning order, with explanations and valid input slots', () => {
   const order = JSON.parse(readFileSync('content/review/sansu-g5-order.json', 'utf8')) as {
     groups: { questionIds: string[] }[];
   };
   const ids = order.groups.flatMap((g) => g.questionIds);
-  expect(questions).toHaveLength(359);
-  expect(ids).toHaveLength(359);
+  expect(questions).toHaveLength(371);
+  expect(ids).toHaveLength(371);
   expect(new Set(ids)).toEqual(new Set(questions.map((q) => q.id)));
   for (const q of questions) {
     expect(q.explanation?.length, q.id).toBeGreaterThan(15);

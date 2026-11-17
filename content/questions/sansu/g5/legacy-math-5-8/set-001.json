@@ -531,5 +531,33 @@
       "shuffle": true
     },
     "explanation": "1/4＝0.25に 直[なお]すと、0.8−0.25＝0.55です。位[くらい]を そろえて 小数[しょうすう]の ひき算[ざん]ができます。"
+  },
+  {
+    "id": "sansu.g5.balance.combine-water",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-8",
+    "tags": ["review:balance-20261117", "difficulty:standard"],
+    "payload": {
+      "prompt": "水[みず]が1/2Lある 容器[ようき]に、さらに1/3L 入[い]れました。水[みず]は 全部[ぜんぶ]で 何[なん]Lですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5/6L"
+        },
+        {
+          "id": "c2",
+          "text": "2/5L"
+        },
+        {
+          "id": "c3",
+          "text": "1/6L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "合[あ]わせるので1/2＋1/3を 計算[けいさん]します。1/2＝3/6、1/3＝2/6だから、3/6＋2/6＝5/6Lです。"
   }
 ]

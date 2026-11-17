@@ -200,5 +200,33 @@
       "promptImageAlt": "えんぴつ12本の絵。使った本数は○、残りは△。表がある場合は使った本数と残りを上下に対応させている。"
     },
     "explanation": "12 本の えんぴつから 1 本使うので、12-1=11 より、残りの本数は 11 本。"
+  },
+  {
+    "id": "sansu.g5.balance.apple-box-inverse",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-16",
+    "tags": ["review:balance-20261117", "difficulty:advanced"],
+    "payload": {
+      "prompt": "1こ150円[えん]の りんごを、80円[えん]の 箱[はこ]1つに 入[い]れて 買[か]うと、全部[ぜんぶ]で980円[えん]でした。りんごは 何[なん]こですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6こ"
+        },
+        {
+          "id": "c2",
+          "text": "7こ"
+        },
+        {
+          "id": "c3",
+          "text": "5こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "先[さき]に 箱代[はこだい]を ひくと、980−80＝900円[えん]です。りんご1こが150円[えん]なので、900÷150＝6こです。"
   }
 ]
