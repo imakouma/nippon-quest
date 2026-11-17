@@ -5,16 +5,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "数字[すうじ]でかきましょう。",
-      "answers": [
-        "1090000"
-      ]
+      "prompt": "百九万[ひゃくきゅうまん] 数字[すうじ]でかきましょう。",
+      "answers": ["1090000"]
     },
     "explanation": "万[まん]でくぎって、かんがえよう。 百九万[ひゃくきゅうまん] → 百九万[ひゃくきゅうまん] / 「万[まん]」までを数字[すうじ]にすると、109 のこりの部分[ぶぶん]はないので、0000 これをあわせて、1090000 になる。"
   },
@@ -24,16 +18,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 39×10 =",
-      "answers": [
-        "390"
-      ]
+      "answers": ["390"]
     },
     "explanation": "39×10 = 10×39 つまり、10が 39こある ということなので、390 になる。"
   },
@@ -43,16 +31,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (50)",
-      "answers": [
-        "50"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 500÷10 =",
+      "answers": ["50"]
     },
     "explanation": "÷10 や ÷100では、かけ算[ざん]とは ぎゃくに 0 をとってあげればいい。 ÷10なので、0 を１つとって、50 になる。"
   },
@@ -62,16 +44,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 8×10 =",
-      "answers": [
-        "80"
-      ]
+      "answers": ["80"]
     },
     "explanation": "8×10 = 10×8 つまり、10が 8こある ということなので、80 になる。"
   },
@@ -81,16 +57,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "数字[すうじ]でかきましょう。",
-      "answers": [
-        "745000"
-      ]
+      "prompt": "七十四万五千[ななじゅうよんまんごせん] 数字[すうじ]でかきましょう。",
+      "answers": ["745000"]
     },
     "explanation": "万[まん]でくぎって、かんがえよう。 七十四万五千[ななじゅうよんまんごせん] → 七十四万[ななじゅうよんまん] / 五千[ごせん] 「万[まん]」までを数字[すうじ]にすると、74 のこりの部分[ぶぶん]を数字[すうじ]にして、5000 これをあわせて、745000 になる。"
   },
@@ -100,13 +70,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "かっこに当[あ]てはまる 言葉[ことば]をえらぼう。",
+      "prompt": "図[ず]のように、数[かず]の大[おお]きさを 直線[ちょくせん]で 表[あらわ]したものを（ア）といいます。右[みぎ]にいくほど 数[かず]は（イ）なります。アとイを えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -140,7 +106,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "speech:disabled"
     ],
     "payload": {
       "prompt": "次[つぎ]の数[かず]をよみましょう。 87万[まん]2300",
@@ -173,21 +140,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "大[おお]きな数[かず]について、あてはまる数[かず]をこたえよう。",
-      "answers": [
-        "3",
-        "2",
-        "1",
-        "9",
-        "5"
-      ],
-      "template": "32195 は、一万を {{INPUT}}こ、千を {{INPUT}}こ、百を {{INPUT}}こ、十を {{INPUT}}こ、一を {{INPUT}}こ あわせた数です。"
+      "answers": ["3", "2", "1", "9", "5"],
+      "template": "32195 は、一万[いちまん]を {{INPUT}}こ、千[せん]を {{INPUT}}こ、百[ひゃく]を {{INPUT}}こ、十[じゅう]を {{INPUT}}こ、一[いち]を {{INPUT}}こ あわせた数[かず]です。"
     },
     "explanation": "32195 は、一万[いちまん]を 3こ、千[せん]を 2こ、百[ひゃく]を 1こ、十[じゅう]を 9こ、一[いち]を 5こ あわせた数[かず]です。"
   },
@@ -197,11 +154,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線上[すうちょくせんじょう]で、78000をあらわすのは ア〜エのうち、どれでしょう。",
       "choices": [
@@ -234,16 +187,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "アがあらわす数[かず]は、いくつでしょう。",
-      "answers": [
-        "50000"
-      ],
+      "answers": ["50000"],
       "promptImage": "questions/legacy/a87094791f55ed85.png"
     },
     "explanation": "この数直線[すうちょくせん]では、大[おお]きな目[め]もり１０こで、100000 になっている。大[おお]きな目[め]もり１つ分[ぶん]で、10000 になることがわかる。アは、５つ目[め]の大[おお]きな目[め]もりなので、50000 になる。"
@@ -254,16 +201,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "イがあらわす数[かず]は、いくつでしょう。",
-      "answers": [
-        "32000"
-      ],
+      "answers": ["32000"],
       "promptImage": "questions/legacy/a87094791f55ed85.png"
     },
     "explanation": "この数直線[すうちょくせん]では、大[おお]きな目[め]もり１つで、10000 になっている。小[ちい]さな目[め]もりは、10000 を さらに１０こ に分[わ]けているので、イは、３つ目[め]の大[おお]きな目[め]もりから、小[ちい]さな目[め]もり２つ分[ぶん]進[すす]んで、32000 になる。"
@@ -274,11 +215,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の数[かず]をくらべたとき、□に入[はい]る きごう をえらぼう。 21000 + 32000 □ 50000",
       "choices": [
@@ -306,16 +243,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 99×100 =",
-      "answers": [
-        "9900"
-      ]
+      "answers": ["9900"]
     },
     "explanation": "99×100 = 100×99 つまり、100が 99こある ということなので、9900 になる。"
   },
@@ -325,14 +256,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の２つの数をくらべたとき、□に入る きごう をえらぼう。",
+      "prompt": "□に 入[はい]る きごうを えらぼう。 78000　□　50000",
       "choices": [
         {
           "id": "c1",
@@ -358,11 +284,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "千万[せんまん]を 10こ集[あつ]めた数[かず]を 何[なに]というでしょう。",
       "choices": [
@@ -396,16 +318,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線上[すうちょくせんじょう]について、１つの目[め]もりの大[おお]きさは いくつでしょう。",
-      "answers": [
-        "10000"
-      ],
+      "answers": ["10000"],
       "promptImage": "questions/legacy/b364a14cc7dc36b9.png"
     },
     "explanation": "５つ目[め]の目[め]もりで、50000 になっているので、目[め]もり１つ分[ぶん]は 10000 になる。"
@@ -416,16 +332,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (400)",
-      "answers": [
-        "400"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 40×10 =",
+      "answers": ["400"]
     },
     "explanation": "40 は 10 が 4つ集[あつ]まったもの。それが 10こ 集[あつ]まると、10は全部[ぜんぶ]で 40 になる。10 は 40 こ集[あつ]まると 400 になるね。 ×10 をするときは、位[くらい]が一[ひと]つ大[おお]きくなるとかんがえればいい。"
   },
@@ -435,16 +345,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (1000)",
-      "answers": [
-        "1000"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 10000÷10 =",
+      "answers": ["1000"]
     },
     "explanation": "÷10 や ÷100では、かけ算[ざん]とは ぎゃくに 0 をとってあげればいい。 ÷10なので、0 を１つとって、1000 になる。"
   },
@@ -454,11 +358,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線上[すうちょくせんじょう]について、１つの目[め]もりの大[おお]きさは いくつでしょう。",
       "choices": [
@@ -491,16 +391,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "数字[すうじ]でかきましょう。",
-      "answers": [
-        "68302000"
-      ]
+      "prompt": "六千八百三十万二千[ろくせんはっぴゃくさんじゅうまんにせん] 数字[すうじ]でかきましょう。",
+      "answers": ["68302000"]
     },
     "explanation": "万[まん]でくぎって、かんがえよう。 六千八百三十万二千[ろくせんはっぴゃくさんじゅうまんにせん] → 六千八百三十万[ろくせんはっぴゃくさんじゅうまん] / 二千[にせん] 「万[まん]」までを数字[すうじ]にすると、6830 のこりの部分[ぶぶん]を数字[すうじ]にして、2000 これをあわせて、68302000 になる。"
   },
@@ -513,7 +407,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "speech:disabled"
     ],
     "payload": {
       "prompt": "次[つぎ]の数[かず]をよみましょう。 309万[まん]",
@@ -549,7 +444,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_3_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "speech:disabled"
     ],
     "payload": {
       "prompt": "次[つぎ]の数[かず]をよみましょう。 5632万[まん]100",
@@ -582,11 +478,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の数[かず]をくらべたとき、□に入[はい]る きごう をえらぼう。 21000 + 32000 □ 78000",
       "choices": [
@@ -614,14 +506,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の２つの数をくらべたとき、□に入る きごう をえらぼう。",
+      "prompt": "□に 入[はい]る きごうを えらぼう。 21000　□　32000",
       "choices": [
         {
           "id": "c1",
@@ -647,16 +534,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (600)",
-      "answers": [
-        "600"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 60×10 =",
+      "answers": ["600"]
     },
     "explanation": "60 は 10 が 6つ集[あつ]まったもの。それが 10こ 集[あつ]まると、10は全部[ぜんぶ]で 60 になる。10 は 60 こ集[あつ]まると 600 になるね。 ×10 をするときは、位[くらい]が一[ひと]つ大[おお]きくなるとかんがえればいい。"
   },
@@ -666,16 +547,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の計算[けいさん]をしましょう。 10×100 =",
-      "answers": [
-        "1000"
-      ]
+      "answers": ["1000"]
     },
     "explanation": "10×100 = 100×10 つまり、100が 10こある ということなので、1000 になる。"
   },
@@ -685,16 +560,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (9)",
-      "answers": [
-        "9"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 900÷100 =",
+      "answers": ["9"]
     },
     "explanation": "÷10 や ÷100では、かけ算[ざん]とは ぎゃくに 0 をとってあげればいい。 ÷100なので、0 を２つとって、9 になる。"
   }

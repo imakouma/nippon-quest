@@ -72,7 +72,7 @@ export function QuestionTree({
   const selectionIn = (subject: string, grade?: number) => {
     if (!selectedUnit) return false;
     if (selectedUnit.startsWith('math-review:'))
-      return subject === 'sansu' && (grade === undefined || grade === 1);
+      return subject === 'sansu' && (grade === undefined || grade === Number(selectedUnit.split(':')[1]));
     if (selectedUnit.startsWith('kanji-scope:')) {
       const selectedGrade = Number(selectedUnit.split(':')[1]);
       return subject === 'kanji' && (grade === undefined || grade === selectedGrade);
@@ -268,15 +268,16 @@ export function QuestionTree({
                     {pgText('questionSuffix')}
                   </span>
                 </summary>
-                {subject.subject === 'sansu' && grade.grade === 1 && (
+                {subject.subject === 'sansu' && (
                   <MathReviewFolders
+                    grade={grade.grade}
                     entries={entries}
                     selected={selectedUnit}
                     onSelect={onSelectUnit}
                     questions={questions}
                   />
                 )}
-                <OriginalMathFolders active={subject.subject === 'sansu' && grade.grade === 1}>
+                <OriginalMathFolders active={subject.subject === 'sansu'}>
                   {subject.subject === 'kanji'
                     ? (['reading', 'writing', 'review'] as const)
                         .filter(

@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1/2×1/4 =",
+      "prompt": "次の計算をしましょう。 1/2×1/4 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "8"
@@ -34,7 +34,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "底辺が 1/3 cm、高さが 2/5 cm の平行四辺形の面積[めんせき]を求めよう。",
+      "prompt": "底辺が 1/3 cm、高さが 2/5 cm の平行四辺形の面積[めんせき]を求めよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "15"
@@ -57,7 +57,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 5/6×4 =",
+      "prompt": "次の計算をしましょう。 5/6×4 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "10",
         "3"
@@ -66,7 +66,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-2911de821182.svg",
       "promptImageAlt": "計算に使う量5/6を示す。枠1つの大きさは共通。5/6×4の答えは示していない。"
     },
-    "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{5}{6}×4=\\dfrac{5×\\bcancel{4}2}{\\bcancel{6}3}=\\dfrac{10}{3}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{5}{6} × 4 = \\dfrac{20}{6} = \\dfrac{10}{3}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.34776e601258",
@@ -80,7 +80,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "縦が 6/7 cm、横が 2/9 cm の長方形[ちょうほうけい]の面積[めんせき]を求めよう。",
+      "prompt": "縦が 6/7 cm、横が 2/9 cm の長方形[ちょうほうけい]の面積[めんせき]を求めよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "4",
         "21"
@@ -89,7 +89,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-shape-34776e601258.svg",
       "promptImageAlt": "縦6/7cm、横2/9cmの長方形。"
     },
-    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は、「縦×横」で求めることができたね。 \\require{cancel} \\dfrac{6}{7}×\\dfrac{2}{9}=\\dfrac{\\bcancel{6}2}{7}×\\dfrac{2}{\\bcancel{9}3}=\\dfrac{4}{21}"
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は縦[たて]×横[よこ]です。\\dfrac{6}{7} × \\dfrac{2}{9} = \\dfrac{4}{21}cm²。分母[ぶんぼ]と分子[ぶんし]を同[おな]じ数[かず]で割[わ]って約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.350742bfbbc4",
@@ -103,7 +103,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "2\\dfrac{1}{2} × 1\\dfrac{3}{4} を計算[けいさん]し、仮分数[かぶんすう]で答[こた]えよう。",
+      "prompt": "2\\dfrac{1}{2} × 1\\dfrac{3}{4} を計算[けいさん]し、仮分数[かぶんすう]で答[こた]えよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "35",
         "8"
@@ -126,7 +126,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 2/3×4/5 =",
+      "prompt": "次の計算をしましょう。 2/3×4/5 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "8",
         "15"
@@ -149,7 +149,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1/2×2/3×6/7 =",
+      "prompt": "次の計算をしましょう。 1/2×2/3×6/7 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "7"
@@ -158,7 +158,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-4f3f00f1f4e1.svg",
       "promptImageAlt": "計算に使う量1/2、2/3、6/7を示す。枠1つの大きさは共通。1/2×2/3×6/7の答えは示していない。"
     },
-    "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} \\dfrac{1}{2}×\\dfrac{2}{3}×\\dfrac{6}{7}=\\dfrac{1}{\\bcancel{2}1}×\\dfrac{\\bcancel{2}1}{\\bcancel{3}1}×\\dfrac{\\bcancel{6}2}{7}=\\dfrac{2}{7}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{1}{2} × \\dfrac{2}{3} × \\dfrac{6}{7} = \\dfrac{12}{42} = \\dfrac{2}{7}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.59343703e0ea",
@@ -172,7 +172,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "縦が 8/3 cm、横が 9/25 cm、高さが 5/16 cm の直方体の体積を求めよう。",
+      "prompt": "縦が 8/3 cm、横が 9/25 cm、高さが 5/16 cm の直方体の体積を求めよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "3",
         "10"
@@ -181,7 +181,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-shape-59343703e0ea.svg",
       "promptImageAlt": "縦8/3cm、横9/25cm、高さ5/16cmの直方体の模式図。"
     },
-    "explanation": "直方体の体積は、「縦×横×高さ」で求めることができたね。 \\require{cancel} \\dfrac{8}{3}×\\dfrac{9}{25}×\\dfrac{5}{16}=\\dfrac{\\bcancel{8}1}{\\bcancel{3}1}×\\dfrac{\\bcancel{9}3}{\\bcancel{25}5}×\\dfrac{\\bcancel{5}1}{\\bcancel{16}2}=\\dfrac{3}{10}"
+    "explanation": "直方体[ちょくほうたい]の体積[たいせき]は縦[たて]×横[よこ]×高[たか]さです。\\dfrac{8}{3} × \\dfrac{9}{25} × \\dfrac{5}{16} = \\dfrac{3}{10}cm³。分母[ぶんぼ]と分子[ぶんし]を同[おな]じ数[かず]で割[わ]って約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.6a29ee48837e",
@@ -195,7 +195,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1/3×2 =",
+      "prompt": "次の計算をしましょう。 1/3×2 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "3"
@@ -218,7 +218,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 6/11×11/18 =",
+      "prompt": "次の計算をしましょう。 6/11×11/18 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "1",
         "3"
@@ -227,7 +227,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-6d8e2bb16cb0.svg",
       "promptImageAlt": "計算に使う量6/11、11/18を示す。枠1つの大きさは共通。6/11×11/18の答えは示していない。"
     },
-    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{6}{11}×\\dfrac{11}{18}=\\dfrac{\\bcancel{6}1×\\bcancel{11}1}{\\bcancel{11}1×\\bcancel{18}3}=\\dfrac{1}{3}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{6}{11} × \\dfrac{11}{18} = \\dfrac{66}{198} = \\dfrac{1}{3}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.71796e892f2b",
@@ -247,7 +247,7 @@
       ],
       "template": "2\\dfrac{4}{5} × 3\\dfrac{4}{7} = {{INPUT}}"
     },
-    "explanation": "帯分数のままでは、かけ算することができない。仮分数に直してから計算しよう。 \\require{cancel} 2\\dfrac{4}{5}×3\\dfrac{4}{7}=\\dfrac{\\bcancel{14}2}{\\bcancel{5}1}×\\dfrac{\\bcancel{25}5}{\\bcancel{7}1}=\\dfrac{10}{1}=10"
+    "explanation": "帯分数[たいぶんすう]や小数[しょうすう]を分数[ぶんすう]に直[なお]します。分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{14}{5} × \\dfrac{25}{7} = \\dfrac{350}{35} = 10。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.86fc256feccc",
@@ -267,7 +267,7 @@
       ],
       "template": "1\\dfrac{1}{4} × 8 × \\dfrac{1}{10} = {{INPUT}}"
     },
-    "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} 1\\dfrac{1}{4}×8×\\dfrac{1}{10}=\\dfrac{5}{4}×\\dfrac{8}{1}×\\dfrac{1}{10}=\\dfrac{\\bcancel{5}1}{\\bcancel{4}1}×\\dfrac{\\bcancel{8}1}{1}×\\dfrac{1}{\\bcancel{10}1}=\\dfrac{1}{1}=1"
+    "explanation": "帯分数[たいぶんすう]や小数[しょうすう]を分数[ぶんすう]に直[なお]します。分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{5}{4} × 8 × \\dfrac{1}{10} = \\dfrac{40}{40} = 1。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.8db0971fa074",
@@ -281,7 +281,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 10/7×7/12 =",
+      "prompt": "次の計算をしましょう。 10/7×7/12 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "5",
         "6"
@@ -290,7 +290,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-8db0971fa074.svg",
       "promptImageAlt": "計算に使う量10/7、7/12を示す。枠1つの大きさは共通。10/7×7/12の答えは示していない。"
     },
-    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{10}{7}×\\dfrac{7}{12}=\\dfrac{\\bcancel{10}5}{\\bcancel{7}1}×\\dfrac{\\bcancel{7}1}{\\bcancel{12}6}=\\dfrac{5}{6}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{10}{7} × \\dfrac{7}{12} = \\dfrac{70}{84} = \\dfrac{5}{6}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.93498e7e14df",
@@ -304,7 +304,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 4/5×1/2 =",
+      "prompt": "次の計算をしましょう。 4/5×1/2 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "5"
@@ -327,7 +327,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "1辺が 2/3 cm の立方体の体積を求めよう。",
+      "prompt": "1辺が 2/3 cm の立方体の体積を求めよう。 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "8",
         "27"
@@ -350,7 +350,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 1/2×3 =",
+      "prompt": "次の計算をしましょう。 1/2×3 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "3",
         "2"
@@ -373,7 +373,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 15/7×14/25 =",
+      "prompt": "次の計算をしましょう。 15/7×14/25 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "6",
         "5"
@@ -382,7 +382,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-a676bbefc5aa.svg",
       "promptImageAlt": "計算に使う量15/7、14/25を示す。枠1つの大きさは共通。15/7×14/25の答えは示していない。"
     },
-    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{15}{7}×\\dfrac{14}{25}=\\dfrac{\\bcancel{15}3×\\bcancel{14}2}{\\bcancel{7}1×\\bcancel{25}5}=\\dfrac{6}{5}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{15}{7} × \\dfrac{14}{25} = \\dfrac{210}{175} = \\dfrac{6}{5}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.d88bef6ff10c",
@@ -396,7 +396,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3/10×5 =",
+      "prompt": "次の計算をしましょう。 3/10×5 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "3",
         "2"
@@ -405,7 +405,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-d88bef6ff10c.svg",
       "promptImageAlt": "計算に使う量3/10を示す。枠1つの大きさは共通。3/10×5の答えは示していない。"
     },
-    "explanation": "分数×整数 では、分数の分子にだけ 整数をかければいい。約分できるときは、と中で約分してしまおう。 \\dfrac{3}{10}×5=\\dfrac{3×\\bcancel{5}1}{\\bcancel{10}2}=\\dfrac{3}{2}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{3}{10} × 5 = \\dfrac{15}{10} = \\dfrac{3}{2}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.e26c0a21801b",
@@ -419,7 +419,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 8/9×3/4 =",
+      "prompt": "次の計算をしましょう。 8/9×3/4 = 答[こた]えの分数[ぶんすう]は約分[やくぶん]し、1以上[いじょう]なら仮分数[かぶんすう]で書[か]こう。",
       "answers": [
         "2",
         "3"
@@ -428,7 +428,7 @@
       "promptImage": "questions/sansu/g6/visuals/fraction-e26c0a21801b.svg",
       "promptImageAlt": "計算に使う量8/9、3/4を示す。枠1つの大きさは共通。8/9×3/4の答えは示していない。"
     },
-    "explanation": "分数×分数では、分母は分母どうし、分子は分子どうしでかけ算すればいい。約分を忘れずに。 \\require{cancel} \\dfrac{8}{9}×\\dfrac{3}{4}=\\dfrac{\\bcancel{8}2}{\\bcancel{9}3}×\\dfrac{\\bcancel{3}1}{\\bcancel{4}1}=\\dfrac{2}{3}"
+    "explanation": "分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{8}{9} × \\dfrac{3}{4} = \\dfrac{24}{36} = \\dfrac{2}{3}。最後[さいご]に約分[やくぶん]します。"
   },
   {
     "id": "legacy.sansu.g6.math-6-3.f715fcd54794",
@@ -448,6 +448,38 @@
       ],
       "template": "1\\dfrac{3}{7} × \\dfrac{3}{5} × 4\\dfrac{2}{3} = {{INPUT}}"
     },
-    "explanation": "３つ以上をかけるときでも、やり方は変わらない。分母は分母どうし、分子は分子どうしかければいい。 \\require{cancel} 1\\dfrac{3}{7}×\\dfrac{3}{5}×4\\dfrac{2}{3}=\\dfrac{10}{7}×\\dfrac{3}{5}×\\dfrac{14}{3}=\\dfrac{\\bcancel{10}2}{\\bcancel{7}1}×\\dfrac{\\bcancel{3}1}{\\bcancel{5}1}×\\dfrac{\\bcancel{14}2}{\\bcancel{3}1}=\\dfrac{4}{1}=4"
+    "explanation": "帯分数[たいぶんすう]や小数[しょうすう]を分数[ぶんすう]に直[なお]します。分母[ぶんぼ]どうし・分子[ぶんし]どうしをかけます。\\dfrac{10}{7} × \\dfrac{3}{5} × \\dfrac{14}{3} = \\dfrac{420}{105} = 4。最後[さいご]に約分[やくぶん]します。"
+  },
+  {
+    "id": "sansu.g6.curriculum.fraction-multiply-meaning",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-3",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "3/4Lのジュースのうち、2/3を飲[の]みました。飲[の]んだ量[りょう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1/2L"
+        },
+        {
+          "id": "c2",
+          "text": "9/8L"
+        },
+        {
+          "id": "c3",
+          "text": "2/3L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/fraction-meaning.svg",
+      "promptImageAlt": "1Lを4等分し、3つ分に色を付けた図。飲んだ量は描かない。"
+    },
+    "explanation": "もとの3/4Lを3等分[とうぶん]すると1/4Lです。その2つ分[ぶん]だから1/2L。式[しき]は3/4×2/3＝1/2です。"
   }
 ]

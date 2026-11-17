@@ -5,13 +5,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて、表[ひょう]とグラフにしました。",
+      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて、表[ひょう]とグラフにしました。 グラフの （あ） にあてはまる メニューは、何[なに]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -38,13 +34,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "クラスで、好[す]きなスポーツを しらべて、グラフにしました。",
+      "prompt": "クラスで、好[す]きなスポーツを しらべて、グラフにしました。 グラフの （あ） にあてはまる スポーツは、何[なに]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -71,13 +63,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。",
+      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。 ６年生[ねんせい]が、一[いち]ばん多[おお]く本[ほん]をかりたのは、何曜日[なんようび]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -108,18 +96,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "クラスで、好[す]きなスポーツを しらべて、グラフにしました。",
-      "answers": [
-        "6"
-      ],
-      "template": "野球が好きな人は、何人いますか。 {{INPUT}}人",
-      "suffix": "人",
+      "prompt": "クラスで、好[す]きなスポーツを しらべて、グラフにしました。 野球[やきゅう]が好[す]きな人[ひと]は、何人[なんにん]いますか。",
+      "answers": ["6"],
+      "template": "{{INPUT}}人[ひと]",
+      "suffix": "人[にん]",
       "promptImage": "questions/legacy/1b339a48dde2b367.png"
     },
     "explanation": "グラフで、「野球[やきゅう]」のところを見[み]ると、6人[にん]になっているね。"
@@ -130,18 +112,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。",
-      "answers": [
-        "3"
-      ],
-      "template": "「シチュー」と答えた人は、何人でしたか。 {{INPUT}}人",
-      "suffix": "人",
+      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。 「シチュー」と答[こた]えた人[ひと]は、何人[なんにん]でしたか。",
+      "answers": ["3"],
+      "template": "{{INPUT}}人[ひと]",
+      "suffix": "人[にん]",
       "promptImage": "questions/legacy/b92bc99c6ae378d4.png"
     },
     "explanation": "「正[せい]」の字[じ]のとちゅう、３画[かく]でおわっているので、３人[にん]だね。"
@@ -152,18 +128,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて表[ひょう]にしました。",
-      "answers": [
-        "16"
-      ],
-      "template": "「カレー」が好きな人と 「ハンバーグ」が好きな人を合わせると、何人になりますか。 {{INPUT}}人",
-      "suffix": "人",
+      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて表[ひょう]にしました。 「カレー」が好[す]きな人[ひと]と 「ハンバーグ」が好[す]きな人[ひと]を合[あ]わせると、何人[なんにん]になりますか。",
+      "answers": ["16"],
+      "template": "{{INPUT}}人[ひと]",
+      "suffix": "人[にん]",
       "promptImage": "questions/legacy/b56d54d067d872fc.png"
     },
     "explanation": "表[ひょう]の数[かず]を 足[た]し算[ざん]しよう。 9+7=16 人[にん]だね。"
@@ -174,18 +144,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて、グラフにしました。",
-      "answers": [
-        "8"
-      ],
-      "template": "カレーが好きな人は、何人いますか。 {{INPUT}}人",
-      "suffix": "人",
+      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて、グラフにしました。 カレーが好[す]きな人[ひと]は、何人[なんにん]いますか。",
+      "answers": ["8"],
+      "template": "{{INPUT}}人[ひと]",
+      "suffix": "人[にん]",
       "promptImage": "questions/legacy/3dadc9fccf7caaa6.png"
     },
     "explanation": "グラフで、「カレー」のところを見[み]ると、8人[にん]になっているね。"
@@ -196,13 +160,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのグラフは、１年生[ねんせい]から３年生[ねんせい]が 休[やす]み時間[じかん]にしたいことについて、まとめたものです。",
+      "prompt": "つぎのグラフは、１年生[ねんせい]から３年生[ねんせい]が 休[やす]み時間[じかん]にしたいことについて、まとめたものです。 なわとびをしたい人[ひと]が 一番多[いちばんおお]いのは、何年生[なんねんせい]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -229,13 +189,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。",
+      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。 ５年生[ねんせい]と６年生[ねんせい]で、一番[いちばん]かりている本[ほん]が少[すく]ないのは、何曜日[なんようび]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -266,16 +222,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
-      "answers": [
-        "9"
-      ],
+      "answers": ["9"],
       "suffix": "人[にん]",
       "promptImage": "questions/sansu/g3/recess-table-1.svg",
       "promptImageAlt": "列は1年生、2年生、3年生、ごうけいの順。おりがみは3、4、2、空らん。どくしょは4、5、6、15。おにごっこは9、4、6、19。ボールあそびは11、5、8、24。なわとびは3、10、5、18。そのほかは7、8、10、25。ごうけいは37、36、37、110。"
@@ -288,16 +238,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
-      "answers": [
-        "4"
-      ],
+      "answers": ["4"],
       "suffix": "人[にん]",
       "promptImage": "questions/sansu/g3/recess-table-2.svg",
       "promptImageAlt": "列は1年生、2年生、3年生、ごうけいの順。おりがみは3、4、2、9。どくしょは4、5、6、15。おにごっこは9、空らん、6、19。ボールあそびは11、5、8、24。なわとびは3、10、5、18。そのほかは7、8、10、25。ごうけいは37、36、37、110。"
@@ -310,16 +254,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
-      "answers": [
-        "5"
-      ],
+      "answers": ["5"],
       "suffix": "人[にん]",
       "promptImage": "questions/sansu/g3/recess-table-3.svg",
       "promptImageAlt": "列は1年生、2年生、3年生、ごうけいの順。おりがみは3、4、2、9。どくしょは4、5、6、15。おにごっこは9、4、6、19。ボールあそびは11、5、8、24。なわとびは3、10、空らん、18。そのほかは7、8、10、25。ごうけいは37、36、37、110。"
@@ -332,16 +270,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
-      "answers": [
-        "37"
-      ],
+      "answers": ["37"],
       "suffix": "人[にん]",
       "promptImage": "questions/sansu/g3/recess-table-4.svg",
       "promptImageAlt": "列は1年生、2年生、3年生、ごうけいの順。おりがみは3、4、2、9。どくしょは4、5、6、15。おにごっこは9、4、6、19。ボールあそびは11、5、8、24。なわとびは3、10、5、18。そのほかは7、8、10、25。ごうけいは空らん、36、37、110。"
@@ -354,16 +286,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "休[やす]み時間[じかん]に したいことを まとめた表[ひょう]です。□に 入[はい]る 人数[にんずう]を 答[こた]えよう。",
-      "answers": [
-        "110"
-      ],
+      "answers": ["110"],
       "suffix": "人[にん]",
       "promptImage": "questions/sansu/g3/recess-table-5.svg",
       "promptImageAlt": "列は1年生、2年生、3年生、ごうけいの順。おりがみは3、4、2、9。どくしょは4、5、6、15。おにごっこは9、4、6、19。ボールあそびは11、5、8、24。なわとびは3、10、5、18。そのほかは7、8、10、25。ごうけいは37、36、37、空らん。"
@@ -376,13 +302,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなスポーツを しらべて表[ひょう]にしました。",
+      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなスポーツを しらべて表[ひょう]にしました。 「正[せい]」の字[じ]と、表[ひょう]の人数[にんずう]があっていないものがあります。どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -413,17 +335,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。",
-      "answers": [
-        "23"
-      ],
-      "promptImage": "questions/legacy/b45112514923da56.png"
+      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。 「好[す]きな きゅう食[しょく]のメニュー」について、表[ひょう]をつくったとき、表[ひょう]の③にあてはまる数[かず]は、いくらになるでしょう。",
+      "answers": ["23"],
+      "promptImage": "questions/legacy/b45112514923da56.png",
+      "suffix": "人[にん]"
     },
     "explanation": "「合計[ごうけい]」には、全部[ぜんぶ]の人数[にんずう]を合[あ]わせたものが入[はい]る。 9+7+4+3=23 人[にん]だね。"
   },
@@ -433,17 +350,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。",
-      "answers": [
-        "4"
-      ],
-      "promptImage": "questions/legacy/b45112514923da56.png"
+      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。 「好[す]きな きゅう食[しょく]のメニュー」について、表[ひょう]をつくったとき、表[ひょう]の②にあてはまる数[かず]は、いくらになるでしょう。",
+      "answers": ["4"],
+      "promptImage": "questions/legacy/b45112514923da56.png",
+      "suffix": "人[にん]"
     },
     "explanation": "「スパゲティ」と答[こた]えた人[ひと]は、「正[せい]」の字[じ]４画分[かくぶん]で ４人[にん]だね。"
   },
@@ -453,18 +365,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。",
-      "answers": [
-        "9"
-      ],
-      "template": "「カレー」と答えた人は、何人でしたか。 {{INPUT}}人",
-      "suffix": "人",
+      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。 「カレー」と答[こた]えた人[ひと]は、何人[なんにん]でしたか。",
+      "answers": ["9"],
+      "template": "{{INPUT}}人[ひと]",
+      "suffix": "人[にん]",
       "promptImage": "questions/legacy/b92bc99c6ae378d4.png"
     },
     "explanation": "「正[せい]」の字[じ]ひとつで、５画[かく]あるので ５人分[にんぶん]。それにあと、４画[かく]かかれているので、あわせて答[こた]えは ９人[にん]になる。"
@@ -475,11 +381,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の図[ず]のようなグラフを、何[なん]グラフというでしょう。",
       "choices": [
@@ -512,13 +414,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。",
+      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。 この１週間[しゅうかん]で、５年生[ねんせい]と６年生[ねんせい]、どちらが多[おお]く本[ほん]をかりたでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -549,13 +447,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて、表[ひょう]とグラフにします。",
+      "prompt": "クラスで、好[す]きなきゅう食[しょく]のメニューを しらべて、表[ひょう]とグラフにします。 たてのじく には、どんな数[かず]があてはまりますか。図[ず]の赤[あか]い□に あてはまることばを、えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -582,17 +476,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。",
-      "answers": [
-        "7"
-      ],
-      "promptImage": "questions/legacy/b45112514923da56.png"
+      "prompt": "「正[せい]」の字[じ]をつかって、クラスで、好[す]きなきゅう食[しょく]のメニューを しらべました。 「好[す]きな きゅう食[しょく]のメニュー」について、表[ひょう]をつくったとき、表[ひょう]の①にあてはまる数[かず]は、いくらになるでしょう。",
+      "answers": ["7"],
+      "promptImage": "questions/legacy/b45112514923da56.png",
+      "suffix": "人[にん]"
     },
     "explanation": "「ハンバーグ」と答[こた]えた人[ひと]は、「正[せい]」の字[じ]ひとつと ２画分[かくぶん]で ７人[にん]だね。"
   },
@@ -602,13 +491,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の ぼうグラフは、１組[くみ]で学校[がっこう]を休[やす]んだ人[ひと]の数[かず]を まとめたものです。",
+      "prompt": "下[した]の ぼうグラフは、１組[くみ]で学校[がっこう]を休[やす]んだ人[ひと]の数[かず]を まとめたものです。 休[やす]んだ人[ひと]がいなかったのは、何曜日[なんようび]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -639,13 +524,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "つぎのグラフは、１年生[ねんせい]から３年生[ねんせい]が 休[やす]み時間[じかん]にしたいことについて、まとめたものです。",
+      "prompt": "つぎのグラフは、１年生[ねんせい]から３年生[ねんせい]が 休[やす]み時間[じかん]にしたいことについて、まとめたものです。 つぎのうち、１年生[ねんせい]から３年生全体[ねんせいぜんたい]で したい人[ひと]が一番多[いちばんおお]いものは、どれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -676,13 +557,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の ぼうグラフは、１組[くみ]で学校[がっこう]を休[やす]んだ人[ひと]の数[かず]を まとめたものです。",
+      "prompt": "下[した]の ぼうグラフは、１組[くみ]で学校[がっこう]を休[やす]んだ人[ひと]の数[かず]を まとめたものです。 休[やす]んだ人[ひと]が一番多[いちばんおお]かったのは、何曜日[なんようび]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -713,13 +590,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。",
+      "prompt": "下[した]の ぼうグラフは、５年生[ねんせい]と６年生[ねんせい]が図書館[としょかん]でかりた本[ほん]の数[かず]を、まとめたものです。 ５年生[ねんせい]が、一[いち]ばん多[おお]く本[ほん]をかりたのは、何曜日[なんようび]でしょう。",
       "choices": [
         {
           "id": "c1",
@@ -750,11 +623,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "数[かず]をかぞえるときに、よく使[つか]われる漢字[かんじ]はどれでしょう。",
       "choices": [

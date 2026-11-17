@@ -28,7 +28,7 @@ describe('小1算数の移行欠落修復', () => {
       expect(repair.answer).toBe(String(value));
       expect(q.tags).not.toContain('runtime:quarantined-missing-context');
       expect(questionHasAnswerContext(q)).toBe(true);
-      expect(mathReviewMatches(q, `math-review:${repair.learningGroup}`)).toBe(true);
+      expect(mathReviewMatches(q, `math-review:1:${repair.learningGroup}`)).toBe(true);
     }
   });
   it('全204固定問に内容のある解説があり、47件の補完対象を網羅する', () => {

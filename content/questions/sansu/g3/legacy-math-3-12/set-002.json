@@ -1,0 +1,122 @@
+[
+  {
+    "id": "sansu.g3.curriculum.circle-diameter",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "半径[はんけい]が4cmの円[えん]です。直径[ちょっけい]は何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4cm"
+        },
+        {
+          "id": "c2",
+          "text": "8cm"
+        },
+        {
+          "id": "c3",
+          "text": "2cm"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/circle-radius.svg",
+      "promptSpeech": "半径[はんけい]が4cmの円[えん]です。直径[ちょっけい]は何[なん]cmですか。 中心Oから円の周りまで4cm。"
+    },
+    "explanation": "直径[ちょっけい]は、中心[ちゅうしん]を 通[とお]る 半径[はんけい]2つ分[ぶん]です。4+4=8で、8cmになります。"
+  },
+  {
+    "id": "sansu.g3.curriculum.sphere-radius",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "直径[ちょっけい]が10cmの球[きゅう]です。半径[はんけい]は何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "20cm"
+        },
+        {
+          "id": "c2",
+          "text": "10cm"
+        },
+        {
+          "id": "c3",
+          "text": "5cm"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/sphere-diameter.svg",
+      "promptSpeech": "直径[ちょっけい]が10cmの球[きゅう]です。半径[はんけい]は何[なん]cmですか。 球の中心Oを通る直径が10cm。"
+    },
+    "explanation": "球[きゅう]も、直径[ちょっけい]は 半径[はんけい]2つ分[ぶん]です。10÷2=5で、中心[ちゅうしん]から 表面[ひょうめん]まで5cmです。"
+  },
+  {
+    "id": "sansu.g3.curriculum.compass-radius",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "このコンパスで かく円[えん]の半径[はんけい]は何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3cm"
+        },
+        {
+          "id": "c2",
+          "text": "6cm"
+        },
+        {
+          "id": "c3",
+          "text": "9cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/compass.svg",
+      "promptSpeech": "このコンパスで かく円[えん]の半径[はんけい]は何[なん]cmですか。 コンパスの針と鉛筆の先の間は3cm。"
+    },
+    "explanation": "はりを さした所[ところ]が 円[えん]の中心[ちゅうしん]です。はりから えんぴつまでの3cmが、中心[ちゅうしん]から 円[えん]のまわりまでの 半径[はんけい]になります。"
+  },
+  {
+    "id": "sansu.g3.curriculum.sphere-cross-section",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-12",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "球[きゅう]を 切[き]ります。一番[いちばん]大[おお]きい円[えん]になる切[き]り方[かた]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "中心[ちゅうしん]を通[とお]る ア"
+        },
+        {
+          "id": "c2",
+          "text": "中心[ちゅうしん]を通[とお]らない イ"
+        },
+        {
+          "id": "c3",
+          "text": "どちらも同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/sphere-slice.svg",
+      "promptSpeech": "球[きゅう]を 切[き]ります。一番[いちばん]大[おお]きい円[えん]になる切[き]り方[かた]はどれですか。 アは中心Oを通り、イは中心Oを通らない。"
+    },
+    "explanation": "球[きゅう]の切[き]り口[くち]は 円[えん]になります。中心[ちゅうしん]を 通[とお]るとき、円[えん]の直径[ちょっけい]が 球[きゅう]の直径[ちょっけい]と 同[おな]じになり、一番[いちばん]大[おお]きくなります。"
+  }
+]

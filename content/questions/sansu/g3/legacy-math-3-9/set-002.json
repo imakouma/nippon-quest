@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g3.curriculum.ruler-offset",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-9",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "ぼうの長[なが]さは何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "7cm"
+        },
+        {
+          "id": "c2",
+          "text": "5cm"
+        },
+        {
+          "id": "c3",
+          "text": "9cm"
+        }
+      ],
+      "answer": "c2",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/ruler-offset.svg",
+      "promptSpeech": "ぼうの長[なが]さは何[なん]cmですか。 ぼうの左端は2cm、右端は7cm。"
+    },
+    "explanation": "ぼうの左[ひだり]は2cm、右[みぎ]は7cmです。0から はかっていないので、7-2=5で、長[なが]さは5cmです。"
+  }
+]

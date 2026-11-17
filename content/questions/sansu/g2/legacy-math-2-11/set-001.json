@@ -9,10 +9,10 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんについて、はじめにけいさんするのは、どこでしょう。",
+      "prompt": "つぎのけいさんについて、はじめにけいさんするのは、どこでしょう。 9-(6+3)",
       "choices": [
         {
           "id": "c1",
@@ -37,13 +37,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "29"
-      ]
+      ],
+      "template": "12+9+8 = {{INPUT}}"
     },
     "explanation": "たしざんでは、たすじゅんばんを かえても、答[こた]えは かわらない。先[さき]に 12+8 をけいさんして 20 をつくると、けいさんが かんたんになるね。 12+9+8=12+8+9=20+9=29"
   },
@@ -56,13 +58,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "56"
-      ]
+      ],
+      "template": "16+35+5 = {{INPUT}}"
     },
     "explanation": "たしざんでは、たすじゅんばんを かえても、答[こた]えは かわらない。先[さき]に 35+5 をけいさんして 40 をつくると、けいさんが かんたんになるね。 16+(35+5)=16+40=56"
   },
@@ -75,13 +79,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "0"
-      ]
+      ],
+      "template": "9-(6+3) = {{INPUT}}"
     },
     "explanation": "しきの中[なか]に かっこが あるときには、かっこの中[なか]を 先[さき]に けいさんする。 6+3=9 9-9=0"
   },
@@ -128,13 +134,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "24"
-      ]
+      ],
+      "template": "12+(4+8) = {{INPUT}}"
     },
     "explanation": "しきの中[なか]に かっこが あるときには、かっこの中[なか]を 先[さき]に けいさんする。 4+8=12 12+12=24"
   },
@@ -147,15 +155,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "13"
-      ]
+      ],
+      "template": "6+3+4 = {{INPUT}}"
     },
-    "explanation": "6+3=9 9+4=13"
+    "explanation": "左[ひだり]から 順[じゅん]に たします。6＋3＝9、つぎに 9＋4＝13です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-11.b596b6c126f3",
@@ -166,13 +176,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "49"
-      ]
+      ],
+      "template": "23+19+7 = {{INPUT}}"
     },
     "explanation": "たしざんでは、たすじゅんばんを かえても、答[こた]えは かわらない。先[さき]に 23+7 をけいさんして 30 をつくると、けいさんが かんたんになるね。 23+19+7=23+7+19=30+19=49"
   },
@@ -185,13 +197,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "28"
-      ]
+      ],
+      "template": "18+4+6 = {{INPUT}}"
     },
     "explanation": "たしざんでは、たすじゅんばんを かえても、答[こた]えは かわらない。先[さき]に 4+6 をけいさんして 10 をつくると、けいさんが かんたんになるね。 18+(4+6)=18+10=28"
   },
@@ -204,13 +218,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "25"
-      ]
+      ],
+      "template": "7+12+6 = {{INPUT}}"
     },
     "explanation": "7+12=19 19+6=25"
   },
@@ -224,10 +240,10 @@
       "source:legacy-autonomy-game",
       "legacy-node:math_2_11",
       "reviewed:structural-v1",
-      "runtime:quarantined-missing-context"
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "つぎのけいさんについて、はじめにけいさんするのは、どこでしょう。",
+      "prompt": "つぎのけいさんについて、はじめにけいさんするのは、どこでしょう。 7+(12+6)",
       "choices": [
         {
           "id": "c1",
@@ -241,6 +257,6 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "しきの中[なか]に かっこが あるときには、かっこの中[なか]を 先[さき]に けいさんする。"
+    "explanation": "かっこの 中[なか]を 先[さき]に けい算[ざん]します。12＋6＝18、つぎに 7＋18＝25です。"
   }
 ]

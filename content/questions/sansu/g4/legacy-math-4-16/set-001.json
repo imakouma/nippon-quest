@@ -5,13 +5,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下の図のような、立体を正面から見て、えがいた図のことを 何というでしょう。",
+      "prompt": "立体[りったい]の全体[ぜんたい]の形[かたち]がわかるように、ななめから見[み]た図[ず]を何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -34,7 +30,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/5cdfb936492091dd.png"
     },
-    "explanation": "下の図のような、立体を正面から見て、えがいた図のことを「見取図みとりず」という。"
+    "explanation": "見取図[みとりず]は、立体[りったい]の形[かたち]がわかるようにかいた図[ず]です。正面[しょうめん]だけでは見[み]えない奥行[おくゆ]きも表[あらわ]します。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.0e099e47c9af",
@@ -42,11 +38,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の直方体で、面ABCDと平行な面の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -79,11 +71,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の直方体で、面ABCDと垂直な面の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -116,19 +104,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "立方体や直方体の頂点の数は、いくつになるでしょう。",
-      "answers": [
-        "8"
-      ],
+      "answers": ["8"],
       "promptImage": "questions/legacy/994afa11348e8e10.png"
     },
-    "explanation": "立方体や直方体の頂点の数は、いつでも 8 になる。"
+    "explanation": "上[うえ]の面[めん]の頂点[ちょうてん]が4つ、下[した]の面[めん]の頂点[ちょうてん]が4つあります。4+4=8で、全部[ぜんぶ]で8つです。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.28c3b1012165",
@@ -136,11 +118,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図のように、長方形[ちょうほうけい]や 長方形[ちょうほうけい]と正方形[せいほうけい]で囲まれた立体を、何というでしょう。",
       "choices": [
@@ -173,20 +151,14 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "えりさんの家を点B、はなさんの家を点Cとします。",
-      "answers": [
-        "200",
-        "500"
-      ],
+      "answers": ["200", "500"],
       "template": "点Aをもとにして、点Cの位置を表すと、どうなるでしょう。 点C（北に{{INPUT}}m , 東に{{INPUT}}m）",
       "promptImage": "questions/legacy/83ac435bb3df9d89.png"
-    }
+    },
+    "explanation": "点[てん]Aから、北[きた]と東[ひがし]への移動[いどう]を別々[べつべつ]に読[よ]みます。北[きた]に200m、東[ひがし]に500mです。順番[じゅんばん]を入[い]れかえないようにします。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.3d304219e5bb",
@@ -194,16 +166,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある直方体の見取図と展開図です。",
-      "answers": [
-        "2"
-      ],
+      "answers": ["2"],
       "template": "展開図の辺CDの長さは、何cm になるでしょう。 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/15ad5d3dec9a0b9a.png"
@@ -216,11 +182,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図のような、立体を切り開いた図のことを 何というでしょう。",
       "choices": [
@@ -253,11 +215,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の直方体で、辺BCと垂直な辺の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -290,11 +248,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図のように、正方形[せいほうけい]で囲まれた立体を、何というでしょう。",
       "choices": [
@@ -319,7 +273,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/3463e7519bbe5ed5.png"
     },
-    "explanation": "正方形[せいほうけい]で囲まれた立体を、「立方体」という。"
+    "explanation": "6つの面[めん]がすべて同[おな]じ大[おお]きさの正方形[せいほうけい]でできた立体[りったい]が立方体[りっぽうたい]です。辺[へん]の長[なが]さもすべて等[ひと]しくなります。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.63035ed0d4c0",
@@ -327,11 +281,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある立方体の展開図です。",
       "choices": [
@@ -364,11 +314,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の直方体で、辺ABと垂直な辺の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -401,11 +347,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある立方体の展開図です。",
       "choices": [
@@ -438,20 +380,14 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "えりさんの家を点B、はなさんの家を点Cとします。",
-      "answers": [
-        "600",
-        "200"
-      ],
-      "template": "点Aをもとにして、点Bの位い置ちを表すと、どうなるでしょう。 点B（北に{{INPUT}}m , 東に{{INPUT}}m）",
+      "answers": ["600", "200"],
+      "template": "点Aをもとにして、点Bの位置[いち]を表すと、どうなるでしょう。 点B（北に{{INPUT}}m , 東に{{INPUT}}m）",
       "promptImage": "questions/legacy/83ac435bb3df9d89.png"
-    }
+    },
+    "explanation": "点[てん]Aから、北[きた]と東[ひがし]への移動[いどう]を別々[べつべつ]に読[よ]みます。北[きた]に600m、東[ひがし]に200mです。順番[じゅんばん]を入[い]れかえないようにします。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.88d817825821",
@@ -459,11 +395,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある立方体の展開図です。",
       "choices": [
@@ -496,11 +428,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の直方体で、辺BCと平行な辺の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -533,19 +461,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "立方体や直方体の辺の数は、いくつになるでしょう。",
-      "answers": [
-        "12"
-      ],
+      "answers": ["12"],
       "promptImage": "questions/legacy/994afa11348e8e10.png"
     },
-    "explanation": "立方体や直方体の辺の数は、いつでも 12 になる。"
+    "explanation": "上[うえ]の面[めん]に4本[ほん]、下[した]の面[めん]に4本[ほん]、上下[じょうげ]をつなぐ辺[へん]が4本[ほん]あります。4+4+4=12本[ほん]です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.a49928d76b16",
@@ -553,21 +475,14 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "横が10cm、たてが7cm、高さ6cmの直方体があります。",
-      "answers": [
-        "10",
-        "7",
-        "0"
-      ],
+      "answers": ["10", "7", "0"],
       "template": "点Aをもとにして、点Hの位置を表すと、どうなるでしょう。 点H（横{{INPUT}}cm , たて{{INPUT}}cm , 高さ{{INPUT}}cm）",
       "promptImage": "questions/legacy/0bf08d307a773e9d.png"
-    }
+    },
+    "explanation": "点[てん]Aを出発点[しゅっぱつてん]にして、横[よこ]・たて・高[たか]さを別々[べつべつ]に読[よ]みます。横[よこ]10cm、たて7cm、高[たか]さ0cmです。移動[いどう]しない方向[ほうこう]は0と表[あらわ]します。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.b583ad0cf978",
@@ -575,11 +490,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある立方体の展開図です。",
       "choices": [
@@ -612,11 +523,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある直方体の展開図です。",
       "choices": [
@@ -649,19 +556,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "立方体や直方体の面の数は、いくつになるでしょう。",
-      "answers": [
-        "6"
-      ],
+      "answers": ["6"],
       "promptImage": "questions/legacy/994afa11348e8e10.png"
     },
-    "explanation": "立方体や直方体の面の数は、いつでも 6 になる。"
+    "explanation": "上[うえ]と下[した]、前[まえ]と後[うし]ろ、左[ひだり]と右[みぎ]の3組[くみ]です。2×3=6で、面[めん]は6つあります。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.d50693376ddd",
@@ -669,16 +570,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図は、ある直方体の見取図と展開図です。",
-      "answers": [
-        "4"
-      ],
+      "answers": ["4"],
       "template": "展開図の辺GHの長さは、何cm になるでしょう。 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/15ad5d3dec9a0b9a.png"
@@ -691,11 +586,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の直方体で、辺ABと平行な辺の組み合わせとして、正しいものをえらぼう。",
       "choices": [
@@ -728,21 +619,14 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "横が10cm、たてが7cm、高さ6cmの直方体があります。",
-      "answers": [
-        "10",
-        "0",
-        "6"
-      ],
+      "answers": ["10", "0", "6"],
       "template": "点Aをもとにして、点Cの位置を表すと、どうなるでしょう。 点C（横{{INPUT}}cm , たて{{INPUT}}cm , 高さ{{INPUT}}cm）",
       "promptImage": "questions/legacy/503859bc658fb6e3.png"
-    }
+    },
+    "explanation": "点[てん]Aを出発点[しゅっぱつてん]にして、横[よこ]・たて・高[たか]さを別々[べつべつ]に読[よ]みます。横[よこ]10cm、たて0cm、高[たか]さ6cmです。移動[いどう]しない方向[ほうこう]は0と表[あらわ]します。"
   },
   {
     "id": "legacy.sansu.g4.math-4-16.e595ac1d1b6a",
@@ -750,20 +634,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "横が10cm、たてが7cm、高さ6cmの直方体があります。",
-      "answers": [
-        "10",
-        "7",
-        "6"
-      ],
+      "answers": ["10", "7", "6"],
       "template": "点Aをもとにして、点Gの位置を表すと、どうなるでしょう。 点G（横{{INPUT}}cm , たて{{INPUT}}cm , 高さ{{INPUT}}cm）",
       "promptImage": "questions/legacy/e5f3edbf56eae5ea.png"
-    }
+    },
+    "explanation": "点[てん]Aを出発点[しゅっぱつてん]にして、横[よこ]・たて・高[たか]さを別々[べつべつ]に読[よ]みます。横[よこ]10cm、たて7cm、高[たか]さ6cmです。移動[いどう]しない方向[ほうこう]は0と表[あらわ]します。"
   }
 ]

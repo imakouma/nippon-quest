@@ -25,8 +25,8 @@ const repairs = [
   'cb5bb00c2add',
   'd67ff00c4f69',
 ];
-it('preserves all 333 learning targets, with separated fraction input fields', () => {
-  expect(questions).toHaveLength(333);
+it('preserves all 353 learning targets, with separated fraction input fields', () => {
+  expect(questions).toHaveLength(353);
   const rows = questions
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((q) => {
@@ -48,7 +48,7 @@ it('preserves all 333 learning targets, with separated fraction input fields', (
       ];
     });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '7ca1bfcc068aff744a0c6dd2720982215d7bd6ac76901c9e398098de17dcffbb',
+    '57863d263ccf7c792316284fc3db975850dbd4dc86268462d85666e1443b1440',
   );
 });
 it('illustrates volume, proportion, averages, speed, percentages and changing quantities', () => {

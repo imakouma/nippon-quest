@@ -184,7 +184,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形[かたち]には ぜんぶで 6つの 面[めん]が あります。"
+    "explanation": "上[うえ]と下[した]、前[まえ]とうしろ、左[ひだり]と右[みぎ]に 2まいずつ 面[めん]があります。2＋2＋2＝6まいです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.539c693eed81",
@@ -294,7 +294,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形[かたち]は ぜんぶで 12の へんで できています。"
+    "explanation": "上[うえ]の 面[めん]の まわりに 4本[ほん]、下[した]に 4本[ほん]、上[うえ]と下[した]を つなぐ 4本[ほん]。4＋4＋4＝12本[ほん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.8f916963f3dd",
@@ -390,7 +390,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形[かたち]には ぜんぶで 8つ ちょう点[てん]が あります。"
+    "explanation": "上[うえ]の 面[めん]に 4つ、下[した]の 面[めん]に 4つの ちょう点[てん]があります。4＋4＝8つです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.a7cfa10c870e",
@@ -449,7 +449,7 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3d971ed8d56ec052.png"
     },
-    "explanation": "はこの形[かたち]には ぜんぶで 6つの 面[めん]が あります。"
+    "explanation": "上[うえ]と下[した]、前[まえ]とうしろ、左[ひだり]と右[みぎ]に 2まいずつ 面[めん]があります。2＋2＋2＝6まいです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-18.fc0d2e4c9380",
@@ -471,6 +471,39 @@
       "suffix": "つ",
       "promptImage": "questions/legacy/3dcdc1a8b39dc9d1.png"
     },
-    "explanation": "むかいあう へんの ながさは おなじです。"
+    "explanation": "10cmの 辺[へん]は 同[おな]じ 向[む]きの 4本[ほん]です。上[うえ]に 2本[ほん]、下[した]に 2本[ほん]あるので、2＋2＝4本[ほん]です。"
+  },
+  {
+    "id": "sansu.g2.curriculum.make-box",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-18",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "はこを つくるために、面[めん]を 図[ず]のように 用意[ようい]しました。面[めん]は 何[なん]まい ありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6まい"
+        },
+        {
+          "id": "c2",
+          "text": "4まい"
+        },
+        {
+          "id": "c3",
+          "text": "8まい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/make-box.svg",
+      "promptSpeech": "長方形[ちょうほうけい]のカードが上[うえ]に4まい、下[した]に2まいあります。"
+    },
+    "explanation": "上[うえ]に 4まい、下[した]に 2まいなので、4＋2＝6まいです。はこには 上[うえ]と下[した]、前[まえ]とうしろ、左[ひだり]と右[みぎ]の 6つの 面[めん]があります。"
   }
 ]

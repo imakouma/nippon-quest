@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g3.curriculum.net-mass",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": ["original:curriculum-20261116"],
+    "payload": {
+      "prompt": "ねんどだけの重[おも]さは 何[なん]gですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "770g"
+        },
+        {
+          "id": "c2",
+          "text": "650g"
+        },
+        {
+          "id": "c3",
+          "text": "530g"
+        }
+      ],
+      "answer": "c3",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/curriculum/mass-container.svg",
+      "promptSpeech": "ねんどだけの重[おも]さは 何[なん]gですか。 箱入り粘土650g、空の箱120g。"
+    },
+    "explanation": "はこと ねんどを 合[あ]わせた650gから、はこだけの120gを 引[ひ]きます。650-120=530なので、ねんどは530gです。"
+  }
+]

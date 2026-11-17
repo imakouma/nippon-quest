@@ -96,14 +96,16 @@ export function KanjiTraceView({ payload, ctx, order, onDone, writing }: Props) 
             <span class="nq-kt-strokes">{t('question.kanjiTraceStrokes', { n: payload.strokeCount })}</span>
           )}
         </p>
-        <button
-          type="button"
-          class="nq-btn nq-btn-speak"
-          aria-label={t('question.speak')}
-          onClick={() => ctx.speak(payload.reading)}
-        >
-          🔊
-        </button>
+        {!reading && (
+          <button
+            type="button"
+            class="nq-btn nq-btn-speak"
+            aria-label={t('question.speak')}
+            onClick={() => ctx.speak(payload.reading)}
+          >
+            🔊
+          </button>
+        )}
       </div>
       {reading && <div class="nq-kt-big">{payload.kanji}</div>}
       {payload.hintWord && !reading && (

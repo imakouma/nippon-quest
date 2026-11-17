@@ -26,12 +26,13 @@ it('分数と時刻で分の読みを区別する', () => {
   expect(time).toContain('45分[ふん]');
 });
 
-it('隔離済みの選択問題は読み込み時に出題候補へ入らない', async () => {
+it('元の設問を復元した選択問題は隔離なしで読み込める', async () => {
   const { QuestionBank } = await import('../../src/questions/engine/bank');
   const path = 'content/questions/sansu/g3/legacy-math-3-18/set-001.json';
   const data = JSON.parse(readFileSync(path, 'utf8'));
   const { bank, report } = await QuestionBank.load([path], async () => data);
-  expect(report.quarantined).toBe(8);
+  expect(report).toMatchObject({ quarantined: 0, omitted: 0, skipped: [] });
+  expect(bank.size).toBe(data.length);
   expect(bank.all().some((question) => question.tags?.includes('runtime:quarantined-missing-context'))).toBe(
     false,
   );

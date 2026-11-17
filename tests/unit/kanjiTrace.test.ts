@@ -180,6 +180,7 @@ describe('kanji-trace renderer', () => {
       strokeCount: 3,
     });
     expect(container.querySelector('.nq-kt-hint ruby')?.textContent).toBe('山やま');
+    expect(container.querySelector('.nq-btn-speak')).not.toBeNull();
     const [clear, done] = [...container.querySelectorAll<HTMLButtonElement>('.nq-kt-actions button')];
     const canvas = container.querySelector('canvas')!;
     const touch = (type: string, init: MouseEventInit = {}) => {
@@ -250,6 +251,7 @@ describe('kanji-trace renderer', () => {
       { mode: 'reading', kanji: '石', reading: 'いし', choices: ['いし', 'いわ'], answer: 'いし' },
       controller.signal,
     );
+    expect(container.querySelector('.nq-btn-speak')).toBeNull();
     act(() => {
       [...container.querySelectorAll<HTMLButtonElement>('.nq-choice')]
         .find((button) => button.textContent?.includes('いし'))!

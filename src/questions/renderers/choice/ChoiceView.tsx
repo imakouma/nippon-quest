@@ -8,6 +8,7 @@ import { TimerBar } from '../shared/TimerBar';
 import { Feedback } from '../shared/Feedback';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
 import type { ChoicePayload } from './schema';
+import { canSpeakPrompt } from '../shared/questionSpeech';
 
 export interface ChoiceViewProps {
   ctx: RendererContext;
@@ -24,7 +25,9 @@ export interface ChoiceViewProps {
 }
 
 export function getChoicePromptSpeech(payload: ChoicePayload): string {
-  return payload.promptSpeech ?? fractionSpeech(stripRuby(payload.prompt, 'kana'));
+  // 画像説明は答えの個数・特徴を含みうる。録音を使う聞き取り問題の代替音声は維持する。
+  const speech = !payload.promptImage || payload.promptAudio ? payload.promptSpeech : undefined;
+  return speech ?? fractionSpeech(stripRuby(payload.prompt, 'kana'));
 }
 
 export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
@@ -40,7 +43,7 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
     chosen: string | null;
     answeredAt?: number;
   } | null>(null);
-  const review = ctx.question.subject === 'sansu' && ctx.question.grade <= 3;
+  const review = ctx.question.subject === 'sansu';
   const choices = useMemo(
     () => order.map((id) => payload.choices.find((c) => c.id === id)!),
     [order, payload.choices],
@@ -125,19 +128,21 @@ export function ChoiceView({ ctx, payload, order, onDone }: ChoiceViewProps) {
           />
         )}
         <RubyLabel text={payload.prompt} grade={ctx.grade} as="p" />
-        <button
-          type="button"
-          class="nq-btn nq-btn-speak"
-          aria-label={t('question.speak')}
-          onClick={() => {
-            const speech = getChoicePromptSpeech(payload);
-            if (payload.promptAudio)
-              new Audio(ctx.assets.audio(payload.promptAudio)).play().catch(() => ctx.speak(speech));
-            else ctx.speak(speech);
-          }}
-        >
-          🔊
-        </button>
+        {canSpeakPrompt(ctx.question) && (
+          <button
+            type="button"
+            class="nq-btn nq-btn-speak"
+            aria-label={t('question.speak')}
+            onClick={() => {
+              const speech = getChoicePromptSpeech(payload);
+              if (payload.promptAudio)
+                new Audio(ctx.assets.audio(payload.promptAudio)).play().catch(() => ctx.speak(speech));
+              else ctx.speak(speech);
+            }}
+          >
+            🔊
+          </button>
+        )}
       </div>
       <div
         class={`nq-q-choices nq-q-choices-${choices.length}${big ? ' nq-q-choices-big' : ''}${prose ? ' nq-q-choices-prose' : ''}`}

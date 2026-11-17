@@ -8,10 +8,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_4_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "speech:disabled"
     ],
     "payload": {
-      "prompt": "次の数をよみましょう。",
+      "prompt": "次の数をよみましょう。 126573000",
       "choices": [
         {
           "id": "c1",
@@ -33,7 +34,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。千のまとまり（数字４つ）ずつ くぎって読めばいいので 1億2657万3000 → 一億二千六百五十七万三千になる。"
+    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。万のまとまり（数字４つ）ずつ くぎって読めばいいので 1億2657万3000 → 一億二千六百五十七万三千になる。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.075af8e46f90",
@@ -41,16 +42,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を数字でかきましょう。",
-      "answers": [
-        "2806000000"
-      ]
+      "prompt": "次の数を数字でかきましょう。 １億を28こ、100万を6こ 集めた数",
+      "answers": ["2806000000"]
     },
     "explanation": "１億を28こ集めると、十億の位になる。28億 と 600万なので、2806000000 になるね。"
   },
@@ -60,13 +55,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を 10でわった数は、いくつでしょう。",
+      "prompt": "次の数を 10でわった数は、いくつでしょう。 3億3000万",
       "choices": [
         {
           "id": "c1",
@@ -96,13 +87,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を10倍した数は、いくつでしょう。",
+      "prompt": "次の数を10倍した数は、いくつでしょう。 2000万",
       "choices": [
         {
           "id": "c1",
@@ -110,7 +97,7 @@
         },
         {
           "id": "c2",
-          "text": "20000万"
+          "text": "2000万"
         },
         {
           "id": "c3",
@@ -132,13 +119,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を10でわった数は、いくつでしょう。",
+      "prompt": "次の数を10でわった数は、いくつでしょう。 12兆",
       "choices": [
         {
           "id": "c1",
@@ -146,7 +129,7 @@
         },
         {
           "id": "c2",
-          "text": "12000億"
+          "text": "120兆"
         },
         {
           "id": "c3",
@@ -168,18 +151,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 912×105456000091295760 =",
-      "answers": [
-        "95760"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 912×105 =",
+      "answers": ["95760"]
     },
-    "explanation": "かける数 105 の 0 に注意しよう。筆算の段を しょうりゃく してもいい。 9 1 2 × 1 0 5 4 5 6 0 0 0 0 9 1 2 9 5 7 6 0"
+    "explanation": "105を5と100に分[わ]けます。912×5=4560、912×100=91200。これらを足[た]すと95760です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.686f389e26ff",
@@ -190,10 +167,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_4_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "speech:disabled"
     ],
     "payload": {
-      "prompt": "次の数をよみましょう。",
+      "prompt": "次の数をよみましょう。 1376049397",
       "choices": [
         {
           "id": "c1",
@@ -215,7 +193,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。千のまとまり（数字４つ）ずつ くぎって読めばいいので 13億7604万9397 → 十三億七千六百四万九千三百九十七になる。"
+    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。万のまとまり（数字４つ）ずつ くぎって読めばいいので 13億7604万9397 → 十三億七千六百四万九千三百九十七になる。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.831b4da3c036",
@@ -223,18 +201,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 456×789410436483192359784 =",
-      "answers": [
-        "359784"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 456×789 =",
+      "answers": ["359784"]
     },
-    "explanation": "4 5 6 × 7 8 9 4 1 0 4 3 6 4 8 3 1 9 2 3 5 9 7 8 4"
+    "explanation": "789を9と80と700に分[わ]けます。456×9=4104、456×80=36480、456×700=319200。これらを足[た]すと359784です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.84e1a52edf99",
@@ -242,18 +214,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 123×45673861549256088 =",
-      "answers": [
-        "56088"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 123×456 =",
+      "answers": ["56088"]
     },
-    "explanation": "1 2 3 × 4 5 6 7 3 8 6 1 5 4 9 2 5 6 0 8 8"
+    "explanation": "456を6と50と400に分[わ]けます。123×6=738、123×50=6150、123×400=49200。これらを足[た]すと56088です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.8f927b44cdfb",
@@ -261,18 +227,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 378×2913783402756109998 =",
-      "answers": [
-        "109998"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 378×291 =",
+      "answers": ["109998"]
     },
-    "explanation": "3 7 8 × 2 9 1 3 7 8 3 4 0 2 7 5 6 1 0 9 9 9 8"
+    "explanation": "291を1と90と200に分[わ]けます。378×1=378、378×90=34020、378×200=75600。これらを足[た]すと109998です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.94241bc795ef",
@@ -280,18 +240,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 756×20752920001512156492 =",
-      "answers": [
-        "156492"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 756×207 =",
+      "answers": ["156492"]
     },
-    "explanation": "かける数 207の 0 に注意しよう。筆算の段を しょうりゃく してもいい。 7 5 6 × 2 0 7 5 2 9 2 0 0 0 1 5 1 2 1 5 6 4 9 2"
+    "explanation": "207を7と200に分[わ]けます。756×7=5292、756×200=151200。これらを足[た]すと156492です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.9a9fb0b9455b",
@@ -299,16 +253,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を 数字でかきましょう。",
-      "answers": [
-        "1600000000000"
-      ]
+      "prompt": "次の数を 数字でかきましょう。 1000億を16こ 集めた数",
+      "answers": ["1600000000000"]
     },
     "explanation": "1000億を 16こ集めると、一兆の位になる。1兆 と 6000億なので、1600000000000 になるね。"
   },
@@ -318,18 +266,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 403×365201524181209147095 =",
-      "answers": [
-        "147095"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 403×365 =",
+      "answers": ["147095"]
     },
-    "explanation": "4 0 3 × 3 6 5 2 0 1 5 2 4 1 8 1 2 0 9 1 4 7 0 9 5"
+    "explanation": "365を5と60と300に分[わ]けます。403×5=2015、403×60=24180、403×300=120900。これらを足[た]すと147095です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.be58f162448b",
@@ -337,16 +279,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を 数字でかきましょう。",
-      "answers": [
-        "1311051110"
-      ]
+      "prompt": "次の数を 数字でかきましょう。 十三億千百五万千百十",
+      "answers": ["1311051110"]
     },
     "explanation": "億、万で数字をくぎって、書いていこう。 十三億千百五万千百十 → 十三億 / 千百五万 / 千百十 「億」までを数字にすると 13、 「万」までを数字にすると 1105、のこりが 1110 これをあわせて、1311051110 になる。"
   },
@@ -356,13 +292,9 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を10倍した数は、いくつでしょう。",
+      "prompt": "次の数を10倍した数は、いくつでしょう。 9800億",
       "choices": [
         {
           "id": "c1",
@@ -370,11 +302,11 @@
         },
         {
           "id": "c2",
-          "text": "98000億"
+          "text": "980億"
         },
         {
           "id": "c3",
-          "text": "9万8000億"
+          "text": "9兆800億"
         },
         {
           "id": "c4",
@@ -392,18 +324,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 408×37140828561224151368 =",
-      "answers": [
-        "151368"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 408×371 =",
+      "answers": ["151368"]
     },
-    "explanation": "4 0 8 × 3 7 1 4 0 8 2 8 5 6 1 2 2 4 1 5 1 3 6 8"
+    "explanation": "371を1と70と300に分[わ]けます。408×1=408、408×70=28560、408×300=122400。これらを足[た]すと151368です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.dd01d9cf17b5",
@@ -414,10 +340,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_4_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "speech:disabled"
     ],
     "payload": {
-      "prompt": "次の数をよみましょう。",
+      "prompt": "次の数をよみましょう。 321774009",
       "choices": [
         {
           "id": "c1",
@@ -439,7 +366,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。千のまとまり（数字４つ）ずつ くぎって読めばいいので 3億2177万4009 → 三億二千百七十七万四千九になる。"
+    "explanation": "位を数えていくと、億のくらいまで、あることがわかる。万のまとまり（数字４つ）ずつ くぎって読めばいいので 3億2177万4009 → 三億二千百七十七万四千九になる。"
   },
   {
     "id": "legacy.sansu.g4.math-4-1.ec4fe986ab09",
@@ -447,16 +374,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を 数字でかきましょう。",
-      "answers": [
-        "257560098"
-      ]
+      "prompt": "次の数を 数字でかきましょう。 二億五千七百五十六万九十八",
+      "answers": ["257560098"]
     },
     "explanation": "億、万で数字をくぎって、書いていこう。 二億五千七百五十六万九十八 → 二億 / 五千七百五十六万 / 九十八 「億」までを数字にすると 2、 「万」までを数字にすると 5756、のこりが 0098 これをあわせて、257560098 になる。"
   },
@@ -466,16 +387,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の数を 数字でかきましょう。",
-      "answers": [
-        "207848512"
-      ]
+      "prompt": "次の数を 数字でかきましょう。 二億七百八十四万八千五百十二",
+      "answers": ["207848512"]
     },
     "explanation": "億、万で数字をくぎって、書いていこう。 二億七百八十四万八千五百十二 → 二億 / 七百八十四万 / 八千五百十二 「億」までを数字にすると 2、 「万」までを数字にすると 0784、のこりが 8512 これをあわせて、207848512 になる。"
   },
@@ -485,17 +400,11 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_1", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 662×453310264829790 =",
-      "answers": [
-        "29790"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 45×662 =",
+      "answers": ["29790"]
     },
-    "explanation": "そのままかけ算してもいいけど、じゅん番を入れかえると、筆算の段が少なくてすむぞ。 6 6 2 × 4 5 3 3 1 0 2 6 4 8 2 9 7 9 0"
+    "explanation": "662を2と60と600に分[わ]けます。45×2=90、45×60=2700、45×600=27000。これらを足[た]すと29790です。"
   }
 ]

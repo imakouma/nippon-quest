@@ -5,17 +5,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の長[なが]さを、m（メートル）を使[つか]ってあらわそう。 4km 800m = m",
-      "answers": [
-        "4800"
-      ],
-      "template": "次の長さを、m（メートル）を使ってあらわそう。 4km 800m = {{INPUT}}m",
+      "prompt": "長[なが]さの単位[たんい]を かえて あらわそう。",
+      "answers": ["4800"],
+      "template": "4km 800m = {{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -28,17 +22,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の長[なが]さを、km （キロメートル）を使[つか]ってあらわそう。 5000m = km",
-      "answers": [
-        "5"
-      ],
-      "template": "次の長さを、km （キロメートル）を使ってあらわそう。 5000m = {{INPUT}}km",
+      "prompt": "長[なが]さの単位[たんい]を かえて あらわそう。",
+      "answers": ["5"],
+      "template": "5000m = {{INPUT}}km",
       "suffix": "km",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -51,11 +39,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。 3km200m + 800m",
       "choices": [
@@ -89,16 +73,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "5"
-      ],
+      "answers": ["5"],
       "template": "10km - 5km = {{INPUT}}km",
       "suffix": "km",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
@@ -112,17 +90,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "1",
-        "700"
-      ],
+      "answers": ["1", "700"],
       "template": "2km 200m - 500m = {{INPUT}}km {{INPUT}}m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -135,17 +106,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の長[なが]さを、m （メートル）を使[つか]ってあらわそう。 7km 600m = m",
-      "answers": [
-        "7600"
-      ],
-      "template": "次の長さを、m （メートル）を使ってあらわそう。 7km 600m = {{INPUT}}m",
+      "prompt": "長[なが]さの単位[たんい]を かえて あらわそう。",
+      "answers": ["7600"],
+      "template": "7km 600m = {{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -158,17 +123,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さを、kmとmを使[つか]ってあらわそう。",
-      "answers": [
-        "3",
-        "200"
-      ],
+      "answers": ["3", "200"],
       "template": "3200m = {{INPUT}}km {{INPUT}}m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -181,16 +139,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さを、m （メートル）を使[つか]ってあらわそう。",
-      "answers": [
-        "4000"
-      ],
+      "answers": ["4000"],
       "template": "4km= {{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
@@ -204,17 +156,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さを、kmとmを使[つか]ってあらわそう。",
-      "answers": [
-        "1",
-        "500"
-      ],
+      "answers": ["1", "500"],
       "template": "1500m = {{INPUT}}km {{INPUT}}m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -227,11 +172,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "キロメートルを あらわしているものは、どれでしょう。",
       "choices": [
@@ -263,16 +204,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "600"
-      ],
+      "answers": ["600"],
       "template": "1km - 400m = {{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
@@ -286,17 +221,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。",
-      "answers": [
-        "1",
-        "300"
-      ],
+      "answers": ["1", "300"],
       "template": "600m + 700m = {{INPUT}}km {{INPUT}}m",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
       "promptImageAlt": "1kmを同じ大きさの10部分に分け、1部分が100mであることを示す図。"
@@ -309,16 +237,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1キロメートルは、何[なん]メートルでしょう。",
-      "answers": [
-        "1000"
-      ],
+      "answers": ["1000"],
       "template": "{{INPUT}}メートル",
       "suffix": "メートル",
       "promptImage": "questions/sansu/g3/visuals/kilometre.svg",
@@ -332,11 +254,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-9",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_9",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_9", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の長[なが]さの計算[けいさん]を しましょう。 600m + 400m",
       "choices": [
