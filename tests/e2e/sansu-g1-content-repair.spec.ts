@@ -54,6 +54,10 @@ for (const [id, answer, reason] of [
   ['subtract-zero', '5', '5 - 0 = 5'],
   ['missing-part', '5', '8 - 3 = 5'],
   ['ordinal-before', '4', '5 - 1 = 4'],
+  ['add-three', '9', '3 + 2 + 4 = 9'],
+  ['subtract-three', '4', '9 - 2 - 3 = 4'],
+  ['add-then-subtract', '6', '8 - 2 = 6'],
+  ['subtract-then-add', '7', '4 + 3 = 7'],
 ]) {
   test(`再監査で補った場面を解いて理由を読める: ${id}`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });

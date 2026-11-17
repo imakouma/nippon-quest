@@ -14,7 +14,7 @@ const questions = readdirSync('content/questions/sansu/g1').flatMap((dir) =>
 const changed = review.filter((r) => r.decision === 'illustrated');
 describe('grade 1 visual question review', () => {
   it('reviews every question and preserves all learning targets and correct answers', () => {
-    expect(questions).toHaveLength(211);
+    expect(questions).toHaveLength(215);
     expect(changed).toHaveLength(98);
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
     const rows = questions

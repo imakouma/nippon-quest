@@ -276,5 +276,65 @@
       ]
     },
     "explanation": "1かいめは 1こも はいっていません。2かいめの 3こだけなので、0 + 3 = 3。あわせて 3こです。"
+  },
+  {
+    "id": "sansu.g1.reaudit.add-three",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "たしざんが 2かい あります。ひだりから じゅんに けいさんしよう。",
+      "template": "3 + 2 + 4 = {{INPUT}}",
+      "answers": [
+        "9"
+      ]
+    },
+    "explanation": "まず 3 + 2 = 5。つぎに 5 + 4 = 9なので、3 + 2 + 4 = 9です。"
+  },
+  {
+    "id": "sansu.g1.reaudit.subtract-three",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "ひきざんが 2かい あります。ひだりから じゅんに けいさんしよう。",
+      "template": "9 - 2 - 3 = {{INPUT}}",
+      "answers": [
+        "4"
+      ]
+    },
+    "explanation": "まず 9 - 2 = 7。つぎに 7 - 3 = 4なので、9 - 2 - 3 = 4です。"
+  },
+  {
+    "id": "sansu.g1.reaudit.add-then-subtract",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "とりが 5わ います。3わ きて、2わ とんでいきました。いまは なんわ？",
+      "template": "5 + 3 - 2 = {{INPUT}}わ",
+      "answers": [
+        "6"
+      ]
+    },
+    "explanation": "3わ きたので、5 + 3 = 8。そこから 2わ とんでいくので、8 - 2 = 6。いまは 6わです。"
+  },
+  {
+    "id": "sansu.g1.reaudit.subtract-then-add",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "バスに 8にん のっています。4にん おりて、3にん のりました。いまは なんにん？",
+      "template": "8 - 4 + 3 = {{INPUT}}にん",
+      "answers": [
+        "7"
+      ]
+    },
+    "explanation": "4にん おりたので、8 - 4 = 4。そこに 3にん のるので、4 + 3 = 7。いまは 7にんです。"
   }
 ]
