@@ -35,7 +35,7 @@ describe('CI workflow', () => {
   });
 
   it('runs handwriting and math visual checks with development pages', () => {
-    for (const file of ['kanji-writing.spec.ts', 'sansu-g*-visuals.spec.ts']) {
+    for (const file of ['kanji-writing.spec.ts', 'sansu-g*-visuals.spec.ts', 'question-speech.spec.ts']) {
       expect(prebuiltConfig).toContain(`'${file}'`);
       expect(workflow).toContain(`tests/e2e/${file}`);
     }
