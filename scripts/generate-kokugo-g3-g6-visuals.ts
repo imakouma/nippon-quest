@@ -105,7 +105,7 @@ const flower = () =>
     [0, -12],
     [0, 12],
   ]
-    .map(([x, y]) => circle(x!, y!, 13, '#eb9384'))
+    .map(([x, y]) => circle(x!, y!, 13, '#de6262'))
     .join('') +
   circle(0, 0, 7, '#f0cf71');
 draw(
@@ -131,7 +131,7 @@ draw(
   'g3-red-ball',
   ['7df06ee97fc8'],
   '赤い大きな玉が転がった場面。',
-  circle(270, 105, 62, '#e79787') +
+  circle(270, 105, 62, '#de6262') +
     path('M120 90h45m-65 30h60m-25 30h45', 'none', '#7893a6', 5) +
     caption('赤い 大きな 玉が 転がった。'),
 );
@@ -173,8 +173,8 @@ draw(
   ['021e66a343fb', '0b27c7ebfee3', 'ec309ca0d71a'],
   '青い空に白い雲が広がっている場面。',
   rect(40, 25, 400, 135, '#c9e4f1') +
-    group(165, 88, cloud(), 0.9) +
-    group(315, 100, cloud(), 0.7) +
+    group(165, 88, cloud().replace('#d7e4ed', '#fff'), 0.9) +
+    group(315, 100, cloud().replace('#d7e4ed', '#fff'), 0.7) +
     text('白い雲が 青い空に', 240, 195, 27) +
     text('ゆっくりと 広がる。', 240, 228, 27),
 );
