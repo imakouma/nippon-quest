@@ -1,0 +1,1024 @@
+{
+  "subject": "kokugo",
+  "groups": [
+    {
+      "unit": "kokugo.g1.bun-no-kimari",
+      "grade": 1,
+      "basic": [
+        "kokugo.g1.bun-no-kimari.0001",
+        "kokugo.g1.bun-no-kimari.0004",
+        "kokugo.g1.bun-no-kimari.0003",
+        "kokugo.g1.bun-no-kimari.0009",
+        "kokugo.g1.bun-no-kimari.0010"
+      ],
+      "standard": [
+        "kokugo.g1.bun-no-kimari.0008",
+        "kokugo.g1.bun-no-kimari.0006",
+        "kokugo.g1.bun-no-kimari.0007",
+        "kokugo.g1.bun-no-kimari.0011",
+        "kokugo.g1.bun-no-kimari.0002"
+      ],
+      "applied": ["kokugo.g1.bun-no-kimari.0005"],
+      "rationale": "句読点・かぎ・原稿用紙の基本を先にし、主述と短いまとまりの識別から修飾語の並べ方へ。"
+    },
+    {
+      "unit": "kokugo.g1.dokkai",
+      "grade": 1,
+      "basic": ["kokugo.g1.dokkai.0002"],
+      "standard": ["kokugo.g1.dokkai.0001", "kokugo.g1.dokkai.0005", "kokugo.g1.dokkai.0003"],
+      "applied": ["kokugo.g1.dokkai.0004", "kokugo.g1.dokkai.0006"],
+      "rationale": "明記された場所、出来事の順・理由を読んでから、表情や複数の手掛かりによる推測へ。"
+    },
+    {
+      "unit": "kokugo.g1.hanasu-kiku",
+      "grade": 1,
+      "basic": ["kokugo.g1.hanasu-kiku.0001", "kokugo.g1.hanasu-kiku.0002", "kokugo.g1.hanasu-kiku.0005"],
+      "standard": ["kokugo.g1.hanasu-kiku.0006", "kokugo.g1.hanasu-kiku.0004", "kokugo.g1.hanasu-kiku.0003"],
+      "applied": [],
+      "rationale": "聞く姿勢と聞き返しを先に、依頼・発表の導入・連絡の複数情報の把握へ。応用段階を無理に作らない。"
+    },
+    {
+      "unit": "kokugo.g1.hiragana",
+      "grade": 1,
+      "basic": [
+        "kokugo.g1.hiragana.0018",
+        "kokugo.g1.hiragana.0002",
+        "kokugo.g1.hiragana.0013",
+        "kokugo.g1.hiragana.0007",
+        "kokugo.g1.hiragana.0008",
+        "kokugo.g1.hiragana.0019"
+      ],
+      "standard": [
+        "kokugo.g1.hiragana.0006",
+        "kokugo.g1.hiragana.0010",
+        "kokugo.g1.hiragana.0016",
+        "kokugo.g1.hiragana.0015"
+      ],
+      "applied": ["kokugo.g1.hiragana.0004"],
+      "rationale": "文字順・形・濁点半濁点・をの音を確認後、小さい文字と長音の綴り、文中の助詞の適用へ。"
+    },
+    {
+      "unit": "kokugo.g1.joshi",
+      "grade": 1,
+      "basic": ["kokugo.g1.joshi.0002", "kokugo.g1.joshi.0009"],
+      "standard": [
+        "kokugo.g1.joshi.0005",
+        "kokugo.g1.joshi.0010",
+        "kokugo.g1.joshi.0004",
+        "kokugo.g1.joshi.0001",
+        "kokugo.g1.joshi.0006",
+        "kokugo.g1.joshi.0007",
+        "kokugo.g1.joshi.0008"
+      ],
+      "applied": ["kokugo.g1.joshi.0003"],
+      "rationale": "は・への読み方から、一つの助詞を補う文、はとがを含む文の使い分けへ。"
+    },
+    {
+      "unit": "kokugo.g1.katakana",
+      "grade": 1,
+      "basic": [
+        "kokugo.g1.katakana.0003",
+        "kokugo.g1.katakana.0009",
+        "kokugo.g1.katakana.0012",
+        "kokugo.g1.katakana.0014"
+      ],
+      "standard": [
+        "kokugo.g1.katakana.0017",
+        "kokugo.g1.katakana.0001",
+        "kokugo.g1.katakana.0011",
+        "kokugo.g1.katakana.0005"
+      ],
+      "applied": [],
+      "rationale": "書き方・用途・長音と似た字を確認後、短い語の判別から拗音を含む綴りへ。"
+    },
+    {
+      "unit": "kokugo.g1.kotoba-asobi",
+      "grade": 1,
+      "basic": [
+        "kokugo.g1.kotoba-asobi.0005",
+        "kokugo.g1.kotoba-asobi.0006",
+        "kokugo.g1.kotoba-asobi.0003",
+        "kokugo.g1.kotoba-asobi.0004"
+      ],
+      "standard": ["kokugo.g1.kotoba-asobi.0007", "kokugo.g1.kotoba-asobi.0001"],
+      "applied": ["kokugo.g1.kotoba-asobi.0002"],
+      "rationale": "仲間・語頭・音数の確認後、除外としりとり、文字を組み替える操作へ。"
+    },
+    {
+      "unit": "kokugo.g1.legacy-jpn-1-1",
+      "grade": 1,
+      "basic": [
+        "legacy.kokugo.g1.jpn-1-1.28619547347d",
+        "legacy.kokugo.g1.jpn-1-1.672b57fe52ca",
+        "legacy.kokugo.g1.jpn-1-1.6b508eda93c6",
+        "legacy.kokugo.g1.jpn-1-1.70fec43dca5d",
+        "legacy.kokugo.g1.jpn-1-1.81d7b57262f0",
+        "legacy.kokugo.g1.jpn-1-1.8f38350edfec",
+        "legacy.kokugo.g1.jpn-1-1.96fa138dca28",
+        "legacy.kokugo.g1.jpn-1-1.c24be2cf4cf1",
+        "legacy.kokugo.g1.jpn-1-1.c5ec0d1c3cfb",
+        "legacy.kokugo.g1.jpn-1-1.e78af7243d29",
+        "legacy.kokugo.g1.jpn-1-1.f3845cf1b0e3",
+        "legacy.kokugo.g1.jpn-1-1.05bfb4db842a",
+        "legacy.kokugo.g1.jpn-1-1.0c54f0f44e09",
+        "legacy.kokugo.g1.jpn-1-1.14fe89e04d4e",
+        "legacy.kokugo.g1.jpn-1-1.17bacbf48cce",
+        "legacy.kokugo.g1.jpn-1-1.3f7b3d2ee441",
+        "legacy.kokugo.g1.jpn-1-1.4cf03422ca01",
+        "legacy.kokugo.g1.jpn-1-1.795c967ae7d5",
+        "legacy.kokugo.g1.jpn-1-1.930dc7edb4ff",
+        "legacy.kokugo.g1.jpn-1-1.a89bbfa9c296",
+        "legacy.kokugo.g1.jpn-1-1.c14981bbfd9d",
+        "legacy.kokugo.g1.jpn-1-1.e6735a678185",
+        "legacy.kokugo.g1.jpn-1-1.200dbae2d880",
+        "legacy.kokugo.g1.jpn-1-1.289a8ccf10cd",
+        "legacy.kokugo.g1.jpn-1-1.a81b4e04b2dd",
+        "legacy.kokugo.g1.jpn-1-1.8fd727eeb657",
+        "legacy.kokugo.g1.jpn-1-1.4170ac940a5e",
+        "legacy.kokugo.g1.jpn-1-1.6246e96dca76",
+        "legacy.kokugo.g1.jpn-1-1.67336f518acb",
+        "legacy.kokugo.g1.jpn-1-1.0c2b963bb39c",
+        "legacy.kokugo.g1.jpn-1-1.2df7d8387340",
+        "legacy.kokugo.g1.jpn-1-1.22b773f12450"
+      ],
+      "standard": [
+        "legacy.kokugo.g1.jpn-1-1.e52f40d870cf",
+        "legacy.kokugo.g1.jpn-1-1.aec071d126fc",
+        "legacy.kokugo.g1.jpn-1-1.d583393d769b",
+        "legacy.kokugo.g1.jpn-1-1.bc63af15bc99",
+        "legacy.kokugo.g1.jpn-1-1.e93e6a8aab7c",
+        "legacy.kokugo.g1.jpn-1-1.655bc066fb5a",
+        "legacy.kokugo.g1.jpn-1-1.e7f7fe9cd5d1",
+        "legacy.kokugo.g1.jpn-1-1.db838271e7dc"
+      ],
+      "applied": ["legacy.kokugo.g1.jpn-1-1.1347678a32f7"],
+      "rationale": "混在単元。まずひらがな・片仮名の同字照合、形と記号・音の知識を横断して確認。続いて語の綴り、最後に文中のを。照合問題の同等難度内は元順を保つ。"
+    },
+    {
+      "unit": "kokugo.g1.legacy-jpn-1-3",
+      "grade": 1,
+      "basic": [
+        "legacy.kokugo.g1.jpn-1-3.15976af53dd9",
+        "legacy.kokugo.g1.jpn-1-3.3f64c924d8e5",
+        "legacy.kokugo.g1.jpn-1-3.7fe1fb6ce079",
+        "legacy.kokugo.g1.jpn-1-3.ab3d9fc1b287",
+        "legacy.kokugo.g1.jpn-1-3.5a0da1ada651",
+        "legacy.kokugo.g1.jpn-1-3.96d4272351a0",
+        "legacy.kokugo.g1.jpn-1-3.4b1680f092cb",
+        "legacy.kokugo.g1.jpn-1-3.c4f290afe794",
+        "legacy.kokugo.g1.jpn-1-3.db57ec6d2db3",
+        "legacy.kokugo.g1.jpn-1-3.ef253c12ca9b",
+        "legacy.kokugo.g1.jpn-1-3.fcf998092860",
+        "legacy.kokugo.g1.jpn-1-3.0f1682126b5b"
+      ],
+      "standard": [
+        "legacy.kokugo.g1.jpn-1-3.72341077030e",
+        "legacy.kokugo.g1.jpn-1-3.b45ee097589b",
+        "legacy.kokugo.g1.jpn-1-3.c0967e9a92f6",
+        "legacy.kokugo.g1.jpn-1-3.2be1bbbc1d7b",
+        "legacy.kokugo.g1.jpn-1-3.0448e0b20a5a",
+        "legacy.kokugo.g1.jpn-1-3.b95352c94f1c",
+        "legacy.kokugo.g1.jpn-1-3.fb3fcab5c1f5",
+        "legacy.kokugo.g1.jpn-1-3.52f07ff8c13e",
+        "legacy.kokugo.g1.jpn-1-3.69e2470fbd56",
+        "legacy.kokugo.g1.jpn-1-3.491136f1d46a"
+      ],
+      "applied": [
+        "legacy.kokugo.g1.jpn-1-3.28d1a515550e",
+        "legacy.kokugo.g1.jpn-1-3.5e0db57ec969",
+        "legacy.kokugo.g1.jpn-1-3.1786abaccd1b",
+        "legacy.kokugo.g1.jpn-1-3.2c6b87e1797b",
+        "legacy.kokugo.g1.jpn-1-3.3de2f3322e37",
+        "legacy.kokugo.g1.jpn-1-3.9989559f65bf",
+        "legacy.kokugo.g1.jpn-1-3.d3128c59a295",
+        "legacy.kokugo.g1.jpn-1-3.ffe28c91672e"
+      ],
+      "rationale": "助詞の名称・音・働きから一空所の補充、全文での正しい使い方と複数助詞の判別へ。"
+    },
+    {
+      "unit": "kokugo.g1.legacy-jpn-1-4",
+      "grade": 1,
+      "basic": [
+        "legacy.kokugo.g1.jpn-1-4.cdf322342005",
+        "legacy.kokugo.g1.jpn-1-4.3c8cb3be9aff",
+        "legacy.kokugo.g1.jpn-1-4.bb6f309faa42",
+        "legacy.kokugo.g1.jpn-1-4.f2d0ad6edaf2",
+        "legacy.kokugo.g1.jpn-1-4.992e9bab2bf2",
+        "legacy.kokugo.g1.jpn-1-4.b1d7352b8637",
+        "legacy.kokugo.g1.jpn-1-4.031578a397b5",
+        "legacy.kokugo.g1.jpn-1-4.dc2d8a1fc2b5",
+        "legacy.kokugo.g1.jpn-1-4.7c6d2f24fd3b",
+        "legacy.kokugo.g1.jpn-1-4.b30735d9856a",
+        "legacy.kokugo.g1.jpn-1-4.0a04a7a0aebb",
+        "legacy.kokugo.g1.jpn-1-4.5d03e62d82c0",
+        "legacy.kokugo.g1.jpn-1-4.e1e0a6a0dfc6"
+      ],
+      "standard": [
+        "legacy.kokugo.g1.jpn-1-4.00d68fad3407",
+        "legacy.kokugo.g1.jpn-1-4.25b9b1f6819e",
+        "legacy.kokugo.g1.jpn-1-4.d5d0c75c390d",
+        "legacy.kokugo.g1.jpn-1-4.5989f35e6e95",
+        "legacy.kokugo.g1.jpn-1-4.8303a2b64ce4",
+        "legacy.kokugo.g1.jpn-1-4.2322d133da9b",
+        "legacy.kokugo.g1.jpn-1-4.6ff2d3fbd6b0"
+      ],
+      "applied": ["legacy.kokugo.g1.jpn-1-4.d80042960f0d", "legacy.kokugo.g1.jpn-1-4.6424c8642aa0"],
+      "rationale": "文字種と句読点・かぎの基礎を先に、主述の抽出と二まとまり→三まとまり、文成立と修飾関係へ。"
+    },
+    {
+      "unit": "kokugo.g1.legacy-jpn-1-5",
+      "grade": 1,
+      "basic": [
+        "legacy.kokugo.g1.jpn-1-5.cb7e60b7715f",
+        "legacy.kokugo.g1.jpn-1-5.76a63002d5d3",
+        "legacy.kokugo.g1.jpn-1-5.c3e08b13adf1",
+        "legacy.kokugo.g1.jpn-1-5.5cd3f6d9b85d",
+        "legacy.kokugo.g1.jpn-1-5.ea7785205abe",
+        "legacy.kokugo.g1.jpn-1-5.e92a79331448",
+        "legacy.kokugo.g1.jpn-1-5.64c8669a9213",
+        "legacy.kokugo.g1.jpn-1-5.d1909a71279f",
+        "legacy.kokugo.g1.jpn-1-5.a7869d075174"
+      ],
+      "standard": [
+        "legacy.kokugo.g1.jpn-1-5.14071d8b2a45",
+        "legacy.kokugo.g1.jpn-1-5.77697290ce93",
+        "legacy.kokugo.g1.jpn-1-5.2bd89a2f8efe",
+        "legacy.kokugo.g1.jpn-1-5.7aaf3107993d",
+        "legacy.kokugo.g1.jpn-1-5.e176b2030c0e",
+        "legacy.kokugo.g1.jpn-1-5.00fc6b621f19"
+      ],
+      "applied": [
+        "legacy.kokugo.g1.jpn-1-5.8fafdbbc918a",
+        "legacy.kokugo.g1.jpn-1-5.88439e2fdeb9",
+        "legacy.kokugo.g1.jpn-1-5.5a4ec9c6a6f8",
+        "legacy.kokugo.g1.jpn-1-5.25914c45d209",
+        "legacy.kokugo.g1.jpn-1-5.e872a63fd376"
+      ],
+      "rationale": "仲間・最初最後の音・音数・しりとり規則を先に、隣り合う語の関係、連鎖・比較・組替え・回文へ。"
+    },
+    {
+      "unit": "kokugo.g1.tsutaeru",
+      "grade": 1,
+      "basic": ["kokugo.g1.tsutaeru.0001", "kokugo.g1.tsutaeru.0006"],
+      "standard": ["kokugo.g1.tsutaeru.0004", "kokugo.g1.tsutaeru.0005", "kokugo.g1.tsutaeru.0002"],
+      "applied": ["kokugo.g1.tsutaeru.0003"],
+      "rationale": "順序語と見直しの基本から主述修正・題名・三場面の整列、最後に情報を具体的に補う表現へ。"
+    },
+    {
+      "unit": "kokugo.g2.bun-no-kimari",
+      "grade": 2,
+      "basic": ["source.kokugo.g2.jpn-2-4.e1a3f347a9bf", "source.kokugo.g2.jpn-2-4.7e6cdc9d0163"],
+      "standard": ["source.kokugo.g2.jpn-2-4.82ec95edd3ec", "source.kokugo.g2.jpn-2-4.35257c1db5b8"],
+      "applied": [],
+      "rationale": "助詞一語の補充から述語、修飾語を含む主語の判別へ。"
+    },
+    {
+      "unit": "kokugo.g2.legacy-jpn-2-3",
+      "grade": 2,
+      "basic": ["legacy.kokugo.g2.jpn-2-3.1810bf465df2", "legacy.kokugo.g2.jpn-2-3.24016a555fca"],
+      "standard": [
+        "legacy.kokugo.g2.jpn-2-3.f5a20c8839e3",
+        "legacy.kokugo.g2.jpn-2-3.682996c992e3",
+        "legacy.kokugo.g2.jpn-2-3.6473d5c47db0",
+        "legacy.kokugo.g2.jpn-2-3.2b99f5ad3140",
+        "legacy.kokugo.g2.jpn-2-3.7a923170dfa6",
+        "legacy.kokugo.g2.jpn-2-3.f1f674d65649",
+        "legacy.kokugo.g2.jpn-2-3.56f613d70cb8"
+      ],
+      "applied": [
+        "legacy.kokugo.g2.jpn-2-3.d7d8dda09598",
+        "legacy.kokugo.g2.jpn-2-3.b355ca0080a1",
+        "legacy.kokugo.g2.jpn-2-3.6236ef01a8d9",
+        "legacy.kokugo.g2.jpn-2-3.54101d35f41f"
+      ],
+      "rationale": "主語述語の定義から手掛かり付き抽出、動詞・形容・名詞述語の識別、修飾語や目的語を含む文と主述の組へ。"
+    },
+    {
+      "unit": "kokugo.g2.legacy-jpn-2-4",
+      "grade": 2,
+      "basic": [
+        "legacy.kokugo.g2.jpn-2-4.2c2689824670",
+        "legacy.kokugo.g2.jpn-2-4.513614f927d9",
+        "legacy.kokugo.g2.jpn-2-4.8a7e11644d5f",
+        "legacy.kokugo.g2.jpn-2-4.ec7d8d033f92",
+        "legacy.kokugo.g2.jpn-2-4.89a7d436e5cc"
+      ],
+      "standard": [
+        "legacy.kokugo.g2.jpn-2-4.3f9e58f11b40",
+        "legacy.kokugo.g2.jpn-2-4.6cb6890ef5b9",
+        "legacy.kokugo.g2.jpn-2-4.b6fbc020e2c7",
+        "legacy.kokugo.g2.jpn-2-4.cfeaa6f7c085",
+        "legacy.kokugo.g2.jpn-2-4.330b03468f4b",
+        "legacy.kokugo.g2.jpn-2-4.d0ce9f72ff55",
+        "legacy.kokugo.g2.jpn-2-4.be1316b8a53f",
+        "legacy.kokugo.g2.jpn-2-4.ba2f544b5554"
+      ],
+      "applied": ["legacy.kokugo.g2.jpn-2-4.325d4426fb16", "legacy.kokugo.g2.jpn-2-4.b09172582bd3"],
+      "rationale": "挨拶の意味・態度からます形と丁寧な挨拶、相手と場面に応じた挨拶・依頼へ。"
+    },
+    {
+      "unit": "kokugo.g2.legacy-jpn-2-5",
+      "grade": 2,
+      "basic": [
+        "legacy.kokugo.g2.jpn-2-5.5afdf8c25d98",
+        "legacy.kokugo.g2.jpn-2-5.6c0d97b17e8e",
+        "legacy.kokugo.g2.jpn-2-5.07a69da44386"
+      ],
+      "standard": [
+        "legacy.kokugo.g2.jpn-2-5.20558135d634",
+        "legacy.kokugo.g2.jpn-2-5.576a83753e99",
+        "legacy.kokugo.g2.jpn-2-5.89e6068f4697",
+        "legacy.kokugo.g2.jpn-2-5.8c516dd40d8f",
+        "legacy.kokugo.g2.jpn-2-5.ed997c1fa38f",
+        "legacy.kokugo.g2.jpn-2-5.5fd96c78d466",
+        "legacy.kokugo.g2.jpn-2-5.3ec6ac5146c7",
+        "legacy.kokugo.g2.jpn-2-5.2c183f79c5b9",
+        "legacy.kokugo.g2.jpn-2-5.4b2a9e61d44e",
+        "legacy.kokugo.g2.jpn-2-5.b7ac73ddd221",
+        "legacy.kokugo.g2.jpn-2-5.09ea2d509c84",
+        "legacy.kokugo.g2.jpn-2-5.c31a5c2ea75d",
+        "legacy.kokugo.g2.jpn-2-5.b45bf2243ef0"
+      ],
+      "applied": [
+        "source.kokugo.g2.jpn-2-5.21cf840ff956",
+        "legacy.kokugo.g2.jpn-2-5.474b8690e3c0",
+        "legacy.kokugo.g2.jpn-2-5.966f5c485a13",
+        "source.kokugo.g2.jpn-2-5.10eac5fd83ed"
+      ],
+      "rationale": "主述の基礎から一語補充・自然な文・二部分の整列、三部分の整列・修飾関係・時間順への適用へ。"
+    },
+    {
+      "unit": "kokugo.g2.observation-writing",
+      "grade": 2,
+      "basic": ["kokugo.g2.observation-writing.0005", "kokugo.g2.observation-writing.0001"],
+      "standard": ["kokugo.g2.observation-writing.0002", "kokugo.g2.observation-writing.0004"],
+      "applied": ["kokugo.g2.observation-writing.0003", "kokugo.g2.observation-writing.0006"],
+      "rationale": "観察文の導入と事実の確認、具体的な形と変化、記録から執筆する全過程と見直しへ。"
+    },
+    {
+      "unit": "kokugo.g2.reading-sequence",
+      "grade": 2,
+      "basic": ["kokugo.g2.reading-sequence.0004", "kokugo.g2.reading-sequence.0005"],
+      "standard": [
+        "kokugo.g2.reading-sequence.0001",
+        "kokugo.g2.reading-sequence.0006",
+        "kokugo.g2.reading-sequence.0002"
+      ],
+      "applied": ["kokugo.g2.reading-sequence.0003"],
+      "rationale": "順序語・直接の場所読取から最初最後・順序整理、原因を捉える読みへ。"
+    },
+    {
+      "unit": "kokugo.g2.speaking-listening",
+      "grade": 2,
+      "basic": ["kokugo.g2.speaking-listening.0002", "kokugo.g2.speaking-listening.0001"],
+      "standard": [
+        "kokugo.g2.speaking-listening.0003",
+        "kokugo.g2.speaking-listening.0004",
+        "kokugo.g2.speaking-listening.0005"
+      ],
+      "applied": ["kokugo.g2.speaking-listening.0006"],
+      "rationale": "聞き返しと連絡事項の抽出から紹介・質問・伝達手順、理由と変更を併せた伝達へ。"
+    },
+    {
+      "unit": "kokugo.g2.vocabulary",
+      "grade": 2,
+      "basic": [
+        "source.kokugo.g2.jpn-2-3.2a3feb25b261",
+        "source.kokugo.g2.jpn-2-3.ae348ca7c414",
+        "source.kokugo.g2.jpn-2-3.bcb219cc198a",
+        "source.kokugo.g2.jpn-2-3.728079410870"
+      ],
+      "standard": [],
+      "applied": [],
+      "rationale": "いずれも身近な語の仲間・反対語の直接判別であり元順を維持。無理に応用段階を設けない。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-10",
+      "grade": 3,
+      "basic": ["legacy.kokugo.g3.jpn-3-10.49c58f6ae5a6", "legacy.kokugo.g3.jpn-3-10.b14bee17fdec"],
+      "standard": ["legacy.kokugo.g3.jpn-3-10.879428c8ece7"],
+      "applied": ["legacy.kokugo.g3.jpn-3-10.7ea2a5bc937b"],
+      "rationale": "本文中の言葉・反応の直接抽出、人物の様子、行動の理由へ。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-11",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-11.b8fc2f359213",
+        "legacy.kokugo.g3.jpn-3-11.339fa6225e76",
+        "legacy.kokugo.g3.jpn-3-11.0717e990d3d6"
+      ],
+      "standard": ["legacy.kokugo.g3.jpn-3-11.5b85d888629e"],
+      "applied": ["legacy.kokugo.g3.jpn-3-11.764763e0fbc1"],
+      "rationale": "季節・季語の特定を先に、音数の構成、比喩を含む情景解釈へ。音数問題の内容疑義は別記。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-12",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-12.26cc8b76148a",
+        "legacy.kokugo.g3.jpn-3-12.a6de11d04f1e",
+        "legacy.kokugo.g3.jpn-3-12.b51a5a6f365c",
+        "legacy.kokugo.g3.jpn-3-12.f745284e1ae6",
+        "legacy.kokugo.g3.jpn-3-12.2ad89a620226",
+        "legacy.kokugo.g3.jpn-3-12.66cc24046804",
+        "legacy.kokugo.g3.jpn-3-12.8c9347167f54",
+        "legacy.kokugo.g3.jpn-3-12.374a54969b35",
+        "legacy.kokugo.g3.jpn-3-12.6f6f7f9b3adc"
+      ],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-12.522864cccce5",
+        "legacy.kokugo.g3.jpn-3-12.7c6be7f6e047",
+        "legacy.kokugo.g3.jpn-3-12.b5a6bb2a6214",
+        "legacy.kokugo.g3.jpn-3-12.dcc146f94a30",
+        "legacy.kokugo.g3.jpn-3-12.fc9010690881"
+      ],
+      "applied": ["legacy.kokugo.g3.jpn-3-12.4766bdac496b", "legacy.kokugo.g3.jpn-3-12.5d75237f271f"],
+      "rationale": "こそあどの距離・疑問・様子の基本から文中の指示語識別、指示対象を前後の内容と結ぶ問題へ。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-15",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-15.fc237c5b020b",
+        "legacy.kokugo.g3.jpn-3-15.0164e7041ab2",
+        "legacy.kokugo.g3.jpn-3-15.6c26f9f1310b",
+        "legacy.kokugo.g3.jpn-3-15.79706c3d294e",
+        "legacy.kokugo.g3.jpn-3-15.e71ca8fcbe1b",
+        "legacy.kokugo.g3.jpn-3-15.f350335db90d",
+        "legacy.kokugo.g3.jpn-3-15.cfc50ff0043e"
+      ],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-15.cfc7f3676503",
+        "legacy.kokugo.g3.jpn-3-15.3c0e89cb3e75",
+        "legacy.kokugo.g3.jpn-3-15.1d91eba7e628",
+        "legacy.kokugo.g3.jpn-3-15.7e2e81d73f25",
+        "legacy.kokugo.g3.jpn-3-15.63509573acd2"
+      ],
+      "applied": [
+        "legacy.kokugo.g3.jpn-3-15.aee8fb39b459",
+        "legacy.kokugo.g3.jpn-3-15.02f3a8f0a82c",
+        "legacy.kokugo.g3.jpn-3-15.f4a1228d9429",
+        "legacy.kokugo.g3.jpn-3-15.519545930b58",
+        "legacy.kokugo.g3.jpn-3-15.f24db413f8dc",
+        "legacy.kokugo.g3.jpn-3-15.24e532600796",
+        "legacy.kokugo.g3.jpn-3-15.6a96c117f7a9"
+      ],
+      "rationale": "単音の対応から拗音と普通の語、促音・長音・拗音との組合せ・撥音区切りへ。単なる文字数では分類しない。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-16",
+      "grade": 3,
+      "basic": ["legacy.kokugo.g3.jpn-3-16.693328e51033", "legacy.kokugo.g3.jpn-3-16.6d9b415d4756"],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-16.271e104c89c9",
+        "legacy.kokugo.g3.jpn-3-16.1ee2d9d477c9",
+        "legacy.kokugo.g3.jpn-3-16.2d367e388746",
+        "legacy.kokugo.g3.jpn-3-16.d08cc129d2b5",
+        "legacy.kokugo.g3.jpn-3-16.4e44626de908",
+        "legacy.kokugo.g3.jpn-3-16.abe542f19aec",
+        "legacy.kokugo.g3.jpn-3-16.6593d825665d",
+        "legacy.kokugo.g3.jpn-3-16.4f29ba72ae6e",
+        "legacy.kokugo.g3.jpn-3-16.fa0908413ff4"
+      ],
+      "applied": [
+        "legacy.kokugo.g3.jpn-3-16.7df06ee97fc8",
+        "legacy.kokugo.g3.jpn-3-16.3ee273f33607",
+        "legacy.kokugo.g3.jpn-3-16.0cc07d0d5f15"
+      ],
+      "rationale": "主述を確認してから短い修飾・補充、複数の修飾語や長い修飾句の関係へ。複数正解疑義は別記。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-17",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-17.03356f1967f5",
+        "legacy.kokugo.g3.jpn-3-17.8da4240bc36d",
+        "legacy.kokugo.g3.jpn-3-17.2e37698a0eec",
+        "legacy.kokugo.g3.jpn-3-17.08a245b11c90",
+        "legacy.kokugo.g3.jpn-3-17.36549af717f5",
+        "legacy.kokugo.g3.jpn-3-17.851cb4c916aa"
+      ],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-17.1e5ae74c02e2",
+        "legacy.kokugo.g3.jpn-3-17.9bcbc1e13ff9",
+        "legacy.kokugo.g3.jpn-3-17.bc65949219f1",
+        "legacy.kokugo.g3.jpn-3-17.ca9352cf9ce8",
+        "legacy.kokugo.g3.jpn-3-17.dbb3f657d6a6",
+        "legacy.kokugo.g3.jpn-3-17.fdb3dd08a4ed"
+      ],
+      "applied": ["legacy.kokugo.g3.jpn-3-17.4ca24d6124ef", "legacy.kokugo.g3.jpn-3-17.7701a83c9771"],
+      "rationale": "ことわざの形の補充から意味の把握、具体的な場面への使用へ。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-19",
+      "grade": 3,
+      "basic": [],
+      "standard": ["legacy.kokugo.g3.jpn-3-19.2f10f53b2af5", "legacy.kokugo.g3.jpn-3-19.79f54db33e7d"],
+      "applied": ["legacy.kokugo.g3.jpn-3-19.848362467da6"],
+      "rationale": "気持ち・状態の選択を先に、うれしかった理由の選択へ。本文不足により内容検証が制限される。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-20",
+      "grade": 3,
+      "basic": ["legacy.kokugo.g3.jpn-3-20.b4394c8a3140"],
+      "standard": ["legacy.kokugo.g3.jpn-3-20.4d362455242a", "legacy.kokugo.g3.jpn-3-20.4088987de6cc"],
+      "applied": ["legacy.kokugo.g3.jpn-3-20.c7c16f373027", "legacy.kokugo.g3.jpn-3-20.b7adfb821ddb"],
+      "rationale": "語彙の補充から接続関係、指示内容を文章と結び付ける読解へ。指示先の本文不足を別記。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-21",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-21.1f16714e5787",
+        "legacy.kokugo.g3.jpn-3-21.281181791e21",
+        "legacy.kokugo.g3.jpn-3-21.6fadfdbd1ab8",
+        "legacy.kokugo.g3.jpn-3-21.b561b5634407",
+        "legacy.kokugo.g3.jpn-3-21.eb8c357e94cc",
+        "legacy.kokugo.g3.jpn-3-21.f53cda5bd27b",
+        "legacy.kokugo.g3.jpn-3-21.879f5bb6f939",
+        "legacy.kokugo.g3.jpn-3-21.e8a8f9077818",
+        "legacy.kokugo.g3.jpn-3-21.265d12071769",
+        "legacy.kokugo.g3.jpn-3-21.cd1c651700af"
+      ],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-21.2c7fe4be862c",
+        "legacy.kokugo.g3.jpn-3-21.aeb37f32e8ce",
+        "legacy.kokugo.g3.jpn-3-21.7b8c8a3f634b",
+        "legacy.kokugo.g3.jpn-3-21.37ae82d7aa28",
+        "legacy.kokugo.g3.jpn-3-21.3e340faa1ca5"
+      ],
+      "applied": [],
+      "rationale": "慣用句の形を補ってから慣用的な意味の解釈へ。場面への応用問題はないため応用欄は空。文脈不足の多義選択は別記。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-24",
+      "grade": 3,
+      "basic": ["legacy.kokugo.g3.jpn-3-24.ea37d5033fa7"],
+      "standard": ["legacy.kokugo.g3.jpn-3-24.50492db87166", "legacy.kokugo.g3.jpn-3-24.d29e2a4002fb"],
+      "applied": ["legacy.kokugo.g3.jpn-3-24.055f81d3b692"],
+      "rationale": "詠まれた対象の直接読取、目的・季節、歌全体の気持ちの解釈へ。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-4",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-4.4bdf61e5b96a",
+        "legacy.kokugo.g3.jpn-3-4.b36c319022c5",
+        "legacy.kokugo.g3.jpn-3-4.2cca79eaec89",
+        "legacy.kokugo.g3.jpn-3-4.0c2791c7cc12",
+        "legacy.kokugo.g3.jpn-3-4.5f25b1d326fa",
+        "legacy.kokugo.g3.jpn-3-4.3db9ddb200e1",
+        "legacy.kokugo.g3.jpn-3-4.5bf662198370",
+        "legacy.kokugo.g3.jpn-3-4.479541341ee4",
+        "legacy.kokugo.g3.jpn-3-4.438b4fa86d44",
+        "legacy.kokugo.g3.jpn-3-4.8ed59cbbaedd"
+      ],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-4.14ca2ec84d2e",
+        "legacy.kokugo.g3.jpn-3-4.40b3091c6c85",
+        "legacy.kokugo.g3.jpn-3-4.074158cf2ae4",
+        "legacy.kokugo.g3.jpn-3-4.4c8df79b8846",
+        "legacy.kokugo.g3.jpn-3-4.420d054cb245",
+        "legacy.kokugo.g3.jpn-3-4.7c9cab4b60ba",
+        "legacy.kokugo.g3.jpn-3-4.b75eb9f7aa8c",
+        "legacy.kokugo.g3.jpn-3-4.72fbcbc2c72f"
+      ],
+      "applied": [
+        "legacy.kokugo.g3.jpn-3-4.1bc2578e027c",
+        "legacy.kokugo.g3.jpn-3-4.6c6faa38d290",
+        "legacy.kokugo.g3.jpn-3-4.d2c8f30eef1d"
+      ],
+      "rationale": "混在単元。指示語・接続語・段落・修飾語の基本を横断して先に確認し、文の要素の識別、人物の行動と心理の理由へ。読解本文不足は別記。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-5",
+      "grade": 3,
+      "basic": [
+        "legacy.kokugo.g3.jpn-3-5.f9eb93232d67",
+        "legacy.kokugo.g3.jpn-3-5.25e63ad3cabc",
+        "legacy.kokugo.g3.jpn-3-5.ee5928072a7d"
+      ],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-5.706c3d92b548",
+        "legacy.kokugo.g3.jpn-3-5.b967f95293c0",
+        "legacy.kokugo.g3.jpn-3-5.0bc68987f750",
+        "legacy.kokugo.g3.jpn-3-5.edbe4b95d60f",
+        "legacy.kokugo.g3.jpn-3-5.ef50682f758e",
+        "legacy.kokugo.g3.jpn-3-5.9c786557b91f",
+        "legacy.kokugo.g3.jpn-3-5.f177fc52ccda",
+        "legacy.kokugo.g3.jpn-3-5.854a537622db",
+        "legacy.kokugo.g3.jpn-3-5.c60e551d36ce",
+        "legacy.kokugo.g3.jpn-3-5.6e6ceef6cae1",
+        "legacy.kokugo.g3.jpn-3-5.e73fe43b49be",
+        "legacy.kokugo.g3.jpn-3-5.41bb7aa0da06",
+        "legacy.kokugo.g3.jpn-3-5.49ea0cc52b29",
+        "legacy.kokugo.g3.jpn-3-5.079647387e2c"
+      ],
+      "applied": [
+        "legacy.kokugo.g3.jpn-3-5.6c0982d8db5a",
+        "legacy.kokugo.g3.jpn-3-5.a5d3c20b2e19",
+        "legacy.kokugo.g3.jpn-3-5.bde6734a3fb1",
+        "legacy.kokugo.g3.jpn-3-5.87891c64f7aa"
+      ],
+      "rationale": "混在単元。書写の原則と辞書の基本形から、拗音・促音・句読点を含む正確な転写と活用語の見出し復元、最後に三語の辞書順・濁音等の比較へ。"
+    },
+    {
+      "unit": "kokugo.g3.legacy-jpn-3-7",
+      "grade": 3,
+      "basic": ["legacy.kokugo.g3.jpn-3-7.51a081fff200"],
+      "standard": ["legacy.kokugo.g3.jpn-3-7.98feb53edf80", "legacy.kokugo.g3.jpn-3-7.3397886944fc"],
+      "applied": ["legacy.kokugo.g3.jpn-3-7.530cc8361ed8"],
+      "rationale": "問いの段落の役割から動物の調整・因果の接続、動物間の比較へ。本文のない設問は要求操作に基づく暫定難度。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-2",
+      "grade": 4,
+      "basic": [
+        "legacy.kokugo.g4.jpn-4-2.0e51e42657ca",
+        "legacy.kokugo.g4.jpn-4-2.a973f7c31790",
+        "legacy.kokugo.g4.jpn-4-2.d5a48ec981dd",
+        "legacy.kokugo.g4.jpn-4-2.02d00fdcb0c1",
+        "legacy.kokugo.g4.jpn-4-2.36201f092218",
+        "source.kokugo.g4.jpn-4-2.45b82c2613cc",
+        "legacy.kokugo.g4.jpn-4-2.7d774067f3fd",
+        "legacy.kokugo.g4.jpn-4-2.afc7eaa739d8",
+        "legacy.kokugo.g4.jpn-4-2.2781f0a48e11",
+        "legacy.kokugo.g4.jpn-4-2.bf4a55c078fc"
+      ],
+      "standard": [
+        "legacy.kokugo.g4.jpn-4-2.a80ea777de67",
+        "legacy.kokugo.g4.jpn-4-2.3f9076303d76",
+        "legacy.kokugo.g4.jpn-4-2.93492977ab80",
+        "source.kokugo.g4.jpn-4-2.1900d1ccbab5",
+        "legacy.kokugo.g4.jpn-4-2.7743f367b251",
+        "legacy.kokugo.g4.jpn-4-2.bb9599afdb5c",
+        "legacy.kokugo.g4.jpn-4-2.c7af61c3a8b0",
+        "source.kokugo.g4.jpn-4-2.dee0dd8ff6d2",
+        "source.kokugo.g4.jpn-4-2.f1bd103fc101",
+        "legacy.kokugo.g4.jpn-4-2.05e003899b84",
+        "legacy.kokugo.g4.jpn-4-2.a8d06d5518e7",
+        "legacy.kokugo.g4.jpn-4-2.e690139d9e6c"
+      ],
+      "applied": [
+        "legacy.kokugo.g4.jpn-4-2.38d981486998",
+        "legacy.kokugo.g4.jpn-4-2.79be4a4cc39c",
+        "legacy.kokugo.g4.jpn-4-2.96e44c480949"
+      ],
+      "rationale": "順接逆接・添加・転換・要約・理由の働きを先に確認し、選択や順序・因果の文への補充、予想と異なる結果の逆接へ。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-25",
+      "grade": 4,
+      "basic": [],
+      "standard": [
+        "legacy.kokugo.g4.jpn-4-25.a81e3e59db5f",
+        "legacy.kokugo.g4.jpn-4-25.4daeab3a2a33",
+        "legacy.kokugo.g4.jpn-4-25.bcb8907e69d9",
+        "legacy.kokugo.g4.jpn-4-25.dddf5b79a779",
+        "legacy.kokugo.g4.jpn-4-25.db483e287930"
+      ],
+      "applied": [
+        "legacy.kokugo.g4.jpn-4-25.8d028d7db9a5",
+        "legacy.kokugo.g4.jpn-4-25.9bc5d31fb312",
+        "legacy.kokugo.g4.jpn-4-25.c16f8b67416a",
+        "legacy.kokugo.g4.jpn-4-25.7b996e125db0",
+        "legacy.kokugo.g4.jpn-4-25.131f994fd1f9"
+      ],
+      "rationale": "一文の主述対応とねじれの修正から、読点位置で修飾関係・意味が変わる文、二通りの切り分けへ。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-3",
+      "grade": 4,
+      "basic": [
+        "legacy.kokugo.g4.jpn-4-3.b7da4771b7c5",
+        "source.kokugo.g4.jpn-4-3.4f2cd71c693a",
+        "legacy.kokugo.g4.jpn-4-3.c10dfda1f0dd",
+        "legacy.kokugo.g4.jpn-4-3.a8ccd2432421",
+        "legacy.kokugo.g4.jpn-4-3.d9e982db7b3b",
+        "legacy.kokugo.g4.jpn-4-3.0db35985bc40",
+        "legacy.kokugo.g4.jpn-4-3.226ef539bc3d",
+        "legacy.kokugo.g4.jpn-4-3.44338796adf6",
+        "legacy.kokugo.g4.jpn-4-3.4fc30a9739eb",
+        "legacy.kokugo.g4.jpn-4-3.8bfe24d7adf0"
+      ],
+      "standard": [
+        "legacy.kokugo.g4.jpn-4-3.0747a77290f7",
+        "legacy.kokugo.g4.jpn-4-3.10cedd1c8494",
+        "legacy.kokugo.g4.jpn-4-3.2305a940de04",
+        "legacy.kokugo.g4.jpn-4-3.4c26dd4e39e0",
+        "legacy.kokugo.g4.jpn-4-3.53581ca21e83",
+        "legacy.kokugo.g4.jpn-4-3.dfa5b8067b91",
+        "legacy.kokugo.g4.jpn-4-3.07759f5570d8",
+        "legacy.kokugo.g4.jpn-4-3.3e4af5acbd62",
+        "legacy.kokugo.g4.jpn-4-3.c3e0e1f4aca2"
+      ],
+      "applied": [
+        "legacy.kokugo.g4.jpn-4-3.fbb4ea5ec406",
+        "legacy.kokugo.g4.jpn-4-3.d25d1e301fe6",
+        "legacy.kokugo.g4.jpn-4-3.1cbf5398ab51",
+        "legacy.kokugo.g4.jpn-4-3.2f48d9fc07ec"
+      ],
+      "rationale": "故事成語の名称と句の形の補充、意味の読取、意味から適切な慣用句・ことわざを選ぶ逆方向の適用へ。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-31",
+      "grade": 4,
+      "basic": [],
+      "standard": ["kokugo.g4.supplemental.story-a.0001", "legacy.kokugo.g4.jpn-4-31.e392172ca672"],
+      "applied": ["legacy.kokugo.g4.jpn-4-31.c4499447c517"],
+      "rationale": "行動から人物像・反応を読む問題を先に、文章全体の雰囲気へ。本文が省略された設問は別記。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-32",
+      "grade": 4,
+      "basic": [],
+      "standard": ["kokugo.g4.supplemental.expository-a.0001", "legacy.kokugo.g4.jpn-4-32.6b30823de3da"],
+      "applied": ["legacy.kokugo.g4.jpn-4-32.70d7c5b1832e"],
+      "rationale": "短い説明のまとめと一つの原因から、温暖化→昆虫→コウモリの複数段階の因果へ。元順維持。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-33",
+      "grade": 4,
+      "basic": [
+        "legacy.kokugo.g4.jpn-4-33.5c568530cecf",
+        "legacy.kokugo.g4.jpn-4-33.157c36003d6e",
+        "legacy.kokugo.g4.jpn-4-33.5b82c344f62e",
+        "legacy.kokugo.g4.jpn-4-33.71d668dcf83a"
+      ],
+      "standard": ["legacy.kokugo.g4.jpn-4-33.d72acebfc615"],
+      "applied": [],
+      "rationale": "追加・転換・例示・逆接の働きの直接確認後、結果から原因を述べる理由の向きを確認。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-34",
+      "grade": 4,
+      "basic": [
+        "legacy.kokugo.g4.jpn-4-34.e66191a2dde2",
+        "legacy.kokugo.g4.jpn-4-34.8e9fc1503020",
+        "legacy.kokugo.g4.jpn-4-34.48e2a9db060c"
+      ],
+      "standard": ["legacy.kokugo.g4.jpn-4-34.a94e12e7a508"],
+      "applied": [],
+      "rationale": "句切れの基本、季語から季節、詩句の情景解釈へ。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-35",
+      "grade": 4,
+      "basic": [],
+      "standard": [
+        "legacy.kokugo.g4.jpn-4-35.0ecb0f5fa24a",
+        "legacy.kokugo.g4.jpn-4-35.2c4538bc4b57",
+        "legacy.kokugo.g4.jpn-4-35.6b9b3e81dfd8",
+        "legacy.kokugo.g4.jpn-4-35.ce7f1d0a342f",
+        "legacy.kokugo.g4.jpn-4-35.f4ef20b147e9",
+        "legacy.kokugo.g4.jpn-4-35.f86da340802e"
+      ],
+      "applied": [],
+      "rationale": "全問が提示された意味からことわざ・故事成語を選ぶ同等の直接知識問題。無理な難度差を付けず元順維持。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-36",
+      "grade": 4,
+      "basic": ["legacy.kokugo.g4.jpn-4-36.0b27c7ebfee3", "legacy.kokugo.g4.jpn-4-36.573401d5cc64"],
+      "standard": ["legacy.kokugo.g4.jpn-4-36.ec309ca0d71a", "legacy.kokugo.g4.jpn-4-36.021e66a343fb"],
+      "applied": [],
+      "rationale": "主語述語を押さえてから様子・場所の修飾先へ。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-37",
+      "grade": 4,
+      "basic": ["legacy.kokugo.g4.jpn-4-37.e2b102f0d2a1"],
+      "standard": ["kokugo.g4.supplemental.compound.0001", "kokugo.g4.supplemental.compound.0002"],
+      "applied": [],
+      "rationale": "反対語の組合せという構成の呼び名から具体例の構成判別へ。漢字内容だがfolderSubjectは通常国語なので単元所属を保持。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-38",
+      "grade": 4,
+      "basic": [],
+      "standard": [
+        "kokugo.g4.supplemental.meaning.0001",
+        "kokugo.g4.supplemental.meaning.0002",
+        "legacy.kokugo.g4.jpn-4-38.bff888d57a04"
+      ],
+      "applied": [],
+      "rationale": "文脈に合う語を一つ選ぶ同等の語彙適用で元順維持。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-39",
+      "grade": 4,
+      "basic": [],
+      "standard": ["kokugo.g4.supplemental.story-b.0001", "kokugo.g4.supplemental.story-b.0002"],
+      "applied": ["legacy.kokugo.g4.jpn-4-39.6d99d371877a"],
+      "rationale": "本文中の動作・出来事に基づく二段階の変化から、三段階の人物変化へ。元順維持。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-40",
+      "grade": 4,
+      "basic": [],
+      "standard": ["kokugo.g4.supplemental.expository-b.0002", "kokugo.g4.supplemental.expository-b.0001"],
+      "applied": ["legacy.kokugo.g4.jpn-4-40.8a4784d5eb93"],
+      "rationale": "直接示された中心文、木の役割の解釈、複数の生物と土壌の関係へ。"
+    },
+    {
+      "unit": "kokugo.g4.legacy-jpn-4-5",
+      "grade": 4,
+      "basic": [
+        "legacy.kokugo.g4.jpn-4-5.87611d84e931",
+        "legacy.kokugo.g4.jpn-4-5.d20c10b8eb35",
+        "legacy.kokugo.g4.jpn-4-5.bf28ec2af262",
+        "legacy.kokugo.g4.jpn-4-5.7d20c4dc85e8",
+        "legacy.kokugo.g4.jpn-4-5.8d4924759d81",
+        "legacy.kokugo.g4.jpn-4-5.9f59e6cb09d7",
+        "legacy.kokugo.g4.jpn-4-5.901976a26a64",
+        "legacy.kokugo.g4.jpn-4-5.e5cefd4019b0",
+        "legacy.kokugo.g4.jpn-4-5.f274fbc3f65d",
+        "legacy.kokugo.g4.jpn-4-5.1b1264642b6e",
+        "legacy.kokugo.g4.jpn-4-5.f65e37a0150d",
+        "legacy.kokugo.g4.jpn-4-5.780ee8ec13de"
+      ],
+      "standard": [
+        "legacy.kokugo.g4.jpn-4-5.75c07cdfb9a7",
+        "legacy.kokugo.g4.jpn-4-5.e81c6cd38481",
+        "legacy.kokugo.g4.jpn-4-5.dda300dacd0b",
+        "legacy.kokugo.g4.jpn-4-5.0036891eb9c0",
+        "legacy.kokugo.g4.jpn-4-5.068c917d8296",
+        "legacy.kokugo.g4.jpn-4-5.5eaa98670f87"
+      ],
+      "applied": [],
+      "rationale": "原稿用紙・表記と構成・中心点・計画を先に確認し、段落変更・行頭の例外・主述と事実意見・見直しへ。いずれも原則選択で実作文はないため応用を強制しない。"
+    },
+    {
+      "unit": "kokugo.g5.discussion-and-listening",
+      "grade": 5,
+      "basic": ["kokugo.g5.discussion-and-listening.0001", "kokugo.g5.discussion-and-listening.0002"],
+      "standard": ["kokugo.g5.discussion-and-listening.0004", "kokugo.g5.discussion-and-listening.0005"],
+      "applied": ["kokugo.g5.discussion-and-listening.0003", "kokugo.g5.discussion-and-listening.0006"],
+      "rationale": "聞く視点と主張の構成から質問・資料提示、対立の調整と論点を残したまとめへ。"
+    },
+    {
+      "unit": "kokugo.g5.legacy-jpn-5-4",
+      "grade": 5,
+      "basic": [
+        "legacy.kokugo.g5.jpn-5-4.9dcbffc29ffd",
+        "legacy.kokugo.g5.jpn-5-4.4c5d2f16446c",
+        "legacy.kokugo.g5.jpn-5-4.0e105fb5a139",
+        "legacy.kokugo.g5.jpn-5-4.10d312a0ebc2",
+        "legacy.kokugo.g5.jpn-5-4.1ca04e4f3fab"
+      ],
+      "standard": [
+        "legacy.kokugo.g5.jpn-5-4.11509ef3da56",
+        "legacy.kokugo.g5.jpn-5-4.14267548090e",
+        "legacy.kokugo.g5.jpn-5-4.81f1b3514349",
+        "legacy.kokugo.g5.jpn-5-4.a45d056c1406",
+        "legacy.kokugo.g5.jpn-5-4.27eca75a20c3",
+        "legacy.kokugo.g5.jpn-5-4.81d3f90f12f9",
+        "legacy.kokugo.g5.jpn-5-4.4d0ea1d04fb9",
+        "legacy.kokugo.g5.jpn-5-4.5558d16fbb5f",
+        "legacy.kokugo.g5.jpn-5-4.bebeb8d273e2",
+        "source.kokugo.g5.jpn-5-4.d805161b38f5"
+      ],
+      "applied": [
+        "legacy.kokugo.g5.jpn-5-4.12b737f65774",
+        "legacy.kokugo.g5.jpn-5-4.bd05bb98809c",
+        "legacy.kokugo.g5.jpn-5-4.65d94a0e6c05",
+        "legacy.kokugo.g5.jpn-5-4.16ce7e847bea",
+        "legacy.kokugo.g5.jpn-5-4.3956b7502caa",
+        "source.kokugo.g5.jpn-5-4.bae4ab6edb61"
+      ],
+      "rationale": "混在単元。語種の定義・表記から具体語の分類と手掛かり付き比喩判別、複合語の部分・同義表現の比較・場面適用・反復効果へ。"
+    },
+    {
+      "unit": "kokugo.g5.legacy-jpn-5-6",
+      "grade": 5,
+      "basic": [
+        "source.kokugo.g5.jpn-5-6.e162a8bcb223",
+        "kokugo.g5.language-culture.0001",
+        "kokugo.g5.language-culture.0002"
+      ],
+      "standard": [],
+      "applied": ["kokugo.g5.language-culture.0003"],
+      "rationale": "方言の定義、古文音読と解説の目的から昔と今の言葉を調べ比較する活動へ。"
+    },
+    {
+      "unit": "kokugo.g5.reading-evidence",
+      "grade": 5,
+      "basic": [
+        "kokugo.g5.reading-evidence.0005",
+        "kokugo.g5.reading-evidence.0004",
+        "kokugo.g5.reading-evidence.0003"
+      ],
+      "standard": ["kokugo.g5.reading-evidence.0001", "kokugo.g5.reading-evidence.0002"],
+      "applied": ["kokugo.g5.reading-evidence.0006"],
+      "rationale": "逆接・心情の根拠・資料確認の読みの基本から短文の人物解釈と数値の要約、本文と自分の意見を結ぶ読みへ。"
+    },
+    {
+      "unit": "kokugo.g5.writing-with-evidence",
+      "grade": 5,
+      "basic": ["kokugo.g5.writing-with-evidence.0002", "kokugo.g5.writing-with-evidence.0004"],
+      "standard": ["kokugo.g5.writing-with-evidence.0001", "kokugo.g5.writing-with-evidence.0003"],
+      "applied": ["kokugo.g5.writing-with-evidence.0006", "kokugo.g5.writing-with-evidence.0005"],
+      "rationale": "意見文の構成と引用の基本から根拠選び・事実意見の区別、提案のまとめと文章全体の推敲へ。"
+    },
+    {
+      "unit": "kokugo.g6.discussion-consensus",
+      "grade": 6,
+      "basic": ["kokugo.g6.discussion-consensus.0001", "kokugo.g6.discussion-consensus.0003"],
+      "standard": ["kokugo.g6.discussion-consensus.0005", "kokugo.g6.discussion-consensus.0006"],
+      "applied": ["kokugo.g6.discussion-consensus.0002", "kokugo.g6.discussion-consensus.0004"],
+      "rationale": "記録と比較の観点を先に、根拠確認の質問・結論記録、共通条件を踏まえる合意案と司会の論点整理へ。"
+    },
+    {
+      "unit": "kokugo.g6.legacy-jpn-6-2",
+      "grade": 6,
+      "basic": [
+        "legacy.kokugo.g6.jpn-6-2.4bb5a801711c",
+        "legacy.kokugo.g6.jpn-6-2.d8b752aa807f",
+        "legacy.kokugo.g6.jpn-6-2.59676d75e502",
+        "legacy.kokugo.g6.jpn-6-2.a313620c327c",
+        "legacy.kokugo.g6.jpn-6-2.38d05c7a12c4",
+        "legacy.kokugo.g6.jpn-6-2.a1e892b34bbb",
+        "legacy.kokugo.g6.jpn-6-2.7b671084ed44",
+        "legacy.kokugo.g6.jpn-6-2.ac3cabd5eb15",
+        "source.kokugo.g6.jpn-6-2.6739f15cc737"
+      ],
+      "standard": [
+        "legacy.kokugo.g6.jpn-6-2.56d010b3bbd1",
+        "legacy.kokugo.g6.jpn-6-2.7fb66b9ebabd",
+        "legacy.kokugo.g6.jpn-6-2.5912cd45ce12",
+        "legacy.kokugo.g6.jpn-6-2.c759762b0041",
+        "legacy.kokugo.g6.jpn-6-2.c0b21c308b0d",
+        "legacy.kokugo.g6.jpn-6-2.f80ffe3a5166",
+        "legacy.kokugo.g6.jpn-6-2.d73bccd0b436",
+        "legacy.kokugo.g6.jpn-6-2.5959bd62cd45",
+        "legacy.kokugo.g6.jpn-6-2.067a48e72468",
+        "legacy.kokugo.g6.jpn-6-2.3883497fc188",
+        "legacy.kokugo.g6.jpn-6-2.a3e22861d366",
+        "legacy.kokugo.g6.jpn-6-2.ca73abebff9f",
+        "legacy.kokugo.g6.jpn-6-2.d940e471fa09",
+        "legacy.kokugo.g6.jpn-6-2.f5077dd8c193"
+      ],
+      "applied": [
+        "legacy.kokugo.g6.jpn-6-2.966b69f6f2ac",
+        "source.kokugo.g6.jpn-6-2.c4d48e6fc1be",
+        "source.kokugo.g6.jpn-6-2.b31934b6165d",
+        "source.kokugo.g6.jpn-6-2.9eaab2cc0a55"
+      ],
+      "rationale": "敬語の種類と対象・三字熟語の知識を先に、動詞ごとの尊敬・謙譲の対応、具体的な主語に応じた選択と文のねじれ検出へ。混在単元の独立知識も基礎段階へ集約。複数正解は別記。"
+    },
+    {
+      "unit": "kokugo.g6.legacy-jpn-6-4",
+      "grade": 6,
+      "basic": [
+        "source.kokugo.g6.jpn-6-4.007fecff8518",
+        "source.kokugo.g6.jpn-6-4.fd12476a7b1e",
+        "source.kokugo.g6.jpn-6-4.efcd0d447b42",
+        "source.kokugo.g6.jpn-6-4.feb427e12fae",
+        "legacy.kokugo.g6.jpn-6-4.4c618c633b84",
+        "legacy.kokugo.g6.jpn-6-4.58e6917f13d8",
+        "legacy.kokugo.g6.jpn-6-4.682e2228f559",
+        "legacy.kokugo.g6.jpn-6-4.1c9be17bafca",
+        "legacy.kokugo.g6.jpn-6-4.ddfcecd2f3b0",
+        "legacy.kokugo.g6.jpn-6-4.5ac0d14f339a",
+        "legacy.kokugo.g6.jpn-6-4.8838baab39cb",
+        "legacy.kokugo.g6.jpn-6-4.a756b80a9e2f",
+        "legacy.kokugo.g6.jpn-6-4.55954b3412ec"
+      ],
+      "standard": [
+        "legacy.kokugo.g6.jpn-6-4.728e7d96780c",
+        "legacy.kokugo.g6.jpn-6-4.5d7716ef40f4",
+        "legacy.kokugo.g6.jpn-6-4.75f4de600ba0",
+        "legacy.kokugo.g6.jpn-6-4.3a56e925a965",
+        "legacy.kokugo.g6.jpn-6-4.23963e61880a",
+        "legacy.kokugo.g6.jpn-6-4.b4ae6fa173bd",
+        "legacy.kokugo.g6.jpn-6-4.704eaf271092",
+        "legacy.kokugo.g6.jpn-6-4.ad7ecc190696",
+        "legacy.kokugo.g6.jpn-6-4.cc430c860461",
+        "legacy.kokugo.g6.jpn-6-4.f7b85d07b520"
+      ],
+      "applied": ["legacy.kokugo.g6.jpn-6-4.7b254f3563e0"],
+      "rationale": "混在単元。現所属の単漢字読みと文章構成・要旨・要約・推敲の定義を基礎にまとめ、段落と接続・事実意見・要約方法、主述と修飾の両方に配慮する表現へ。漢字問も所属を移さない。"
+    },
+    {
+      "unit": "kokugo.g6.reading-multiple-sources",
+      "grade": 6,
+      "basic": ["kokugo.g6.reading-multiple-sources.0006", "kokugo.g6.reading-multiple-sources.0003"],
+      "standard": ["kokugo.g6.reading-multiple-sources.0002", "kokugo.g6.reading-multiple-sources.0004"],
+      "applied": ["kokugo.g6.reading-multiple-sources.0005", "kokugo.g6.reading-multiple-sources.0001"],
+      "rationale": "交流目的と資料比較の観点から主張に合う根拠選択・資料条件の照合、場面間の表現効果・複数資料から限定的に因果を推測する読みへ。"
+    },
+    {
+      "unit": "kokugo.g6.writing-quotation-argument",
+      "grade": 6,
+      "basic": ["kokugo.g6.writing-quotation-argument.0001"],
+      "standard": ["kokugo.g6.writing-quotation-argument.0002", "kokugo.g6.writing-quotation-argument.0005"],
+      "applied": [
+        "kokugo.g6.writing-quotation-argument.0003",
+        "kokugo.g6.writing-quotation-argument.0004",
+        "kokugo.g6.writing-quotation-argument.0006"
+      ],
+      "rationale": "引用・出典の基本から主張に合う資料と具体的指示語修正、反対意見の扱い・論全体の構成・他者の意見を目的に照らす改稿へ。"
+    }
+  ]
+}
