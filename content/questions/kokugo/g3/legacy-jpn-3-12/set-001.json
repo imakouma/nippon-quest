@@ -83,7 +83,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次のこそあど言葉の選択で、様子を表す言葉はどれですか。",
+      "prompt": "すぐ後に名詞を続けて、様子や状態を表すこそあど言葉はどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -103,9 +103,10 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptSpeech": "すぐ後に名詞を続けて、様子や状態を表すこそあど言葉はどれですか。"
     },
-    "explanation": "「こんな」は様子や状態を表す言葉です。"
+    "explanation": "「こんな」は「こんな様子」「こんな服」のように、すぐ後に名詞を続けて様子や状態を表します。「そう」は「そうする」のように使います。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-12.4766bdac496b",

@@ -8,6 +8,7 @@ interface Question {
   type: string;
   grade: number;
   unit: string;
+  explanation?: string;
   payload: {
     prompt?: string;
     template?: string;
@@ -28,7 +29,27 @@ const sets = readdirSync('content/questions/kokugo', { recursive: true })
   }));
 const all = sets.flatMap((s) => s.questions);
 // 補う根拠が同じ問題セットにある欠落文と、複数正答になる条件だけを明記する。
+const clarificationReasons: Record<string, string> = {
+  '0cc07d0d5f15':
+    '「絵をかいた人」を説明する条件を補い、形の説明「小さな」と区別できる設問に修正。絵で正答を示さない。',
+  '374a54969b35':
+    'すぐ後に名詞を続ける条件を補い、「そう」と区別できる設問に修正。文字のつながりを比較する課題として維持。',
+  '6739f15cc737':
+    '「保健」に場所を表す漢字を加える条件を補い、「共通語」と区別できる設問に修正。熟語の文字構成を比較する。',
+};
+const clarifiedExplanations: Record<string, string> = {
+  '0cc07d0d5f15':
+    '「兄のかいた」を入れると、絵をかいた人が兄だと分かります。「小さな」は絵の大きさを説明します。',
+  '374a54969b35':
+    '「こんな」は「こんな様子」「こんな服」のように、すぐ後に名詞を続けて様子や状態を表します。「そう」は「そうする」のように使います。',
+  '6739f15cc737':
+    '「保健」に、部屋や場所を表す「室」を加えると「保健室」になります。「共通語」も三字熟語ですが、この条件には合いません。',
+};
 const promptRepairs: Record<string, string> = {
+  '0cc07d0d5f15':
+    '「（　）絵がほめられた。」の空欄に、絵をかいた人が分かるように修飾語を入れます。どれが当てはまりますか。',
+  '374a54969b35': 'すぐ後に名詞を続けて、様子や状態を表すこそあど言葉はどれですか。',
+  '6739f15cc737': '「保健」に、場所を表す漢字一字を加えた三字熟語はどれですか。',
   '021e66a343fb':
     '「白い雲が青い空にゆっくりと広がる。」という文で、「青い空に」という言葉は、どの言葉を修飾（説明）していますか。',
   ec309ca0d71a:
@@ -40,6 +61,7 @@ for (const [suffix, prompt] of Object.entries(promptRepairs)) {
   assert.equal(matches.length, 1, suffix);
   matches[0]!.payload.prompt = prompt;
   matches[0]!.payload.promptSpeech = prompt;
+  if (clarifiedExplanations[suffix]) matches[0]!.explanation = clarifiedExplanations[suffix];
 }
 const signature = () =>
   JSON.stringify(
@@ -244,7 +266,11 @@ draw(
 assert.equal(signature(), before);
 assert(changed.size >= 20);
 for (const s of sets)
-  if (s.questions.some((q) => changed.has(q.id)))
+  if (
+    s.questions.some(
+      (q) => changed.has(q.id) || Object.keys(promptRepairs).some((suffix) => q.id.endsWith(suffix)),
+    )
+  )
     writeFileSync(s.file, JSON.stringify(s.questions, null, 2) + '\n');
 const deferred = new Map<string, { decision: string; reason: string }>();
 const defer = (ids: string[], decision: string, reason: string) => {
@@ -254,21 +280,8 @@ const defer = (ids: string[], decision: string, reason: string) => {
     deferred.set(matches[0]!.id, { decision, reason });
   }
 };
-defer(
-  ['0cc07d0d5f15'],
-  'deferred-ambiguous',
-  '「兄のかいた」「小さな」の双方が空欄に入る。正答を一意にする条件が必要で、図による誘導は行わない。',
-);
-defer(
-  ['374a54969b35'],
-  'deferred-ambiguous',
-  '様子を表す選択肢に「こんな」と「そう」が含まれ、分類条件の確認が必要。図で正答を誘導しない。',
-);
-defer(
-  ['6739f15cc737'],
-  'deferred-ambiguous',
-  '「保健室」「共通語」の双方が漢字三文字である。選択肢または出題条件の別途修正が必要。',
-);
+for (const [suffix, reason] of Object.entries(clarificationReasons))
+  defer([suffix], 'clarified-text', reason);
 defer(
   ['c4499447c517', 'e392172ca672'],
   'needs-source',
