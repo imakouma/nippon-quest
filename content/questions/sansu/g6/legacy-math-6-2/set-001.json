@@ -100,14 +100,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_2",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。 x=",
+      "prompt": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。",
       "answers": [
         "1500"
       ],
-      "template": "y=x×0.8 について、y=1200 のときの xの値を求めましょう。 x={{INPUT}}"
+      "template": "x={{INPUT}}"
     },
     "explanation": "y=x×0.8 の y に、1200をあてはめて計算してみよう。 1200=x×0.8 x=1200÷0.8 x=1500"
   },
@@ -161,7 +162,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "24個のあめを、x人で分けます。１人分のあめの個数を y個として、xとyの関係を式にしたものをえらぼう。",
+      "prompt": "24個[こ]のあめを、x人[にん]で同[おな]じ数[かず]ずつ余[あま]りなく分[わ]けます。1人分[ひとりぶん]をy個[こ]として、関係[かんけい]を表[あらわ]す式[しき]をえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -183,7 +184,7 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g6/visuals/candy-variable.svg",
-      "promptSpeech": "24個のあめを、x人で分けます。１人分のあめの個数を y個として、xとyの関係を式にしたものをえらぼう。 あめ24こ。x人で等しく分け、1人分をyことする。人数や分配結果の答えは示していない。"
+      "promptSpeech": "24個[こ]のあめを、x人[にん]で同[おな]じ数[かず]ずつ余[あま]りなく分[わ]けます。1人分[ひとりぶん]をy個[こ]として、関係[かんけい]を表[あらわ]す式[しき]をえらぼう。"
     },
     "explanation": "2人で分けると 24÷2、3人で分けると 24÷3になる。これと同じように考えて、x人で分けると、24÷xになるね。"
   },
@@ -325,14 +326,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_2",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "y=80×x について、y=1200 のときの xの値を求めましょう。 x=",
+      "prompt": "y=80×x について、y=1200 のときの xの値を求めましょう。",
       "answers": [
         "15"
       ],
-      "template": "y=80×x について、y=1200 のときの xの値を求めましょう。 x={{INPUT}}"
+      "template": "x={{INPUT}}"
     },
     "explanation": "y=80×x の y に、1200をあてはめて計算してみよう。 1200=80×x x=1200÷80 x=15"
   },
@@ -345,14 +347,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_2",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。 y=",
+      "prompt": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。",
       "answers": [
         "2000"
       ],
-      "template": "y=70×x-50×x について、x=100 のときの yの値を求めましょう。 y={{INPUT}}"
+      "template": "y={{INPUT}}"
     },
     "explanation": "y=70×x-50×x の x に、100をあてはめて計算してみよう。 y=70×100-50×100=7000-5000=2000"
   },

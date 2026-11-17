@@ -8,13 +8,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_14",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのかけざんを しましょう。",
       "answers": [
         "60"
-      ]
+      ],
+      "template": "5×12 = {{INPUT}}"
     },
     "explanation": "九九[くく]にでてくる 5×9=45 より、かけるかずは、3 大[おお]きくなっているので 5×3=15 だけ、こたえを ふやせばいい。 45+15=60"
   },
@@ -36,7 +38,7 @@
       ],
       "promptImage": "questions/legacy/075728b69d30b8a8.png"
     },
-    "explanation": "エは 7×8=56"
+    "explanation": "九九[くく]の 表[ひょう]は、左[ひだり]の 数[かず]と 上[うえ]の 数[かず]を かけて 読[よ]みます。エは 7×8=56です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.2d37edbd04ed",
@@ -70,7 +72,7 @@
       "promptImage": "questions/sansu/g2/visuals/multiply-turn.svg",
       "promptSpeech": "かけざん について、かけられるかずと かけるかずを いれかえると、こたえは どうなるでしょう。 左は 1だんに3こで2だん。右は1だんに2こで3だん。同じりんごの並べ方を変えた図。"
     },
-    "explanation": "7×8 と 8×7 のこたえを かんがえて、くらべてみよう。 7×8=56 8×7=56 かけられるかずと かけるかずを いれかえても、こたえは かわらない。"
+    "explanation": "図[ず]の 左[ひだり]は 3こずつ 2だんで 3×2＝6、右[みぎ]は 2こずつ 3だんで 2×3＝6です。ならべかえても りんごの 数[かず]は 同[おな]じです。かけられる 数[かず]と かける 数[かず]を 入[い]れかえても、答[こた]えは かわりません。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.382d88aa9dd4",
@@ -104,7 +106,7 @@
       "promptImage": "questions/sansu/g2/visuals/multiply-next-group.svg",
       "promptSpeech": "かけざん について、かけられるかず がかわらないとき、かけるかずが １ふえると、こたえは どうなるでしょう。 1つぶんが3この まとまり。2つぶんから、3こ入りの まとまりをもう1つふやす例。"
     },
-    "explanation": "2×1=2 から、かけるかずが ふえていくと 2×2=4 2×3=6 のように、こたえは 2 ずつ大[おお]きくなる。かけざん では、かけられるかず がかわらないとき、かけるかずが １ふえると、こたえは かけられるかず のぶんだけ、大[おお]きくなる。"
+    "explanation": "図[ず]では、3こずつ 2つ分[ぶん]に、3こ入りの まとまりを 1つ 足[た]しています。3×2＝6から 3×3＝9になり、3こ ふえます。かける 数[かず]が 1ふえると、かけられる 数[かず]の 分[ぶん]だけ 答[こた]えが ふえます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.414d6b687eeb",
@@ -115,13 +117,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_14",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのかけざんを しましょう。",
       "answers": [
         "40"
-      ]
+      ],
+      "template": "4×10 = {{INPUT}}"
     },
     "explanation": "九九[くく]にでてくる 4×9=36 より、かけるかずは、1 大[おお]きくなっているので 4×1=4 だけ、こたえを ふやせばいい。 36+4=40"
   },
@@ -143,7 +147,7 @@
       ],
       "promptImage": "questions/legacy/075728b69d30b8a8.png"
     },
-    "explanation": "アは 3×4=12"
+    "explanation": "九九[くく]の 表[ひょう]は、左[ひだり]の 数[かず]と 上[うえ]の 数[かず]を かけて 読[よ]みます。アは 3×4=12です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.756e2034df95",
@@ -154,13 +158,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_14",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのかけざんを しましょう。",
       "answers": [
         "88"
-      ]
+      ],
+      "template": "11×8 = {{INPUT}}"
     },
     "explanation": "九九[くく]にでてくる 9×8=72 より、かけられるかずは、2 大[おお]きくなっているので 2×8=16 だけ、こたえを ふやせばいい。 72+16=88"
   },
@@ -173,15 +179,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_14",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのかけざんを しましょう。",
       "answers": [
-        "126"
-      ]
+        "108"
+      ],
+      "template": "12×9 = {{INPUT}}"
     },
-    "explanation": "九九[くく]にでてくる 9×9=81 より、かけられるかずは、5 大[おお]きくなっているので 5×9=45 だけ、こたえを ふやせばいい。 81+45=126"
+    "explanation": "12を 9と3に 分[わ]けます。9×9＝81、3×9＝27なので、81＋27＝108です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.9e4eeae84e8e",
@@ -201,7 +209,7 @@
       ],
       "promptImage": "questions/legacy/075728b69d30b8a8.png"
     },
-    "explanation": "オは 8×7=56"
+    "explanation": "九九[くく]の 表[ひょう]は、左[ひだり]の 数[かず]と 上[うえ]の 数[かず]を かけて 読[よ]みます。オは 8×7=56です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.bd9c037bb249",
@@ -221,7 +229,7 @@
       ],
       "promptImage": "questions/legacy/075728b69d30b8a8.png"
     },
-    "explanation": "カは 9×9=81"
+    "explanation": "九九[くく]の 表[ひょう]は、左[ひだり]の 数[かず]と 上[うえ]の 数[かず]を かけて 読[よ]みます。カは 9×9=81です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.c1d916a578e6",
@@ -232,13 +240,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_14",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのかけざんを しましょう。",
       "answers": [
         "72"
-      ]
+      ],
+      "template": "6×12 = {{INPUT}}"
     },
     "explanation": "九九[くく]にでてくる 6×9=54 より、かけるかずは、3 大[おお]きくなっているので 6×3=18 だけ、こたえを ふやせばいい。 54+18=72"
   },
@@ -260,7 +270,7 @@
       ],
       "promptImage": "questions/legacy/075728b69d30b8a8.png"
     },
-    "explanation": "ウは 5×2=10"
+    "explanation": "九九[くく]の 表[ひょう]は、左[ひだり]の 数[かず]と 上[うえ]の 数[かず]を かけて 読[よ]みます。ウは 5×2=10です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.d431f077300b",
@@ -271,15 +281,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_14",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのかけざんを しましょう。",
       "answers": [
-        "39"
-      ]
+        "36"
+      ],
+      "template": "3×12 = {{INPUT}}"
     },
-    "explanation": "九九[くく]にでてくる 3×9=27 より、かけるかずは、4 大[おお]きくなっているので 3×4=12 だけ、こたえを ふやせばいい。 27+12=39"
+    "explanation": "12こ分[ぶん]を 9こ分[ぶん]と 3こ分[ぶん]に 分[わ]けます。3×9＝27、3×3＝9なので、27＋9＝36です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-14.e537be5776c9",
@@ -299,6 +311,39 @@
       ],
       "promptImage": "questions/legacy/075728b69d30b8a8.png"
     },
-    "explanation": "イは 4×6=24"
+    "explanation": "九九[くく]の 表[ひょう]は、左[ひだり]の 数[かず]と 上[うえ]の 数[かず]を かけて 読[よ]みます。イは 4×6=24です。"
+  },
+  {
+    "id": "sansu.g2.curriculum.kuku-grow",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-14",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1ふくろ 3こ入[い]りの あめを、2ふくろから 3ふくろに ふやします。あめは 何[なん]こ ふえますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3こ"
+        },
+        {
+          "id": "c2",
+          "text": "1こ"
+        },
+        {
+          "id": "c3",
+          "text": "9こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/kuku-grow.svg",
+      "promptSpeech": "1ふくろ3このあめです。2ふくろから3ふくろにふえます。"
+    },
+    "explanation": "ふくろが 1つ ふえると、1ふくろ分[ぶん]の 3こが ふえます。3×2＝6、3×3＝9なので、9−6＝3こです。"
   }
 ]

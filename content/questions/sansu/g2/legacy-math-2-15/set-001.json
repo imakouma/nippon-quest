@@ -116,7 +116,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの長[なが]さを、メートルをつかって、あらわそう。",
+      "prompt": "つぎの 長[なが]さを、メートルと センチメートルを つかって あらわそう。",
       "answers": [
         "1",
         "80"
@@ -185,7 +185,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの長[なが]さを、メートルをつかって、あらわそう。",
+      "prompt": "つぎの 長[なが]さを、メートルと センチメートルを つかって あらわそう。",
       "answers": [
         "1",
         "91"
@@ -231,7 +231,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎの長[なが]さを、メートルをつかって、あらわそう。",
+      "prompt": "つぎの 長[なが]さを、メートルと センチメートルを つかって あらわそう。",
       "answers": [
         "1",
         "18"
@@ -241,5 +241,69 @@
       "promptImageAlt": "1mのものさしを、10cmずつ10こに区切った図。"
     },
     "explanation": "118cm は、100cm と 18cm ということ。 100cm = 1m なので、118cm は 1m 18cm になる。"
+  },
+  {
+    "id": "sansu.g2.curriculum.estimate-length",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "えんぴつの 長[なが]さは、1cmの ます 15こ分[ぶん]くらいです。長[なが]さに 近[ちか]いものは どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "15cm"
+        },
+        {
+          "id": "c2",
+          "text": "15mm"
+        },
+        {
+          "id": "c3",
+          "text": "15m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/estimate-length.svg",
+      "promptSpeech": "1cmの ますを 15こ ならべた 上[うえ]に、ほぼ 同[おな]じ 長[なが]さの えんぴつが あります。"
+    },
+    "explanation": "1cmが 15こ分[ぶん]なら、長[なが]さは 約[やく]15cmです。15mmは 1cm5mm、15mは 1500cmなので、この えんぴつには 合[あ]いません。"
+  },
+  {
+    "id": "sansu.g2.balance.metre-ribbon",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-15",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1m20cmの リボンから、95cmを 切[き]り取[と]りました。のこりは 何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "25cm"
+        },
+        {
+          "id": "c2",
+          "text": "35cm"
+        },
+        {
+          "id": "c3",
+          "text": "115cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1m＝100cmなので、1m20cm＝120cmです。同[おな]じcmに そろえて、120−95＝25cm。95＋25＝120で 確[たし]かめます。"
   }
 ]

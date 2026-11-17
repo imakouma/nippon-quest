@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g4.balance.large-relative",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-1",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "3億[おく]6000万[まん]は、1000万[まん]を何[なん]こ集[あつ]めた数[かず]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "36こ"
+        },
+        {
+          "id": "c2",
+          "text": "360こ"
+        },
+        {
+          "id": "c3",
+          "text": "306こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1億[おく]は1000万[まん]を10こ集[あつ]めた数[かず]なので、3億[おく]は30こ分[ぶん]です。6000万[まん]の6こ分[ぶん]と合[あ]わせて36こです。"
+  }
+]

@@ -71,7 +71,7 @@
       "answer": "c3",
       "shuffle": true
     },
-    "explanation": "デシリットルは、「dL」とあらわす。1L は、10dL になるんだ。"
+    "explanation": "デシリットルは dLと 書[か]きます。1dLの 10こ分[ぶん]が 1Lです。"
   },
   {
     "id": "sansu.g2.kasa.legacy-0003",
@@ -107,7 +107,7 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "ミリリットルは、「mL」とあらわす。1L は、1000mL になるんだ。"
+    "explanation": "ミリリットルは mLと 書[か]きます。1mLの 1000こ分[ぶん]が 1Lです。"
   },
   {
     "id": "sansu.g2.kasa.legacy-0004",
@@ -121,7 +121,7 @@
       "reviewed:2026-09-30"
     ],
     "payload": {
-      "prompt": "つぎのうち、１リットルの「かさ」になるものは、どれでしょう。",
+      "prompt": "図[ず]の 入[い]れものには、書[か]いてある かさの 水[みず]が 入[はい]ります。1L 入[はい]るものは どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -145,9 +145,10 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptSpeech": "大[おお]きな牛乳[ぎゅうにゅう]パックは1000mL、きゅうしょくの牛乳[ぎゅうにゅう]は200mL、かんジュースは350mL、小[ちい]さなペットボトルは500mLです。1L入[はい]るものはどれですか。"
     },
-    "explanation": "１リットルは、スーパーなどで うっている 大[おお]きな 牛乳[ぎゅうにゅう]パック１本[ほん]分[ぶん]の 「かさ」になる。"
+    "explanation": "1L＝1000mLです。図[ず]の 大[おお]きな 牛乳[ぎゅうにゅう]パックには 1000mLと 書[か]いてあります。入[い]れものの 見[み]た目[め]だけではなく、かさの 表示[ひょうじ]で くらべます。"
   },
   {
     "id": "sansu.g2.kasa.legacy-0005",
@@ -211,7 +212,7 @@
         },
         {
           "id": "c3",
-          "text": "l"
+          "text": "kg"
         },
         {
           "id": "c4",
@@ -221,6 +222,39 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「かさ」をあらわすリットルは、「L」とあらわす。"
+    "explanation": "リットルは Lと あらわします。1Lは 1dLの 10こ分[ぶん]です。"
+  },
+  {
+    "id": "sansu.g2.curriculum.capacity-common",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.kasa",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "水[みず]の かさを 正[ただ]しく くらべるには、どうしますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同[おな]じ 大[おお]きさの コップで はかる"
+        },
+        {
+          "id": "c2",
+          "text": "4はいの ほうが 多[おお]いと きめる"
+        },
+        {
+          "id": "c3",
+          "text": "3はいの ほうが 多[おお]いと きめる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/capacity-common.svg",
+      "promptSpeech": "あのびんは大[おお]きいコップ3はい、いのびんは小[ちい]さいコップ4はいでいっぱいになります。"
+    },
+    "explanation": "1ぱいの かさが ちがうと、はい数[すう]だけでは くらべられません。同[おな]じ コップや Lなどの 同[おな]じ 単位[たんい]で はかります。"
   }
 ]

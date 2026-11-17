@@ -8,10 +8,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "雑誌の値段は、240円 でした。これは、まんがの 0.6倍 に当たるそうです。まんがは、何円でしょう。 答[こた]えを 求[もと]める 式[しき]を えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -40,10 +41,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "もとにする数を求める式として、正しいものをえらぼう。",
+      "prompt": "もとにする数[かず]を 求[もと]める 式[しき]を えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -61,7 +63,7 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g5/visuals/ratio-formula-21982a371d8b.svg",
-      "promptSpeech": "もとにする数を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
+      "promptImageAlt": "もとにする数を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "くらべる数が「もとにする数 × 割合[わりあい]」で求められるので、もとにする数は、わり算で求めることができる。「もとにする数 ＝ くらべる数 ÷ 割合[わりあい]」が正しい。"
   },
@@ -71,16 +73,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "ある中学校の入学定員は、200名 です。今年は、定員の 0.95倍 の希望者がありました。今年の入学希望者は、何人だったでしょう。",
-      "answers": [
-        "190"
-      ],
+      "answers": ["190"],
       "template": "{{INPUT}}人",
       "suffix": "人",
       "promptImage": "questions/sansu/g5/visuals/ratio-329fceb01942.svg",
@@ -94,16 +90,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "あきさんの家から学校[がっこう]までのきょりは 2.4km、駅までのきょりは 6km あります。あきさんの家から学校[がっこう]までのきょりは、駅までのきょりの何倍でしょう。",
-      "answers": [
-        "0.4"
-      ],
+      "answers": ["0.4"],
       "template": "{{INPUT}}倍",
       "suffix": "倍",
       "promptImage": "questions/sansu/g5/visuals/ratio-332dc9ecf4e1.svg",
@@ -117,16 +107,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "去年のレタス１玉の平均価格は 180円でしたが、今年は 252円まで値上がりしました。今年のレタスの平均価格は、去年の平均価格の何倍になったといえるでしょう。",
-      "answers": [
-        "1.4"
-      ],
+      "answers": ["1.4"],
       "template": "{{INPUT}}倍",
       "suffix": "倍",
       "promptImage": "questions/sansu/g5/visuals/ratio-362318fb18b8.svg",
@@ -140,16 +124,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "いつもの半額（0.5倍）で 1480 円で売られている服があります。この服は、いつもはいくらで売られているでしょう。",
-      "answers": [
-        "2960"
-      ],
+      "answers": ["2960"],
       "template": "{{INPUT}}円",
       "suffix": "円",
       "promptImage": "questions/sansu/g5/visuals/ratio-4712d83d0dd6.svg",
@@ -163,16 +141,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "ある遊園地の今年の入場者数は、去年の 1.5倍 にあたる 約1050万人になりました。この遊園地の去年の入場者数は、何人だったでしょう。",
-      "answers": [
-        "700"
-      ],
+      "answers": ["700"],
       "template": "約{{INPUT}}万人",
       "suffix": "万人",
       "promptImage": "questions/sansu/g5/visuals/ratio-479976e6acb0.svg",
@@ -186,16 +158,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "私は 150円、弟は 60円 持っています。弟は、私の何倍 お金を持っているでしょう。",
-      "answers": [
-        "0.4"
-      ],
+      "answers": ["0.4"],
       "template": "{{INPUT}}倍",
       "suffix": "倍",
       "promptImage": "questions/sansu/g5/visuals/ratio-4aadd29bfe30.svg",
@@ -209,22 +175,16 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "さとしさんは、今日4560歩 歩きましたが、お父さんは さとしさんのちょうど 2倍の歩数を歩きました。お父さんは、今日何歩歩いていたでしょう。",
-      "answers": [
-        "9120"
-      ],
+      "answers": ["9120"],
       "template": "{{INPUT}} 歩",
       "suffix": "歩",
       "promptImage": "questions/sansu/g5/visuals/ratio-7377bc97226a.svg",
       "promptImageAlt": "さとしは4560歩、お父さんは？歩。さとしの2倍。同じ尺度の帯で数量を比べる。"
     },
-    "explanation": "この問題[もんだい]では、「くらべる数」が求められている。「くらべる数＝もとにする数×割合[わりあい]」 で求めることができるので、 45600×2=9120歩"
+    "explanation": "お父[とう]さんの 歩数[ほすう]は、さとしさんの 4560歩[ぽ]の 2倍[ばい]です。4560×2＝9120なので、9120歩[ぽ]です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-13.768dc2c0e922",
@@ -235,10 +195,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "割合[わりあい]を求める式として、正しいものをえらぼう。",
+      "prompt": "割合[わりあい]を 求[もと]める 式[しき]を えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -256,7 +217,7 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g5/visuals/ratio-formula-768dc2c0e922.svg",
-      "promptSpeech": "割合[わりあい]を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
+      "promptImageAlt": "割合[わりあい]を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "割合[わりあい]は、言いかえれば「くらべる数」が「もとになる数」の何倍か、何こ分かということ。「割合[わりあい]＝くらべる数÷もとにする数」で求めることができる。"
   },
@@ -269,10 +230,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "くらべる数を求める式として、正しいものをえらぼう。",
+      "prompt": "くらべる数[かず]を 求[もと]める 式[しき]を えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -290,7 +252,7 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g5/visuals/ratio-formula-b0a6a8e98e73.svg",
-      "promptSpeech": "くらべる数を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
+      "promptImageAlt": "くらべる数を求める式として、正しいものをえらぼう。 もとにする量は基準の大きさ、くらべる量は比べたい大きさ。基準を1とした ときの 大きさ。同じ尺度の帯で数量を比べる。"
     },
     "explanation": "くらべる数は、「もとにする数」の◯倍（割合[わりあい]）になっているので、かけ算で求めることができる。「くらべる数 ＝ もとにする数 × 割合[わりあい]」が正しい。"
   },
@@ -303,10 +265,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "私の年れいは、12才 です。いとこの年れいは、私の 1.5倍 です。いとこは、いくつですか。 答[こた]えを 求[もと]める 式[しき]を えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -332,16 +295,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "大阪府の人口は、約880万人 です。これは、宮崎県の人口の 約8倍 に当たるそうです。宮崎県の人口は、約何万人でしょう。",
-      "answers": [
-        "110"
-      ],
+      "prompt": "計算[けいさん]の 練習[れんしゅう]として、次[つぎ]の 人口[じんこう]や 面積[めんせき]の 数値[すうち]を 使[つか]います。大阪府の人口は、約880万人 です。これは、宮崎県の人口の 約8倍 に当たるそうです。宮崎県の人口は、約何万人でしょう。",
+      "answers": ["110"],
       "template": "約{{INPUT}}万人",
       "suffix": "万人",
       "promptImage": "questions/sansu/g5/visuals/ratio-c92a6edc8675.svg",
@@ -358,10 +315,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文章題の答えを求める式として、正しいものをえらぼう。",
+      "prompt": "私の年れいは、12才 です。お父さんの年れいは、48才 です。お父さんの年れいは、私の何倍でしょう。 答[こた]えを 求[もと]める 式[しき]を えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -387,16 +345,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "動物園に、土曜日には 400人、日曜日[にちようび]には 320人 来ました。日曜日[にちようび]には、土曜日の何倍 人が来たでしょう。",
-      "answers": [
-        "0.8"
-      ],
+      "answers": ["0.8"],
       "template": "{{INPUT}}倍",
       "suffix": "倍",
       "promptImage": "questions/sansu/g5/visuals/ratio-e82459fd4e2d.svg",
@@ -410,16 +362,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-13",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_13",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_13", "reviewed:structural-v1"],
     "payload": {
       "prompt": "650mLのジュースが、期間限定で 1.2倍 に増量されています。増量後のジュースの量は、何mL でしょう。",
-      "answers": [
-        "780"
-      ],
+      "answers": ["780"],
       "template": "{{INPUT}} mL",
       "suffix": "mL",
       "promptImage": "questions/sansu/g5/visuals/ratio-ff64e7fab1d2.svg",

@@ -5,20 +5,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "3",
-        "4"
-      ],
-      "template": "1 1 ) 3 7 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 37÷11 =",
+      "answers": ["3", "4"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "わる数11より 小さい数がのこれば、あまりになるね。 3 1 1 ) 3 7 3 3 4"
+    "explanation": "11が37の中[なか]にいくつ入[はい]るか考[かんが]えます。11×3=33、37−33=4。あまり4は、わる数[かず]11より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.0c548e2c1240",
@@ -26,18 +19,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 183 ÷ 3 =",
-      "answers": [
-        "6"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 78÷13 =",
+      "answers": ["6"]
     },
-    "explanation": "6 1 3 ) 7 8 7 8 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。78÷13=6。6×13=78と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.0df32a48cf81",
@@ -45,16 +32,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "90円 持っています。１こ30円のチョコは、いくつ買えるでしょう。",
-      "answers": [
-        "3"
-      ],
+      "answers": ["3"],
       "template": "{{INPUT}}こ",
       "suffix": "こ",
       "promptImage": "questions/sansu/g4/visuals/chocolate-90.svg",
@@ -68,19 +49,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "□に当てはまる数はなんでしょう。",
-      "answers": [
-        "5"
-      ],
-      "template": "{{INPUT}} 1 6 ) 8 0 8 0 0"
+      "prompt": "80÷16の商[しょう]を答[こた]えましょう。",
+      "answers": ["5"]
     },
-    "explanation": "5 1 6 ) 8 0 8 0 0"
+    "explanation": "16×5=80なので、80の中[なか]には16が5つあります。答[こた]えは5です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.2cc1e797cdbd",
@@ -88,18 +62,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 500÷80 =",
-      "answers": [
-        "6"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 504÷84 =",
+      "answers": ["6"]
     },
-    "explanation": "500÷80 と考えて、わり切れる数を見つけていこう。 6 8 4 ) 5 0 4 5 0 4 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。504÷84=6。6×84=504と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.2fd62a7821f0",
@@ -107,18 +75,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 280÷30 =",
-      "answers": [
-        "8"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 280÷35 =",
+      "answers": ["8"]
     },
-    "explanation": "280÷30 と考えて、わり切れる数を見つけていこう。 8 3 5 ) 2 8 0 2 8 0 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。280÷35=8。8×35=280と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.30639bafeafd",
@@ -126,20 +88,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "53",
-        "9"
-      ],
-      "template": "1 7 ) 9 1 0 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 910÷17 =",
+      "answers": ["53", "9"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "商が２けたで、あまりが出る。まずは、91÷17 から、じゅん番に わり算をしていく。 5 3 1 7 ) 9 1 0 8 5 6 0 5 1 9"
+    "explanation": "17が910の中[なか]にいくつ入[はい]るか考[かんが]えます。17×53=901、910−901=9。あまり9は、わる数[かず]17より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.360142af5c8e",
@@ -147,20 +102,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "6",
-        "23"
-      ],
-      "template": "5 6 ) 3 5 9 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 359÷56 =",
+      "answers": ["6", "23"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "およそ 350÷50 と考えて、商にあてはめてみよう。あまりのあるわり算だ。 6 5 6 ) 3 5 9 3 3 6 2 3"
+    "explanation": "56が359の中[なか]にいくつ入[はい]るか考[かんが]えます。56×6=336、359−336=23。あまり23は、わる数[かず]56より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.49a5c57846ed",
@@ -168,18 +116,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 4966 ÷ 2 =",
-      "answers": [
-        "248"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 7936÷32 =",
+      "answers": ["248"]
     },
-    "explanation": "2 4 8 3 2 ) 7 9 3 6 6 4 1 5 3 1 2 8 2 5 6 2 5 6 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。7936÷32=248。248×32=7936と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.555f4c325915",
@@ -187,20 +129,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "107",
-        "50"
-      ],
-      "template": "5 8 ) 6 2 5 6 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 6256÷58 =",
+      "answers": ["107", "50"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "1 0 7 5 8 ) 6 2 5 6 5 8 4 5 6 4 0 6 5 0"
+    "explanation": "58が6256の中[なか]にいくつ入[はい]るか考[かんが]えます。58×107=6206、6256−6206=50。あまり50は、わる数[かず]58より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.5e1e268a1bc5",
@@ -208,20 +143,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "8",
-        "6"
-      ],
-      "template": "4 8 ) 3 9 0 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 390÷48 =",
+      "answers": ["8", "6"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "およそ 390÷40 と考えて、商にあてはめてみよう。あまりのあるわり算だ。 8 4 8 ) 3 9 0 3 8 4 6"
+    "explanation": "48が390の中[なか]にいくつ入[はい]るか考[かんが]えます。48×8=384、390−384=6。あまり6は、わる数[かず]48より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.7c8c0f611a18",
@@ -229,20 +157,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "7",
-        "11"
-      ],
-      "template": "2 7 ) 2 0 0 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 200÷27 =",
+      "answers": ["7", "11"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "およそ 200÷20 と考えて、商にあてはめてみよう。あまりのあるわり算だ。 7 2 7 ) 2 0 0 1 8 9 1 1"
+    "explanation": "27が200の中[なか]にいくつ入[はい]るか考[かんが]えます。27×7=189、200−189=11。あまり11は、わる数[かず]27より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.7e253e54d8d7",
@@ -250,19 +171,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "□に当てはまる数は、いくつになるでしょう。",
-      "answers": [
-        "3"
-      ],
-      "template": "{{INPUT}} 2 8 ) 8 4 8 4 0"
+      "prompt": "84÷28の商[しょう]を答[こた]えましょう。",
+      "answers": ["3"]
     },
-    "explanation": "3 2 8 ) 8 4 8 4 0"
+    "explanation": "28×3=84なので、84の中[なか]には28が3つあります。答[こた]えは3です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.84c70dd9f267",
@@ -270,21 +184,14 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "3"
-      ],
-      "template": "120÷40= {{INPUT}}",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 120÷40 =",
+      "answers": ["3"],
       "promptImage": "questions/sansu/g4/visuals/tens-division-84c70dd9f267.svg",
       "promptImageAlt": "10を1本の棒で表す。全部が120、1組が40。"
     },
-    "explanation": "120は 10が12こ、40は 10が4こ になるので、12÷4=3"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。120÷40=3。3×40=120と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.872934c0abca",
@@ -292,18 +199,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 78÷39 =",
-      "answers": [
-        "20"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 780÷39 =",
+      "answers": ["20"]
     },
-    "explanation": "商が２けたになる。まずは、78÷39 から、じゅん番に わり算をしていく。 2 0 3 9 ) 7 8 0 7 8 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。780÷39=20。20×39=780と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.8c310a170fe5",
@@ -311,21 +212,14 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "4"
-      ],
-      "template": "80÷20= {{INPUT}}",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 80÷20 =",
+      "answers": ["4"],
       "promptImage": "questions/sansu/g4/visuals/tens-division-8c310a170fe5.svg",
       "promptImageAlt": "10を1本の棒で表す。全部が80、1組が20。"
     },
-    "explanation": "80は 10が8こ、20は 10が2こ になるので、8÷2=4"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。80÷20=4。4×20=80と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.8d81d455c243",
@@ -333,20 +227,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "13",
-        "20"
-      ],
-      "template": "5 5 ) 7 3 5 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 735÷55 =",
+      "answers": ["13", "20"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "商が２けたで、あまりが出る。まずは、73÷55 から、じゅん番に わり算をしていく。 1 3 5 5 ) 7 3 5 5 5 1 8 5 1 6 5 2 0"
+    "explanation": "55が735の中[なか]にいくつ入[はい]るか考[かんが]えます。55×13=715、735−715=20。あまり20は、わる数[かず]55より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.94972e124c8b",
@@ -354,20 +241,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "30",
-        "5"
-      ],
-      "template": "2 6 ) 7 8 5 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 785÷26 =",
+      "answers": ["30", "5"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "商が２けたで、あまりが出る。まずは、78÷26 から、じゅん番に わり算をしていく。 3 0 2 6 ) 7 8 5 7 8 5 0 5"
+    "explanation": "26が785の中[なか]にいくつ入[はい]るか考[かんが]えます。26×30=780、785−780=5。あまり5は、わる数[かず]26より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.96a1d4632713",
@@ -375,20 +255,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "36",
-        "94"
-      ],
-      "template": "1 2 3 ) 4 5 2 2 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4522÷123 =",
+      "answers": ["36", "94"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "3 6 1 2 3 ) 4 5 2 2 3 6 9 8 3 2 7 3 8 9 4"
+    "explanation": "123が4522の中[なか]にいくつ入[はい]るか考[かんが]えます。123×36=4428、4522−4428=94。あまり94は、わる数[かず]123より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.afc13baed412",
@@ -396,22 +269,15 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "2",
-        "10"
-      ],
-      "template": "70÷30= {{INPUT}} あまり {{INPUT}}",
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 70÷30 =",
+      "answers": ["2", "10"],
+      "template": "{{INPUT}} あまり {{INPUT}}",
       "promptImage": "questions/sansu/g4/visuals/tens-division-afc13baed412.svg",
       "promptImageAlt": "10を1本の棒で表す。全部が70、1組が30。"
     },
-    "explanation": "70は 10が7こ、30は 10が3こ になるので、7÷3=2 あまり 1 10が1つ あまっているので、あまりは 10 になる。"
+    "explanation": "30が70の中[なか]にいくつ入[はい]るか考[かんが]えます。30×2=60、70−60=10。あまり10は、わる数[かず]30より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.b2310740514f",
@@ -419,18 +285,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 1635 ÷ 5 =",
-      "answers": [
-        "32"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2400÷75 =",
+      "answers": ["32"]
     },
-    "explanation": "3 2 7 5 ) 2 4 0 0 2 2 5 1 5 0 1 5 0 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。2400÷75=32。32×75=2400と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.b7e720031161",
@@ -438,18 +298,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 30÷18 =",
-      "answers": [
-        "17"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 306÷18 =",
+      "answers": ["17"]
     },
-    "explanation": "商が２けたになる。まずは、30÷18 から、じゅん番に わり算をしていく。 1 7 1 8 ) 3 0 6 1 8 1 2 6 1 2 6 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。306÷18=17。17×18=306と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.be0716009883",
@@ -457,19 +311,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "□に当てはまる数はなんでしょう。",
-      "answers": [
-        "4"
-      ],
-      "template": "{{INPUT}} 2 1 ) 8 4 8 4 0"
+      "prompt": "84÷21の商[しょう]を答[こた]えましょう。",
+      "answers": ["4"]
     },
-    "explanation": "4 2 1 ) 8 4 8 4 0"
+    "explanation": "21×4=84なので、84の中[なか]には21が4つあります。答[こた]えは4です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.c07b580c513a",
@@ -477,18 +324,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 85÷23 =",
-      "answers": [
-        "37"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 851÷23 =",
+      "answers": ["37"]
     },
-    "explanation": "商が２けたになる。まずは、85÷23 から、じゅん番に わり算をしていく。 3 7 2 3 ) 8 5 1 6 9 1 6 1 1 6 1 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。851÷23=37。37×23=851と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.c29320b7ba0a",
@@ -496,20 +337,13 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしよう。",
-      "answers": [
-        "47",
-        "7"
-      ],
-      "template": "9 9 ) 4 6 6 0 {{INPUT}} あまり {{INPUT}}"
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4660÷99 =",
+      "answers": ["47", "7"],
+      "template": "{{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "4 7 9 9 ) 4 6 6 0 3 9 6 7 0 0 6 9 3 7"
+    "explanation": "99が4660の中[なか]にいくつ入[はい]るか考[かんが]えます。99×47=4653、4660−4653=7。あまり7は、わる数[かず]99より小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.ca8d631526c8",
@@ -517,18 +351,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 62 ÷ 2 =",
-      "answers": [
-        "3"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 36÷12 =",
+      "answers": ["3"]
     },
-    "explanation": "3 1 2 ) 3 6 3 6 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。36÷12=3。3×12=36と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.d03cf7b40130",
@@ -536,17 +364,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
       "prompt": "80円 持っています。１こ30円 のチョコは、いくつ買えて、何円あまるでしょう。",
-      "answers": [
-        "2",
-        "20"
-      ],
+      "answers": ["2", "20"],
       "template": "{{INPUT}}つ 買えて、{{INPUT}}円 あまる",
       "promptImage": "questions/sansu/g4/visuals/chocolate-80.svg",
       "promptImageAlt": "10円玉が8まいで80円。チョコは1こ30円。何こ買えるかを考える図。"
@@ -559,18 +380,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 120÷40 =",
-      "answers": [
-        "3"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 123÷41 =",
+      "answers": ["3"]
     },
-    "explanation": "およそ 120÷40 と考えて、わり切れる数を見つけていこう。 3 4 1 ) 1 2 3 1 2 3 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。123÷41=3。3×41=123と、かけ算[ざん]でも確[たし]かめられます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-7.fcad4ca3c8ba",
@@ -578,17 +393,11 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-7",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_7",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_7", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 66 ÷ 2 =",
-      "answers": [
-        "3"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 96÷32 =",
+      "answers": ["3"]
     },
-    "explanation": "3 3 2 ) 9 6 9 6 0"
+    "explanation": "大[おお]きい位[くらい]から順[じゅん]にわり、わられる数[かず]と商[しょう]の小数点[しょうすうてん]をそろえます。96÷32=3。3×32=96と、かけ算[ざん]でも確[たし]かめられます。"
   }
 ]

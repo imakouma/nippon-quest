@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g3.balance.compensation",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-8",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "48+27を、50+25に かえて 計算[けいさん]しても よいのは なぜですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "48も27も2ずつ ふやしたから"
+        },
+        {
+          "id": "c1",
+          "text": "27から2を 48へ うつして、合計[ごうけい]は かわらないから"
+        },
+        {
+          "id": "c2",
+          "text": "48に2を 足[た]すだけで、合計[ごうけい]は かわらないから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "48に2を 足[た]して50にしたぶん、27から2を 引[ひ]いて25にします。2を うつしただけなので、合計[ごうけい]は かわりません。50+25=75です。"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g4.balance.relation-reverse",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-15",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "1こ120円[えん]のノートを何[なん]こか買[か]い、50円[えん]の袋[ふくろ]に入[い]れてもらうと、代金[だいきん]は530円[えん]でした。ノートは何[なん]こ買[か]いましたか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4こ"
+        },
+        {
+          "id": "c2",
+          "text": "5こ"
+        },
+        {
+          "id": "c3",
+          "text": "3こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "代金[だいきん]は「120×ノートの数[かず]＋50」です。先[さき]に袋[ふくろ]の50円[えん]を引[ひ]くと480円[えん]なので、480÷120＝4こです。120×4＋50＝530と確[たし]かめられます。"
+  }
+]

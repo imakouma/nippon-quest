@@ -31,10 +31,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "次の円の面積[めんせき]を求めよう。",
+      "prompt": "次の円の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "12.56"
       ],
@@ -76,10 +77,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。",
+      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "14.13"
       ],
@@ -102,7 +104,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "円の面積[めんせき]の求め方（公式）として、正しいものをえらぼう。",
+      "prompt": "円周率[えんしゅうりつ]を3.14とするとき、円[えん]の面積[めんせき]を求[もと]める式[しき]として、正[ただ]しいものをえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -124,9 +126,9 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g6/visuals/circle-area-5a221514122d.svg",
-      "promptSpeech": "円の面積[めんせき]の求め方（公式）として、正しいものをえらぼう。 円の半径を赤い線で示す。半径。青い部分の面積を考える。"
+      "promptSpeech": "円周率[えんしゅうりつ]を3.14とするとき、円[えん]の面積[めんせき]を求[もと]める式[しき]として、正[ただ]しいものをえらぼう。"
     },
-    "explanation": "円を半径[はんけい]で切ってばらばらにしたものを集めると、長方形[ちょうほうけい]のような形になる。これの面積[めんせき]を考えればいい（くわしくは、動画を見てみよう）。"
+    "explanation": "円[えん]を細[こま]かく分[わ]けて交互[こうご]に並[なら]べると、縦[たて]が半径[はんけい]、横[よこ]が円周[えんしゅう]の半分[はんぶん]に近[ちか]い形[かたち]になります。横[よこ]は半径[はんけい]×3.14なので、面積[めんせき]は半径[はんけい]×半径[はんけい]×3.14です。"
   },
   {
     "id": "legacy.sansu.g6.math-6-7.7229b5c9cf55",
@@ -184,7 +186,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の図形[ずけい]の色をつけた部分の面積[めんせき]を求めよう。",
+      "prompt": "次の図形[ずけい]の色をつけた部分の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "7.74"
       ],
@@ -272,7 +274,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。",
+      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "6.28"
       ],
@@ -294,7 +296,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の図形[ずけい]の色をつけた部分の面積[めんせき]を求めよう。",
+      "prompt": "次の図形[ずけい]の色をつけた部分の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "20.52"
       ],
@@ -302,7 +304,7 @@
       "suffix": "cm^2",
       "promptImage": "questions/legacy/e7d779b7e8b789f1.png"
     },
-    "explanation": "色をつけた部分の「半分の面積[めんせき]」を求めてみよう。おうぎ形から、三角形[さんかくけい]の面積[めんせき]を引けばいい。 おうぎ形の面積[めんせき]は、6×6×3.14÷4=28.26cm^2 この正方形[せいほうけい]の半分の直角三角形の面積[めんせき]は、 6×6÷2=18cm^2 色をつけた部分の半分の面積[めんせき]は、28.26-18=10.26cm^2 この２つ分の面積[めんせき]になるので、10.26×2=20.52cm^2"
+    "explanation": "色部分[いろぶぶん]の半分[はんぶん]は、半径[はんけい]6cmの円[えん]の4分[ぶん]の1から直角三角形[ちょっかくさんかくけい]を引[ひ]いた形[かたち]です。6×6×3.14÷4−6×6÷2＝10.26cm²。これが2つ分[ぶん]なので、10.26×2＝20.52cm²です。"
   },
   {
     "id": "legacy.sansu.g6.math-6-7.a2e929d32d94",
@@ -313,10 +315,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "次の円の面積[めんせき]を求めよう。",
+      "prompt": "次の円の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "78.5"
       ],
@@ -339,7 +342,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。",
+      "prompt": "次の図形[ずけい]の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "19.625"
       ],
@@ -358,10 +361,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "次の円柱の体積を求めよう。",
+      "prompt": "次の円柱の体積を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "282.6"
       ],
@@ -440,10 +444,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_6_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "review:curriculum-20261116"
     ],
     "payload": {
-      "prompt": "次の円の面積[めんせき]を求めよう。",
+      "prompt": "次の円の面積[めんせき]を求めよう。 円周率[えんしゅうりつ]は3.14とします。",
       "answers": [
         "314"
       ],
@@ -452,5 +457,259 @@
       "promptImage": "questions/legacy/82804e8061c7a2ff.png"
     },
     "explanation": "円の面積[めんせき]は「半径[はんけい] × 半径[はんけい] × 3.14」で求めることができるので、 10×10×3.14=314cm^2"
+  },
+  {
+    "id": "sansu.g6.curriculum.circle-rearrange",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "円[えん]を細[こま]かく分[わ]けて並[なら]べ直[なお]しました。縦[たて]の長[なが]さは何[なに]に当[あ]たりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "半径[はんけい]"
+        },
+        {
+          "id": "c2",
+          "text": "直径[ちょっけい]"
+        },
+        {
+          "id": "c3",
+          "text": "円周[えんしゅう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/circle-rearrange.svg",
+      "promptImageAlt": "円を細かく分けて並べると長方形に近づく。横は円周の半分、縦は問う長さ。"
+    },
+    "explanation": "縦[たて]は円[えん]の中心[ちゅうしん]から周[まわ]りまでの長[なが]さで、半径[はんけい]です。横[よこ]は円周[えんしゅう]の半分[はんぶん]なので、面積[めんせき]は半径[はんけい]×半径[はんけい]×円周率[えんしゅうりつ]になります。"
+  },
+  {
+    "id": "sansu.g6.curriculum.radius-double",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "半径[はんけい]を2倍[ばい]にすると、円[えん]の面積[めんせき]は何倍[なんばい]になりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4倍[ばい]"
+        },
+        {
+          "id": "c2",
+          "text": "2倍[ばい]"
+        },
+        {
+          "id": "c3",
+          "text": "8倍[ばい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/radius-double.svg",
+      "promptImageAlt": "半径2cmの円と半径4cmの円を同じ縮尺で示す。"
+    },
+    "explanation": "面積[めんせき]は半径[はんけい]を2回[かい]かけて求[もと]めます。半径[はんけい]が2倍[ばい]なら、面積[めんせき]は2×2＝4倍[ばい]です。"
+  },
+  {
+    "id": "sansu.g6.curriculum.approx-lake",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "湖[みずうみ]を図[ず]の長方形[ちょうほうけい]とみなします。およその面積[めんせき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "40km²"
+        },
+        {
+          "id": "c2",
+          "text": "26km²"
+        },
+        {
+          "id": "c3",
+          "text": "80km²"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/approx-lake.svg",
+      "promptImageAlt": "湖の輪郭を囲む縦5km、横8kmの近似長方形。"
+    },
+    "explanation": "複雑[ふくざつ]な形[かたち]を長方形[ちょうほうけい]とみて、8×5＝40km²と見積[みつ]もります。長方形[ちょうほうけい]に置[お]き換[か]えたので、正確[せいかく]な面積[めんせき]ではありません。"
+  },
+  {
+    "id": "sansu.g6.curriculum.approx-triangle",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "広場[ひろば]を底辺[ていへん]60m、高[たか]さ40mの三角形[さんかくけい]とみなします。およその面積[めんせき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1200m²"
+        },
+        {
+          "id": "c2",
+          "text": "2400m²"
+        },
+        {
+          "id": "c3",
+          "text": "100m²"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/approx-triangle.svg",
+      "promptImageAlt": "広場の輪郭と近似三角形。底辺60m、高さ40m。"
+    },
+    "explanation": "三角形[さんかくけい]の面積[めんせき]は底辺[ていへん]×高[たか]さ÷2。60×40÷2＝1200m²です。周[まわ]りの細[こま]かい凹凸[おうとつ]をならして見積[みつ]もります。"
+  },
+  {
+    "id": "sansu.g6.curriculum.approx-box",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "形[かたち]の不規則[ふきそく]な荷物[にもつ]を図[ず]の直方体[ちょくほうたい]とみなします。およその体積[たいせき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "960cm³"
+        },
+        {
+          "id": "c2",
+          "text": "30cm³"
+        },
+        {
+          "id": "c3",
+          "text": "480cm³"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/approx-box.svg",
+      "promptImageAlt": "近似直方体の横10cm、奥行8cm、高さ12cm。"
+    },
+    "explanation": "直方体[ちょくほうたい]とみなして縦[たて]×横[よこ]×高[たか]さを計算[けいさん]します。10×8×12＝960cm³です。すき間[ま]などがあるので見積[みつ]もりの値[あたい]です。"
+  },
+  {
+    "id": "sansu.g6.curriculum.approx-cylinder",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "容器[ようき]を直径[ちょっけい]8cm、高[たか]さ10cmの円柱[えんちゅう]とみなします。円周率[えんしゅうりつ]を3.14として、およその体積[たいせき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "502.4cm³"
+        },
+        {
+          "id": "c2",
+          "text": "2009.6cm³"
+        },
+        {
+          "id": "c3",
+          "text": "251.2cm³"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/approx-cylinder.svg",
+      "promptImageAlt": "円柱とみなした容器の直径8cm、高さ10cm。"
+    },
+    "explanation": "半径[はんけい]は8÷2＝4cm。底面積[ていめんせき]は4×4×3.14＝50.24cm²で、体積[たいせき]は50.24×10＝502.4cm³です。"
+  },
+  {
+    "id": "sansu.g6.balance.estimate-model",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "中心[ちゅうしん]からふちまで、どの方向[ほうこう]も約[やく]3mの花[か]だんがあります。およその面積[めんせき]を求[もと]める式[しき]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3×3×3.14"
+        },
+        {
+          "id": "c2",
+          "text": "6×6×3.14"
+        },
+        {
+          "id": "c3",
+          "text": "6×3.14"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "中心[ちゅうしん]からふちまでの長[なが]さがほぼ同[おな]じなので、円[えん]とみなせます。半径[はんけい]は約[やく]3mだから、面積[めんせき]は3×3×3.14で求[もと]めます。"
+  },
+  {
+    "id": "sansu.g6.balance.estimate-meaning",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-7",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "図[ず]の湖[みずうみ]を縦[たて]5km、横[よこ]8kmの長方形[ちょうほうけい]とみなし、面積[めんせき]を40km²と求[もと]めました。この値[あたい]について正[ただ]しい説明[せつめい]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "湖[みずうみ]と長方形[ちょうほうけい]の形[かたち]が異[こと]なるので、およその面積[めんせき]である。"
+        },
+        {
+          "id": "c2",
+          "text": "5×8は正[ただ]しい計算[けいさん]なので、湖[みずうみ]の正確[せいかく]な面積[めんせき]である。"
+        },
+        {
+          "id": "c3",
+          "text": "湖[みずうみ]は長方形[ちょうほうけい]ではないので、およその面積[めんせき]も求[もと]められない。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/approx-lake.svg",
+      "promptSpeech": "図[ず]の湖[みずうみ]を縦[たて]5km、横[よこ]8kmの長方形[ちょうほうけい]とみなし、面積[めんせき]を40km²と求[もと]めました。この値[あたい]について正[ただ]しい説明[せつめい]はどれですか。 不規則な湖に、縦5km、横8kmの長方形を重ねた図。湖は長方形から出る所と入る所がある。"
+    },
+    "explanation": "長方形[ちょうほうけい]の面積[めんせき]は40km²ですが、湖[みずうみ]には長方形[ちょうほうけい]から出[で]る所[ところ]や入[はい]る所[ところ]があります。形[かたち]を置[お]きかえた値[あたい]なので、正確[せいかく]な面積[めんせき]ではなく見積[みつ]もりです。"
   }
 ]

@@ -30,7 +30,11 @@ for (const [renderer, payload] of [
   ],
   [textInputRenderer, { prompt: '1+1', answers: ['2'] }],
 ] as const) {
-  function mount(subject: 'sansu' | 'kokugo' = 'sansu', grade: 1 | 4 = 1, explanation = '答[こた]えは 2') {
+  function mount(
+    subject: 'sansu' | 'kokugo' = 'sansu',
+    grade: 1 | 4 | 5 | 6 = 1,
+    explanation = '答[こた]えは 2',
+  ) {
     const container = document.createElement('div');
     document.body.append(container);
     const controller = new AbortController();
@@ -99,18 +103,24 @@ for (const [renderer, payload] of [
     act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
     expect(await result).toMatchObject({ score: 1 });
   });
-  it(`${renderer.type}: grade 4 math follows its review policy`, async () => {
-    const { container, result, answer, submit } = mount('sansu', 4);
-    answer();
-    submit();
-    if (renderer.type === 'text-input')
-      act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
-    else
-      await act(async () => {
-        await vi.advanceTimersByTimeAsync(900);
+  for (const grade of [4, 5, 6] as const)
+    it(`${renderer.type}: grade ${grade} math keeps feedback until explanation is read`, async () => {
+      const { container, result, answer, submit } = mount('sansu', grade);
+      answer();
+      submit();
+      let settled = false;
+      void result.then(() => {
+        settled = true;
       });
-    expect(await result).toMatchObject({ score: 1 });
-  });
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(5000);
+      });
+      expect(settled).toBe(false);
+      act(() => (container.querySelector('.nq-review-explain') as HTMLButtonElement).click());
+      expect(container.querySelector('.nq-review p')?.textContent).toContain('2');
+      act(() => (container.querySelector('.nq-review-next') as HTMLButtonElement).click());
+      expect(await result).toMatchObject({ score: 1, timeMs: 0, timedOut: false });
+    });
   it(`${renderer.type}: abort during review settles once`, async () => {
     const { controller, result, answer, submit } = mount();
     answer();

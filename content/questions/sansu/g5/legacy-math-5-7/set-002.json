@@ -1,0 +1,86 @@
+[
+  {
+    "id": "sansu.g5.balance.equal-gift-bags",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": ["review:balance-20261117", "difficulty:standard"],
+    "payload": {
+      "prompt": "赤[あか]いカード24枚[まい]と 青[あお]いカード18枚[まい]を、あまりなく 同[おな]じ 組合[くみあ]わせの 袋[ふくろ]に 分[わ]けます。袋[ふくろ]を 最[もっと]も 多[おお]くすると いくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6袋[ふくろ]"
+        },
+        {
+          "id": "c2",
+          "text": "12袋[ふくろ]"
+        },
+        {
+          "id": "c3",
+          "text": "18袋[ふくろ]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "袋[ふくろ]の 数[かず]は24も18も わり切[き]れる 数[かず]です。最大公約数[さいだいこうやくすう]は6。1袋[ふくろ]に 赤[あか]4枚[まい]、青[あお]3枚[まい]ずつ 入[はい]ります。"
+  },
+  {
+    "id": "sansu.g5.balance.bus-cycle",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": ["review:balance-20261117", "difficulty:standard"],
+    "payload": {
+      "prompt": "Aのバスは6分[ぷん]ごと、Bのバスは8分[ぷん]ごとに 出発[しゅっぱつ]します。今[いま] 同時[どうじ]に 出発[しゅっぱつ]しました。次[つぎ]に 同時[どうじ]に 出発[しゅっぱつ]するのは 何分後[なんぷんご]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "24分後[ふんご]"
+        },
+        {
+          "id": "c2",
+          "text": "14分後[ふんご]"
+        },
+        {
+          "id": "c3",
+          "text": "48分後[ふんご]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "両方[りょうほう]の 出発[しゅっぱつ]に 合[あ]うのは6と8の 公倍数[こうばいすう]です。最初[さいしょ]の 正[せい]の 公倍数[こうばいすう]は24なので、24分後[ふんご]です。"
+  },
+  {
+    "id": "sansu.g5.balance.common-multiple-range",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-7",
+    "tags": ["review:balance-20261117", "difficulty:advanced"],
+    "payload": {
+      "prompt": "4でも6でも わり切[き]れる 整数[せいすう]で、30より 大[おお]きく50より 小[ちい]さいものを すべて あげたのは どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "36と48"
+        },
+        {
+          "id": "c2",
+          "text": "32と36と48"
+        },
+        {
+          "id": "c3",
+          "text": "36だけ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "4と6の 最小公倍数[さいしょうこうばいすう]は12です。公倍数[こうばいすう]は12、24、36、48、60…なので、指定[してい]の 範囲[はんい]に 入[はい]るのは36と48です。"
+  }
+]

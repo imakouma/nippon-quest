@@ -27,14 +27,14 @@
         },
         {
           "id": "c4",
-          "text": "すべてのかどが直角[ちょっかく]で 辺[へん]の長[なが]さもおなじ四角形[しかくけい]"
+          "text": "すべてのかどが 直角[ちょっかく]でない 四角形[しかくけい]"
         }
       ],
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/legacy/18c6ec5fecde3366.png"
     },
-    "explanation": "長方形[ちょうほうけい]は、「すべてのかどが 直角[ちょっかく]になった四角形[しかくけい]」のこと。下[した]の図[ず]のような形[かたち]だ。"
+    "explanation": "長方形[ちょうほうけい]は、「すべてのかどが 直角[ちょっかく]になった四角形[しかくけい]」のこと。"
   },
   {
     "id": "legacy.sansu.g2.math-2-12.10932d31cfc7",
@@ -81,7 +81,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "下[した]の図[ず]のような 四角形[しかくけい]を、何[なに]というでしょう。すべての辺[へん]のながさは、同[おな]じとします。",
+      "prompt": "下[した]の 図[ず]は、すべての 辺[へん]の 長[なが]さが 同[おな]じで、すべての かどが 直角[ちょっかく]です。この きまりを もつ 四角形[しかくけい]を 何[なん]と いいますか。",
       "choices": [
         {
           "id": "c1",
@@ -89,7 +89,7 @@
         },
         {
           "id": "c2",
-          "text": "長方形[ちょうほうけい]"
+          "text": "三角形[さんかくけい]"
         },
         {
           "id": "c3",
@@ -97,7 +97,7 @@
         },
         {
           "id": "c4",
-          "text": "直方形[ちょくほうたい]"
+          "text": "直方体[ちょくほうたい]"
         }
       ],
       "answer": "c1",
@@ -130,7 +130,7 @@
         },
         {
           "id": "c3",
-          "text": "4本[ほん]の線[せん]で かこまれている形[かたち]"
+          "text": "4本[ほん]の 曲[ま]がった 線[せん]で かこまれている形[かたち]"
         },
         {
           "id": "c4",
@@ -141,7 +141,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/701a61ac1d303796.png"
     },
-    "explanation": "四角形[しかくけい]は、「4本[ほん]の直線[ちょくせん]で かこまれている形[かたち]」のこと。下[した]の図[ず]のような形[かたち]だ。"
+    "explanation": "四角形[しかくけい]は、「4本[ほん]の直線[ちょくせん]で かこまれている形[かたち]」のこと。"
   },
   {
     "id": "legacy.sansu.g2.math-2-12.36dfc2e04461",
@@ -251,7 +251,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/c54c0b0b6ce2ff14.png"
     },
-    "explanation": "四角[しかく]い紙[かみ]のかどのように、ぴったり重[かさ]なるかどを直角[ちょっかく]といいます。"
+    "explanation": "長方形[ちょうほうけい]や 正方形[せいほうけい]の 紙[かみ]の かどと、ぴったり 重[かさ]なる かどを 直角[ちょっかく]と いいます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-12.43d4514f24ce",
@@ -625,7 +625,7 @@
         },
         {
           "id": "c3",
-          "text": "3本[ほん]の線[せん]で かこまれている形[かたち]"
+          "text": "3本[ほん]の 曲[ま]がった 線[せん]で かこまれている形[かたち]"
         },
         {
           "id": "c4",
@@ -636,7 +636,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/e9fd4c95ae63bf9d.png"
     },
-    "explanation": "三角形[さんかくけい]は、「3本[ほん]の直線[ちょくせん]でかこまれている形[かたち]」のこと。下[した]の図[ず]のような形[かたち]だ。"
+    "explanation": "三角形[さんかくけい]は、「3本[ほん]の直線[ちょくせん]でかこまれている形[かたち]」のこと。"
   },
   {
     "id": "legacy.sansu.g2.math-2-12.cd064b86f196",
@@ -683,7 +683,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "正方形[せいほうけい]を、正[ただ]しくあらわしたことばを えらぼう。",
+      "prompt": "正方形[せいほうけい]の 辺[へん]と かどの きまりを、両方[りょうほう]とも 書[か]いたものは どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -706,6 +706,72 @@
       "shuffle": true,
       "promptImage": "questions/legacy/dac079d233ebcb82.png"
     },
-    "explanation": "正方形[せいほうけい]は、「すべてのかどが 直角[ちょっかく]で 辺[へん]の長[なが]さもおなじ四角形[しかくけい]」のこと。下[した]の図[ず]のような形[かたち]だ。"
+    "explanation": "正方形[せいほうけい]は、「すべてのかどが 直角[ちょっかく]で 辺[へん]の長[なが]さもおなじ四角形[しかくけい]」のこと。"
+  },
+  {
+    "id": "sansu.g2.curriculum.make-rectangle",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤[あか]い 長方形[ちょうほうけい]の 下[した]の 辺[へん]は、何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4cm"
+        },
+        {
+          "id": "c2",
+          "text": "2cm"
+        },
+        {
+          "id": "c3",
+          "text": "6cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/make-rectangle.svg",
+      "promptSpeech": "1ます1cmの方眼[ほうがん]に、よこ4ます、たて2ますの長方形[ちょうほうけい]があります。"
+    },
+    "explanation": "下[した]の 辺[へん]は 1cmの ます 4つ分[ぶん]なので 4cmです。上[うえ]の 辺[へん]と 長[なが]さが 同[おな]じになります。"
+  },
+  {
+    "id": "sansu.g2.curriculum.tile-rectangle",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-12",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "同[おな]じ 直角三角形[ちょっかくさんかくけい]を、すきまなく 2まい 合[あ]わせました。外側[そとがわ]は どんな 形[かたち]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "長方形[ちょうほうけい]"
+        },
+        {
+          "id": "c2",
+          "text": "三角形[さんかくけい]"
+        },
+        {
+          "id": "c3",
+          "text": "正方形[せいほうけい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/tile-rectangle.svg",
+      "promptSpeech": "たて2ます、よこ3ますの 外側[そとがわ]の わくを、左上[ひだりうえ]から 右下[みぎした]への 線[せん]で 2つに 分[わ]けた 図[ず]です。"
+    },
+    "explanation": "ななめの 辺[へん]を ぴったり 合[あ]わせています。外側[そとがわ]には 4つの 直角[ちょっかく]があり、たてと よこの 長[なが]さが ちがう 長方形[ちょうほうけい]が できます。この 形[かたち]を ならべると、すきまなく しきつめられます。"
   }
 ]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g4.balance.decimal-remainder",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-13",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "5.6mのリボンを3人[にん]に同[おな]じ長[なが]さずつ分[わ]けます。1人[ひとり]分[ぶん]を0.1m単位[たんい]でできるだけ長[なが]くすると、1人[ひとり]分[ぶん]と残[のこ]りはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1人[ひとり]1.8m、残[のこ]り0.2m"
+        },
+        {
+          "id": "c2",
+          "text": "1人[ひとり]1.8m、残[のこ]り2m"
+        },
+        {
+          "id": "c3",
+          "text": "1人[ひとり]1.9m、残[のこ]り0.1m"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.1mが56こあると考[かんが]えます。56÷3＝18あまり2なので、1人[ひとり]1.8m、残[のこ]り0.2mです。1.8×3＋0.2＝5.6と確[たし]かめられます。"
+  }
+]

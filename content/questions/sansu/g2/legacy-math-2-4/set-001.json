@@ -8,15 +8,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "82"
-      ]
+      ],
+      "template": "47+35 = {{INPUT}}"
     },
-    "explanation": "1 4 7 + 3 5 8 2"
+    "explanation": "一[いち]の位[くらい]は 7＋5＝12。10を 十[じゅう]の位[くらい]へ くり上[あ]げます。十[じゅう]のまとまりは 4＋3＋1＝8。あわせて 82です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.1ab728454723",
@@ -27,15 +29,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "ひっさんをかいて、つぎのけいさんを しましょう。",
       "answers": [
         "85"
-      ]
+      ],
+      "template": "17+68 = {{INPUT}}"
     },
-    "explanation": "1 1 7 + 6 8 8 5"
+    "explanation": "一[いち]の位[くらい]は 7＋8＝15。10を 十[じゅう]の位[くらい]へ くり上[あ]げます。十[じゅう]のまとまりは 1＋6＋1＝8。あわせて 85です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.38ab71b5ca0a",
@@ -46,15 +50,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "76"
-      ]
+      ],
+      "template": "12+64 = {{INPUT}}"
     },
-    "explanation": "1 2 + 6 4 7 6"
+    "explanation": "一[いち]の位[くらい]は 2＋4＝6。十[じゅう]のまとまりは 1＋6＝7。あわせて 76です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.576f64fa5955",
@@ -65,15 +71,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "64"
-      ]
+      ],
+      "template": "61+3 = {{INPUT}}"
     },
-    "explanation": "6 1 + 3 6 4"
+    "explanation": "一[いち]の位[くらい]は 1＋3＝4。十[じゅう]のまとまりは 6＋0＝6。あわせて 64です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.62d517f09d39",
@@ -120,15 +128,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "ひっさんをかいて、つぎのけいさんを、しましょう。",
       "answers": [
         "82"
-      ]
+      ],
+      "template": "90-8 = {{INPUT}}"
     },
-    "explanation": "\\require{cancel} 8 1 \\bcancel{9} 0 - 8 8 2"
+    "explanation": "90を 80と 10に 分[わ]け、10を くり下[さ]げます。一[いち]の位[くらい]は 10−8＝2。十[じゅう]のまとまりは 8−0＝8。あわせて 82です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.8aecece3c02a",
@@ -139,15 +149,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "ひっさんをかいて、つぎのけいさんを しましょう。",
       "answers": [
         "44"
-      ]
+      ],
+      "template": "81-37 = {{INPUT}}"
     },
-    "explanation": "\\require{cancel} 7 1 \\bcancel{8} 1 - 3 7 4 4"
+    "explanation": "81を 70と 11に 分[わ]け、10を くり下[さ]げます。一[いち]の位[くらい]は 11−7＝4。十[じゅう]のまとまりは 7−3＝4。あわせて 44です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.8c89a86cb1a0",
@@ -158,15 +170,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "6"
-      ]
+      ],
+      "template": "45-39 = {{INPUT}}"
     },
-    "explanation": "\\require{cancel} 3 1 \\bcancel{4} 5 - 3 9 6"
+    "explanation": "45を 30と 15に 分[わ]け、10を くり下[さ]げます。一[いち]の位[くらい]は 15−9＝6。十[じゅう]のまとまりは 3−3＝0。あわせて 6です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-4.8cf43a3975e1",
@@ -213,14 +227,47 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "44"
-      ]
+      ],
+      "template": "16+28 = {{INPUT}}"
     },
-    "explanation": "1 1 6 + 2 8 4 4"
+    "explanation": "一[いち]の位[くらい]は 6＋8＝14。10を 十[じゅう]の位[くらい]へ くり上[あ]げます。十[じゅう]のまとまりは 1＋2＋1＝4。あわせて 44です。"
+  },
+  {
+    "id": "sansu.g2.balance.carry-reason",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-4",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "26＋38を 計算[けいさん]しました。一[いち]の 位[くらい]は6＋8＝14、十[じゅう]の 位[くらい]は2＋3＝5として、答[こた]えを54に しました。何[なに]を わすれていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "くり上[あ]がった1を 十[じゅう]の 位[くらい]に 足[た]すこと。"
+        },
+        {
+          "id": "c2",
+          "text": "一[いち]の 位[くらい]の4を0に すること。"
+        },
+        {
+          "id": "c3",
+          "text": "十[じゅう]の 位[くらい]から1を ひくこと。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "14の うち10は、十[じゅう]の まとまり1こです。これを 十[じゅう]の 位[くらい]へ 足[た]すので、2＋3＋1＝6。正[ただ]しい 答[こた]えは64です。"
   }
 ]

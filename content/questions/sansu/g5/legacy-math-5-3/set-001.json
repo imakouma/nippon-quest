@@ -24,7 +24,7 @@
       "promptImage": "questions/sansu/g5/visuals/relationship-04bce993b920.svg",
       "promptImageAlt": "りんごは1こ80円、箱は1つ200円。表の上段は1から6。下段①から⑥の空欄に答える。"
     },
-    "explanation": "りんごの数（こ） 1 2 3 4 5 6 代金（円） 280 360 440 520 600 680"
+    "explanation": "りんごは 1こ80円[えん]なので、代金[だいきん]は 80×個数[こすう]＋200です。箱代[はこだい]200円[えん]は 1回[かい]だけ たします。 順[じゅん]に 280、360、440、520、600、680となります。"
   },
   {
     "id": "legacy.sansu.g5.math-5-3.0fb4f544efc4",
@@ -51,7 +51,7 @@
       "promptImage": "questions/sansu/g5/visuals/relationship-0fb4f544efc4.svg",
       "promptImageAlt": "高さ4cmの積み木を1こ、2こ、3こと積み重ねた図。表の上段は1から6。下段①から⑥の空欄に答える。"
     },
-    "explanation": "つみ木の数（こ） 1 2 3 4 5 6 高さ（cm） 4 8 12 16 20 24"
+    "explanation": "つみ木[き]1こで 高[たか]さが 4cm増[ふ]えるので、高[たか]さ＝4×個数[こすう]です。 順[じゅん]に 4、8、12、16、20、24となります。"
   },
   {
     "id": "legacy.sansu.g5.math-5-3.14344ddb86e8",
@@ -78,7 +78,7 @@
       "promptImage": "questions/sansu/g5/visuals/relationship-14344ddb86e8.svg",
       "promptImageAlt": "面積24平方センチメートルの長方形。たてに応じて横が変わる。図は一例。表の上段は1から6。下段①から⑥の空欄に答える。"
     },
-    "explanation": "たての長さ（cm） 1 2 3 4 5 6 横の長さ（cm） 24 12 8 6 4.8 4"
+    "explanation": "長方形[ちょうほうけい]の 面積[めんせき]は たて×横[よこ]です。たて×横[よこ]＝24なので、横[よこ]＝24÷たてで 求[もと]めます。 順[じゅん]に 24、12、8、6、4.8、4となります。"
   },
   {
     "id": "legacy.sansu.g5.math-5-3.56314937376a",
@@ -139,7 +139,7 @@
       "promptImage": "questions/sansu/g5/visuals/relationship-70bf1a8451fa.svg",
       "promptImageAlt": "おもりは1こ1.2kg。表の上段は1から6。下段①から⑥の空欄に答える。"
     },
-    "explanation": "おもりの数（こ） 1 2 3 4 5 6 重さ（kg） 1.2 2.4 3.6 4.8 6 7.2"
+    "explanation": "1この 重[おも]さが 1.2kgなので、重[おも]さ＝1.2×個数[こすう]です。 順[じゅん]に 1.2、2.4、3.6、4.8、6、7.2となります。"
   },
   {
     "id": "legacy.sansu.g5.math-5-3.f290598cb3cb",
@@ -166,7 +166,7 @@
       "promptImage": "questions/sansu/g5/visuals/relationship-f290598cb3cb.svg",
       "promptImageAlt": "えんぴつは1本60円。表の上段は1から6。下段①から⑥の空欄に答える。"
     },
-    "explanation": "えんびつの数（本） 1 2 3 4 5 6 代金（円） 60 120 180 240 300 360"
+    "explanation": "1本[ぽん]60円[えん]なので、代金[だいきん]＝60×本数[ほんすう]です。 順[じゅん]に 60、120、180、240、300、360となります。"
   },
   {
     "id": "legacy.sansu.g5.math-5-3.fb5ba8c7d9af",
@@ -205,5 +205,71 @@
       "promptSpeech": "１辺が 4cm の立方体のつみ木を上に積み上げていきます。積み上げるつみ木の数とその高さには、どのような関係があるでしょう。 高さ4cmの積み木を1こ、2こ、3こと積み重ねた図。"
     },
     "explanation": "表をみると、積み上げるつみ木の数が２倍になると、その高さも２倍になっていることが読み取れる。"
+  },
+  {
+    "id": "sansu.g5.curriculum.proportion-identify",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "個数[こすう]に 比例[ひれい]する 代金[だいきん]は どちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Aだけ"
+        },
+        {
+          "id": "c2",
+          "text": "Bだけ"
+        },
+        {
+          "id": "c3",
+          "text": "AとBの 両方[りょうほう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/proportion.svg",
+      "promptImageAlt": "個数1、2、3に対し、代金Aは80、160、240円。代金Bは180、260、340円。"
+    },
+    "explanation": "Aは 個数[こすう]が 2倍[ばい]、3倍[ばい]になると 代金[だいきん]も 2倍[ばい]、3倍[ばい]です。Bは 180円[えん]の 2倍[ばい]が260円[えん]には ならないので 比例[ひれい]しません。"
+  },
+  {
+    "id": "sansu.g5.curriculum.proportion-predict",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-3",
+    "tags": [
+      "reviewed:structural-v1",
+      "curriculum:gap-fill-20261116"
+    ],
+    "payload": {
+      "prompt": "代金A[だいきんえー]の きまりで 4こ 買[か]うと 何円[なんえん]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "320円[えん]"
+        },
+        {
+          "id": "c2",
+          "text": "340円[えん]"
+        },
+        {
+          "id": "c3",
+          "text": "420円[えん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/proportion.svg",
+      "promptImageAlt": "個数1、2、3に対し、代金Aは80、160、240円。代金Bは180、260、340円。"
+    },
+    "explanation": "1こ80円[えん]で、代金A[だいきんえー]＝80×個数[こすう]です。80×4＝320円[えん]です。"
   }
 ]

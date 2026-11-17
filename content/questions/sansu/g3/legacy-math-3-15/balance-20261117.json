@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g3.balance.water-needed",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-15",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "水[みず]が0.7Lあります。1.3Lに するには、あと 何[なん]L 入[い]れれば よいですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "2L"
+        },
+        {
+          "id": "c1",
+          "text": "0.6L"
+        },
+        {
+          "id": "c2",
+          "text": "0.4L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1.3Lから 今[いま]ある0.7Lを 引[ひ]きます。0.1Lが13こ分[ぶん]から7こ分[ぶん]を 引[ひ]くので、6こ分[ぶん]の0.6Lです。0.7+0.6=1.3と たしかめられます。"
+  }
+]

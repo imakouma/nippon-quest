@@ -116,15 +116,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "16"
-      ]
+      ],
+      "template": "2×8 = {{INPUT}}"
     },
-    "explanation": "2×8=16 （にはち じゅうろく）"
+    "explanation": "2が 8つ分[ぶん]です。2＋2＋2＋2＋2＋2＋2＋2＝16。2ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.51403a0bbe49",
@@ -135,15 +137,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "45"
-      ]
+      ],
+      "template": "5×9 = {{INPUT}}"
     },
-    "explanation": "5×9=45 （ごっく しじゅうご）"
+    "explanation": "5が 9つ分[ぶん]です。5＋5＋5＋5＋5＋5＋5＋5＋5＝45。5ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.607c9afad3f2",
@@ -154,15 +158,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "42"
-      ]
+      ],
+      "template": "7×6 = {{INPUT}}"
     },
-    "explanation": "7×6=42 （しちろく しじゅうに）"
+    "explanation": "7が 6つ分[ぶん]です。7＋7＋7＋7＋7＋7＝42。7ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.6444ef5f38d2",
@@ -353,15 +359,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "48"
-      ]
+      ],
+      "template": "6×8 = {{INPUT}}"
     },
-    "explanation": "6×8=48 （ろくは しじゅうはち）"
+    "explanation": "6が 8つ分[ぶん]です。6＋6＋6＋6＋6＋6＋6＋6＝48。6ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.8ba0c806b648",
@@ -481,15 +489,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "5"
-      ]
+      ],
+      "template": "1×5 = {{INPUT}}"
     },
-    "explanation": "１のだん。かける数[すう] 5 が、そのままこたえになる。"
+    "explanation": "1が 5つ分[ぶん]です。1＋1＋1＋1＋1＝5。1ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.9cd2a04a370d",
@@ -550,7 +560,7 @@
       ],
       "template": "5×6 = {{INPUT}} 5×7 = {{INPUT}} 5×8 = {{INPUT}} 5×9 = {{INPUT}}"
     },
-    "explanation": "5の段[だん]は、答[こた]えの一[いち]の位[くらい]が5、0、5、0と交互[こうご]になります。"
+    "explanation": "5×6＝30から、5ずつ 足[た]すと 35、40、45です。この 4つの 答[こた]えの 一[いち]の 位[くらい]は、0、5、0、5と なります。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.ad9aae9a2cc6",
@@ -607,15 +617,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "63"
-      ]
+      ],
+      "template": "9×7 = {{INPUT}}"
     },
-    "explanation": "9×7=63 （くしち ろくじゅうさん）"
+    "explanation": "9が 7つ分[ぶん]です。9＋9＋9＋9＋9＋9＋9＝63。9ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.d1917c81cc08",
@@ -626,15 +638,17 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_13",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎの けい算[ざん]をしよう。",
       "answers": [
         "18"
-      ]
+      ],
+      "template": "3×6 = {{INPUT}}"
     },
-    "explanation": "3×6=18 （さぶろく じゅうはち）"
+    "explanation": "3が 6つ分[ぶん]です。3＋3＋3＋3＋3＋3＝18。3ずつ ふやして たしかめられます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-13.d46a52ec0f79",
@@ -659,5 +673,38 @@
       "template": "6×1 = {{INPUT}} 6×2 = {{INPUT}} 6×3 = {{INPUT}} 6×4 = {{INPUT}} 6×5 = {{INPUT}}"
     },
     "explanation": "6の段[だん]は、かける数[かず]が1ふえるごとに、答[こた]えが6ずつふえます。"
+  },
+  {
+    "id": "sansu.g2.curriculum.kuku-one",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-13",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "1さらに 1こずつ みかんが あります。5さら分[ぶん]では 何[なん]こですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5こ"
+        },
+        {
+          "id": "c2",
+          "text": "1こ"
+        },
+        {
+          "id": "c3",
+          "text": "6こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/kuku-one.svg",
+      "promptSpeech": "1さらにみかんが1こずつ、さらが5まいあります。"
+    },
+    "explanation": "1こずつが 5つ分[ぶん]なので、1×5＝5です。1の 段[だん]は、かける 数[かず]と 同[おな]じ 答[こた]えになります。"
   }
 ]

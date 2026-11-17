@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g4.balance.fraction-scene",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-14",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "1Lの牛乳[ぎゅうにゅう]から3/5Lを使[つか]いました。残[のこ]りは何[なん]Lですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2/5L"
+        },
+        {
+          "id": "c2",
+          "text": "3/5L"
+        },
+        {
+          "id": "c3",
+          "text": "2L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1Lを5等分[とうぶん]すると1つ分[ぶん]は1/5Lで、1Lは5/5Lです。5こ分[ぶん]から3こ分[ぶん]を使[つか]うので、2こ分[ぶん]の2/5Lが残[のこ]ります。"
+  }
+]

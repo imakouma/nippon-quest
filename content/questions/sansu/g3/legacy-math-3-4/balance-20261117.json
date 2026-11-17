@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sansu.g3.balance.books-total",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-4",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "図書室[としょしつ]に 本[ほん]が348さつあります。275さつ ふえました。今[いま]、全部[ぜんぶ]で 何[なん]さつありますか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "73さつ"
+        },
+        {
+          "id": "c1",
+          "text": "623さつ"
+        },
+        {
+          "id": "c2",
+          "text": "613さつ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "もとの348さつに、ふえた275さつを 足[た]します。348+275は、348+200=548、548+75=623なので、623さつです。"
+  },
+  {
+    "id": "sansu.g3.balance.subtraction-check",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-4",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "503−178=425と 計算[けいさん]しました。まちがいに 気[き]づける たしかめ方[かた]はどれですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "425−178が503になるか 調[しら]べる"
+        },
+        {
+          "id": "c1",
+          "text": "425+178が503になるか 調[しら]べる"
+        },
+        {
+          "id": "c2",
+          "text": "503+425が178になるか 調[しら]べる"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "引[ひ]いたあとに 引[ひ]いた数[かず]を もどすと、はじめの数[かず]になるはずです。425+178=603で、503ではありません。正[ただ]しい 答[こた]えは325で、325+178=503と たしかめられます。"
+  }
+]

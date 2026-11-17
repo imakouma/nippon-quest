@@ -16,13 +16,17 @@ const fractions = [
 ] as const;
 
 const questions = readdirSync('content/questions/sansu/g3').flatMap((dir) =>
-  (JSON.parse(readFileSync(`content/questions/sansu/g3/${dir}/set-001.json`, 'utf8')) as unknown[]).map(
-    (q) => questionBaseSchema.parse(q) as QuestionBase,
-  ),
+  readdirSync(`content/questions/sansu/g3/${dir}`)
+    .filter((file) => file.endsWith('.json'))
+    .flatMap((file) =>
+      (JSON.parse(readFileSync(`content/questions/sansu/g3/${dir}/${file}`, 'utf8')) as unknown[]).map(
+        (q) => questionBaseSchema.parse(q) as QuestionBase,
+      ),
+    ),
 );
 describe('grade 3 illustrated learning materials', () => {
-  it('preserves all 345 identities and targets, with only six explicit fraction-input repairs', () => {
-    expect(questions).toHaveLength(345);
+  it('tracks 379 reviewed questions including source repairs and documented grade-scope corrections', () => {
+    expect(questions).toHaveLength(379);
     const rows = questions
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
@@ -44,7 +48,7 @@ describe('grade 3 illustrated learning materials', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      '8e33c01f02ee318d46c7df6bdd50146ad80af91fed8a6ca53df7a19bc0dc476f',
+      '1a96600c3efdd31599842c5efa87f75ec8d091b3c419f5922c5cc833c3163bf2',
     );
   });
   it('accepts fractions through numerator/denominator fields and rejects concatenated digits', () => {
@@ -86,7 +90,7 @@ describe('grade 3 illustrated learning materials', () => {
       reason: string;
     }[];
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(90);
+    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(118);
     for (const r of review) {
       expect(r.reason).toBeTruthy();
       if (r.decision !== 'illustrated') continue;

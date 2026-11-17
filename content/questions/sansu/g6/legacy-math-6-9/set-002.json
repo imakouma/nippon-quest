@@ -1,0 +1,96 @@
+[
+  {
+    "id": "sansu.g6.curriculum.not-proportional",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "この水量[すいりょう]は時間[じかん]に比例[ひれい]していますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "比例[ひれい]しない"
+        },
+        {
+          "id": "c2",
+          "text": "比例[ひれい]する"
+        },
+        {
+          "id": "c3",
+          "text": "反比例[はんぴれい]する"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/not-proportional.svg",
+      "promptImageAlt": "0、1、2、3分に対し、水量5、7、9、11Lの表。"
+    },
+    "explanation": "1分[ぷん]の7Lに対[たい]し、2分[ふん]では9Lで、時間[じかん]が2倍[ばい]でも水量[すいりょう]は2倍[ばい]ではありません。初[はじ]めに5Lあるため、毎分[まいふん]2Lずつ増[ふ]えても比例[ひれい]しません。"
+  },
+  {
+    "id": "sansu.g6.curriculum.inverse-product",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:original-curriculum-review"
+    ],
+    "payload": {
+      "prompt": "表[ひょう]の縦[たて]と横[よこ]は反比例[はんぴれい]しています。一定[いってい]になるものはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "縦[たて]×横[よこ]"
+        },
+        {
+          "id": "c2",
+          "text": "縦[たて]＋横[よこ]"
+        },
+        {
+          "id": "c3",
+          "text": "横[よこ]÷縦[たて]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g6/review/inverse-product.svg",
+      "promptImageAlt": "縦2、3、4cmに対し横6、4、3cmの表。"
+    },
+    "explanation": "2×6、3×4、4×3はすべて12です。縦[たて]×横[よこ]、つまり面積[めんせき]が一定[いってい]になっています。"
+  },
+  {
+    "id": "sansu.g6.reaudit.proportion-paper",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-9",
+    "tags": [
+      "source:original-curriculum-reaudit"
+    ],
+    "payload": {
+      "prompt": "同[おな]じ紙[かみ]20枚[まい]の重[おも]さは80gです。箱[はこ]を除[のぞ]いた紙[かみ]の重[おも]さが600gなら、紙[かみ]は何枚[なんまい]ありますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "150枚[まい]"
+        },
+        {
+          "id": "c2",
+          "text": "300枚[まい]"
+        },
+        {
+          "id": "c3",
+          "text": "240枚[まい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同[おな]じ紙[かみ]なら枚数[まいすう]と重[おも]さは比例[ひれい]します。1枚[まい]は80÷20＝4gなので、600÷4＝150枚[まい]です。"
+  }
+]
