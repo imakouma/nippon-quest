@@ -511,7 +511,9 @@ test('その他に四字熟語と対義語・類義語のフォルダを表示�
 });
 
 for (const status of [404, 405]) {
-  test(`フォルダ構成APIがない静的公開先（${status}）でも標準フォルダを閲覧できる`, async ({ page }) => {
+  test(`Playground: フォルダ構成APIがない静的公開先（${status}）でも標準フォルダを閲覧できる`, async ({
+    page,
+  }) => {
     await page.route('**/__nq/folder-state', (route) =>
       route.fulfill({ status, contentType: 'text/html', body: '<html>Not available</html>' }),
     );
@@ -529,7 +531,7 @@ for (const status of [404, 405]) {
 }
 
 for (const status of [200, 403, 500]) {
-  test(`フォルダ構成APIの不正な応答（${status}）は警告する`, async ({ page }) => {
+  test(`Playground: フォルダ構成APIの不正な応答（${status}）は警告する`, async ({ page }) => {
     await page.route('**/__nq/folder-state', (route) => route.fulfill({ status, body: '' }));
     await page.goto('/playground.html');
     await expect(page.getByRole('alert')).toHaveText('フォルダ構成を読み込めませんでした');
@@ -537,7 +539,7 @@ for (const status of [200, 403, 500]) {
   });
 }
 
-test('フォルダ構成APIの保存エラーは静的公開先として無視しない', async ({ page }) => {
+test('Playground: フォルダ構成APIの保存エラーは静的公開先として無視しない', async ({ page }) => {
   await page.route('**/__nq/folder-state', (route) =>
     route.request().postDataJSON().action === 'read'
       ? route.fulfill({
