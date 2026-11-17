@@ -5,7 +5,7 @@ import { stripRuby } from '../../../ui/ruby';
 import { RubyLabel } from '../../../ui/RubyLabel';
 import { ReviewFeedback } from '../shared/ReviewFeedback';
 import { TimerBar } from '../shared/TimerBar';
-import { getTextInputSpeech } from '../shared/questionSpeech';
+import { canSpeakPrompt, getTextInputSpeech } from '../shared/questionSpeech';
 import { normalizeInput, textInputScore, type TextInputPayload } from './schema';
 import { ReadingPrompt } from './ReadingPrompt';
 
@@ -147,7 +147,7 @@ export function TextInputView({
   return (
     <div class={`nq-q nq-q-input${reading ? ' nq-q-reading' : ''}`}>
       <TimerBar ms={ctx.timeLimitMs} running={!done} onTimeout={() => finish(true)} />
-      {!reading && (
+      {canSpeakPrompt(ctx.question) && (
         <button
           type="button"
           class="nq-btn nq-btn-speak nq-input-speak"

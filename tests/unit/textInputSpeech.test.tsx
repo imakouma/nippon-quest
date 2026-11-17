@@ -8,26 +8,29 @@ import { TextInputView } from '../../src/questions/renderers/text-input/TextInpu
 import type { RendererContext } from '../../src/questions/contracts';
 
 afterEach(() => render(null, document.body));
-it.each(['on', 'kun'])('漢字の読み問題では読み上げを提供しない: %s', (reading) => {
-  setDictionary(ja);
-  const speak = vi.fn();
-  render(
-    h(TextInputView, {
-      ctx: {
-        grade: 1,
-        question: { subject: 'kokugo', grade: 1, tags: [`kanji:reading:${reading}`] },
-        timeLimitMs: 0,
-        speak,
-      } as unknown as RendererContext,
-      payload: { prompt: '１０円の あめ', template: 'よみかた：{{INPUT}}', answers: ['えん'] },
-      onDone: vi.fn(),
-    }),
-    document.body,
-  );
-  expect(document.querySelector('button[aria-label="よみあげ"]')).toBeNull();
-  expect(document.querySelector('input')).not.toBeNull();
-  expect(speak).not.toHaveBeenCalled();
-});
+it.each(['kanji:reading:on', 'kanji:reading:kun', 'speech:disabled'])(
+  '読みを問う入力問題では読み上げを提供しない: %s',
+  (tag) => {
+    setDictionary(ja);
+    const speak = vi.fn();
+    render(
+      h(TextInputView, {
+        ctx: {
+          grade: 1,
+          question: { subject: 'kokugo', grade: 1, tags: [tag] },
+          timeLimitMs: 0,
+          speak,
+        } as unknown as RendererContext,
+        payload: { prompt: '１０円の あめ', template: 'よみかた：{{INPUT}}', answers: ['えん'] },
+        onDone: vi.fn(),
+      }),
+      document.body,
+    );
+    expect(document.querySelector('button[aria-label="よみあげ"]')).toBeNull();
+    expect(document.querySelector('input')).not.toBeNull();
+    expect(speak).not.toHaveBeenCalled();
+  },
+);
 
 it('offers speech even when the equation replaces the repeated prompt', () => {
   setDictionary(ja);

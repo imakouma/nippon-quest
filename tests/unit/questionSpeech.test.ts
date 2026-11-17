@@ -25,15 +25,15 @@ describe('input question speech', () => {
       }),
     ).toBe('5人で わける。しかくこ');
   });
-  it('includes the illustration description and a separate equation', () => {
+  it('reads the equation without revealing the illustration description', () => {
     const speech = getTextInputSpeech({
       prompt: '表[ひょう]をみよう',
-      promptImageAlt: '赤[あか]が3こ',
+      promptImageAlt: '赤[あか]が5こ',
       template: '3+{{INPUT}}=8',
       answers: ['5'],
       suffix: 'こ',
     });
-    expect(speech).toBe('ひょうをみよう。あかが3こ。3たすしかくは8。こ');
+    expect(speech).toBe('ひょうをみよう。3たすしかくは8。こ');
     expect(speech).not.toContain('5');
   });
   it('does not repeat a unit already present in the template', () => {
