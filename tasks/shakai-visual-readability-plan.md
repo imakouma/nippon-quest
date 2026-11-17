@@ -49,3 +49,14 @@
 - 本番のマージ・配信記録: https://github.com/imakouma/nippon-quest/pull/97
 
 CIのWebKit/Ubuntuで日本語・ふりがなの行高が大きくなり6問が縮小されたため、図の余白と選択肢を再調整した。本文18px・画像280pxの基準は維持。グラフは同じ値を棒の中へ表示し、森・工場の図を横長に整理した。変更範囲を広げた列数判定は回帰を検知したため24文字の基準へ戻し、最終スマホ43件が再度成功した。
+
+## 公開確認（2026-11-17）
+
+- PR #97を本番mainへマージ。配信コミット `1f93d1cb7169a4091c8eaf3bece924901378060d`。https://github.com/imakouma/nippon-quest/actions/runs/43986248253 の全CI・GitHub Pages配信が成功。
+- 公開SVG124枚と社会の問題JSON30ファイル、計154ファイルを取得し、ローカルとのSHA-256一致を確認。欠落・差分なし。
+- 本番 `/playground.html?q=legacy.shakai.g4.cur-1404-02.b7b25c6bf36e` で見出し「問題レビュー」、390×844の図・本文・選択肢、浄水場の正答フィードバックを確認。通常幅へ戻し本番画面を開いた。
+- スマホ画面: `/Users/imamurakouma/.codex/visualizations/2026/11/13/01a1d521-8def-7360-992a-3e1cb1bb08cf/shakai-production-mobile.jpg`
+- 通常幅画面: `/Users/imamurakouma/.codex/visualizations/2026/11/13/01a1d521-8def-7360-992a-3e1cb1bb08cf/shakai-production-desktop.jpg`
+- 再開時に統合HEAD `e8efc9317f96322d7bfd2de278582fd140ceda0e` を作業ブランチへ通常マージ。権利台帳は双方のパスを保持しcatalogを再生成。本番PRの検証済み差分とは分けて保持した。
+- 統合後もcheck:full成功（285ファイル・2577テスト）、スマホ43件、全教科4サイズを含むレイアウト37件成功。正規4174サーバーは変更していない。
+- 残る確認範囲: 端末実機は未検証。公開版の既存の「フォルダ構成を読み込めませんでした」表示は本変更の対象外。教科別の既定一覧、問題表示と解答操作は利用できる。
