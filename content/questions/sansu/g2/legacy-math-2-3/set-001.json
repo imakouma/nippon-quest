@@ -229,5 +229,36 @@
       "template": "75-7 = {{INPUT}}"
     },
     "explanation": "一[いち]のくらいの 5 から 7 はひけないので、70 から 10 をくずす（くりさがり）。 15-7=8 になるので、もとの 60 とあわせて、68 になる。"
+  },
+  {
+    "id": "sansu.g2.balance.subtraction-oranges",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-3",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "みかんが23こ あります。8こ 食[た]べました。のこりは 何[なん]こですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "15こ"
+        },
+        {
+          "id": "c2",
+          "text": "31こ"
+        },
+        {
+          "id": "c3",
+          "text": "25こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "食[た]べた8こを もとの23こから ひくので、23−8です。23から3を ひいて20、さらに5を ひいて15こです。15＋8＝23で 確[たし]かめられます。"
   }
 ]
