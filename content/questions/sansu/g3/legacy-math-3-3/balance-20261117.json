@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sansu.g3.balance.share-paper",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-3",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "84まいの 色紙[いろがみ]を4人[にん]に 同[おな]じ数[かず]ずつ 分[わ]けます。1人分[ひとりぶん]は 何[なん]まいですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "24まい"
+        },
+        {
+          "id": "c1",
+          "text": "21まい"
+        },
+        {
+          "id": "c2",
+          "text": "80まい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "84まいを4人[にん]で 同[おな]じ数[かず]ずつ 分[わ]けるので、84÷4です。80÷4=20、4÷4=1を 合[あ]わせて、1人[ひとり]21まいです。"
+  },
+  {
+    "id": "sansu.g3.balance.division-fraction",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-3",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "60cmの テープを 同[おな]じ長[なが]さに3つに 分[わ]けます。1つ分[ぶん]は、もとのテープの 何分[なんぶん]の1で、何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "3分[ぶん]の1で、30cm"
+        },
+        {
+          "id": "c1",
+          "text": "3分[ぶん]の1で、20cm"
+        },
+        {
+          "id": "c2",
+          "text": "2分[ぶん]の1で、20cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "同[おな]じ長[なが]さに3つに 分[わ]けた1つ分[ぶん]なので、もとのテープの3分[ぶん]の1です。長[なが]さは60÷3=20cmです。「もとのテープの3分[ぶん]の1」と「3分[ぶん]の1cm」は ちがいます。"
+  }
+]

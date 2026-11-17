@@ -423,5 +423,71 @@
       "promptImage": "questions/legacy/3d78c977acc8867d.png"
     },
     "explanation": "大[おお]きなめもり １つ、そこから 小[ちい]さなめもりが、４つ分[ぶん]あるので、1cm4mm になる。"
+  },
+  {
+    "id": "sansu.g2.curriculum.ruler-start",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤[あか]い 線[せん]の 長[なが]さは 何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5cm"
+        },
+        {
+          "id": "c2",
+          "text": "7cm"
+        },
+        {
+          "id": "c3",
+          "text": "2cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/ruler-start.svg",
+      "promptSpeech": "赤[あか]い線[せん]は、ものさしの2cmのめもりから7cmのめもりまでです。"
+    },
+    "explanation": "左[ひだり]は 2cm、右[みぎ]は 7cmの めもりです。間[あいだ]には 1cmが 5つあります。7−2＝5で、5cmです。"
+  },
+  {
+    "id": "sansu.g2.balance.ruler-reason",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-6",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤[あか]い 線[せん]を「7cm」と 読[よ]みました。この 読[よ]み方[かた]が ちがう 理由[りゆう]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "線[せん]の 左[ひだり]が0ではなく2の めもりに あるから。"
+        },
+        {
+          "id": "c2",
+          "text": "右[みぎ]が7の めもりに あるから、7cmで 正[ただ]しい。"
+        },
+        {
+          "id": "c3",
+          "text": "線[せん]が 赤[あか]いから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/ruler-start.svg",
+      "promptSpeech": "赤[あか]い 線[せん]は、ものさしの2cmの めもりから7cmの めもりまでです。"
+    },
+    "explanation": "長[なが]さは 両端[りょうはし]の 間[あいだ]に ある1cmの 数[かず]で 調[しら]べます。2から7までは1cmが5つです。7−2＝5cmで、右端[みぎはし]の7だけでは 長[なが]さに なりません。"
   }
 ]

@@ -5,16 +5,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "厚さ 1cm のプラスチックの板でできた 下の図形[ずけい]の容積は、いくらになるでしょう。",
-      "answers": [
-        "1000"
-      ],
+      "answers": ["1000"],
       "template": "{{INPUT}} cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/4f080fc5816286d5.png"
@@ -27,11 +21,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1cm^3 は、次のうち どの大きさと等しいでしょう。",
       "choices": [
@@ -61,11 +51,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "立方体の体積を求める式として、正しいものをえらぼう。",
       "choices": [
@@ -99,11 +85,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "1m^3 は、何cm^3 でしょう。",
       "choices": [
@@ -137,17 +119,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立方体の体積をもとめよう。",
-      "answers": [
-        "1000",
-        "1"
-      ],
+      "answers": ["1000", "1"],
       "template": "{{INPUT}} cm^3 = {{INPUT}} L",
       "promptImage": "questions/legacy/4ef127b0a952f732.png"
     },
@@ -159,16 +134,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立体の体積を求めよう。",
-      "answers": [
-        "1000"
-      ],
+      "answers": ["1000"],
       "template": "一辺 10cm の立方体 {{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/sansu/g5/visuals/volume-3fd4a3c9fc5a.svg",
@@ -182,16 +151,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立体の体積を求めよう。",
-      "answers": [
-        "160"
-      ],
+      "answers": ["160"],
       "template": "たて 4cm、横 8cm、高さ 5cm の直方体 {{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/sansu/g5/visuals/volume-5967becf37cd.svg",
@@ -205,16 +168,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の直方体の体積を求めよう。",
-      "answers": [
-        "20"
-      ],
+      "answers": ["20"],
       "template": "{{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/cfff0b29b7487a86.png"
@@ -227,16 +184,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立方体の体積を求めよう。",
-      "answers": [
-        "27"
-      ],
+      "answers": ["27"],
       "template": "{{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/2b3c22c0d0a9eea6.png"
@@ -252,10 +203,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_2",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "prompt": "立体などの「かさ」のことを （　） といい、単位 （　） などを使って表す。 （　）に 入[はい]る 言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -285,16 +237,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立体の体積を求めよう。",
-      "answers": [
-        "300"
-      ],
+      "answers": ["300"],
       "template": "{{INPUT}} cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/d896c76c3078f0f9.png"
@@ -307,16 +253,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "横1cm、高さ3cmの直方体があります。この直方体の体積を 27cm^3 にするには、たてを何cm にすれば、いいでしょう。",
-      "answers": [
-        "9"
-      ],
+      "answers": ["9"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g5/visuals/volume-970746c6bc4b.svg",
@@ -330,16 +270,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の直方体の体積を求めよう。",
-      "answers": [
-        "56"
-      ],
+      "answers": ["56"],
       "template": "{{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/b4e6046b92258481.png"
@@ -352,16 +286,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "横4cm、高さ2cmの直方体があります。この直方体の体積を 64cm^3 にするには、たてを何cm にすれば、いいでしょう。",
-      "answers": [
-        "8"
-      ],
+      "answers": ["8"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/0c4aa4060466f469.png"
@@ -374,16 +302,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立体の体積を求めよう。",
-      "answers": [
-        "1400"
-      ],
+      "answers": ["1400"],
       "template": "{{INPUT}} cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/5a2a5162be65b77f.png"
@@ -396,11 +318,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "直方体の体積を求める式として、正しいものをえらぼう。",
       "choices": [
@@ -434,18 +352,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立方体の体積をもとめよう。",
-      "answers": [
-        "1",
-        "1000000",
-        "1000"
-      ],
+      "answers": ["1", "1000000", "1000"],
       "template": "{{INPUT}} m^3 = {{INPUT}} cm^3 = {{INPUT}} L = 1kL",
       "promptImage": "questions/legacy/fe33c73efc61d712.png"
     },
@@ -457,11 +367,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "体積の単位として、正しいものをえらぼう。",
       "choices": [
@@ -487,7 +393,7 @@
       "promptImage": "questions/sansu/g5/visuals/volume-ee9fbea1dec4.svg",
       "promptSpeech": "体積の単位として、正しいものをえらぼう。 直方体の横1cm、高さ1cm、たて1cmを示す図。"
     },
-    "explanation": "体積の単位には、cm^3（立方センチメートル）などを使う。数字の 3は、体積を求めるときに数が３つかけられることを 表しているんだ。"
+    "explanation": "cm³は、1辺[ぺん]が1cmの 立方体[りっぽうたい]を もとにした 体積[たいせき]の 単位[たんい]です。長[なが]さのcmや 面積[めんせき]のcm²とは 区別[くべつ]します。"
   },
   {
     "id": "legacy.sansu.g5.math-5-2.eeccf2a0aa0a",
@@ -495,16 +401,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立方体の体積を求めよう。",
-      "answers": [
-        "216"
-      ],
+      "answers": ["216"],
       "template": "{{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/legacy/f1a05b8f862eeaef.png"
@@ -517,20 +417,74 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の立体の体積を求めよう。",
-      "answers": [
-        "60"
-      ],
+      "answers": ["60"],
       "template": "{{INPUT}}m^3",
       "suffix": "m^3",
       "promptImage": "questions/legacy/d0009a97329fa461.png"
     },
     "explanation": "直方体の体積は、たて × 横 × 高さ で求めることができる。 6×5×2 = 60m^3"
+  },
+  {
+    "id": "sansu.g5.curriculum.volume-unit-cubes",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
+    "payload": {
+      "prompt": "1辺[ぺん]1cmの 立方体[りっぽうたい]を 図[ず]のように すきまなく 積[つ]みました。体積[たいせき]は いくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "12cm³"
+        },
+        {
+          "id": "c2",
+          "text": "6cm³"
+        },
+        {
+          "id": "c3",
+          "text": "7cm³"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/unit-cubes.svg",
+      "promptImageAlt": "一辺1cmの立方体を横3こ、奥2こ、高さ2段に積んだ直方体。"
+    },
+    "explanation": "1段[だん]に 3×2＝6こ、2段[だん]で 6×2＝12こあります。1この 体積[たいせき]が1cm³なので、全部[ぜんぶ]で12cm³です。"
+  },
+  {
+    "id": "sansu.g5.curriculum.volume-layers",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-2",
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
+    "payload": {
+      "prompt": "同[おな]じ 底[そこ]の 広[ひろ]さで、3段[だん]にすると 体積[たいせき]は いくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "18cm³"
+        },
+        {
+          "id": "c2",
+          "text": "9cm³"
+        },
+        {
+          "id": "c3",
+          "text": "36cm³"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/unit-cubes.svg",
+      "promptImageAlt": "一辺1cmの立方体を横3こ、奥2こ、高さ2段に積んだ直方体。"
+    },
+    "explanation": "1段[だん]に 3×2＝6この 立方体[りっぽうたい]があります。3段[だん]では 6×3＝18こなので、18cm³です。"
   }
 ]

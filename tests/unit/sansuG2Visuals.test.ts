@@ -11,8 +11,8 @@ const questions = readdirSync('content/questions/sansu/g2').flatMap((dir) =>
   ),
 );
 describe('grade 2 illustrated learning materials', () => {
-  it('preserves all 323 question identities, learning targets and correct answers', () => {
-    expect(questions).toHaveLength(323);
+  it('locks 350 identities and reviewed answers including curriculum scope repairs', () => {
+    expect(questions).toHaveLength(350);
     const rows = questions
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
@@ -30,7 +30,7 @@ describe('grade 2 illustrated learning materials', () => {
         ];
       });
     expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-      '39d78ec10b1591d968a0801f6d3c07f9603ca903edb12fcfbc483c779cb99046',
+      'e0fa78a4173a86da0d012fd35d0a9ce59ffc2b385101941ae8c50caf30b85d2a',
     );
   });
   it('illustrates groups, measurement, time, shape and word problems without printing unknown totals', () => {
@@ -63,7 +63,7 @@ describe('grade 2 illustrated learning materials', () => {
       reason: string;
     }[];
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(89);
+    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(109);
     for (const r of review) {
       expect(r.reason).toBeTruthy();
       if (r.decision !== 'illustrated') continue;

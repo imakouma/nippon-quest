@@ -8,15 +8,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (40.3)",
-      "answers": [
-        "40.3"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["40.3"],
+      "template": "4.03 × 10 = {{INPUT}}"
     },
-    "explanation": "10倍すると、位が１つ大きくなり、小数点は右に１つ動く。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、403×10＝4030です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 40.3です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-1.1cc857d26ba7",
@@ -24,11 +24,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "0.0314は、31.4を何分の1 にした数でしょう。",
       "choices": [
@@ -61,13 +57,13 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (0.4)",
-      "answers": [
-        "0.4"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.4"],
+      "template": "40 ÷ 100 = {{INPUT}}"
     },
     "explanation": "÷100すると、位が２つ小さくなり、小数点は左に２つ動く。"
   },
@@ -77,20 +73,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の数について、□に当てはまる数を入れよう。",
-      "answers": [
-        "4",
-        "2",
-        "1",
-        "9",
-        "5"
-      ],
+      "answers": ["4", "2", "1", "9", "5"],
       "template": "42195 は、一万を {{INPUT}}こ、千を {{INPUT}}こ、百を {{INPUT}}こ、十を {{INPUT}}こ、一を {{INPUT}}こ 集めた数です。",
       "promptImage": "questions/sansu/g5/visuals/place-4ae8459eba96.svg",
       "promptImageAlt": "42195を位ごとに並べた表。小数点の位置は固定。"
@@ -103,11 +89,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "3140は、3.14を何倍した数でしょう。",
       "choices": [
@@ -140,13 +122,13 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (1.23)",
-      "answers": [
-        "1.23"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["1.23"],
+      "template": "12.3 ÷ 10 = {{INPUT}}"
     },
     "explanation": "÷10すると、位が１つ小さくなり、小数点は左に１つ動く。"
   },
@@ -156,16 +138,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "42.195 を 1000倍 すると、いくつになるでしょう。",
-      "answers": [
-        "42195"
-      ],
+      "answers": ["42195"],
       "promptImage": "questions/sansu/g5/visuals/place-5f869fdc7c24.svg",
       "promptImageAlt": "42.195を位ごとに並べた表。小数点の位置は固定。"
     },
@@ -177,11 +153,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "31.4は、3.14を何倍した数でしょう。",
       "choices": [
@@ -211,20 +183,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の小数について、□に当てはまる数を入れよう。",
-      "answers": [
-        "4",
-        "2",
-        "1",
-        "9",
-        "5"
-      ],
+      "answers": ["4", "2", "1", "9", "5"],
       "template": "42.195 は、10を{{INPUT}}こ、1を{{INPUT}}こ、0.1を{{INPUT}}こ、0.01を{{INPUT}}こ、0.001を{{INPUT}}こ 集めた数です。",
       "promptImage": "questions/sansu/g5/visuals/place-6bd1169fe6c2.svg",
       "promptImageAlt": "42.195を位ごとに並べた表。小数点の位置は固定。"
@@ -237,11 +199,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "3.14は、31.4を何分の1 にした数でしょう。",
       "choices": [
@@ -271,11 +229,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "0.314は、31.4を何分の1 にした数でしょう。",
       "choices": [
@@ -308,13 +262,13 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (0.00569)",
-      "answers": [
-        "0.00569"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.00569"],
+      "template": "5.69 ÷ 1000 = {{INPUT}}"
     },
     "explanation": "÷1000すると、位が３つ小さくなり、小数点は左に３つ動く。"
   },
@@ -327,15 +281,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (8720)",
-      "answers": [
-        "8720"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["8720"],
+      "template": "87.2 × 100 = {{INPUT}}"
     },
-    "explanation": "100倍すると、位が２つ大きくなり、小数点は右に２つ動く。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、872×100＝87200です。小数部分[しょうすうぶぶん]は 合[あ]わせて 1けたなので、積[せき]の 右[みぎ]から 1けたの 位置[いち]に 小数点[しょうすうてん]を つけると 8720です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-1.c719a11384a1",
@@ -343,11 +297,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-1",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_1",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_1", "reviewed:structural-v1"],
     "payload": {
       "prompt": "314は、3.14を何倍した数でしょう。",
       "choices": [
@@ -380,14 +330,70 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_1",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (590)",
-      "answers": [
-        "590"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["590"],
+      "template": "0.59 × 1000 = {{INPUT}}"
     },
-    "explanation": "1000倍すると、位が３つ大きくなり、小数点は右に３つ動く。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、59×1000＝59000です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 590です。"
+  },
+  {
+    "id": "sansu.g5.balance.hundredth-pieces",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": ["review:balance-20261117", "difficulty:standard"],
+    "payload": {
+      "prompt": "1こ0.01kgの おもりを237こ 集[あつ]めました。全部[ぜんぶ]で 何[なん]kgですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2.37kg"
+        },
+        {
+          "id": "c2",
+          "text": "23.7kg"
+        },
+        {
+          "id": "c3",
+          "text": "0.237kg"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.01が100こで1になります。237こは200こと37こなので、2kgと0.37kgを 合[あ]わせて2.37kgです。"
+  },
+  {
+    "id": "sansu.g5.balance.reverse-place",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-1",
+    "tags": ["review:balance-20261117", "difficulty:advanced"],
+    "payload": {
+      "prompt": "ある 数[かず]を100倍[ばい]してから10で わると、4.8になりました。もとの 数[かず]は いくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0.48"
+        },
+        {
+          "id": "c2",
+          "text": "48"
+        },
+        {
+          "id": "c3",
+          "text": "0.048"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "100倍[ばい]して10で わると、もとの 数[かず]の10倍[ばい]になります。だから4.8÷10＝0.48です。0.48×100÷10＝4.8で たしかめられます。"
   }
 ]

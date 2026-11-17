@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g3.reaudit.seconds",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-5",
+    "tags": ["original:curriculum-20261117"],
+    "payload": {
+      "prompt": "ストップウォッチの1分[ふん]20秒[びょう]は、何秒[なんびょう]ですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "120秒[びょう]"
+        },
+        {
+          "id": "c1",
+          "text": "80秒[びょう]"
+        },
+        {
+          "id": "c2",
+          "text": "70秒[びょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/reaudit/seconds.svg",
+      "promptSpeech": "ストップウォッチの1分[ふん]20秒[びょう]は、何秒[なんびょう]ですか。 表示は1分20秒。"
+    },
+    "explanation": "1分[ふん]は60秒[びょう]です。60秒[びょう]と20秒[びょう]を 合[あ]わせて、60+20=80秒[びょう]です。"
+  }
+]

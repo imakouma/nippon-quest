@@ -7,8 +7,10 @@ import { getRenderer } from '../../src/questions/renderers/registry';
 import { textInputPayloadSchema, textInputScore } from '../../src/questions/renderers/text-input/schema';
 
 const questions = readdirSync('content/questions/sansu/g6').flatMap((d) =>
-  (JSON.parse(readFileSync(`content/questions/sansu/g6/${d}/set-001.json`, 'utf8')) as unknown[]).map((q) =>
-    questionBaseSchema.parse(q),
+  readdirSync(`content/questions/sansu/g6/${d}`).flatMap((file) =>
+    (JSON.parse(readFileSync(`content/questions/sansu/g6/${d}/${file}`, 'utf8')) as unknown[]).map((q) =>
+      questionBaseSchema.parse(q),
+    ),
   ),
 );
 const repairs = [
@@ -44,8 +46,8 @@ const repairs = [
   '59343703e0ea',
   '9b34c0cc97ee',
 ];
-it('preserves all 193 learning targets, with separated fraction input fields', () => {
-  expect(questions).toHaveLength(193);
+it('covers all 226 learning targets, with separated fraction input fields', () => {
+  expect(questions).toHaveLength(226);
   const rows = questions
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((q) => {
@@ -67,7 +69,7 @@ it('preserves all 193 learning targets, with separated fraction input fields', (
       ];
     });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '131caee06318ea9a687949f06c756c51580e78b5fecc500eecf42ab0d842f5b6',
+    'b2b98aafd91d95dea3238b63d5eab0850cafb61521779cb3b957fce828654517',
   );
 });
 it('illustrates symmetry, ratios, fractions, volume, data and combinations', () => {
@@ -91,7 +93,7 @@ it('covers every question in the review and validates local image structure and 
     reason: string;
   }[];
   expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(114);
+  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(139);
   expect(
     review.filter((r) => r.decision.includes('missing') || r.decision.includes('source-expression')),
   ).toEqual([]);
@@ -223,4 +225,24 @@ it('grades fractions separately and represents equal wholes without changing the
   expect([...svg('cards-279fa37becfc').querySelectorAll('[data-digit]')].map((el) => el.textContent)).toEqual(
     ['0', '1', '2'],
   );
+});
+
+it('matches the map unit to its question and marks each whole in mixed fractions', () => {
+  const map = readFileSync('assets/questions/sansu/g6/visuals/map-scale-45ef7b9abd0f.svg', 'utf8');
+  expect(map).toContain('？cm');
+  expect(map).not.toContain('？m');
+  for (const hash of ['350742bfbbc4', '3f37cc35e0f6', 'ba6d3d429270']) {
+    const doc = new DOMParser().parseFromString(
+      readFileSync(`assets/questions/sansu/g6/visuals/restored-mixed-${hash}.svg`, 'utf8'),
+      'image/svg+xml',
+    );
+    for (const group of doc.querySelectorAll('[data-whole-width]')) {
+      expect(group.querySelectorAll('[data-whole-outline]')).toHaveLength(1);
+      const parts = [...group.querySelectorAll('rect')];
+      expect(parts).toHaveLength(Number(group.getAttribute('data-denominator')));
+      expect(parts.reduce((sum, part) => sum + Number(part.getAttribute('width')), 0)).toBeCloseTo(
+        Number(group.getAttribute('data-whole-width')),
+      );
+    }
+  }
 });

@@ -8,15 +8,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3801 ÷ 5 =",
-      "answers": [
-        "76"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["76"],
+      "template": "19 ÷ 0.25 = {{INPUT}}"
     },
-    "explanation": "7 6 0. 2 5. ) 1 9. 0 0. 1 7 5 1 5 0 1 5 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。1900÷25を 計算[けいさん]します。答[こた]えは 76です。76×0.25＝19で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.11e2c1df85ad",
@@ -27,15 +27,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次のわり算の商を、四捨五入で \\frac{1}{10} の位までの 概数で表そう。 2.4 ÷ 3.6 =",
-      "answers": [
-        "0.7"
-      ]
+      "prompt": "商[しょう]を 四捨五入[ししゃごにゅう]して、小数[しょうすう]第一位[だいいちい]までの 概数[がいすう]で 表[あらわ]そう。 2.4÷3.6",
+      "answers": ["0.7"],
+      "template": "商[しょう]の 概数[がいすう] {{INPUT}}"
     },
-    "explanation": "0. 6 6 3. 6. ) 2. 4. 0 0 2 1 6 2 4 0 2 1 6 2 4 \\frac{1}{100} の位は、6なので、商を切り上げて、答えは 0.7 になる。"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。24÷36を 計算[けいさん]します。商[しょう]は 約[やく]0.666。小数[しょうすう]第二位[だいにい]が 6なので、四捨五入[ししゃごにゅう]すると 0.7です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.2bda76810fbf",
@@ -46,15 +46,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (4.8)",
-      "answers": [
-        "4.8"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["4.8"],
+      "template": "12 ÷ 2.5 = {{INPUT}}"
     },
-    "explanation": "4. 8 2. 5. ) 1 2. 0. 0 1 0 0 2 0 0 2 0 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。120÷25を 計算[けいさん]します。答[こた]えは 4.8です。4.8×2.5＝12で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.2debe72f5cb9",
@@ -65,15 +65,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 28÷7 =",
-      "answers": [
-        "4"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["4"],
+      "template": "2.8 ÷ 0.7 = {{INPUT}}"
     },
-    "explanation": "わる数・わられる数の両方を、10倍して 整数のわり算にしてから 計算する。 28÷7=4"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。28÷7を 計算[けいさん]します。答[こた]えは 4です。4×0.7＝2.8で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.3636d7d8c6a8",
@@ -84,15 +84,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 49800 ÷ 6 =",
-      "answers": [
-        "830"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["830"],
+      "template": "49.8 ÷ 0.06 = {{INPUT}}"
     },
-    "explanation": "8 3 0 0. 0 6. ) 4 9. 8 0. 4 8 1 8 1 8 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。4980÷6を 計算[けいさん]します。答[こた]えは 830です。830×0.06＝49.8で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.6ef295cc1106",
@@ -103,15 +103,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 35÷7 =",
-      "answers": [
-        "5"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["5"],
+      "template": "0.35 ÷ 0.07 = {{INPUT}}"
     },
-    "explanation": "わる数・わられる数の両方を、100倍して 整数のわり算にしてから 計算する。 35÷7=5"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。35÷7を 計算[けいさん]します。答[こた]えは 5です。5×0.07＝0.35で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.752ef5305222",
@@ -122,15 +122,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 6÷5 =",
-      "answers": [
-        "1.2"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["1.2"],
+      "template": "0.6 ÷ 0.5 = {{INPUT}}"
     },
-    "explanation": "わる数・わられる数の両方を、10倍して 整数のわり算にしてから 計算する。 6÷5=1.2"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。6÷5を 計算[けいさん]します。答[こた]えは 1.2です。1.2×0.5＝0.6で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.80504e20a9a0",
@@ -141,15 +141,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次のわり算の商を、四捨五入で \\frac{1}{10} の位までの 概数で表そう。 4.6 ÷ 0.69 =",
-      "answers": [
-        "6.7"
-      ]
+      "prompt": "商[しょう]を 四捨五入[ししゃごにゅう]して、小数[しょうすう]第一位[だいいちい]までの 概数[がいすう]で 表[あらわ]そう。 4.6÷0.69",
+      "answers": ["6.7"],
+      "template": "商[しょう]の 概数[がいすう] {{INPUT}}"
     },
-    "explanation": "6. 6 6 0. 6 9. ) 4. 6 0. 0 0 4 1 4 4 6 0 4 1 4 4 6 0 4 1 4 4 6 \\frac{1}{100} の位は、6なので、商を切り上げて、答えは 6.7 になる。"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。460÷69を 計算[けいさん]します。商[しょう]は 約[やく]6.666。小数[しょうすう]第二位[だいにい]が 6なので、四捨五入[ししゃごにゅう]すると 6.7です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.84f01a192399",
@@ -160,17 +160,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次のわり算の一の位までの商と、そのときのあまりを求めましょう。",
-      "answers": [
-        "3",
-        "0.4"
-      ],
+      "prompt": "商[しょう]を 整数[せいすう]まで 求[もと]め、あまりも 答[こた]えよう。",
+      "answers": ["3", "0.4"],
       "template": "7.6÷2.4 = {{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "3 2. 4. ) 7. 6. 7 2 0. 4"
+    "explanation": "商[しょう]を 整数[せいすう]まで 求[もと]めます。2.4×3＝7.2、7.6−7.2＝0.4。あまり 0.4は、わる数[かず] 2.4より 小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.88e5d02277ea",
@@ -181,17 +179,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次のわり算の一の位までの商と、そのときのあまりを求めましょう。",
-      "answers": [
-        "6",
-        "0.24"
-      ],
+      "prompt": "商[しょう]を 整数[せいすう]まで 求[もと]め、あまりも 答[こた]えよう。",
+      "answers": ["6", "0.24"],
       "template": "4.44÷0.7= {{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "6 0. 7. ) 4. 4. 4 4 2 0. 2 4"
+    "explanation": "商[しょう]を 整数[せいすう]まで 求[もと]めます。0.7×6＝4.2、4.44−4.2＝0.24。あまり 0.24は、わる数[かず] 0.7より 小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.997027008cb6",
@@ -202,15 +198,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次のわり算の商を、四捨五入で \\frac{1}{10} の位までの 概数で表そう。 6.1 ÷ 0.7 =",
-      "answers": [
-        "8.7"
-      ]
+      "prompt": "商[しょう]を 四捨五入[ししゃごにゅう]して、小数[しょうすう]第一位[だいいちい]までの 概数[がいすう]で 表[あらわ]そう。 6.1÷0.7",
+      "answers": ["8.7"],
+      "template": "商[しょう]の 概数[がいすう] {{INPUT}}"
     },
-    "explanation": "8. 7 1 0. 7. ) 6. 1. 0 0 5 6 5 0 4 9 1 0 7 3 \\frac{1}{100} の位は、1なので、商を切り捨てて、答えは 8.7 になる。"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。61÷7を 計算[けいさん]します。商[しょう]は 約[やく]8.714。小数[しょうすう]第二位[だいにい]が 1なので、四捨五入[ししゃごにゅう]すると 8.7です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.a1499fb19f66",
@@ -221,15 +217,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (3.6)",
-      "answers": [
-        "3.6"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["3.6"],
+      "template": "1.62 ÷ 0.45 = {{INPUT}}"
     },
-    "explanation": "3. 6 0. 4 5. ) 1. 6 2. 1 3 5 2 7 0 2 7 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。162÷45を 計算[けいさん]します。答[こた]えは 3.6です。3.6×0.45＝1.62で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.a8707f9e217d",
@@ -240,15 +236,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (5.8)",
-      "answers": [
-        "5.8"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["5.8"],
+      "template": "22.62 ÷ 3.9 = {{INPUT}}"
     },
-    "explanation": "5. 8 3. 9. ) 2 2. 6. 2 1 9 5 3 1 2 3 1 2 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。226.2÷39を 計算[けいさん]します。答[こた]えは 5.8です。5.8×3.9＝22.62で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.a8d8f3751d21",
@@ -259,15 +255,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (6.25)",
-      "answers": [
-        "6.25"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["6.25"],
+      "template": "5 ÷ 0.8 = {{INPUT}}"
     },
-    "explanation": "6. 2 5 0. 8. ) 5. 0. 0 0 4 8 2 0 1 6 4 0 4 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。50÷8を 計算[けいさん]します。答[こた]えは 6.25です。6.25×0.8＝5で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.b17aa361e449",
@@ -278,15 +274,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 8190 ÷ 7 =",
-      "answers": [
-        "117"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["117"],
+      "template": "8.19 ÷ 0.07 = {{INPUT}}"
     },
-    "explanation": "1 1 7 0. 0 7. ) 8. 1 9. 7 1 1 7 4 9 4 9 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。819÷7を 計算[けいさん]します。答[こた]えは 117です。117×0.07＝8.19で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.bff4fed9dd55",
@@ -297,15 +293,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 320÷8 =",
-      "answers": [
-        "40"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["40"],
+      "template": "3.2 ÷ 0.08 = {{INPUT}}"
     },
-    "explanation": "わる数・わられる数の両方を、100倍して 整数のわり算にしてから 計算する。 320÷8=40"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。320÷8を 計算[けいさん]します。答[こた]えは 40です。40×0.08＝3.2で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.c1515ef635bb",
@@ -316,15 +312,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 72÷24 =",
-      "answers": [
-        "3"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["3"],
+      "template": "7.2 ÷ 2.4 = {{INPUT}}"
     },
-    "explanation": "わる数・わられる数の両方を、10倍して 整数のわり算にしてから 計算する。 72÷24=3"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。72÷24を 計算[けいさん]します。答[こた]えは 3です。3×2.4＝7.2で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.d4c2ec9532cb",
@@ -335,15 +331,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 361 ÷ 2 =",
-      "answers": [
-        "18"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["18"],
+      "template": "9.36 ÷ 0.52 = {{INPUT}}"
     },
-    "explanation": "1 8 0. 5 2. ) 9. 3 6. 5 2 4 1 6 4 1 6 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。936÷52を 計算[けいさん]します。答[こた]えは 18です。18×0.52＝9.36で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.d6ba0598c06c",
@@ -354,15 +350,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (8.75)",
-      "answers": [
-        "8.75"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["8.75"],
+      "template": "11.9 ÷ 1.36 = {{INPUT}}"
     },
-    "explanation": "8. 7 5 1. 3 6. ) 1 1. 9 0. 0 0 1 0 8 8 1 0 2 0 9 5 2 6 8 0 6 8 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 100倍[ばい]にしても、商[しょう]は 変[か]わりません。1190÷136を 計算[けいさん]します。答[こた]えは 8.75です。8.75×1.36＝11.9で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.dc86009114e7",
@@ -373,15 +369,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (3.75)",
-      "answers": [
-        "3.75"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["3.75"],
+      "template": "36 ÷ 9.6 = {{INPUT}}"
     },
-    "explanation": "3. 7 5 9. 6. ) 3 6. 0. 0 0 2 8 8 7 2 0 6 7 2 4 8 0 4 8 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。360÷96を 計算[けいさん]します。答[こた]えは 3.75です。3.75×9.6＝36で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.ddb36ab0ca03",
@@ -392,17 +388,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次のわり算の一の位までの商と、そのときのあまりを求めましょう。",
-      "answers": [
-        "3",
-        "0.2"
-      ],
+      "prompt": "商[しょう]を 整数[せいすう]まで 求[もと]め、あまりも 答[こた]えよう。",
+      "answers": ["3", "0.2"],
       "template": "2÷0.6 = {{INPUT}} あまり {{INPUT}}"
     },
-    "explanation": "3 0. 6. ) 2. 0. 1 8 0. 2"
+    "explanation": "商[しょう]を 整数[せいすう]まで 求[もと]めます。0.6×3＝1.8、2−1.8＝0.2。あまり 0.2は、わる数[かず] 0.6より 小[ちい]さくなっています。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.e7620a9348b9",
@@ -413,15 +407,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (2.4)",
-      "answers": [
-        "2.4"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["2.4"],
+      "template": "3.6 ÷ 1.5 = {{INPUT}}"
     },
-    "explanation": "2. 4 1. 5. ) 3. 6. 3 0 6 0 6 0 0"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。36÷15を 計算[けいさん]します。答[こた]えは 2.4です。2.4×1.5＝3.6で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.f03d892c7e2c",
@@ -432,15 +426,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (1.2)",
-      "answers": [
-        "1.2"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["1.2"],
+      "template": "7.2 ÷ 6 = {{INPUT}}"
     },
-    "explanation": "まずは、小数点は 気にせずに、わり算しよう。その後、わられる数の小数点の上に、答えの小数点をつければいい。 1. 2 6 ) 7. 2 7 2 0"
+    "explanation": "7.2は 0.1が72こです。72÷6＝12なので、0.1が12こで 商[しょう]は1.2です。1.2×6＝7.2で たしかめられます。"
   },
   {
     "id": "legacy.sansu.g5.math-5-5.fbb09dbc44cf",
@@ -451,14 +445,70 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_5",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12÷3 =",
-      "answers": [
-        "4"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["4"],
+      "template": "1.2 ÷ 0.3 = {{INPUT}}"
     },
-    "explanation": "わる数・わられる数の両方を、10倍して 整数のわり算にしてから 計算する。 12÷3=4"
+    "explanation": "わられる数[かず]と わる数[かず]を 同[おな]じ 10倍[ばい]にしても、商[しょう]は 変[か]わりません。12÷3を 計算[けいさん]します。答[こた]えは 4です。4×0.3＝1.2で たしかめられます。"
+  },
+  {
+    "id": "sansu.g5.curriculum.quotient-smaller-divisor",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-5",
+    "tags": ["curriculum:gap-fill-20261117"],
+    "payload": {
+      "prompt": "6÷0.5の 商[しょう]は、6と 比[くら]べて どうなりますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6より 大[おお]きい"
+        },
+        {
+          "id": "c2",
+          "text": "6より 小[ちい]さい"
+        },
+        {
+          "id": "c3",
+          "text": "6と 同[おな]じ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.5が 6の中[なか]に 何[なん]こあるかを 考[かんが]えます。1の中[なか]に0.5が2こあるので、6÷0.5＝12です。正[せい]の 数[かず]を1より 小[ちい]さい 正[せい]の 数[かず]で わると、商[しょう]は もとの 数[かず]より 大[おお]きくなります。"
+  },
+  {
+    "id": "sansu.g5.curriculum.decimal-division-context",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-5",
+    "tags": ["curriculum:gap-fill-20261117"],
+    "payload": {
+      "prompt": "1mの 重[おも]さが0.8kgの 棒[ぼう]が 2.4kgあります。長[なが]さを 求[もと]める 式[しき]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2.4÷0.8"
+        },
+        {
+          "id": "c2",
+          "text": "2.4×0.8"
+        },
+        {
+          "id": "c3",
+          "text": "0.8÷2.4"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.8kgが 何[なん]こ分[ぶん]あるかを 求[もと]めます。2.4÷0.8＝3なので、長[なが]さは3mです。3×0.8＝2.4kgで たしかめられます。"
   }
 ]

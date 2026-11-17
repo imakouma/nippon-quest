@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g3.balance.scale-reading",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-13",
+    "tags": ["original:balance-20261117"],
+    "payload": {
+      "prompt": "はかりの 目[め]もりの 一部[いちぶ]です。100gと200gの 間[あいだ]は、同[おな]じ長[なが]さの5つの 間[あいだ]に 分[わ]かれています。はりが 表[あらわ]す 重[おも]さは 何[なん]gですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "130g"
+        },
+        {
+          "id": "c1",
+          "text": "160g"
+        },
+        {
+          "id": "c2",
+          "text": "180g"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/balance/scale-160.svg",
+      "promptSpeech": "はかりの目[め]もりの一部[いちぶ]。100gから200gの間[あいだ]を 同[おな]じ長[なが]さに5つに分[わ]け、はりは100gから3つ目[め]の区切[くぎ]りを さしています。"
+    },
+    "explanation": "200−100=100gを 同[おな]じ大[おお]きさに5つに 分[わ]けるので、1目[め]もりは100÷5=20gです。はりは100gから3目[め]もり 進[すす]んだところなので、100+20×3=160gです。"
+  }
+]

@@ -29,13 +29,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる かずは、いくつでしょう。",
       "answers": [
         "530"
-      ]
+      ],
+      "template": "{{INPUT}}　 540　 550　 560　 570"
     },
     "explanation": "10 ずつ数[かず]は、ふえている。540 の１つ前[まえ]なので、530 になるね。"
   },
@@ -80,13 +82,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "120"
-      ]
+      ],
+      "template": "90+30 = {{INPUT}}"
     },
     "explanation": "90 は、10 が９こ。30 は、10 が３こ。合[あ]わせると、9+3=12 こになる。10 が12こあるので、120になる。"
   },
@@ -99,10 +103,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "かん字[じ]で かかれた数[かず]を、数字[すうじ]で かきましょう。",
+      "prompt": "かん字[じ]で かかれた数[かず]を、数字[すうじ]で かきましょう。 「五百九十」",
       "answers": [
         "590"
       ]
@@ -118,13 +123,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる かずは、いくつでしょう。",
       "answers": [
         "600"
-      ]
+      ],
+      "template": "500　{{INPUT}}　700　800　900　1000"
     },
     "explanation": "100 ずつ数[かず]は、ふえている。500 の次[つぎ]は、600 になるね。"
   },
@@ -169,13 +176,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "500"
-      ]
+      ],
+      "template": "300+200 = {{INPUT}}"
     },
     "explanation": "300 は、100 が３こ。200 は、100 が２こ。合[あ]わせると、3+2=5 こになる。100 が5こあるので、500になる。"
   },
@@ -188,10 +197,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "かん字[じ]で かかれた数[かず]を、数字[すうじ]で かきましょう。",
+      "prompt": "かん字[じ]で かかれた数[かず]を、数字[すうじ]で かきましょう。 「三百四十三」",
       "answers": [
         "343"
       ]
@@ -207,13 +217,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "200"
-      ]
+      ],
+      "template": "1000-800 = {{INPUT}}"
     },
     "explanation": "1000 は、100 が１０こ。800 は、100 が８こ。ひき算[ざん]をすると、10-8=2 こになる。100 が2こあるので、200になる。"
   },
@@ -247,13 +259,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "800"
-      ]
+      ],
+      "template": "600+200 = {{INPUT}}"
     },
     "explanation": "600 は、100 が６こ。200 は、100 が２こ。合[あ]わせると、6+2=8 こになる。100 が8こあるので、800になる。"
   },
@@ -351,13 +365,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "つぎのけいさんを、しましょう。",
       "answers": [
         "160"
-      ]
+      ],
+      "template": "90+70 = {{INPUT}}"
     },
     "explanation": "90 は、10 が９こ。70 は、10 が７こ。合[あ]わせると、9+7=16 こになる。10 が16こあるので、160になる。"
   },
@@ -370,13 +386,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる かずは、いくつでしょう。",
       "answers": [
         "770"
-      ]
+      ],
+      "template": "768 　 769　  {{INPUT}}　  771　  772"
     },
     "explanation": "1 ずつ数[かず]は、ふえている。769 の次[つぎ]なので、770 になるね。"
   },
@@ -389,13 +407,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "□に あてはまる かずは、いくつでしょう。",
       "answers": [
         "1000"
-      ]
+      ],
+      "template": "996　997　998　999　{{INPUT}}"
     },
     "explanation": "1 ずつ数[かず]は、ふえている。999 の次[つぎ]なので、1000 になるね。"
   },
@@ -408,14 +428,79 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_7",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "かん字[じ]で かかれた数[かず]を、数字[すうじ]で かきましょう。",
+      "prompt": "かん字[じ]で かかれた数[かず]を、数字[すうじ]で かきましょう。 「六百二」",
       "answers": [
         "602"
       ]
     },
     "explanation": "百[ひゃく]のくらいが 6、一[いち]のくらいが 2 になるので、602 だ。十[じゅう]のくらいがないので、0 をわすれないように しよう。"
+  },
+  {
+    "id": "sansu.g2.curriculum.compare-symbol",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "□に 入[はい]る 記号[きごう]は どれですか。 305 □ 350",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "＜"
+        },
+        {
+          "id": "c2",
+          "text": "＞"
+        },
+        {
+          "id": "c3",
+          "text": "＝"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/compare-symbol.svg",
+      "promptSpeech": "305と350の 大[おお]きさを くらべます。305は100が3こ、1が5こ。350は100が3こ、10が5こです。"
+    },
+    "explanation": "百[ひゃく]の 位[くらい]は 同[おな]じ3です。十[じゅう]の 位[くらい]は 0が5より 小[ちい]さいので、305＜350です。記号[きごう]の 開[ひら]いた ほうが 大[おお]きい 数[かず]に 向[む]きます。"
+  },
+  {
+    "id": "sansu.g2.balance.regroup-hundreds",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100を3こ、10を12こ あつめました。全部[ぜんぶ]で いくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "420"
+        },
+        {
+          "id": "c2",
+          "text": "312"
+        },
+        {
+          "id": "c3",
+          "text": "3120"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "10が10こで100になります。10が12こは、100が1こと10が2こです。もとの100が3こと 合[あ]わせると、100が4こ、10が2こで420です。"
   }
 ]

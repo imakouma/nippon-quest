@@ -71,7 +71,7 @@
       "answer": "c3",
       "shuffle": true
     },
-    "explanation": "デシリットルは、「dL」とあらわす。1L は、10dL になるんだ。"
+    "explanation": "デシリットルは dLと 書[か]きます。1dLの 10こ分[ぶん]が 1Lです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.3f861efa7bf3",
@@ -130,7 +130,7 @@
       "answer": "c2",
       "shuffle": true
     },
-    "explanation": "ミリリットルは、「mL」とあらわす。1L は、1000mL になるんだ。"
+    "explanation": "ミリリットルは mLと 書[か]きます。1mLの 1000こ分[ぶん]が 1Lです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.5abc6e9bf66d",
@@ -341,7 +341,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "つぎのうち、１リットルの「かさ」になるものは、どれでしょう。",
+      "prompt": "図[ず]の 入[い]れものには、書[か]いてある かさの 水[みず]が 入[はい]ります。1L 入[はい]るものは どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -365,9 +365,10 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptSpeech": "大[おお]きな牛乳[ぎゅうにゅう]パックは1000mL、きゅうしょくの牛乳[ぎゅうにゅう]は200mL、かんジュースは350mL、小[ちい]さなペットボトルは500mLです。1L入[はい]るものはどれですか。"
     },
-    "explanation": "１リットルは、スーパーなどでうっている 大[おお]きな牛[ぎゅう]にゅうパック１本分[ほんぶん]の 「かさ」になる。"
+    "explanation": "1L＝1000mLです。図[ず]の 大[おお]きな 牛乳[ぎゅうにゅう]パックには 1000mLと 書[か]いてあります。入[い]れものの 見[み]た目[め]だけではなく、かさの 表示[ひょうじ]で くらべます。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.8f3a71f01a85",
@@ -481,7 +482,8 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_2_8",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
       "prompt": "リットルを あらわしているものは、どれでしょう。",
@@ -496,7 +498,7 @@
         },
         {
           "id": "c3",
-          "text": "l"
+          "text": "kg"
         },
         {
           "id": "c4",
@@ -506,7 +508,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「かさ」をあらわすリットルは、「L」とあらわす。"
+    "explanation": "リットルは Lと あらわします。1Lは 1dLの 10こ分[ぶん]です。"
   },
   {
     "id": "legacy.sansu.g2.math-2-8.f906ef5fae69",

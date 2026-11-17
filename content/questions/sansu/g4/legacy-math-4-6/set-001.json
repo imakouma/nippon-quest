@@ -5,18 +5,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (5.67)",
-      "answers": [
-        "5.67"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 9.12-3.45 =",
+      "answers": ["5.67"]
     },
-    "explanation": "\\require{cancel} 8 0 1 \\bcancel{9}. \\bcancel{1} 2 - 3. 4 5 5. 6 7"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを引[ひ]きます。9.12-3.45=5.67。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.2518118feb30",
@@ -24,11 +18,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数で、点の１つ後ろにある位をなんといいますか。",
       "choices": [
@@ -58,16 +48,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "0.049 を 10 でわると、いくらになるでしょう。",
-      "answers": [
-        "0.0049"
-      ],
+      "answers": ["0.0049"],
       "promptImage": "questions/sansu/g4/visuals/decimal-place-3408e780b66c.svg",
       "promptImageAlt": "0.049を位ごとに並べた表。小数点を固定し、10でわると右へ1つ位を移す。答えの数字は書いていません。"
     },
@@ -79,18 +63,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (0.89)",
-      "answers": [
-        "0.89"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 6.78-5.89 =",
+      "answers": ["0.89"]
     },
-    "explanation": "\\require{cancel} 5 6 1 \\bcancel{6}. \\bcancel{7} 8 - 5. 8 9 0. 8 9"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを引[ひ]きます。6.78-5.89=0.89。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.40cecff1bfbf",
@@ -98,11 +76,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数で、点の２つ後ろにある位は、何の位になりますか。",
       "choices": [
@@ -132,16 +106,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の数を単位を変えて、表しましょう。",
-      "answers": [
-        "703"
-      ],
+      "answers": ["703"],
       "template": "70.3cm= {{INPUT}}mm",
       "suffix": "mm",
       "promptImage": "questions/sansu/g4/visuals/length-unit-47904d8843c4.svg",
@@ -155,16 +123,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "0.15 を 10 でわると、いくらになるでしょう。",
-      "answers": [
-        "0.015"
-      ],
+      "answers": ["0.015"],
       "promptImage": "questions/sansu/g4/visuals/decimal-place-4871c609ca04.svg",
       "promptImageAlt": "0.15を位ごとに並べた表。小数点を固定し、10でわると右へ1つ位を移す。答えの数字は書いていません。"
     },
@@ -176,16 +138,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の数を単位を変えて、表しましょう。",
-      "answers": [
-        "1.76"
-      ],
+      "answers": ["1.76"],
       "template": "176cm= {{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g4/visuals/length-unit-4f9df88d0397.svg",
@@ -199,16 +155,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の数を単位を変えて、表しましょう。",
-      "answers": [
-        "42195"
-      ],
+      "answers": ["42195"],
       "template": "42.195 km= {{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g4/visuals/length-unit-598b088b4ac6.svg",
@@ -222,11 +172,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数で、点の１つ後ろにある位は、何の位になりますか。",
       "choices": [
@@ -256,16 +202,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "0.15 を 10倍 すると、いくらになるでしょう。",
-      "answers": [
-        "1.5"
-      ],
+      "answers": ["1.5"],
       "promptImage": "questions/sansu/g4/visuals/decimal-place-784da3c5fb64.svg",
       "promptImageAlt": "0.15を位ごとに並べた表。小数点を固定し、10倍では左へ1つ位を移す。答えの数字は書いていません。"
     },
@@ -277,18 +217,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (0.79)",
-      "answers": [
-        "0.79"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 6.19-5.4 =",
+      "answers": ["0.79"]
     },
-    "explanation": "しっかり位をそろえて、筆算をかこう。5.4は、5.40と考えてみると、分かりやすい。 \\require{cancel} 5 1 \\bcancel{6}. 1 9 - 5. 4 0 0. 7 9"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを引[ひ]きます。6.19-5.4=0.79。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.ad7ef93a129b",
@@ -296,18 +230,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (12.37)",
-      "answers": [
-        "12.37"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 9+3.37 =",
+      "answers": ["12.37"]
     },
-    "explanation": "9は、整数になっているので 注意。しっかり位をそろえて、筆算をかこう。9.00と考えてみると、分かりやすい。 9 0 0 + 3. 3 7 1 2. 3 7"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを足[た]します。9+3.37=12.37。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.be6570b03137",
@@ -315,18 +243,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (9.66)",
-      "answers": [
-        "9.66"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 3.14+6.52 =",
+      "answers": ["9.66"]
     },
-    "explanation": "3. 1 4 + 6. 5 2 9. 6 6"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを足[た]します。3.14+6.52=9.66。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.bfcff36b65cc",
@@ -334,11 +256,7 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数で、点の２つ後ろにある位をなんといいますか。",
       "choices": [
@@ -368,16 +286,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "3 を 10 でわると、いくらになるでしょう。",
-      "answers": [
-        "0.3"
-      ],
+      "answers": ["0.3"],
       "promptImage": "questions/sansu/g4/visuals/decimal-place-cfef99982c64.svg",
       "promptImageAlt": "3を位ごとに並べた表。小数点を固定し、10でわると右へ1つ位を移す。答えの数字は書いていません。"
     },
@@ -389,18 +301,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (10)",
-      "answers": [
-        "10"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 6.63+3.37 =",
+      "answers": ["10"]
     },
-    "explanation": "小数点より後ろが 0のときは、整数で答えよう。 \\require{cancel} 1 1 6. 6 3 + 3. 3 7 1 0. \\bcancel{0} \\bcancel{0}"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを足[た]します。6.63+3.37=10。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.d6b383b5325d",
@@ -408,16 +314,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の数を単位を変えて、表しましょう。",
-      "answers": [
-        "1.259"
-      ],
+      "answers": ["1.259"],
       "template": "1259mL= {{INPUT}}L",
       "suffix": "L",
       "promptImage": "questions/sansu/g4/visuals/water-1259.svg",
@@ -431,16 +331,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "3 を 10倍 すると、いくらになるでしょう。",
-      "answers": [
-        "30"
-      ],
+      "answers": ["30"],
       "promptImage": "questions/sansu/g4/visuals/decimal-place-d744981eae2e.svg",
       "promptImageAlt": "3を位ごとに並べた表。小数点を固定し、10倍では左へ1つ位を移す。答えの数字は書いていません。"
     },
@@ -452,18 +346,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (8.43)",
-      "answers": [
-        "8.43"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2.03+6.4 =",
+      "answers": ["8.43"]
     },
-    "explanation": "しっかり位をそろえて、筆算をかこう。6.4は、6.40と考えてみると分かりやすい。 2. 0 3 + 6. 4 0 8. 4 3"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを足[た]します。2.03+6.4=8.43。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.e33026a3f514",
@@ -471,16 +359,10 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "0.049 を 10倍 すると、いくらになるでしょう。",
-      "answers": [
-        "0.49"
-      ],
+      "answers": ["0.49"],
       "promptImage": "questions/sansu/g4/visuals/decimal-place-e33026a3f514.svg",
       "promptImageAlt": "0.049を位ごとに並べた表。小数点を固定し、10倍では左へ1つ位を移す。答えの数字は書いていません。"
     },
@@ -492,18 +374,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (12.45)",
-      "answers": [
-        "12.45"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4.56+7.89 =",
+      "answers": ["12.45"]
     },
-    "explanation": "1 1 4. 5 6 + 7. 8 9 1 2. 4 5"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを足[た]します。4.56+7.89=12.45。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.e732b039008e",
@@ -511,18 +387,12 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (2.46)",
-      "answers": [
-        "2.46"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 6-3.54 =",
+      "answers": ["2.46"]
     },
-    "explanation": "6は、整数になっているので 注意。しっかり位をそろえて、筆算をかこう。6.00と考えてみると、分かりやすい。 \\require{cancel} 5 9 1 \\bcancel{6}. \\bcancel{0} 0 - 3. 5 4 2. 4 6"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを引[ひ]きます。6-3.54=2.46。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
   },
   {
     "id": "legacy.sansu.g4.math-4-6.e985fd756d98",
@@ -530,17 +400,131 @@
     "subject": "sansu",
     "grade": 4,
     "unit": "sansu.g4.legacy-math-4-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_4_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_6", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次の計算をしましょう。 けいさんしましょう (1.28)",
-      "answers": [
-        "1.28"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 3-1.72 =",
+      "answers": ["1.28"]
     },
-    "explanation": "3は、整数になっているので 注意。しっかり位をそろえて、筆算をかこう。3.00と考えてみると、分かりやすい。 \\require{cancel} 2 9 1 \\bcancel{3}. \\bcancel{0} 0 - 1. 7 2 1. 2 8"
+    "explanation": "小数点[しょうすうてん]をそろえ、同[おな]じ位[くらい]どうしを引[ひ]きます。3-1.72=1.28。位[くらい]がない所[ところ]には0を補[おぎな]うと、整数[せいすう]と同[おな]じように計算[けいさん]できます。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-6.soroban-read-236",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "そろばんが表[あらわ]す数[かず]はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2.36"
+        },
+        {
+          "id": "b",
+          "text": "23.6"
+        },
+        {
+          "id": "c",
+          "text": "2.81"
+        }
+      ],
+      "answer": "a",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/abacus-236.svg",
+      "promptSpeech": "そろばんが表[あらわ]す数[かず]はどれですか。 一[いち]の位[くらい]は2、十分[じゅうぶん]の一[いち]の位[くらい]は3、百分[ひゃくぶん]の一[いち]の位[くらい]は6。"
+    },
+    "explanation": "梁[はり]によせた珠[たま]を読[よ]みます。2+0.3+0.06=2.36。上[うえ]の珠[たま]1つは、その位[くらい]の5つ分[ぶん]です。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-6.soroban-add",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "このそろばんの数[かず]に0.02を足[た]すといくつですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2.56"
+        },
+        {
+          "id": "b",
+          "text": "2.38"
+        },
+        {
+          "id": "c",
+          "text": "4.36"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/abacus-236.svg",
+      "promptSpeech": "このそろばんの数[かず]に0.02を足[た]すといくつですか。 一[いち]の位[くらい]は2、十分[じゅうぶん]の一[いち]の位[くらい]は3、百分[ひゃくぶん]の一[いち]の位[くらい]は6。"
+    },
+    "explanation": "0.02は百分[ひゃくぶん]の一[いち]が2つ分[ぶん]です。その位[くらい]の下[した]の珠[たま]を2つ足[た]し、2.36+0.02=2.38になります。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-6.soroban-read-520",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "そろばんが表[あらわ]す数[かず]はどれですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "52"
+        },
+        {
+          "id": "b",
+          "text": "5.2"
+        },
+        {
+          "id": "c",
+          "text": "0.52"
+        }
+      ],
+      "answer": "b",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/abacus-520.svg",
+      "promptSpeech": "そろばんが表[あらわ]す数[かず]はどれですか。 一[いち]の位[くらい]は5、十分[じゅうぶん]の一[いち]の位[くらい]は2、百分[ひゃくぶん]の一[いち]の位[くらい]は0。"
+    },
+    "explanation": "一[いち]の位[くらい]の上[うえ]の珠[たま]が5、十分[じゅうぶん]の一[いち]の下[した]の珠[たま]2つが0.2です。合[あ]わせて5.2です。"
+  },
+  {
+    "id": "sansu.g4.legacy-math-4-6.soroban-subtract",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-review"],
+    "payload": {
+      "prompt": "このそろばんの数[かず]から0.1を引[ひ]くといくつですか。",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4.2"
+        },
+        {
+          "id": "b",
+          "text": "5.19"
+        },
+        {
+          "id": "c",
+          "text": "5.1"
+        }
+      ],
+      "answer": "c",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g4/review/abacus-520.svg",
+      "promptSpeech": "このそろばんの数[かず]から0.1を引[ひ]くといくつですか。 一[いち]の位[くらい]は5、十分[じゅうぶん]の一[いち]の位[くらい]は2、百分[ひゃくぶん]の一[いち]の位[くらい]は0。"
+    },
+    "explanation": "十分[じゅうぶん]の一[いち]の位[くらい]の珠[たま]を1つ引[ひ]きます。5.2−0.1=5.1です。一[いち]の位[くらい]は変[か]わりません。"
   }
 ]

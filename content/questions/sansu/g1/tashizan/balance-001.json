@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g1.balance.three-story",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "はこに あめが 6こ。2こ いれてから、3こ たべました。のこりを もとめる しきは？",
+      "choices": [
+        {
+          "id": "1",
+          "text": "6 - 2 + 3"
+        },
+        {
+          "id": "2",
+          "text": "6 + 2 - 3"
+        },
+        {
+          "id": "3",
+          "text": "6 + 2 + 3"
+        }
+      ],
+      "answer": "2",
+      "shuffle": true
+    },
+    "explanation": "2こ いれるので 6 + 2。そこから 3こ たべるので、しきは 6 + 2 - 3です。こたえは 5こです。"
+  }
+]

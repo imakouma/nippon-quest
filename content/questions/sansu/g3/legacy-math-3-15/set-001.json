@@ -5,11 +5,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう]で、点[てん]の１つ前[まえ]にある位[くらい]は、何[なん]の位[くらい]になりますか。",
       "choices": [
@@ -38,11 +34,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう]につく「点[てん]」を、何[なに]といいますか。",
       "choices": [
@@ -71,16 +63,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "整数[せいすう]であらわされた数[かず]を、「たんい」をかえて小数[しょうすう]で表[あらわ]そう。",
-      "answers": [
-        "7.6"
-      ],
+      "answers": ["7.6"],
       "template": "7cm 6mm = {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g3/visuals/ruler-76mm.svg",
@@ -94,16 +80,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線[すうちょくせん]で、イは小数[しょうすう]であらわすと、いくらになるでしょう。",
-      "answers": [
-        "1.2"
-      ],
+      "answers": ["1.2"],
       "promptImage": "questions/legacy/ddcbd389bddc670c.png"
     },
     "explanation": "1から、あと2目[め]もり すすんでいる。１つの目[め]もりが、0.1になるので、イは 1.2だ。"
@@ -114,11 +94,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の数[かず]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 0.9 □ \\dfrac{9}{10}",
       "choices": [
@@ -140,7 +116,7 @@
       "promptImage": "questions/sansu/g3/visuals/compare-2a571cfd6a21.svg",
       "promptSpeech": "次[つぎ]の数[かず]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 0.9 □ \\dfrac{9}{10} 同じ長さを1とした図。上は0.9、下は9/10。どちらも10等分。"
     },
-    "explanation": "１を１０こに分[わ]けた数直線[すうちょくせん]では、１目[め]もりが 小数[しょうすう]では 0.1、分数[ぶんすう]では \\dfrac{1}{10} になる。 どちらも、目[め]もり９こ分[ぶん]なので、同[おな]じ大[おお]きさになる。"
+    "explanation": "1を 同[おな]じ大[おお]きさに10こに 分[わ]けた数直線[すうちょくせん]では、１目[め]もりが 小数[しょうすう]では 0.1、分数[ぶんすう]では 1/10 になる。 どちらも、目[め]もり９こ分[ぶん]なので、同[おな]じ大[おお]きさになる。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.2c7a41ca61a6",
@@ -148,16 +124,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "整数[せいすう]であらわされた数[かず]を、「たんい」をかえて小数[しょうすう]で表[あらわ]そう。",
-      "answers": [
-        "2.5"
-      ],
+      "answers": ["2.5"],
       "template": "2L 5dL = {{INPUT}}L",
       "suffix": "L",
       "promptImage": "questions/sansu/g3/visuals/water-25dl.svg",
@@ -171,18 +141,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (2.4)",
-      "answers": [
-        "2.4"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 6.2-3.8 =",
+      "answers": ["2.4"]
     },
-    "explanation": "\\require{cancel} 5 1 \\bcancel{6}. 2 - 3. 8 2. 4"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、6.2は62こ分[ぶん]、3.8は38こ分[ぶん]です。62-38=24なので、0.1が24こ分[ぶん]の2.4です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.4220df7a294c",
@@ -190,13 +154,9 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "1, 2, 3 …のような、分数[ぶんすう]でも 小数[しょうすう]でもない数[かず]を、何[なに]といいますか。",
+      "prompt": "0、1、2、3、…のような数[かず]を、何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -214,7 +174,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "分数[ぶんすう]でも小数[しょうすう]でもない数[かず]のことを 整数[せいすう]という。"
+    "explanation": "0、1、2、3、…のような数[かず]を 整数[せいすう]といいます。0も 整数[せいすう]です。今[いま]まで 学[まな]んだ数[かず]について、1ずつ 増[ふ]える 数[かず]を 考[かんが]えます。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.4359121ca676",
@@ -222,16 +182,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線[すうちょくせん]で、イは小数[しょうすう]であらわすと、いくらになるでしょう。",
-      "answers": [
-        "2.3"
-      ],
+      "answers": ["2.3"],
       "promptImage": "questions/legacy/7fe8121cd99dd322.png"
     },
     "explanation": "2から、あと3目[め]もり すすんでいる。１つの目[め]もりが、0.1になるので、イは 2.3だ。"
@@ -242,18 +196,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (12.2)",
-      "answers": [
-        "12.2"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 5.2+7 =",
+      "answers": ["12.2"]
     },
-    "explanation": "5. 2 + 7 1 2. 2"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、5.2は52こ分[ぶん]、7は70こ分[ぶん]です。52+70=122なので、0.1が122こ分[ぶん]の12.2です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.4c6ae1509191",
@@ -261,18 +209,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (8.1)",
-      "answers": [
-        "8.1"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4.5+3.6 =",
+      "answers": ["8.1"]
     },
-    "explanation": "1 4. 5 + 3. 6 8. 1"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、4.5は45こ分[ぶん]、3.6は36こ分[ぶん]です。45+36=81なので、0.1が81こ分[ぶん]の8.1です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.5118347a5d2f",
@@ -280,18 +222,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (0.4)",
-      "answers": [
-        "0.4"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 0.9-0.5 =",
+      "answers": ["0.4"]
     },
-    "explanation": "それぞれ 0.1が、いくつ分[ぶん]かを考[かんが]えて、足[た]し算[ざん]や引[ひ]き算[ざん]をしよう。 0.9-0.5 = 0.4"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、0.9は9こ分[ぶん]、0.5は5こ分[ぶん]です。9-5=4なので、0.1が4こ分[ぶん]の0.4です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.5275bb220bbf",
@@ -299,11 +235,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう] 0.1 と同[おな]じ大[おお]きさの分数[ぶんすう]は、いくらでしょう。",
       "choices": [
@@ -329,7 +261,7 @@
       "promptImage": "questions/sansu/g3/visuals/decimal-one-tenth.svg",
       "promptSpeech": "小数[しょうすう] 0.1 と同[おな]じ大[おお]きさの分数[ぶんすう]は、いくらでしょう。 1を10等分し、0.1の部分を着色した図。"
     },
-    "explanation": "小数[しょうすう]0.1は、「１を１０こに分[わ]けたときの １つ分[ぶん]」の大[おお]きさなので、分数[ぶんすう]\\dfrac{1}{10} と同[おな]じになる。"
+    "explanation": "小数[しょうすう]0.1は、「1を 同[おな]じ大[おお]きさに10こに 分[わ]けたときの １つ分[ぶん]」の大[おお]きさなので、分数[ぶんすう]1/10 と同[おな]じになる。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.6c95ca918786",
@@ -337,11 +269,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線[すうちょくせん]で、0.1をあらわしているものは、ア～ウのうち、どれでしょう。",
       "choices": [
@@ -362,7 +290,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/23d869d0ff3194e0.png"
     },
-    "explanation": "小数[しょうすう]0.1は、「１を１０こに分[わ]けたときの １つ分[ぶん]」の大[おお]きさ。１までに 目[め]もりが１０あるので、１つ目[め]の目[め]もりが 0.1になる。"
+    "explanation": "小数[しょうすう]0.1は、「1を 同[おな]じ大[おお]きさに10こに 分[わ]けたときの １つ分[ぶん]」の大[おお]きさ。１までに 目[め]もりが１０あるので、１つ目[め]の目[め]もりが 0.1になる。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.75ebb3f85441",
@@ -370,11 +298,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線[すうちょくせん]で、2.7をあらわしているものは、ア～ウのうち、どれでしょう。",
       "choices": [
@@ -403,17 +327,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう]であらわされた数[かず]を、「たんい」をかえて、整数[せいすう]で表[あらわ]そう。",
-      "answers": [
-        "1",
-        "3"
-      ],
+      "answers": ["1", "3"],
       "template": "1.3cm = {{INPUT}}cm {{INPUT}}mm",
       "promptImage": "questions/sansu/g3/visuals/ruler-13mm.svg",
       "promptImageAlt": "ものさしで1.3cmの長さを示す。大きな目盛りは1cm、小さな目盛りは1mm。"
@@ -426,18 +343,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (0.6)",
-      "answers": [
-        "0.6"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 0.2+0.4 =",
+      "answers": ["0.6"]
     },
-    "explanation": "それぞれ 0.1が、いくつ分[ぶん]かを考[かんが]えて、足[た]し算[ざん]や引[ひ]き算[ざん]をしよう。 0.2+0.4 = 0.6"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、0.2は2こ分[ぶん]、0.4は4こ分[ぶん]です。2+4=6なので、0.1が6こ分[ぶん]の0.6です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.7b58d07b9593",
@@ -445,18 +356,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (1.7)",
-      "answers": [
-        "1.7"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 2-0.3 =",
+      "answers": ["1.7"]
     },
-    "explanation": "2は2.0にして ひき算[ざん]をしよう。 2.0-0.3=1.7"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、2は20こ分[ぶん]、0.3は3こ分[ぶん]です。20-3=17なので、0.1が17こ分[ぶん]の1.7です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.840b3b31643b",
@@ -464,11 +369,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次[つぎ]の数[かず]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 0.6 □ \\dfrac{3}{10}",
       "choices": [
@@ -490,7 +391,7 @@
       "promptImage": "questions/sansu/g3/visuals/compare-840b3b31643b.svg",
       "promptSpeech": "次[つぎ]の数[かず]の大[おお]きさをくらべて、□に入[はい]る ＝ や 不等号[ふとうごう]をえらぼう。 0.6 □ \\dfrac{3}{10} 同じ長さを1とした図。上は0.6、下は3/10。どちらも10等分。"
     },
-    "explanation": "１を１０こに分[わ]けた数直線[すうちょくせん]では、１目[め]もりが 小数[しょうすう]では0.1、分数[ぶんすう]では\\dfrac{1}{10} になる。 それぞれ、目[め]もり６こ分[ぶん]と３こ分[ぶん]になるので、0.6の方[ほう]が大[おお]きい。"
+    "explanation": "1を 同[おな]じ大[おお]きさに10こに 分[わ]けた数直線[すうちょくせん]では、１目[め]もりが 小数[しょうすう]では0.1、分数[ぶんすう]では1/10 になる。 それぞれ、目[め]もり６こ分[ぶん]と３こ分[ぶん]になるので、0.6の方[ほう]が大[おお]きい。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.85810f2fd6dc",
@@ -498,16 +399,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "整数[せいすう]であらわされた数[かず]を、「たんい」をかえて小数[しょうすう]で表[あらわ]そう。",
-      "answers": [
-        "0.8"
-      ],
+      "answers": ["0.8"],
       "template": "8dL = {{INPUT}}L",
       "suffix": "L",
       "promptImage": "questions/sansu/g3/visuals/water-8dl.svg",
@@ -521,18 +416,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (2.1)",
-      "answers": [
-        "2.1"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 3.2-1.1 =",
+      "answers": ["2.1"]
     },
-    "explanation": "3. 2 - 1. 1 2. 1"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、3.2は32こ分[ぶん]、1.1は11こ分[ぶん]です。32-11=21なので、0.1が21こ分[ぶん]の2.1です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.8f944ef7346f",
@@ -540,11 +429,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう]で、点[てん]の１つ後[あと]にある位[くらい]は、何[なん]の位[くらい]になりますか。",
       "choices": [
@@ -573,18 +458,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (10)",
-      "answers": [
-        "10"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 8.1+1.9 =",
+      "answers": ["10"]
     },
-    "explanation": "\\require{cancel} １０分[ぶん]の１の位[くらい]が 0 のときは、整数[せいすう]で答[こた]えよう。 1 8. 1 + 1. 9 1 0. \\bcancel{0}"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、8.1は81こ分[ぶん]、1.9は19こ分[ぶん]です。81+19=100なので、0.1が100こ分[ぶん]の10です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.c1e7df4c405b",
@@ -592,18 +471,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (2)",
-      "answers": [
-        "2"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 1.3+0.7 =",
+      "answers": ["2"]
     },
-    "explanation": "1.3+0.7 = 2.0 = 2 １０分[ぶん]の１の位[くらい]が 0 のときは、整数[せいすう]で答[こた]えよう。"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、1.3は13こ分[ぶん]、0.7は7こ分[ぶん]です。13+7=20なので、0.1が20こ分[ぶん]の2です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.dc2f087ac6cc",
@@ -611,18 +484,12 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 けいさんしましょう (9.9)",
-      "answers": [
-        "9.9"
-      ]
+      "prompt": "次[つぎ]の計算[けいさん]をしましょう。 4.2+5.7 =",
+      "answers": ["9.9"]
     },
-    "explanation": "4. 2 + 5. 7 9. 9"
+    "explanation": "0.1を 1つ分[ぶん]として 考[かんが]えると、4.2は42こ分[ぶん]、5.7は57こ分[ぶん]です。42+57=99なので、0.1が99こ分[ぶん]の9.9です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-15.f107e82d5a54",
@@ -630,11 +497,7 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下[した]の数直線[すうちょくせん]で、1.5をあらわしているものは、ア～ウのうち、どれでしょう。",
       "choices": [
@@ -663,16 +526,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう]であらわされた数[かず]を、「たんい」をかえて、整数[せいすう]で表[あらわ]そう。",
-      "answers": [
-        "8"
-      ],
+      "answers": ["8"],
       "template": "0.8cm = {{INPUT}}mm",
       "suffix": "mm",
       "promptImage": "questions/sansu/g3/visuals/ruler-8mm.svg",
@@ -686,16 +543,10 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-15",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_15",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_15", "reviewed:structural-v1"],
     "payload": {
       "prompt": "小数[しょうすう]であらわされた数[かず]を、「たんい」をかえて、整数[せいすう]で表[あらわ]そう。",
-      "answers": [
-        "15"
-      ],
+      "answers": ["15"],
       "template": "1.5L= {{INPUT}}dL",
       "suffix": "dL",
       "promptImage": "questions/sansu/g3/visuals/water-15dl.svg",

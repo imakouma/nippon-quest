@@ -5,17 +5,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "あやさんは、7時[じ]45分[ふん]に 家[いえ]を出[で]て、8時[じ]に 学校[がっこう]につきました。かかった時間[じかん]は、何分[なんぷん]でしょう。",
-      "answers": [
-        "15"
-      ],
-      "template": "{{INPUT}}分",
+      "answers": ["15"],
+      "template": "{{INPUT}}分[ふん]",
       "suffix": "分",
       "promptImage": "questions/sansu/g3/visuals/time-04ffc8e1c045.svg",
       "promptImageAlt": "いえを でるの時計は7時45分、がっこうに つくの時計は8時0分。かかった じかんは ？。"
@@ -28,18 +22,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "ひろとさんは、午後[ごご]10時[じ]にねて、午前[ごぜん]7時[じ]30分[ふん]におきました。何時間何分[なんじかんなんぷん] ねましたか。",
-      "answers": [
-        "9",
-        "30"
-      ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
+      "answers": ["9", "30"],
+      "template": "{{INPUT}}時間[じかん]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-0df57e0c1151.svg",
       "promptImageAlt": "ごご10じに ねるの時計は10時0分、つぎのひ ごぜん7じ30ぷんの時計は7時30分。よなかの12じを こえる。"
     },
@@ -51,18 +38,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たくとさんは、2時[じ]10分[ふん]に公園[こうえん]を出[で]て、25分後[ふんご]に 家[いえ]につきました。家[いえ]についたのは、何時何分[なんじなんぷん]ですか。",
-      "answers": [
-        "2",
-        "35"
-      ],
-      "template": "{{INPUT}}時{{INPUT}}分",
+      "answers": ["2", "35"],
+      "template": "{{INPUT}}時[じ]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-107217fdb310.svg",
       "promptImageAlt": "こうえんを でる時刻は2時10分。間の時間は25分。いえに つく時刻は空らん。"
     },
@@ -74,17 +54,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "あやさんは、10時[じ]35分[ふん]に 家[いえ]を出[で]て、11時[じ]30分[ふん]に 学校[がっこう]につきました。かかった時間[じかん]は、何分[なんぷん]でしょう。",
-      "answers": [
-        "55"
-      ],
-      "template": "{{INPUT}}分",
+      "answers": ["55"],
+      "template": "{{INPUT}}分[ふん]",
       "suffix": "分",
       "promptImage": "questions/sansu/g3/visuals/time-2545c842cd80.svg",
       "promptImageAlt": "いえを でるの時計は10時35分、がっこうに つくの時計は11時30分。かかった じかんは ？。"
@@ -97,18 +71,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "かずきさんの家[いえ]から 学校[がっこう]までは、30分[ふん]かかります。8時[じ]15分[ふん]に 学校[がっこう]につくには、何時何分[なんじなんぷん]に 家[いえ]を出[で]ればいいでしょう。",
-      "answers": [
-        "7",
-        "45"
-      ],
-      "template": "{{INPUT}}時{{INPUT}}分",
+      "answers": ["7", "45"],
+      "template": "{{INPUT}}時[じ]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-269206acfb8e.svg",
       "promptImageAlt": "がっこうに つく時刻は8時15分。間の時間は30分。いえを でる時刻は空らん。"
     },
@@ -120,22 +87,16 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "１分[ふん]は、何秒[なんびょう]（びょう）でしょう。",
-      "answers": [
-        "60"
-      ],
+      "answers": ["60"],
       "template": "{{INPUT}}秒",
       "suffix": "秒",
       "promptImage": "questions/sansu/g3/visuals/clock-turn-びょう.svg",
       "promptImageAlt": "びょうしんが1周する図。小さな1目盛りが1びょう。"
     },
-    "explanation": "時計[とけい]の小[ちい]さなめもりを 数[かぞ]えてみよう。60こ のめもりがあるね。"
+    "explanation": "秒[びょう]しんは、1秒[びょう]で 小[ちい]さい目[め]もり1つ分[ぶん]ずつ 進[すす]みます。60目[め]もりを1周[しゅう]すると1分[ふん]なので、1分[ふん]=60秒[びょう]です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-5.406dafbd4ccd",
@@ -143,18 +104,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "ゆうまさんは、50分[ふん] ひるねをして おきたら、2時[じ]45分[ふん]でした。 ゆうまさんが ひるねをはじめたのは何時何分[なんじなんぷん]ですか。",
-      "answers": [
-        "1",
-        "55"
-      ],
-      "template": "{{INPUT}}時{{INPUT}}分",
+      "answers": ["1", "55"],
+      "template": "{{INPUT}}時[じ]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-406dafbd4ccd.svg",
       "promptImageAlt": "おきる時刻は2時45分。間の時間は50分。ひるねを はじめる時刻は空らん。"
     },
@@ -166,18 +120,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "かずきさんの家[いえ]から図書館[としょかん]までは、10分[ふん]かかります。 かずきさんが 4時[じ]5分[ふん]に 図書館[としょかん]につくには、何時何分[なんじなんぷん]に 家[いえ]を出[で]ればいいでしょう。",
-      "answers": [
-        "3",
-        "55"
-      ],
-      "template": "{{INPUT}}時{{INPUT}}分",
+      "answers": ["3", "55"],
+      "template": "{{INPUT}}時[じ]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-53aff7719e40.svg",
       "promptImageAlt": "としょかんに つく時刻は4時5分。間の時間は10分。いえを でる時刻は空らん。"
     },
@@ -189,22 +136,16 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "１時間[じかん]は、何分[なんぷん]でしょう。",
-      "answers": [
-        "60"
-      ],
-      "template": "{{INPUT}}分",
+      "answers": ["60"],
+      "template": "{{INPUT}}分[ふん]",
       "suffix": "分",
       "promptImage": "questions/sansu/g3/visuals/clock-turn-ふん.svg",
       "promptImageAlt": "ながい はりが1周する図。小さな1目盛りが1ふん。"
     },
-    "explanation": "時計[とけい]の小[ちい]さなめもりを 数[かぞ]えてみよう。60こ のめもりがあるね。"
+    "explanation": "長[なが]いはりは、1分[ふん]で 小[ちい]さい目[め]もり1つ分[ぶん]ずつ 進[すす]みます。60目[め]もりを1周[しゅう]すると1時間[じかん]なので、1時間[じかん]=60分[ふん]です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-5.627f58a63aaa",
@@ -212,18 +153,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たくとさんは、5時[じ]15分[ふん]に公園[こうえん]を出[で]て、35分後[ふんご]に 家[いえ]につきました。家[いえ]についたのは、何時何分[なんじなんぷん]ですか。",
-      "answers": [
-        "5",
-        "50"
-      ],
-      "template": "{{INPUT}}時{{INPUT}}分",
+      "answers": ["5", "50"],
+      "template": "{{INPUT}}時[じ]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-627f58a63aaa.svg",
       "promptImageAlt": "こうえんを でる時刻は5時15分。間の時間は35分。いえに つく時刻は空らん。"
     },
@@ -235,18 +169,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "お兄[にい]さんは、午前[ごぜん]10時[じ]から 午後[ごご]3時[じ]30分[ふん]まで、野球[やきゅう]のれんしゅうをします。何時間何分[なんじかんなんぷん] れんしゅうしていますか。",
-      "answers": [
-        "5",
-        "30"
-      ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
+      "answers": ["5", "30"],
+      "template": "{{INPUT}}時間[じかん]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-8b8544a0120f.svg",
       "promptImageAlt": "ごぜん10じの時計は10時0分、ごご3じ30ぷんの時計は3時30分。おひるの12じを こえる。"
     },
@@ -258,18 +185,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "かみなりがなったときの時計[とけい]は、一回目[いっかいめ]が午後[ごご]8時[じ]45分[ふん]、二回目[にかいめ]がつぎの日[ひ]の午前[ごぜん]2時[じ]でした。間[あいだ]は何時間何分[なんじかんなんぷん]ですか。",
-      "answers": [
-        "5",
-        "15"
-      ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
+      "answers": ["5", "15"],
+      "template": "{{INPUT}}時間[じかん]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-98489571fd39.svg",
       "promptImageAlt": "ごご8じ45ふんの時計は8時45分、つぎのひ ごぜん2じの時計は2時0分。よなかの12じを こえる。"
     },
@@ -281,18 +201,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "お姉[ねえ]さんは 今日[きょう]、午前[ごぜん]9時[じ]から 午後[ごご]4時[じ]15分[ふん]まで、ピアノのれんしゅうをしました。何時間何分[なんじかんなんぷん] れんしゅうしましたか。",
-      "answers": [
-        "7",
-        "15"
-      ],
-      "template": "{{INPUT}}時間{{INPUT}}分",
+      "answers": ["7", "15"],
+      "template": "{{INPUT}}時間[じかん]{{INPUT}}分[ふん]",
       "promptImage": "questions/sansu/g3/visuals/time-b474f1ff513b.svg",
       "promptImageAlt": "ごぜん9じの時計は9時0分、ごご4じ15ふんの時計は4時15分。おひるの12じを こえる。"
     },
@@ -304,17 +217,11 @@
     "subject": "sansu",
     "grade": 3,
     "unit": "sansu.g3.legacy-math-3-5",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_3_5",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_5", "reviewed:structural-v1"],
     "payload": {
       "prompt": "あやさんは、7時[じ]45分[ふん]に 家[いえ]を出[で]て、8時[じ]10分[ふん]に 学校[がっこう]につきました。かかった時間[じかん]は、何分[なんぷん]でしょう。",
-      "answers": [
-        "25"
-      ],
-      "template": "{{INPUT}}分",
+      "answers": ["25"],
+      "template": "{{INPUT}}分[ふん]",
       "suffix": "分",
       "promptImage": "questions/sansu/g3/visuals/time-e9aad5dc918b.svg",
       "promptImageAlt": "いえを でるの時計は7時45分、がっこうに つくの時計は8時10分。かかった じかんは ？。"

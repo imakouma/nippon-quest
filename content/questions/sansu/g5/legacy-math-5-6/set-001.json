@@ -5,22 +5,16 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "六角形のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
-      "answers": [
-        "720"
-      ],
+      "answers": ["720"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/sansu/g5/visuals/angles-04898192d0fb.svg",
       "promptImageAlt": "6角形。1つの頂点から対角線を引き、三角形に分けた図。"
     },
-    "explanation": "六角形のすべての角の大きさを合わせた 内角の和は、720° になる。"
+    "explanation": "1つの 頂点[ちょうてん]から 対角線[たいかくせん]を 引[ひ]くと、三角形[さんかくけい] 4こに 分[わ]けられます。三角形[さんかくけい]の 角[かく]の 和[わ]は 180°なので、180×4＝720°です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-6.07a0079e5969",
@@ -28,16 +22,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
-      "answers": [
-        "80"
-      ],
+      "answers": ["80"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/50c113e33b7a99bf.png"
@@ -53,10 +41,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "下の図のように、平行四辺形に対角線をひきました。",
+      "prompt": "平行四辺形[へいこうしへんけい]に 対角線[たいかくせん]を 引[ひ]きました。合同[ごうどう]な 三角形[さんかくけい]の 組[くみ]を すべて あげた 選択肢[せんたくし]は どれですか。",
       "choices": [
         {
           "id": "c1",
@@ -87,22 +76,16 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "七角形のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
-      "answers": [
-        "900"
-      ],
+      "answers": ["900"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/sansu/g5/visuals/angles-524c39995cb1.svg",
       "promptImageAlt": "7角形。1つの頂点から対角線を引き、三角形に分けた図。"
     },
-    "explanation": "七角形のすべての角の大きさを合わせた 内角の和は、900° になる。"
+    "explanation": "1つの 頂点[ちょうてん]から 対角線[たいかくせん]を 引[ひ]くと、三角形[さんかくけい] 5こに 分[わ]けられます。三角形[さんかくけい]の 角[かく]の 和[わ]は 180°なので、180×5＝900°です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-6.565f87f7263b",
@@ -110,16 +93,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の２つの平行四辺形は、合同です。",
-      "answers": [
-        "120"
-      ],
+      "answers": ["120"],
       "template": "角E の大きさは、何度になるでしょう。 {{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/121613ee24633496.png"
@@ -132,22 +109,16 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "四角形[しかくけい]のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
-      "answers": [
-        "360"
-      ],
+      "answers": ["360"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/sansu/g5/visuals/angles-5dcbce6cda0e.svg",
       "promptImageAlt": "4角形。1つの頂点から対角線を引き、三角形に分けた図。"
     },
-    "explanation": "四角形[しかくけい]のすべての角の大きさを合わせた 内角の和は、360° になる。"
+    "explanation": "1つの 頂点[ちょうてん]から 対角線[たいかくせん]を 引[ひ]くと、三角形[さんかくけい] 2こに 分[わ]けられます。三角形[さんかくけい]の 角[かく]の 和[わ]は 180°なので、180×2＝360°です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-6.5f9462be820b",
@@ -155,16 +126,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
-      "answers": [
-        "125"
-      ],
+      "answers": ["125"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/bdee144e6c14f1cc.png"
@@ -177,16 +142,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の四角形[しかくけい]で、しるしをつけた角の大きさを求めよう。",
-      "answers": [
-        "100"
-      ],
+      "answers": ["100"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/482c6b6e36c276d4.png"
@@ -199,22 +158,16 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "三角形[さんかくけい]のすべての角の大きさを合わせた 内角の和は、いくらになるでしょう。",
-      "answers": [
-        "180"
-      ],
+      "answers": ["180"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/sansu/g5/visuals/angles-83ab4f5e9b88.svg",
       "promptImageAlt": "3角形。3つの角の数値は空欄。"
     },
-    "explanation": "三角形[さんかくけい]のすべての角の大きさを合わせた 内角の和は、180° になる。"
+    "explanation": "三角形[さんかくけい]の 3つの 角[かく]を 切[き]り取[と]って 1か所[しょ]に 集[あつ]めると、一直線[いっちょくせん]の 角[かく]になります。だから 3つの 角[かく]の 和[わ]は 180°です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-6.8869b0ba4284",
@@ -225,10 +178,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "正三角形と二等辺三角形についての説明[せつめい]として正しいものを、それぞれえらぼう。",
+      "prompt": "正三角形： （　） 二等辺三角形： （　） （　）に 入[はい]る 言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -250,7 +204,7 @@
       "answer": "c1",
       "shuffle": true,
       "promptImage": "questions/sansu/g5/visuals/triangle-types.svg",
-      "promptSpeech": "正三角形と二等辺三角形についての説明[せつめい]として正しいものを、それぞれえらぼう。 左は正三角形、右は二等辺三角形。辺の長さに対応する形。"
+      "promptImageAlt": "正三角形と二等辺三角形についての説明[せつめい]として正しいものを、それぞれえらぼう。 左は正三角形、右は二等辺三角形。辺の長さに対応する形。"
     },
     "explanation": "正三角形：すべての角の大きさが等しい 二等辺三角形：２つの角の大きさが等しい"
   },
@@ -263,10 +217,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "下の図のように、五角形に対角線を引いた。",
+      "prompt": "五角形[ごかくけい]の 1つの 頂点[ちょうてん]から 対角線[たいかくせん]を 引[ひ]くと、3つの（　）に 分[わ]けられます。多角形[たかくけい]の 辺[へん]が1つ 増[ふ]えると、内角[ないかく]の 和[わ]は（　）ずつ 大[おお]きくなります。言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -297,16 +252,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の二等辺三角形で、しるしをつけた角の大きさを求めよう。",
-      "answers": [
-        "100"
-      ],
+      "answers": ["100"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/b1ed0c4be399e209.png"
@@ -319,16 +268,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の２つの平行四辺形は、合同です。",
-      "answers": [
-        "5"
-      ],
+      "answers": ["5"],
       "template": "辺EF の長さは、何cm になるでしょう。 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/121613ee24633496.png"
@@ -341,16 +284,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の２つの平行四辺形は、合同です。",
-      "answers": [
-        "9"
-      ],
+      "answers": ["9"],
       "template": "辺EH の長さは、何cm になるでしょう。 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/121613ee24633496.png"
@@ -363,16 +300,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "正三角形の１つの角の大きさは、いくらになるでしょう。",
-      "answers": [
-        "60"
-      ],
+      "answers": ["60"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/sansu/g5/visuals/angles-c74bdd367c6b.svg",
@@ -389,26 +320,27 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "下の図のように、ひし形に対角線をひきました。",
+      "prompt": "ひし形[がた]に 対角線[たいかくせん]を 引[ひ]きました。4つの 三角形[さんかくけい]について 正[ただ]しい 説明[せつめい]を えらぼう。",
       "choices": [
         {
           "id": "c1",
-          "text": "①〜④すべて"
+          "text": "①〜④は すべて 合同[ごうどう]"
         },
         {
           "id": "c2",
-          "text": "①と②、③と④"
+          "text": "①と②だけが 合同[ごうどう]"
         },
         {
           "id": "c3",
-          "text": "①と③、②と④"
+          "text": "①と③だけが 合同[ごうどう]"
         },
         {
           "id": "c4",
-          "text": "①と④、②と③"
+          "text": "①と④だけが 合同[ごうどう]"
         }
       ],
       "answer": "c1",
@@ -423,16 +355,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
-      "answers": [
-        "65"
-      ],
+      "answers": ["65"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/d6cefa8c56732999.png"
@@ -445,16 +371,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の２つの平行四辺形は、合同です。",
-      "answers": [
-        "60"
-      ],
+      "answers": ["60"],
       "template": "角H の大きさは、何度になるでしょう。 {{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/121613ee24633496.png"
@@ -467,16 +387,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-6",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_6",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_6", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図の三角形[さんかくけい]で、しるしをつけた角の大きさを求めよう。",
-      "answers": [
-        "85"
-      ],
+      "answers": ["85"],
       "template": "{{INPUT}} °",
       "suffix": "°",
       "promptImage": "questions/legacy/16e567bc3c24aa2b.png"
@@ -492,10 +406,11 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_6",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の文の かっこにあてはまる言葉を 順番にえらぼう。",
+      "prompt": "図形の形や大きさが同じであることを、（　） であるといい、下の２つの三角形の辺ABと辺DEのように、合同な図形では （　） 辺が等しくなります。 （　）に 入[はい]る 言葉[ことば]を 順[じゅん]に えらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -519,5 +434,65 @@
       "promptImage": "questions/legacy/16b62609591c7cc2.png"
     },
     "explanation": "図形[ずけい]の形や大きさが同じであることを、（合同）であるといい、下の２つの三角形[さんかくけい]の辺ABと辺DEのように、合同な図形[ずけい]では（対応する）辺が等しくなります。"
+  },
+  {
+    "id": "sansu.g5.curriculum.triangle-compass-a",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
+    "payload": {
+      "prompt": "ABを かいたあと、Aを 中心[ちゅうしん]に 円弧[えんこ]を かきます。コンパスを 何cmに 開[ひら]きますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4cm"
+        },
+        {
+          "id": "c2",
+          "text": "5cm"
+        },
+        {
+          "id": "c3",
+          "text": "6cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/triangle-build.svg",
+      "promptImageAlt": "三角形ABC。AB6cm、AC4cm、BC5cm。"
+    },
+    "explanation": "頂点C[ちょうてんしー]は、Aから 4cmの 位置[いち]にあります。ACの 長[なが]さ4cmに コンパスを 開[ひら]きます。"
+  },
+  {
+    "id": "sansu.g5.curriculum.triangle-compass-b",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-6",
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
+    "payload": {
+      "prompt": "Aを 中心[ちゅうしん]に 半径[はんけい]4cmの 円弧[えんこ]を かきました。次[つぎ]は Bを 中心[ちゅうしん]に 半径[はんけい]何cmの 円弧[えんこ]を かきますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5cm"
+        },
+        {
+          "id": "c2",
+          "text": "4cm"
+        },
+        {
+          "id": "c3",
+          "text": "6cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g5/curriculum/triangle-build.svg",
+      "promptImageAlt": "三角形ABC。AB6cm、AC4cm、BC5cm。"
+    },
+    "explanation": "BCは 5cmなので、Bを 中心[ちゅうしん]に 半径[はんけい]5cmの 円弧[えんこ]を かきます。2つの 円弧[えんこ]の 交点[こうてん]が 頂点C[ちょうてんしー]です。"
   }
 ]

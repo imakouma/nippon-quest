@@ -8,15 +8,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 0.86×0.754306020.6450 =",
-      "answers": [
-        "0.645"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.645"],
+      "template": "0.86 × 0.75 = {{INPUT}}"
     },
-    "explanation": "0. 8 6 × 0. 7 5 4 3 0 6 0 2 0. 6 4 5 0"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、86×75＝6450です。小数部分[しょうすうぶぶん]は 合[あ]わせて 4けたなので、積[せき]の 右[みぎ]から 4けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.645です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.038c22ce73fd",
@@ -24,11 +24,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の中から、積が かけられる数の 6 より大きくなるものをえらぼう。",
       "choices": [
@@ -59,15 +55,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 4×2 =",
-      "answers": [
-        "0.08"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.08"],
+      "template": "0.4 × 0.2 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 4×2= 8 0.4 と 0.2 で合わせて 位が２つ小さくなるので、答えは 0.08 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、4×2＝8です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.08です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.1a3f92581cfd",
@@ -78,15 +74,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 6.7×0.732014694.891 =",
-      "answers": [
-        "4.891"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["4.891"],
+      "template": "6.7 × 0.73 = {{INPUT}}"
     },
-    "explanation": "6. 7 × 0. 7 3 2 0 1 4 6 9 4. 8 9 1"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、67×73＝4891です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 4.891です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.1c1bb1d43735",
@@ -94,11 +90,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の中から、積が かけられる数の 6 より小さくなるものをえらぼう。",
       "choices": [
@@ -129,15 +121,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 4.3×0.51432152.193 =",
-      "answers": [
-        "2.193"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["2.193"],
+      "template": "4.3 × 0.51 = {{INPUT}}"
     },
-    "explanation": "4. 3 × 0. 5 1 4 3 2 1 5 2. 1 9 3"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、43×51＝2193です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 2.193です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.2145e9a10050",
@@ -148,15 +140,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 9.1×8.763772879.17 =",
-      "answers": [
-        "79.17"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["79.17"],
+      "template": "9.1 × 8.7 = {{INPUT}}"
     },
-    "explanation": "9. 1 × 8. 7 6 3 7 7 2 8 7 9. 1 7"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、91×87＝7917です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 79.17です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.21651a9ad59b",
@@ -167,15 +159,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 13×6 =",
-      "answers": [
-        "0.78"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.78"],
+      "template": "1.3 × 0.6 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 13×6= 78 1.3 と 0.6 で合わせて 位が２つ小さくなるので、答えは 0.78 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、13×6＝78です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.78です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.2f07affd6ddb",
@@ -186,15 +178,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 9×6 =",
-      "answers": [
-        "0.054"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.054"],
+      "template": "0.9 × 0.06 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 9×6= 54 0.9 と 0.06 で合わせて 位が３つ小さくなるので、答えは 0.054 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、9×6＝54です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.054です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.3083eea447a9",
@@ -205,15 +197,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12×5 =",
-      "answers": [
-        "0.6"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.6"],
+      "template": "1.2 × 0.5 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 12×5= 60 1.2 と 0.5 で合わせて 位が２つ小さくなるので、答えは 0.60=0.6 になる。答えの小数の最後が 0 のときは、0 をとりのぞいて答えよう。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、12×5＝60です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.6です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.39785be24391",
@@ -224,15 +216,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 9.9×2.879219827.72 =",
-      "answers": [
-        "27.72"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["27.72"],
+      "template": "9.9 × 2.8 = {{INPUT}}"
     },
-    "explanation": "9. 9 × 2. 8 7 9 2 1 9 8 2 7. 7 2"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、99×28＝2772です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 27.72です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.3ad8b10fe746",
@@ -243,15 +235,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3.6×2.4144728.64 =",
-      "answers": [
-        "8.64"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["8.64"],
+      "template": "3.6 × 2.4 = {{INPUT}}"
     },
-    "explanation": "3. 6 × 2. 4 1 4 4 7 2 8. 6 4"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、36×24＝864です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 8.64です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.4b8ecb95b3d0",
@@ -262,15 +254,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 0.95×7.87606657.410 =",
-      "answers": [
-        "7.41"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["7.41"],
+      "template": "0.95 × 7.8 = {{INPUT}}"
     },
-    "explanation": "0. 9 5 × 7. 8 7 6 0 6 6 5 7. 4 1 0"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、95×78＝7410です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 7.41です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.51fee93b8c71",
@@ -281,15 +273,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 12×2 =",
-      "answers": [
-        "2.4"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["2.4"],
+      "template": "12 × 0.2 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 12×2= 24 0.2 で位が１つ小さくなるので、答えは 2.4 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、12×2＝24です。小数部分[しょうすうぶぶん]は 合[あ]わせて 1けたなので、積[せき]の 右[みぎ]から 1けたの 位置[いち]に 小数点[しょうすうてん]を つけると 2.4です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.670f33fa29fd",
@@ -300,15 +292,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 80×7 =",
-      "answers": [
-        "56"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["56"],
+      "template": "80 × 0.7 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 80×7= 560 0.7 で位が１つ小さくなるので、答えは 56 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、80×7＝560です。小数部分[しょうすうぶぶん]は 合[あ]わせて 1けたなので、積[せき]の 右[みぎ]から 1けたの 位置[いち]に 小数点[しょうすうてん]を つけると 56です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.6e7ce6ef3350",
@@ -316,16 +308,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "たて4.8cm、横7.2cm の長方形[ちょうほうけい]の面積[めんせき]を求めよう。",
-      "answers": [
-        "34.56"
-      ],
+      "answers": ["34.56"],
       "template": "{{INPUT}}cm^2",
       "suffix": "cm^2",
       "promptImage": "questions/sansu/g5/visuals/decimal-area.svg",
@@ -342,15 +328,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 0.55×2.63301101.430 =",
-      "answers": [
-        "1.43"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["1.43"],
+      "template": "0.55 × 2.6 = {{INPUT}}"
     },
-    "explanation": "0. 5 5 × 2. 6 3 3 0 1 1 0 1. 4 3 0"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、55×26＝1430です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 1.43です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.79acd51fa245",
@@ -361,15 +347,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 8×4 =",
-      "answers": [
-        "0.32"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.32"],
+      "template": "0.8 × 0.4 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 8×4= 32 0.8 と 0.4 で合わせて 位が２つ小さくなるので、答えは 0.32 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、8×4＝32です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.32です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.7d99d313d7a8",
@@ -380,15 +366,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3.3×0.09 =",
-      "answers": [
-        "0.297"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.297"],
+      "template": "0.09 × 3.3 = {{INPUT}}"
     },
-    "explanation": "かけ算は、順番を入れかえても答えは変わらない。3.3×0.09 にすると、楽に計算できるぞ。 3.3×0.09 = 0.297"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、9×33＝297です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.297です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.7f46fd6670c0",
@@ -399,15 +385,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 7.21×1.214427218.652 =",
-      "answers": [
-        "8.652"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["8.652"],
+      "template": "7.21 × 1.2 = {{INPUT}}"
     },
-    "explanation": "7. 2 1 × 1. 2 1 4 4 2 7 2 1 8. 6 5 2"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、721×12＝8652です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 8.652です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.90a1cc0729db",
@@ -418,15 +404,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 0.49×0.03 =",
-      "answers": [
-        "0.0147"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.0147"],
+      "template": "0.49 × 0.03 = {{INPUT}}"
     },
-    "explanation": "これは、筆算にしないでも、計算できそう。小数点の位置に注意しよう。 0.49×0.03 = 0.0147"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、49×3＝147です。小数部分[しょうすうぶぶん]は 合[あ]わせて 4けたなので、積[せき]の 右[みぎ]から 4けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.0147です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.94e505462287",
@@ -434,16 +420,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "一辺 2.2cm の立方体の体積を求めよう。",
-      "answers": [
-        "10.648"
-      ],
+      "answers": ["10.648"],
       "template": "{{INPUT}}cm^3",
       "suffix": "cm^3",
       "promptImage": "questions/sansu/g5/visuals/decimal-cube.svg",
@@ -460,15 +440,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 3×9 =",
-      "answers": [
-        "2.7"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["2.7"],
+      "template": "3 × 0.9 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 3×9= 27 0.9 で位が１つ小さくなるので、答えは 2.7 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、3×9＝27です。小数部分[しょうすうぶぶん]は 合[あ]わせて 1けたなので、積[せき]の 右[みぎ]から 1けたの 位置[いち]に 小数点[しょうすうてん]を つけると 2.7です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.e283ae35482b",
@@ -479,15 +459,15 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 9×7 =",
-      "answers": [
-        "0.63"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.63"],
+      "template": "0.9 × 0.7 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 9×7= 63 0.9 と 0.7 で合わせて 位が２つ小さくなるので、答えは 0.63 になる。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、9×7＝63です。小数部分[しょうすうぶぶん]は 合[あ]わせて 2けたなので、積[せき]の 右[みぎ]から 2けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.63です。"
   },
   {
     "id": "legacy.sansu.g5.math-5-4.e666ff525c01",
@@ -498,14 +478,98 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:math_5_4",
-      "reviewed:structural-v1"
+      "reviewed:structural-v1",
+      "repaired:source-template-v1"
     ],
     "payload": {
-      "prompt": "次の計算をしましょう。 15×8 =",
-      "answers": [
-        "0.12"
-      ]
+      "prompt": "計算[けいさん]しましょう。",
+      "answers": ["0.12"],
+      "template": "1.5 × 0.08 = {{INPUT}}"
     },
-    "explanation": "まずは、整数どうしのかけ算で考える。 15×8= 120 1.5 と 0.08 で合わせて 位が３つ小さくなるので、答えは 0.120=0.12 になる。答えの小数の最後が 0 のときは、0 をとりのぞいて答えよう。"
+    "explanation": "小数点[しょうすうてん]を 考[かんが]えずに 計算[けいさん]すると、15×8＝120です。小数部分[しょうすうぶぶん]は 合[あ]わせて 3けたなので、積[せき]の 右[みぎ]から 3けたの 位置[いち]に 小数点[しょうすうてん]を つけると 0.12です。"
+  },
+  {
+    "id": "sansu.g5.curriculum.decimal-distribute",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
+    "payload": {
+      "prompt": "（0.7＋0.3）×6と 同[おな]じ 答[こた]えになる 式[しき]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0.7×6＋0.3×6"
+        },
+        {
+          "id": "c2",
+          "text": "0.7＋0.3×6"
+        },
+        {
+          "id": "c3",
+          "text": "0.7×0.3×6"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "和[わ]に 数[かず]を かけるときは、それぞれに 同[おな]じ数[かず]を かけてから たせます。0.7×6＋0.3×6＝4.2＋1.8＝6です。"
+  },
+  {
+    "id": "sansu.g5.curriculum.decimal-group",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
+    "payload": {
+      "prompt": "1.25×8を 工夫[くふう]して 計算[けいさん]します。同[おな]じ 答[こた]えになる 式[しき]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "（1.25×4）×2"
+        },
+        {
+          "id": "c2",
+          "text": "（1.25＋4）×2"
+        },
+        {
+          "id": "c3",
+          "text": "1.25×4＋2"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "8＝4×2なので、1.25×（4×2）です。かけ算[ざん]では まとめ方[かた]を 変[か]えても 積[せき]は 同[おな]じです。先[さき]に1.25×4＝5、次[つぎ]に5×2＝10と 求[もと]められます。"
+  },
+  {
+    "id": "sansu.g5.balance.ribbon-price",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-4",
+    "tags": ["review:balance-20261117", "difficulty:standard"],
+    "payload": {
+      "prompt": "1mが80円[えん]の リボンを2.5m 買[か]います。代金[だいきん]は いくらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "200円[えん]"
+        },
+        {
+          "id": "c2",
+          "text": "32円[えん]"
+        },
+        {
+          "id": "c3",
+          "text": "82.5円[えん]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "代金[だいきん]は1mの80円[えん]の2.5倍[ばい]なので、80×2.5＝200円[えん]です。2mで160円[えん]、0.5mで40円[えん]と 分[わ]けても 求[もと]められます。"
   }
 ]

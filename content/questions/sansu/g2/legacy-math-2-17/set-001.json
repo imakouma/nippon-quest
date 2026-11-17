@@ -34,7 +34,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/150f50fd3ebc0270.png"
     },
-    "explanation": "１つの正方形[せいほうけい]を ３つに 分[わ]けたうちの １つ分[ぶん] なので、答[こた]えは \\dfrac{1}{3} になる。"
+    "explanation": "１つの正方形[せいほうけい]を 同[おな]じ 大[おお]きさに ３つに 分[わ]けたうちの １つ分[ぶん] なので、答[こた]えは \\dfrac{1}{3} になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.28d58316a19a",
@@ -108,7 +108,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/31000de29c717f9d.png"
     },
-    "explanation": "１つの正方形[せいほうけい]を ２つに 分[わ]けたうちの １つ分[ぶん] なので、答[こた]えは \\dfrac{1}{2} になる。"
+    "explanation": "１つの正方形[せいほうけい]を 同[おな]じ 大[おお]きさに ２つに 分[わ]けたうちの １つ分[ぶん] なので、答[こた]えは \\dfrac{1}{2} になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.544275171ee9",
@@ -145,7 +145,7 @@
       "shuffle": true,
       "promptImage": "questions/legacy/d9c74c70f0990f6a.png"
     },
-    "explanation": "１つの正方形[せいほうけい]を ４つに 分[わ]けたうちの １つ分[ぶん] なので、答[こた]えは \\dfrac{1}{4} になる。"
+    "explanation": "１つの正方形[せいほうけい]を 同[おな]じ 大[おお]きさに ４つに 分[わ]けたうちの １つ分[ぶん] なので、答[こた]えは \\dfrac{1}{4} になる。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.56b737970858",
@@ -167,7 +167,7 @@
       "suffix": "ばい",
       "promptImage": "questions/legacy/c8679d3c10f88a63.png"
     },
-    "explanation": "\\dfrac{1}{4} のケーキを ４ばいすると まるいケーキになる。"
+    "explanation": "もとの 1つを 同[おな]じ 大[おお]きさに 4つに 分[わ]けた 1つ分[ぶん]です。その 4つ分[ぶん]を 合[あ]わせると もとの 1つに なるので、4ばいです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.6267c1594057",
@@ -335,7 +335,7 @@
       "suffix": "ばい",
       "promptImage": "questions/legacy/839a82593d793225.png"
     },
-    "explanation": "\\dfrac{1}{6} を ６ばいすると １になる。"
+    "explanation": "もとの 1つを 同[おな]じ 大[おお]きさに 6つに 分[わ]けた 1つ分[ぶん]です。その 6つ分[ぶん]を 合[あ]わせると もとの 1つに なるので、6ばいです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.9bf8bf5a24e4",
@@ -431,7 +431,7 @@
       "suffix": "ばい",
       "promptImage": "questions/legacy/bc4be7d41925ca55.png"
     },
-    "explanation": "\\dfrac{1}{2} のケーキを ２ばいすると まるいケーキになる。"
+    "explanation": "もとの 1つを 同[おな]じ 大[おお]きさに 2つに 分[わ]けた 1つ分[ぶん]です。その 2つ分[ぶん]を 合[あ]わせると もとの 1つに なるので、2ばいです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.b1feaad2960d",
@@ -453,7 +453,7 @@
       "suffix": "ばい",
       "promptImage": "questions/legacy/c0739efce67df77f.png"
     },
-    "explanation": "\\dfrac{1}{3} を ３ばいすると １になる。"
+    "explanation": "もとの 1つを 同[おな]じ 大[おお]きさに 3つに 分[わ]けた 1つ分[ぶん]です。その 3つ分[ぶん]を 合[あ]わせると もとの 1つに なるので、3ばいです。"
   },
   {
     "id": "legacy.sansu.g2.math-2-17.b8fb1fbdea33",
@@ -527,5 +527,104 @@
       "promptSpeech": "\\dfrac{1}{2} は、なんとよむでしょう。 同じ大きさに2つに分け、1つぶんに色をつけた図。"
     },
     "explanation": "\\dfrac{1}{2} は、2分[ぶん]の1（にぶんのいち）とよむ。"
+  },
+  {
+    "id": "sansu.g2.curriculum.equal-halves",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "色[いろ]の ついたところが もとの 2分[ぶん]の1なのは どちらですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あ"
+        },
+        {
+          "id": "c2",
+          "text": "い"
+        },
+        {
+          "id": "c3",
+          "text": "あ と い"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/equal-halves.svg",
+      "promptSpeech": "あは長方形[ちょうほうけい]を同[おな]じ大[おお]きさに2つ、いは小[ちい]さい部分[ぶぶん]と大[おお]きい部分[ぶぶん]に分[わ]けています。左[ひだり]が色[いろ]つきです。"
+    },
+    "explanation": "2分[ぶん]の1は、同[おな]じ 大[おお]きさに 2つに 分[わ]けた 1つ分[ぶん]です。あは 2つの 大[おお]きさが 同[おな]じです。いは ちがいます。"
+  },
+  {
+    "id": "sansu.g2.curriculum.fold-quarter",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "紙[かみ]を はんぶんに おり、もういちど はんぶんに おります。開[ひら]いたときの 1つ分[ぶん]は？",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4分[ぶん]の1"
+        },
+        {
+          "id": "c2",
+          "text": "2分[ぶん]の1"
+        },
+        {
+          "id": "c3",
+          "text": "3分[ぶん]の1"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/curriculum/fold-quarter.svg",
+      "promptSpeech": "正方形[せいほうけい]をたてとよこのまん中[なか]でおり、同[おな]じ大[おお]きさの4つに分[わ]けた図[ず]です。"
+    },
+    "explanation": "はじめの はんぶんが、それぞれ さらに 2つに 分[わ]かれます。同[おな]じ 大[おお]きさの 4つの うちの 1つなので、4分[ぶん]の1です。"
+  },
+  {
+    "id": "sansu.g2.balance.half-shape-reason",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-17",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "あ と い は、同[おな]じ 大[おお]きさの 紙[かみ]です。色[いろ]の ついたところが、どちらも もとの2分[ぶん]の1と いえる 理由[りゆう]は どれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらも、同[おな]じ 大[おお]きさの2つに 分[わ]けた1つ分[ぶん]だから。"
+        },
+        {
+          "id": "c2",
+          "text": "色[いろ]の ついた 形[かたち]が ちがうと、2分[ぶん]の1には ならないから。"
+        },
+        {
+          "id": "c3",
+          "text": "色[いろ]を1か所[しょ] ぬれば、いつでも2分[ぶん]の1だから。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g2/balance/half-shapes.svg",
+      "promptSpeech": "同[おな]じ 大[おお]きさの 長方形[ちょうほうけい]が2まい。あは 左右[さゆう]に 等[ひと]しく 分[わ]けて 左[ひだり]を、いは 左上[ひだりうえ]から 右下[みぎした]へ 切[き]って できた 片方[かたほう]を ぬっています。"
+    },
+    "explanation": "あは 左右[さゆう]に 同[おな]じ 大[おお]きさに 分[わ]けています。いは ななめに 切[き]ると、ぴったり 重[かさ]なる2つの 三角形[さんかくけい]に なります。分[わ]けた 形[かたち]が ちがっても、もとの 紙[かみ]を 同[おな]じ 大[おお]きさに2つに 分[わ]けた1つ分[ぶん]は、2分[ぶん]の1です。"
   }
 ]

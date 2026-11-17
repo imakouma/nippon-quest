@@ -1,0 +1,466 @@
+{
+  "baseline": "30f9ffc4",
+  "method": "全218問の問題文・図・解説を読み、要求する思考で個別判定。基礎は直接概念/単純処理、標準は場面や表の関係で1〜2手順、発展は逆思考/複数条件/理由判断。長い計算だけで発展にはしない。生成問題は別集計。",
+  "levels": {
+    "legacy.sansu.g6.math-6-1.628778091ecb": "basic",
+    "legacy.sansu.g6.math-6-1.146ac196a443": "basic",
+    "legacy.sansu.g6.math-6-1.5de930abf5df": "basic",
+    "legacy.sansu.g6.math-6-1.7b43764bb9a2": "basic",
+    "sansu.g6.curriculum.line-construct": "standard",
+    "sansu.g6.curriculum.point-construct": "standard",
+    "legacy.sansu.g6.math-6-1.23d3e3b20e6c": "standard",
+    "legacy.sansu.g6.math-6-1.e71e9c63b60e": "standard",
+    "legacy.sansu.g6.math-6-1.6452a798c984": "standard",
+    "legacy.sansu.g6.math-6-1.064f0be02d26": "basic",
+    "legacy.sansu.g6.math-6-1.5c7bc62997cc": "basic",
+    "legacy.sansu.g6.math-6-1.e138da301bd3": "standard",
+    "legacy.sansu.g6.math-6-1.4f049dee0979": "standard",
+    "legacy.sansu.g6.math-6-1.4098b29b97d3": "standard",
+    "legacy.sansu.g6.math-6-1.30223149f877": "standard",
+    "legacy.sansu.g6.math-6-1.4f3247deb13b": "standard",
+    "legacy.sansu.g6.math-6-1.475962ee0c94": "standard",
+    "legacy.sansu.g6.math-6-1.008adb6409d6": "standard",
+    "legacy.sansu.g6.math-6-2.1b47a5379c91": "basic",
+    "legacy.sansu.g6.math-6-2.76886e123974": "basic",
+    "legacy.sansu.g6.math-6-2.8a233ebb05dc": "standard",
+    "legacy.sansu.g6.math-6-2.28b68745535e": "standard",
+    "legacy.sansu.g6.math-6-2.504739e422c6": "standard",
+    "legacy.sansu.g6.math-6-2.949a471a08b3": "basic",
+    "legacy.sansu.g6.math-6-2.11262ad23077": "basic",
+    "legacy.sansu.g6.math-6-2.b8c86c695bd7": "standard",
+    "legacy.sansu.g6.math-6-2.a429c49d33b0": "standard",
+    "legacy.sansu.g6.math-6-2.ab3414ab62a0": "advanced",
+    "legacy.sansu.g6.math-6-2.07e97bce5691": "standard",
+    "legacy.sansu.g6.math-6-2.b1bfa96e3f73": "standard",
+    "legacy.sansu.g6.math-6-2.dc9abb303caf": "standard",
+    "legacy.sansu.g6.math-6-2.205f930fa115": "advanced",
+    "legacy.sansu.g6.math-6-3.6a29ee48837e": "basic",
+    "legacy.sansu.g6.math-6-3.9e50035c8b6d": "basic",
+    "legacy.sansu.g6.math-6-4.16f378313dac": "basic",
+    "legacy.sansu.g6.math-6-4.1e510081ff3f": "basic",
+    "legacy.sansu.g6.math-6-3.d88bef6ff10c": "basic",
+    "legacy.sansu.g6.math-6-3.2911de821182": "basic",
+    "legacy.sansu.g6.math-6-4.9d3dd713ec78": "basic",
+    "legacy.sansu.g6.math-6-4.9683fdb57e2f": "basic",
+    "legacy.sansu.g6.math-6-3.1e40bc4dec54": "basic",
+    "sansu.g6.curriculum.fraction-multiply-meaning": "standard",
+    "legacy.sansu.g6.math-6-3.4b0aeb8bd013": "basic",
+    "legacy.sansu.g6.math-6-3.93498e7e14df": "basic",
+    "legacy.sansu.g6.math-6-3.6d8e2bb16cb0": "basic",
+    "legacy.sansu.g6.math-6-3.e26c0a21801b": "basic",
+    "legacy.sansu.g6.math-6-3.8db0971fa074": "basic",
+    "legacy.sansu.g6.math-6-3.a676bbefc5aa": "basic",
+    "sansu.g6.reaudit.reciprocal": "basic",
+    "sansu.g6.reaudit.product-size": "basic",
+    "legacy.sansu.g6.math-6-3.350742bfbbc4": "standard",
+    "legacy.sansu.g6.math-6-3.71796e892f2b": "standard",
+    "legacy.sansu.g6.math-6-3.4f3f00f1f4e1": "standard",
+    "legacy.sansu.g6.math-6-3.86fc256feccc": "standard",
+    "legacy.sansu.g6.math-6-3.f715fcd54794": "standard",
+    "sansu.g6.reaudit.distributive": "standard",
+    "sansu.g6.curriculum.fraction-divide-meaning": "standard",
+    "legacy.sansu.g6.math-6-4.60aaa7d61cf6": "basic",
+    "legacy.sansu.g6.math-6-4.05cb6d155eb3": "basic",
+    "legacy.sansu.g6.math-6-4.d7653c3482cc": "basic",
+    "sansu.g6.reaudit.quotient-size": "basic",
+    "legacy.sansu.g6.math-6-4.ba6d3d429270": "standard",
+    "legacy.sansu.g6.math-6-4.7dc9333fa16f": "standard",
+    "legacy.sansu.g6.math-6-4.50ef96afb265": "standard",
+    "legacy.sansu.g6.math-6-4.b1f05e9a9a83": "standard",
+    "legacy.sansu.g6.math-6-4.763c0aa897df": "standard",
+    "legacy.sansu.g6.math-6-4.3f37cc35e0f6": "standard",
+    "sansu.g6.reaudit.unit-price": "advanced",
+    "legacy.sansu.g6.math-6-4.a67f18d54eb4": "basic",
+    "legacy.sansu.g6.math-6-4.1d72e231155c": "basic",
+    "legacy.sansu.g6.math-6-4.7af63ede6c3e": "basic",
+    "legacy.sansu.g6.math-6-4.b46ba27c2b46": "basic",
+    "legacy.sansu.g6.math-6-3.22ce312d446f": "standard",
+    "legacy.sansu.g6.math-6-3.34776e601258": "standard",
+    "legacy.sansu.g6.math-6-4.2b4dd3693c57": "basic",
+    "legacy.sansu.g6.math-6-4.c7e70d5bef36": "basic",
+    "legacy.sansu.g6.math-6-3.9b34c0cc97ee": "standard",
+    "legacy.sansu.g6.math-6-3.59343703e0ea": "standard",
+    "sansu.g6.reaudit.original-quantity": "advanced",
+    "legacy.sansu.g6.math-6-5.769fbfa86ead": "basic",
+    "legacy.sansu.g6.math-6-5.0475b7014f1e": "basic",
+    "legacy.sansu.g6.math-6-5.97ac545842e7": "basic",
+    "legacy.sansu.g6.math-6-5.c610a527fcd1": "basic",
+    "legacy.sansu.g6.math-6-5.6b550af8178d": "basic",
+    "legacy.sansu.g6.math-6-5.84d190bf58bf": "basic",
+    "legacy.sansu.g6.math-6-5.94f6f8bbaba2": "basic",
+    "legacy.sansu.g6.math-6-5.758e4869dd6b": "basic",
+    "legacy.sansu.g6.math-6-5.4335f38bf005": "basic",
+    "legacy.sansu.g6.math-6-5.53b644ac1706": "basic",
+    "legacy.sansu.g6.math-6-5.1578daec4d1a": "basic",
+    "legacy.sansu.g6.math-6-5.1858b4ff752a": "basic",
+    "legacy.sansu.g6.math-6-5.0003f834b146": "basic",
+    "legacy.sansu.g6.math-6-5.2c2ebe308727": "basic",
+    "legacy.sansu.g6.math-6-5.cf985ceaff5c": "basic",
+    "legacy.sansu.g6.math-6-5.e87cd8d02e5b": "basic",
+    "legacy.sansu.g6.math-6-5.d922419d4b88": "basic",
+    "legacy.sansu.g6.math-6-5.2ea0654cdecb": "basic",
+    "legacy.sansu.g6.math-6-5.002de885a293": "basic",
+    "legacy.sansu.g6.math-6-5.dba622af1fcf": "basic",
+    "legacy.sansu.g6.math-6-5.fe2efb3616ea": "standard",
+    "legacy.sansu.g6.math-6-5.fcb5c51f270e": "standard",
+    "legacy.sansu.g6.math-6-5.a464db537a47": "standard",
+    "legacy.sansu.g6.math-6-5.6a2c98a49876": "standard",
+    "legacy.sansu.g6.math-6-6.63019aa1a803": "basic",
+    "legacy.sansu.g6.math-6-6.1107b475a124": "basic",
+    "legacy.sansu.g6.math-6-6.da2c9b3e6a47": "basic",
+    "legacy.sansu.g6.math-6-6.5bf3ebc54d9c": "basic",
+    "legacy.sansu.g6.math-6-6.04b5bd0e1887": "basic",
+    "legacy.sansu.g6.math-6-6.ee904343473d": "basic",
+    "legacy.sansu.g6.math-6-6.64a31b414e3f": "standard",
+    "legacy.sansu.g6.math-6-6.8e60c96c86f4": "standard",
+    "legacy.sansu.g6.math-6-6.5a3bb2c7e01a": "standard",
+    "legacy.sansu.g6.math-6-6.e913bb695e44": "standard",
+    "legacy.sansu.g6.math-6-6.4672b8714d71": "standard",
+    "legacy.sansu.g6.math-6-6.43684db49651": "standard",
+    "legacy.sansu.g6.math-6-6.e4fe1f583a9a": "standard",
+    "legacy.sansu.g6.math-6-6.4016f172189d": "standard",
+    "sansu.g6.reaudit.scale-construction": "standard",
+    "legacy.sansu.g6.math-6-6.45ef7b9abd0f": "standard",
+    "legacy.sansu.g6.math-6-6.b21487bbe77b": "standard",
+    "legacy.sansu.g6.math-6-6.049176cc2663": "standard",
+    "legacy.sansu.g6.math-6-6.b4e7c006fe4f": "advanced",
+    "legacy.sansu.g6.math-6-8.ec4f8fc2434f": "basic",
+    "legacy.sansu.g6.math-6-8.90d63d386b4a": "basic",
+    "legacy.sansu.g6.math-6-8.1c29829accf2": "basic",
+    "legacy.sansu.g6.math-6-8.9197a4c0b137": "basic",
+    "legacy.sansu.g6.math-6-8.fd06ef0bbff8": "basic",
+    "legacy.sansu.g6.math-6-8.16f57e3ff4da": "basic",
+    "legacy.sansu.g6.math-6-8.5e0c7c3cfdb4": "standard",
+    "sansu.g6.curriculum.interval": "basic",
+    "sansu.g6.curriculum.median-even": "standard",
+    "legacy.sansu.g6.math-6-8.3c0f38e89803": "basic",
+    "legacy.sansu.g6.math-6-8.70bdd7a4898d": "standard",
+    "legacy.sansu.g6.math-6-8.594e99c92c46": "standard",
+    "legacy.sansu.g6.math-6-8.0e4d9ef5705f": "standard",
+    "legacy.sansu.g6.math-6-8.a08cd2930228": "standard",
+    "legacy.sansu.g6.math-6-8.a4b45983a0a0": "standard",
+    "legacy.sansu.g6.math-6-8.ecb89af20936": "standard",
+    "sansu.g6.curriculum.spread": "advanced",
+    "sansu.g6.curriculum.survey": "advanced",
+    "sansu.g6.reaudit.data-conclusion": "advanced",
+    "sansu.g6.curriculum.circle-rearrange": "basic",
+    "legacy.sansu.g6.math-6-7.5a221514122d": "basic",
+    "legacy.sansu.g6.math-6-7.04668d8907ed": "basic",
+    "legacy.sansu.g6.math-6-7.a2e929d32d94": "basic",
+    "legacy.sansu.g6.math-6-7.fdbe4660375b": "standard",
+    "legacy.sansu.g6.math-6-7.95e14bdf631a": "standard",
+    "legacy.sansu.g6.math-6-7.a379e74a3880": "standard",
+    "legacy.sansu.g6.math-6-7.35928a01856e": "standard",
+    "sansu.g6.curriculum.radius-double": "standard",
+    "legacy.sansu.g6.math-6-7.77c6510e6886": "advanced",
+    "legacy.sansu.g6.math-6-7.98d084136040": "advanced",
+    "legacy.sansu.g6.math-6-7.e5da9f91183c": "basic",
+    "legacy.sansu.g6.math-6-7.02b939b26c8c": "basic",
+    "legacy.sansu.g6.math-6-7.7229b5c9cf55": "standard",
+    "legacy.sansu.g6.math-6-7.7ad87c805251": "standard",
+    "legacy.sansu.g6.math-6-7.755efc4b9f2b": "standard",
+    "legacy.sansu.g6.math-6-7.b61154d1a9aa": "standard",
+    "legacy.sansu.g6.math-6-7.857c96a7256b": "advanced",
+    "legacy.sansu.g6.math-6-7.81a708a1f2fc": "advanced",
+    "sansu.g6.curriculum.approx-lake": "standard",
+    "sansu.g6.curriculum.approx-box": "standard",
+    "sansu.g6.curriculum.approx-triangle": "standard",
+    "legacy.sansu.g6.math-6-7.1d6063fc7679": "standard",
+    "legacy.sansu.g6.math-6-7.dee58a26fb21": "standard",
+    "sansu.g6.curriculum.approx-cylinder": "standard",
+    "legacy.sansu.g6.math-6-9.35508423c21f": "basic",
+    "legacy.sansu.g6.math-6-9.0dea44d82c7a": "standard",
+    "legacy.sansu.g6.math-6-9.762f8811fff0": "standard",
+    "legacy.sansu.g6.math-6-9.9dfc941fa652": "standard",
+    "legacy.sansu.g6.math-6-9.784e2613eb27": "standard",
+    "legacy.sansu.g6.math-6-9.5b5250351724": "basic",
+    "legacy.sansu.g6.math-6-9.c9c02fee9e72": "basic",
+    "legacy.sansu.g6.math-6-9.a7a24237e6f2": "basic",
+    "legacy.sansu.g6.math-6-9.60f7b24a85f0": "basic",
+    "legacy.sansu.g6.math-6-9.337d7e0826ac": "basic",
+    "legacy.sansu.g6.math-6-9.1a613dba29a9": "basic",
+    "legacy.sansu.g6.math-6-9.5d4e0868232a": "standard",
+    "legacy.sansu.g6.math-6-9.a664393671f4": "standard",
+    "legacy.sansu.g6.math-6-9.c6fd59d350a3": "standard",
+    "legacy.sansu.g6.math-6-9.ccfaea692963": "standard",
+    "legacy.sansu.g6.math-6-9.2ba316fffe50": "standard",
+    "legacy.sansu.g6.math-6-9.02f38d637e55": "standard",
+    "legacy.sansu.g6.math-6-9.c3db4361ca46": "standard",
+    "sansu.g6.curriculum.not-proportional": "advanced",
+    "sansu.g6.reaudit.proportion-paper": "advanced",
+    "sansu.g6.curriculum.inverse-product": "basic",
+    "legacy.sansu.g6.math-6-9.d6897dce29e9": "standard",
+    "legacy.sansu.g6.math-6-9.a3176b883657": "standard",
+    "legacy.sansu.g6.math-6-9.69eb5eda5b64": "basic",
+    "legacy.sansu.g6.math-6-9.aa7dcca63249": "basic",
+    "legacy.sansu.g6.math-6-9.d4f604baf9f3": "basic",
+    "legacy.sansu.g6.math-6-9.cea54380c2ee": "standard",
+    "legacy.sansu.g6.math-6-9.1679f1da7f39": "standard",
+    "legacy.sansu.g6.math-6-9.e0bc64e5a688": "standard",
+    "legacy.sansu.g6.math-6-9.ff23e6f3babf": "standard",
+    "legacy.sansu.g6.math-6-9.b33ab6181153": "standard",
+    "legacy.sansu.g6.math-6-9.483a67832c0c": "standard",
+    "legacy.sansu.g6.math-6-10.d7df9e926bdb": "standard",
+    "legacy.sansu.g6.math-6-10.01fa32a5ca71": "standard",
+    "legacy.sansu.g6.math-6-10.2d3b81618e56": "standard",
+    "legacy.sansu.g6.math-6-10.c650311e4bd3": "standard",
+    "legacy.sansu.g6.math-6-10.fba7c48744f8": "standard",
+    "legacy.sansu.g6.math-6-10.5f61c045a6e7": "standard",
+    "legacy.sansu.g6.math-6-10.958a9f8c669a": "standard",
+    "legacy.sansu.g6.math-6-10.0d62b6f25ffb": "standard",
+    "legacy.sansu.g6.math-6-10.3f15467abb6e": "standard",
+    "legacy.sansu.g6.math-6-10.d5b48ad1615a": "standard",
+    "legacy.sansu.g6.math-6-10.50e7977387d5": "standard",
+    "legacy.sansu.g6.math-6-10.2eae84cc0e0e": "standard",
+    "legacy.sansu.g6.math-6-10.15d68311fec9": "standard",
+    "legacy.sansu.g6.math-6-10.69d6b8bdb13a": "standard",
+    "legacy.sansu.g6.math-6-10.8fdd4aae9d85": "standard",
+    "legacy.sansu.g6.math-6-10.d168cfd846b3": "standard",
+    "legacy.sansu.g6.math-6-10.ccbe613d231c": "standard",
+    "legacy.sansu.g6.math-6-10.4b5863b0b571": "advanced",
+    "legacy.sansu.g6.math-6-10.279fa37becfc": "advanced",
+    "legacy.sansu.g6.math-6-10.65033030f83c": "advanced",
+    "sansu.g6.balance.symmetry-counterexample": "advanced",
+    "sansu.g6.balance.fraction-packets": "standard",
+    "sansu.g6.balance.fraction-share": "standard",
+    "sansu.g6.balance.ratio-difference": "advanced",
+    "sansu.g6.balance.estimate-model": "basic",
+    "sansu.g6.balance.estimate-meaning": "advanced",
+    "sansu.g6.balance.pairs-list": "basic",
+    "sansu.g6.balance.pairs-duplicate": "advanced"
+  },
+  "groups": [
+    {
+      "id": "symmetry",
+      "judgment": "定義・対応・作図・多角形の性質を18問で扱う。図から答えを読む問題が中心。",
+      "gaps": "線対称と点対称を同一視しない理由判断を補う。",
+      "addedIds": ["sansu.g6.balance.symmetry-counterexample"],
+      "before": {
+        "basic": 6,
+        "standard": 12
+      },
+      "after": {
+        "basic": 6,
+        "standard": 12,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "letters",
+      "judgment": "14問で式の表現、代入、値から文字を求める逆思考まで扱う。",
+      "gaps": "追加不要。図形・買物・割合の場面もある。",
+      "addedIds": [],
+      "before": {
+        "basic": 4,
+        "standard": 8,
+        "advanced": 2
+      },
+      "after": {
+        "basic": 4,
+        "standard": 8,
+        "advanced": 2
+      }
+    },
+    {
+      "id": "fraction-integers",
+      "judgment": "8問がすべて式だけの計算で、計算技能に偏る。",
+      "gaps": "整数倍と等分の意味を異なる生活場面で補う。",
+      "addedIds": ["sansu.g6.balance.fraction-packets", "sansu.g6.balance.fraction-share"],
+      "before": {
+        "basic": 8
+      },
+      "after": {
+        "basic": 8,
+        "standard": 2
+      }
+    },
+    {
+      "id": "fraction-multiplication",
+      "judgment": "16問。分数倍の意味、約分、帯分数、積の大小、分配法則を含む。",
+      "gaps": "追加不要。基礎計算の反復には約分位置等の違いがある。",
+      "addedIds": [],
+      "before": {
+        "basic": 9,
+        "standard": 7
+      },
+      "after": {
+        "basic": 9,
+        "standard": 7
+      }
+    },
+    {
+      "id": "fraction-division",
+      "judgment": "12問。包含除、計算、商の大小、単位量への逆算を含む。",
+      "gaps": "追加不要。除数が分数の意味と計算法がそろう。",
+      "addedIds": [],
+      "before": {
+        "standard": 7,
+        "basic": 4,
+        "advanced": 1
+      },
+      "after": {
+        "standard": 7,
+        "basic": 4,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "fraction-applications",
+      "judgment": "11問。時間換算、面積・体積、基準量の逆算を含む。",
+      "gaps": "追加不要。単位換算だけに偏っていない。",
+      "addedIds": [],
+      "before": {
+        "basic": 6,
+        "standard": 4,
+        "advanced": 1
+      },
+      "after": {
+        "basic": 6,
+        "standard": 4,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "ratios",
+      "judgment": "24問中20問は比の表現・値・簡単化・等しい比の処理。場面問題は既知の一方や全体から求める型。",
+      "gaps": "比の差から一つ分を求める学年内の逆思考を1問補う。",
+      "addedIds": ["sansu.g6.balance.ratio-difference"],
+      "before": {
+        "basic": 20,
+        "standard": 4
+      },
+      "after": {
+        "basic": 20,
+        "standard": 4,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "scale",
+      "judgment": "19問。用語、対応、作図条件、地図の実長、身長を足す測定まで扱う。",
+      "gaps": "追加不要。定義の問題は多いが適用場面もそろう。",
+      "addedIds": [],
+      "before": {
+        "basic": 6,
+        "standard": 12,
+        "advanced": 1
+      },
+      "after": {
+        "basic": 6,
+        "standard": 12,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "data",
+      "judgment": "19問。代表値、階級、表・図、目的、散らばり、調査方法、結論の批判的判断を含む。",
+      "gaps": "追加不要。計算とデータの解釈の両方を含む。",
+      "addedIds": [],
+      "before": {
+        "basic": 8,
+        "standard": 8,
+        "advanced": 3
+      },
+      "after": {
+        "basic": 8,
+        "standard": 8,
+        "advanced": 3
+      }
+    },
+    {
+      "id": "circle-area",
+      "judgment": "11問。公式の由来、半径・直径、分割・複合図形、拡大時の面積を含む。",
+      "gaps": "追加不要。難しい複合図形を増やさず基礎からの流れを維持。",
+      "addedIds": [],
+      "before": {
+        "basic": 4,
+        "standard": 5,
+        "advanced": 2
+      },
+      "after": {
+        "basic": 4,
+        "standard": 5,
+        "advanced": 2
+      }
+    },
+    {
+      "id": "volume",
+      "judgment": "8問。底面積×高さの意味と三角柱・四角柱・円柱・複合柱体を含む。",
+      "gaps": "追加不要。8問でも底面の種類と計算段階の幅は確保。",
+      "addedIds": [],
+      "before": {
+        "basic": 2,
+        "standard": 4,
+        "advanced": 2
+      },
+      "after": {
+        "basic": 2,
+        "standard": 4,
+        "advanced": 2
+      }
+    },
+    {
+      "id": "estimation",
+      "judgment": "6問すべて近似する形が指定済みで、その公式に代入する問題。",
+      "gaps": "近似する形を自分で選ぶ入口と、見積もりが正確な値ではない理由判断を補う。",
+      "addedIds": ["sansu.g6.balance.estimate-model", "sansu.g6.balance.estimate-meaning"],
+      "before": {
+        "standard": 6
+      },
+      "after": {
+        "basic": 1,
+        "standard": 6,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "proportion",
+      "judgment": "20問。表・式・グラフ・比例でない関係・比例を使う測定がある。反比例の定義は比較導入として現行順を維持。",
+      "gaps": "追加不要。各表現の変換と活用がそろう。",
+      "addedIds": [],
+      "before": {
+        "basic": 7,
+        "standard": 11,
+        "advanced": 2
+      },
+      "after": {
+        "basic": 7,
+        "standard": 11,
+        "advanced": 2
+      }
+    },
+    {
+      "id": "inverse",
+      "judgment": "12問。積一定、表・式・グラフ、場面の判別を扱う。",
+      "gaps": "追加不要。比例との区別ができ、発展問題の一律追加はしない。",
+      "addedIds": [],
+      "before": {
+        "basic": 4,
+        "standard": 8
+      },
+      "after": {
+        "basic": 4,
+        "standard": 8
+      }
+    },
+    {
+      "id": "combinations",
+      "judgment": "20問は個数を答える問題が中心で、列挙の方法そのものを確かめる入口が弱い。",
+      "gaps": "3種類から2種類の組を順に列挙する入口と、順序を区別しない際の重複理由を補う。",
+      "addedIds": ["sansu.g6.balance.pairs-list", "sansu.g6.balance.pairs-duplicate"],
+      "before": {
+        "standard": 17,
+        "advanced": 3
+      },
+      "after": {
+        "basic": 1,
+        "standard": 17,
+        "advanced": 4
+      }
+    }
+  ],
+  "sources": [
+    "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+    "https://ten.tokyo-shoseki.co.jp/text/shou/sansu/data/sansu_keikaku_ryakuan_6.pdf"
+  ]
+}
