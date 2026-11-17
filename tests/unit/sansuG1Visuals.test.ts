@@ -14,10 +14,11 @@ const questions = readdirSync('content/questions/sansu/g1').flatMap((dir) =>
 const changed = review.filter((r) => r.decision === 'illustrated');
 describe('grade 1 visual question review', () => {
   it('reviews every question and preserves all learning targets and correct answers', () => {
-    expect(questions).toHaveLength(206);
+    expect(questions).toHaveLength(211);
     expect(changed).toHaveLength(98);
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
     const rows = questions
+      .filter((q) => !q.id.startsWith('sansu.g1.reaudit.'))
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
         const p = getRenderer(q.type)!.schema.parse(q.payload) as {
@@ -52,6 +53,7 @@ describe('grade 1 visual question review', () => {
       expect(paths.length, q.id).toBeGreaterThan(0);
       expect(p.prompt, q.id).not.toMatch(/[●○]/);
       if (p.promptImage) expect(p.promptImageAlt ?? p.promptSpeech, q.id).toBeTruthy();
+      expect(p.promptSpeech ?? '', q.id).not.toContain('？。');
       for (const path of paths) {
         const doc = new DOMParser().parseFromString(readFileSync(`assets/${path}`, 'utf8'), 'image/svg+xml');
         expect(doc.querySelector('parsererror'), path).toBeNull();

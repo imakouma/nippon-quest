@@ -47,3 +47,23 @@ for (const example of [
       await page.screenshot({ path: 'test-results/sansu-g1-clock-explanation.png' });
   });
 }
+
+for (const [id, answer, reason] of [
+  ['zero-add-right', '4', '4 + 0 = 4'],
+  ['zero-add-left', '3', '0 + 3 = 3'],
+  ['subtract-zero', '5', '5 - 0 = 5'],
+  ['missing-part', '5', '8 - 3 = 5'],
+  ['ordinal-before', '4', '5 - 1 = 4'],
+]) {
+  test(`再監査で補った場面を解いて理由を読める: ${id}`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/playground.html?q=sansu.g1.reaudit.${id}`);
+    await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    await page.getByRole('textbox', { name: 'こたえ 1', exact: true }).fill(answer!);
+    await page.getByRole('button', { name: 'こたえる', exact: true }).click();
+    await expect(page.locator('.nq-feedback-correct')).toBeVisible();
+    await page.getByRole('button', { name: 'かいせつ', exact: true }).click();
+    await expect(page.locator('.nq-review p')).toContainText(reason!);
+    await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+  });
+}

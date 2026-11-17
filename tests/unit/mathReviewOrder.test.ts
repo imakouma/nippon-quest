@@ -14,9 +14,9 @@ const questions = readdirSync(directory).flatMap((unit) =>
 const find = (id: string) => questions.find((q) => q.id === id)!;
 
 describe('小1算数の学習順レビュー', () => {
-  it('現行207問を学習順に一度だけ収録する', () => {
+  it('現行212問を学習順に一度だけ収録する', () => {
     const ids = mathReviewGroups.flatMap((group) => group.questionIds);
-    expect(questions).toHaveLength(207);
+    expect(questions).toHaveLength(212);
     expect(new Set(ids).size).toBe(ids.length);
     expect([...ids].sort()).toEqual(questions.map((q) => q.id).sort());
   });

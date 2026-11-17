@@ -33,7 +33,7 @@
       "answer": "a",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/fruit-3-plus-4.svg",
-      "promptSpeech": "りんごが 3こ、みかんが 4こ。ぜんぶで なんこ？。りんご 3こと、みかん 4こを あわせます。"
+      "promptSpeech": "りんごが 3こ、みかんが 4こ。ぜんぶで なんこ？ りんご 3こと、みかん 4こを あわせます。"
     },
     "explanation": "3こと 4こを あわせると 7こ。"
   },
@@ -123,7 +123,7 @@
       "answer": "a",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/apples-8-plus-2.svg",
-      "promptSpeech": "カゴに りんごが 8こ。あと 2こ いれると？。はじめの りんごが 8こ。あとから 2こ いれます。"
+      "promptSpeech": "カゴに りんごが 8こ。あと 2こ いれると？ はじめの りんごが 8こ。あとから 2こ いれます。"
     },
     "explanation": "8に 2を たすと 10。"
   },
@@ -190,7 +190,7 @@
       "answer": "a",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/balloons-4-plus-3.svg",
-      "promptSpeech": "あかい ふうせんが 4こ、あおい ふうせんが 3こ。ぜんぶの かずを もとめる しきは どれ？。あかい ふうせん 4こと、あおい ふうせん 3こ。"
+      "promptSpeech": "あかい ふうせんが 4こ、あおい ふうせんが 3こ。ぜんぶの かずを もとめる しきは どれ？ あかい ふうせん 4こと、あおい ふうせん 3こ。"
     },
     "explanation": "2つの かずを あわせるので、たしざんの しき「4 + 3」にします。"
   },
@@ -226,7 +226,7 @@
       "answer": "b",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/acorns-5-plus-2.svg",
-      "promptSpeech": "どんぐりが 5こ あります。2こ ふえるときの しきは どれ？。どんぐりが 5こ。あとから 2こ ふえます。"
+      "promptSpeech": "どんぐりが 5こ あります。2こ ふえるときの しきは どれ？ どんぐりが 5こ。あとから 2こ ふえます。"
     },
     "explanation": "2こ ふえるので、5に 2を たす「5 + 2」にします。"
   },
@@ -246,5 +246,35 @@
       "promptImageAlt": "10この ますに りんごが 8こ。べつに 7この りんごが あります。"
     },
     "explanation": "7を 2と 5に わけます。8に 2を たして 10、のこりの 5を たして 15です。"
+  },
+  {
+    "id": "sansu.g1.reaudit.zero-add-right",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "たまいれで、1かいめは 4こ、2かいめは 0こ はいりました。あわせて なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "4"
+      ]
+    },
+    "explanation": "2かいめは 1こも はいっていないので、かずは ふえません。4 + 0 = 4で、あわせて 4こです。"
+  },
+  {
+    "id": "sansu.g1.reaudit.zero-add-left",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.tashizan",
+    "payload": {
+      "prompt": "たまいれで、1かいめは 0こ、2かいめは 3こ はいりました。あわせて なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "3"
+      ]
+    },
+    "explanation": "1かいめは 1こも はいっていません。2かいめの 3こだけなので、0 + 3 = 3。あわせて 3こです。"
   }
 ]

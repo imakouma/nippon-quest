@@ -132,7 +132,8 @@ function attach(id: string, path: string, description: string) {
   const q = get(id);
   assert(q.type === 'choice' || q.type === 'text-input');
   q.payload.promptImage = path;
-  if (q.type === 'choice') q.payload.promptSpeech = `${q.payload.prompt}。${description}`;
+  if (q.type === 'choice')
+    q.payload.promptSpeech = `${q.payload.prompt}${/[。？！?!]$/.test(q.payload.prompt) ? ' ' : '。'}${description}`;
   else q.payload.promptImageAlt = description;
   changed.set(id, description);
 }

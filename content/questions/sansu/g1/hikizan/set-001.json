@@ -24,7 +24,7 @@
       "answer": "a",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/apples-8-take-3.svg",
-      "promptSpeech": "りんごが 8こ。3こ たべました。のこりは なんこ？。はじめは 8こ。そのうち 3つに、なくなった しるしの ばつが ついています。"
+      "promptSpeech": "りんごが 8こ。3こ たべました。のこりは なんこ？ はじめは 8こ。そのうち 3つに、なくなった しるしの ばつが ついています。"
     },
     "explanation": "8こから 3こを とると、のこりは 5こ。8 - 3 = 5。"
   },
@@ -68,7 +68,7 @@
       "answer": "a",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/flowers-7-5.svg",
-      "promptSpeech": "あかい はなが 7ほん、しろい はなが 5ほん。あかい はなは なんぼん おおい？。あかい はなは 7ほん、しろい はなは 5ほん。"
+      "promptSpeech": "あかい はなが 7ほん、しろい はなが 5ほん。あかい はなは なんぼん おおい？ あかい はなは 7ほん、しろい はなは 5ほん。"
     },
     "explanation": "ちがいを もとめるので 7 - 5 = 2。"
   },
@@ -182,8 +182,53 @@
       "answer": "b",
       "shuffle": true,
       "promptImage": "questions/sansu/g1/visuals/birds-7-leave-2.svg",
-      "promptSpeech": "とりが 7わ いました。2わ とんで いきました。のこりを もとめる しきは どれ？。はじめは 7わ。そのうち 2つに、なくなった しるしの ばつが ついています。"
+      "promptSpeech": "とりが 7わ いました。2わ とんで いきました。のこりを もとめる しきは どれ？ はじめは 7わ。そのうち 2つに、なくなった しるしの ばつが ついています。"
     },
     "explanation": "2わ へって のこりを もとめるので、ひきざんの しき「7 - 2」にします。"
+  },
+  {
+    "id": "sansu.g1.reaudit.subtract-zero",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "クッキーが 5まい あります。1まいも たべませんでした。のこりは なんまい？",
+      "template": "{{INPUT}}まい",
+      "answers": [
+        "5"
+      ]
+    },
+    "explanation": "たべた かずは 0まいです。1まいも へらないので、5 - 0 = 5。5まい のこります。"
+  },
+  {
+    "id": "sansu.g1.reaudit.missing-part",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "はなが 8ほん あります。あかは 3ぼんで、のこりは ぜんぶ しろです。しろは なんぼん？",
+      "template": "{{INPUT}}ほん",
+      "answers": [
+        "5"
+      ]
+    },
+    "explanation": "ぜんぶの 8ほんから、あかい 3ぼんを のぞくと しろい はなが のこります。8 - 3 = 5で、しろは 5ほんです。"
+  },
+  {
+    "id": "sansu.g1.reaudit.ordinal-before",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.hikizan",
+    "payload": {
+      "prompt": "1れつに ならんでいます。ゆいさんは まえから 5ばんめです。ゆいさんの まえには なんにん いますか？",
+      "template": "{{INPUT}}にん",
+      "answers": [
+        "4"
+      ]
+    },
+    "explanation": "5ばんめまでの 5にんには、ゆいさんも はいっています。ゆいさん 1にんを のぞくので、5 - 1 = 4。まえには 4にん います。"
   }
 ]
