@@ -145,3 +145,72 @@ it('keeps changing-quantity tables aligned with six numbered inputs', () => {
     ]);
   }
 });
+
+it('keeps every fractional whole the same width in both rows', () => {
+  for (const hash of repairs) {
+    const doc = new DOMParser().parseFromString(
+      readFileSync(`assets/questions/sansu/g5/visuals/fraction-${hash}.svg`, 'utf8'),
+      'image/svg+xml',
+    );
+    const groups = [...doc.querySelectorAll('[data-denominator]')];
+    const widths = groups.map((g) =>
+      [...g.querySelectorAll('rect')].reduce((sum, r) => sum + Number(r.getAttribute('width')), 0),
+    );
+    for (const width of widths) expect(width, hash).toBeCloseTo(widths[0]!, 6);
+  }
+});
+it('shows all nine place-value columns and a geometric regular hexagon', () => {
+  const parse = (name: string) =>
+    new DOMParser().parseFromString(
+      readFileSync(`assets/questions/sansu/g5/visuals/${name}.svg`, 'utf8'),
+      'image/svg+xml',
+    );
+  const place = parse('place-1cc857d26ba7');
+  expect([...place.querySelectorAll('text[y="58"]')].map((e) => e.textContent)).toEqual([
+    '万',
+    '千',
+    '百',
+    '十',
+    '一',
+    '0.1',
+    '0.01',
+    '0.001',
+    '0.0001',
+  ]);
+  expect([...place.querySelectorAll('text[y="112"]')].map((e) => e.textContent)).toEqual([
+    '',
+    '',
+    '',
+    '',
+    '0',
+    '0',
+    '3',
+    '1',
+    '4',
+  ]);
+  expect([...place.querySelectorAll('text[y="177"]')].map((e) => e.textContent)).toEqual([
+    '',
+    '',
+    '',
+    '3',
+    '1',
+    '4',
+    '',
+    '',
+    '',
+  ]);
+  for (const rect of place.querySelectorAll('rect[x]'))
+    expect(Number(rect.getAttribute('x')) + Number(rect.getAttribute('width'))).toBeLessThan(800);
+  const points = parse('regular-hexagon-outline')
+    .querySelector('polygon')!
+    .getAttribute('points')!
+    .split(' ')
+    .map((p) => p.split(',').map(Number));
+  expect(points).toHaveLength(6);
+  for (let i = 0; i < 6; i++) {
+    const [x, y] = points[i]!,
+      [nx, ny] = points[(i + 1) % 6]!;
+    expect(Math.hypot(nx! - x!, ny! - y!)).toBeCloseTo(100, 6);
+    expect(Math.hypot(x! - 400, y! - 130)).toBeCloseTo(100, 6);
+  }
+});
