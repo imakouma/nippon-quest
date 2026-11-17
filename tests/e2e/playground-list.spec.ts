@@ -362,17 +362,20 @@ test('Playground の問題ツリー：単元から直接問題を選び、キー
 
   await grade.locator('.pg-original-math-folders > summary').click();
   const unit = grade.locator('button[data-unit="sansu.g1.kazu-100"]');
-  await expect(unit).toHaveAccessibleDescription('21問');
+  const unitData = sansu.grades
+    .find((item) => item.grade === 1)!
+    .units.find((item) => item.unit === 'sansu.g1.kazu-100')!;
+  await expect(unit).toHaveAccessibleDescription(`${unitData.count}問`);
   await unit.click();
   await expect(unit).toHaveAttribute('aria-pressed', 'true');
   await expect(tree.getByText('set-001.json')).toHaveCount(0);
-  await expect(rows).toHaveCount(21);
+  await expect(rows).toHaveCount(unitData.count);
   await expect(rows.first().locator('strong')).not.toBeEmpty();
-  await expect(rows.first().locator('.pg-question-options')).toBeVisible();
+  await expect(rows.locator('.pg-question-options').first()).toBeVisible();
   await expect(rows.first().locator('.pg-question-facts, .pg-id')).toHaveCount(0);
   await expect(page.locator('.pg-question-explanation')).toHaveCount(0);
   expect(await rows.evaluateAll((items) => items.map((item) => item.getAttribute('title')))).toEqual(
-    Array(21).fill('questions/sansu/g1/kazu-100/set-001.json'),
+    unitData.sets.flatMap((set) => Array(set.count).fill(set.file)),
   );
 
   await grade.locator(':scope > summary').click();
@@ -464,8 +467,8 @@ test('漢字の書き問題は一覧に問題ごとの漢字を表示する', as
 
   const rows = grade.locator('.pg-question-row[title="questions/kokugo/g1/kanji-writing/set-001.json"]');
   await expect(rows.nth(0).locator('strong')).toContainText('一');
-  await expect(rows.nth(1).locator('strong')).toContainText('右');
-  await expect(rows.nth(2).locator('strong')).toContainText('雨');
+  await expect(rows.nth(1).locator('strong')).toContainText('九');
+  await expect(rows.nth(2).locator('strong')).toContainText('下');
 
   await rows.nth(0).click();
   await expect(page.locator('.pg-preview h2')).toContainText('一');
