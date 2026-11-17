@@ -292,5 +292,36 @@
       "template": "53+7 = {{INPUT}}"
     },
     "explanation": "一[いち]のくらいの 3 と 7 をあわせて、10 ができるね。こたえは、60 だ。"
+  },
+  {
+    "id": "sansu.g2.balance.addition-library",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-2",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "教室[きょうしつ]に 本[ほん]が28さつ あります。7さつ もらいました。本[ほん]は 全部[ぜんぶ]で 何[なん]さつに なりましたか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "35さつ"
+        },
+        {
+          "id": "c2",
+          "text": "21さつ"
+        },
+        {
+          "id": "c3",
+          "text": "75さつ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "もとの28さつに、もらった7さつを 合[あ]わせるので、28＋7です。7を2と5に 分[わ]けると、28＋2＝30、30＋5＝35さつです。"
   }
 ]

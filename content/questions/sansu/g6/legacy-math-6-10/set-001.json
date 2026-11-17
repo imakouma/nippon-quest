@@ -458,5 +458,65 @@
       "promptImageAlt": "カード5枚から3枚を選ぶ。選ぶ順番は区別しない。"
     },
     "explanation": "赤[あか]を含[ふく]む組[く]み合[あ]わせは、残[のこ]り4色[しょく]から2色[しょく]を選[えら]ぶ6通[とお]り。赤[あか]を含[ふく]まないものは4通[とお]り。6＋4＝10通[とお]りです。"
+  },
+  {
+    "id": "sansu.g6.balance.pairs-list",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "A、B、Cの3種類[しゅるい]から、異[こと]なる2種類[しゅるい]を選[えら]びます。順序[じゅんじょ]を区別[くべつ]せず、「AとB」「AとC」と書[か]きました。残[のこ]りの組[くみ]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "BとC"
+        },
+        {
+          "id": "c2",
+          "text": "BとA"
+        },
+        {
+          "id": "c3",
+          "text": "AとA"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "Aをふくむ組[くみ]は「AとB」「AとC」です。Aをふくまない組[くみ]は「BとC」の1つです。「BとA」は「AとB」と同[おな]じ組[くみ]なので、もう一度[いちど]は数[かぞ]えません。"
+  },
+  {
+    "id": "sansu.g6.balance.pairs-duplicate",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-10",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "A、B、Cから異[こと]なる2人[ふたり]の係[かかり]を選[えら]びます。役割[やくわり]は同[おな]じです。「AB、AC、BA、BC、CA、CBの6通[とお]り」と数[かぞ]えた考[かんが]えについて、正[ただ]しい説明[せつめい]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "同[おな]じ組[くみ]を2回[かい]ずつ数[かぞ]えたので、6÷2＝3通[とお]り。"
+        },
+        {
+          "id": "c2",
+          "text": "書[か]く順序[じゅんじょ]が違[ちが]うので、6通[とお]りで正[ただ]しい。"
+        },
+        {
+          "id": "c3",
+          "text": "3人[にん]から選[えら]ぶので、6÷3＝2通[とお]り。"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "ABとBAは同[おな]じ2人[ふたり]です。ACとCA、BCとCBもそれぞれ同[おな]じ組[くみ]です。各組[かくくみ]を2回[かい]数[かぞ]えているので、6÷2＝3通[とお]りになります。"
   }
 ]

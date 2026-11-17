@@ -1,0 +1,280 @@
+[
+  {
+    "id": "sansu.g1.balance.count-1",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "まるは ぜんぶで なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "1"
+      ],
+      "promptImage": "questions/sansu/g1/balance/count-1.svg",
+      "promptImageAlt": "まるが 1こ あります。"
+    },
+    "explanation": "1つだけなので、1こです。"
+  },
+  {
+    "id": "sansu.g1.balance.count-4",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "まるは ぜんぶで なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "4"
+      ],
+      "promptImage": "questions/sansu/g1/balance/count-4.svg",
+      "promptImageAlt": "まるが 4こ あります。"
+    },
+    "explanation": "まるを 1つずつ、かぞえたものを とばさずに かぞえます。さいごの かずが 4なので、4こです。"
+  },
+  {
+    "id": "sansu.g1.balance.count-8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "まるは ぜんぶで なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "8"
+      ],
+      "promptImage": "questions/sansu/g1/balance/count-8.svg",
+      "promptImageAlt": "まるが 8こ あります。"
+    },
+    "explanation": "まるを 1つずつ、かぞえたものを とばさずに かぞえます。さいごの かずが 8なので、8こです。"
+  },
+  {
+    "id": "sansu.g1.balance.count-9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "まるは ぜんぶで なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "9"
+      ],
+      "promptImage": "questions/sansu/g1/balance/count-9.svg",
+      "promptImageAlt": "まるが 9こ あります。"
+    },
+    "explanation": "まるを 1つずつ、かぞえたものを とばさずに かぞえます。さいごの かずが 9なので、9こです。"
+  },
+  {
+    "id": "sansu.g1.balance.count-10",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "まるは ぜんぶで なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "10"
+      ],
+      "promptImage": "questions/sansu/g1/balance/count-10.svg",
+      "promptImageAlt": "まるが 10こ あります。"
+    },
+    "explanation": "まるを 1つずつ、かぞえたものを とばさずに かぞえます。さいごの かずが 10なので、10こです。"
+  },
+  {
+    "id": "sansu.g1.balance.split-7",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "7こを 5こと のこりに わけます。のこりは なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "2"
+      ],
+      "promptImage": "questions/sansu/g1/balance/split-7.svg",
+      "promptImageAlt": "まるが 7こ。うち 5こは あお、のこりは あかです。"
+    },
+    "explanation": "あおい 5こと、あかい 2こで 7こです。7は 5と 2に わけられます。"
+  },
+  {
+    "id": "sansu.g1.balance.split-8",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "8こを 5こと のこりに わけます。のこりは なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "3"
+      ],
+      "promptImage": "questions/sansu/g1/balance/split-8.svg",
+      "promptImageAlt": "まるが 8こ。うち 5こは あお、のこりは あかです。"
+    },
+    "explanation": "あおい 5こと、あかい 3こで 8こです。8は 5と 3に わけられます。"
+  },
+  {
+    "id": "sansu.g1.balance.split-9",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "9こを 5こと のこりに わけます。のこりは なんこ？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "4"
+      ],
+      "promptImage": "questions/sansu/g1/balance/split-9.svg",
+      "promptImageAlt": "まるが 9こ。うち 5こは あお、のこりは あかです。"
+    },
+    "explanation": "あおい 5こと、あかい 4こで 9こです。9は 5と 4に わけられます。"
+  },
+  {
+    "id": "sansu.g1.balance.reverse-order",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "1ずつ ちいさく ならべます。□に はいる かずは？",
+      "template": "5、4、3、{{INPUT}}、1",
+      "answers": [
+        "2"
+      ]
+    },
+    "explanation": "5、4、3、2、1と、1ずつ ちいさく なります。3の つぎは 2です。"
+  },
+  {
+    "id": "sansu.g1.balance.ten-nine",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "10この ますを いっぱいに します。あと なんこ まるが いる？",
+      "template": "{{INPUT}}こ",
+      "answers": [
+        "1"
+      ],
+      "promptImage": "questions/sansu/g1/balance/ten-frame-nine.svg",
+      "promptImageAlt": "10この ますの うち、9こに まるが あります。"
+    },
+    "explanation": "10この ますの うち、あいているのは 1こです。9と 1で 10に なります。"
+  },
+  {
+    "id": "sansu.g1.balance.ten-five",
+    "type": "text-input",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "10を 5と □に わけます。□に はいる かずは？",
+      "template": "5 と {{INPUT}} で 10",
+      "answers": [
+        "5"
+      ]
+    },
+    "explanation": "5から 6、7、8、9、10と 5つ かぞえます。5と 5で 10です。"
+  },
+  {
+    "id": "sansu.g1.balance.one-to-one-spacing",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "はこに いしを 1こずつ いれます。どうなる？",
+      "choices": [
+        {
+          "id": "1",
+          "text": "ちょうど はいる"
+        },
+        {
+          "id": "2",
+          "text": "いしが あまる"
+        },
+        {
+          "id": "3",
+          "text": "はこが あまる"
+        }
+      ],
+      "answer": "1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g1/balance/one-to-one-spacing.svg",
+      "promptSpeech": "はこに いしを 1こずつ いれます。どうなる？ うえに まるい いしが 5こ、したに はこが 5こ。ならべる かんかくが ちがいます。"
+    },
+    "explanation": "はこ 1つと いし 1つを くみに すると、どちらも あまりません。ならびが ながくても、かずが おおいとは かぎりません。"
+  },
+  {
+    "id": "sansu.g1.balance.tens-reason",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 1,
+    "unit": "sansu.g1.kazu-100",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "42 + 20で、ばらの 2こは どうなる？",
+      "choices": [
+        {
+          "id": "1",
+          "text": "2この まま"
+        },
+        {
+          "id": "2",
+          "text": "4こに なる"
+        },
+        {
+          "id": "3",
+          "text": "0こに なる"
+        }
+      ],
+      "answer": "1",
+      "shuffle": true
+    },
+    "explanation": "20は 10の まとまりが 2つです。10の まとまりが ふえるだけなので、ばらは 2この まま。42 + 20 = 62です。"
+  }
+]

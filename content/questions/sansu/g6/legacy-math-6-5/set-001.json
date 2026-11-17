@@ -602,5 +602,35 @@
       "promptImageAlt": "サッカーコートは縦4、横3の比。縦100m、横は未知。"
     },
     "explanation": "縦と横の長さの比 4 : 3 と、実際の長さの100mを使って、□の入った 等しい比の式をつくろう。 4 : 3 = 100 : □ 左の比に25かければいいので、4×25 : 3×25 = 100 : 75"
+  },
+  {
+    "id": "sansu.g6.balance.ratio-difference",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 6,
+    "unit": "sansu.g6.legacy-math-6-5",
+    "tags": [
+      "source:original-curriculum-balance"
+    ],
+    "payload": {
+      "prompt": "赤[あか]と青[あお]のテープの長[なが]さの比[ひ]は3：2です。赤[あか]は青[あお]より8cm長[なが]いとき、赤[あか]の長[なが]さは何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "24cm"
+        },
+        {
+          "id": "c2",
+          "text": "16cm"
+        },
+        {
+          "id": "c3",
+          "text": "40cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "比[ひ]の差[さ]は3−2＝1で、この1つ分[ぶん]が8cmです。赤[あか]は3つ分[ぶん]なので8×3＝24cm。青[あお]は16cmで、差[さ]も8cmになります。"
   }
 ]

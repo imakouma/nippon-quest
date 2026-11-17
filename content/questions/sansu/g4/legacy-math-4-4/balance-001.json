@@ -1,0 +1,30 @@
+[
+  {
+    "id": "sansu.g4.balance.angle-combine",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-4",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "45°の角[かく]と60°の角[かく]を、頂点[ちょうてん]と1本[ぽん]の辺[へん]をそろえ、重[かさ]ならないように並[なら]べます。合[あ]わせた角[かく]は何度[なんど]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "105°"
+        },
+        {
+          "id": "c2",
+          "text": "15°"
+        },
+        {
+          "id": "c3",
+          "text": "90°"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "重[かさ]ならない2つの角[かく]を合[あ]わせるので、角度[かくど]を足[た]します。45＋60＝105°です。直角[ちょっかく]の90°より15°大[おお]きい角[かく]になります。"
+  }
+]

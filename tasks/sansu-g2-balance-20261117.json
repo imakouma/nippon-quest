@@ -1,0 +1,695 @@
+{
+  "baseline": "30f9ffc486cc11a7761c3d685ac26a99749f159a",
+  "syncedHead": "b77839c27f61a5012d7e33a63a3f35b5eb121d6c",
+  "rubric": {
+    "basic": "直接概念/単純処理。繰り上がりや多桁だけでは発展にしない。",
+    "standard": "場面、表、図、単位の関係を適用する。",
+    "advanced": "逆思考/複数条件/理由判断。すべて学年内。",
+    "generated": "生成器定義。固定問題数とは別枠。"
+  },
+  "levels": {
+    "legacy.sansu.g2.math-2-1.ac73faced8c7": "basic",
+    "legacy.sansu.g2.math-2-1.c180e1dfdd4a": "basic",
+    "legacy.sansu.g2.math-2-1.d3a784d0f3f1": "basic",
+    "sansu.g2.curriculum.zero-data": "basic",
+    "legacy.sansu.g2.math-2-1.5e2eccb90428": "basic",
+    "legacy.sansu.g2.math-2-1.0efdcce0ec27": "basic",
+    "legacy.sansu.g2.math-2-1.796aacaeb2c3": "standard",
+    "legacy.sansu.g2.math-2-1.2b01dbbab681": "standard",
+    "legacy.sansu.g2.math-2-1.03e76e3d3de4": "standard",
+    "legacy.sansu.g2.math-2-1.14017faba940": "standard",
+    "legacy.sansu.g2.math-2-1.e0d7170d99d8": "standard",
+    "legacy.sansu.g2.math-2-1.0d0288b30c74": "standard",
+    "legacy.sansu.g2.math-2-1.b38b4d2428a9": "standard",
+    "sansu.g2.curriculum.data-total": "standard",
+    "legacy.sansu.g2.math-2-2.431422b783d4": "basic",
+    "legacy.sansu.g2.math-2-2.ba0bd6fe0013": "basic",
+    "legacy.sansu.g2.math-2-2.57af67d0d98f": "basic",
+    "legacy.sansu.g2.math-2-2.9a232111db49": "basic",
+    "legacy.sansu.g2.math-2-2.b334c688c992": "basic",
+    "legacy.sansu.g2.math-2-2.5bf9005ffab2": "basic",
+    "legacy.sansu.g2.math-2-2.f8aa9f0cee0f": "basic",
+    "legacy.sansu.g2.math-2-2.ccd6cf5b528d": "basic",
+    "legacy.sansu.g2.math-2-2.2a0efe805bee": "basic",
+    "legacy.sansu.g2.math-2-2.ff6aa8bef711": "basic",
+    "legacy.sansu.g2.math-2-2.4d23f74e92fc": "basic",
+    "legacy.sansu.g2.math-2-2.2ea03098e626": "basic",
+    "legacy.sansu.g2.math-2-2.ff2206405ee8": "basic",
+    "legacy.sansu.g2.math-2-2.f0b46a1eefcf": "basic",
+    "legacy.sansu.g2.math-2-3.1f5712aac717": "basic",
+    "legacy.sansu.g2.math-2-3.1d5ef99540a2": "basic",
+    "legacy.sansu.g2.math-2-3.4d247235dc89": "basic",
+    "legacy.sansu.g2.math-2-3.e931d73a285e": "basic",
+    "legacy.sansu.g2.math-2-3.4524a800d63e": "basic",
+    "legacy.sansu.g2.math-2-3.49062b5dd3af": "basic",
+    "legacy.sansu.g2.math-2-3.57c1ba67d84b": "basic",
+    "legacy.sansu.g2.math-2-3.ca2148f91328": "basic",
+    "legacy.sansu.g2.math-2-3.ed39c94cd617": "basic",
+    "legacy.sansu.g2.math-2-3.a7e70a1131d9": "basic",
+    "legacy.sansu.g2.math-2-3.e97401a008f5": "basic",
+    "legacy.sansu.g2.math-2-4.576f64fa5955": "basic",
+    "legacy.sansu.g2.math-2-4.38ab71b5ca0a": "basic",
+    "legacy.sansu.g2.math-2-4.9feffbd76c05": "basic",
+    "legacy.sansu.g2.math-2-4.02640ce182bb": "basic",
+    "legacy.sansu.g2.math-2-4.1ab728454723": "basic",
+    "legacy.sansu.g2.math-2-4.854570b8818a": "basic",
+    "legacy.sansu.g2.math-2-4.8c89a86cb1a0": "basic",
+    "legacy.sansu.g2.math-2-4.8aecece3c02a": "basic",
+    "legacy.sansu.g2.math-2-4.8cf43a3975e1": "standard",
+    "legacy.sansu.g2.math-2-4.62d517f09d39": "standard",
+    "legacy.sansu.g2.math-2-6.a4af9cbff955": "basic",
+    "legacy.sansu.g2.math-2-6.166d0b93d61a": "basic",
+    "legacy.sansu.g2.math-2-6.2f703d3a8754": "basic",
+    "legacy.sansu.g2.math-2-6.90906df36f75": "basic",
+    "legacy.sansu.g2.math-2-6.e4c5a73b29ff": "basic",
+    "legacy.sansu.g2.math-2-6.3361c5e16b1a": "basic",
+    "legacy.sansu.g2.math-2-6.44ca21730e41": "basic",
+    "legacy.sansu.g2.math-2-6.7406b63129ee": "basic",
+    "legacy.sansu.g2.math-2-6.f6a41e8cca46": "basic",
+    "legacy.sansu.g2.math-2-6.f85eb015c933": "basic",
+    "legacy.sansu.g2.math-2-6.d5ed5472e2c6": "basic",
+    "legacy.sansu.g2.math-2-6.086798183ca3": "basic",
+    "sansu.g2.curriculum.ruler-start": "standard",
+    "legacy.sansu.g2.math-2-6.94732f703b66": "standard",
+    "legacy.sansu.g2.math-2-6.d608bbd045a9": "standard",
+    "legacy.sansu.g2.math-2-6.3a12ffba0ada": "standard",
+    "legacy.sansu.g2.math-2-6.41a4aebc59e0": "standard",
+    "legacy.sansu.g2.math-2-6.74c86f43b7f9": "standard",
+    "legacy.sansu.g2.math-2-7.6345fd84c6ff": "basic",
+    "legacy.sansu.g2.math-2-7.70ccf8f934e1": "basic",
+    "legacy.sansu.g2.math-2-7.0a42bf41f7f9": "basic",
+    "legacy.sansu.g2.math-2-7.5661660d5e04": "basic",
+    "legacy.sansu.g2.math-2-7.1d1022d5b576": "basic",
+    "legacy.sansu.g2.math-2-7.f9613c4c2cc3": "basic",
+    "sansu.g2.curriculum.compare-symbol": "basic",
+    "legacy.sansu.g2.math-2-7.74cb5cfc5972": "basic",
+    "legacy.sansu.g2.math-2-7.9917b16a7989": "basic",
+    "legacy.sansu.g2.math-2-7.4099854758d8": "basic",
+    "legacy.sansu.g2.math-2-7.170655594288": "basic",
+    "legacy.sansu.g2.math-2-7.cbc9bc5adca7": "basic",
+    "legacy.sansu.g2.math-2-7.2232f5e728cd": "basic",
+    "legacy.sansu.g2.math-2-7.0f8a1cdc85ad": "basic",
+    "legacy.sansu.g2.math-2-7.db96b17f19ab": "basic",
+    "legacy.sansu.g2.math-2-7.5192c06c7aa2": "basic",
+    "legacy.sansu.g2.math-2-7.69ced304e8d4": "basic",
+    "legacy.sansu.g2.math-2-7.623932c5a163": "basic",
+    "legacy.sansu.g2.math-2-7.18cd86c03416": "basic",
+    "legacy.sansu.g2.math-2-7.b99641312245": "basic",
+    "sansu.g2.curriculum.capacity-common": "advanced",
+    "sansu.g2.kasa.legacy-0006": "basic",
+    "legacy.sansu.g2.math-2-8.dcd5050492eb": "basic",
+    "sansu.g2.kasa.legacy-0002": "basic",
+    "legacy.sansu.g2.math-2-8.19e6090c5ea8": "basic",
+    "sansu.g2.kasa.legacy-0003": "basic",
+    "legacy.sansu.g2.math-2-8.4e25eb445a04": "basic",
+    "sansu.g2.kasa.legacy-0001": "basic",
+    "legacy.sansu.g2.math-2-8.0785f6726328": "basic",
+    "legacy.sansu.g2.math-2-8.71c82bb90ecb": "basic",
+    "sansu.g2.kasa.legacy-0005": "basic",
+    "legacy.sansu.g2.math-2-8.8f3a71f01a85": "basic",
+    "legacy.sansu.g2.math-2-8.7ad53f3a21f5": "basic",
+    "legacy.sansu.g2.math-2-8.7450bd5585db": "basic",
+    "sansu.g2.kasa.legacy-0004": "standard",
+    "legacy.sansu.g2.math-2-8.8bbb919d843b": "standard",
+    "legacy.sansu.g2.math-2-8.3f861efa7bf3": "basic",
+    "legacy.sansu.g2.math-2-8.65e8475445ff": "basic",
+    "legacy.sansu.g2.math-2-8.d897207aa07b": "basic",
+    "legacy.sansu.g2.math-2-8.cb316f5ed97d": "basic",
+    "legacy.sansu.g2.math-2-8.66139cd00d0a": "basic",
+    "legacy.sansu.g2.math-2-8.5ed8d8000ee2": "standard",
+    "legacy.sansu.g2.math-2-8.a722bfa87853": "standard",
+    "legacy.sansu.g2.math-2-8.f906ef5fae69": "standard",
+    "legacy.sansu.g2.math-2-8.5abc6e9bf66d": "standard",
+    "legacy.sansu.g2.math-2-8.5d270d7067a9": "standard",
+    "legacy.sansu.g2.math-2-8.7b1b62a1204d": "standard",
+    "legacy.sansu.g2.math-2-5.c7023dee205f": "basic",
+    "sansu.g2.jikan.legacy-0001": "basic",
+    "legacy.sansu.g2.math-2-5.174ef3720d17": "basic",
+    "sansu.g2.jikan.legacy-0002": "basic",
+    "legacy.sansu.g2.math-2-5.20b263830591": "basic",
+    "sansu.g2.jikan.legacy-0005": "basic",
+    "legacy.sansu.g2.math-2-5.612e979848da": "basic",
+    "sansu.g2.jikan.legacy-0006": "basic",
+    "legacy.sansu.g2.math-2-5.c58ed39dd4eb": "basic",
+    "sansu.g2.jikan.legacy-0004": "basic",
+    "legacy.sansu.g2.math-2-5.5a7abd71fe07": "basic",
+    "legacy.sansu.g2.math-2-5.23685fb07ce2": "basic",
+    "sansu.g2.jikan.legacy-0003": "basic",
+    "legacy.sansu.g2.math-2-5.4a71d5b0e8de": "basic",
+    "legacy.sansu.g2.math-2-5.bd01fe660d31": "basic",
+    "legacy.sansu.g2.math-2-5.f691d0ea5f27": "standard",
+    "legacy.sansu.g2.math-2-5.06349eb0f9b8": "standard",
+    "legacy.sansu.g2.math-2-5.5a0493da61c1": "standard",
+    "legacy.sansu.g2.math-2-5.c3b026af04b5": "standard",
+    "legacy.sansu.g2.math-2-5.b3ccde0d99f4": "standard",
+    "legacy.sansu.g2.math-2-5.03cbdc1af393": "standard",
+    "legacy.sansu.g2.math-2-5.bb292b503443": "standard",
+    "legacy.sansu.g2.math-2-5.dc0838b681eb": "standard",
+    "legacy.sansu.g2.math-2-5.ed2e9903f60a": "standard",
+    "legacy.sansu.g2.math-2-11.81937b0c4297": "basic",
+    "legacy.sansu.g2.math-2-11.ef9a86b31086": "basic",
+    "legacy.sansu.g2.math-2-11.1472b30372f0": "basic",
+    "legacy.sansu.g2.math-2-11.aae05a60927a": "basic",
+    "legacy.sansu.g2.math-2-11.ed2de19f111f": "basic",
+    "legacy.sansu.g2.math-2-11.8f908457fec8": "basic",
+    "legacy.sansu.g2.math-2-11.5d0cde9b40b9": "basic",
+    "legacy.sansu.g2.math-2-11.c523bfefbc10": "basic",
+    "legacy.sansu.g2.math-2-11.22dc5be52d2a": "basic",
+    "legacy.sansu.g2.math-2-11.b596b6c126f3": "basic",
+    "legacy.sansu.g2.math-2-11.3be671c4cdbc": "basic",
+    "legacy.sansu.g2.math-2-9.e7c09c4e933a": "basic",
+    "legacy.sansu.g2.math-2-9.1f0965cb7dd6": "basic",
+    "legacy.sansu.g2.math-2-9.499553797735": "basic",
+    "legacy.sansu.g2.math-2-9.9340969d196d": "basic",
+    "legacy.sansu.g2.math-2-9.ff0231da4b14": "basic",
+    "legacy.sansu.g2.math-2-9.e9dfd32b921c": "basic",
+    "legacy.sansu.g2.math-2-9.9b6a392cf63c": "basic",
+    "legacy.sansu.g2.math-2-9.dd18ccd776d7": "basic",
+    "legacy.sansu.g2.math-2-9.c0e3b5ccae12": "basic",
+    "legacy.sansu.g2.math-2-9.c20515cc8567": "basic",
+    "legacy.sansu.g2.math-2-9.439be59d83d0": "basic",
+    "legacy.sansu.g2.math-2-9.13f296845f86": "basic",
+    "legacy.sansu.g2.math-2-9.8521923e8ad9": "basic",
+    "legacy.sansu.g2.math-2-9.75686b62b320": "basic",
+    "legacy.sansu.g2.math-2-9.3dd7fccfac31": "basic",
+    "legacy.sansu.g2.math-2-10.4aee7f46eb68": "basic",
+    "legacy.sansu.g2.math-2-10.1a667e39ecb9": "basic",
+    "legacy.sansu.g2.math-2-10.5a52ba10f7f6": "basic",
+    "legacy.sansu.g2.math-2-10.00534c612a9e": "basic",
+    "legacy.sansu.g2.math-2-10.788180450b8e": "basic",
+    "legacy.sansu.g2.math-2-10.c2be718758e6": "basic",
+    "legacy.sansu.g2.math-2-10.c464324d6859": "basic",
+    "legacy.sansu.g2.math-2-10.518e69bf13e4": "basic",
+    "legacy.sansu.g2.math-2-10.03e8f6dd1134": "basic",
+    "legacy.sansu.g2.math-2-10.f36d7043804c": "basic",
+    "legacy.sansu.g2.math-2-10.6db8da29fcd7": "basic",
+    "legacy.sansu.g2.math-2-10.44c95fa1cf03": "basic",
+    "legacy.sansu.g2.math-2-10.89fb627e0d68": "basic",
+    "legacy.sansu.g2.math-2-10.61e0bcf8fdb0": "basic",
+    "legacy.sansu.g2.math-2-10.dcf272069d80": "basic",
+    "legacy.sansu.g2.math-2-10.d776b43e1d65": "basic",
+    "legacy.sansu.g2.math-2-10.9ae7b072cce2": "basic",
+    "legacy.sansu.g2.math-2-10.063519bfc12e": "basic",
+    "legacy.sansu.g2.math-2-12.ac5143d7cabc": "basic",
+    "legacy.sansu.g2.math-2-12.329284c7c26e": "basic",
+    "legacy.sansu.g2.math-2-12.a62de1e0a80e": "basic",
+    "legacy.sansu.g2.math-2-12.43d4514f24ce": "basic",
+    "legacy.sansu.g2.math-2-12.42ad9dba7ed9": "basic",
+    "legacy.sansu.g2.math-2-12.70ddbe8b8632": "basic",
+    "legacy.sansu.g2.math-2-12.927fada1eb15": "basic",
+    "legacy.sansu.g2.math-2-12.10ef66404599": "basic",
+    "legacy.sansu.g2.math-2-12.0136db29ea92": "basic",
+    "legacy.sansu.g2.math-2-12.f602ff155dc0": "basic",
+    "legacy.sansu.g2.math-2-12.10932d31cfc7": "basic",
+    "legacy.sansu.g2.math-2-12.36dfc2e04461": "basic",
+    "legacy.sansu.g2.math-2-12.849261b573ec": "basic",
+    "legacy.sansu.g2.math-2-12.91c402fc10d3": "basic",
+    "legacy.sansu.g2.math-2-12.81a325da04bc": "basic",
+    "legacy.sansu.g2.math-2-12.3c28766a1c49": "standard",
+    "sansu.g2.curriculum.make-rectangle": "standard",
+    "sansu.g2.curriculum.tile-rectangle": "standard",
+    "legacy.sansu.g2.math-2-12.cd064b86f196": "standard",
+    "legacy.sansu.g2.math-2-12.7e899aa0668d": "standard",
+    "legacy.sansu.g2.math-2-12.aaf25c1fd60c": "standard",
+    "legacy.sansu.g2.math-2-12.918935d2509f": "standard",
+    "sansu.g2.curriculum.kuku-one": "basic",
+    "legacy.sansu.g2.math-2-13.9cd2a04a370d": "standard",
+    "legacy.sansu.g2.math-2-13.805f3df9f146": "standard",
+    "legacy.sansu.g2.math-2-13.19eeb2d42e58": "standard",
+    "legacy.sansu.g2.math-2-13.8ba0c806b648": "standard",
+    "legacy.sansu.g2.math-2-13.9b32cfc00744": "basic",
+    "legacy.sansu.g2.math-2-13.4c6ab4bfb33b": "basic",
+    "legacy.sansu.g2.math-2-13.371db032bd35": "basic",
+    "legacy.sansu.g2.math-2-13.496965847170": "basic",
+    "legacy.sansu.g2.math-2-13.51403a0bbe49": "basic",
+    "legacy.sansu.g2.math-2-13.969f97b4124e": "basic",
+    "legacy.sansu.g2.math-2-13.a229703cbcd6": "basic",
+    "legacy.sansu.g2.math-2-13.d1917c81cc08": "basic",
+    "legacy.sansu.g2.math-2-13.706faa161f48": "basic",
+    "legacy.sansu.g2.math-2-13.936aab841d5b": "basic",
+    "legacy.sansu.g2.math-2-13.96d0d8aa3547": "basic",
+    "legacy.sansu.g2.math-2-13.0ec3d2d900b1": "basic",
+    "legacy.sansu.g2.math-2-13.86886f54fbb0": "basic",
+    "legacy.sansu.g2.math-2-13.d46a52ec0f79": "basic",
+    "legacy.sansu.g2.math-2-13.6444ef5f38d2": "basic",
+    "legacy.sansu.g2.math-2-13.607c9afad3f2": "basic",
+    "legacy.sansu.g2.math-2-13.7592a6f07dd1": "basic",
+    "legacy.sansu.g2.math-2-13.77955bc84149": "basic",
+    "legacy.sansu.g2.math-2-13.79d79fc372bb": "basic",
+    "legacy.sansu.g2.math-2-13.ad9aae9a2cc6": "basic",
+    "legacy.sansu.g2.math-2-13.d10c9d1d64a3": "basic",
+    "legacy.sansu.g2.math-2-13.736b78ee1c6c": "basic",
+    "legacy.sansu.g2.math-2-13.ba347e9d2c6f": "basic",
+    "sansu.g2.curriculum.kuku-grow": "standard",
+    "legacy.sansu.g2.math-2-14.382d88aa9dd4": "basic",
+    "legacy.sansu.g2.math-2-14.2d37edbd04ed": "basic",
+    "legacy.sansu.g2.math-2-14.522221c43bd2": "standard",
+    "legacy.sansu.g2.math-2-14.e537be5776c9": "standard",
+    "legacy.sansu.g2.math-2-14.ce6ed987e2c6": "standard",
+    "legacy.sansu.g2.math-2-14.296573ffa550": "standard",
+    "legacy.sansu.g2.math-2-14.9e4eeae84e8e": "standard",
+    "legacy.sansu.g2.math-2-14.bd9c037bb249": "standard",
+    "legacy.sansu.g2.math-2-14.414d6b687eeb": "standard",
+    "legacy.sansu.g2.math-2-14.2091ba8ff60c": "standard",
+    "legacy.sansu.g2.math-2-14.d431f077300b": "standard",
+    "legacy.sansu.g2.math-2-14.c1d916a578e6": "standard",
+    "legacy.sansu.g2.math-2-14.756e2034df95": "standard",
+    "legacy.sansu.g2.math-2-14.895fa3d06807": "standard",
+    "legacy.sansu.g2.math-2-16.58c5f0f7f9fb": "basic",
+    "legacy.sansu.g2.math-2-16.964d32b0ff14": "basic",
+    "legacy.sansu.g2.math-2-16.b1b0796b5505": "basic",
+    "legacy.sansu.g2.math-2-16.ea34d5d396f4": "basic",
+    "legacy.sansu.g2.math-2-16.34d0521d92a6": "basic",
+    "legacy.sansu.g2.math-2-16.b66fdb25f090": "basic",
+    "legacy.sansu.g2.math-2-16.3962c42d18d9": "basic",
+    "legacy.sansu.g2.math-2-16.e334c51373ad": "basic",
+    "legacy.sansu.g2.math-2-16.d62a8c39ddd3": "basic",
+    "legacy.sansu.g2.math-2-16.8f8305c216db": "basic",
+    "legacy.sansu.g2.math-2-16.3c0c83e6efd1": "basic",
+    "legacy.sansu.g2.math-2-16.0535bbea9f5d": "basic",
+    "legacy.sansu.g2.math-2-16.64f14e36da63": "basic",
+    "legacy.sansu.g2.math-2-16.8a892ac360b1": "basic",
+    "legacy.sansu.g2.math-2-16.1ffa9ec437be": "basic",
+    "legacy.sansu.g2.math-2-16.fa9c3380a02b": "basic",
+    "legacy.sansu.g2.math-2-16.adcb3cbe433b": "basic",
+    "legacy.sansu.g2.math-2-16.0ae531ccae18": "basic",
+    "legacy.sansu.g2.math-2-16.74d9aacd2e62": "basic",
+    "legacy.sansu.g2.math-2-16.448d3ccd57d9": "basic",
+    "legacy.sansu.g2.math-2-15.6e0035bc5ecc": "basic",
+    "legacy.sansu.g2.math-2-15.76bb3bfce318": "basic",
+    "sansu.g2.curriculum.estimate-length": "standard",
+    "legacy.sansu.g2.math-2-15.0e525d76ac26": "basic",
+    "legacy.sansu.g2.math-2-15.230a46e72118": "basic",
+    "legacy.sansu.g2.math-2-15.2040913e6342": "basic",
+    "legacy.sansu.g2.math-2-15.d46d80e8bd47": "basic",
+    "legacy.sansu.g2.math-2-15.d6241e7e783c": "standard",
+    "legacy.sansu.g2.math-2-15.6eaa47f587b9": "standard",
+    "legacy.sansu.g2.math-2-15.9338d1a2d518": "standard",
+    "legacy.sansu.g2.math-2-15.82dcca76f68a": "basic",
+    "legacy.sansu.g2.math-2-19.fa1d177a5285": "standard",
+    "legacy.sansu.g2.math-2-19.7e411d3d2b14": "standard",
+    "legacy.sansu.g2.math-2-19.3807e869ad38": "standard",
+    "legacy.sansu.g2.math-2-19.23b8993c1b39": "standard",
+    "legacy.sansu.g2.math-2-19.dbee8038ebff": "standard",
+    "legacy.sansu.g2.math-2-19.d1488ab9023c": "standard",
+    "legacy.sansu.g2.math-2-19.8ba020917a6a": "standard",
+    "legacy.sansu.g2.math-2-19.f23f64530705": "standard",
+    "legacy.sansu.g2.math-2-19.a52da8f480a5": "standard",
+    "legacy.sansu.g2.math-2-19.1ea0d324882c": "advanced",
+    "legacy.sansu.g2.math-2-19.9cdeb26c6ef4": "advanced",
+    "legacy.sansu.g2.math-2-19.dad5e5ef231f": "advanced",
+    "legacy.sansu.g2.math-2-19.d44344cec574": "advanced",
+    "legacy.sansu.g2.math-2-19.5b5e4894a82d": "advanced",
+    "legacy.sansu.g2.math-2-19.fdb899f8ad22": "advanced",
+    "sansu.g2.curriculum.inverse-add": "advanced",
+    "sansu.g2.curriculum.inverse-sub": "advanced",
+    "legacy.sansu.g2.math-2-19.21b3a867410a": "advanced",
+    "legacy.sansu.g2.math-2-19.597c9e9feea8": "advanced",
+    "legacy.sansu.g2.math-2-19.3efcab6542a2": "advanced",
+    "legacy.sansu.g2.math-2-19.6082693fbe5e": "advanced",
+    "legacy.sansu.g2.math-2-19.5a00d142127a": "advanced",
+    "legacy.sansu.g2.math-2-17.9c33c2d7e269": "basic",
+    "legacy.sansu.g2.math-2-17.bd5116ba0ddb": "basic",
+    "sansu.g2.curriculum.equal-halves": "standard",
+    "legacy.sansu.g2.math-2-17.28d58316a19a": "basic",
+    "legacy.sansu.g2.math-2-17.6a31345deb9e": "basic",
+    "legacy.sansu.g2.math-2-17.b8fb1fbdea33": "basic",
+    "legacy.sansu.g2.math-2-17.47bcf0c13ec5": "basic",
+    "legacy.sansu.g2.math-2-17.9bf8bf5a24e4": "basic",
+    "legacy.sansu.g2.math-2-17.544275171ee9": "basic",
+    "legacy.sansu.g2.math-2-17.6267c1594057": "basic",
+    "legacy.sansu.g2.math-2-17.1baa95311c41": "basic",
+    "legacy.sansu.g2.math-2-17.803423b0cf0b": "basic",
+    "legacy.sansu.g2.math-2-17.76dfb42ff65d": "basic",
+    "sansu.g2.curriculum.fold-quarter": "standard",
+    "legacy.sansu.g2.math-2-17.af88270cdba0": "standard",
+    "legacy.sansu.g2.math-2-17.56b737970858": "standard",
+    "legacy.sansu.g2.math-2-17.b1feaad2960d": "standard",
+    "legacy.sansu.g2.math-2-17.8ce273336ef2": "standard",
+    "legacy.sansu.g2.math-2-18.011a0f7b244a": "basic",
+    "legacy.sansu.g2.math-2-18.0b5521f885aa": "basic",
+    "legacy.sansu.g2.math-2-18.15345bd2561f": "basic",
+    "sansu.g2.curriculum.make-box": "basic",
+    "legacy.sansu.g2.math-2-18.a7cfa10c870e": "basic",
+    "legacy.sansu.g2.math-2-18.10ca147cab6a": "basic",
+    "legacy.sansu.g2.math-2-18.4fb31424dc0e": "basic",
+    "legacy.sansu.g2.math-2-18.e03b30288c24": "basic",
+    "legacy.sansu.g2.math-2-18.74030fce384c": "basic",
+    "legacy.sansu.g2.math-2-18.a5ca028cf20c": "basic",
+    "legacy.sansu.g2.math-2-18.9a9bffdf1e95": "standard",
+    "legacy.sansu.g2.math-2-18.8f916963f3dd": "standard",
+    "legacy.sansu.g2.math-2-18.539c693eed81": "standard",
+    "legacy.sansu.g2.math-2-18.fc0d2e4c9380": "standard",
+    "legacy.sansu.g2.math-2-18.7155a7b84537": "standard",
+    "legacy.sansu.g2.math-2-18.11185d7c3d8f": "advanced",
+    "legacy.sansu.g2.math-2-18.70d5488d88e8": "advanced",
+    "sansu.g2.random-add.0001": "generated",
+    "sansu.g2.random-subtract.0001": "generated",
+    "sansu.g2.random-multiply.0001": "generated",
+    "sansu.g2.balance.data-claim": "advanced",
+    "sansu.g2.balance.addition-library": "standard",
+    "sansu.g2.balance.subtraction-oranges": "standard",
+    "sansu.g2.balance.carry-reason": "advanced",
+    "sansu.g2.balance.ruler-reason": "advanced",
+    "sansu.g2.balance.regroup-hundreds": "basic",
+    "sansu.g2.balance.friendly-sum": "advanced",
+    "sansu.g2.balance.larger-addition-cards": "standard",
+    "sansu.g2.balance.larger-subtraction-paper": "standard",
+    "sansu.g2.balance.four-digit-cards": "advanced",
+    "sansu.g2.balance.metre-ribbon": "standard",
+    "sansu.g2.balance.half-shape-reason": "advanced"
+  },
+  "groups": [
+    {
+      "id": "data",
+      "judgment": "読取6問・分類/表対応/比較8問があり基礎は十分。複数の値から結論を確かめる判断を補う。",
+      "gaps": [
+        "合計と差の両方を使った主張の検討"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.data-claim"
+      ],
+      "before": {
+        "basic": 6,
+        "standard": 8
+      },
+      "after": {
+        "basic": 6,
+        "standard": 8,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "addition",
+      "judgment": "全14問が式の直接計算。増加場面を自分で加法に結びつける問題を単元内に置く。",
+      "gaps": [
+        "増加場面への適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.addition-library"
+      ],
+      "before": {
+        "basic": 14
+      },
+      "after": {
+        "basic": 14,
+        "standard": 1
+      }
+    },
+    {
+      "id": "subtraction",
+      "judgment": "全11問が式の直接計算。求残場面から引き算を選び計算する問題を補う。",
+      "gaps": [
+        "求残場面への適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.subtraction-oranges"
+      ],
+      "before": {
+        "basic": 11
+      },
+      "after": {
+        "basic": 11,
+        "standard": 1
+      }
+    },
+    {
+      "id": "written-calculation",
+      "judgment": "筆算練習8問と検算2問。繰り上がりを忘れた誤りの理由を選ぶ問題を補う。",
+      "gaps": [
+        "繰り上がりの理由を説明する判断"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.carry-reason"
+      ],
+      "before": {
+        "basic": 8,
+        "standard": 2
+      },
+      "after": {
+        "basic": 8,
+        "standard": 2,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "length",
+      "judgment": "単位/目盛り12問、ずらした目盛りや複名数計算6問。端の数字を読むだけの誤りを説明する問題を補う。",
+      "gaps": [
+        "0以外から測る際の理由判断"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.ruler-reason"
+      ],
+      "before": {
+        "basic": 12,
+        "standard": 6
+      },
+      "after": {
+        "basic": 12,
+        "standard": 6,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "three-digits",
+      "judgment": "構成・読み・大小・系列・何十何百計算が全20問。10が10個以上になる別の数構成を補う。",
+      "gaps": [
+        "通常と異なるまとまり方の数構成"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.regroup-hundreds"
+      ],
+      "before": {
+        "basic": 20
+      },
+      "after": {
+        "basic": 21
+      }
+    },
+    {
+      "id": "capacity",
+      "judgment": "同一単位の必要性判断、記号/換算、複名数加減が既にある。重複問題はあるがID/履歴を保持し、今回は増量しない。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "advanced": 1,
+        "basic": 18,
+        "standard": 8
+      },
+      "after": {
+        "advanced": 1,
+        "basic": 18,
+        "standard": 8
+      }
+    },
+    {
+      "id": "time",
+      "judgment": "時分日・午前午後と整数時間の関係を扱う。発展を数合わせで足すと小3の時間計算へ逸脱しやすく、現状を維持。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "basic": 15,
+        "standard": 9
+      },
+      "after": {
+        "basic": 15,
+        "standard": 9
+      }
+    },
+    {
+      "id": "calculation-rules",
+      "judgment": "11問とも性質を答えるか式を計算する問題。なぜその組合せを先に足すかの判断を補う。",
+      "gaps": [
+        "計算の工夫の理由"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.friendly-sum"
+      ],
+      "before": {
+        "basic": 11
+      },
+      "after": {
+        "basic": 11,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "larger-addition",
+      "judgment": "繰り上がりや3口の式は十分。数量の合併場面が単元内にないため1問補う。",
+      "gaps": [
+        "和が100を超える場面適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.larger-addition-cards"
+      ],
+      "before": {
+        "basic": 15
+      },
+      "after": {
+        "basic": 15,
+        "standard": 1
+      }
+    },
+    {
+      "id": "larger-subtraction",
+      "judgment": "繰り下がりの式は十分。3桁から2桁を引く場面適用を補う。",
+      "gaps": [
+        "3桁から2桁を引く求残場面"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.larger-subtraction-paper"
+      ],
+      "before": {
+        "basic": 18
+      },
+      "after": {
+        "basic": 18,
+        "standard": 1
+      }
+    },
+    {
+      "id": "plane-shapes",
+      "judgment": "名称・定義・弁別に加え方眼、合成、切断、折る操作がある。直近追加を活かし今回は増量しない。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "basic": 15,
+        "standard": 7
+      },
+      "after": {
+        "basic": 15,
+        "standard": 7
+      }
+    },
+    {
+      "id": "multiplication",
+      "judgment": "九九の習熟を主目的とするので基礎多数は妥当。式と具体物/加法の対応4問と文章題群の乗法適用がある。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "basic": 24,
+        "standard": 4
+      },
+      "after": {
+        "basic": 24,
+        "standard": 4
+      }
+    },
+    {
+      "id": "multiplication-rules",
+      "judgment": "規則の直接理解2問と表/増分/12程度の分解適用13問。後続学年の筆算へ拡張せず維持。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "standard": 13,
+        "basic": 2
+      },
+      "after": {
+        "standard": 13,
+        "basic": 2
+      }
+    },
+    {
+      "id": "four-digits",
+      "judgment": "通常の構成・読み・大小・相対的な大きさは十分。カードを一度ずつ使い上限内で最大化する複数条件を補う。",
+      "gaps": [
+        "4桁の大小を使う複数条件整理"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.four-digit-cards"
+      ],
+      "before": {
+        "basic": 20
+      },
+      "after": {
+        "basic": 20,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "metres",
+      "judgment": "単位・換算中心。実際の長さを同じ単位に直して残りを求める場面を補う。",
+      "gaps": [
+        "単位をそろえた長さの場面適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.metre-ribbon"
+      ],
+      "before": {
+        "basic": 7,
+        "standard": 4
+      },
+      "after": {
+        "basic": 7,
+        "standard": 5
+      }
+    },
+    {
+      "id": "word-problems",
+      "judgment": "一段階の比較/倍9問、変化量/初めの数の逆思考と二段階変化13問。発展がこの群に集中するため、今回ここへ追加しない。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "standard": 9,
+        "advanced": 13
+      },
+      "after": {
+        "standard": 9,
+        "advanced": 13
+      }
+    },
+    {
+      "id": "fractions",
+      "judgment": "等分の名前/読取が中心で等分でない図との比較と折る活動がある。分けた部分の形が違っても等分なら半分になる理由を補う。",
+      "gaps": [
+        "等分の形の違いと理由判断"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.half-shape-reason"
+      ],
+      "before": {
+        "basic": 12,
+        "standard": 6
+      },
+      "after": {
+        "basic": 12,
+        "standard": 6,
+        "advanced": 1
+      }
+    },
+    {
+      "id": "boxes",
+      "judgment": "名称/数10問、面と辺の対応5問、立体と開いた図の照合2問。活動幅があるので新たな発展を義務化しない。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "basic": 10,
+        "standard": 5,
+        "advanced": 2
+      },
+      "after": {
+        "basic": 10,
+        "standard": 5,
+        "advanced": 2
+      }
+    },
+    {
+      "id": "practice",
+      "judgment": "3件は生成器定義で固定問題数と分ける。件数不足とは判定しない。",
+      "gaps": [],
+      "addedIds": [],
+      "before": {
+        "generated": 3
+      },
+      "after": {
+        "generated": 3
+      }
+    }
+  ],
+  "sources": [
+    "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+    "https://ten.tokyo-shoseki.co.jp/text/shou/sansu/data/sansu_keikaku_ryakuan_2.pdf",
+    "https://www.shinko-keirin.co.jp/keirinkan/sho_r6/sansu/file/sansu_guidance_plan02.pdf"
+  ]
+}

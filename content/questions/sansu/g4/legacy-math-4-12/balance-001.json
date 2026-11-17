@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sansu.g4.balance.decimal-product-scene",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "1本[ぽん]0.35Lのジュースを6本[ぽん]用意[ようい]します。ジュースは全部[ぜんぶ]で何[なん]Lですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2.1L"
+        },
+        {
+          "id": "c2",
+          "text": "0.21L"
+        },
+        {
+          "id": "c3",
+          "text": "21L"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.35Lが6こ分[ぶん]なので0.35×6を計算[けいさん]します。0.01Lが35×6＝210こ分[ぶん]あり、210こ分[ぶん]の0.01Lは2.1Lです。"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-product-reason",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-12",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "0.24×3を計算[けいさん]して、7.2と答[こた]えました。まちがいを説明[せつめい]しているのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0.01が24×3＝72こ分[ぶん]だから、答[こた]えは0.72"
+        },
+        {
+          "id": "c2",
+          "text": "小数[しょうすう]に3をかけると、必[かなら]ず整数[せいすう]になる"
+        },
+        {
+          "id": "c3",
+          "text": "24×3＝72だから、小数点[しょうすうてん]はいらない"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.24は0.01が24こ分[ぶん]の数[かず]です。3倍[ばい]しても1こ分[ぶん]の大[おお]きさは0.01のままなので、0.01が72こ分[ぶん]、つまり0.72です。"
+  }
+]

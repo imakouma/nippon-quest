@@ -7,8 +7,10 @@ import { getRenderer } from '../../src/questions/renderers/registry';
 import { textInputPayloadSchema, textInputScore } from '../../src/questions/renderers/text-input/schema';
 
 const questions = readdirSync('content/questions/sansu/g5').flatMap((d) =>
-  (JSON.parse(readFileSync(`content/questions/sansu/g5/${d}/set-001.json`, 'utf8')) as unknown[]).map((q) =>
-    questionBaseSchema.parse(q),
+  readdirSync(`content/questions/sansu/g5/${d}`).flatMap((file) =>
+    (JSON.parse(readFileSync(`content/questions/sansu/g5/${d}/${file}`, 'utf8')) as unknown[]).map((q) =>
+      questionBaseSchema.parse(q),
+    ),
   ),
 );
 const repairs = [
@@ -25,8 +27,8 @@ const repairs = [
   'cb5bb00c2add',
   'd67ff00c4f69',
 ];
-it('preserves all 359 learning targets, with separated fraction input fields', () => {
-  expect(questions).toHaveLength(359);
+it('preserves all 371 learning targets, with separated fraction input fields', () => {
+  expect(questions).toHaveLength(371);
   const rows = questions
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((q) => {
@@ -48,7 +50,7 @@ it('preserves all 359 learning targets, with separated fraction input fields', (
       ];
     });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    'b583d524f92057a60f6f6461a2dfc9eb24d8373f6dc288b6adc9c64e2d88002f',
+    'd78ef60456c66f53ea7eeb7fd67d1adb7d747dfe06618d3ad7c102799c00c06e',
   );
 });
 it('illustrates volume, proportion, averages, speed, percentages and changing quantities', () => {

@@ -361,12 +361,13 @@
       "pathPrefixes": [
         "assets/questions/sansu/g1/data/",
         "assets/questions/sansu/g1/visuals/",
-        "assets/questions/sansu/g1/three-domains/"
+        "assets/questions/sansu/g1/three-domains/",
+        "assets/questions/sansu/g1/balance/"
       ],
       "status": "hold",
       "origin": "NIHON QUEST内の果物・動物ドット絵の再利用、およびSVGの基本図形で作成した教材図版。外部画像・外部生成サービスは不使用。",
       "author": "NIHON QUEST project",
-      "source": "scripts/generate-sansu-g1-visuals.ts; tasks/sansu-g1-fruit-pictogram-walkthrough.md; tasks/sansu-g1-three-domains-walkthrough.md",
+      "source": "scripts/generate-sansu-g1-visuals.ts; tasks/sansu-g1-fruit-pictogram-walkthrough.md; tasks/sansu-g1-three-domains-walkthrough.md; tasks/sansu-g1-balance-walkthrough-20261117.md",
       "license": "制作根拠を記録済み。公開承認は未実施。",
       "licenseEvidence": "assets/questions/sansu/PROVENANCE.md",
       "modificationAllowed": null,
@@ -376,11 +377,11 @@
     },
     {
       "id": "sansu-g2-pictograms",
-      "pathPrefixes": ["assets/questions/sansu/g2/visuals/", "assets/questions/sansu/g2/curriculum/"],
+      "pathPrefixes": ["assets/questions/sansu/g2/visuals/", "assets/questions/sansu/g2/curriculum/", "assets/questions/sansu/g2/balance/"],
       "status": "hold",
       "origin": "既存の自作ドット絵・小1の人物とあめを再利用し、SVGの基本図形で制作した小2教材図版。外部画像・生成サービスは不使用。",
       "author": "NIHON QUEST project",
-      "source": "scripts/generate-sansu-g2-visuals.ts; tasks/sansu-g2-review.md; tasks/sansu-g2-reaudit-20261117.md",
+      "source": "scripts/generate-sansu-g2-visuals.ts; tasks/sansu-g2-review.md; tasks/sansu-g2-reaudit-20261117.md; tasks/sansu-g2-balance-20261117.json",
       "license": "制作根拠を記録済み。公開承認は未実施。",
       "licenseEvidence": "assets/questions/sansu/PROVENANCE.md",
       "modificationAllowed": null,
@@ -390,11 +391,11 @@
     },
     {
       "id": "sansu-g3-pictograms",
-      "pathPrefixes": ["assets/questions/sansu/g3/visuals/", "assets/questions/sansu/g3/curriculum/", "assets/questions/sansu/g3/reaudit/"],
+      "pathPrefixes": ["assets/questions/sansu/g3/visuals/", "assets/questions/sansu/g3/curriculum/", "assets/questions/sansu/g3/reaudit/", "assets/questions/sansu/g3/balance/"],
       "status": "hold",
       "origin": "既存の自作ドット絵・小1の人物と具体物を再利用し、SVGの基本図形で制作した小3教材図版。外部画像・生成サービスは不使用。",
       "author": "NIHON QUEST project",
-      "source": "scripts/generate-sansu-g3-visuals.ts; tasks/sansu-g3-walkthrough.md; tasks/sansu-g3-reaudit-20261117.md",
+      "source": "scripts/generate-sansu-g3-visuals.ts; tasks/sansu-g3-walkthrough.md; tasks/sansu-g3-reaudit-20261117.md; tasks/sansu-g3-balance-20261117.json",
       "license": "制作根拠を記録済み。公開承認は未実施。",
       "licenseEvidence": "assets/questions/sansu/PROVENANCE.md",
       "modificationAllowed": null,

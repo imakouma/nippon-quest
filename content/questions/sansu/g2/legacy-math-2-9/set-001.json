@@ -313,5 +313,36 @@
       "template": "92+64 = {{INPUT}}"
     },
     "explanation": "一[いち]の位[くらい]は 2＋4＝6。十[じゅう]のまとまりは 9＋6＝15。あわせて 156です。"
+  },
+  {
+    "id": "sansu.g2.balance.larger-addition-cards",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-9",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "赤[あか]い カードが82まい、青[あお]い カードが49まい あります。合[あ]わせて 何[なん]まいですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "131まい"
+        },
+        {
+          "id": "c2",
+          "text": "121まい"
+        },
+        {
+          "id": "c3",
+          "text": "33まい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "2つの 色[いろ]の カードを 合[あ]わせるので、82＋49です。一[いち]の 位[くらい]は2＋9＝11、十[じゅう]の まとまりは8＋4＋1＝13。100と30と1で131まいです。"
   }
 ]

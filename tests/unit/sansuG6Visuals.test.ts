@@ -46,8 +46,8 @@ const repairs = [
   '59343703e0ea',
   '9b34c0cc97ee',
 ];
-it('covers all 218 learning targets, with separated fraction input fields', () => {
-  expect(questions).toHaveLength(218);
+it('covers all 226 learning targets, with separated fraction input fields', () => {
+  expect(questions).toHaveLength(226);
   const rows = questions
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((q) => {
@@ -69,7 +69,7 @@ it('covers all 218 learning targets, with separated fraction input fields', () =
       ];
     });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '2595643c4cc47a6cbba12db3128f938018772912e5b4e46a1ee2e7dfe10f2ecd',
+    'b2b98aafd91d95dea3238b63d5eab0850cafb61521779cb3b957fce828654517',
   );
 });
 it('illustrates symmetry, ratios, fractions, volume, data and combinations', () => {

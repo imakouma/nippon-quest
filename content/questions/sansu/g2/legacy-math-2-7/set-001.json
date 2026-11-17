@@ -471,5 +471,36 @@
       "promptSpeech": "305と350の 大[おお]きさを くらべます。305は100が3こ、1が5こ。350は100が3こ、10が5こです。"
     },
     "explanation": "百[ひゃく]の 位[くらい]は 同[おな]じ3です。十[じゅう]の 位[くらい]は 0が5より 小[ちい]さいので、305＜350です。記号[きごう]の 開[ひら]いた ほうが 大[おお]きい 数[かず]に 向[む]きます。"
+  },
+  {
+    "id": "sansu.g2.balance.regroup-hundreds",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-7",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "100を3こ、10を12こ あつめました。全部[ぜんぶ]で いくつですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "420"
+        },
+        {
+          "id": "c2",
+          "text": "312"
+        },
+        {
+          "id": "c3",
+          "text": "3120"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "10が10こで100になります。10が12こは、100が1こと10が2こです。もとの100が3こと 合[あ]わせると、100が4こ、10が2こで420です。"
   }
 ]

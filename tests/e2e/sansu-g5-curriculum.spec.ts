@@ -15,6 +15,7 @@ const examples = questions.filter(
   (q) =>
     q.tags.includes('curriculum:gap-fill-20261116') ||
     q.tags.includes('curriculum:gap-fill-20261117') ||
+    q.id.startsWith('sansu.g5.balance.') ||
     [
       '80504e20a9a0',
       '997027008cb6',

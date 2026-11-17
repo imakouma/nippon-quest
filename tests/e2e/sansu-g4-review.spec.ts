@@ -14,6 +14,7 @@ const questions = readdirSync('content/questions/sansu/g4').flatMap((dir) =>
 const examples = questions.filter(
   (q) =>
     q.tags.includes('source:original-curriculum-review') ||
+    q.tags.includes('source:original-curriculum-balance') ||
     [
       '6ffcff525c34',
       '3067e6e62169',

@@ -158,5 +158,33 @@
       "promptImage": "questions/legacy/59048e57e11e9d38.png"
     },
     "explanation": "三角形[さんかくけい]の 部分[ぶぶん]を 切[き]って 移[うつ]すと、底辺[ていへん]と 高[たか]さを 辺[へん]とする 長方形[ちょうほうけい]に 変[か]えられます。面積[めんせき]は 変[か]わりません。 平行四辺形の面積[めんせき]は、「底辺 × 高さ」で求めることができる。 8×6=48cm^2"
+  },
+  {
+    "id": "sansu.g5.balance.triangle-height-inverse",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 5,
+    "unit": "sansu.g5.legacy-math-5-10",
+    "tags": ["review:balance-20261117", "difficulty:advanced"],
+    "payload": {
+      "prompt": "三角形[さんかくけい]の 面積[めんせき]は24cm²、底辺[ていへん]は8cmです。この 底辺[ていへん]に 対[たい]する 高[たか]さは 何[なん]cmですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6cm"
+        },
+        {
+          "id": "c2",
+          "text": "3cm"
+        },
+        {
+          "id": "c3",
+          "text": "12cm"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "底辺[ていへん]×高[たか]さ÷2＝24です。まず2倍[ばい]して、8×高[たか]さ＝48。48÷8＝6なので、高[たか]さは6cmです。"
   }
 ]

@@ -31,7 +31,11 @@ for (const width of [390, 1280])
             ),
         )
         .toBe(true);
-      if (width === 1280 && q.tags.includes('source:original-curriculum-review'))
+      if (
+        width === 1280 &&
+        (q.tags.includes('source:original-curriculum-review') ||
+          q.tags.includes('source:original-curriculum-balance'))
+      )
         await page.locator('.pg-stage').screenshot({ path: `.cache/g6-${q.id.split('.').at(-1)}.png` });
       if (q.payload.choices) {
         await expect(page.locator('.nq-choice')).toHaveCount(q.payload.choices.length);

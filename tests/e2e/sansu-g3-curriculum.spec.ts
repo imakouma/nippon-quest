@@ -56,13 +56,15 @@ const reaudit = JSON.parse(readFileSync('tasks/sansu-g3-reaudit-20261117.json', 
 };
 const reauditIds = new Set([...reaudit.repairs, ...reaudit.additions].map((q) => q.id));
 const examples =
-  process.env.G3_VISUAL_FOLLOWUP === '1'
-    ? questions.filter((q) => q.id.endsWith('87cf6567eb50') || q.id.endsWith('dc5ffaf17483'))
-    : process.env.G3_REAUDIT === '1'
-      ? questions.filter((q) => reauditIds.has(q.id))
-      : process.env.G3_FULL_REVIEW === '1'
-        ? questions.filter((q) => changed.has(q.id) && q.type !== 'random-calculation')
-        : representative;
+  process.env.G3_BALANCE === '1'
+    ? questions.filter((q) => q.id.startsWith('sansu.g3.balance.'))
+    : process.env.G3_VISUAL_FOLLOWUP === '1'
+      ? questions.filter((q) => q.id.endsWith('87cf6567eb50') || q.id.endsWith('dc5ffaf17483'))
+      : process.env.G3_REAUDIT === '1'
+        ? questions.filter((q) => reauditIds.has(q.id))
+        : process.env.G3_FULL_REVIEW === '1'
+          ? questions.filter((q) => changed.has(q.id) && q.type !== 'random-calculation')
+          : representative;
 for (const width of process.env.G3_FULL_REVIEW === '1' ? [390] : [390, 1280]) {
   for (const q of examples) {
     test(`${width}px grade3 answer/explanation ${q.id}`, async ({ page }) => {

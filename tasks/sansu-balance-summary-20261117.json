@@ -1,0 +1,4943 @@
+{
+  "baseline": "30f9ffc486cc11a7761c3d685ac26a99749f159a",
+  "rubric": {
+    "basic": "直接の概念確認・既知の計算手順",
+    "standard": "場面・表・関係を読み取って適用",
+    "advanced": "学年内の逆思考・複数条件・理由判断",
+    "generated": "固定問題と別枠の生成定義"
+  },
+  "grades": [
+    {
+      "grade": 1,
+      "before": 216,
+      "after": 232,
+      "added": 16,
+      "existingExplanationRepairs": [],
+      "difficultyBefore": {
+        "basic": 149,
+        "standard": 55,
+        "advanced": 9,
+        "generated": 3
+      },
+      "difficultyAfter": {
+        "basic": 156,
+        "standard": 63,
+        "advanced": 10,
+        "generated": 3
+      },
+      "groups": [
+        {
+          "id": "correspondence",
+          "name": "1つずつ くみあわせる",
+          "before": 3,
+          "after": 4,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "一致・不足・余りは揃う。間隔で量を誤認しない一対一対応を追加。数の大小の先取り計算を求めない。",
+          "gaps": "一致・不足・余りは揃う。間隔で量を誤認しない一対一対応を追加。数の大小の先取り計算を求めない。",
+          "addedIds": [
+            "sansu.g1.balance.one-to-one-spacing"
+          ]
+        },
+        {
+          "id": "count-five",
+          "name": "1から 5までを かぞえる",
+          "before": 4,
+          "after": 6,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "2・3・5のみで5が重複。1と4の直接計数を補い、1〜5の基礎を網羅。ここへ発展問題を無理に加えない。",
+          "gaps": "2・3・5のみで5が重複。1と4の直接計数を補い、1〜5の基礎を網羅。ここへ発展問題を無理に加えない。",
+          "addedIds": [
+            "sansu.g1.balance.count-1",
+            "sansu.g1.balance.count-4"
+          ]
+        },
+        {
+          "id": "count-ten",
+          "name": "6から 10までを かぞえる",
+          "before": 3,
+          "after": 6,
+          "added": 3,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "6・7のみで7が重複。8・9・10を5のまとまりで数える基礎を追加。",
+          "gaps": "6・7のみで7が重複。8・9・10を5のまとまりで数える基礎を追加。",
+          "addedIds": [
+            "sansu.g1.balance.count-8",
+            "sansu.g1.balance.count-9",
+            "sansu.g1.balance.count-10"
+          ]
+        },
+        {
+          "id": "number-order",
+          "name": "かずの おおきさと ならび",
+          "before": 3,
+          "after": 4,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "大小・数直線・順方向は揃う。逆向きの数列を補い、同数化はしない。",
+          "gaps": "大小・数直線・順方向は揃う。逆向きの数列を補い、同数化はしない。",
+          "addedIds": [
+            "sansu.g1.balance.reverse-order"
+          ]
+        },
+        {
+          "id": "ordinal",
+          "name": "なんばんめ",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "左右の順序を9問練習できる。二方向が揃い、順序と人数の関係は文章題に収録済み。追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "decompose",
+          "name": "いくつと いくつ",
+          "before": 10,
+          "after": 13,
+          "added": 3,
+          "difficultyBefore": {
+            "basic": 10,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 10,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "10問あるが3〜6に集中し同じ分解が重複。7・8・9を5と残りに分ける操作へ広げる。",
+          "gaps": "10問あるが3〜6に集中し同じ分解が重複。7・8・9を5と残りに分ける操作へ広げる。",
+          "addedIds": [
+            "sansu.g1.balance.split-7",
+            "sansu.g1.balance.split-8",
+            "sansu.g1.balance.split-9"
+          ]
+        },
+        {
+          "id": "make-ten",
+          "name": "10を つくる",
+          "before": 3,
+          "after": 5,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "7+3、6+4、8+2のみ。9+1の図付き導入と5+5を補う。繰り上がりの前提となる組合せを増やす。",
+          "gaps": "7+3、6+4、8+2のみ。9+1の図付き導入と5+5を補う。繰り上がりの前提となる組合せを増やす。",
+          "addedIds": [
+            "sansu.g1.balance.ten-nine",
+            "sansu.g1.balance.ten-five"
+          ]
+        },
+        {
+          "id": "addition",
+          "name": "たしざん（10まで）",
+          "before": 28,
+          "after": 28,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 17,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 1
+          },
+          "difficultyAfter": {
+            "basic": 17,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 1
+          },
+          "judgment": "固定27問と生成1定義。合併/増加、式化、0、直接計算が揃う。直接計算中心は学習目的に合い、同型追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "subtraction",
+          "name": "ひきざん（10まで）",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 13,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 13,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "求残・求補・求差・0・逆向き未知数の段階が揃う。22問あり追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "shape",
+          "name": "かたちと いち",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "位置、立体、面、構成/分解の9問。前回補強で基本から操作判断まで揃い追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "compare",
+          "name": "ながさ・かさ・ひろさを くらべる",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 5,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 5,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "直接/間接/任意単位と単位を揃える理由が9問に分布。追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "data",
+          "name": "えや ずで せいりする",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "分類、表現、0、比較、差、見かけに依らない判断が9問に分布。追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "twenty",
+          "name": "20までの かずと けいさん",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "位の構成、分解、大小、前後、加減が14問。基礎中心は適切で、場面適用は文章題にもあるため追加不要。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "clock-basic",
+          "name": "なんじ・なんじはん",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "針の役割、正時、半時、時刻比較まで10問。分単位への接続は別群で補う。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "three-numbers",
+          "name": "3つの かずの けいさん",
+          "before": 4,
+          "after": 5,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "4問はいずれも式が示される。場面の順序に合わせ自分で式を選ぶ1問を補う。",
+          "gaps": "4問はいずれも式が示される。場面の順序に合わせ自分で式を選ぶ1問を補う。",
+          "addedIds": [
+            "sansu.g1.balance.three-story"
+          ]
+        },
+        {
+          "id": "carry-addition",
+          "name": "たしざん（くりあがり）",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "10をつくる考え方と図付き/図なし計算が10問。前提の10の合成を補強し、この群で計算反復を増やさない。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "carry-subtraction",
+          "name": "ひきざん（くりさがり）",
+          "before": 7,
+          "after": 8,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 2,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "10からひく方法に偏る7問。ひく数を分けてまず10にする別の見方を1問追加。",
+          "gaps": "10からひく方法に偏る7問。ひく数を分けてまず10にする別の見方を1問追加。",
+          "addedIds": [
+            "sansu.g1.balance.subtract-nine-method"
+          ]
+        },
+        {
+          "id": "large-numbers",
+          "name": "おおきい かず",
+          "before": 24,
+          "after": 24,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 23,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 23,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "24問で十のまとまり、位、0、増減、100境界が揃う。100超の既存例は範囲を広げず維持。単純な次の数は大きいだけで難問としない。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "large-calculation",
+          "name": "10の まとまりで けいさん",
+          "before": 12,
+          "after": 13,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "12問すべて直接の式処理。一の位が変わらない理由を問う標準1問を補う。",
+          "gaps": "12問すべて直接の式処理。一の位が変わらない理由を問う標準1問を補う。",
+          "addedIds": [
+            "sansu.g1.balance.tens-reason"
+          ]
+        },
+        {
+          "id": "clock-minutes",
+          "name": "なんじ なんぷん",
+          "before": 6,
+          "after": 7,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "6問は一周60分と読みが中心。最小目盛り=1分の概念を読みの前に追加。経過時間計算を小1に先取りしない。",
+          "gaps": "6問は一周60分と読みが中心。最小目盛り=1分の概念を読みの前に追加。経過時間計算を小1に先取りしない。",
+          "addedIds": [
+            "sansu.g1.balance.minute-mark"
+          ]
+        },
+        {
+          "id": "word-problems",
+          "name": "おはなしと おなじ かずずつ",
+          "before": 15,
+          "after": 15,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 9,
+            "advanced": 6,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 9,
+            "advanced": 6,
+            "generated": 0
+          },
+          "judgment": "15問で比較量、順序と人数、同数の集まり/分配が揃う。複数操作は発展として区別し、乗除法の記号を要求しない。",
+          "gaps": "補強不要",
+          "addedIds": []
+        },
+        {
+          "id": "practice",
+          "name": "けいさんの れんしゅう",
+          "before": 2,
+          "after": 2,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 2
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 2
+          },
+          "judgment": "固定0問だが加減の生成2定義。少数を理由に固定計算を水増ししない。",
+          "gaps": "補強不要",
+          "addedIds": []
+        }
+      ],
+      "units": [
+        {
+          "id": "sansu.g1.data",
+          "name": "えや ずで かずを せいり",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.hikizan",
+          "name": "ひきざん",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 5,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 5,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.katachi",
+          "name": "かたちあそび・ものの いち",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.kazu-100",
+          "name": "100までの かず",
+          "before": 21,
+          "after": 34,
+          "added": 13,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 25,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.kazu-20",
+          "name": "20までの かず",
+          "before": 6,
+          "after": 6,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.kurabekata",
+          "name": "ながさ・ひろさ・かさの くらべかた",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 5,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 5,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.kuriagari-kurisagari",
+          "name": "10のまとまりを つかう たしざん・ひきざん",
+          "before": 6,
+          "after": 7,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-1",
+          "name": "10までのかず",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-2",
+          "name": "たしざん",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-3",
+          "name": "ひきざん",
+          "before": 13,
+          "after": 13,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-4",
+          "name": "20までのかず",
+          "before": 8,
+          "after": 8,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-5",
+          "name": "10より大[おお]きいたしざん・ひきざん",
+          "before": 8,
+          "after": 8,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-6",
+          "name": "100までのかず",
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-7",
+          "name": "100までのたしざん・ひきざん",
+          "before": 12,
+          "after": 12,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-8",
+          "name": "とけいをよむ",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.legacy-math-1-9",
+          "name": "たしざん・ひきざんの 文章題[ぶんしょうだい]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 8,
+            "advanced": 6,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 8,
+            "advanced": 6,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g1.random-calculation",
+          "name": "ランダム計算[けいさん]",
+          "before": 2,
+          "after": 2,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 2
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 2
+          }
+        },
+        {
+          "id": "sansu.g1.tashizan",
+          "name": "たしざん",
+          "before": 15,
+          "after": 16,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 1
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 1
+          }
+        },
+        {
+          "id": "sansu.g1.tokei",
+          "name": "とけいと せいかつ",
+          "before": 6,
+          "after": 7,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        }
+      ]
+    },
+    {
+      "grade": 2,
+      "before": 338,
+      "after": 350,
+      "added": 12,
+      "existingExplanationRepairs": [],
+      "difficultyBefore": {
+        "basic": 238,
+        "standard": 81,
+        "advanced": 16,
+        "generated": 3
+      },
+      "difficultyAfter": {
+        "basic": 239,
+        "standard": 86,
+        "advanced": 22,
+        "generated": 3
+      },
+      "groups": [
+        {
+          "id": "data",
+          "name": "ひょうと グラフ",
+          "before": 14,
+          "after": 15,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 8,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "読取6問・分類/表対応/比較8問があり基礎は十分。複数の値から結論を確かめる判断を補う。",
+          "gaps": [
+            "合計と差の両方を使った主張の検討"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.data-claim"
+          ]
+        },
+        {
+          "id": "addition",
+          "name": "たし算[ざん]の きほん",
+          "before": 14,
+          "after": 15,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "全14問が式の直接計算。増加場面を自分で加法に結びつける問題を単元内に置く。",
+          "gaps": [
+            "増加場面への適用"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.addition-library"
+          ]
+        },
+        {
+          "id": "subtraction",
+          "name": "ひき算[ざん]の きほん",
+          "before": 11,
+          "after": 12,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "全11問が式の直接計算。求残場面から引き算を選び計算する問題を補う。",
+          "gaps": [
+            "求残場面への適用"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.subtraction-oranges"
+          ]
+        },
+        {
+          "id": "written-calculation",
+          "name": "2けたの ひっ算[さん]",
+          "before": 10,
+          "after": 11,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "筆算練習8問と検算2問。繰り上がりを忘れた誤りの理由を選ぶ問題を補う。",
+          "gaps": [
+            "繰り上がりの理由を説明する判断"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.carry-reason"
+          ]
+        },
+        {
+          "id": "length",
+          "name": "長[なが]さと ものさし",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "単位/目盛り12問、ずらした目盛りや複名数計算6問。端の数字を読むだけの誤りを説明する問題を補う。",
+          "gaps": [
+            "0以外から測る際の理由判断"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.ruler-reason"
+          ]
+        },
+        {
+          "id": "three-digits",
+          "name": "3けたの 数[かず]",
+          "before": 20,
+          "after": 21,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 21,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "構成・読み・大小・系列・何十何百計算が全20問。10が10個以上になる別の数構成を補う。",
+          "gaps": [
+            "通常と異なるまとまり方の数構成"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.regroup-hundreds"
+          ]
+        },
+        {
+          "id": "capacity",
+          "name": "水[みず]の かさ",
+          "before": 27,
+          "after": 27,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 8,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 18,
+            "standard": 8,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "同一単位の必要性判断、記号/換算、複名数加減が既にある。重複問題はあるがID/履歴を保持し、今回は増量しない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "time",
+          "name": "時[じ]こくと 時間[じかん]",
+          "before": 24,
+          "after": 24,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "時分日・午前午後と整数時間の関係を扱う。発展を数合わせで足すと小3の時間計算へ逸脱しやすく、現状を維持。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "calculation-rules",
+          "name": "計算[けいさん]の くふう",
+          "before": 11,
+          "after": 12,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "11問とも性質を答えるか式を計算する問題。なぜその組合せを先に足すかの判断を補う。",
+          "gaps": [
+            "計算の工夫の理由"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.friendly-sum"
+          ]
+        },
+        {
+          "id": "larger-addition",
+          "name": "100を こえる たし算[ざん]",
+          "before": 15,
+          "after": 16,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "繰り上がりや3口の式は十分。数量の合併場面が単元内にないため1問補う。",
+          "gaps": [
+            "和が100を超える場面適用"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.larger-addition-cards"
+          ]
+        },
+        {
+          "id": "larger-subtraction",
+          "name": "100を こえる 数[かず]の ひき算[ざん]",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 18,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "繰り下がりの式は十分。3桁から2桁を引く場面適用を補う。",
+          "gaps": [
+            "3桁から2桁を引く求残場面"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.larger-subtraction-paper"
+          ]
+        },
+        {
+          "id": "plane-shapes",
+          "name": "三角形[さんかくけい]と 四角形[しかくけい]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "名称・定義・弁別に加え方眼、合成、切断、折る操作がある。直近追加を活かし今回は増量しない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "multiplication",
+          "name": "かけ算[ざん]と 九九[くく]",
+          "before": 28,
+          "after": 28,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 24,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 24,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "九九の習熟を主目的とするので基礎多数は妥当。式と具体物/加法の対応4問と文章題群の乗法適用がある。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "multiplication-rules",
+          "name": "九九[くく]の きまりと 活用[かつよう]",
+          "before": 15,
+          "after": 15,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 13,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 13,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "規則の直接理解2問と表/増分/12程度の分解適用13問。後続学年の筆算へ拡張せず維持。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "four-digits",
+          "name": "4けたの 数[かず]",
+          "before": 20,
+          "after": 21,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "通常の構成・読み・大小・相対的な大きさは十分。カードを一度ずつ使い上限内で最大化する複数条件を補う。",
+          "gaps": [
+            "4桁の大小を使う複数条件整理"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.four-digit-cards"
+          ]
+        },
+        {
+          "id": "metres",
+          "name": "長[なが]いものの 長[なが]さ",
+          "before": 11,
+          "after": 12,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "単位・換算中心。実際の長さを同じ単位に直して残りを求める場面を補う。",
+          "gaps": [
+            "単位をそろえた長さの場面適用"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.metre-ribbon"
+          ]
+        },
+        {
+          "id": "word-problems",
+          "name": "図[ず]と しきで 考[かんが]える",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 9,
+            "advanced": 13,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 9,
+            "advanced": 13,
+            "generated": 0
+          },
+          "judgment": "一段階の比較/倍9問、変化量/初めの数の逆思考と二段階変化13問。発展がこの群に集中するため、今回ここへ追加しない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "fractions",
+          "name": "分[わ]けて つくる 分数[ぶんすう]",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "等分の名前/読取が中心で等分でない図との比較と折る活動がある。分けた部分の形が違っても等分なら半分になる理由を補う。",
+          "gaps": [
+            "等分の形の違いと理由判断"
+          ],
+          "addedIds": [
+            "sansu.g2.balance.half-shape-reason"
+          ]
+        },
+        {
+          "id": "boxes",
+          "name": "はこの 形[かたち]",
+          "before": 17,
+          "after": 17,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 10,
+            "standard": 5,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 10,
+            "standard": 5,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "名称/数10問、面と辺の対応5問、立体と開いた図の照合2問。活動幅があるので新たな発展を義務化しない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "practice",
+          "name": "まとめの 計算[けいさん]練習[れんしゅう]",
+          "before": 3,
+          "after": 3,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 3
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 3
+          },
+          "judgment": "3件は生成器定義で固定問題数と分ける。件数不足とは判定しない。",
+          "gaps": [],
+          "addedIds": []
+        }
+      ],
+      "units": [
+        {
+          "id": "sansu.g2.jikan",
+          "name": "時刻[じこく]と時間[じかん]",
+          "before": 6,
+          "after": 6,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.kasa",
+          "name": "水[みず]のかさの単位[たんい]",
+          "before": 7,
+          "after": 7,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-1",
+          "name": "グラフとひょう",
+          "before": 14,
+          "after": 15,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 8,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-10",
+          "name": "３けた－２けたのひき算[さん]",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 18,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-11",
+          "name": "計算[けいさん]のくふう",
+          "before": 11,
+          "after": 12,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-12",
+          "name": "三角形[さんかっけい]と四角形[しかっけい]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-13",
+          "name": "かけ算[ざん]と 九九[くく]",
+          "before": 28,
+          "after": 28,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 24,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 24,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-14",
+          "name": "九九[くく]の きまり",
+          "before": 15,
+          "after": 15,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 13,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 13,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-15",
+          "name": "メートルであらわす",
+          "before": 11,
+          "after": 12,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-16",
+          "name": "1000より大[おお]きい数[かず]",
+          "before": 20,
+          "after": 21,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-17",
+          "name": "分数[ぶんすう]",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-18",
+          "name": "はこの形[かたち]",
+          "before": 17,
+          "after": 17,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 10,
+            "standard": 5,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 10,
+            "standard": 5,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-19",
+          "name": "文[ぶん]しょうだい",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 9,
+            "advanced": 13,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 9,
+            "advanced": 13,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-2",
+          "name": "２けた+１けたのたしざん",
+          "before": 14,
+          "after": 15,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-3",
+          "name": "２けた－１けたのひきざん",
+          "before": 11,
+          "after": 12,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-4",
+          "name": "２けたのひっさん",
+          "before": 10,
+          "after": 11,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-5",
+          "name": "時間[じかん]と生活[せいかつ]",
+          "before": 18,
+          "after": 18,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-6",
+          "name": "ながさをはかる",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-7",
+          "name": "100より大[おお]きい数[かず]",
+          "before": 20,
+          "after": 21,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 21,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-8",
+          "name": "かさをあらわす",
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.legacy-math-2-9",
+          "name": "２けたのたし算[さん]",
+          "before": 15,
+          "after": 16,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g2.random-calculation",
+          "name": "ランダム計算[けいさん]",
+          "before": 3,
+          "after": 3,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 3
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 3
+          }
+        }
+      ]
+    },
+    {
+      "grade": 3,
+      "before": 367,
+      "after": 379,
+      "added": 12,
+      "existingExplanationRepairs": [
+        "legacy.sansu.g3.math-3-19.353853d4f524"
+      ],
+      "difficultyBefore": {
+        "basic": 230,
+        "standard": 86,
+        "advanced": 46,
+        "generated": 5
+      },
+      "difficultyAfter": {
+        "basic": 230,
+        "standard": 93,
+        "advanced": 51,
+        "generated": 5
+      },
+      "groups": [
+        {
+          "id": "multiplication",
+          "name": "かけ算[ざん]の きまり",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 5,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 5,
+            "generated": 0
+          },
+          "judgment": "据え置き。0・10の乗法、分解と未知数を含む。場面適用は後続の筆算・文章題でも扱う。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "time",
+          "name": "時[じ]こくと 時間[じかん]",
+          "before": 15,
+          "after": 15,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 8,
+            "advanced": 5,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 8,
+            "advanced": 5,
+            "generated": 0
+          },
+          "judgment": "据え置き。秒の単位、順方向、逆方向、正午・日付をまたぐ時間まである。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "division",
+          "name": "わり算[ざん]の いみ",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 4,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 4,
+            "advanced": 3,
+            "generated": 0
+          },
+          "judgment": "据え置き。等分除・包含除の場面、九九、0、未知数がある。大きい数との関連は後続で補う。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "addition",
+          "name": "たし算[ざん]・ひき算[ざん]の 筆算[ひっさん]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "補強。20問すべて直接計算。場面の演算決定と逆算による検算の理由判断が不足。",
+          "gaps": [
+            "加法を選ぶ場面",
+            "逆算を使う検算の理由"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.books-total",
+            "sansu.g3.balance.subtraction-check"
+          ]
+        },
+        {
+          "id": "length",
+          "name": "長[なが]さの はかり方[かた]",
+          "before": 18,
+          "after": 18,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "据え置き。単位換算が多いが、巻尺の選択、0以外からの測定、距離と道のりを既に補っている。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "data",
+          "name": "表[ひょう]と ぼうグラフ",
+          "before": 29,
+          "after": 29,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 11,
+            "advanced": 6,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 11,
+            "advanced": 6,
+            "generated": 0
+          },
+          "judgment": "据え置き。29問。集計・表とグラフの対応・目盛り・差・逆算・複数系列比較を含む。実際の調査や作図は活動として別途必要。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "mental",
+          "name": "暗算[あんざん]",
+          "before": 19,
+          "after": 20,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "補強。19問すべて直接計算。数を動かして計算を簡単にする理由判断を補う。",
+          "gaps": [
+            "暗算の補償の理由"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.compensation"
+          ]
+        },
+        {
+          "id": "remainder",
+          "name": "あまりのある わり算[ざん]",
+          "before": 26,
+          "after": 26,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 11,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 11,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "据え置き。同内容の旧移行IDの重複はあるが、意味、計算、検算、切り上げと切り捨ての判断を含む。重複削除は今回行わない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "numbers",
+          "name": "大[おお]きい数[かず]",
+          "before": 27,
+          "after": 27,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "据え置き。27問。位取り・一億・表記・数直線・相対的大きさ・比較を含む。基礎中心だが概念幅があり発展数合わせはしない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "multiply-one",
+          "name": "1けたを かける筆算[ひっさん]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "補強。20問すべて直接計算。場面への適用と乗法の結合法則を使う計算の工夫を補う。",
+          "gaps": [
+            "1つ分といくつ分の適用",
+            "乗法の結合による工夫"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.notebooks-cost",
+            "sansu.g3.balance.associate"
+          ]
+        },
+        {
+          "id": "divide-large",
+          "name": "答[こた]えが 2けたの わり算[ざん]",
+          "before": 11,
+          "after": 13,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "補強。11問すべて直接計算。等分する場面と分数の意味への関連付けを補う。",
+          "gaps": [
+            "2桁の等分除の場面",
+            "等分除と分数の意味の関連"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.share-paper",
+            "sansu.g3.balance.division-fraction"
+          ]
+        },
+        {
+          "id": "circle",
+          "name": "円[えん]と 球[きゅう]",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "据え置き。10問で円・球、中心、半径、直径、コンパス、最大の切り口を含む。無理な発展追加より実際の作図活動を優先。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "decimal",
+          "name": "小数[しょうすう]",
+          "before": 28,
+          "after": 29,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 17,
+            "standard": 11,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 17,
+            "standard": 11,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "補強。28問で表記と計算は豊富。量の場面から不足分を求める逆思考を補う。",
+          "gaps": [
+            "小数の測定量で不足分を求める逆思考"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.water-needed"
+          ]
+        },
+        {
+          "id": "mass",
+          "name": "重[おも]さ",
+          "before": 15,
+          "after": 16,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "補強。15問で単位・量感・計算・正味はあるが、はかりの目盛りを読む設問がない。",
+          "gaps": [
+            "はかりの目盛りの単位を読み取る"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.scale-reading"
+          ]
+        },
+        {
+          "id": "fraction",
+          "name": "分数[ぶんすう]",
+          "before": 17,
+          "after": 18,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "補強。17問で分割図・数直線・同分母計算はあるが、単位分数を長さとして用いる場面が不足。",
+          "gaps": [
+            "単位分数を用いた測定量の加法"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.ribbon-length"
+          ]
+        },
+        {
+          "id": "unknown",
+          "name": "□を 使[つか]った式[しき]",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 8,
+            "advanced": 11,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 8,
+            "advanced": 11,
+            "generated": 0
+          },
+          "judgment": "据え置き。19問で四則それぞれの未知数表現と逆算がある。分類の発展は逆思考という性質であり教科書の発展印ではない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "multiply-two",
+          "name": "2けたを かける筆算[ひっさん]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "補強。20問すべて直接計算。場面適用と十の位をかける意味の理由判断を補う。",
+          "gaps": [
+            "2桁乗法の場面適用",
+            "筆算の十の位の理由判断"
+          ],
+          "addedIds": [
+            "sansu.g3.balance.chairs",
+            "sansu.g3.balance.tens-product"
+          ]
+        },
+        {
+          "id": "word",
+          "name": "倍[ばい]と 計算[けいさん]のくふう",
+          "before": 13,
+          "after": 13,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 3,
+            "advanced": 10,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 3,
+            "advanced": 10,
+            "generated": 0
+          },
+          "judgment": "据え置き。13問で倍・あまりの逆算・複数段階・まとめて計算があり、他群の応用も支える。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "triangle",
+          "name": "三角形[さんかくけい]と 角[かく]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "据え置き。14問で定義・辺・角・分類を含む。作図や角を重ねて調べる活動を選択問題で水増ししない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "soroban",
+          "name": "そろばん",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "据え置き。9問で整数・大きい数・小数の位取りと加減、5の玉の交換を含む。実物操作が必要で発展の数合わせはしない。",
+          "gaps": [],
+          "addedIds": []
+        },
+        {
+          "id": "practice",
+          "name": "計算[けいさん]の れんしゅう",
+          "before": 5,
+          "after": 5,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 5
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 5
+          },
+          "judgment": "生成別枠。5問はランダム生成。固定問題の母数や段階比率に加えない。",
+          "gaps": [],
+          "addedIds": []
+        }
+      ],
+      "units": [
+        {
+          "id": "sansu.g3.legacy-math-3-1",
+          "name": "かけ算[ざん]のおさらい",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 5,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 5,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-10",
+          "name": "あまりのあるわり算[ざん]",
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-11",
+          "name": "かけ算[ざん]の筆算[ひっさん]（×１けた）",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-12",
+          "name": "円[えん]と 球[きゅう]",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-13",
+          "name": "重[おも]さをあらわす",
+          "before": 15,
+          "after": 16,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-14",
+          "name": "分数[ぶんすう]（３年生[ねんせい]）",
+          "before": 17,
+          "after": 18,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-15",
+          "name": "小数[しょうすう]（３年生[ねんせい]）",
+          "before": 28,
+          "after": 29,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 17,
+            "standard": 11,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 17,
+            "standard": 11,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-16",
+          "name": "三角形[さんかっけい]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-17",
+          "name": "×２けたの筆算[ひっさん]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-18",
+          "name": "□が入[はい]った式[しき]",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 8,
+            "advanced": 11,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 8,
+            "advanced": 11,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-19",
+          "name": "文章[ぶんしょう]題[だい]（３年生[ねんせい]）",
+          "before": 13,
+          "after": 13,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 3,
+            "advanced": 10,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 3,
+            "advanced": 10,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-2",
+          "name": "わり算[ざん]",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 4,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 4,
+            "advanced": 3,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-3",
+          "name": "九九[くく]に ない わり算[ざん]",
+          "before": 11,
+          "after": 13,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-4",
+          "name": "３けたのたし算[さん]、ひき算[さん]（筆算[ひっさん]）",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-5",
+          "name": "時間[じかん]と 時刻[じこく]",
+          "before": 15,
+          "after": 15,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 8,
+            "advanced": 5,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 8,
+            "advanced": 5,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-6",
+          "name": "大[おお]きな数[かず]と計算[けいさん]",
+          "before": 27,
+          "after": 27,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-7",
+          "name": "表[ひょう]とぼうグラフ",
+          "before": 29,
+          "after": 29,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 11,
+            "advanced": 6,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 11,
+            "advanced": 6,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-8",
+          "name": "暗算[あんざん]で計算[けいさん]しよう",
+          "before": 19,
+          "after": 20,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.legacy-math-3-9",
+          "name": "長[なが]さをあらわす：km（キロメートル）",
+          "before": 18,
+          "after": 18,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 3,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.random-calculation",
+          "name": "ランダム計算[けいさん]",
+          "before": 5,
+          "after": 5,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 5
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 5
+          }
+        },
+        {
+          "id": "sansu.g3.soroban",
+          "name": "そろばん",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g3.warizan",
+          "name": "わり算[ざん]",
+          "before": 6,
+          "after": 6,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 1,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 5,
+            "advanced": 0,
+            "generated": 0
+          }
+        }
+      ]
+    },
+    {
+      "grade": 4,
+      "before": 377,
+      "after": 391,
+      "added": 14,
+      "existingExplanationRepairs": [],
+      "difficultyBefore": {
+        "basic": 251,
+        "standard": 108,
+        "advanced": 18,
+        "generated": 0
+      },
+      "difficultyAfter": {
+        "basic": 255,
+        "standard": 114,
+        "advanced": 22,
+        "generated": 0
+      },
+      "groups": [
+        {
+          "id": "unit-1",
+          "name": "億[おく]・兆[ちょう]と大[おお]きい数[かず]",
+          "before": 20,
+          "after": 21,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "20問は位の読み書きと3位数乗法が中心。7時間相当の複数概念のうち、1000万など別単位から数を捉える問いを1問補う。",
+          "gaps": [
+            "相対的な数の大きさ"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.large-relative"
+          ]
+        },
+        {
+          "id": "unit-2",
+          "name": "折[お]れ線[せん]グラフと表[ひょう]",
+          "before": 24,
+          "after": 25,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 18,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 18,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "24問は名称、最大最小、差、二次元表の集計まである。9時間相当で扱う未測定値の考察がないため、推測と実測の違いを1問補う。",
+          "gaps": [
+            "測定していない時刻の値の判断"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.graph-between"
+          ]
+        },
+        {
+          "id": "unit-3",
+          "name": "1けたでわる筆算[ひっさん]",
+          "before": 30,
+          "after": 32,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 30,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 30,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "30問すべて式から筆算する問題で、桁数は違っても直接処理に偏る。11時間相当の除法の意味に戻り、余りの場面解釈と検算条件を補う。",
+          "gaps": [
+            "余りに応じて商を切り上げる場面、余りは除数より小さい条件"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.division-seat",
+            "sansu.g4.balance.division-check"
+          ]
+        },
+        {
+          "id": "unit-4",
+          "name": "角[かく]の大[おお]きさ",
+          "before": 16,
+          "after": 17,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "16問で直角・半回転・分度器・180度超を扱う。読み取りに偏るため角を合わせる活動の数的判断を1問補う。実際の作図は別活動が必要。",
+          "gaps": [
+            "角度を加える場面"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.angle-combine"
+          ]
+        },
+        {
+          "id": "unit-5",
+          "name": "垂直[すいちょく]・平行[へいこう]と四角形[しかくけい]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 9,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 9,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "22問で定義、位置関係、四角形の性質、対角線、角の関係を段階的に扱う。複数条件も既にあり今回は追加しない。13時間の作図活動まで固定問題で代替したとはしない。",
+          "gaps": [
+            "今回優先する固定問題の欠落なし"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "decimal-place",
+          "name": "小数[しょうすう]のしくみとたし算[ざん]・ひき算[ざん]",
+          "before": 24,
+          "after": 26,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 22,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "24問は位名・10倍・単位換算・加減が中心。13時間相当の内容にある小数大小と0.01単位の見方を補う。",
+          "gaps": [
+            "小数の大小順序、相対的な大きさ"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.decimal-order",
+            "sansu.g4.balance.decimal-unit"
+          ]
+        },
+        {
+          "id": "soroban",
+          "name": "そろばんと小数[しょうすう]",
+          "before": 4,
+          "after": 6,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 3,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "4問のみだが配当は2時間なので8問へ機械的に増やさない。小数の読みと加減に加え、億の単位の加法とくり上がりの仕組みを2問補う。実物操作の代替ではない。",
+          "gaps": [
+            "大きい数のそろばん、10こを隣の位1こへ交換"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.soroban-large",
+            "sansu.g4.balance.soroban-carry"
+          ]
+        },
+        {
+          "id": "division-two-digit",
+          "name": "2けたでわる筆算[ひっさん]",
+          "before": 24,
+          "after": 24,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 22,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 22,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "24問は余りを含む2〜3位数の除法と購入場面があり、仮商修正の例も含む。1けた除法で意味を補強するので同型文題の追加は見送る。",
+          "gaps": [
+            "今回優先する欠落なし"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "division-extension",
+          "name": "発展[はってん]：大[おお]きい数[かず]のわり算[ざん]",
+          "before": 5,
+          "after": 5,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "5問は大きな桁数への拡張練習として独立。群名の発展は教科書上の拡張であり、今回の認知段階では既知手続きの直接適用=基礎と判定。少数でも増やさない。",
+          "gaps": [
+            "少数は意図的。独立した拡張群なので増問不要"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "unit-8",
+          "name": "式[しき]と計算[けいさん]の順[じゅん]じょ",
+          "before": 28,
+          "after": 28,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 18,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "28問は計算順、場面から式、計算法則、分配の分解を備える。8時間のねらいを複数の形式で扱い、理由説明もあるので追加しない。",
+          "gaps": [
+            "今回優先する欠落なし"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "unit-9",
+          "name": "倍[ばい]の見方[みかた]",
+          "before": 11,
+          "after": 11,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          },
+          "judgment": "11問で基準量・比較量・何倍・基準量を逆算する問題がある。4時間相当の基本三場面がそろうので追加しない。",
+          "gaps": [
+            "今回優先する欠落なし"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "unit-10",
+          "name": "がい数[すう]と見積[みつ]もり",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 5,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 5,
+            "advanced": 3,
+            "generated": 0
+          },
+          "judgment": "22問は丸める位、範囲、四則の見積もり、切り上げ、予算判断まで含む。8時間相当の内容を広く扱い前回補強もあるため追加しない。",
+          "gaps": [
+            "今回優先する欠落なし"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "unit-11",
+          "name": "面積[めんせき]",
+          "before": 30,
+          "after": 30,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 13,
+            "advanced": 4,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 13,
+            "advanced": 4,
+            "generated": 0
+          },
+          "judgment": "30問に公式、単位、単位換算、逆算、複合図形がある。10時間相当の概念の広さに対して段階もそろうため追加しない。",
+          "gaps": [
+            "今回優先する欠落なし"
+          ],
+          "addedIds": []
+        },
+        {
+          "id": "unit-12",
+          "name": "小数[しょうすう]×整数[せいすう]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "20問がすべて小数×整数の直接計算。除法と合わせ15時間の内容なので筆算数を増やさず、演算決定と小数点の理由判断を補う。",
+          "gaps": [
+            "量の場面からの立式、0.01単位による誤答説明"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.decimal-product-scene",
+            "sansu.g4.balance.decimal-product-reason"
+          ]
+        },
+        {
+          "id": "unit-13",
+          "name": "小数[しょうすう]÷整数[せいすう]",
+          "before": 33,
+          "after": 34,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 26,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 26,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "33問は割り進み、丸め、倍を含むが、小数の余りを量として読む問題がない。1問で0.1単位と検算を結ぶ。",
+          "gaps": [
+            "小数の余りとその単位"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.decimal-remainder"
+          ]
+        },
+        {
+          "id": "unit-14",
+          "name": "分数[ぶんすう]のしくみと計算[けいさん]",
+          "before": 27,
+          "after": 28,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 27,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 27,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "27問は大小、等値、帯分数変換、同分母加減の直接処理が中心。9時間相当の意味づけとして1Lの残量問題を補う。異分母加減は導入しない。",
+          "gaps": [
+            "同分母減法の量の場面"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.fraction-scene"
+          ]
+        },
+        {
+          "id": "unit-15",
+          "name": "変[か]わり方[かた]と式[しき]",
+          "before": 12,
+          "after": 13,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 10,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "12問は表、増え方、式、順方向予測を扱う。4時間相当の対応関係の理解を深めるため、既知の合計から個数を逆算する問題を1問補う。",
+          "gaps": [
+            "対応する数量を逆向きに求める"
+          ],
+          "addedIds": [
+            "sansu.g4.balance.relation-reverse"
+          ]
+        },
+        {
+          "id": "unit-16",
+          "name": "直方体[ちょくほうたい]・立方体[りっぽうたい]と位置[いち]",
+          "before": 25,
+          "after": 25,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 13,
+            "advanced": 5,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 13,
+            "advanced": 5,
+            "generated": 0
+          },
+          "judgment": "25問は名称、辺面、平面と空間の位置、展開図を含む。9時間相当の領域に段階差が既にあるため追加しない。体積計算は先取りしない。",
+          "gaps": [
+            "今回優先する欠落なし"
+          ],
+          "addedIds": []
+        }
+      ],
+      "units": [
+        {
+          "id": "sansu.g4.legacy-math-4-1",
+          "name": "大[おお]きな数[かず]（億[おく]、兆[ちょう]）とかけ算[ざん]",
+          "before": 20,
+          "after": 21,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-10",
+          "name": "がい数[すう]（およその数[かず]）",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 5,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 5,
+            "advanced": 3,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-11",
+          "name": "面積[めんせき]",
+          "before": 30,
+          "after": 30,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 13,
+            "advanced": 4,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 13,
+            "advanced": 4,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-12",
+          "name": "小数[しょうすう]×整数[せいすう]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-13",
+          "name": "小数[しょうすう]÷整数[せいすう]",
+          "before": 33,
+          "after": 34,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 26,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 26,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-14",
+          "name": "仮分数[かぶんすう]と 帯分数[たいぶんすう]",
+          "before": 27,
+          "after": 28,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 27,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 27,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-15",
+          "name": "変[か]わり方[かた]調[しら]べ（４年生[ねんせい]）",
+          "before": 12,
+          "after": 13,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 10,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-16",
+          "name": "直方体[ちょくほうたい]と立方体[りっぽうたい]",
+          "before": 25,
+          "after": 25,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 13,
+            "advanced": 5,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 13,
+            "advanced": 5,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-2",
+          "name": "折[お]れ線[せん]グラフ",
+          "before": 24,
+          "after": 25,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 5,
+            "standard": 18,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 5,
+            "standard": 18,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-3",
+          "name": "わり算[ざん]の筆算[ひっさん]",
+          "before": 30,
+          "after": 32,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 30,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 30,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-4",
+          "name": "角[かく]",
+          "before": 16,
+          "after": 17,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-5",
+          "name": "直線[ちょくせん]と四角形[しかっけい]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 9,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 9,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-6",
+          "name": "小数[しょうすう]（４年生[ねんせい]）",
+          "before": 28,
+          "after": 32,
+          "added": 4,
+          "difficultyBefore": {
+            "basic": 22,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 25,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-7",
+          "name": "２けたでわる わり算[ざん]の筆算[ひっさん]",
+          "before": 29,
+          "after": 29,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 27,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 27,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-8",
+          "name": "計算[けいさん]のきまり",
+          "before": 28,
+          "after": 28,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 18,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 18,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g4.legacy-math-4-9",
+          "name": "倍[ばい]の見方[みかた]と割合[わりあい]",
+          "before": 11,
+          "after": 11,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          }
+        }
+      ]
+    },
+    {
+      "grade": 5,
+      "before": 359,
+      "after": 371,
+      "added": 12,
+      "existingExplanationRepairs": [],
+      "difficultyBefore": {
+        "basic": 212,
+        "standard": 125,
+        "advanced": 22,
+        "generated": 0
+      },
+      "difficultyAfter": {
+        "basic": 212,
+        "standard": 131,
+        "advanced": 28,
+        "generated": 0
+      },
+      "groups": [
+        {
+          "id": "decimal-place",
+          "name": "整数[せいすう]と小数[しょうすう]",
+          "before": 15,
+          "after": 17,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "位の分解・10の累乗倍を直接処理する15問。場面への適用と逆向きの位の操作がない。",
+          "gaps": "0.01単位の個数と逆向きの位の操作",
+          "addedIds": [
+            "sansu.g5.balance.hundredth-pieces",
+            "sansu.g5.balance.reverse-place"
+          ]
+        },
+        {
+          "id": "volume",
+          "name": "直方体[ちょくほうたい]と立方体[りっぽうたい]の体積[たいせき]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          },
+          "judgment": "単位・公式の基礎、複合体積・段数の標準、内のりと辺の逆算がそろう。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "proportion",
+          "name": "比例[ひれい]と変[か]わり方[かた]",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 1,
+            "standard": 7,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 7,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "9問。表の穴埋めに加え非比例との比較と予測があり、問題数だけで増やさない。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "decimal-multiply",
+          "name": "小数[しょうすう]のかけ算[ざん]",
+          "before": 27,
+          "after": 28,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 23,
+            "standard": 2,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 23,
+            "standard": 3,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "直接計算23問が中心。公式適用2問と計算法則の理由判断2問はあるが、単価×小数量の場面がない。",
+          "gaps": "小数倍の意味を使う代金の立式",
+          "addedIds": [
+            "sansu.g5.balance.ribbon-price"
+          ]
+        },
+        {
+          "id": "decimal-divide",
+          "name": "小数[しょうすう]のわり算[ざん]",
+          "before": 26,
+          "after": 26,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 25,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 25,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "直接計算、余り、概数に加え前回補強した棒の長さの立式がある。",
+          "gaps": "追加不要。直前補強を重複しない",
+          "addedIds": []
+        },
+        {
+          "id": "decimal-ratio",
+          "name": "小数[しょうすう]の倍[ばい]",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 9,
+            "advanced": 4,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 9,
+            "advanced": 4,
+            "generated": 0
+          },
+          "judgment": "公式確認、基準量を読む場面、基準量の逆算まで段階がある。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "congruence",
+          "name": "合同[ごうどう]な図形[ずけい]",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 1,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "9問。対応辺・角の読取、作図手順、対角線で合同を判断する問題がある。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "angles",
+          "name": "図形[ずけい]の角[かく]",
+          "before": 13,
+          "after": 13,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "角の和の基本と図の角の計算、分割による理由判断がある。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "integers",
+          "name": "偶数[ぐうすう]・奇数[きすう]、倍数[ばいすう]と約数[やくすう]",
+          "before": 30,
+          "after": 33,
+          "added": 3,
+          "difficultyBefore": {
+            "basic": 30,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 30,
+            "standard": 2,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "30問が定義・列挙・最大公約数/最小公倍数の直接計算。場面で両者を使い分ける問いがない。",
+          "gaps": "配分への公約数、周期への公倍数、二条件を満たす公倍数",
+          "addedIds": [
+            "sansu.g5.balance.equal-gift-bags",
+            "sansu.g5.balance.bus-cycle",
+            "sansu.g5.balance.common-multiple-range"
+          ]
+        },
+        {
+          "id": "fractions-decimals",
+          "name": "分数[ぶんすう]と小数[しょうすう]・整数[せいすう]",
+          "before": 19,
+          "after": 20,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "19問が変換や丸めの直接処理。分数で商を表す意味を場面へ結びつけたい。",
+          "gaps": "等分の場面から商を分数表示",
+          "addedIds": [
+            "sansu.g5.balance.share-two-litres"
+          ]
+        },
+        {
+          "id": "fraction-add-subtract",
+          "name": "分数[ぶんすう]のたし算[ざん]とひき算[ざん]",
+          "before": 29,
+          "after": 31,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 29,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 29,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "29問が通分・約分・加減の直接処理。異分母の加減を使う場面と逆算がない。",
+          "gaps": "液量の加法と未知の使用量の逆算",
+          "addedIds": [
+            "sansu.g5.balance.combine-water",
+            "sansu.g5.balance.used-water"
+          ]
+        },
+        {
+          "id": "average",
+          "name": "平均[へいきん]",
+          "before": 13,
+          "after": 13,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 3,
+            "generated": 0
+          },
+          "judgment": "合計÷個数、0を含む平均、平均から未知データを求める逆算がある。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "unit-quantity",
+          "name": "単位量[たんいりょう]あたりの大[おお]きさ",
+          "before": 10,
+          "after": 10,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "10問が場面に基づく単位量と比較。純粋な用語確認を無理に増やさない。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "speed",
+          "name": "速[はや]さ",
+          "before": 24,
+          "after": 25,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 17,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 17,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "公式と単位変換、道のり・時間を読む場面が多いが、単位をそろえて2者を比較する問いがない。",
+          "gaps": "分速と秒速をそろえた比較",
+          "addedIds": [
+            "sansu.g5.balance.speed-compare-units"
+          ]
+        },
+        {
+          "id": "area",
+          "name": "四角形[しかくけい]と三角形[さんかくけい]の面積[めんせき]",
+          "before": 10,
+          "after": 11,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "図の底辺と高さを読み公式へ適用する10問。面積から高さを求める逆思考がない。",
+          "gaps": "面積・底辺から高さを逆算",
+          "addedIds": [
+            "sansu.g5.balance.triangle-height-inverse"
+          ]
+        },
+        {
+          "id": "percentage",
+          "name": "割合[わりあい]と百分率[ひゃくぶんりつ]",
+          "before": 25,
+          "after": 25,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 17,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 17,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "表記変換が多いが値引き・増量、基準量の逆算があり段階を持つ。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "data",
+          "name": "帯[おび]グラフと円[えん]グラフ",
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 14,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 14,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "グラフ名・読取・割合比較・調査設計・結論の理由判断がある。",
+          "gaps": "追加不要。直前の統計的探究4問を活用",
+          "addedIds": []
+        },
+        {
+          "id": "regular-polygons",
+          "name": "正多角形[せいたかくけい]と円周[えんしゅう]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "性質、作図手順、円周計算、直径の逆算がある。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "prisms",
+          "name": "角柱[かくちゅう]と円柱[えんちゅう]",
+          "before": 18,
+          "after": 18,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "名前・底面側面の概念から展開図の対応と円周適用まである。発展必須とはしない。",
+          "gaps": "追加不要",
+          "addedIds": []
+        },
+        {
+          "id": "changing",
+          "name": "変[か]わり方[かた]と式[しき]",
+          "before": 10,
+          "after": 11,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 1,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 9,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "2つの場面で順方向の表・式・値を求める10問。代金から個数へ戻る問いがない。",
+          "gaps": "固定費を含む関係の逆算",
+          "addedIds": [
+            "sansu.g5.balance.apple-box-inverse"
+          ]
+        }
+      ],
+      "units": [
+        {
+          "id": "sansu.g5.legacy-math-5-1",
+          "name": "整数[せいすう]と小数[しょうすう]",
+          "before": 15,
+          "after": 17,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 15,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 15,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-10",
+          "name": "三角形[さんかっけい]・四角形[しかっけい]の面積[めんせき]",
+          "before": 10,
+          "after": 11,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 10,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-11",
+          "name": "平均[へいきん]、単位[たんい]量[りょう]あたりの大[おお]きさ",
+          "before": 23,
+          "after": 23,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 20,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 0,
+            "standard": 20,
+            "advanced": 3,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-12",
+          "name": "速[はや]さ",
+          "before": 24,
+          "after": 25,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 17,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 17,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-13",
+          "name": "割合[わりあい]",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 3,
+            "standard": 9,
+            "advanced": 4,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 3,
+            "standard": 9,
+            "advanced": 4,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-14",
+          "name": "百分率[ひゃくぶんりつ]と歩合[ぶあい]",
+          "before": 25,
+          "after": 25,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 17,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 17,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-15",
+          "name": "帯[おび]グラフと円[えん]グラフ",
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 14,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 14,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-16",
+          "name": "変[か]わり方[かた]調[しら]べ（５年生[ねんせい]）",
+          "before": 10,
+          "after": 11,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 1,
+            "standard": 9,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 9,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-17",
+          "name": "円[えん]と 多角形[たかくけい]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 6,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-18",
+          "name": "角柱[かくちゅう]と円柱[えんちゅう]",
+          "before": 18,
+          "after": 18,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 12,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-2",
+          "name": "体積[たいせき]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 6,
+            "advanced": 3,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-3",
+          "name": "比例[ひれい]",
+          "before": 9,
+          "after": 9,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 1,
+            "standard": 7,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 7,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-4",
+          "name": "小数[しょうすう]×小数[しょうすう]",
+          "before": 27,
+          "after": 28,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 23,
+            "standard": 2,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 23,
+            "standard": 3,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-5",
+          "name": "小数[しょうすう]÷小数[しょうすう]",
+          "before": 26,
+          "after": 26,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 25,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 25,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-6",
+          "name": "合同[ごうどう]な図形[づけい]、内角[ないかく]",
+          "before": 22,
+          "after": 22,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 12,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 12,
+            "advanced": 3,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-7",
+          "name": "倍数[ばいすう]と約数[やくすう]",
+          "before": 30,
+          "after": 33,
+          "added": 3,
+          "difficultyBefore": {
+            "basic": 30,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 30,
+            "standard": 2,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-8",
+          "name": "約分[やくぶん]と通分[つうぶん]",
+          "before": 29,
+          "after": 31,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 29,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 29,
+            "standard": 1,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g5.legacy-math-5-9",
+          "name": "分数[ぶんすう]と小数[しょうすう]",
+          "before": 19,
+          "after": 20,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 19,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 19,
+            "standard": 1,
+            "advanced": 0,
+            "generated": 0
+          }
+        }
+      ]
+    },
+    {
+      "grade": 6,
+      "before": 218,
+      "after": 226,
+      "added": 8,
+      "existingExplanationRepairs": [],
+      "difficultyBefore": {
+        "basic": 88,
+        "standard": 113,
+        "advanced": 17,
+        "generated": 0
+      },
+      "difficultyAfter": {
+        "basic": 90,
+        "standard": 115,
+        "advanced": 21,
+        "generated": 0
+      },
+      "groups": [
+        {
+          "id": "symmetry",
+          "name": "対称[たいしょう]な図形[ずけい]",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "定義・対応・作図・多角形の性質を18問で扱う。図から答えを読む問題が中心。",
+          "gaps": "線対称と点対称を同一視しない理由判断を補う。",
+          "addedIds": [
+            "sansu.g6.balance.symmetry-counterexample"
+          ]
+        },
+        {
+          "id": "letters",
+          "name": "文字[もじ]と式[しき]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "14問で式の表現、代入、値から文字を求める逆思考まで扱う。",
+          "gaps": "追加不要。図形・買物・割合の場面もある。",
+          "addedIds": []
+        },
+        {
+          "id": "fraction-integers",
+          "name": "分数[ぶんすう]と整数[せいすう]のかけ算[ざん]・わり算[ざん]",
+          "before": 8,
+          "after": 10,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 0,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 2,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "8問がすべて式だけの計算で、計算技能に偏る。",
+          "gaps": "整数倍と等分の意味を異なる生活場面で補う。",
+          "addedIds": [
+            "sansu.g6.balance.fraction-packets",
+            "sansu.g6.balance.fraction-share"
+          ]
+        },
+        {
+          "id": "fraction-multiplication",
+          "name": "分数[ぶんすう]のかけ算[ざん]",
+          "before": 16,
+          "after": 16,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 9,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 9,
+            "standard": 7,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "16問。分数倍の意味、約分、帯分数、積の大小、分配法則を含む。",
+          "gaps": "追加不要。基礎計算の反復には約分位置等の違いがある。",
+          "addedIds": []
+        },
+        {
+          "id": "fraction-division",
+          "name": "分数[ぶんすう]のわり算[ざん]",
+          "before": 12,
+          "after": 12,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 7,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 7,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "12問。包含除、計算、商の大小、単位量への逆算を含む。",
+          "gaps": "追加不要。除数が分数の意味と計算法がそろう。",
+          "addedIds": []
+        },
+        {
+          "id": "fraction-applications",
+          "name": "分数[ぶんすう]の計算[けいさん]を使[つか]う",
+          "before": 11,
+          "after": 11,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 4,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 4,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "11問。時間換算、面積・体積、基準量の逆算を含む。",
+          "gaps": "追加不要。単位換算だけに偏っていない。",
+          "addedIds": []
+        },
+        {
+          "id": "ratios",
+          "name": "比[ひ]",
+          "before": 24,
+          "after": 25,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 4,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "24問中20問は比の表現・値・簡単化・等しい比の処理。場面問題は既知の一方や全体から求める型。",
+          "gaps": "比の差から一つ分を求める学年内の逆思考を1問補う。",
+          "addedIds": [
+            "sansu.g6.balance.ratio-difference"
+          ]
+        },
+        {
+          "id": "scale",
+          "name": "拡大図[かくだいず]と縮図[しゅくず]",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "19問。用語、対応、作図条件、地図の実長、身長を足す測定まで扱う。",
+          "gaps": "追加不要。定義の問題は多いが適用場面もそろう。",
+          "addedIds": []
+        },
+        {
+          "id": "data",
+          "name": "データの調[しら]べ方[かた]",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 8,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 8,
+            "advanced": 3,
+            "generated": 0
+          },
+          "judgment": "19問。代表値、階級、表・図、目的、散らばり、調査方法、結論の批判的判断を含む。",
+          "gaps": "追加不要。計算とデータの解釈の両方を含む。",
+          "addedIds": []
+        },
+        {
+          "id": "circle-area",
+          "name": "円[えん]の面積[めんせき]",
+          "before": 11,
+          "after": 11,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 5,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 5,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "11問。公式の由来、半径・直径、分割・複合図形、拡大時の面積を含む。",
+          "gaps": "追加不要。難しい複合図形を増やさず基礎からの流れを維持。",
+          "addedIds": []
+        },
+        {
+          "id": "volume",
+          "name": "角柱[かくちゅう]と円柱[えんちゅう]の体積[たいせき]",
+          "before": 8,
+          "after": 8,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 2,
+            "standard": 4,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 2,
+            "standard": 4,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "8問。底面積×高さの意味と三角柱・四角柱・円柱・複合柱体を含む。",
+          "gaps": "追加不要。8問でも底面の種類と計算段階の幅は確保。",
+          "addedIds": []
+        },
+        {
+          "id": "estimation",
+          "name": "およその面積[めんせき]と体積[たいせき]",
+          "before": 6,
+          "after": 8,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 6,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 6,
+            "advanced": 1,
+            "generated": 0
+          },
+          "judgment": "6問すべて近似する形が指定済みで、その公式に代入する問題。",
+          "gaps": "近似する形を自分で選ぶ入口と、見積もりが正確な値ではない理由判断を補う。",
+          "addedIds": [
+            "sansu.g6.balance.estimate-model",
+            "sansu.g6.balance.estimate-meaning"
+          ]
+        },
+        {
+          "id": "proportion",
+          "name": "比例[ひれい]",
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 7,
+            "standard": 11,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 11,
+            "advanced": 2,
+            "generated": 0
+          },
+          "judgment": "20問。表・式・グラフ・比例でない関係・比例を使う測定がある。反比例の定義は比較導入として現行順を維持。",
+          "gaps": "追加不要。各表現の変換と活用がそろう。",
+          "addedIds": []
+        },
+        {
+          "id": "inverse",
+          "name": "反比例[はんぴれい]",
+          "before": 12,
+          "after": 12,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 0,
+            "generated": 0
+          },
+          "judgment": "12問。積一定、表・式・グラフ、場面の判別を扱う。",
+          "gaps": "追加不要。比例との区別ができ、発展問題の一律追加はしない。",
+          "addedIds": []
+        },
+        {
+          "id": "combinations",
+          "name": "並[なら]べ方[かた]と組[く]み合[あ]わせ",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 17,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 17,
+            "advanced": 4,
+            "generated": 0
+          },
+          "judgment": "20問は個数を答える問題が中心で、列挙の方法そのものを確かめる入口が弱い。",
+          "gaps": "3種類から2種類の組を順に列挙する入口と、順序を区別しない際の重複理由を補う。",
+          "addedIds": [
+            "sansu.g6.balance.pairs-list",
+            "sansu.g6.balance.pairs-duplicate"
+          ]
+        }
+      ],
+      "units": [
+        {
+          "id": "sansu.g6.legacy-math-6-1",
+          "name": "対称[たいしょう]な図形[づけい]",
+          "before": 18,
+          "after": 19,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-10",
+          "name": "場合[ばあい]の数[かず]",
+          "before": 20,
+          "after": 22,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 0,
+            "standard": 17,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 1,
+            "standard": 17,
+            "advanced": 4,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-2",
+          "name": "文字[もじ]と式[しき]",
+          "before": 14,
+          "after": 14,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 4,
+            "standard": 8,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-3",
+          "name": "分数[ぶんすう]のかけ算[ざん]",
+          "before": 24,
+          "after": 26,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 13,
+            "standard": 11,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 13,
+            "standard": 13,
+            "advanced": 0,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-4",
+          "name": "分数[ぶんすう]のわり算[ざん]",
+          "before": 23,
+          "after": 23,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 14,
+            "standard": 7,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 14,
+            "standard": 7,
+            "advanced": 2,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-5",
+          "name": "比[ひ]",
+          "before": 24,
+          "after": 25,
+          "added": 1,
+          "difficultyBefore": {
+            "basic": 20,
+            "standard": 4,
+            "advanced": 0,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 20,
+            "standard": 4,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-6",
+          "name": "拡大[かくだい]と縮小[しゅくしょう]",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 1,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 6,
+            "standard": 12,
+            "advanced": 1,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-7",
+          "name": "円[えん]の面積[めんせき]、立体[りったい]の体積[たいせき]",
+          "before": 25,
+          "after": 27,
+          "added": 2,
+          "difficultyBefore": {
+            "basic": 6,
+            "standard": 15,
+            "advanced": 4,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 7,
+            "standard": 15,
+            "advanced": 5,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-8",
+          "name": "データの調[しら]べ方[かた]",
+          "before": 19,
+          "after": 19,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 8,
+            "standard": 8,
+            "advanced": 3,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 8,
+            "standard": 8,
+            "advanced": 3,
+            "generated": 0
+          }
+        },
+        {
+          "id": "sansu.g6.legacy-math-6-9",
+          "name": "比例[ひれい]と反比例[はんぴれい]",
+          "before": 32,
+          "after": 32,
+          "added": 0,
+          "difficultyBefore": {
+            "basic": 11,
+            "standard": 19,
+            "advanced": 2,
+            "generated": 0
+          },
+          "difficultyAfter": {
+            "basic": 11,
+            "standard": 19,
+            "advanced": 2,
+            "generated": 0
+          }
+        }
+      ]
+    }
+  ]
+}

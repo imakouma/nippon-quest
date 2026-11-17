@@ -376,5 +376,36 @@
       "template": "111-99 = {{INPUT}}"
     },
     "explanation": "111を 100と 11に 分[わ]け、10を くり下[さ]げます。一[いち]の位[くらい]は 11−9＝2。十[じゅう]のまとまりは 10−9＝1。あわせて 12です。"
+  },
+  {
+    "id": "sansu.g2.balance.larger-subtraction-paper",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 2,
+    "unit": "sansu.g2.legacy-math-2-10",
+    "tags": [
+      "source:original",
+      "reviewed:structural-v1"
+    ],
+    "payload": {
+      "prompt": "色紙[いろがみ]が125まい ありました。68まい 使[つか]いました。何[なん]まい のこっていますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "57まい"
+        },
+        {
+          "id": "c2",
+          "text": "67まい"
+        },
+        {
+          "id": "c3",
+          "text": "193まい"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "使[つか]った68まいを ひくので、125−68です。まず60を ひいて65、つぎに8を ひいて57まいです。68＋57＝125で 確[たし]かめます。"
   }
 ]

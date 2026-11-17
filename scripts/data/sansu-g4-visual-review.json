@@ -1883,5 +1883,75 @@
     "id": "sansu.g4.legacy-math-4-10.round-up",
     "decision": "illustrated",
     "reason": "独自制作した図と本文・正答・解法を照合。"
+  },
+  {
+    "id": "sansu.g4.balance.large-relative",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。相対的な数の大きさ"
+  },
+  {
+    "id": "sansu.g4.balance.division-seat",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。余りに応じて商を切り上げる場面、余りは除数より小さい条件"
+  },
+  {
+    "id": "sansu.g4.balance.division-check",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。余りに応じて商を切り上げる場面、余りは除数より小さい条件"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-order",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。小数の大小順序、相対的な大きさ"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-unit",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。小数の大小順序、相対的な大きさ"
+  },
+  {
+    "id": "sansu.g4.balance.soroban-large",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。大きい数のそろばん、10こを隣の位1こへ交換"
+  },
+  {
+    "id": "sansu.g4.balance.soroban-carry",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。大きい数のそろばん、10こを隣の位1こへ交換"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-product-scene",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。量の場面からの立式、0.01単位による誤答説明"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-product-reason",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。量の場面からの立式、0.01単位による誤答説明"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-remainder",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。小数の余りとその単位"
+  },
+  {
+    "id": "sansu.g4.balance.fraction-scene",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。同分母減法の量の場面"
+  },
+  {
+    "id": "sansu.g4.balance.relation-reverse",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。対応する数量を逆向きに求める"
+  },
+  {
+    "id": "sansu.g4.balance.graph-between",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。測定していない時刻の値の判断"
+  },
+  {
+    "id": "sansu.g4.balance.angle-combine",
+    "decision": "text-only",
+    "reason": "量・単位・条件が本文に明示され、図から新たな情報を読む問題ではない。角度を加える場面"
   }
 ]
