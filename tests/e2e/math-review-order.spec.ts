@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync, readdirSync } from 'node:fs';
 
+// 正規プレビューは全教材の読込中にも統合HEADを検証するため、初期読込に余裕を持たせる。
+test.describe.configure({ timeout: 120_000 });
+
 test('小1算数の学ぶ順は単元を跨いで基礎をまとめ、保存フォルダを変更しない', async ({ page }) => {
   const actions: string[] = [];
   const assigned = 'sansu.g1.kazu-100.correspondence-0001';
@@ -24,7 +27,7 @@ test('小1算数の学ぶ順は単元を跨いで基礎をまとめ、保存フ�
   const grade = subject.locator('details[data-grade="1"]');
   await grade.locator(':scope > summary').click();
   const groups = grade.locator('[data-math-scope]');
-  await expect(groups).toHaveCount(22, { timeout: 20_000 });
+  await expect(groups).toHaveCount(22, { timeout: 60_000 });
   await grade.locator('[data-math-scope="three-numbers"]').click();
   await expect(grade.locator('.pg-question-row')).toHaveCount(4);
   await expect(groups.first()).toHaveAttribute('data-math-scope', 'correspondence');
@@ -91,8 +94,7 @@ for (const [gradeNumber, groups] of Object.entries(mathReviewGroupsByGrade)) {
     await subject.locator(':scope > summary').click();
     const grade = subject.locator(`details[data-grade="${gradeNumber}"]`);
     await grade.locator(':scope > summary').click();
-    await expect(grade.locator('[data-math-scope]')).toHaveCount(groups.length, { timeout: 20_000 });
-    test.setTimeout(120_000);
+    await expect(grade.locator('[data-math-scope]')).toHaveCount(groups.length, { timeout: 60_000 });
     for (const group of groups) {
       const button = grade.locator(`[data-math-scope="${group.id}"]`);
       await button.click();
