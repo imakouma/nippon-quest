@@ -117,3 +117,14 @@ describe('grade 3 reaudit regressions', () => {
     expect(strip(questions.find((q) => q.id.endsWith('4220df7a294c'))!.explanation!)).toContain('0も 整数');
   });
 });
+
+describe('grade 3 triangle classification diagram', () => {
+  it('states the equilateral exclusion and gives the scalene triangle distinct side lengths', () => {
+    const q = questions.find((q) => q.id.endsWith('dc5ffaf17483'))!;
+    expect(strip(q.payload.prompt)).toContain('正三角形を のぞいた');
+    const svg = readFileSync('assets/questions/sansu/g3/reaudit/triangle-classification.svg', 'utf8');
+    for (const length of ['3cm', '4cm', '5cm']) expect(svg).toContain(length);
+    expect(svg.match(/<polygon /g)).toHaveLength(6);
+    expect(svg.match(/stroke="#a54022"/g)).toHaveLength(12);
+  });
+});

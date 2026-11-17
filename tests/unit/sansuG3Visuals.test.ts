@@ -90,7 +90,7 @@ describe('grade 3 illustrated learning materials', () => {
       reason: string;
     }[];
     expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(115);
+    expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(117);
     for (const r of review) {
       expect(r.reason).toBeTruthy();
       if (r.decision !== 'illustrated') continue;
