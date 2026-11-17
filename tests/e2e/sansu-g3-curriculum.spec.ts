@@ -50,10 +50,17 @@ const changed = new Set(
     .filter((q) => !q.actions.includes('existing-retained-after-review'))
     .map((q) => q.id),
 );
+const reaudit = JSON.parse(readFileSync('tasks/sansu-g3-reaudit-20261117.json', 'utf8')) as {
+  repairs: { id: string }[];
+  additions: { id: string }[];
+};
+const reauditIds = new Set([...reaudit.repairs, ...reaudit.additions].map((q) => q.id));
 const examples =
-  process.env.G3_FULL_REVIEW === '1'
-    ? questions.filter((q) => changed.has(q.id) && q.type !== 'random-calculation')
-    : representative;
+  process.env.G3_REAUDIT === '1'
+    ? questions.filter((q) => reauditIds.has(q.id))
+    : process.env.G3_FULL_REVIEW === '1'
+      ? questions.filter((q) => changed.has(q.id) && q.type !== 'random-calculation')
+      : representative;
 for (const width of process.env.G3_FULL_REVIEW === '1' ? [390] : [390, 1280]) {
   for (const q of examples) {
     test(`${width}px grade3 answer/explanation ${q.id}`, async ({ page }) => {

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g3.reaudit.grouping",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.legacy-math-3-2",
+    "tags": ["original:curriculum-20261117"],
+    "payload": {
+      "prompt": "玉[たま]が12こあります。1ふくろに3こずつ 入[い]れると、何[なん]ふくろできますか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "3ふくろ"
+        },
+        {
+          "id": "c1",
+          "text": "4ふくろ"
+        },
+        {
+          "id": "c2",
+          "text": "9ふくろ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/reaudit/group-three.svg",
+      "promptSpeech": "玉[たま]が12こあります。1ふくろに3こずつ 入[い]れると、何[なん]ふくろできますか。 玉12こを3こずつに分けます。"
+    },
+    "explanation": "12こを3こずつのまとまりに 分[わ]けるので、12÷3です。3×4=12より、4ふくろできます。"
+  }
+]

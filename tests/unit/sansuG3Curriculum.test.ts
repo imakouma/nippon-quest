@@ -26,7 +26,7 @@ const strip = (s: string) => s.replace(/\[[^\]]+\]/g, '');
 describe('grade 3 curriculum and recovered source context', () => {
   it('includes every question exactly once, and introduces concepts before applications', () => {
     const ids = order.groups.flatMap((g) => g.questionIds);
-    expect(ids).toHaveLength(361);
+    expect(ids).toHaveLength(367);
     expect(new Set(ids)).toEqual(new Set(byId.keys()));
     const groups = order.groups.map((g) => g.id);
     for (const [before, after] of [
@@ -37,9 +37,9 @@ describe('grade 3 curriculum and recovered source context', () => {
     ] as const)
       expect(groups.indexOf(before)).toBeLessThan(groups.indexOf(after));
   });
-  it('gives all 356 fixed questions a readable explanation without broken TeX', () => {
+  it('gives all 362 fixed questions a readable explanation without broken TeX', () => {
     const fixed = questions.filter((q) => q.type !== 'random-calculation');
-    expect(fixed).toHaveLength(356);
+    expect(fixed).toHaveLength(362);
     for (const q of fixed) {
       expect(q.explanation?.length, q.id).toBeGreaterThan(10);
       expect(JSON.stringify(q), q.id).not.toMatch(/\\(?:require|bcancel)\{/);
@@ -88,5 +88,32 @@ describe('grade 3 curriculum and recovered source context', () => {
       ['cd8591c437d6', '45+47'],
     ] as const)
       expect(questions.find((q) => q.id.endsWith(hash))!.payload.prompt).toContain(expression);
+  });
+});
+
+describe('grade 3 reaudit regressions', () => {
+  it('answers the requested multiplication table, rather than its quotient', () => {
+    for (const [hash, table] of [
+      ['3ee206088b50', '5'],
+      ['baebd85bbe9b', '3'],
+    ] as const) {
+      const q = questions.find((q) => q.id.endsWith(hash))!;
+      expect(strip(q.explanation!)).toContain(table + 'のだん');
+    }
+  });
+  it('covers grouping, seconds, route/distance, tools and larger abacus positions', () => {
+    for (const [suffix, answer] of [
+      ['grouping', '4ふくろ'],
+      ['seconds', '80秒'],
+      ['route', '700m'],
+      ['distance', '500m'],
+      ['instrument', 'まきじゃく'],
+      ['abacus-large', '23000'],
+    ] as const) {
+      const q = byId.get('sansu.g3.reaudit.' + suffix)!;
+      const actual = strip(q.payload.choices!.find((c) => c.id === q.payload.answer)!.text);
+      expect(actual).toBe(answer);
+    }
+    expect(strip(questions.find((q) => q.id.endsWith('4220df7a294c'))!.explanation!)).toContain('0も 整数');
   });
 });
