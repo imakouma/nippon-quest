@@ -71,3 +71,13 @@ describe('grade 1 visual question review', () => {
     }
   });
 });
+
+it('aligns the pencil ends including their outlines for length comparison', () => {
+  const svg = readFileSync('assets/questions/sansu/g1/visuals/pencil-compare-a.svg', 'utf8');
+  const ends = [...svg.matchAll(/translate\((\d+) \d+\) scale\(([\d.]+) 0.5\)/g)].map(
+    (match) => Number(match[1]) + 8 * Number(match[2]),
+  );
+  expect(ends).toHaveLength(2);
+  expect(ends[0]).toBe(ends[1]);
+  expect(svg.match(/vector-effect="non-scaling-stroke"/g)).toHaveLength(8);
+});
