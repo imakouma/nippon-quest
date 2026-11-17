@@ -3,16 +3,16 @@ import { folderStateSchema, type FolderLayout, type FolderState } from './folder
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-async function request(data: unknown): Promise<FolderState> {
-  const fallback =
-    (data as { action?: unknown }).action === 'read'
-      ? 'フォルダ構成を読み込めませんでした'
-      : 'フォルダ構成を保存できませんでした';
+async function request(data: unknown): Promise<FolderState | null> {
+  const reading = (data as { action?: unknown }).action === 'read';
+  const fallback = reading ? 'フォルダ構成を読み込めませんでした' : 'フォルダ構成を保存できませんでした';
   const response = await fetch(`${base}/__nq/folder-state`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-nq-save': '1' },
     body: JSON.stringify(data),
   });
+  // Static hosts have no editing API; null keeps the default folders read-only.
+  if (reading && (response.status === 404 || response.status === 405)) return null;
   const body = await response.text();
   let result: unknown = null;
   try {
@@ -47,6 +47,7 @@ export function useFolderState() {
     setBusy(true);
     try {
       const saved = await request({ action: 'write', expected: state.revision, state: next });
+      if (!saved) return false;
       setState(saved);
       if (previous) setHistory((old) => [...old, previous]);
       setError('');
