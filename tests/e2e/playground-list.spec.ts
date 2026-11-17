@@ -510,10 +510,47 @@ test('その他に四字熟語と対義語・類義語のフォルダを表示�
   await expect(other6.locator('details[data-kanji-other-kind="idiom"] > summary')).toContainText('四字熟語');
 });
 
-test('フォルダ構成APIが空応答でも内部エラーを表示しない', async ({ page }) => {
-  await page.route('**/__nq/folder-state', (route) => route.fulfill({ status: 404, body: '' }));
+for (const status of [404, 405]) {
+  test(`Playground: フォルダ構成APIがない静的公開先（${status}）でも標準フォルダを閲覧できる`, async ({
+    page,
+  }) => {
+    await page.route('**/__nq/folder-state', (route) =>
+      route.fulfill({ status, contentType: 'text/html', body: '<html>Not available</html>' }),
+    );
+    await page.goto('/playground.html');
+    await page.locator('details[data-subject="kokugo"] > summary').click();
+    await page.locator('details[data-subject="kokugo"] details[data-grade="2"] > summary').click();
+    const unit = page.locator('button[data-unit="kokugo.g2.bun-no-kimari"]');
+    await unit.click();
+    await expect(unit.locator('../..').locator('.pg-question-row')).toHaveCount(4);
+    await expect(page.getByRole('alert')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: '構成を保存', exact: true })).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'フォルダを元に戻す' })).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'フォルダを追加', exact: true })).toHaveCount(0);
+  });
+}
+
+for (const status of [200, 403, 500]) {
+  test(`Playground: フォルダ構成APIの不正な応答（${status}）は警告する`, async ({ page }) => {
+    await page.route('**/__nq/folder-state', (route) => route.fulfill({ status, body: '' }));
+    await page.goto('/playground.html');
+    await expect(page.getByRole('alert')).toHaveText('フォルダ構成を読み込めませんでした');
+    await expect(page.getByRole('button', { name: '構成を保存', exact: true })).toBeDisabled();
+  });
+}
+
+test('Playground: フォルダ構成APIの保存エラーは静的公開先として無視しない', async ({ page }) => {
+  await page.route('**/__nq/folder-state', (route) =>
+    route.request().postDataJSON().action === 'read'
+      ? route.fulfill({
+          json: { revision: 0, layout: { folders: [], assignments: {}, hidden: [] }, snapshots: [] },
+        })
+      : route.fulfill({ status: 405, body: '' }),
+  );
   await page.goto('/playground.html');
-  await expect(page.getByRole('alert')).toHaveText('フォルダ構成を読み込めませんでした');
+  await page.getByRole('button', { name: '構成を保存', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveText('フォルダ構成を保存できませんでした');
+  await expect(page.getByLabel('保存した構成に戻す')).toBeDisabled();
 });
 
 test('学年の下にフォルダを作り、削除した構成を復元できる', async ({ page }) => {
