@@ -14,9 +14,21 @@ const questions = readdirSync('content/questions/sansu/g4').flatMap((dir) =>
 const examples = questions.filter(
   (q) =>
     q.tags.includes('source:original-curriculum-review') ||
-    ['3067e6e62169', '0e2787ecd5a4', '059ff8d0c43f', '0194f6e1fbb5', '41e217e934d3', '24cb632a07ae'].some(
-      (h) => q.id.endsWith(h),
-    ),
+    [
+      '3067e6e62169',
+      '0e2787ecd5a4',
+      '059ff8d0c43f',
+      '0194f6e1fbb5',
+      '41e217e934d3',
+      '24cb632a07ae',
+      '026229489a63',
+      '63035ed0d4c0',
+      '67bb346e3fbb',
+      '2172e4438493',
+      '456c85f1bcb4',
+      '045462a9d9e5',
+      '41468bc19db0',
+    ].some((h) => q.id.endsWith(h)),
 );
 for (const width of [390, 1280])
   for (const q of examples) {

@@ -7,7 +7,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 午前６時から、午前９時までに、気温は何度上がりましたか。",
       "choices": [
         {
           "id": "c1",
@@ -116,7 +116,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 この日で 一番気温が低かったのは、何時ですか。",
       "choices": [
         {
           "id": "c1",
@@ -149,7 +149,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 午後９時から、午後１２時（０時）までに、気温は何度下がりましたか。",
       "choices": [
         {
           "id": "c1",
@@ -182,7 +182,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 この日で 一番気温が高かったのは、何時ですか。",
       "choices": [
         {
           "id": "c1",
@@ -215,7 +215,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 この日の最高気温（一番高い気温）は、何度ですか。",
       "choices": [
         {
           "id": "c1",
@@ -254,7 +254,7 @@
       "promptImage": "questions/sansu/g4/visuals/heat-table-blanks.svg",
       "promptImageAlt": "行は教室、校庭、体育館、その他、合計。列は授業中、休み時間、給食中、放課後、合計。きょうしつ：3、1、2、1、①。こうてい：6、0、0、1、7。たいいくかん：3、1、②、0、4。そのほか：0、1、0、1、2。ごうけい：12、③、2、3、④"
     },
-    "explanation": "① 教室で ねっ中しょう になった人の数の合計：3+1+2+1=7 ② 給食中に 体育館で ねっ中しょう になった人の数：7-6-1-0=0 ③ 休み時間に ねっ中しょう になった人の数：1+1+1+0=3 ④ ねっ中しょう になった人の合計：7+7+4+2=12+3+2+3=20"
+    "explanation": "①は教室[きょうしつ]の横[よこ]の合計[ごうけい]なので3＋1＋2＋1＝7。②は体育館[たいいくかん]の合計[ごうけい]4人[にん]から、ほかの時間[じかん]の人数[にんずう]を引[ひ]いて4−3−1−0＝0。③は休[やす]み時間[じかん]のたての合計[ごうけい]なので1＋0＋1＋1＝3。④は場所[ばしょ]ごとの合計[ごうけい]を足[た]して7＋7＋4＋2＝20です。"
   },
   {
     "id": "legacy.sansu.g4.math-4-2.7448e01f3afd",
@@ -264,7 +264,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 たての目もりは、何を表していますか。",
       "choices": [
         {
           "id": "c1",
@@ -427,7 +427,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 横の目もりは、何を表していますか。",
       "choices": [
         {
           "id": "c1",
@@ -460,7 +460,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 次のうち、気温が一番下がったのは、何時から何時までですか。",
       "choices": [
         {
           "id": "c1",
@@ -507,7 +507,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 気温が変わらなかったのは、何時から何時までですか。",
       "choices": [
         {
           "id": "c1",
@@ -540,7 +540,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 この日の最低気温（一番低い気温）は、何度ですか。",
       "choices": [
         {
           "id": "c1",
@@ -573,7 +573,7 @@
     "unit": "sansu.g4.legacy-math-4-2",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_4_2", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下のグラフは、１日の気温の変わり方を表しています。",
+      "prompt": "下のグラフは、１日の気温の変わり方を表しています。 次のうち、気温が一番上がったのは、何時から何時までですか。",
       "choices": [
         {
           "id": "c1",
