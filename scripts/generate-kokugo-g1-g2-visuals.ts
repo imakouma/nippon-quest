@@ -74,7 +74,7 @@ const flower = () =>
   [0, 1, 2, 3, 4, 5]
     .map(
       (i) =>
-        `<ellipse cx="0" cy="-23" rx="15" ry="28" fill="#eea2a8" stroke="${ink}" stroke-width="3" transform="rotate(${i * 60})"/>`,
+        `<ellipse cx="0" cy="-23" rx="15" ry="28" fill="#de6262" stroke="${ink}" stroke-width="3" transform="rotate(${i * 60})"/>`,
     )
     .join('') +
   circle(0, 0, 16, '#efd36d');
@@ -122,13 +122,13 @@ draw(
 draw(
   'g1-bird-singing',
   ['kokugo.g1.bun-no-kimari.0006', '25b9b1f6819e'],
-  'えだに とまった ことりが、くちばしを あけている え。',
+  'えだに とまって なく ことり。こえを あらわす 曲がった 線。',
   group(240, 110, bird(), 1.35),
 );
 draw(
   'g2-bird-singing',
   ['f5a20c8839e3'],
-  '枝にとまった小鳥が、くちばしを開けている絵。',
+  '枝にとまって鳴く小鳥。声を表す曲がった線。',
   group(240, 110, bird(), 1.35),
 );
 draw(
@@ -175,7 +175,18 @@ draw(
 );
 draw('g2-smile', ['7a923170dfa6'], '子どもが笑っている絵。', group(240, 86, smile(), 1.1));
 const stamp =
-  rect(170, 40, 140, 140, '#d8e9f0') + rect(185, 55, 110, 110, '#fff') + group(240, 98, flower(), 0.5);
+  rect(170, 40, 140, 140, '#d8e9f0') +
+  Array.from({ length: 7 }, (_, i) => {
+    const offset = 50 + i * 20;
+    return (
+      circle(170, offset, 5, '#fff') +
+      circle(310, offset, 5, '#fff') +
+      circle(180 + i * 20, 40, 5, '#fff') +
+      circle(180 + i * 20, 180, 5, '#fff')
+    );
+  }).join('') +
+  rect(185, 55, 110, 110, '#fff') +
+  group(240, 98, flower(), 0.5);
 draw(
   'g1-stamp',
   ['kokugo.g1.hiragana.0006', 'bc63af15bc99'],
