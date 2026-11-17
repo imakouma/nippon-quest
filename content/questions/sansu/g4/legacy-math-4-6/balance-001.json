@@ -1,0 +1,114 @@
+[
+  {
+    "id": "sansu.g4.balance.decimal-order",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "大[おお]きい数[かず]から順[じゅん]に並[なら]んでいるのはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0.8、0.75、0.705"
+        },
+        {
+          "id": "c2",
+          "text": "0.705、0.75、0.8"
+        },
+        {
+          "id": "c3",
+          "text": "0.75、0.8、0.705"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "位[くらい]をそろえると0.800、0.750、0.705です。十分[じゅうぶん]の一[いち]の位[くらい]から比[くら]べ、同[おな]じなら次[つぎ]の位[くらい]を比[くら]べます。800、750、705こ分[ぶん]の0.001と考[かんが]えても比[くら]べられます。"
+  },
+  {
+    "id": "sansu.g4.balance.decimal-unit",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "1.25は、0.01を何[なん]こ集[あつ]めた数[かず]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "125こ"
+        },
+        {
+          "id": "c2",
+          "text": "25こ"
+        },
+        {
+          "id": "c3",
+          "text": "1250こ"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1は0.01を100こ集[あつ]めた数[かず]です。0.25は0.01を25こ集[あつ]めた数[かず]なので、100＋25＝125こです。"
+  },
+  {
+    "id": "sansu.g4.balance.soroban-large",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "そろばんの、1つの珠[たま]が1億[おく]を表[あらわ]すけたで、2億[おく]に6億[おく]を足[た]します。答[こた]えはどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "8億[おく]"
+        },
+        {
+          "id": "c2",
+          "text": "8万[まん]"
+        },
+        {
+          "id": "c3",
+          "text": "8兆[ちょう]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "1億[おく]を1つ分[ぶん]として、2＋6＝8と考[かんが]えます。けたの単位[たんい]は1億[おく]のままなので、答[こた]えは8億[おく]です。"
+  },
+  {
+    "id": "sansu.g4.balance.soroban-carry",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-6",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "そろばんで0.48に0.07を足[た]します。百分[ひゃくぶん]の一[いち]のけたが15こ分[ぶん]になりました。どう直[なお]しますか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "10こ分[ぶん]を十分[じゅうぶん]の一[いち]のけたの1こ分[ぶん]にかえて、0.55にする"
+        },
+        {
+          "id": "c2",
+          "text": "15こ分[ぶん]をそのまま並[なら]べて、0.415にする"
+        },
+        {
+          "id": "c3",
+          "text": "10こ分[ぶん]を消[け]して、0.45にする"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "0.01が10こで0.1になります。0.08＋0.07＝0.15なので、0.1をくり上[あ]げて百分[ひゃくぶん]の一[いち]のけたには5こ分[ぶん]を残[のこ]します。0.4＋0.1＋0.05＝0.55です。"
+  }
+]

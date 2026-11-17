@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sansu.g4.balance.division-seat",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "125人[にん]が、1台[だい]に8人[にん]まで乗[の]れる車[くるま]で出[で]かけます。全員[ぜんいん]が乗[の]るには、車[くるま]は最低[さいてい]何台[なんだい]必要[ひつよう]ですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "16台[だい]"
+        },
+        {
+          "id": "c2",
+          "text": "15台[だい]"
+        },
+        {
+          "id": "c3",
+          "text": "5台[だい]"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "125÷8＝15あまり5です。15台[だい]では5人[にん]が乗[の]れないので、もう1台[だい]必要[ひつよう]です。15＋1＝16台[だい]になります。"
+  },
+  {
+    "id": "sansu.g4.balance.division-check",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 4,
+    "unit": "sansu.g4.legacy-math-4-3",
+    "tags": ["source:original-curriculum-balance"],
+    "payload": {
+      "prompt": "87÷4を「20あまり7」と答[こた]えました。4×20＋7＝87なのに、正[ただ]しい答[こた]えにならない理由[りゆう]はどれですか。",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "あまり7は、わる数[かず]4より小[ちい]さくなく、もう1回[かい]分[わ]けられるから"
+        },
+        {
+          "id": "c2",
+          "text": "あまりは必[かなら]ず0になるから"
+        },
+        {
+          "id": "c3",
+          "text": "商[しょう]は必[かなら]ず1けたになるから"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true
+    },
+    "explanation": "あまりは、わる数[かず]より小[ちい]さくします。7から4をもう1回[かい]引[ひ]けるので、商[しょう]を1増[ふ]やします。正[ただ]しくは21あまり3で、4×21＋3＝87です。"
+  }
+]

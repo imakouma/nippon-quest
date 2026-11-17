@@ -18,7 +18,7 @@ const order = JSON.parse(readFileSync('content/review/sansu-g4-order.json', 'utf
 describe('grade 4 curriculum review', () => {
   it('orders every question exactly once and keeps explanations and renderer contracts', () => {
     const ids = order.groups.flatMap((g) => g.questionIds);
-    expect(ids).toHaveLength(377);
+    expect(ids).toHaveLength(391);
     expect(new Set(ids).size).toBe(ids.length);
     expect(new Set(ids)).toEqual(new Set(questions.map((q) => q.id)));
     for (const q of questions) {

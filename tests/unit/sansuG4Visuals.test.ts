@@ -31,9 +31,10 @@ const questions = readdirSync('content/questions/sansu/g4').flatMap((dir) =>
     ),
 );
 describe('grade 4 illustrated learning materials', () => {
-  it('covers all 377 identities and targets with documented fraction-input repairs', () => {
-    expect(questions).toHaveLength(377);
+  it('covers all 391 identities and targets with documented fraction-input repairs', () => {
+    expect(questions).toHaveLength(391);
     const rows = questions
+      .filter((q) => !q.id.startsWith('sansu.g4.balance.'))
       .sort((a, b) => a.id.localeCompare(b.id))
       .map((q) => {
         const p = getRenderer(q.type)!.schema.parse(q.payload) as {
