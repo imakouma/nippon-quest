@@ -17,8 +17,8 @@
 | ファイル | SHA-256 |
 |---|---|
 | `questions/rika/g4/mizu-no-sugata/set-001.json` | `4b7201d74f235c74cc5d334a57f4044fc861901e3b2605aaaf439b6f336f891f` |
-| `questions/sansu/g1/kazu-100/set-001.json` | `cc11fffe776e2e93679f10c3dd37f4ee431afba6b5f5e4024f376a13df61450d` |
-| `questions/sansu/g1/tashizan/set-001.json` | `009324f40c0ddce9dec0fa0a93646664366a15907f04416e128ccf3393645285` |
+| `questions/sansu/g1/kazu-100/set-001.json` | `66753855d697b6add25af49229e0257803cc6ab3b8a162a844f313a57a3cfc5e` |
+| `questions/sansu/g1/tashizan/set-001.json` | `15ae238050f982a89b48ef6106e2e0d4acc76a2722614e24693c7a4c740de365` |
 | `questions/shakai/g4/todofuken/set-001.json` | `eb56ee4fcaef6d6ee017824c275dd7ab1416b0b85fcda59ca418e32d56de6ec6` |
 
 ## 問題別レビュー

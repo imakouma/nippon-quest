@@ -7,10 +7,10 @@
       "subject": "sansu",
       "name": "たしざん",
       "goals": 5,
-      "questions": 28,
+      "questions": 34,
       "confirmedTermQuestions": 25,
       "linked": 27,
-      "unreviewed": 1,
+      "unreviewed": 7,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -19,10 +19,10 @@
       "subject": "sansu",
       "name": "ひきざん",
       "goals": 3,
-      "questions": 20,
+      "questions": 23,
       "confirmedTermQuestions": 20,
       "linked": 20,
-      "unreviewed": 0,
+      "unreviewed": 3,
       "confirmedTermUnreviewed": 0,
       "placementKind": "spans-terms"
     },
@@ -354,6 +354,11 @@
     {
       "unitId": "sansu.g1.hikizan",
       "kind": "ambiguous-term-placement",
+      "severity": "review"
+    },
+    {
+      "unitId": "sansu.g1.hikizan",
+      "kind": "some-questions-unreviewed",
       "severity": "review"
     },
     {

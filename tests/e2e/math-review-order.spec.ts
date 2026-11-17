@@ -24,7 +24,9 @@ test('小1算数の学ぶ順は単元を跨いで基礎をまとめ、保存フ�
   const grade = subject.locator('details[data-grade="1"]');
   await grade.locator(':scope > summary').click();
   const groups = grade.locator('[data-math-scope]');
-  await expect(groups).toHaveCount(21, { timeout: 20_000 });
+  await expect(groups).toHaveCount(22, { timeout: 20_000 });
+  await grade.locator('[data-math-scope="three-numbers"]').click();
+  await expect(grade.locator('.pg-question-row')).toHaveCount(4);
   await expect(groups.first()).toHaveAttribute('data-math-scope', 'correspondence');
   await grade.locator('[data-math-scope="correspondence"]').click();
   await expect(grade.locator('.pg-question-row')).toHaveCount(3);
@@ -54,13 +56,13 @@ test('繰り上がりを分離し、復元した計算を基本加減へ戻す',
   const grade = subject.locator('details[data-grade="1"]');
   await grade.locator(':scope > summary').click();
   await grade.locator('[data-math-scope="addition"]').click();
-  await expect(grade.locator('.pg-question-row')).toHaveCount(26);
+  await expect(grade.locator('.pg-question-row')).toHaveCount(28);
   await expect(grade.locator('.pg-question-row').filter({ hasText: '9 + 3' })).toHaveCount(0);
   await grade.locator('[data-math-scope="carry-addition"]').click();
   await expect(grade.locator('.pg-question-row').filter({ hasText: '9 + 3' })).toHaveCount(1);
   await expect(grade.locator('[data-math-scope="repair"]')).toHaveCount(0);
   await grade.locator('[data-math-scope="subtraction"]').click();
-  await expect(grade.locator('.pg-question-row')).toHaveCount(20);
+  await expect(grade.locator('.pg-question-row')).toHaveCount(22);
   await expect(grade.locator('.pg-question-row.pg-bad')).toHaveCount(0);
 });
 

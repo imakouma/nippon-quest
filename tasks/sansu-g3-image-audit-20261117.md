@@ -5,6 +5,7 @@
 ## 発見と修復
 
 旧図 `questions/legacy/f099216bea282065.png` を使う分類2問:
+
 - `legacy.sansu.g3.math-3-16.87cf6567eb50`
 - `legacy.sansu.g3.math-3-16.dc5ffaf17483`
 
