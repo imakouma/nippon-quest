@@ -351,7 +351,7 @@
     "sansu.g2.balance.subtraction-oranges": "standard",
     "sansu.g2.balance.carry-reason": "advanced",
     "sansu.g2.balance.ruler-reason": "advanced",
-    "sansu.g2.balance.regroup-hundreds": "standard",
+    "sansu.g2.balance.regroup-hundreds": "basic",
     "sansu.g2.balance.friendly-sum": "advanced",
     "sansu.g2.balance.larger-addition-cards": "standard",
     "sansu.g2.balance.larger-subtraction-paper": "standard",
@@ -363,8 +363,12 @@
     {
       "id": "data",
       "judgment": "読取6問・分類/表対応/比較8問があり基礎は十分。複数の値から結論を確かめる判断を補う。",
-      "gaps": ["合計と差の両方を使った主張の検討"],
-      "addedIds": ["sansu.g2.balance.data-claim"],
+      "gaps": [
+        "合計と差の両方を使った主張の検討"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.data-claim"
+      ],
       "before": {
         "basic": 6,
         "standard": 8
@@ -377,9 +381,13 @@
     },
     {
       "id": "addition",
-      "judgment": "全14問が式の直接計算。合併場面を自分で加法に結びつける問題を単元内に置く。",
-      "gaps": ["合併場面への適用"],
-      "addedIds": ["sansu.g2.balance.addition-library"],
+      "judgment": "全14問が式の直接計算。増加場面を自分で加法に結びつける問題を単元内に置く。",
+      "gaps": [
+        "増加場面への適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.addition-library"
+      ],
       "before": {
         "basic": 14
       },
@@ -391,8 +399,12 @@
     {
       "id": "subtraction",
       "judgment": "全11問が式の直接計算。求残場面から引き算を選び計算する問題を補う。",
-      "gaps": ["求残場面への適用"],
-      "addedIds": ["sansu.g2.balance.subtraction-oranges"],
+      "gaps": [
+        "求残場面への適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.subtraction-oranges"
+      ],
       "before": {
         "basic": 11
       },
@@ -404,8 +416,12 @@
     {
       "id": "written-calculation",
       "judgment": "筆算練習8問と検算2問。繰り上がりを忘れた誤りの理由を選ぶ問題を補う。",
-      "gaps": ["繰り上がりの理由を説明する判断"],
-      "addedIds": ["sansu.g2.balance.carry-reason"],
+      "gaps": [
+        "繰り上がりの理由を説明する判断"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.carry-reason"
+      ],
       "before": {
         "basic": 8,
         "standard": 2
@@ -419,8 +435,12 @@
     {
       "id": "length",
       "judgment": "単位/目盛り12問、ずらした目盛りや複名数計算6問。端の数字を読むだけの誤りを説明する問題を補う。",
-      "gaps": ["0以外から測る際の理由判断"],
-      "addedIds": ["sansu.g2.balance.ruler-reason"],
+      "gaps": [
+        "0以外から測る際の理由判断"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.ruler-reason"
+      ],
       "before": {
         "basic": 12,
         "standard": 6
@@ -434,14 +454,17 @@
     {
       "id": "three-digits",
       "judgment": "構成・読み・大小・系列・何十何百計算が全20問。10が10個以上になる別の数構成を補う。",
-      "gaps": ["通常と異なるまとまり方の数構成"],
-      "addedIds": ["sansu.g2.balance.regroup-hundreds"],
+      "gaps": [
+        "通常と異なるまとまり方の数構成"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.regroup-hundreds"
+      ],
       "before": {
         "basic": 20
       },
       "after": {
-        "basic": 20,
-        "standard": 1
+        "basic": 21
       }
     },
     {
@@ -477,8 +500,12 @@
     {
       "id": "calculation-rules",
       "judgment": "11問とも性質を答えるか式を計算する問題。なぜその組合せを先に足すかの判断を補う。",
-      "gaps": ["計算の工夫の理由"],
-      "addedIds": ["sansu.g2.balance.friendly-sum"],
+      "gaps": [
+        "計算の工夫の理由"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.friendly-sum"
+      ],
       "before": {
         "basic": 11
       },
@@ -490,8 +517,12 @@
     {
       "id": "larger-addition",
       "judgment": "繰り上がりや3口の式は十分。数量の合併場面が単元内にないため1問補う。",
-      "gaps": ["和が100を超える場面適用"],
-      "addedIds": ["sansu.g2.balance.larger-addition-cards"],
+      "gaps": [
+        "和が100を超える場面適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.larger-addition-cards"
+      ],
       "before": {
         "basic": 15
       },
@@ -503,8 +534,12 @@
     {
       "id": "larger-subtraction",
       "judgment": "繰り下がりの式は十分。3桁から2桁を引く場面適用を補う。",
-      "gaps": ["3桁から2桁を引く求残場面"],
-      "addedIds": ["sansu.g2.balance.larger-subtraction-paper"],
+      "gaps": [
+        "3桁から2桁を引く求残場面"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.larger-subtraction-paper"
+      ],
       "before": {
         "basic": 18
       },
@@ -558,8 +593,12 @@
     {
       "id": "four-digits",
       "judgment": "通常の構成・読み・大小・相対的な大きさは十分。カードを一度ずつ使い上限内で最大化する複数条件を補う。",
-      "gaps": ["4桁の大小を使う複数条件整理"],
-      "addedIds": ["sansu.g2.balance.four-digit-cards"],
+      "gaps": [
+        "4桁の大小を使う複数条件整理"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.four-digit-cards"
+      ],
       "before": {
         "basic": 20
       },
@@ -571,8 +610,12 @@
     {
       "id": "metres",
       "judgment": "単位・換算中心。実際の長さを同じ単位に直して残りを求める場面を補う。",
-      "gaps": ["単位をそろえた長さの場面適用"],
-      "addedIds": ["sansu.g2.balance.metre-ribbon"],
+      "gaps": [
+        "単位をそろえた長さの場面適用"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.metre-ribbon"
+      ],
       "before": {
         "basic": 7,
         "standard": 4
@@ -599,8 +642,12 @@
     {
       "id": "fractions",
       "judgment": "等分の名前/読取が中心で等分でない図との比較と折る活動がある。分けた部分の形が違っても等分なら半分になる理由を補う。",
-      "gaps": ["等分の形の違いと理由判断"],
-      "addedIds": ["sansu.g2.balance.half-shape-reason"],
+      "gaps": [
+        "等分の形の違いと理由判断"
+      ],
+      "addedIds": [
+        "sansu.g2.balance.half-shape-reason"
+      ],
       "before": {
         "basic": 12,
         "standard": 6

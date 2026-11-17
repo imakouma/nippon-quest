@@ -25,6 +25,12 @@ describe('小1の問題量と難度の補強', () => {
       expect(ids.filter((id) => id === q.id)).toHaveLength(1);
       expect(q.explanation).toMatch(/\S/);
       expect(getRenderer(q.type)!.schema.safeParse(q.payload).success, q.id).toBe(true);
+      const payload = getRenderer(q.type)!.schema.parse(q.payload) as {
+        promptImage?: string;
+        promptImageAlt?: string;
+        promptSpeech?: string;
+      };
+      if (payload.promptImage) expect(payload.promptImageAlt ?? payload.promptSpeech, q.id).toBeTruthy();
     }
   });
   it('新しい計数図と分解図の数量が回答と一致する', () => {

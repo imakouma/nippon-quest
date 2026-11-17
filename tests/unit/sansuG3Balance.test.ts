@@ -26,7 +26,11 @@ describe('grade 3 balance supplement', () => {
     for (const g of order.groups) {
       const row = audit.groups.find((r) => r.id === g.id)!;
       const counts: Record<string, number> = {};
-      for (const id of g.questionIds) counts[levels[id]] = (counts[levels[id]] ?? 0) + 1;
+      for (const id of g.questionIds) {
+        const level = levels[id];
+        if (!level) throw new Error(`Missing difficulty for ${id}`);
+        counts[level] = (counts[level] ?? 0) + 1;
+      }
       expect(counts, g.id).toEqual(row.afterCounts);
       expect(row.judgment).toBeTruthy();
       expect(row.addedIds).toEqual(g.questionIds.filter((id) => id.startsWith('sansu.g3.balance.')));
