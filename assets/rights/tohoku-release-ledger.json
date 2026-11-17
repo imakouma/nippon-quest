@@ -486,6 +486,22 @@
       "redistributionAllowed": null,
       "creditRequired": null,
       "releaseAction": "公開前に制作者が権利と同梱配布を確認する"
+    },
+    {
+      "id": "kokugo-language-diagrams",
+      "pathPrefixes": [
+        "assets/questions/kokugo/visuals/"
+      ],
+      "status": "hold",
+      "origin": "SVGの基本図形と自作パスによる国語教材図。場面・文の関係・文章構成を図示。外部画像や生成サービスの素材は使用していない。",
+      "author": "NIHON QUEST project",
+      "source": "scripts/generate-kokugo-g1-g2-visuals.ts; scripts/generate-kokugo-g3-g6-visuals.ts",
+      "license": "制作根拠を記録済み。公開承認は未実施。",
+      "licenseEvidence": "assets/questions/kokugo/PROVENANCE.md",
+      "modificationAllowed": null,
+      "redistributionAllowed": null,
+      "creditRequired": null,
+      "releaseAction": "公開前に制作者が権利と同梱配布を確認する"
     }
   ]
 }

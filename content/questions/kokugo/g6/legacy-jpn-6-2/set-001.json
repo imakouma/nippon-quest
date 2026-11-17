@@ -10,7 +10,7 @@
       "review:pending-human"
     ],
     "payload": {
-      "prompt": "相手の動作を高めて言う「尊敬語」として正しいものはどれですか。◆先生が 本を（見る）。",
+      "prompt": "「見る」を、特別な言い方の尊敬語に直したものはどれですか。◆先生が 本を（見る）。",
       "choices": [
         {
           "id": "a",
@@ -30,7 +30,9 @@
         }
       ],
       "answer": "c",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/kokugo/visuals/g6-teacher-reading.svg",
+      "promptSpeech": "「見る」を、特別な言い方の尊敬語に直したものはどれですか。◆先生が 本を（見る）。\n図の説明：先生が本を見ている場面。"
     },
     "explanation": "目上の人が「見る」ことは、尊敬語で「ご覧になる」と言います。"
   },
@@ -65,7 +67,9 @@
         }
       ],
       "answer": "b",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/kokugo/visuals/g6-self-reading.svg",
+      "promptSpeech": "自分の動作をへりくだって言い、相手を立てる「謙譲語（けんじょうご）」として正しいものはどれですか。◆私が 本を（見る）。\n図の説明：わたしが本を見ている場面。"
     },
     "explanation": "自分の「見る」という動作をへりくだって言うときは「拝見する」を使います。"
   },
@@ -115,7 +119,7 @@
       "review:pending-human"
     ],
     "payload": {
-      "prompt": "漢字三文字でできている「三字熟語」はどれですか。",
+      "prompt": "「保健」に、場所を表す漢字一字を加えた三字熟語はどれですか。",
       "choices": [
         {
           "id": "a",
@@ -135,9 +139,10 @@
         }
       ],
       "answer": "b",
-      "shuffle": true
+      "shuffle": true,
+      "promptSpeech": "「保健」に、場所を表す漢字一字を加えた三字熟語はどれですか。"
     },
-    "explanation": "「少人数」「保健室」などは、漢字三文字で構成された三字熟語です。"
+    "explanation": "「保健」に、部屋や場所を表す「室」を加えると「保健室」になります。「共通語」も三字熟語ですが、この条件には合いません。"
   },
   {
     "id": "legacy.kokugo.g6.jpn-6-2.067a48e72468",
@@ -531,7 +536,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/kokugo/visuals/g6-teacher-coming.svg",
+      "promptSpeech": "先生が来ることを表す、正しい敬語は？\n図の説明：先生がこちらへ来る場面。"
     },
     "explanation": "目上の動作には尊敬語を使う。"
   },

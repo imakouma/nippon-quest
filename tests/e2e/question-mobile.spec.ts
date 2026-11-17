@@ -276,3 +276,61 @@ test('社会で更新した全図版の本文がスマホ縦画面で読める',
   });
   expect(issues).toEqual([]);
 });
+
+test('国語で更新した全図版の本文がスマホ縦画面で読める', async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  const rows = ['g1-g2', 'g3-g6'].flatMap(
+    (grades) =>
+      JSON.parse(readFileSync(`scripts/data/kokugo-${grades}-visual-review.json`, 'utf8')) as {
+        id: string;
+        decision: string;
+      }[],
+  );
+  const issues: { id: string; font: number; image: number }[] = [];
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const { id } of rows.filter((row) => row.decision === 'illustrated')) {
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-q')).toBeVisible();
+    await page
+      .locator('.nq-q img')
+      .evaluateAll((images: HTMLImageElement[]) => Promise.all(images.map((image) => image.decode())));
+    await page.evaluate(
+      () =>
+        new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))),
+    );
+    const metrics = await page.locator('.nq-q').evaluate((q) => {
+      const scale = q.getBoundingClientRect().width / (q as HTMLElement).offsetWidth;
+      return {
+        font: parseFloat(getComputedStyle(q.querySelector('.nq-q-prompt')!).fontSize) * scale,
+        image: q.querySelector('img')!.getBoundingClientRect().width,
+      };
+    });
+    if (metrics.font < 18 || metrics.image < 280) issues.push({ id, ...metrics });
+    expect(await page.locator('.pg-stage').evaluate(inspectQuestion), id).toEqual([]);
+  }
+  await testInfo.attach('japanese-mobile-readability', {
+    body: JSON.stringify(issues, null, 2),
+    contentType: 'application/json',
+  });
+  expect(issues).toEqual([]);
+});
+
+for (const [id, answer] of [
+  ['kokugo.g1.joshi.0001', 'へ'],
+  ['source.kokugo.g6.jpn-6-1.68ef1a89a601', '司会者'],
+] as const) {
+  test(`国語の図付き問題を回転後にタップして回答できる: ${id}`, async ({ page }) => {
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-q img')).toBeVisible();
+    for (const [width, height] of [
+      [390, 844],
+      [844, 390],
+      [390, 844],
+    ]) {
+      await page.setViewportSize({ width: width!, height: height! });
+      await expect.poll(() => page.locator('.pg-stage').evaluate(inspectQuestion)).toEqual([]);
+    }
+    await page.locator('.nq-choice').filter({ hasText: answer }).tap();
+    await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
+  });
+}
