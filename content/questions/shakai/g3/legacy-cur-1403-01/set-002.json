@@ -67,7 +67,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/symbol-library.svg",
+      "promptSpeech": "開いた本の形をした地図記号が表している建物はどれですか。 本を開いた形の地図記号。"
     },
     "explanation": "開いた本の形をした地図記号は「図書館」を表します。"
   },
@@ -103,7 +105,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/symbol-paddy.svg",
+      "promptSpeech": "「二本線の並び（縦の二本線）」で表される地図記号は、何を表していますか。 二つの短い縦線が並ぶ地図記号。"
     },
     "explanation": "稲を刈り取った後の株をデザインした二本線の記号[きごう]は「田」を表します。"
   },
@@ -139,7 +143,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/direction-west.svg",
+      "promptSpeech": "地図上で方位を示す「４方向の十字」の記号[きごう]において、上は北、下は南、右は東ですが、左はどの方位ですか。 上が北、右が東、下が南の図。左の方位は、はてな。"
     },
     "explanation": "方位を示す十字の記号[きごう]では、上が北、下が南、右が東、左が西になります。"
   },
@@ -175,7 +181,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/shopping-area.svg",
+      "promptSpeech": "土地の様子[ようす]（土地利用）において、お店やオフィスビルなどが最も多く並んでいる地域は次のうちどれですか。 道路にそって店や事務所の建物が集まる町の模式図。"
     },
     "explanation": "お店や事務所が集まっている地域を「商業地」、家が集まっている地域を「住宅地」、工場が集まっている地域を「工業地」といいます。"
   },
@@ -192,7 +200,7 @@
     ],
     "payload": {
       "prompt": "地図の中から「鳥居（神社）」の記号[きごう]がある場所をクリックして選ぼう。",
-      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "image": "questions/shakai/visuals/town-symbol-map.svg",
       "hotspots": [
         {
           "x": 68,
@@ -252,7 +260,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/legend.svg",
+      "promptSpeech": "地図[ちず]の端[はし]などにある、地図記号[ちずきごう]や色[いろ]の意味[いみ]をまとめた部分[ぶぶん]を何[なん]といいますか。 道のそばに記号のある地図と、記号の意味をまとめた欄。"
     },
     "explanation": "地図記号[ちずきごう]や色[いろ]の意味[いみ]をまとめて示[しめ]した部分[ぶぶん]を「凡例[はんれい]」と呼[よ]びます。縮尺[しゅくしゃく]は、実際[じっさい]の距離[きょり]を地図上[ちずじょう]に縮[ちぢ]めた割合[わりあい]です。"
   },
@@ -288,7 +298,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/compass.svg",
+      "promptSpeech": "方位を知るために使う、北が赤い針で示される磁石のついた道具を何といいますか。 丸い器具の中に、赤い先と白い先の針がある。方位の名前は書かない。"
     },
     "explanation": "方位を知るために使う道具を「方位じしん（方位磁針）」といいます。"
   },
@@ -376,34 +388,34 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "福岡市の中心部である「福岡市役所」がある「中央区」は、地図のどこですか。クリックして選ぼう。",
-      "image": "questions/legacy/cur-1403-01-l1-region-map.png",
+      "prompt": "福岡市役所[ふくおかしやくしょ]がある「中央区[ちゅうおうく]」を、区名[くめい]のカードから選[えら]ぼう。",
+      "image": "questions/shakai/visuals/fukuoka-ward-choices.svg",
       "hotspots": [
         {
-          "x": 48,
-          "y": 56,
+          "x": 70.8333,
+          "y": 34.6154,
           "label": "中央"
         },
         {
-          "x": 62,
-          "y": 64,
+          "x": 70.8333,
+          "y": 76.9231,
           "label": "博多"
         },
         {
-          "x": 68,
-          "y": 38,
+          "x": 29.1667,
+          "y": 76.9231,
           "label": "東"
         },
         {
-          "x": 32,
-          "y": 52,
+          "x": 29.1667,
+          "y": 34.6154,
           "label": "西"
         }
       ],
       "answerIndex": 0,
-      "radius": 9
+      "radius": 20
     },
-    "explanation": "福岡市役所がある「中央区」は、博多区の左隣（西側）に位置しています。"
+    "explanation": "福岡市役所[ふくおかしやくしょ]があるのは中央区[ちゅうおうく]です。図[ず]は区名[くめい]を選[えら]ぶカードで、区[く]の形[かたち]や位置[いち]を示[しめ]す地図[ちず]ではありません。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-01.e81e99ddbfea",
@@ -437,7 +449,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/reverse-direction.svg",
+      "promptSpeech": "小学校から見て、図書館が「北西」の方向にあるとき、図書館から見た小学校の方向はどの方位ですか。 図書館は学校の左上にある。上が北。学校から図書館まで矢印がある。"
     },
     "explanation": "北西の反対[はんたい]の方角は南東になります。"
   },
@@ -473,7 +487,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/symbol-field.svg",
+      "promptSpeech": "「V」の形に似た草の芽のような地図記号は、何を表していますか。 上が開いたVの形の地図記号。"
     },
     "explanation": "双葉の形をデザインした「V」のような記号[きごう]は「畑」を表します。"
   },
@@ -526,7 +542,7 @@
     ],
     "payload": {
       "prompt": "地図の中から「交番（X）」の記号[きごう]がある場所をクリックして選ぼう。",
-      "image": "questions/legacy/cur-1403-01-l3-local-map.png",
+      "image": "questions/shakai/visuals/town-symbol-map.svg",
       "hotspots": [
         {
           "x": 75,
