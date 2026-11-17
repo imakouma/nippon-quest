@@ -132,7 +132,8 @@ function attach(id: string, path: string, description: string) {
   const q = get(id);
   assert(q.type === 'choice' || q.type === 'text-input');
   q.payload.promptImage = path;
-  if (q.type === 'choice') q.payload.promptSpeech = `${q.payload.prompt}。${description}`;
+  if (q.type === 'choice')
+    q.payload.promptSpeech = `${q.payload.prompt}${/[。？！?!]$/.test(q.payload.prompt) ? ' ' : '。'}${description}`;
   else q.payload.promptImageAlt = description;
   changed.set(id, description);
 }
@@ -457,9 +458,9 @@ illustrateRows(keypad.id, 'apples-7-plus-4', 'りんご 7こと 4こを あわ�
 // 長さ・かさは、比較の基準や比べる対象そのものを描く。
 const pencils = get(g1('kurabekata.0001')).payload.choices as { id: string; image?: string }[];
 const pencil = (x: number, y: number, w: number) =>
-  `<g transform="translate(${x} ${y}) scale(${w / 64} 0.5)">${icons.pencil}</g>`;
+  `<g transform="translate(${x} ${y}) scale(${w / 64} 0.5)">${icons.pencil.replaceAll('<path ', '<path vector-effect="non-scaling-stroke" ')}</g>`;
 [
-  pencil(10, 12, 155) + pencil(10, 70, 115),
+  pencil(10, 12, 155) + pencil(15, 70, 115),
   pencil(0, 0, 110) + pencil(108, 85, 110),
   pencil(10, 35, 160),
 ].forEach(

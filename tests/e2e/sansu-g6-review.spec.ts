@@ -11,14 +11,7 @@ const questions = readdirSync('content/questions/sansu/g6').flatMap((dir) =>
   tags: string[];
   payload: { prompt: string; choices?: { id: string; text: string }[]; answer?: string; answers?: string[] };
 }[];
-const changed = new Set(
-  (JSON.parse(readFileSync('tasks/sansu-g6-audit.json', 'utf8')) as { id: string; changed: string[] }[])
-    .filter((r) => r.changed.length)
-    .map((r) => r.id),
-);
-const examples = questions.filter(
-  (q) => q.tags.includes('source:original-curriculum-review') || changed.has(q.id),
-);
+const examples = questions;
 for (const width of [390, 1280])
   for (const q of examples) {
     test(`${width}px 小6正答・解説・図 ${q.id}`, async ({ page }) => {

@@ -147,18 +147,30 @@ for (const q of all.filter(
     ? [p.template!.startsWith('42195') ? '42195' : '42.195']
     : values!.filter((v) => v !== '1' && v !== '1000');
   const numbers = q.id.endsWith('5f869fdc7c24') ? ['42.195'] : nums;
-  const positions = ['万', '千', '百', '十', '一', '0.1', '0.01', '0.001'];
-  let body = positions.map((v, i) => rect(50 + i * 88, 30, 88, 40) + text(v, 70 + i * 88, 58, 22)).join('');
+  const fractionPlaces = Math.max(3, ...numbers.map((v) => (v.split('.')[1] ?? '').length));
+  const positions = [
+    '万',
+    '千',
+    '百',
+    '十',
+    '一',
+    ...Array.from({ length: fractionPlaces }, (_, i) => (10 ** -(i + 1)).toFixed(i + 1)),
+  ];
+  const cellWidth = Math.min(88, 704 / positions.length);
+  let body = positions
+    .map((v, i) => rect(50 + i * cellWidth, 30, cellWidth, 40) + text(v, 56 + i * cellWidth, 58, 20))
+    .join('');
   numbers.slice(0, 2).forEach((v, row) => {
     const [integer, fraction = ''] = v.split('.');
-    const digits = integer!.padStart(5, ' ').split('').concat(fraction.padEnd(3, ' ').split(''));
+    const digits = integer!.padStart(5, ' ').split('').concat(fraction.padEnd(fractionPlaces, ' ').split(''));
     body += digits
       .map(
         (d, i) =>
-          rect(50 + i * 88, 70 + row * 65, 88, 65, '#fff') + text(d.trim(), 82 + i * 88, 112 + row * 65, 30),
+          rect(50 + i * cellWidth, 70 + row * 65, cellWidth, 65, '#fff') +
+          text(d.trim(), 50 + (i + 0.4) * cellWidth, 112 + row * 65, 30),
       )
       .join('');
-    body += `<circle cx="490" cy="${120 + row * 65}" r="4" fill="#c2405a"/>`;
+    body += `<circle cx="${50 + 5 * cellWidth}" cy="${120 + row * 65}" r="4" fill="#c2405a"/>`;
   });
   body += text(
     decomposition ? 'それぞれの くらいに いくつ あるかな？' : 'すうじの くらいを くらべよう',
@@ -684,6 +696,18 @@ for (const q of all.filter((q) => q.unit.endsWith('math-5-16'))) {
     body,
   );
 }
+
+// 正六角形の6辺と6角は等しい。縦長の旧画像を使わない。
+const regularHexagonPoints = Array.from({ length: 6 }, (_, i) => {
+  const angle = -Math.PI / 2 + (i * Math.PI) / 3;
+  return `${400 + 100 * Math.cos(angle)},${130 + 100 * Math.sin(angle)}`;
+}).join(' ');
+draw(
+  legacy(17, '6de6192432a6'),
+  'regular-hexagon-outline',
+  '6つの辺と角がすべて等しい図形。',
+  `<polygon points="${regularHexagonPoints}" fill="#eaf3f7" ${line}/>`,
+);
 
 for (const [hash, label, radius, unknown] of [
   ['731b48de0083', '3cm', false, false],

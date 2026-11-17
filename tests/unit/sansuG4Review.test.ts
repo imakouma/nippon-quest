@@ -41,6 +41,37 @@ describe('grade 4 curriculum review', () => {
       );
     }
   });
+  it('states the target of graph and net questions, and explains the matching quantity', () => {
+    const plain = (text: string) => text.replace(/\[[^\]]+\]/g, '');
+    const payload = (hash: string) =>
+      questions.find((q) => q.id.endsWith(hash))!.payload as { prompt: string };
+    for (const [hash, target] of [
+      ['026229489a63', '何度上がりましたか'],
+      ['2a1ee5bef330', '何時ですか'],
+      ['3e6f824722e8', '何度下がりましたか'],
+      ['539cb8716b8a', '何時ですか'],
+      ['673531957ec4', '何度ですか'],
+      ['7448e01f3afd', '何を表していますか'],
+      ['cdf568016b10', '何を表していますか'],
+      ['d32950743016', '何時から何時までですか'],
+      ['eaf844ff04ab', '何時から何時までですか'],
+      ['f4c02a4b6e32', '何度ですか'],
+      ['f98d09875333', '何時から何時までですか'],
+      ['63035ed0d4c0', '辺ABと重なる'],
+      ['72d57bf34db9', '辺IJと重なる'],
+      ['88d817825821', '点Aと重なる'],
+      ['b583ad0cf978', '点Jと重なる'],
+      ['c5ae4b063275', '辺ABと重なる'],
+    ])
+      expect(plain(payload(hash!).prompt), hash).toContain(target);
+    const explanation = (hash: string) => plain(questions.find((q) => q.id.endsWith(hash))!.explanation!);
+    expect(explanation('2172e4438493')).toContain('百の位を四捨五入');
+    expect(explanation('67bb346e3fbb')).toContain('4−3−1−0＝0');
+    expect(explanation('456c85f1bcb4')).toContain('辺BC');
+    expect(explanation('045462a9d9e5')).toContain('1cmずつ');
+    expect(explanation('41468bc19db0')).toContain('4cmずつ');
+    for (const q of questions) expect(JSON.stringify(q.payload)).not.toContain('辺GG');
+  });
   it('keeps large-number distractors numerically distinct', () => {
     const scale: Record<string, number> = { 兆: 1e12, 億: 1e8, 万: 1e4, '': 1 };
     for (const hash of ['2b9e14a26b41', '3fb16c7f41ee', 'cc5c9901b385']) {

@@ -31,9 +31,9 @@ describe('小1算数の移行欠落修復', () => {
       expect(mathReviewMatches(q, `math-review:1:${repair.learningGroup}`)).toBe(true);
     }
   });
-  it('全204固定問に内容のある解説があり、47件の補完対象を網羅する', () => {
+  it('全213固定問に内容のある解説があり、47件の補完対象を網羅する', () => {
     const fixed = questions.filter((q) => q.type !== 'random-calculation');
-    expect(fixed).toHaveLength(204);
+    expect(fixed).toHaveLength(213);
     expect(audit.explanationQuestionIds).toHaveLength(47);
     for (const q of fixed) expect(q.explanation?.length, q.id).toBeGreaterThan(10);
   });

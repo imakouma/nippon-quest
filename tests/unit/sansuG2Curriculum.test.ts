@@ -65,4 +65,12 @@ describe('Grade 2 curriculum repairs', () => {
       '23−8＝15',
     );
   });
+  it('keeps the introductory multiplication extension within twelve', () => {
+    for (const q of questions) {
+      const m = q.payload.template?.match(/^(\d+)×(\d+) = \{\{INPUT\}\}$/);
+      if (!m) continue;
+      expect(Math.max(Number(m[1]), Number(m[2])), q.id).toBeLessThanOrEqual(12);
+      expect(Math.min(Number(m[1]), Number(m[2])), q.id).toBeLessThanOrEqual(9);
+    }
+  });
 });

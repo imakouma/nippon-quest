@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sansu.g3.reaudit.abacus-large",
+    "type": "choice",
+    "subject": "sansu",
+    "grade": 3,
+    "unit": "sansu.g3.soroban",
+    "tags": ["original:curriculum-20261117"],
+    "payload": {
+      "prompt": "左[ひだり]から 十万[じゅうまん]、一万[いちまん]、千[せん]の位[くらい]です。この そろばんが 表[あらわ]す数[かず]はどれですか。",
+      "choices": [
+        {
+          "id": "c0",
+          "text": "2300"
+        },
+        {
+          "id": "c1",
+          "text": "23000"
+        },
+        {
+          "id": "c2",
+          "text": "230000"
+        }
+      ],
+      "answer": "c1",
+      "shuffle": true,
+      "promptImage": "questions/sansu/g3/reaudit/abacus-23000.svg",
+      "promptSpeech": "左[ひだり]から 十万[じゅうまん]、一万[いちまん]、千[せん]の位[くらい]です。この そろばんが 表[あらわ]す数[かず]はどれですか。"
+    },
+    "explanation": "一万[いちまん]の位[くらい]が2、千[せん]の位[くらい]が3なので、20000+3000=23000です。どの位[くらい]かを 決[き]めると、同[おな]じ玉[たま]で 大[おお]きい数[かず]も 表[あらわ]せます。"
+  }
+]

@@ -79,16 +79,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の図形[ずけい]のまわりの長さをもとめよう。 円周率[えんしゅうりつ]は 3.14とします。",
-      "answers": [
-        "51.4"
-      ],
+      "answers": ["51.4"],
       "template": "{{INPUT}} cm",
       "suffix": "cm",
       "promptImage": "questions/legacy/69e936d13dc8904a.png"
@@ -101,11 +95,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
       "choices": [
@@ -124,7 +114,8 @@
       ],
       "answer": "c3",
       "shuffle": true,
-      "promptImage": "questions/legacy/77c80ea084c480b1.png"
+      "promptImage": "questions/sansu/g5/visuals/regular-hexagon-outline.svg",
+      "promptImageAlt": "6つの辺[へん]と 角[かく]が すべて 等[ひと]しい 図形[ずけい]。"
     },
     "explanation": "すべての辺や角が等しい正六角形だ。"
   },
@@ -134,16 +125,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "直径[ちょっけい] 3cm の円の円周を求めよう。 cm 円周率[えんしゅうりつ]は 3.14とします。",
-      "answers": [
-        "9.42"
-      ],
+      "prompt": "直径[ちょっけい] 3cm の円の円周を求めよう。 円周率[えんしゅうりつ]は 3.14とします。",
+      "answers": ["9.42"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g5/visuals/circle-731b48de0083.svg",
@@ -157,16 +142,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "半径[はんけい] 4m の円の円周を求めよう。 m 円周率[えんしゅうりつ]は 3.14とします。",
-      "answers": [
-        "25.12"
-      ],
+      "prompt": "半径[はんけい] 4m の円の円周を求めよう。 円周率[えんしゅうりつ]は 3.14とします。",
+      "answers": ["25.12"],
       "template": "{{INPUT}}m",
       "suffix": "m",
       "promptImage": "questions/sansu/g5/visuals/circle-868404b850cc.svg",
@@ -180,16 +159,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "直径[ちょっけい] 2cm の円の円周を求めよう。 cm 円周率[えんしゅうりつ]は 3.14とします。",
-      "answers": [
-        "6.28"
-      ],
+      "prompt": "直径[ちょっけい] 2cm の円の円周を求めよう。 円周率[えんしゅうりつ]は 3.14とします。",
+      "answers": ["6.28"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g5/visuals/circle-8f1a0dc8059a.svg",
@@ -203,16 +176,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "円周が 14cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm 円周率[えんしゅうりつ]は 3.14とします。",
-      "answers": [
-        "4.46"
-      ],
+      "prompt": "円周が 14cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 円周率[えんしゅうりつ]は 3.14とします。",
+      "answers": ["4.46"],
       "template": "約 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g5/visuals/circle-8f3bb21ecab8.svg",
@@ -226,16 +193,10 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "円周が 20cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 約cm 円周率[えんしゅうりつ]は 3.14とします。",
-      "answers": [
-        "6.37"
-      ],
+      "prompt": "円周が 20cm の円の直径[ちょっけい]は、何cm ですか。\\frac{1}{100} の位の概数で答えよう。 円周率[えんしゅうりつ]は 3.14とします。",
+      "answers": ["6.37"],
       "template": "約 {{INPUT}}cm",
       "suffix": "cm",
       "promptImage": "questions/sansu/g5/visuals/circle-903b7a4a0c14.svg",
@@ -249,11 +210,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:math_5_17",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:math_5_17", "reviewed:structural-v1"],
     "payload": {
       "prompt": "下の図形[ずけい]を何というでしょう。正しいものをえらぼう。",
       "choices": [
@@ -282,10 +239,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "reviewed:structural-v1",
-      "curriculum:gap-fill-20261116"
-    ],
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
     "payload": {
       "prompt": "円周[えんしゅう]÷直径[ちょっけい]を 計算[けいさん]すると、どちらの 円[えん]も いくつになりますか。",
       "choices": [
@@ -315,10 +269,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "reviewed:structural-v1",
-      "curriculum:gap-fill-20261116"
-    ],
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
     "payload": {
       "prompt": "円A[えんえー]に 比[くら]べ、円B[えんびー]の 円周[えんしゅう]は 何倍[なんばい]ですか。",
       "choices": [
@@ -348,10 +299,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "reviewed:structural-v1",
-      "curriculum:gap-fill-20261116"
-    ],
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
     "payload": {
       "prompt": "正六角形[せいろっかくけい]の 中心[ちゅうしん]のまわりを 6つに 等[ひと]しく 分[わ]けた 角[かく]AOBは 何度[なんど]ですか。",
       "choices": [
@@ -381,10 +329,7 @@
     "subject": "sansu",
     "grade": 5,
     "unit": "sansu.g5.legacy-math-5-17",
-    "tags": [
-      "reviewed:structural-v1",
-      "curriculum:gap-fill-20261116"
-    ],
+    "tags": ["reviewed:structural-v1", "curriculum:gap-fill-20261116"],
     "payload": {
       "prompt": "中心[ちゅうしん]の まわりを 60°ずつに 分[わ]け、円周上[えんしゅうじょう]の 点[てん]を 順[じゅん]に 結[むす]ぶと 何[なに]ができますか。",
       "choices": [

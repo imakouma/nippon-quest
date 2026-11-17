@@ -67,7 +67,7 @@
     "unit": "sansu.g3.legacy-math-3-16",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。角[かく]ア と同[おな]じ大[おお]きさの角[かく]は、どれでしょう。",
+      "prompt": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。角[かく]ア と同[おな]じ大[おお]きさの角[かく]は、どれでしょう。 同[おな]じしるしの辺[へん]は、同[おな]じ長[なが]さです。",
       "choices": [
         {
           "id": "c1",
@@ -84,7 +84,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/14347e2a8dc876b4.png"
+      "promptImage": "questions/sansu/g3/reaudit/triangle-angles.svg",
+      "promptSpeech": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。角[かく]ア と同[おな]じ大[おお]きさの角[かく]は、どれでしょう。 同[おな]じしるしの辺[へん]は、同[おな]じ長[なが]さです。"
     },
     "explanation": "二等辺三角形[にとうへんさんかくけい] は、２つの角[かく]が 同[おな]じ大[おお]きさになるので、角[かく]ア と 角[かく]ウ が同[おな]じになる。"
   },
@@ -96,7 +97,7 @@
     "unit": "sansu.g3.legacy-math-3-16",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の図[ず]の中[なか]から、正三角形[せいさんかくけい]の 組[くみ]み合[あ]わせ として、正[ただ]しいものをえらぼう。",
+      "prompt": "下[した]の図[ず]の中[なか]から、正三角形[せいさんかくけい]の 組[くみ]み合[あ]わせ として、正[ただ]しいものをえらぼう。 それぞれの三角形[さんかくけい]で、同[おな]じしるしの辺[へん]は 同[おな]じ長[なが]さです。",
       "choices": [
         {
           "id": "c1",
@@ -113,9 +114,10 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f099216bea282065.png"
+      "promptImage": "questions/sansu/g3/reaudit/triangle-classification.svg",
+      "promptSpeech": "下[した]の図[ず]の中[なか]から、正三角形[せいさんかくけい]の 組[くみ]み合[あ]わせ として、正[ただ]しいものをえらぼう。 それぞれの三角形[さんかくけい]で、同[おな]じしるしの辺[へん]は 同[おな]じ長[なが]さです。"
     },
-    "explanation": "３つの辺[へん]の長[なが]さが同[おな]じ三角形[さんかくけい] を、正三角形[せいさんかくけい] という。"
+    "explanation": "イとエは、3つの辺[へん]に 同[おな]じしるしがあります。3つの辺[へん]の長[なが]さが 同[おな]じなので、正三角形[せいさんかくけい]です。"
   },
   {
     "id": "legacy.sansu.g3.math-3-16.8825dcb5bb9a",
@@ -125,7 +127,7 @@
     "unit": "sansu.g3.legacy-math-3-16",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。辺[へん]ア と同[おな]じ長[なが]さの 辺[へん]は、どれでしょう。",
+      "prompt": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。辺[へん]ア と同[おな]じ長[なが]さの 辺[へん]は、どれでしょう。 同[おな]じしるしの辺[へん]は、同[おな]じ長[なが]さです。",
       "choices": [
         {
           "id": "c1",
@@ -142,7 +144,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/815e57bfb9cd8ef9.png"
+      "promptImage": "questions/sansu/g3/reaudit/triangle-sides.svg",
+      "promptSpeech": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。辺[へん]ア と同[おな]じ長[なが]さの 辺[へん]は、どれでしょう。 同[おな]じしるしの辺[へん]は、同[おな]じ長[なが]さです。"
     },
     "explanation": "二等辺三角形[にとうへんさんかくけい] は、２つの辺[へん]が同[おな]じ長[なが]さなので、辺[へん]ア と 辺[へん]イ が 同[おな]じになる。"
   },
@@ -154,11 +157,12 @@
     "unit": "sansu.g3.legacy-math-3-16",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。辺[へん]イ の長[なが]さは、いくらになるでしょう。",
+      "prompt": "下[した]の三角形[さんかくけい]は、二等辺三角形[にとうへんさんかくけい]です。辺[へん]イ の長[なが]さは、いくらになるでしょう。 同[おな]じしるしの辺[へん]は、同[おな]じ長[なが]さです。",
       "answers": ["5"],
       "template": "{{INPUT}}cm",
       "suffix": "cm",
-      "promptImage": "questions/legacy/a8c95f0e0b5a4bfc.png"
+      "promptImage": "questions/sansu/g3/reaudit/triangle-length.svg",
+      "promptImageAlt": "辺イと辺ウに同じしるし。辺ウは5cm、辺アは4cm。"
     },
     "explanation": "二等辺三角形[にとうへんさんかくけい] は、２つの辺[へん]が 同[おな]じ長[なが]さになる。辺[へん]イ と 辺[へん]ウ が 同[おな]じなので、イの長[なが]さは 5cmだ。"
   },
@@ -336,7 +340,7 @@
     "unit": "sansu.g3.legacy-math-3-16",
     "tags": ["source:legacy-autonomy-game", "legacy-node:math_3_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "下[した]の図[ず]の中[なか]から、二等辺三角形[にとうへんさんかくけい]の 組[くみ]み合[あ]わせ として、正[ただ]しいものをえらぼう。",
+      "prompt": "下[した]の図[ず]の中[なか]から、正三角形[せいさんかくけい]を のぞいた 二等辺三角形[にとうへんさんかくけい]の 組[くみ]み合[あ]わせ として、正[ただ]しいものをえらぼう。 それぞれの三角形[さんかくけい]で、同[おな]じしるしの辺[へん]は 同[おな]じ長[なが]さです。",
       "choices": [
         {
           "id": "c1",
@@ -353,8 +357,9 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f099216bea282065.png"
+      "promptImage": "questions/sansu/g3/reaudit/triangle-classification.svg",
+      "promptSpeech": "下[した]の図[ず]の中[なか]から、正三角形[せいさんかくけい]を のぞいた 二等辺三角形[にとうへんさんかくけい]の 組[くみ]み合[あ]わせ として、正[ただ]しいものをえらぼう。 それぞれの三角形[さんかくけい]で、同[おな]じしるしの辺[へん]は 同[おな]じ長[なが]さです。"
     },
-    "explanation": "２つの辺[へん]の長[なが]さが同[おな]じ三角形[さんかくけい] を、二等辺三角形[にとうへんさんかくけい] という。"
+    "explanation": "ア、オ、カは、2つの辺[へん]の長[なが]さが 同[おな]じです。イとエは 3つの辺[へん]が 同[おな]じ正三角形[せいさんかくけい]なので、この問題[もんだい]では のぞきます。ウは 3つの辺[へん]の長[なが]さが ちがいます。"
   }
 ]

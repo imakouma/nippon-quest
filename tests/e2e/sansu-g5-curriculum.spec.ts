@@ -14,6 +14,23 @@ const questions = readdirSync('content/questions/sansu/g5').flatMap((dir) =>
 const examples = questions.filter(
   (q) =>
     q.tags.includes('curriculum:gap-fill-20261116') ||
+    q.tags.includes('curriculum:gap-fill-20261117') ||
+    [
+      '80504e20a9a0',
+      '997027008cb6',
+      '87b322595f48',
+      'a4258a4f87fe',
+      '3636d7d8c6a8',
+      'bff4fed9dd55',
+      '21982a371d8b',
+      '768dc2c0e922',
+      'b0a6a8e98e73',
+      '83684515e4e8',
+      '1241d895d4c9',
+      '4420d004f78a',
+      '21a8051338c7',
+      '30e81b26e483',
+    ].some((h) => q.id.endsWith(h)) ||
     [
       '38428eb9a984',
       'c98fcfd995ad',

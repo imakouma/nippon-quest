@@ -46,8 +46,8 @@ const repairs = [
   '59343703e0ea',
   '9b34c0cc97ee',
 ];
-it('covers all 209 learning targets, with separated fraction input fields', () => {
-  expect(questions).toHaveLength(209);
+it('covers all 218 learning targets, with separated fraction input fields', () => {
+  expect(questions).toHaveLength(218);
   const rows = questions
     .sort((a, b) => a.id.localeCompare(b.id))
     .map((q) => {
@@ -69,7 +69,7 @@ it('covers all 209 learning targets, with separated fraction input fields', () =
       ];
     });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '04da5f66bb7fd1777a3f890fcdc56dafcb3c5a6a6f7a6838cc64093d67316e5f',
+    '2595643c4cc47a6cbba12db3128f938018772912e5b4e46a1ee2e7dfe10f2ecd',
   );
 });
 it('illustrates symmetry, ratios, fractions, volume, data and combinations', () => {
@@ -93,7 +93,7 @@ it('covers every question in the review and validates local image structure and 
     reason: string;
   }[];
   expect(new Set(review.map((r) => r.id))).toEqual(new Set(questions.map((q) => q.id)));
-  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(130);
+  expect(review.filter((r) => r.decision === 'illustrated')).toHaveLength(139);
   expect(
     review.filter((r) => r.decision.includes('missing') || r.decision.includes('source-expression')),
   ).toEqual([]);
@@ -225,4 +225,24 @@ it('grades fractions separately and represents equal wholes without changing the
   expect([...svg('cards-279fa37becfc').querySelectorAll('[data-digit]')].map((el) => el.textContent)).toEqual(
     ['0', '1', '2'],
   );
+});
+
+it('matches the map unit to its question and marks each whole in mixed fractions', () => {
+  const map = readFileSync('assets/questions/sansu/g6/visuals/map-scale-45ef7b9abd0f.svg', 'utf8');
+  expect(map).toContain('？cm');
+  expect(map).not.toContain('？m');
+  for (const hash of ['350742bfbbc4', '3f37cc35e0f6', 'ba6d3d429270']) {
+    const doc = new DOMParser().parseFromString(
+      readFileSync(`assets/questions/sansu/g6/visuals/restored-mixed-${hash}.svg`, 'utf8'),
+      'image/svg+xml',
+    );
+    for (const group of doc.querySelectorAll('[data-whole-width]')) {
+      expect(group.querySelectorAll('[data-whole-outline]')).toHaveLength(1);
+      const parts = [...group.querySelectorAll('rect')];
+      expect(parts).toHaveLength(Number(group.getAttribute('data-denominator')));
+      expect(parts.reduce((sum, part) => sum + Number(part.getAttribute('width')), 0)).toBeCloseTo(
+        Number(group.getAttribute('data-whole-width')),
+      );
+    }
+  }
 });
