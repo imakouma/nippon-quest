@@ -26,7 +26,7 @@ const strip = (s: string) => s.replace(/\[[^\]]+\]/g, '');
 describe('grade 3 curriculum and recovered source context', () => {
   it('includes every question exactly once, and introduces concepts before applications', () => {
     const ids = order.groups.flatMap((g) => g.questionIds);
-    expect(ids).toHaveLength(367);
+    expect(ids).toHaveLength(379);
     expect(new Set(ids)).toEqual(new Set(byId.keys()));
     const groups = order.groups.map((g) => g.id);
     for (const [before, after] of [
@@ -37,9 +37,9 @@ describe('grade 3 curriculum and recovered source context', () => {
     ] as const)
       expect(groups.indexOf(before)).toBeLessThan(groups.indexOf(after));
   });
-  it('gives all 362 fixed questions a readable explanation without broken TeX', () => {
+  it('gives all 374 fixed questions a readable explanation without broken TeX', () => {
     const fixed = questions.filter((q) => q.type !== 'random-calculation');
-    expect(fixed).toHaveLength(362);
+    expect(fixed).toHaveLength(374);
     for (const q of fixed) {
       expect(q.explanation?.length, q.id).toBeGreaterThan(10);
       expect(JSON.stringify(q), q.id).not.toMatch(/\\(?:require|bcancel)\{/);
