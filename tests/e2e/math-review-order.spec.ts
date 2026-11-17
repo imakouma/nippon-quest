@@ -81,19 +81,24 @@ const mathReviewGroupsByGrade = Object.fromEntries(
 );
 
 for (const [gradeNumber, groups] of Object.entries(mathReviewGroupsByGrade)) {
-  test(`小${gradeNumber}の学ぶ順で先頭・末尾の問題を開き、学年間で表示IDを重複させない`, async ({ page }) => {
+  test(`小${gradeNumber}の学ぶ順の全グループで先頭・末尾の問題を開き、学年間で表示IDを重複させない`, async ({
+    page,
+  }) => {
     await page.goto('/playground.html');
     const subject = page.locator('details[data-subject="sansu"]');
     await subject.locator(':scope > summary').click();
     const grade = subject.locator(`details[data-grade="${gradeNumber}"]`);
     await grade.locator(':scope > summary').click();
     await expect(grade.locator('[data-math-scope]')).toHaveCount(groups.length, { timeout: 20_000 });
-    for (const group of [groups[0]!, groups.at(-1)!]) {
+    test.setTimeout(120_000);
+    for (const group of groups) {
       const button = grade.locator(`[data-math-scope="${group.id}"]`);
       await button.click();
       await expect(grade.locator('.pg-question-row')).toHaveCount(Math.min(200, group.questionIds.length));
       await grade.locator('.pg-question-row').first().click();
       await expect(page.locator('#ed-question-id')).toHaveValue(group.questionIds[0]!);
+      await grade.locator('.pg-question-row').last().click();
+      await expect(page.locator('#ed-question-id')).toHaveValue(group.questionIds.at(-1)!);
       await expect(button).toHaveAttribute('aria-pressed', 'true');
       await expect(grade.locator('.pg-question-row')).toHaveCount(Math.min(200, group.questionIds.length));
     }
