@@ -20,6 +20,9 @@
 .nq-question-canvas[data-layout='portrait'] .nq-choice {
   padding: 8px 8px 8px 40px;
 }
+.nq-question-canvas[data-layout='portrait'] .nq-q-choices-prose {
+  grid-template-columns: minmax(0, 1fr);
+}
 .nq-question-canvas[data-layout='portrait'] .nq-choice-key {
   left: 4px;
   top: 4px;

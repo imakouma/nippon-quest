@@ -31,7 +31,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/washboard.svg",
+      "promptSpeech": "洗濯機が普及する前に、木や金属の板に波状の溝がついた板をタライ（水おけ）に入れてこすり洗いをしていた洗濯道具を何といいますか。 水の入ったたらいに、横に溝のある木の板と布が入っている。"
     },
     "explanation": "電気洗濯機が登場する前は、水を入れた「たらい」に「洗濯板」を入れて、手でこすって洗濯をしていました。"
   },
@@ -83,7 +85,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真の地図を見て、市の変化として調べるものとして正しいものはどれですか。",
+      "prompt": "図を見て、市の変化として調べるものとして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -104,7 +106,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/26a3e2ed763666d4.png"
+      "promptImage": "questions/shakai/visuals/town-change.svg",
+      "promptSpeech": "図を見て、市の変化として調べるものとして正しいものはどれですか。 昔と今の同じ町の架空の例。今の図には橋と線路が増えている。"
     },
     "explanation": "道路や鉄道、橋など交通の変化は、市の様子[ようす]の移り変わりを調べる大切な手がかりです。"
   },
@@ -140,7 +143,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/steam-train.svg",
+      "promptSpeech": "昔の移動手段として、煙をもくもくと出しながら石炭[せきたん]を燃やして走っていた、線路の上の古い乗り物は何ですか。 煙突から煙を出し、車輪と線路のある昔の乗り物。"
     },
     "explanation": "昔は石炭[せきたん]を燃料にして走る「蒸気機関車（SL）」が活躍していましたが、現在では電気で走る電車や新幹線が中心になっています。"
   },
@@ -248,7 +253,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/stone-mill.svg",
+      "promptSpeech": "米を粉にしたり、大豆をすりつぶしてきな粉にしたりするために、重い２つの石を重ねて手動で回していた昔の道具を何といいますか。 二つの丸い石を重ね、上の石についた持ち手で回す昔の道具。"
     },
     "explanation": "上下に重なった平らな石の隙間に穀物を挟み、手で回してすりつぶす道具を「石臼[いしうす]」といいます。"
   },
@@ -264,7 +271,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、市の人口の変化として考えられるものはどれですか。",
+      "prompt": "図を見て、市の人口の変化として考えられるものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -285,7 +292,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/9d50fa19b9b7cb92.png"
+      "promptImage": "questions/shakai/visuals/population-example.svg",
+      "promptSpeech": "図を見て、市の人口の変化として考えられるものはどれですか。 ある町の人口を年ごとに記録した架空の例。増える時期と減る時期がある。"
     },
     "explanation": "市の人口は、増えたり減ったりしながら変化してきました。近年は少子高齢化[しょうしこうれいか]なども起きています。"
   },
@@ -301,7 +309,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、市の変化を調べる手がかりとして正しいものはどれですか。",
+      "prompt": "図を見て、市の変化を調べる手がかりとして正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -322,7 +330,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/c9f7816252130b91.png"
+      "promptImage": "questions/shakai/visuals/old-records.svg",
+      "promptSpeech": "図を見て、市の変化を調べる手がかりとして正しいものはどれですか。 昔の記録を調べるための写真、地図、帳面の例。"
     },
     "explanation": "古い写真や絵はがきと今の様子[ようす]をくらべると、市の変化がわかります。"
   },
@@ -358,7 +367,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/population-change.svg",
+      "promptSpeech": "グラフにおいて、子どもの割合[わりあい]が減り、高齢者（お年寄り）の割合[わりあい]が増えていく社会の変化のことを何といいますか。 人口割合の架空の例。昔に比べて子どもの帯が短く、お年寄りの帯が長くなっている。"
     },
     "explanation": "生まれる子どもの数が減り（少子化）、お年寄りの割合[わりあい]が高くなる（高齢化）現象を「少子高齢化[しょうしこうれいか]」といいます。"
   },
@@ -394,7 +405,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/streetcar.svg",
+      "promptSpeech": "道路の上に線路が敷かれ、街の中をゆっくりと走る、昔から多くの人に利用されてきたチンチン電車とも呼ばれる乗り物は何ですか。 道路の線路の上を走る電車。上には架線がある。"
     },
     "explanation": "一般道路の併用軌道を走る「路面電車」は、街の中に溶け込んだ人々の身近な足として古くから親しまれてきました。"
   },
@@ -410,7 +423,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、これからのまちづくりとして大切なことはどれですか。",
+      "prompt": "図を見て、これからのまちづくりとして大切なことはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -431,7 +444,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/c9f7816252130b91.png"
+      "promptImage": "questions/shakai/visuals/ramp.svg",
+      "promptSpeech": "図を見て、これからのまちづくりとして大切なことはどれですか。 段差のそばに、車いすやベビーカーでも通れるゆるやかな坂を設けた例。"
     },
     "explanation": "高齢者や子どもが安心して暮らせるまちづくりや、外国人住民との共生などが大切です。"
   },
@@ -467,7 +481,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/abacus.svg",
+      "promptSpeech": "電卓（電子計算機）がなかった時代に、木で作られた枠の中にたくさんの黒い玉が並んでおり、指で玉を動かして計算していた道具を何といいますか。 木枠の中に軸が並び、横木の上に一つ、下に四つずつ玉がある計算道具。"
     },
     "explanation": "「そろばん」は計算を行うための日本古来の道具で、電卓が登場するまでは商店や事務作業で広く使われていました。"
   },
@@ -575,7 +591,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/timeline.svg",
+      "promptSpeech": "地域の出来事を時間の順（古い順から新しい順）に並べて、歴史の変化をわかりやすくまとめた表を何といいますか。 町のできごとを、古い年から新しい年へ並べた架空の資料。"
     },
     "explanation": "歴史の流れや出来事の推移を時間順に整理した表を「年表[ねんぴょう]」といいます。"
   },
@@ -611,7 +629,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/population-change.svg",
+      "promptSpeech": "子どもが減り（少子化）、お年寄りが増える（高齢化）現象が同時に進む社会のことを、何社会といいますか。 人口割合の架空の例。昔に比べて子どもの帯が短く、お年寄りの帯が長くなっている。"
     },
     "explanation": "子どもの数が減少[げんしょう]し、65歳以上の高齢者の割合[わりあい]が高くなった現在の日本のような社会を「少子高齢社会[しょうしこうれいしゃかい]」といいます。"
   },
@@ -647,7 +667,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/hand-pump.svg",
+      "promptSpeech": "昔、井戸から水を引き上げるために、手でレバーを上下に動かして水を出していた道具を何といいますか。 台の上の水くみ道具。横のレバーと、曲がった水の出口がある。"
     },
     "explanation": "水道が普及する前は、庭先の井戸に設置された「手押しポンプ」を一生懸命動かして生活に必要な水を確保していました。"
   },
@@ -755,7 +777,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/family.svg",
+      "promptSpeech": "昔の「三世代（おじいちゃん、おばあちゃん、親、子）」が一緒に暮らす大家族から、現在は親と子だけで暮らす世帯が増えました。このような世帯を何といいますか。 祖父母・親・子のいる世帯と、親・子のいる世帯の例。"
     },
     "explanation": "夫婦のみ、または夫婦と未婚の子どものみで構成される家族世帯のことを「核家族[かくかぞく]」といいます。"
   },
@@ -771,7 +795,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、年表[ねんぴょう]にまとめるときの考え方として正しいものはどれですか。",
+      "prompt": "図を見て、年表[ねんぴょう]にまとめるときの考え方として正しいものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -792,7 +816,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/426eb76ff2173ffe.png"
+      "promptImage": "questions/shakai/visuals/timeline.svg",
+      "promptSpeech": "図を見て、年表[ねんぴょう]にまとめるときの考え方として正しいものはどれですか。 町のできごとを、古い年から新しい年へ並べた架空の資料。"
     },
     "explanation": "年表[ねんぴょう]は、出来事を時期の順に並べて示す表です。昭和・平成・令和なども使います。"
   },
@@ -812,7 +837,7 @@
       "choices": [
         {
           "id": "c1",
-          "text": "炭火[すみび]アイロン（火のし）"
+          "text": "炭火[すみび]アイロン"
         },
         {
           "id": "c2",
@@ -828,9 +853,11 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/charcoal-iron.svg",
+      "promptSpeech": "昔のくらしで使われていた道具で、炭火[すみび]を入れて布のシワをのばすために使われていた、現在のアイロンにあたる古い道具を何といいますか。 上に持ち手があり、中に炭を入れる金属の道具。底は平らで側面に穴がある。"
     },
-    "explanation": "現在のアイロンのように衣類のしわを伸ばすため、炭火[すみび]の熱を利用した「炭火[すみび]アイロン」や「火のし」が使われていました。"
+    "explanation": "図[ず]は炭火[すみび]アイロンです。中[なか]に炭[すみ]を入[い]れ、その熱[ねつ]で布[ぬの]のしわを伸[の]ばしました。火[ひ]のしは、別[べつ]の形[かたち]をした道具[どうぐ]です。"
   },
   {
     "id": "legacy.shakai.g3.cur-1403-04.bb0ef1baaefb",
@@ -844,7 +871,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "市の人口が増えるにつれて、山を削って作られた新しい住宅地や、海を埋め立てて作られた商業地などの開発地区を何といいますか。",
+      "prompt": "人口[じんこう]の増加[ぞうか]に合[あ]わせて、道路[どうろ]や公園[こうえん]などとともに計画的[けいかくてき]につくられた新[あたら]しい住宅地[じゅうたくち]を何[なん]といいますか。",
       "choices": [
         {
           "id": "c1",
@@ -900,7 +927,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/ramp.svg",
+      "promptSpeech": "高齢者や障害のある人、妊婦さんなど、すべての人が安全で快適にくらせるように、道路の段差をなくしたり駅にエレベーターを作ったりする工夫を何といいますか。 段差のそばに、車いすやベビーカーでも通れるゆるやかな坂を設けた例。"
     },
     "explanation": "生活するうえで障壁（バリア）となる段差や物理的な障害を取り除いて使いやすくする工夫を「バリアフリー」といいます。"
   },
@@ -988,7 +1017,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、市の整備によってよくなったこととして考えられるものはどれですか。",
+      "prompt": "図を見て、市の整備によってよくなったこととして考えられるものはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -1009,7 +1038,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/9d50fa19b9b7cb92.png"
+      "promptImage": "questions/shakai/visuals/public-buildings.svg",
+      "promptSpeech": "図を見て、市の整備によってよくなったこととして考えられるものはどれですか。 学校と病院が整備されている町の例。"
     },
     "explanation": "学校[がっこう]・病院・道路などの整備によって、人々の生活はより便利で安全になります。"
   },
@@ -1045,7 +1075,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true
+      "shuffle": true,
+      "promptImage": "questions/shakai/visuals/washboard.svg",
+      "promptSpeech": "電気洗濯機が普及する前、たらいの中に水をはり、洗濯物をこすりつけて汚れを落とすために使っていた木の板を何といいますか。 水の入ったたらいに、横に溝のある木の板と布が入っている。"
     },
     "explanation": "洗濯板のギザギザの部分に衣類をこすりつけて洗うことで、手で洗うよりも効率よく頑固な汚れを落としていました。"
   },
