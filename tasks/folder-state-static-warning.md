@@ -10,4 +10,17 @@
 - レビュー: 別モデルで呼び出し元・既存の null ガード・サーバー検証を確認し、指摘なし。
 - 公開版は標準フォルダの閲覧用。フォルダ構成の編集保存は引き続きローカル環境で行う。
 
-本番向けブランチにはこの修正だけを取り込み、全件ゲートと公開後の実画面確認を行う。
+## 公開・検証結果（2026-11-17）
+
+- 作業ブランチ: `codex/folder-warning-main-release`。
+- PR: https://github.com/imakouma/nippon-quest/pull/99 （マージ済み）。
+- 本番コミット: `cf080ee67706125dd8367c142749093909193df1`。
+- 初期の本番基点で `pnpm check:full` に成功（279 ファイル・2,535 テスト）。
+- 並行作業の main 更新を通常マージ後、`pnpm check:fast`、関連ブラウザ 8 テスト、公開用ビルドを再確認。
+- PR CI `43992465226` と本番 CI / Pages `43995970351` はすべて成功。
+- 公開 URL: https://imakouma.github.io/nippon-quest/playground.html
+- 公開された問題レビュー JS と参照ビルドの SHA-256 が一致: `5e37221e00a4b2cb39cac54b811ce627af07aa070427b081c5f644fec45ca4c2`。
+- アプリ内ブラウザで「問題レビュー」、7,896 問の標準フォルダ、問題の表示、警告 0 件、フォルダ保存ボタンの無効化を確認。コンソールエラー 0 件。
+- PC 表示と 390 × 844 の縦画面を確認。検証後に viewport を通常サイズへ戻し、本番画面を開いた。
+- スクリーンショット: `/Users/imamurakouma/.codex/visualizations/2026/11/13/01a1d521-8def-7360-992a-3e1cb1bb08cf/folder-warning-production.jpg`、同ディレクトリの `folder-warning-production-mobile.jpg`。
+- 実機端末での確認は未実施。公開版のフォルダ編集・保存は引き続きローカル環境のみ対応。
