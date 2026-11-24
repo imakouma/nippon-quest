@@ -1,4 +1,4 @@
-export type LoginProvider = 'line' | 'google';
+export type LoginProvider = 'google';
 export interface AccountSlotView {
   slot: 1 | 2 | 3;
   local: string | null;

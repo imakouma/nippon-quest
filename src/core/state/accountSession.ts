@@ -5,7 +5,7 @@ import type { LoginProvider } from '../../shared/account';
 
 const sessionSchema = z.object({
   userId: z.string().min(1).nullable(),
-  providers: z.array(z.enum(['line', 'google'])),
+  providers: z.array(z.literal('google')),
 });
 let active: AccountSaves | null = null;
 let available = false;
@@ -119,7 +119,7 @@ export async function signIn(provider: LoginProvider): Promise<string> {
     }),
   );
   const url = new URL(result.url);
-  if (url.protocol !== 'https:' || !['accounts.google.com', 'access.line.me'].includes(url.hostname))
+  if (url.protocol !== 'https:' || url.hostname !== 'accounts.google.com')
     throw new Error('Unexpected authorization URL');
   return url.href;
 }

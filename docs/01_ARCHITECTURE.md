@@ -292,4 +292,4 @@ interface Skill {
 
 ## 任意ログインとクラウド保存
 
-LINE／Google OAuth は `server/auth.ts` の Better Auth、セッションとセーブは PostgreSQL。`server/http.ts` が API とゲームのビルド成果物を同一 origin で配信する。`src/core/state/save.ts` を保存入口として維持し、ログイン時だけ `AccountSaves` に振り分ける。ゲストとアカウント別の IndexedDB 領域、サーバーの所有者照合と revision、削除マーカーによりデータの混入・古い端末の上書きを防ぐ。設定と実アカウント検証は `docs/ACCOUNT_SETUP.md` を参照。
+Google OAuth は `server/auth.ts` の Better Auth、セッションとセーブは PostgreSQL。`server/http.ts` が API とゲームのビルド成果物を同一 origin で配信する。`src/core/state/save.ts` を保存入口として維持し、ログイン時だけ `AccountSaves` に振り分ける。ゲストとアカウント別の IndexedDB 領域、サーバーの所有者照合と revision、削除マーカーによりデータの混入・古い端末の上書きを防ぐ。設定と実アカウント検証は `docs/ACCOUNT_SETUP.md` を参照。

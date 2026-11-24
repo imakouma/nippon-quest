@@ -126,7 +126,6 @@ export function AccountPanel(props: AccountPanelProps) {
                 <RubyLabel text={t('account.privacy')} />
               </p>
               <div class="nq-account-actions">
-                {button('account.line', () => props.onLogin('line'), !view.providers.includes('line'))}
                 {button('account.google', () => props.onLogin('google'), !view.providers.includes('google'))}
               </div>
               <p>

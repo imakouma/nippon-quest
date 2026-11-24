@@ -14,7 +14,11 @@ it('never intercepts account/session requests, including OAuth navigation and of
       addEventListener: (name: string, handler: (event: unknown) => void) => handlers.set(name, handler),
     },
   });
-  for (const path of ['/api/account/session', '/api/account/slots', '/api/auth/callback/line?code=private']) {
+  for (const path of [
+    '/api/account/session',
+    '/api/account/slots',
+    '/api/auth/callback/google?code=private',
+  ]) {
     const respondWith = vi.fn();
     handlers.get('fetch')!({
       request: {

@@ -7,7 +7,7 @@ async function mockAccount(context: BrowserContext, account: { owner: string | n
     const request = route.request();
     const path = new URL(request.url()).pathname;
     if (path === '/api/account/session')
-      return route.fulfill({ json: { userId: account.owner, providers: ['line', 'google'] } });
+      return route.fulfill({ json: { userId: account.owner, providers: ['google'] } });
     if (path === '/api/auth/sign-out') {
       account.owner = null;
       return route.fulfill({ json: { success: true } });
@@ -36,7 +36,7 @@ test('未設定のログインを成功扱いにせず、ゲストプレイを�
   await page.goto('/?account=1');
   const dialog = page.getByRole('dialog', { name: 'アカウント' });
   await expect(dialog).toBeVisible({ timeout: 30_000 });
-  await expect(dialog.getByRole('button', { name: 'LINEでログイン' })).toBeDisabled();
+  await expect(dialog.getByRole('button', { name: 'LINEでログイン' })).toHaveCount(0);
   await expect(dialog.getByRole('button', { name: 'Googleでログイン' })).toBeDisabled();
   await page.screenshot({ path: testInfo.outputPath('account-unconfigured.png') });
   await page.keyboard.press('Escape');
@@ -125,7 +125,7 @@ test('起動リトライは遅い認証応答を待ち、ゲスト進行をア�
   await page.route('**/api/account/session', async (route) => {
     waiting = true;
     await gate;
-    await route.fulfill({ json: { userId: 'alice', providers: ['google', 'line'] } });
+    await route.fulfill({ json: { userId: 'alice', providers: ['google'] } });
   });
   await page.addInitScript(() => {
     sessionStorage.setItem(

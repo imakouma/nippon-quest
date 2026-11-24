@@ -21,7 +21,7 @@ const db = configured
     })
   : null;
 const auth = db ? createAuth(db, { ...process.env, NQ_ORIGIN: origin }) : null;
-const providers = ['google', 'line'].filter(
+const providers = ['google'].filter(
   (provider) =>
     process.env[`${provider.toUpperCase()}_CLIENT_ID`] &&
     process.env[`${provider.toUpperCase()}_CLIENT_SECRET`],
@@ -38,7 +38,7 @@ const accountApi =
         },
       })
     : null;
-const allowedAuth = /^\/api\/auth\/(sign-in\/social|sign-out|callback\/(google|line))$/;
+const allowedAuth = /^\/api\/auth\/(sign-in\/social|sign-out|callback\/google)$/;
 async function api(request: Request): Promise<Response> {
   if (!auth || !accountApi) return json({ error: 'unconfigured' }, 503);
   const path = new URL(request.url).pathname;

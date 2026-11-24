@@ -1,12 +1,14 @@
-# Spec Delta: LINE・Google ログインとアカウント保存 — V1
+# Spec Delta: Google ログインとアカウント保存 — V1
 
-Status: implemented / 2026-11-24 コード実装・ローカル検証済み。外部登録情報の設定と実プロバイダー検証は未完了。
+Status: implemented / 2026-11-25 Google専用へ変更。Googleの登録・秘密鍵設定・ログイン開始確認済み。本人ログイン後のcallback検証は未完了。
 
 作成日: 2026-11-24 (Asia/Tokyo)
 
+2026-11-25: ユーザー指示によりGoogleのみへ変更。アカウント画面・ゲスト保存・クラウド同期は維持する。
+
 ## 目的
 
-LINE または Google でログインし、NIHON QUEST のゲーム進行と学習記録をアカウントに保存して、別の端末から続きを遊べるようにする。認証と保存は、この一つの利用フローとして検証する。
+Google でログインし、NIHON QUEST のゲーム進行と学習記録をアカウントに保存して、別の端末から続きを遊べるようにする。認証と保存は、この一つの利用フローとして検証する。
 
 ## 現行仕様と変更点
 
@@ -19,7 +21,7 @@ LINE または Google でログインし、NIHON QUEST のゲーム進行と学�
 
 ## 利用フロー
 
-1. タイトルの「アカウント」から LINE／Google ログインを選ぶ。ログインは必須にしない。
+1. タイトルの「アカウント」から Google ログインを選ぶ。ログインは必須にしない。
 2. 初回は、この端末のどの冒険をアカウントへ引き継ぐか、スロットの名前・進行・更新日時を見て選ぶ。無断で全データをアップロードしない。
 3. ログイン済みの冒険は、通常のセーブ時に端末へ保存後、クラウドへ同期する。未同期・同期中・同期済み・再試行待ちを表示する。
 4. 別端末では同じログイン方法で入り、クラウドのスロットを選んで再開する。
@@ -45,11 +47,9 @@ LINE または Google でログインし、NIHON QUEST のゲーム進行と学�
 ## 技術方針案
 
 - Phaser・Preact・Vite と既存の端末保存を継続する。
-- 認証候補は Better Auth、永続 DB は PostgreSQL、サーバーは Node.js。LINE と Google の公式プロバイダー実装があり、Preact からフレームワーク非依存のクライアントを利用できるため。
+- 認証候補は Better Auth、永続 DB は PostgreSQL、サーバーは Node.js。Google の公式プロバイダー実装があり、Preact からフレームワーク非依存のクライアントを利用できるため。
 - ゲームと API を同一 origin で配信する構成を優先する。現行の静的配信だけでは Cookie 認証とクラウド保存 API は動かないため、公開先の設定が必要。
 - 追加依存候補は `better-auth` と `pg`（および必要な型定義）。採用時に固定バージョン・Node 要件・脆弱性・依存スクリプトを確認する。
-- 最初の技術検証で、LINE のメールアドレスが無いケースと必要最小限の scope を検証する。名前・画像・メールを不要に永続化しない。ライブラリの必須フィールドと整合しなければ実装前に方針を修正する。
-- Google と LINE のアカウントは、同名や同じメールという理由で自動統合しない。V1 では選んだログイン方法を継続して利用する。
 - クラウドサービスの契約や公開先は未確定。料金の発生を伴う契約・本番環境への資格情報追加は、具体的な構成を示して確認する。
 - 同じブラウザの同一アカウントは Web Locks で単一タブに制限する。再試行は認証完了と所有者一致を待ち、Service Worker は API をキャッシュしない。
 - 本機能に AI モデルは不要。OmniRoute や外部 LLM にゲームデータを送信しない。
@@ -71,7 +71,7 @@ UI は callback と純粋なモデルを受け取り、永続化 API を直接 i
 
 ## 受け入れ条件と検証
 
-- LINE と Google の各実アカウントでログイン・キャンセル・ログアウトが動き、ログイン後の再読み込みでアカウントを維持する。
+- Google の実アカウントでログイン・キャンセル・ログアウトが動き、ログイン後の再読み込みでアカウントを維持する。
 - 初回引き継ぎ後、別のブラウザ環境から同じ進行と学習記録を復元できる。
 - 通信失敗、期限切れ、2 台同時更新、削除後の古い端末からの再送でデータが無断消失しない。
 - A の通信中に B へ切り替えても、A のデータが B に表示・送信されない。他ユーザーの ID やスロットを指定しても読み書きできない。
@@ -93,7 +93,6 @@ pnpm exec playwright test tests/e2e/account-cloud-save.spec.ts
 
 ## V1 の対象外
 
-- LINE と Google の両方を一つのアカウントへ後から連携する機能。
 - 既に別々に作った二つのアカウントのデータ統合。
 - 保護者一人に複数の子どもアカウントをぶら下げる管理機能（既存の 3 スロットは使用可）。
 - パスワード認証、課金、ランキング、メッセージ送信。
@@ -101,7 +100,6 @@ pnpm exec playwright test tests/e2e/account-cloud-save.spec.ts
 ## 実ログインまでに必要な設定
 
 - Google Cloud の OAuth クライアント、同意画面、許可済み callback URL。
-- LINE Developers の LINE Login チャネル、callback URL、公開状態。
 - サーバー公開先、PostgreSQL、アプリの HTTPS URL、サーバー側 secret 設定。
 - 上記は接続済みサービスで設定できる範囲を確認する。ユーザーに secret をチャットへ貼るよう依頼しない。
 
@@ -116,7 +114,5 @@ pnpm exec playwright test tests/e2e/account-cloud-save.spec.ts
 
 参照した公式資料:
 
-- [Better Auth: LINE](https://better-auth.com/docs/authentication/line)
 - [Better Auth: Google](https://better-auth.com/docs/authentication/google)
 - [Better Auth: PostgreSQL](https://better-auth.com/docs/adapters/postgresql)
-- [LINE Login の Web 統合](https://developers.line.biz/en/docs/line-login/integrate-line-login/)

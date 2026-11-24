@@ -12,7 +12,7 @@ function setup(userId: string | null = 'alice') {
   };
   const api = createAccountApi({
     origin,
-    providers: ['google', 'line'],
+    providers: ['google'],
     repository,
     session: async () => (userId ? { userId, createdAt: new Date() } : null),
   });

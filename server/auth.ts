@@ -3,7 +3,7 @@ import { betterAuth, type BetterAuthOptions } from 'better-auth';
 import type { Pool } from 'pg';
 
 // Better Auth requires an email-shaped unique key. This reserved-domain alias is never mailed.
-export function privateProfile(provider: 'google' | 'line', subject: string) {
+export function privateProfile(provider: 'google', subject: string) {
   if (!subject) throw new Error('Missing provider subject');
   return {
     name: provider,
@@ -39,17 +39,6 @@ export function authOptions(db: Pool, env: NodeJS.ProcessEnv): BetterAuthOptions
               scope: ['openid'],
               prompt: 'select_account',
               mapProfileToUser: (profile) => privateProfile('google', profile.sub),
-            },
-          }
-        : {}),
-      ...(env.LINE_CLIENT_ID && env.LINE_CLIENT_SECRET
-        ? {
-            line: {
-              clientId: env.LINE_CLIENT_ID,
-              clientSecret: env.LINE_CLIENT_SECRET,
-              disableDefaultScope: true,
-              scope: ['openid'],
-              mapProfileToUser: (profile) => privateProfile('line', profile.sub),
             },
           }
         : {}),
