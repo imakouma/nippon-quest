@@ -44,7 +44,7 @@ import {
   toggleBattleItem,
 } from '../core/progression/bag';
 import { heroLevel, syncHeroLevel } from '../core/progression/battleResult';
-import { EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
+import { canUse, EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
 import {
   acceptMission,
   claimDexReward,
@@ -2934,6 +2934,21 @@ export class OverworldScene extends Phaser.Scene {
           const put = this.equipToBag(cur, it);
           again(put.ok ? `eq:${it.kind}` : key, put.msg);
         },
+        onUse: (key: string) => {
+          const cur = this.gs();
+          const item = c.items.get(key.slice('item:'.length));
+          if (!cur || !item) return;
+          const max = this.heroStats(cur);
+          const used = useItem(cur, item, { hp: max.hp, mp: max.mp });
+          if (!used) {
+            playSfx('miss');
+            again(key, t('field.bagFull'));
+            return;
+          }
+          this.setGame(used.state);
+          playSfx('heal');
+          again(key, t('field.bagUsed', { item: item.name, n: used.healed }));
+        },
         onLeader: (key: string) => {
           const cur = this.gs();
           if (!cur) return;
@@ -3060,7 +3075,12 @@ export class OverworldScene extends Phaser.Scene {
       ];
     };
     const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
-    const stored = bagItems.storedBagThings(gs, c);
+    const stored = bagItems.storedBagThings(gs, c).map((thing) => {
+      const item = thing.kind === 'item' ? c.items.get(thing.key.slice('item:'.length)) : undefined;
+      return item
+        ? { ...thing, usable: canUse(gs, item, { hp: heroC.stats.hp, mp: heroC.stats.mp }) }
+        : thing;
+    });
     const inBag = [
       ...bagUids.flatMap((u) => monster(owned.get(u)!)),
       ...bagItems.equippedBagThings(gs, c),
