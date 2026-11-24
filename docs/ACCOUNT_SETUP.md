@@ -2,6 +2,29 @@
 
 ゲームのゲスト利用はそのまま使えます。実際のログインには、PostgreSQL、Node.js 22.10 以上のサーバー、各プロバイダーの登録が必要です。ブラウザへ配信する JavaScript に秘密鍵は含めません。
 
+## まだ何も登録していない場合
+
+次の順番で進めます。まず自分だけでログイン確認し、その後に一般公開します。
+
+1. DBを準備する（下記）。
+2. Google CloudのプロジェクトとLINE Developersのチャネルを作る。
+3. `.env.example` をコピーして `.env` を作り、各管理画面の値を手元で入力する。
+4. DB migrationとサーバー起動を行い、自分のアカウントで確認する。
+5. 公開先のHTTPS URLが決まったら、本番用のDB・秘密鍵・callback URLを設定する。
+
+### DBを準備する
+
+手元で試す場合は [PostgreSQLの公式ダウンロード](https://www.postgresql.org/download/) からOSに合った配布を導入し、ローカルサーバーを起動します。DB管理者で接続できるターミナルから、専用ユーザーとDBを作ります（既に同名がある場合は上書きせず別名にします）。
+
+```bash
+createuser --pwprompt --no-superuser --no-createdb --no-createrole nq_app
+createdb --owner=nq_app nihonquest
+```
+
+入力したパスワードはパスワード管理ツールに保管します。接続文字列は `.env` の `DATABASE_URL=postgresql://nq_app:パスワード@127.0.0.1:5432/nihonquest` に設定します。パスワードに `@`、`:` などが含まれる場合はURLエンコードが必要です。接続先はローカル専用です。本番ではホスティング側で専用PostgreSQLを作成し、その接続文字列をsecret管理へ登録します。DB管理者の接続方法は導入先の案内に従ってください。
+
+公式コマンド: [createuser](https://www.postgresql.org/docs/current/app-createuser.html)、[createdb](https://www.postgresql.org/docs/current/app-createdb.html)。
+
 ## ローカル起動
 
 1. PostgreSQL に NIHON QUEST 専用 DB とユーザーを作成します。
@@ -19,18 +42,23 @@
 
 ### Google
 
-Google Cloud Console で OAuth 同意画面と Web アプリの OAuth クライアントを作成します。
-`GOOGLE_CLIENT_ID` と `GOOGLE_CLIENT_SECRET` をサーバーに設定します。
-許可するリダイレクト URI は `<NQ_ORIGIN>/api/auth/callback/google` です。
-公開前は登録したテストユーザーで検証します。公開条件は Console の表示に従って設定します。
+1. [Google Cloud Console](https://console.cloud.google.com/) にGoogleアカウントで入り、NIHON QUEST用のプロジェクトを作成します。
+2. Google Auth Platform（またはOAuth同意画面）で、アプリ名・サポート用メール・連絡先を登録します。一般のGoogleアカウントを対象にする場合は外部向けにし、公開前はテスト状態で自分をテストユーザーへ追加します。
+3. 「クライアント」からOAuthクライアントを作り、種類を「ウェブ アプリケーション」にします。
+4. 承認済みリダイレクトURIへ `http://127.0.0.1:4177/api/auth/callback/google` を登録します。本番は `<NQ_ORIGIN>/api/auth/callback/google` を追加します。
+5. 発行されたクライアントIDとシークレットを、`.env` の `GOOGLE_CLIENT_ID` と `GOOGLE_CLIENT_SECRET` に入力します。
+
+URLはプロトコル・ホスト・ポート・パスまで完全一致させます。公開条件はConsoleの表示に従います。[Google公式の設定手順](https://developers.google.com/identity/protocols/oauth2/web-server)。
 
 ### LINE
 
-LINE Developers Console で LINE Login チャネル（Web）を作成します。
-Channel ID を `LINE_CLIENT_ID`、Channel secret を `LINE_CLIENT_SECRET` に設定します。
-Callback URL は `<NQ_ORIGIN>/api/auth/callback/line` です。
-開発中はチャネルの権限を持つテストアカウントで検証し、公開時はチャネルの公開状態を確認します。
-メールアドレス取得権限は要求しません。
+1. [LINE Developers Console](https://developers.line.biz/console/) に入り、開発者登録とプロバイダー作成を行います。プロバイダーはアプリの運営者を表します。
+2. 「LINEログイン」チャネルを作成し、アプリ名・説明などを入力、アプリタイプはWebを選びます。
+3. Basic settingsのChannel IDを `.env` の `LINE_CLIENT_ID`、Channel secretを `LINE_CLIENT_SECRET` に入力します。
+4. LINE Login設定のCallback URLへ `http://127.0.0.1:4177/api/auth/callback/line` を登録します。本番は `<NQ_ORIGIN>/api/auth/callback/line` を追加します。
+5. Developing状態のまま、AdminまたはTester権限を持つLINEアカウントで検証します。一般公開の準備ができたらPublishedへ変更します。
+
+メールアドレス取得権限の申請は不要です。[LINE公式の開始手順](https://developers.line.biz/en/docs/line-login/getting-started/)、[callback設定](https://developers.line.biz/en/docs/line-login/integrate-line-login/)。
 
 双方とも要求 scope は `openid` のみです。Better Auth が必要とする email 形の内部キーは provider と subject の SHA-256 を使い、配送不能な予約ドメイン `accounts.invalid` で作成します。これは実メールではなく、メール送信・パスワード再設定には使いません。表示名は provider 名、プロフィール画像は未保存、OAuth token は保存前フックで除去します。プロバイダーごとのアカウントを自動結合しません。
 
@@ -67,5 +95,15 @@ SQL はテスト専用の PGlite で実際に実行します。PGlite は本番�
 ブラウザ検査 `tests/e2e/account-cloud-save.spec.ts` は API を模擬して、引き継ぎ・別ブラウザ復元・複数タブ制限・ログアウトを検査します。実際の LINE／Google の本人認証を通過したことの代わりにはなりません。
 
 公開前に、実プロバイダーでログイン・拒否・再ログイン・別端末復元・ログアウトを両方確認します。
+
+初回はゲストで冒険を保存し、アカウント画面からログインして「引き継ぐ」を確認します。別のブラウザで同じプロバイダーの同じアカウントにログインし、進行が復元されれば成功です。LINEとGoogleは別アカウントとして扱うため、LINEで保存した冒険をGoogleログインだけで開くことはできません。
+
+| 症状 | 確認箇所 |
+| --- | --- |
+| ログインボタンが無効 | DB・秘密鍵・各providerのID/secretを設定し、Nodeサーバーを再起動したか |
+| redirect_uri_mismatch／callbackエラー | Console登録URLとNQ_ORIGINが完全一致しているか。localhostと127.0.0.1も別扱い |
+| LINEで開発者以外が入れない | Developing状態のAdmin/Tester権限か、公開準備後のPublished設定 |
+| DB接続失敗／テーブルがない | DATABASE_URL、DB起動、`pnpm db:migrate` の成功 |
+| 保存が見えない | 同じprovider・同じアカウントか。元端末で同期完了したか |
 
 公式資料: [Better Auth LINE](https://better-auth.com/docs/authentication/line)、[Google](https://better-auth.com/docs/authentication/google)、[PostgreSQL](https://better-auth.com/docs/adapters/postgresql)、[LINE Login Web統合](https://developers.line.biz/en/docs/line-login/integrate-line-login/)。

@@ -98,9 +98,6 @@ export default defineConfig({
     questionSave(),
     serveRootDirs(['content', 'assets', 'schemas', 'maps']),
   ],
-  server: {
-    proxy: process.env.NQ_API_ORIGIN ? { '/api': { target: process.env.NQ_API_ORIGIN } } : undefined,
-  },
   preview: {
     strictPort: true,
     proxy: process.env.NQ_API_ORIGIN ? { '/api': { target: process.env.NQ_API_ORIGIN } } : undefined,
@@ -147,6 +144,7 @@ export default defineConfig({
     },
   },
   server: {
+    proxy: process.env.NQ_API_ORIGIN ? { '/api': { target: process.env.NQ_API_ORIGIN } } : undefined,
     port: 5173,
     open: false,
     // 制作映像の原本と生成物はゲームのHMR対象ではない。巨大ファイルの

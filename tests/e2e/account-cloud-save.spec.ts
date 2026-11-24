@@ -28,6 +28,8 @@ async function mockAccount(context: BrowserContext, account: { owner: string | n
   });
 }
 test('未設定のログインを成功扱いにせず、ゲストプレイを維持する', async ({ page }, testInfo) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
   await page.route('**/api/account/session', (route) =>
     route.fulfill({ status: 503, json: { error: 'unconfigured' } }),
   );
@@ -39,6 +41,12 @@ test('未設定のログインを成功扱いにせず、ゲストプレイを�
   await page.screenshot({ path: testInfo.outputPath('account-unconfigured.png') });
   await page.keyboard.press('Escape');
   await expect(page.getByRole('menuitem', { name: 'はじめから' })).toBeEnabled();
+  await page.setViewportSize({ width: 844, height: 390 });
+  await page.getByRole('menuitem', { name: 'アカウント', exact: true }).click();
+  await expect(dialog.getByRole('button', { name: 'もどる' })).toBeInViewport();
+  await expect(dialog.getByRole('button', { name: 'Googleでログイン' })).toBeInViewport();
+  await page.screenshot({ path: testInfo.outputPath('account-narrow.png') });
+  expect(errors).toEqual([]);
 });
 test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元し、ログアウトでゲストへ戻る', async ({
   page,
