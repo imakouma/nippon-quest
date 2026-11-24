@@ -90,9 +90,53 @@ test('field terrain and billboards stay projected across camera movement', async
   expect(pixel.red + pixel.green + pixel.blue).toBeGreaterThan(40);
   expect(await projectedTownMarker()).toEqual({ moved: true, scaled: true });
   expect(before.orchardProps).toBeGreaterThan(0);
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld');
+    const camera = scene.cameras.main;
+    const player = (scene as Phaser.Scene & { player: Phaser.GameObjects.Sprite }).player;
+    const originalPreRender = camera.preRender;
+    const samples: number[] = [];
+    let rawPlayerPosition = { x: player.x, y: player.y };
+    const captureRawPlayerPosition = () => {
+      rawPlayerPosition = { x: player.x, y: player.y };
+    };
+    scene.events.on('postupdate', captureRawPlayerPosition);
+    camera.preRender = function () {
+      const followTarget = (
+        camera as Phaser.Cameras.Scene2D.Camera & { _follow: { x: number; y: number } | null }
+      )._follow;
+      if (followTarget)
+        samples.push(
+          Math.max(
+            Math.abs(followTarget.x - rawPlayerPosition.x),
+            Math.abs(followTarget.y - rawPlayerPosition.y),
+          ),
+        );
+      return originalPreRender.call(this);
+    };
+    (
+      window as unknown as {
+        __stopCameraFollowSampling: () => { maxDrift: number; samples: number };
+      }
+    ).__stopCameraFollowSampling = () => {
+      scene.events.off('postupdate', captureRawPlayerPosition);
+      camera.preRender = originalPreRender;
+      return { maxDrift: Math.max(0, ...samples), samples: samples.length };
+    };
+  });
   await page.keyboard.down('ArrowDown');
   await page.waitForTimeout(250);
   await page.keyboard.up('ArrowDown');
+  const followSync = await page.evaluate(() =>
+    (
+      window as unknown as {
+        __stopCameraFollowSampling: () => { maxDrift: number; samples: number };
+      }
+    ).__stopCameraFollowSampling(),
+  );
+  expect(followSync.samples).toBeGreaterThan(0);
+  expect(followSync.maxDrift).toBeLessThanOrEqual(0.01);
   await page.waitForTimeout(500);
 
   const after = await meshState();

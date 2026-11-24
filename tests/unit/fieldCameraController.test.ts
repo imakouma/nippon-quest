@@ -10,6 +10,7 @@ interface TestHarness {
   camera: Phaser.Cameras.Scene2D.Camera;
   calls: {
     panCallbacks: Phaser.Types.Cameras.Scene2D.CameraPanCallback[];
+    postUpdate?: () => void;
     shutdown?: () => void;
   };
   scene: Phaser.Scene;
@@ -69,6 +70,9 @@ function harness(): TestHarness {
   const scene = {
     cameras: { main: camera },
     events: {
+      on: vi.fn((event: string, callback: () => void) => {
+        if (event === 'postupdate') calls.postUpdate = callback;
+      }),
       once: vi.fn((_event: string, callback: () => void) => {
         calls.shutdown = callback;
       }),
@@ -122,7 +126,26 @@ describe('PhaserFieldCameraController', () => {
     expect(camera.setRotation).toHaveBeenCalledWith(0);
     expect(camera.setRoundPixels).toHaveBeenCalledWith(true);
     expect(camera.setScroll).toHaveBeenLastCalledWith(340, 311);
-    expect(camera.startFollow).toHaveBeenCalledWith(player, true, 0.2, 0.2);
+    const followTarget = vi.mocked(camera.startFollow).mock.calls[0]![0];
+    expect(followTarget).not.toBe(player);
+    expect(followTarget).toMatchObject({ x: 500.4, y: 400.6 });
+    expect(camera.startFollow).toHaveBeenCalledWith(followTarget, true, 0.2, 0.2);
+  });
+
+  it('keeps the camera target on the raw player position during render-only projection', () => {
+    const { camera, calls, scene } = harness();
+    const controller = new PhaserFieldCameraController(scene, () => bounds);
+    const player = { x: 500, y: 400 } as Phaser.GameObjects.Components.Transform;
+
+    controller.followPlayer(player);
+    const followTarget = vi.mocked(camera.startFollow).mock.calls[0]![0] as { x: number; y: number };
+    player.x = 516;
+    player.y = 400;
+    calls.postUpdate?.();
+    player.x = 620;
+    player.y = 503;
+
+    expect(followTarget).toEqual({ x: 516, y: 400 });
   });
 
   it('focuses, then returns to the latest player position and resumes follow', async () => {
@@ -147,7 +170,12 @@ describe('PhaserFieldCameraController', () => {
     calls.panCallbacks[1]!(camera, 1, 490.2, 360.8);
     await returning;
     expect(camera.setScroll).toHaveBeenLastCalledWith(490, 361);
-    expect(camera.startFollow).toHaveBeenCalledWith(player, true, 0.2, 0.2);
+    expect(camera.startFollow).toHaveBeenCalledWith(
+      expect.objectContaining({ x: 650.2, y: 450.8 }),
+      true,
+      0.2,
+      0.2,
+    );
     expect(camera.setBounds).not.toHaveBeenCalled();
     expect(camera.setZoom).not.toHaveBeenCalled();
     expect(camera.setRotation).not.toHaveBeenCalled();

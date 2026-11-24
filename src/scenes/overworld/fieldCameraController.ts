@@ -19,6 +19,7 @@ interface CameraTask {
 /** Owns field-camera scroll without touching fade, flash, or other visual effects. */
 export class PhaserFieldCameraController implements FieldCameraController {
   private player: Phaser.GameObjects.Components.Transform | null = null;
+  private readonly followPoint: CameraPoint = { x: 0, y: 0 };
   private task: CameraTask | null = null;
   private destroyed = false;
 
@@ -27,12 +28,14 @@ export class PhaserFieldCameraController implements FieldCameraController {
     private readonly getBounds: () => CameraBounds,
     private readonly camera = scene.cameras.main,
   ) {
+    scene.events.on('postupdate', this.syncFollowPoint);
     scene.events.once('shutdown', this.onShutdown);
   }
 
   followPlayer(target: Phaser.GameObjects.Components.Transform): void {
     if (this.destroyed) return;
     this.player = target;
+    this.syncFollowPoint();
     this.cancelTask();
     this.startFollow();
   }
@@ -67,6 +70,7 @@ export class PhaserFieldCameraController implements FieldCameraController {
     this.cancelTask();
     this.camera.stopFollow();
     this.player = null;
+    this.scene.events.off('postupdate', this.syncFollowPoint);
     this.scene.events.off('shutdown', this.onShutdown);
   }
 
@@ -94,9 +98,18 @@ export class PhaserFieldCameraController implements FieldCameraController {
 
   private startFollow(): void {
     if (!this.player) return;
+    this.syncFollowPoint();
     this.snapTo(this.player);
-    this.camera.startFollow(this.player, true, FOLLOW_LERP, FOLLOW_LERP);
+    // Terrain billboards are projected in PRE_RENDER and restored after rendering.
+    // Following the sprite directly makes the camera chase that temporary projection.
+    this.camera.startFollow(this.followPoint, true, FOLLOW_LERP, FOLLOW_LERP);
   }
+
+  private readonly syncFollowPoint = (): void => {
+    if (!this.player) return;
+    this.followPoint.x = this.player.x;
+    this.followPoint.y = this.player.y;
+  };
 
   private snapTo(point: CameraPoint): void {
     const scroll = cameraScrollForPoint(
