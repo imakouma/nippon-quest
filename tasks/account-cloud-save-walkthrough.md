@@ -48,10 +48,12 @@ Google側の専用プロジェクト `causal-temple-515714-n6`（NIHON QUEST）�
 
 次はGoogle・LINEのクライアント登録後、このworktreeの `.env` へID/secretを設定する。DBと認証秘密鍵のローカル準備は完了しているため、再生成は不要。本番DB・公開先は別途必要。
 
-LINE Loginチャネル、Googleのclient secret、本番PostgreSQL、本番公開先は未設定。実際の外部アカウントの本人認証と本番DBでの復元は未検証。APIを模擬するE2Eは実ログイン検証を代替しない。次は `docs/ACCOUNT_SETUP.md` に沿って登録情報を安全に設定し、両プロバイダーの実アカウントで検証する。
+LINE Loginチャネル、本番PostgreSQL、本番公開先は未設定。Googleのclient secretは下記2026-11-25の追加作業で設定済み。実際の外部アカウントの本人認証と本番DBでの復元は未検証。APIを模擬するE2Eは実ログイン検証を代替しない。次は `docs/ACCOUNT_SETUP.md` に沿って登録情報を安全に設定し、両プロバイダーの実アカウントで検証する。
 
 運用バックアップ保持期間、削除後の復元時の扱い、期限切れ認証行の定期保守は公開先で設定する。
 
 依存監査: critical/high は0件。Vite 6.4.4 の開発サーバーに moderate 1件（GHSA-8g5g-mxqh-grgj、修正版6.4.5）。既存のVite版で、新しい認証SDKのテスト用peer経路でも検出される。Node本番配信はViteサーバーを起動せず、開発サーバーは127.0.0.1に限定。開発基盤の更新時に解消する（再確認日: 2026-12-01）。
 
 2026-11-25: Google同意アプリの作成をユーザー承認後に確定。専用project `causal-temple-515714-n6` にWebクライアント `NIHON QUEST local development` が存在し、callback `http://127.0.0.1:4177/api/auth/callback/google` とExternal/Testing設定を確認。client IDだけを端末の.envへ反映。client secretは取得していない。テストユーザー登録はツール結果で確証が得られず、必要時の確認が残る。実OAuth往復とLINE登録は未完了。
+
+2026-11-25追加: ユーザーがTinyFish経由の秘密鍵取得・端末保存と、同一開発クライアントへの新しい鍵1件の追加を明示承認。Googleの処理待ち解消後に1件追加し、秘密値をチャット本文へ出さずローカルimportスクリプトで.envへ保存した。既存鍵は削除していない。.envはGit除外・0600を確認。実APIでGoogle provider有効、callback一致、openid scope、state/PKCE/HttpOnly cookieを検証。実ブラウザでGoogleボタン有効・LINEボタン無効、Googleへの遷移を確認（google-ready.png）。本人ログイン後のcallback成功とデータ復元はまだ未確認。API8789・作業プレビュー4177は本人確認の引き継ぎ用に起動し、4174は変更していない。LINE DevelopersのTinyFish接続は本人ログイン待ち。
