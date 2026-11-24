@@ -1,76 +1,112 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import type { AccountView, LoginProvider } from '../../shared/account';
+import type { AccountPanelProps, AccountConfirmation, Operation } from './accountPanelTypes';
 import { RubyLabel } from '../RubyLabel';
 import { t } from '../i18n';
+import { AccountAdventures } from './AccountAdventures';
 import './account.css';
 
-export interface AccountPanelProps {
-  view: AccountView;
-  onLogin(provider: LoginProvider): Promise<void>;
-  onLogout(): Promise<void>;
-  onImport(slot: 1 | 2 | 3): Promise<void>;
-  onResolve(slot: 1 | 2 | 3, choice: 'local' | 'cloud'): Promise<void>;
-  onSync(): Promise<void>;
-  onExport(): Promise<void>;
-  onDelete(): Promise<void>;
-  onClose(): void;
-  onReload(): void;
-  loginFailed?: boolean;
-}
 export function AccountPanel(props: AccountPanelProps) {
   const panel = useRef<HTMLDivElement>(null);
-  const [busy, setBusy] = useState(false);
+  const inFlight = useRef(false);
+  const restoreFocus = useRef<string | null>(null);
+  const [operation, setOperation] = useState<Operation | null>(null);
+  const busy = operation !== null;
   const [error, setError] = useState(props.loginFailed ? t('account.loginFailed') : '');
-  const [confirmation, setConfirmation] = useState<{ text: string; run: () => Promise<void> } | null>(null);
+  const [message, setMessage] = useState('');
+  const [confirmation, setConfirmation] = useState<AccountConfirmation | null>(null);
+  const [managementOpen, setManagementOpen] = useState(false);
   useEffect(() => {
-    panel.current?.querySelector<HTMLElement>('.nq-account-body')?.scrollTo(0, 0);
-    if (confirmation) panel.current?.querySelector<HTMLButtonElement>('.nq-account-confirm button')?.focus();
-  }, [confirmation]);
-  const live = useRef({ busy, close: props.onClose });
-  live.current = { busy, close: props.onClose };
+    if (confirmation) {
+      panel.current?.querySelector<HTMLElement>('.nq-account-body')?.scrollTo(0, 0);
+      panel.current?.querySelector<HTMLButtonElement>('.nq-account-cancel')?.focus();
+    } else if (!busy && restoreFocus.current) {
+      (panel.current?.querySelector<HTMLElement>(`#${restoreFocus.current}`) ?? panel.current)?.focus();
+      restoreFocus.current = null;
+    }
+  }, [confirmation, busy]);
+  useEffect(() => {
+    if (error || message || operation)
+      panel.current?.querySelector<HTMLElement>('.nq-account-body')?.scrollTo(0, 0);
+  }, [error, message, operation]);
+  const live = useRef({ confirmation, close: props.onClose });
+  live.current = { confirmation, close: props.onClose };
   useEffect(() => {
     panel.current?.focus();
     const key = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && !live.current.busy) {
+      if (event.key === 'Escape') {
         event.preventDefault();
-        live.current.close();
+        event.stopPropagation();
+        if (!inFlight.current) {
+          if (live.current.confirmation) setConfirmation(null);
+          else live.current.close();
+        }
       }
       if (event.key !== 'Tab') return;
-      const buttons = Array.from(
-        panel.current?.querySelectorAll<HTMLButtonElement>('button:not(:disabled)') ?? [],
-      );
-      const first = buttons[0],
-        last = buttons.at(-1);
-      if (event.shiftKey && (document.activeElement === first || document.activeElement === panel.current)) {
+      const controls = Array.from(
+        panel.current?.querySelectorAll<HTMLElement>('button:not(:disabled), summary') ?? [],
+      ).filter((element) => element.getClientRects().length > 0);
+      const first = controls[0],
+        last = controls.at(-1);
+      if (
+        event.shiftKey &&
+        (document.activeElement === first || !controls.includes(document.activeElement as HTMLElement))
+      ) {
         event.preventDefault();
         last?.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
+      } else if (
+        !event.shiftKey &&
+        (document.activeElement === last || !controls.includes(document.activeElement as HTMLElement))
+      ) {
         event.preventDefault();
         first?.focus();
       }
     };
-    window.addEventListener('keydown', key);
-    return () => window.removeEventListener('keydown', key);
+    window.addEventListener('keydown', key, true);
+    return () => window.removeEventListener('keydown', key, true);
   }, []);
-  const run = async (action: () => Promise<void>) => {
-    if (busy) return;
-    setBusy(true);
+  const confirm = (value: AccountConfirmation) => {
+    restoreFocus.current = value.focusId;
     setError('');
+    setMessage('');
+    setConfirmation(value);
+  };
+  const run = async (kind: Operation, action: () => Promise<void>) => {
+    if (inFlight.current) return;
+    inFlight.current = true;
+    setOperation(kind);
+    setError('');
+    setMessage('');
     setConfirmation(null);
     try {
       await action();
+      if (['sync', 'export', 'import', 'resolve'].includes(kind)) setMessage(t(`account.${kind}Done`));
     } catch {
-      setError(t('account.failed'));
+      setError(t(`account.${kind}Failed`));
     } finally {
-      setBusy(false);
+      inFlight.current = false;
+      setOperation(null);
     }
   };
-  const button = (key: string, action: () => Promise<void>, disabled = false) => (
-    <button type="button" disabled={busy || disabled} onClick={() => void run(action)}>
-      <RubyLabel text={t(key)} />
+  const button = (kind: Operation, action: () => Promise<void>, disabled = false) => (
+    <button
+      type="button"
+      disabled={busy || disabled}
+      onClick={() => void run(kind, action)}
+      class={kind === 'login' ? 'nq-account-primary' : undefined}
+    >
+      <RubyLabel
+        text={t(
+          kind === 'login'
+            ? operation === 'login'
+              ? 'account.loginWorking'
+              : 'account.google'
+            : `account.${kind}`,
+        )}
+      />
     </button>
   );
   const view = props.view;
+  const unsettled = view.slots.some((slot) => slot.status !== 'synced');
   return (
     <div class="nq-account-backdrop">
       <div
@@ -86,25 +122,45 @@ export function AccountPanel(props: AccountPanelProps) {
           <h2 id="nq-account-title">
             <RubyLabel text={t('account.title')} />
           </h2>
-          <button type="button" disabled={busy} onClick={props.onClose}>
+          <button
+            type="button"
+            disabled={busy}
+            onClick={() => (confirmation ? setConfirmation(null) : props.onClose())}
+          >
             <RubyLabel text={t('account.close')} />
           </button>
         </header>
         <div class="nq-account-body">
-          {!view.available && (
-            <p role="status">
-              <RubyLabel text={t('account.unavailable')} />
+          {error && (
+            <p role="alert" class="nq-account-feedback nq-account-error">
+              <RubyLabel text={error} />
             </p>
           )}
+          <div role="status" aria-live="polite" aria-atomic="true">
+            {(busy || message) && (
+              <p class="nq-account-feedback">
+                <RubyLabel
+                  text={
+                    busy ? t(operation === 'login' ? 'account.loginWorking' : 'account.working') : message
+                  }
+                />
+              </p>
+            )}
+          </div>
           {confirmation ? (
-            <div role="alert" class="nq-account-confirm">
+            <div class="nq-account-confirm">
+              <h3>
+                <RubyLabel text={t('account.confirmTitle')} />
+              </h3>
               <p>
                 <RubyLabel text={confirmation.text} />
               </p>
               <div class="nq-account-actions">
-                {button('account.confirm', confirmation.run)}
-                <button type="button" onClick={() => setConfirmation(null)}>
+                <button type="button" class="nq-account-cancel" onClick={() => setConfirmation(null)}>
                   <RubyLabel text={t('account.cancel')} />
+                </button>
+                <button type="button" onClick={() => void run(confirmation.kind, confirmation.run)}>
+                  <RubyLabel text={t('account.confirm')} />
                 </button>
               </div>
             </div>
@@ -119,108 +175,110 @@ export function AccountPanel(props: AccountPanelProps) {
             </>
           ) : !view.userId ? (
             <>
-              <p>
+              <p class="nq-account-eyebrow">
+                <RubyLabel text={t('account.guestBadge')} />
+              </p>
+              <h3 class="nq-account-lead">
                 <RubyLabel text={t('account.intro')} />
-              </p>
+              </h3>
               <p class="nq-account-note">
-                <RubyLabel text={t('account.privacy')} />
+                <RubyLabel text={t('account.signInHint')} />
               </p>
-              <div class="nq-account-actions">
-                {button('account.google', () => props.onLogin('google'), !view.providers.includes('google'))}
-              </div>
-              <p>
+              {button(
+                'login',
+                () => props.onLogin('google'),
+                !view.available || !view.providers.includes('google'),
+              )}
+              {(!view.available || !view.providers.includes('google')) && (
+                <div class="nq-account-feedback">
+                  <p>
+                    <RubyLabel text={t(view.available ? 'account.notConfigured' : 'account.unavailable')} />
+                  </p>
+                  <button type="button" onClick={props.onReload}>
+                    <RubyLabel text={t('account.reload')} />
+                  </button>
+                </div>
+              )}
+              <p class="nq-account-note">
                 <RubyLabel text={t('account.guest')} />
               </p>
+              <details>
+                <summary>
+                  <RubyLabel text={t('account.guardian')} />
+                </summary>
+                <p class="nq-account-note">
+                  <RubyLabel text={t('account.privacy')} />
+                </p>
+              </details>
             </>
           ) : (
             <>
-              <p>
-                <RubyLabel text={t('account.connected')} />
-              </p>
-              <div class="nq-account-actions">
-                {button('account.sync', props.onSync)}
-                {button('account.export', props.onExport)}
-                {button('account.logout', props.onLogout)}
+              <div class="nq-account-overview">
+                <div>
+                  <p class="nq-account-eyebrow">
+                    <RubyLabel text={t('account.connected')} />
+                  </p>
+                  <p class="nq-account-note">
+                    <RubyLabel text={t(unsettled ? 'account.checkSaves' : 'account.autoSave')} />
+                  </p>
+                </div>
+                {button('sync', props.onSync)}
               </div>
-              <p class="nq-account-note">
-                <RubyLabel text={t('account.logoutNote')} />
-              </p>
-              {view.slots.map((slot) => (
-                <section key={slot.slot} class="nq-account-slot">
-                  <h3>
-                    <RubyLabel text={t('saveSlots.slot', { n: slot.slot })} />
-                  </h3>
-                  <p>
-                    <RubyLabel text={slot.local ?? t('account.empty')} />
-                  </p>
-                  <p role="status">
-                    <RubyLabel text={t(`account.${slot.status}`)} />
-                  </p>
-                  {slot.status === 'conflict' && (
-                    <>
-                      <p>
-                        <RubyLabel
-                          text={t('account.cloudVersion', { detail: slot.cloud ?? t('account.deleted') })}
-                        />
-                      </p>
-                      <div class="nq-account-actions">
-                        {button('account.keepLocal', () => props.onResolve(slot.slot, 'local'))}
-                        {button('account.keepCloud', () => props.onResolve(slot.slot, 'cloud'))}
-                      </div>
-                    </>
-                  )}
-                </section>
-              ))}
-              {view.guestSlots.length > 0 && (
-                <section>
-                  <h3>
-                    <RubyLabel text={t('account.importTitle')} />
-                  </h3>
-                  {view.guestSlots.map((slot) => (
-                    <div class="nq-account-slot" key={slot.slot}>
-                      <p>
-                        <RubyLabel text={t('saveSlots.slot', { n: slot.slot })} /> —{' '}
-                        <RubyLabel text={slot.label} />
-                      </p>
-                      <button
-                        type="button"
-                        disabled={busy}
-                        onClick={() =>
-                          setConfirmation({
-                            text: t('account.importConfirm', {
-                              guest: slot.label,
-                              cloud:
-                                view.slots.find((s) => s.slot === slot.slot)?.local ?? t('account.empty'),
-                            }),
-                            run: () => props.onImport(slot.slot),
-                          })
-                        }
-                      >
-                        <RubyLabel text={t('account.import')} />
-                      </button>
-                    </div>
-                  ))}
-                </section>
-              )}
-              <button
-                class="nq-account-delete"
-                type="button"
-                disabled={busy}
-                onClick={() => setConfirmation({ text: t('account.deleteConfirm'), run: props.onDelete })}
+              <AccountAdventures
+                view={view}
+                busy={busy}
+                confirm={confirm}
+                onImport={props.onImport}
+                onResolve={props.onResolve}
+              />
+              <details
+                open={managementOpen}
+                onToggle={(event) => setManagementOpen(event.currentTarget.open)}
               >
-                <RubyLabel text={t('account.delete')} />
-              </button>
+                <summary>
+                  <RubyLabel text={t('account.management')} />
+                </summary>
+                <p class="nq-account-note">
+                  <RubyLabel text={t('account.logoutNote')} />
+                </p>
+                <div class="nq-account-actions">
+                  {button('export', props.onExport)}
+                  <button
+                    type="button"
+                    id="account-logout"
+                    disabled={busy}
+                    onClick={() =>
+                      unsettled
+                        ? confirm({
+                            kind: 'logout',
+                            text: t('account.logoutConfirm'),
+                            run: props.onLogout,
+                            focusId: 'account-logout',
+                          })
+                        : void run('logout', props.onLogout)
+                    }
+                  >
+                    <RubyLabel text={t('account.logout')} />
+                  </button>
+                </div>
+                <button
+                  class="nq-account-delete"
+                  type="button"
+                  id="account-delete"
+                  disabled={busy}
+                  onClick={() =>
+                    confirm({
+                      kind: 'delete',
+                      text: t('account.deleteConfirm'),
+                      run: props.onDelete,
+                      focusId: 'account-delete',
+                    })
+                  }
+                >
+                  <RubyLabel text={t('account.delete')} />
+                </button>
+              </details>
             </>
-          )}
-          {busy && (
-            <p role="status">
-              <RubyLabel text={t('account.working')} />
-            </p>
-          )}
-          {error && (
-            <p role="alert">
-              <RubyLabel text={error} />
-            </p>
           )}
         </div>
       </div>

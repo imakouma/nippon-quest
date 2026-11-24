@@ -30,6 +30,7 @@
   font-size: 36px;
 }
 .nq-account h3,
+.nq-account h4,
 .nq-account p {
   font-size: 24px;
   line-height: 1.65;
@@ -69,8 +70,9 @@
   border: 2px solid #747f9c;
   background: #18203a;
 }
-.nq-account-note {
+.nq-account .nq-account-note {
   color: #d7dbea;
+  font-size: 20px;
 }
 .nq-account-confirm {
   border: 3px solid var(--nq-yellow);
@@ -86,4 +88,93 @@
   top: 276px;
   width: 240px;
   left: 352px;
+}
+.nq-account h3,
+.nq-account h4 {
+  margin: 12px 0 8px;
+  font-size: 24px;
+}
+.nq-account h4 {
+  margin: 0;
+}
+.nq-account .nq-account-lead {
+  font-size: 30px;
+  color: var(--nq-yellow);
+  margin-top: 4px;
+}
+.nq-account .nq-account-eyebrow {
+  font-size: 20px;
+  color: #b7d6ff;
+  margin: 12px 0 4px;
+}
+
+.nq-account .nq-account-primary {
+  min-height: 56px;
+  background: #f6e7c1;
+  border-color: #fff;
+  color: #18203a;
+  padding: 12px 28px;
+}
+.nq-account button:hover:not(:disabled) {
+  filter: brightness(1.15);
+}
+.nq-account-overview,
+.nq-account-slot-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nq-account-overview > button {
+  flex-shrink: 0;
+}
+.nq-account-slot p {
+  margin: 4px 0;
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+.nq-account-badge {
+  display: inline-block;
+  border: 1px solid currentColor;
+  padding: 2px 8px;
+  font-size: 20px;
+  color: #b9e9ce;
+  white-space: nowrap;
+}
+.nq-account-badge-pending,
+.nq-account-badge-conflict {
+  color: #ffe39a;
+}
+.nq-account-slot-conflict {
+  border-color: #ffe39a;
+}
+.nq-account details {
+  border-top: 2px solid #747f9c;
+  margin-top: 20px;
+  padding-top: 8px;
+}
+.nq-account summary {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 12px 4px;
+}
+.nq-account summary:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: -3px;
+}
+.nq-account-feedback {
+  border-left: 4px solid #b7d6ff;
+  padding: 8px 12px;
+  background: #18203a;
+}
+.nq-account .nq-account-feedback {
+  font-size: 22px;
+}
+.nq-account .nq-account-error {
+  border-color: #ffbca9;
+  color: #ffdbd0;
+}
+
+.nq-account-overview .nq-account-note {
+  margin: 4px 0;
 }

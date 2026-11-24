@@ -82,6 +82,12 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
   const importButton = dialog.getByRole('button', { name: /この.*ぼうけん.*つぐ|この.*冒険.*継/ });
   await importButton.click();
   expect(account.slots).toHaveLength(0);
+  await expect(dialog.getByRole('button', { name: 'やめる' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeVisible();
+  await expect(importButton).toBeFocused();
+  expect(account.slots).toHaveLength(0);
+  await importButton.click();
   await dialog.getByRole('button', { name: /はい/ }).click();
   await expect.poll(() => account.slots[0]?.state?.player.gold).toBe(123);
   await expect(dialog.locator('.nq-account-slot').first()).toContainText('ハル');
@@ -104,6 +110,10 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
     timeout: 30_000,
   });
   await other.close();
+  await dialog
+    .locator('summary')
+    .filter({ hasText: /かんり|管理/ })
+    .click();
   await dialog.getByRole('button', { name: 'ログアウト', exact: true }).click();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();
   expect(account.owner).toBeNull();
@@ -145,4 +155,108 @@ test('起動リトライは遅い認証応答を待ち、ゲスト進行をア�
   release();
   await expect.poll(() => writes.length, { timeout: 60_000 }).toBeGreaterThan(0);
   expect(writes.every((name) => name === 'クラウド')).toBe(true);
+});
+
+test('Googleの接続失敗を説明して再試行でき、閉じた説明の中へTabが移らない', async ({ page, context }) => {
+  await mockAccount(context, { owner: null, slots: [] });
+  let attempts = 0;
+  await page.route('**/api/auth/sign-in/social', async (route) => {
+    attempts++;
+    await route.fulfill({ status: 503, json: {} });
+  });
+  await page.goto('/?account=1');
+  const dialog = page.getByRole('dialog');
+  const login = dialog.getByRole('button', { name: 'Googleでログイン' });
+  await login.click();
+  await expect(dialog.getByRole('alert')).toContainText('Google');
+  await expect(login).toBeEnabled();
+  await login.click();
+  await expect.poll(() => attempts).toBe(2);
+  const disclosure = dialog.locator('summary');
+  await disclosure.focus();
+  await page.keyboard.press('Tab');
+  await expect(dialog.getByRole('button', { name: 'もどる' })).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(disclosure).toBeFocused();
+});
+
+test('競合の上書きと未送信のログアウトを確認し、キャンセルでは冒険を変えない', async ({
+  page,
+  context,
+}, testInfo) => {
+  test.setTimeout(90_000);
+  const local = createNewGame({ name: 'ハル', grade: 3 });
+  const cloud = createNewGame({ name: 'ソラ', grade: 3 });
+  const account = {
+    owner: 'alice' as string | null,
+    slots: [{ slot: 1 as const, revision: 2, mutation: crypto.randomUUID(), state: cloud }],
+  };
+  await mockAccount(context, account);
+  await page.route('**/api/account/slots/2', (route) => route.fulfill({ status: 503, json: {} }));
+  await page.goto('/?account=1');
+  await expect(page.getByRole('dialog')).toBeVisible({ timeout: 30_000 });
+  await page.evaluate(async (serialized) => {
+    const state: unknown = JSON.parse(serialized);
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      const req = indexedDB.open('nihonquest');
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction('accounts', 'readwrite');
+      for (const slot of [1, 2])
+        tx.objectStore('accounts').put(
+          {
+            revision: slot === 1 ? 1 : 0,
+            mutation: crypto.randomUUID(),
+            dirty: true,
+            state,
+            backup: null,
+          },
+          `account:alice:slot:${slot}`,
+        );
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    });
+    db.close();
+  }, JSON.stringify(local));
+  account.owner = 'alice';
+  await page.goto('/?account=1');
+  const dialog = page.getByRole('dialog');
+  const conflict = dialog.locator('.nq-account-slot-conflict');
+  await expect(conflict).toContainText('ハル');
+  await expect(conflict).toContainText('ソラ');
+  await expect(dialog.locator('.nq-account-slot-pending')).toHaveCount(1);
+  await page.screenshot({ path: testInfo.outputPath('account-conflict.png') });
+  const useCloud = dialog.getByRole('button', { name: /サーバーの.*データを/ });
+  await useCloud.click();
+  await expect(dialog.getByRole('button', { name: 'やめる' })).toBeFocused();
+  await expect(dialog.locator('.nq-account-confirm')).toContainText('ソラ');
+  await expect(dialog.locator('.nq-account-confirm')).toContainText('ハル');
+  await page.keyboard.press('Escape');
+  await expect(useCloud).toBeFocused();
+  await expect(conflict).toBeVisible();
+  await dialog.locator('summary').click();
+  const logout = dialog.getByRole('button', { name: 'ログアウト', exact: true });
+  await logout.click();
+  await expect(dialog.getByRole('button', { name: 'やめる' })).toBeFocused();
+  expect(account.owner).toBe('alice');
+  await page.keyboard.press('Escape');
+  await expect(logout).toBeFocused();
+  await useCloud.click();
+  await dialog.getByRole('button', { name: /はい/ }).click();
+  await expect(conflict).toHaveCount(0);
+  await expect(dialog.locator('.nq-account-slot').first()).toContainText('ソラ');
+  await expect(dialog.locator('.nq-account-slot-pending')).toHaveCount(1);
+  await expect(dialog.getByRole('status')).toContainText(/切|き/);
+  await page.setViewportSize({ width: 844, height: 390 });
+  await dialog.getByRole('button', { name: /同期|どうき/ }).click();
+  await expect(dialog.getByRole('button', { name: 'もどる' })).toBeInViewport();
+  await expect(dialog.locator('.nq-account-slot-pending')).toHaveCount(1);
+  expect(await dialog.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath('account-saves-narrow.png') });
+  await dialog.getByRole('button', { name: /アカウントを.*さくじょ|アカウントを.*削除/ }).click();
+  await dialog.getByRole('button', { name: /はい/ }).click();
+  await expect(dialog.getByRole('alert')).toContainText('Google');
+  expect(account.owner).toBe('alice');
 });
