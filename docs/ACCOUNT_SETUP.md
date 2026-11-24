@@ -27,6 +27,25 @@ createdb --owner=nq_app nihonquest
 
 ## ローカル起動
 
+### この作業環境で準備するDocker版
+
+`compose.account-local.yaml` は専用ボリュームを使い、DBを `127.0.0.1:55439` だけに公開します。既存DBや正規プレビュー4174には接続しません。`.env` は端末だけに置き、Gitへ含めません。
+
+```bash
+docker compose -f compose.account-local.yaml up -d --wait
+```
+
+新しい環境で初めて使うときは、`.env` の `NQ_LOCAL_DB_ADMIN_PASSWORD` に `openssl rand -hex 32` で作った管理用パスワードを設定してから起動します。続いて、管理者と分離したアプリ用ユーザーを作成します。
+
+```bash
+docker compose -f compose.account-local.yaml exec db createuser -U postgres --pwprompt --no-superuser --no-createdb --no-createrole nq_app
+docker compose -f compose.account-local.yaml exec db createdb -U postgres --owner=nq_app nihonquest
+```
+
+`DATABASE_URL` は `postgresql://nq_app:アプリ用パスワード@127.0.0.1:55439/nihonquest` にします。作成済み環境ではユーザー作成を繰り返す必要はありません。停止は `docker compose -f compose.account-local.yaml stop`、再開は上記 `up` です。保存ボリュームは残ります。DB管理用パスワードをゲームサーバーの接続には使いません。
+
+### サーバー起動手順
+
 1. PostgreSQL に NIHON QUEST 専用 DB とユーザーを作成します。
 2. `.env.example` を `.env` にコピーし、DB 接続先と秘密鍵を設定します。`.env` は Git 対象外です。秘密鍵をチャットへ貼り付けないでください。
 3. `BETTER_AUTH_SECRET` は十分なランダム値にします。例: `openssl rand -hex 32`。サーバー再起動ごとに変更しないでください。

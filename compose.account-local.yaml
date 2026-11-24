@@ -1,0 +1,18 @@
+# Local development only. Keep this database off public interfaces.
+name: nq-account-local
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_PASSWORD: ${NQ_LOCAL_DB_ADMIN_PASSWORD:?Set this in .env}
+    ports:
+      - '127.0.0.1:55439:5432'
+    volumes:
+      - account-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  account-db:
