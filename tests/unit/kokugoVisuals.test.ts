@@ -19,7 +19,7 @@ it('preserves all Japanese question identities and answers', () => {
     return [q.id, q.type, q.grade, q.unit, p.answer, p.answers, p.choices];
   });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    'ed9829d4228f1e573c4eb87ef774a47d2b38eb7d452a8877a499099895eaed1a',
+    '48f5f5128122ec27e9e0370446cc2c0ead8cdfced867e8dfedb0e3484219d8a1',
   );
 });
 

@@ -418,6 +418,7 @@ test('自作に置換した国語7問をスマホで読んで正答できる', a
     .filter((file) => String(file).endsWith('.json'))
     .flatMap((file) => JSON.parse(readFileSync(`content/questions/kokugo/g4/${file}`, 'utf8')));
   expect(rows).toHaveLength(7);
+  const readings: { id: string; width: number; font: number; heights: number[] }[] = [];
   for (const { id } of rows) {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
@@ -452,6 +453,7 @@ test('自作に置換した国語7問をスマホで読んで正答できる', a
         await page
           .locator('.pg-preview')
           .screenshot({ path: testInfo.outputPath(`${id}-original-mobile.png`) });
+        readings.push({ id, width, ...metrics });
         expect(metrics.font, id).toBeGreaterThanOrEqual(18);
         for (const height of metrics.heights) expect(height, id).toBeGreaterThanOrEqual(40);
       }
@@ -473,4 +475,8 @@ test('自作に置換した国語7問をスマホで読んで正答できる', a
       .tap();
     await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
   }
+  await testInfo.attach('original-passage-mobile-metrics', {
+    body: JSON.stringify(readings, null, 2),
+    contentType: 'application/json',
+  });
 });
