@@ -11,6 +11,7 @@ const questions = readdirSync('content/questions/kokugo', { recursive: true })
   .map((q) => questionBaseSchema.parse(q))
   .sort((a, b) => a.id.localeCompare(b.id));
 
+// Source verification corrected only the spelling 心ばく数 → 心ぱく数.
 it('preserves all Japanese question identities and answers', () => {
   expect(questions).toHaveLength(4665);
   const rows = questions.map((q) => {
@@ -18,7 +19,7 @@ it('preserves all Japanese question identities and answers', () => {
     return [q.id, q.type, q.grade, q.unit, p.answer, p.answers, p.choices];
   });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '285f070c3df05e6829041786d699e2f2792071c69fffb2de7688e737f4a068ec',
+    'f857bc141899cda3cbcdfdf27e78e5ac2219444e5fac58c0fc7e738969ce3dfb',
   );
 });
 

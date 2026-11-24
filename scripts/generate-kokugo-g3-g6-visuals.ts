@@ -282,51 +282,14 @@ const defer = (ids: string[], decision: string, reason: string) => {
 };
 for (const [suffix, reason] of Object.entries(clarificationReasons))
   defer([suffix], 'clarified-text', reason);
-defer(
-  ['c4499447c517', 'e392172ca672'],
-  'needs-source',
-  '物語「りんごどろぼう」の本文が未提示で、情景や心情の根拠を確認できない。出典本文の確認後に補う。',
-);
-defer(
-  ['2f10f53b2af5', '79f54db33e7d', '848362467da6'],
-  'needs-source',
-  'じんざと男の子の物語本文が未提示。短い引用のみでは心情の理由が決まらず、本文の確認が必要。',
-);
-defer(
-  ['1bc2578e027c', '6c6faa38d290', '72fbcbc2c72f', 'd2c8f30eef1d'],
-  'needs-source',
-  'かっちゃんとさむらいの物語本文が未提示。行動や心情の原因を図で創作せず、本文の確認を待つ。',
-);
-defer(
-  ['b7adfb821ddb', 'c7c16f373027'],
-  'needs-source',
-  'ぎ手・ぎ足の説明文で指示語の指す前後の本文が未提示。指示対象を確定できる本文が必要。',
-);
-defer(
-  ['51a081fff200', '530cc8361ed8', '98feb53edf80'],
-  'needs-source',
-  '冬眠の説明文の該当段落が未提示。本文の構成や比較内容を確認してから補う。',
-);
-defer(
-  ['6b30823de3da', '70d7c5b1832e'],
-  'needs-source',
-  '都会とアブラコウモリの説明文が未提示。一般知識で本文の内容を代用せず、出典本文を確認する。',
-);
-defer(
-  ['a94e12e7a508'],
-  'needs-source',
-  '複数の短歌を参照する設問だが全文が未提示。対象の歌と読解条件を確認してから補う。',
-);
-defer(
-  ['6d99d371877a'],
-  'needs-source',
-  '物語「牛のリオと陸」の本文が未提示。心情変化の根拠を確認できず、絵で答えを創作しない。',
-);
-defer(
-  ['8a4784d5eb93'],
-  'needs-source',
-  '説明文「奈良公園とコガネムシ」の本文が未提示。一般知識の図で本文読解を代用しない。',
-);
+// 出典照合した要約教材の確認結果は、図版の再生成時にも保持する。
+const passageReviews = JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
+  id: string;
+  status: string;
+  reason: string;
+}[];
+for (const row of passageReviews)
+  defer([row.id], row.status === 'restored' ? 'source-restored' : 'needs-source', row.reason);
 const review = all.map((q) => ({
   id: q.id,
   decision:
