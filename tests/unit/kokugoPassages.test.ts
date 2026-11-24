@@ -26,7 +26,7 @@ it('restores the twelve verified passages with provenance and time to read', () 
   expect(new Set(review.map((row) => row.id)).size).toBe(19);
   const restored = review.filter((row) => row.status === 'restored');
   expect(restored).toHaveLength(12);
-  expect(review.filter((row) => row.status === 'needs-source')).toHaveLength(7);
+  expect(review.filter((row) => row.status === 'replaced-original')).toHaveLength(7);
   for (const row of restored) {
     const q = questions.find((q) => q.id === row.id);
     expect(row.summary, row.id).toBeTruthy();

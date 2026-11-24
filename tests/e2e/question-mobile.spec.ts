@@ -405,3 +405,72 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
     contentType: 'application/json',
   });
 });
+
+test('自作に置換した国語7問をスマホで読んで正答できる', async ({ page }, testInfo) => {
+  test.setTimeout(180_000);
+  const rows = (
+    JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
+      id: string;
+      status: string;
+    }[]
+  ).filter((row) => row.status === 'replaced-original');
+  const content = readdirSync('content/questions/kokugo/g4', { recursive: true })
+    .filter((file) => String(file).endsWith('.json'))
+    .flatMap((file) => JSON.parse(readFileSync(`content/questions/kokugo/g4/${file}`, 'utf8')));
+  expect(rows).toHaveLength(7);
+  for (const { id } of rows) {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-q')).toBeVisible();
+    await expect(page.locator('.nq-q-prompt')).toContainText(/自作|じさく/);
+    const representative = /a94e12e7a508|6b30823de3da/.test(id);
+    for (const width of representative ? [390, 320, 768, 1024, 1440, 390] : [390]) {
+      await page.setViewportSize({ width, height: 844 });
+      await expect
+        .poll(() => page.locator('.pg-stage').evaluate(inspectQuestion), { message: id })
+        .toEqual([]);
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))),
+      );
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+        ),
+        `${id} ${width}`,
+      ).toBe(true);
+      if (width === 390) {
+        const metrics = await page.locator('.nq-q').evaluate((q) => ({
+          font:
+            (parseFloat(getComputedStyle(q.querySelector('.nq-q-prompt')!).fontSize) *
+              q.getBoundingClientRect().width) /
+            (q as HTMLElement).offsetWidth,
+          heights: [...q.querySelectorAll('.nq-choice')].map(
+            (button) => button.getBoundingClientRect().height,
+          ),
+        }));
+        await page
+          .locator('.pg-preview')
+          .screenshot({ path: testInfo.outputPath(`${id}-original-mobile.png`) });
+        expect(metrics.font, id).toBeGreaterThanOrEqual(18);
+        for (const height of metrics.heights) expect(height, id).toBeGreaterThanOrEqual(40);
+      }
+    }
+    const q = content.find((q) => q.id === id);
+    const correct = q.payload.choices.find((choice: { id: string }) => choice.id === q.payload.answer)
+      .text as string;
+    const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const pattern = correct
+      .split(/([一-鿿々〆ヶ]+\[[^\]]+\])/)
+      .map((segment) => {
+        const ruby = /^([一-鿿々〆ヶ]+)\[([^\]]+)\]$/.exec(segment);
+        return ruby ? `(?:${escape(ruby[1]!)}(?:${escape(ruby[2]!)})?|${escape(ruby[2]!)})` : escape(segment);
+      })
+      .join('');
+    await page
+      .locator('.nq-choice')
+      .filter({ hasText: new RegExp(pattern) })
+      .tap();
+    await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
+  }
+});

@@ -11,7 +11,7 @@ const questions = readdirSync('content/questions/kokugo', { recursive: true })
   .map((q) => questionBaseSchema.parse(q))
   .sort((a, b) => a.id.localeCompare(b.id));
 
-// Source verification corrected 心ばく数 → 心ぱく数 and shortened the four hibernation choices without changing their meaning.
+// Includes the seven original G4 reading replacements; all question IDs and answer IDs are retained.
 it('preserves all Japanese question identities and answers', () => {
   expect(questions).toHaveLength(4665);
   const rows = questions.map((q) => {
@@ -19,7 +19,7 @@ it('preserves all Japanese question identities and answers', () => {
     return [q.id, q.type, q.grade, q.unit, p.answer, p.answers, p.choices];
   });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '8c56759dd84b3b9f330aaefdda5d8e442fc82f0aed109237ffd436d957026e99',
+    'ed9829d4228f1e573c4eb87ef774a47d2b38eb7d452a8877a499099895eaed1a',
   );
 });
 

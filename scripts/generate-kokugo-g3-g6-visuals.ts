@@ -289,7 +289,15 @@ const passageReviews = JSON.parse(readFileSync('scripts/data/kokugo-passage-revi
   reason: string;
 }[];
 for (const row of passageReviews)
-  defer([row.id], row.status === 'restored' ? 'source-restored' : 'needs-source', row.reason);
+  defer(
+    [row.id],
+    row.status === 'restored'
+      ? 'source-restored'
+      : row.status === 'replaced-original'
+        ? 'original-replacement'
+        : 'needs-source',
+    row.reason,
+  );
 const review = all.map((q) => ({
   id: q.id,
   decision:
