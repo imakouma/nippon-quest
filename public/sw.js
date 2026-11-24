@@ -1,5 +1,5 @@
 const APP_CACHE_PREFIX = 'nihonquest-app-';
-const APP_CACHE = `${APP_CACHE_PREFIX}v1`;
+const APP_CACHE = `${APP_CACHE_PREFIX}v2`;
 const APP_ROOT = new URL('./', self.registration.scope).href;
 const APP_SHELL = [
   new URL('manifest.webmanifest', APP_ROOT).href,
@@ -58,6 +58,8 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
+  // Account/session responses must never enter the offline cache or be replayed after logout.
+  if (url.pathname === '/api' || url.pathname.startsWith('/api/') || request.cache === 'no-store') return;
   if (request.method !== 'GET' || url.origin !== self.location.origin || request.headers.has('range')) return;
 
   if (request.mode === 'navigate') {

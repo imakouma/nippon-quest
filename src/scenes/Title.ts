@@ -7,8 +7,17 @@
  */
 import Phaser from 'phaser';
 import { h, render } from 'preact';
+import { accountSession } from '../core/state/accountSession';
+import { mountAccountPanel } from './title/accountPanel';
 import { createRng } from '../core/rng';
-import { remove, SLOTS, summaries, type SlotId, type SlotSummary } from '../core/state/save';
+import {
+  initializeSaveAccount,
+  removeGuestSlot,
+  SLOTS,
+  summaries,
+  type SlotId,
+  type SlotSummary,
+} from '../core/state/save';
 import { shouldResetLocalSaves } from '../core/localDevelopment';
 import type { GameState } from '../core/state/schema';
 import { PIXEL_FONT, PIXEL_FONT_NAME } from '../ui/fonts';
@@ -46,7 +55,8 @@ export class TitleScene extends Phaser.Scene {
   private hasSave = false;
   private slots: SlotSummary[] = SLOTS.map((slot) => ({ slot, exists: false }));
   private selectedSlot: SlotId = 1;
-  private menuView: 'main' | 'slots' | 'setup' = 'main';
+  private menuView: 'main' | 'slots' | 'setup' | 'account' = 'main';
+  private closeAccount: (() => void) | null = null;
 
   constructor() {
     super('Title');
@@ -256,13 +266,18 @@ export class TitleScene extends Phaser.Scene {
     }
     render(
       h(TitleMenu, {
-        items: [{ label: t('ui.newGame') }, { label: t('ui.continue'), disabled: !this.hasSave }],
+        items: [
+          { label: t('ui.newGame'), disabled: !this.saveChecked || accountSession().blocked },
+          { label: t('ui.continue'), disabled: !this.hasSave || accountSession().blocked },
+          { label: t('account.title'), disabled: !this.saveChecked },
+        ],
         hint: t('ui.titleHint'),
         disabledNote: this.saveChecked ? null : t('ui.saveChecking'),
         credit: t('ui.credits'),
         onSelect: (index: number) => {
           if (index === 0) this.mountSlotPicker('new');
           if (index === 1 && this.hasSave) this.mountSlotPicker('continue');
+          if (index === 2) this.mountAccount();
         },
       }),
       this.menuRoot,
@@ -274,7 +289,7 @@ export class TitleScene extends Phaser.Scene {
       const url = new URL(location.href);
       const params = url.searchParams;
       if (shouldResetLocalSaves(url, import.meta.env.DEV)) {
-        await Promise.all(SLOTS.map((slot) => remove(slot)));
+        await Promise.all(SLOTS.map((slot) => removeGuestSlot(slot)));
         params.delete('resetSaves');
         history.replaceState(
           null,
@@ -282,6 +297,7 @@ export class TitleScene extends Phaser.Scene {
           `${location.pathname}${params.size ? `?${params}` : ''}${location.hash}`,
         );
       }
+      await initializeSaveAccount();
       this.slots = await summaries();
       this.hasSave = this.slots.some((slot) => slot.exists);
     } catch (error) {
@@ -290,7 +306,10 @@ export class TitleScene extends Phaser.Scene {
     }
     this.saveChecked = true;
     // セーブ確認が遅れて完了しても、ユーザーが開いたスロット選択や設定画面を上書きしない。
-    if (this.scene.isActive() && !this.starting && this.menuView === 'main') this.mountMenu();
+    if (this.scene.isActive() && !this.starting && this.menuView === 'main') {
+      this.mountMenu();
+      if (new URLSearchParams(location.search).has('account')) this.mountAccount();
+    }
   }
 
   private continueGame(slot: SlotId): void {
@@ -336,7 +355,21 @@ export class TitleScene extends Phaser.Scene {
     );
   }
 
+  private mountAccount(): void {
+    if (!this.menuRoot) return;
+    this.menuView = 'account';
+    this.closeAccount?.();
+    this.closeAccount = mountAccountPanel(this.menuRoot, () => {
+      this.closeAccount?.();
+      this.closeAccount = null;
+      this.mountMenu();
+      void this.checkSave();
+    });
+  }
+
   private unmountMenu(): void {
+    this.closeAccount?.();
+    this.closeAccount = null;
     if (!this.menuRoot) return;
     render(null, this.menuRoot);
     this.menuRoot.remove();

@@ -1,0 +1,89 @@
+.nq-account-backdrop {
+  position: absolute;
+  inset: 0;
+  background: #090d20d9;
+  pointer-events: auto;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+}
+.nq-account {
+  width: 850px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+}
+.nq-account header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 2px solid #8d98b7;
+  padding-bottom: 12px;
+}
+.nq-account h2 {
+  margin: 0;
+  color: var(--nq-yellow);
+  font-size: 36px;
+}
+.nq-account h3,
+.nq-account p {
+  font-size: 24px;
+  line-height: 1.65;
+  margin: 12px 0;
+}
+.nq-account-body {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px 12px 8px 0;
+}
+.nq-account button {
+  min-height: 48px;
+  padding: 8px 16px;
+  border: 2px solid #f6e7c1;
+  background: #315c94;
+  color: #fff;
+  font: inherit;
+  font-size: 24px;
+  cursor: pointer;
+}
+.nq-account button:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: 3px;
+}
+.nq-account button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.nq-account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.nq-account-slot {
+  padding: 12px 16px;
+  margin: 16px 0;
+  border: 2px solid #747f9c;
+  background: #18203a;
+}
+.nq-account-note {
+  color: #d7dbea;
+}
+.nq-account-confirm {
+  border: 3px solid var(--nq-yellow);
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+.nq-account .nq-account-delete {
+  background: #483653;
+  margin-top: 20px;
+}
+.nq-title-menu:has(> button:nth-of-type(3)) {
+  height: 168px;
+  top: 276px;
+  width: 240px;
+  left: 352px;
+}

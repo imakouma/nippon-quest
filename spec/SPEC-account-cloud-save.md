@@ -1,6 +1,6 @@
 # Spec Delta: LINE・Google ログインとアカウント保存 — V1
 
-Status: proposed / ユーザーレビュー待ち
+Status: implemented / 2026-11-24 コード実装・ローカル検証済み。外部登録情報の設定と実プロバイダー検証は未完了。
 
 作成日: 2026-11-24 (Asia/Tokyo)
 
@@ -51,6 +51,7 @@ LINE または Google でログインし、NIHON QUEST のゲーム進行と学�
 - 最初の技術検証で、LINE のメールアドレスが無いケースと必要最小限の scope を検証する。名前・画像・メールを不要に永続化しない。ライブラリの必須フィールドと整合しなければ実装前に方針を修正する。
 - Google と LINE のアカウントは、同名や同じメールという理由で自動統合しない。V1 では選んだログイン方法を継続して利用する。
 - クラウドサービスの契約や公開先は未確定。料金の発生を伴う契約・本番環境への資格情報追加は、具体的な構成を示して確認する。
+- 同じブラウザの同一アカウントは Web Locks で単一タブに制限する。再試行は認証完了と所有者一致を待ち、Service Worker は API をキャッシュしない。
 - 本機能に AI モデルは不要。OmniRoute や外部 LLM にゲームデータを送信しない。
 
 ## 主な変更箇所
@@ -111,7 +112,7 @@ pnpm exec playwright test tests/e2e/account-cloud-save.spec.ts
 - 元の共有 checkout の既存変更はそのまま保持し、専用 worktree だけで作業。
 - Graphify を `graphify extract src --code-only --no-cluster --out .` で実行し、保存・タイトル・保護者 UI の依存を確認。外部 LLM は使っていない。
 - `pnpm nrd` の統合プレビュー起動スクリプトと Vite の `integratedPreview()` を確認。
-- 本文は仕様案。機能実装・依存追加・資格情報設定・実ログイン検証はまだ実施していない。
+- 機能実装・依存追加・ローカル検証を実施。資格情報設定と実ログイン検証は未実施。詳細は `tasks/account-cloud-save-walkthrough.md`。
 
 参照した公式資料:
 

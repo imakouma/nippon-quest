@@ -15,14 +15,14 @@
 | 問題UIのフレームワーク | **Preact**（React 互換・軽量） | UI担当が React 経験者でも入りやすい。必要なら素の DOM でも可 |
 | マップ | **Tiled**（`.tmj` JSON 形式） | Phaser ネイティブ対応。マップ編集を非エンジニアにも渡せる |
 | 状態管理 | 自前の `GameState`（プレーンオブジェクト）＋ Zod でバリデーション | セーブデータ＝GameState の JSON |
-| 保存 | `localStorage`（設定）＋ `IndexedDB`（セーブスロット・図鑑）。`localforage` 使用可 | ログイン不要要件 |
+| 保存 | `localStorage`（設定）＋ `IndexedDB`（セーブスロット・図鑑）。`localforage` 使用可 | ゲスト利用とオフライン保存 |
 | テスト | **Vitest**（ロジック）＋ **Playwright**（E2E スモーク） | バトル計算・ドロップ抽選・スキーマ検証はユニットテスト必須 |
 | バリデーション | **Zod**（実行時）＋ `zod-to-json-schema` で JSON Schema を書き出し | 問題作成者のエディタ補完（VS Code の `$schema`）と CI の両方に効く |
 | Lint/Format | ESLint + Prettier | AIの出力を揃える |
 | 音 | Phaser 標準（Web Audio） | — |
 | 読み上げ | Web Speech API（`speechSynthesis`, `ja-JP`） | 音声ファイルを作らずに済む。英単語は事前録音 mp3 を優先 |
 
-Node 20 以上。パッケージマネージャは **pnpm**。
+Node 22.10 以上。パッケージマネージャは **pnpm**。
 
 ---
 
@@ -288,3 +288,8 @@ interface Skill {
 ### ランダム算数の出題
 
 `random-calculation` は整数四則の演算・学習段階・数の範囲・繰り上がり／繰り下がり・余り・回答形式をpayloadに保存する。小1は加減、小2は加減乗、小3は加減乗除を許可し、保存と読み込み・出題時に学年と単元の整合性を検証する。4桁の全組合せは列挙せず、桁ごとの候補数から有限回で抽選する。余りありは商と余りの2欄、または組合せ4択に変換する。stageのない旧足し算は1桁の条件として読む。出題時にシード付き乱数で1問を生成し、登録前のchoice/text-inputレンダラーへ渡す。共通viewportはregistryで1回だけ適用する。生成した式・正解・シードをQuestionResult.detail.generatedへ残し、解答中やリサイズで再生成しない。問題IDはルールIDなので、間違いノートからの再出題も同条件の新しい式になる。
+
+
+## 任意ログインとクラウド保存
+
+LINE／Google OAuth は `server/auth.ts` の Better Auth、セッションとセーブは PostgreSQL。`server/http.ts` が API とゲームのビルド成果物を同一 origin で配信する。`src/core/state/save.ts` を保存入口として維持し、ログイン時だけ `AccountSaves` に振り分ける。ゲストとアカウント別の IndexedDB 領域、サーバーの所有者照合と revision、削除マーカーによりデータの混入・古い端末の上書きを防ぐ。設定と実アカウント検証は `docs/ACCOUNT_SETUP.md` を参照。

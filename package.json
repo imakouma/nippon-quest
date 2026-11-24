@@ -5,7 +5,7 @@
   "type": "module",
   "description": "ニホンクエスト — 小学生向け・ゲーム主体の学習RPG（Phaser 3 + TypeScript）",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.10"
   },
   "packageManager": "pnpm@10.28.0",
   "pnpm": {
@@ -20,10 +20,10 @@
     "dev:hmr": "pnpm gen:manifest && vite --host 127.0.0.1 --port 5173 --strictPort",
     "nrd": "node --import tsx scripts/start-integrated-preview.ts",
     "prebuild": "pnpm gen:manifest && pnpm gen:schemas && pnpm validate:content",
-    "build": "pnpm typecheck:app && vite build",
+    "build": "pnpm typecheck:app && pnpm typecheck:server && vite build",
     "preview": "vite preview",
     "lint:eslint": "eslint --cache --cache-location .cache/eslint .",
-    "lint:format": "prettier --check --cache --cache-location .cache/prettier '*.{html,json,md,ts,js}' 'src/**/*.{ts,tsx,css}' 'scripts/**/*.{ts,mjs}' 'tests/**/*.{ts,tsx}' 'tasks/**/*.md' 'content/i18n/**/*.json'",
+    "lint:format": "prettier --check --cache --cache-location .cache/prettier '*.{html,json,md,ts,js}' 'src/**/*.{ts,tsx,css}' 'scripts/**/*.{ts,mjs}' 'tests/**/*.{ts,tsx}' 'tasks/**/*.md' 'content/i18n/**/*.json' 'server/**/*.ts' 'spec/**/*.md'",
     "lint": "pnpm lint:eslint && pnpm lint:format",
     "format": "prettier --write --cache --cache-location .cache/prettier '*.{html,json,md,ts,js}' 'src/**/*.{ts,tsx,css}' 'scripts/**/*.{ts,mjs}' 'tests/**/*.{ts,tsx}' 'tasks/**/*.md' 'content/i18n/**/*.json'",
     "pretest": "pnpm gen:manifest",
@@ -69,7 +69,7 @@
     "typecheck:app": "tsc -p tsconfig.app.json --noEmit",
     "typecheck:tests": "tsc -p tsconfig.tests.json --noEmit",
     "typecheck:tools": "tsc -p tsconfig.tools.json --noEmit",
-    "typecheck": "pnpm typecheck:app && pnpm typecheck:tests && pnpm typecheck:tools",
+    "typecheck": "pnpm typecheck:app && pnpm typecheck:tests && pnpm typecheck:tools && pnpm typecheck:server",
     "audit:curriculum": "tsx scripts/audit-curriculum.ts",
     "audit:kanji-canonical": "tsx scripts/validate-kanji-canonical.ts",
     "audit:kanji-questions": "tsx scripts/audit-kanji-question-coverage.ts",
@@ -95,13 +95,18 @@
     "scaffold:maps": "tsx scripts/scaffold-maps.ts",
     "gen:terrain": "tsx scripts/gen-terrain.ts",
     "sync:regional-boss-levels": "tsx scripts/sync-regional-boss-levels.ts",
-    "check:fast": "pnpm lint && pnpm check:architecture && pnpm typecheck:app",
+    "check:fast": "pnpm lint && pnpm check:architecture && pnpm typecheck:app && pnpm typecheck:server",
     "check:full": "pnpm lint && pnpm check:architecture && pnpm gen:manifest && pnpm gen:schemas && pnpm audit:curriculum --strict && pnpm audit:curriculum-model --strict && pnpm audit:roadmap-graph --strict && pnpm audit:worldmap && pnpm test:unit && pnpm validate:content && pnpm validate:curriculum-graph && pnpm typecheck && pnpm exec vite build && pnpm check:performance",
-    "check": "pnpm check:full"
+    "check": "pnpm check:full",
+    "start": "node --env-file-if-exists=.env --import tsx server/http.ts",
+    "db:migrate": "node --env-file-if-exists=.env --import tsx server/migrate.ts",
+    "typecheck:server": "tsc -p tsconfig.server.json --noEmit"
   },
   "dependencies": {
+    "better-auth": "1.7.27",
     "kanji-recognizer": "0.2.0",
     "localforage": "^1.10.0",
+    "pg": "8.23.1",
     "phaser": "^3.87.0",
     "preact": "^10.24.0",
     "seedrandom": "^3.0.5",
@@ -109,10 +114,12 @@
     "zod-to-json-schema": "^3.23.5"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "0.6.0",
     "@eslint/js": "^9.12.0",
     "@playwright/test": "^1.48.0",
     "@preact/preset-vite": "^2.9.1",
     "@types/node": "^22.7.5",
+    "@types/pg": "8.23.1",
     "@types/seedrandom": "^3.0.8",
     "eslint": "^9.12.0",
     "eslint-config-prettier": "^9.1.0",

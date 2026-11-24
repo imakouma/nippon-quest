@@ -1,8 +1,9 @@
 /**
- * セーブ／ロード。端末内のみ（IndexedDB via localforage）。ログイン不要・個人情報なし。
+ * セーブ／ロード。ゲストは端末内、任意ログイン時はアカウント別に保存・同期する。
  * 保護者メニューから JSON エクスポート／インポートできる。
  */
 import localforage from 'localforage';
+import { accountSession, initializeAccount } from './accountSession';
 import type { NewGameOptions } from './newGame';
 import { SCHEMA_VERSION, gameStateSchema, type GameState } from './schema';
 import { migrate } from './migrations';
@@ -17,8 +18,9 @@ const saveQueues = new Map<SlotId, Promise<void>>();
 const STARTUP_RETRY_KEY = 'nq:retry-title-action';
 const STALE_CHUNK_RELOAD_KEY = 'nq:stale-chunk-reload';
 
-export type StartupRetryAction =
-  { type: 'start'; options: NewGameOptions; slot: SlotId } | { type: 'continue'; slot: SlotId };
+export type StartupRetryAction = (
+  { type: 'start'; options: NewGameOptions; slot: SlotId } | { type: 'continue'; slot: SlotId }
+) & { owner?: string | null };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -45,6 +47,7 @@ function isNewGameOptions(value: unknown): value is NewGameOptions {
 
 function isStartupRetryAction(value: unknown): value is StartupRetryAction {
   if (!isRecord(value) || !SLOTS.includes(value.slot as SlotId)) return false;
+  if (value.owner !== undefined && value.owner !== null && typeof value.owner !== 'string') return false;
   if (value.type === 'continue') return true;
   return value.type === 'start' && isNewGameOptions(value.options);
 }
@@ -52,7 +55,10 @@ function isStartupRetryAction(value: unknown): value is StartupRetryAction {
 /** ページ再読込をまたぐ起動再試行だけに使う、一回限りの一時データ。 */
 export function storeStartupRetryAction(action: StartupRetryAction): void {
   try {
-    sessionStorage.setItem(STARTUP_RETRY_KEY, JSON.stringify(action));
+    sessionStorage.setItem(
+      STARTUP_RETRY_KEY,
+      JSON.stringify({ ...action, owner: accountSession().saves?.owner ?? null }),
+    );
   } catch {
     // プライベートモード等で一時保存を拒否されても、通常の起動は続ける。
   }
@@ -166,6 +172,12 @@ export async function save(slot: SlotId, state: GameState): Promise<void> {
     schemaVersion: SCHEMA_VERSION,
     updatedAt: Date.now(),
   });
+  const account = accountSession().saves;
+  if (account) {
+    await account.save(slot, snapshot);
+    void account.sync();
+    return;
+  }
   await enqueueSlot(slot, async () => {
     const current = await store.getItem(key(slot));
     if (parsedState(current)) await store.setItem(backupKey(slot), current);
@@ -174,6 +186,8 @@ export async function save(slot: SlotId, state: GameState): Promise<void> {
 }
 
 export async function load(slot: SlotId): Promise<GameState | null> {
+  const account = accountSession().saves;
+  if (account) return account.load(slot);
   return enqueueSlot(slot, async () => {
     const { raw, backup, error } = await readSlot(slot);
     if (!raw && !backup) {
@@ -191,12 +205,28 @@ export async function load(slot: SlotId): Promise<GameState | null> {
 }
 
 export async function remove(slot: SlotId): Promise<void> {
+  const account = accountSession().saves;
+  if (account) {
+    await account.save(slot, null);
+    void account.sync();
+    return;
+  }
+  return removeGuestSlot(slot);
+}
+
+export async function removeGuestSlot(slot: SlotId): Promise<void> {
   await enqueueSlot(slot, async () => {
     await Promise.all([store.removeItem(key(slot)), store.removeItem(backupKey(slot))]);
   });
 }
 
 export async function summaries(): Promise<SlotSummary[]> {
+  const account = accountSession().saves;
+  if (account) return Promise.all(SLOTS.map(async (slot) => summarizeSlot(slot, await account.load(slot))));
+  return guestSummaries();
+}
+
+export async function guestSummaries(): Promise<SlotSummary[]> {
   return Promise.all(
     SLOTS.map((slot) =>
       enqueueSlot(slot, async () => {
@@ -207,4 +237,38 @@ export async function summaries(): Promise<SlotSummary[]> {
       }),
     ),
   );
+}
+
+export async function importGuestSlot(slot: SlotId, allowOverwrite = false): Promise<void> {
+  const account = accountSession().saves;
+  if (!account) throw new Error('Not signed in');
+  const { raw, backup, error } = await readSlot(slot);
+  if (error) throw error;
+  const recovered = recoverState(raw, backup);
+  if (!recovered) throw new Error('No guest save');
+  // Keep the reviewed revision: a newer cloud update must become a conflict, not be silently overwritten.
+  const existing = await account.load(slot);
+  if (existing && !allowOverwrite) throw new Error('Slot already occupied');
+  await account.save(slot, recovered.state);
+  await account.sync();
+}
+
+export async function accountDetails() {
+  return accountSession().saves?.details() ?? [];
+}
+export async function syncAccount() {
+  await accountSession().saves?.sync(true);
+}
+export async function resolveAccountSlot(slot: SlotId, choice: 'local' | 'cloud') {
+  await accountSession().saves?.resolve(slot, choice);
+}
+export async function exportAccountData(): Promise<string> {
+  const account = accountSession().saves;
+  if (!account) throw new Error('Not signed in');
+  const slots = await account.details();
+  return JSON.stringify({ format: 'nihonquest-account-v1', slots }, null, 2);
+}
+
+export function initializeSaveAccount(): Promise<void> {
+  return initializeAccount(localforage.createInstance({ name: 'nihonquest', storeName: 'accounts' }));
 }

@@ -98,7 +98,13 @@ export default defineConfig({
     questionSave(),
     serveRootDirs(['content', 'assets', 'schemas', 'maps']),
   ],
-  preview: { strictPort: true },
+  server: {
+    proxy: process.env.NQ_API_ORIGIN ? { '/api': { target: process.env.NQ_API_ORIGIN } } : undefined,
+  },
+  preview: {
+    strictPort: true,
+    proxy: process.env.NQ_API_ORIGIN ? { '/api': { target: process.env.NQ_API_ORIGIN } } : undefined,
+  },
   resolve: { alias: { '@': resolve(root, 'src') } },
   build: {
     target: 'es2022',

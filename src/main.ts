@@ -7,6 +7,7 @@ import { attachOverlay, STAGE_H, STAGE_W } from './ui/overlay';
 import { createNewGame, type NewGameOptions } from './core/state/newGame';
 import {
   clearStaleChunkReloadChance,
+  initializeSaveAccount,
   load,
   save,
   storeStartupRetryAction,
@@ -15,6 +16,7 @@ import {
   type SlotId,
   type StartupRetryAction,
 } from './core/state/save';
+import { accountSession } from './core/state/accountSession';
 import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
@@ -183,8 +185,14 @@ game.events.on('boot:done', () => {
     if (!action) return;
     // BootScene がこのイベントの直後に TitleScene を開始するため、次のタスクで再開する。
     setTimeout(() => {
-      if (action.type === 'start') game.events.emit('title:start', action.options, action.slot);
-      else if (action.type === 'continue') game.events.emit('title:continue', action.slot);
+      void initializeSaveAccount()
+        .then(() => {
+          const session = accountSession();
+          if (session.blocked || (action.owner ?? null) !== (session.saves?.owner ?? null)) return;
+          if (action.type === 'start') game.events.emit('title:start', action.options, action.slot);
+          else if (action.type === 'continue') game.events.emit('title:continue', action.slot);
+        })
+        .catch(() => undefined);
     });
   } catch (error) {
     console.warn('[startup] 再試行情報を復元できませんでした', error);
@@ -307,7 +315,14 @@ function runTitleAction(label: string, action: () => Promise<void>, retry: () =>
   if (titleAction) return;
   clearError();
   showLoading(label);
-  titleAction = action()
+  titleAction = initializeSaveAccount()
+    .then(async () => {
+      if (accountSession().blocked) {
+        hideLoading();
+        return;
+      }
+      await action();
+    })
     .then(clearStaleChunkReloadChance)
     .catch((error) => {
       if (!reloadStaleChunkOnce(error, retry)) {
