@@ -129,7 +129,7 @@ describe('PhaserFieldCameraController', () => {
     expect(camera.startFollow).not.toHaveBeenCalled();
   });
 
-  it('updates camera scroll from the raw player position before rendering', () => {
+  it('keeps camera scroll locked to the raw player position before rendering', () => {
     const { camera, calls, scene } = harness();
     const controller = new PhaserFieldCameraController(scene, () => bounds);
     const player = { x: 500, y: 400 } as Phaser.GameObjects.Components.Transform;
@@ -141,7 +141,7 @@ describe('PhaserFieldCameraController', () => {
     player.x = 620;
     player.y = 503;
 
-    expect(camera.setScroll).toHaveBeenLastCalledWith(23, 130);
+    expect(camera.setScroll).toHaveBeenLastCalledWith(36, 130);
     expect(camera.startFollow).not.toHaveBeenCalled();
   });
 

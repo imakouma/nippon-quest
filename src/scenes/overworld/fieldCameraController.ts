@@ -2,7 +2,6 @@ import type Phaser from 'phaser';
 import { cameraScrollForPoint, type CameraBounds, type CameraPoint } from './fieldCameraMath';
 
 export const FIELD_CAMERA_ZOOM = 3;
-const FOLLOW_LERP = 0.2;
 
 export interface FieldCameraController {
   followPlayer(target: Phaser.GameObjects.Components.Transform): void;
@@ -111,10 +110,7 @@ export class PhaserFieldCameraController implements FieldCameraController {
       { width: this.camera.width, height: this.camera.height, zoom: this.camera.zoom },
       this.getBounds(),
     );
-    this.camera.setScroll(
-      Math.floor(this.camera.scrollX + (target.x - this.camera.scrollX) * FOLLOW_LERP),
-      Math.floor(this.camera.scrollY + (target.y - this.camera.scrollY) * FOLLOW_LERP),
-    );
+    this.camera.setScroll(target.x, target.y);
   };
 
   private snapTo(point: CameraPoint): void {

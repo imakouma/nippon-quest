@@ -207,6 +207,101 @@ test('field terrain and billboards stay projected across camera movement', async
   expect(luminance.maxDarkFraction).toBeLessThan(0.75);
   expect(luminance.maxRelativeDrop).toBeLessThan(0.45);
 
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const scene = game.scene.getScene('Overworld');
+    const camera = scene.cameras.main;
+    const player = (scene as Phaser.Scene & { player: Phaser.GameObjects.Sprite }).player;
+    let frames = 0;
+    const cameraOffsetSamples: number[] = [];
+    const terrainSamples: number[] = [];
+    let meshRebuilds = 0;
+    const meshes = scene.children.list.filter(
+      (child): child is Phaser.GameObjects.Mesh => child.type === 'Mesh',
+    );
+    let firstTerrainVertex = meshes[0]?.vertices[0];
+    const terrainListeners = scene.events.listeners(Phaser.Scenes.Events.PRE_RENDER);
+    for (const listener of terrainListeners)
+      scene.events.off(Phaser.Scenes.Events.PRE_RENDER, listener as () => void);
+    const measureTerrain = () => {
+      const started = performance.now();
+      for (const listener of terrainListeners) (listener as () => void)();
+      terrainSamples.push(performance.now() - started);
+      const nextFirstTerrainVertex = meshes[0]?.vertices[0];
+      if (nextFirstTerrainVertex && nextFirstTerrainVertex !== firstTerrainVertex) {
+        meshRebuilds += 1;
+        firstTerrainVertex = nextFirstTerrainVertex;
+      }
+    };
+    scene.events.on(Phaser.Scenes.Events.PRE_RENDER, measureTerrain);
+    const sample = () => {
+      frames += 1;
+      const viewWidth = camera.width / camera.zoom;
+      const viewHeight = camera.height / camera.zoom;
+      const viewLeft = camera.scrollX + (camera.width - viewWidth) / 2;
+      const viewTop = camera.scrollY + (camera.height - viewHeight) / 2;
+      const screenX = (player.x - viewLeft) * camera.zoom;
+      const screenY = (player.y - viewTop) * camera.zoom;
+      cameraOffsetSamples.push(
+        Math.max(Math.abs(screenX - camera.width / 2), Math.abs(screenY - camera.height / 2)),
+      );
+    };
+    game.events.on('postrender', sample);
+    (
+      scene as Phaser.Scene & {
+        checkRandomEncounter: () => void;
+      }
+    ).checkRandomEncounter = () => {};
+    (
+      window as unknown as {
+        __stopFieldFrameSampling: () => {
+          frames: number;
+          terrainP95Ms: number;
+          vertices: number;
+          cameraOffsetP95Px: number;
+          meshRebuilds: number;
+        };
+      }
+    ).__stopFieldFrameSampling = () => {
+      game.events.off('postrender', sample);
+      scene.events.off(Phaser.Scenes.Events.PRE_RENDER, measureTerrain);
+      for (const listener of terrainListeners)
+        scene.events.on(Phaser.Scenes.Events.PRE_RENDER, listener as () => void);
+      const sortedTerrain = terrainSamples.slice(2).sort((left, right) => left - right);
+      const sortedCameraOffsets = cameraOffsetSamples.slice(2).sort((left, right) => left - right);
+      return {
+        frames: Math.max(0, frames - 2),
+        terrainP95Ms: sortedTerrain[Math.floor((sortedTerrain.length - 1) * 0.95)] ?? 0,
+        vertices: meshes.reduce((total, mesh) => total + mesh.vertices.length, 0),
+        cameraOffsetP95Px: sortedCameraOffsets[Math.floor((sortedCameraOffsets.length - 1) * 0.95)] ?? 0,
+        meshRebuilds,
+      };
+    };
+  });
+  for (const key of ['ArrowUp', 'ArrowDown', 'ArrowUp', 'ArrowDown']) {
+    await page.keyboard.down(key);
+    await page.waitForTimeout(360);
+    await page.keyboard.up(key);
+  }
+  const frameTiming = await page.evaluate(() =>
+    (
+      window as unknown as {
+        __stopFieldFrameSampling: () => {
+          frames: number;
+          terrainP95Ms: number;
+          vertices: number;
+          cameraOffsetP95Px: number;
+          meshRebuilds: number;
+        };
+      }
+    ).__stopFieldFrameSampling(),
+  );
+  expect(frameTiming.frames).toBeGreaterThan(40);
+  expect(frameTiming.terrainP95Ms).toBeLessThan(15);
+  expect(frameTiming.vertices).toBeLessThan(6_500);
+  expect(frameTiming.cameraOffsetP95Px).toBeLessThan(2);
+  expect(frameTiming.meshRebuilds).toBeLessThanOrEqual(4);
+
   const after = await meshState();
   expect(after.meshes[0]?.faces).toBeGreaterThan(0);
   expect(after.meshes[0]!.minY).toBeLessThan(-after.camera.height / 2);
