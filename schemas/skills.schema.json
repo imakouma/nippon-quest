@@ -74,6 +74,51 @@
             "minimum": 0,
             "description": "いりょく（100 = 1 ばい）"
           },
+          "accuracy": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "additionalEffect": {
+            "type": "object",
+            "properties": {
+              "stat": {
+                "type": "string",
+                "enum": [
+                  "atk",
+                  "def"
+                ]
+              },
+              "target": {
+                "type": "string",
+                "enum": [
+                  "self",
+                  "target"
+                ]
+              },
+              "multiplier": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "chance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "turns": {
+                "type": "integer",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "stat",
+              "target",
+              "multiplier",
+              "chance",
+              "turns"
+            ],
+            "additionalProperties": false
+          },
           "element": {
             "type": "string",
             "enum": [

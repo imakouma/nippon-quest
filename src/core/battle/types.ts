@@ -153,6 +153,7 @@ type BattleActionEvent =
       scoreBand: ScoreBandName | null;
       comboMult: number;
     }
+  | { t: 'miss'; side: Side; targetId: string }
   | { t: 'heal'; side: Side; targetId: string; amount: number }
   | { t: 'buff'; side: Side; targetId: string; stat: 'def' | 'atk'; mult: number; turns: number }
   /** 敵の うごきを とめた（turns ターン 休む） */

@@ -257,6 +257,8 @@ interface Item {
 interface Skill {
   id: string; name: RubyText; subject: Subject; gradeRange: [Grade, Grade];
   power: number; element: Element; mp: number; questionTags?: string[];
+  accuracy?: number; // 命中率 0〜100。省略時は100
+  additionalEffect?: { stat: 'atk'|'def'; target: 'self'|'target'; multiplier: number; chance: number; turns: number };
   effect?: 'damage'|'heal'|'buff'|'debuff'|'scan';   // scan = じゃくてん判明（理科）
 }
 ```

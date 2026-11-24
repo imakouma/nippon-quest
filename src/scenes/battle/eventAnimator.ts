@@ -203,7 +203,7 @@ export class BattleEventAnimator {
           event.mult >= 1 ? -200 : 200,
         );
         if (event.mult >= 1) void fx.guardRing(anchor, 0x80c6ff);
-        if (event.side === 'enemy') p.hud.patchEnemy({ defMult: event.mult });
+        if (event.side === 'enemy' && event.stat === 'def') p.hud.patchEnemy({ defMult: event.mult });
         if (sprite) await p.sprites.flash(sprite, event.mult >= 1 ? 0x80c6ff : 0xa28be6, 1);
         return;
       }
@@ -220,6 +220,7 @@ export class BattleEventAnimator {
         p.hud.patchEnemy({ weaknessRevealed: true, weakness: event.element });
         await p.sprites.flash(enemy, ELEMENT_FX[event.element], 3);
         return;
+      case 'miss':
       case 'scanFailed':
       case 'gaugeShort':
         p.audio.play('miss');

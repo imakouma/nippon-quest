@@ -19,9 +19,10 @@ import {
   scoreMultiplier,
 } from '../../src/core/battle/damage';
 import { createRng } from '../../src/core/rng';
+import { resolveHit } from '../../src/core/battle/actionResolver';
 import { resolveBattleRuleset } from '../../src/core/battle/ruleset';
 import type { Skill } from '../../src/core/content/schemas';
-import type { ActionResult, BattleState, Combatant, Command } from '../../src/core/battle/types';
+import type { ActionResult, BattleEvent, BattleState, Combatant, Command } from '../../src/core/battle/types';
 import { battleItemAvailability, buildItemOptions } from '../../src/scenes/battle/hudViews';
 
 let D: BattleDeps;
@@ -1067,5 +1068,68 @@ describe('敗北', () => {
     const r = act(down, { kind: 'wait' }, D);
     expect(r.events.some((e) => e.t === 'act' && e.actorId === 'pal' && e.auto)).toBe(true);
     expect(r.state.turn).toBe(2);
+  });
+});
+
+describe('技の命中と追加効果', () => {
+  it('外れた技はダメージを与えず、回答によるゲージをためる', async () => {
+    const skill = testSkill({ accuracy: 0 });
+    const def = withSkills([skill]);
+    const { state } = await setup({ skills: [skill.id], def });
+    const result = act(tough(state), { kind: 'skill', skillId: skill.id, result: R(1) }, def);
+    expect(result.events.some((event) => event.t === 'miss' && event.side === 'enemy')).toBe(true);
+    expect(result.events.some((event) => event.t === 'damage' && event.side === 'enemy')).toBe(false);
+    expect(result.state.player.subjectGauges.kokugo).toBeGreaterThan(0);
+  });
+
+  it('命中した攻撃の追加効果は対象の能力を変える', async () => {
+    const skill = testSkill({
+      accuracy: 100,
+      additionalEffect: { stat: 'def', target: 'target', multiplier: 0.8, chance: 100, turns: 3 },
+    });
+    const def = withSkills([skill]);
+    const { state } = await setup({ skills: [skill.id], def });
+    const result = act(tough(state), { kind: 'skill', skillId: skill.id, result: R(1) }, def);
+    expect(result.state.enemy.buffs.def?.mult).toBe(0.8);
+    expect(result.events.some((event) => event.t === 'buff' && event.targetId === state.enemy.id)).toBe(true);
+  });
+  it('敵と仲間の攻撃技にも命中判定を適用する', async () => {
+    const skill = testSkill({ accuracy: 0 });
+    const { state } = await setup({ withMonster: true });
+    const battle = tough(state);
+    const companion = battle.ally.monsters[0]!;
+    const events: BattleEvent[] = [];
+    const action = { actionId: 'turn:1:action:1' } as const;
+    resolveHit(battle, D, createRng('enemy-miss'), events, action, {
+      attacker: battle.enemy,
+      defender: companion,
+      side: 'ally',
+      skill,
+      score: null,
+    });
+    resolveHit(battle, D, createRng('companion-miss'), events, action, {
+      attacker: companion,
+      defender: battle.enemy,
+      side: 'enemy',
+      skill,
+      score: null,
+    });
+    expect(events.filter((event) => event.t === 'miss')).toHaveLength(2);
+    expect(events.some((event) => event.t === 'damage')).toBe(false);
+  });
+
+  it('追加効果は発動確率0%なら発生せず、対象が倒れた後も発生しない', async () => {
+    const skill = testSkill({
+      accuracy: 100,
+      additionalEffect: { stat: 'def', target: 'target', multiplier: 0.8, chance: 0, turns: 3 },
+    });
+    const def = withSkills([skill]);
+    const { state } = await setup({ skills: [skill.id], def });
+    const result = act(tough(state), { kind: 'skill', skillId: skill.id, result: R(1) }, def);
+    expect(result.state.enemy.buffs.def).toBeUndefined();
+    const lethal = { ...skill, additionalEffect: { ...skill.additionalEffect!, chance: 100 } };
+    const fragile = { ...state, enemy: { ...state.enemy, hp: 1 } };
+    const finished = act(fragile, { kind: 'skill', skillId: skill.id, result: R(1) }, withSkills([lethal]));
+    expect(finished.events.some((event) => event.t === 'buff' && event.side === 'enemy')).toBe(false);
   });
 });

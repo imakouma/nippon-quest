@@ -198,6 +198,17 @@ function SkillList({ s, store }: { s: HudState; store: HudStore }) {
               {focus.by && <RubyLabel text={t('battle.skillBy', { name: focus.by })} class="nq-opt-by" />}
               <RubyLabel text={focus.flavor ?? t(EFFECT_HINT[focus.effect])} />
             </div>
+            <div class="nq-menu-foot-row">
+              {t('battle.skillAccuracy', { n: focus.accuracy ?? 100 })}
+              {focus.additionalEffect && (
+                <span>
+                  {t(
+                    `battle.effect${focus.additionalEffect.target === 'self' ? 'Self' : 'Target'}${focus.additionalEffect.stat === 'atk' ? 'Atk' : 'Def'}${focus.additionalEffect.multiplier >= 1 ? 'Up' : 'Down'}`,
+                    { n: focus.additionalEffect.chance, turns: focus.additionalEffect.turns },
+                  )}
+                </span>
+              )}
+            </div>
             <span class="nq-menu-grade">
               <span class="nq-menu-stars">{'★'.repeat(focus.stars)}</span>
               {focus.gradeRange[0] === focus.gradeRange[1]

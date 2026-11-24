@@ -5,6 +5,9 @@
  */
 import { z } from 'zod/v3';
 import { createAreaEventSchemas } from './areaEventSchemas';
+import { skillEffectFields } from './skillEffectSchemas';
+import { gradeRangeSchema, gradeSchema } from './gradeSchemas';
+export { gradeRangeSchema, gradeSchema } from './gradeSchemas';
 export const safeNonnegativeIntegerSchema = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 export const safePositiveIntegerSchema = z.number().int().positive().max(Number.MAX_SAFE_INTEGER);
 export const idSchema = z
@@ -16,17 +19,6 @@ export const idSchema = z
 export const rubyTextSchema = z.string().describe('RubyText: "漢字[かんじ]" 形式');
 
 export const subjectSchema = z.enum(['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo']);
-export const gradeSchema = z.union([
-  z.literal(1),
-  z.literal(2),
-  z.literal(3),
-  z.literal(4),
-  z.literal(5),
-  z.literal(6),
-]);
-export const gradeRangeSchema = z
-  .tuple([gradeSchema, gradeSchema])
-  .refine(([a, b]) => a <= b, 'gradeRange は [小, 大]');
 export const elementSchema = z.enum(['hino', 'mizu', 'mori', 'tsuchi', 'kaze', 'hikari', 'yami', 'none']);
 
 const academicStatsObjectSchema = z.object({
@@ -382,6 +374,7 @@ export const skillSchema = z.object({
   gradeRange: gradeRangeSchema,
   unitHint: z.array(z.string()).optional(),
   power: z.number().nonnegative().describe('いりょく（100 = 1 ばい）'),
+  ...skillEffectFields,
   element: elementSchema,
   mp: safeNonnegativeIntegerSchema.describe('敵が使うときの MP（味方の必殺技は 教科ゲージを使う）'),
   gauge: z

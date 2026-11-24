@@ -12,7 +12,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "かずを かぞえて きりつける。しんかすると「たしざんぎり」に なる",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-tashizan-giri",
@@ -27,7 +28,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "たしざんを といて きりつける！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-happa-tobashi",
@@ -42,7 +44,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "はっぱを 1まい とばす。しんかすると「はっぱカッター」に なる",
-    "attackClass": "balanced"
+    "attackClass": "balanced",
+    "accuracy": 100
   },
   {
     "id": "sk-happa-cutter",
@@ -56,7 +59,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "attackClass": "balanced"
+    "attackClass": "balanced",
+    "accuracy": 100
   },
   {
     "id": "sk-abc-call",
@@ -71,7 +75,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "ABCを 小[ちい]さな こえで よぶ。しんかすると「ABCシャウト」に なる",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-abc-shout",
@@ -85,7 +90,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-shiraberu",
@@ -100,7 +106,8 @@
     "costGauge": 0,
     "effect": "scan",
     "flavor": "じっけんで じゃくてんを 見[み]つける",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-kana-barrier",
@@ -116,7 +123,8 @@
     "targetType": "self",
     "effect": "buff",
     "flavor": "ひらがなの かべで じぶんだけ まもる。しんかすると「かんじバリア」（みんなを まもる）に なる",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-kanji-barrier",
@@ -131,7 +139,8 @@
     "costGauge": 0,
     "targetType": "party",
     "effect": "buff",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-kuku-rush",
@@ -145,7 +154,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-hinoko",
@@ -160,7 +170,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "ちいさな 火[ひ]の粉[こ]を とばす。しんかすると「ほのおのまい」に なる",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-hono-no-mai",
@@ -174,7 +185,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-kanji-giri",
@@ -189,7 +201,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "かんじの かたちを みきって きりこむ！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-bun-no-tsubasa",
@@ -204,7 +217,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "ことばを つないで かぜを おこす！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-kotoba-asobi",
@@ -219,7 +233,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "ことばを つないで ひらめきの ひかりを はなつ！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-rasseraa-no-hono",
@@ -234,7 +249,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "「ラッセラー！」 ねぶたの ほのおの うずで つつみこむ！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-yamadashi-tosshin",
@@ -249,7 +265,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "ねぶたの 山車[だし]で ドーンと とっしん！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-shizuku",
@@ -264,7 +281,8 @@
     "costGauge": 0,
     "effect": "damage",
     "flavor": "水[みず]の しずくを ぽたっと おとす。しんかすると「みずてっぽう」に なる",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-mizu-teppo",
@@ -278,7 +296,8 @@
     "gauge": 1,
     "costGauge": 0,
     "effect": "damage",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-suna-kabe",
@@ -294,7 +313,8 @@
     "targetType": "self",
     "effect": "buff",
     "flavor": "すなを もりあげて じぶんだけ まもる。しんかすると「つちのかべ」（みんなを まもる）に なる",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-tsuchi-kabe",
@@ -309,7 +329,8 @@
     "costGauge": 0,
     "targetType": "party",
     "effect": "buff",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-kaikyo-no-kaze",
@@ -323,7 +344,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-yami-no-uta",
@@ -337,7 +359,8 @@
     "gauge": 2,
     "costGauge": 50,
     "effect": "damage",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-fubuki",
@@ -351,7 +374,8 @@
     "gauge": 3,
     "costGauge": 100,
     "effect": "damage",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-konjiki-no-kiba",
@@ -366,7 +390,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "金色[こんじき]の 光[ひかり]で かみつく！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-mikazuki-giri",
@@ -381,7 +406,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "三日月[みかづき]の 形[かたち]に きりさく！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-namahage-otakebi",
@@ -396,7 +422,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "「なまけものは いねがー！」",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-habataki",
@@ -411,7 +438,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "大[おお]きな つばさで 風[かぜ]を おこす！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-hikari-no-hane",
@@ -426,7 +454,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "光[ひかり]の はねが ふりそそぐ！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-happa-arashi",
@@ -441,7 +470,15 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "はっぱの あらしで つつみこむ！",
-    "attackClass": "balanced"
+    "attackClass": "balanced",
+    "accuracy": 100,
+    "additionalEffect": {
+      "stat": "atk",
+      "target": "self",
+      "multiplier": 1.2,
+      "chance": 30,
+      "turns": 3
+    }
   },
   {
     "id": "sk-uzushio",
@@ -456,7 +493,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "うずまく しおで まきこむ！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-iwa-otoshi",
@@ -471,7 +509,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "大[おお]きな いわを ドスンと おとす！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-hono-no-uzu",
@@ -486,7 +525,15 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "ぐるぐる まわる ほのおで こうげき！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "additionalEffect": {
+      "stat": "def",
+      "target": "target",
+      "multiplier": 0.8,
+      "chance": 30,
+      "turns": 3
+    }
   },
   {
     "id": "sk-hikari-no-ya",
@@ -501,7 +548,8 @@
     "costGauge": 50,
     "effect": "damage",
     "flavor": "光[ひかり]の やを はなつ！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-burst-kokugo",
@@ -515,7 +563,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "ためた こくごの ちからを いっきに はなつ！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-burst-sansu",
@@ -529,7 +578,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "ためた さんすうの ちからを いっきに はなつ！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-burst-rika",
@@ -543,7 +593,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "ためた りかの ちからを いっきに はなつ！",
-    "attackClass": "science"
+    "attackClass": "science",
+    "accuracy": 100
   },
   {
     "id": "sk-burst-shakai",
@@ -557,7 +608,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "ためた しゃかいの ちからを いっきに はなつ！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   },
   {
     "id": "sk-burst-seikatsu",
@@ -571,7 +623,8 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "ためた せいかつの ちからを いっきに はなつ！",
-    "attackClass": "balanced"
+    "attackClass": "balanced",
+    "accuracy": 100
   },
   {
     "id": "sk-burst-eigo",
@@ -585,6 +638,7 @@
     "costGauge": 100,
     "effect": "damage",
     "flavor": "ためた えいごの ちからを いっきに はなつ！",
-    "attackClass": "humanities"
+    "attackClass": "humanities",
+    "accuracy": 100
   }
 ]
