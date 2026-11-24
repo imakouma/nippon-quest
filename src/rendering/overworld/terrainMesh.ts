@@ -80,8 +80,10 @@ function visibleBounds(
 ): TerrainBounds {
   const width = camera.width / camera.zoom;
   const height = camera.height / camera.zoom;
-  const x = Math.max(0, Math.floor(camera.scrollX / tileSize) - CAMERA_HORIZONTAL_MARGIN_TILES);
-  const y = Math.max(0, Math.floor(camera.scrollY / tileSize) - CAMERA_VERTICAL_MARGIN_TILES);
+  const left = camera.scrollX + (camera.width - width) / 2;
+  const top = camera.scrollY + (camera.height - height) / 2;
+  const x = Math.max(0, Math.floor(left / tileSize) - CAMERA_HORIZONTAL_MARGIN_TILES);
+  const y = Math.max(0, Math.floor(top / tileSize) - CAMERA_VERTICAL_MARGIN_TILES);
   return {
     x,
     y,
@@ -222,8 +224,8 @@ export function addTerrainMesh(
     const camera = scene.cameras.main;
     const width = camera.width / camera.zoom;
     const height = camera.height / camera.zoom;
-    const centerX = camera.scrollX + width / 2;
-    const centerZ = camera.scrollY + height / 2;
+    const centerX = camera.scrollX + camera.width / 2;
+    const centerZ = camera.scrollY + camera.height / 2;
     const bounds = visibleBounds(camera, tileSize, elevation.width, elevation.height);
     const key = boundsKey(bounds);
     if (key !== currentBounds) {
@@ -261,10 +263,9 @@ export function addTerrainMesh(
 
   const projectBillboards = () => {
     const camera = scene.cameras.main;
-    const width = camera.width / camera.zoom;
     const height = camera.height / camera.zoom;
-    const centerX = camera.scrollX + width / 2;
-    const centerZ = camera.scrollY + height / 2;
+    const centerX = camera.scrollX + camera.width / 2;
+    const centerZ = camera.scrollY + camera.height / 2;
     const bounds = visibleBounds(camera, tileSize, elevation.width, elevation.height);
     const fieldCamera = createField3dCamera({ targetX: centerX, targetZ: centerZ, viewportHeight: height });
     const left = bounds.x * tileSize;
@@ -311,12 +312,15 @@ export function addTerrainMesh(
     projectedBillboards = [];
   };
 
-  scene.events.on(Phaser.Scenes.Events.POST_UPDATE, update);
-  scene.events.on(Phaser.Scenes.Events.PRE_RENDER, projectBillboards);
+  const prepareRender = () => {
+    update();
+    projectBillboards();
+  };
+
+  scene.events.on(Phaser.Scenes.Events.PRE_RENDER, prepareRender);
   scene.events.on(Phaser.Scenes.Events.RENDER, restoreBillboards);
   scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-    scene.events.off(Phaser.Scenes.Events.POST_UPDATE, update);
-    scene.events.off(Phaser.Scenes.Events.PRE_RENDER, projectBillboards);
+    scene.events.off(Phaser.Scenes.Events.PRE_RENDER, prepareRender);
     scene.events.off(Phaser.Scenes.Events.RENDER, restoreBillboards);
     restoreBillboards();
     topMesh.destroy();

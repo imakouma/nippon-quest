@@ -97,46 +97,51 @@ test('field terrain and billboards stay projected across camera movement', async
     const player = (scene as Phaser.Scene & { player: Phaser.GameObjects.Sprite }).player;
     const originalPreRender = camera.preRender;
     const samples: number[] = [];
-    let rawPlayerPosition = { x: player.x, y: player.y };
-    const captureRawPlayerPosition = () => {
-      rawPlayerPosition = { x: player.x, y: player.y };
-    };
-    scene.events.on('postupdate', captureRawPlayerPosition);
+    let offscreenFrames = 0;
     camera.preRender = function () {
-      const followTarget = (
-        camera as Phaser.Cameras.Scene2D.Camera & { _follow: { x: number; y: number } | null }
-      )._follow;
-      if (followTarget)
-        samples.push(
-          Math.max(
-            Math.abs(followTarget.x - rawPlayerPosition.x),
-            Math.abs(followTarget.y - rawPlayerPosition.y),
-          ),
-        );
-      return originalPreRender.call(this);
+      const before = { x: camera.scrollX, y: camera.scrollY };
+      const result = originalPreRender.call(this);
+      samples.push(Math.max(Math.abs(camera.scrollX - before.x), Math.abs(camera.scrollY - before.y)));
+      const viewWidth = camera.width / camera.zoom;
+      const viewHeight = camera.height / camera.zoom;
+      const viewLeft = camera.scrollX + (camera.width - viewWidth) / 2;
+      const viewTop = camera.scrollY + (camera.height - viewHeight) / 2;
+      const screenX = (player.x - viewLeft) * camera.zoom;
+      const screenY = (player.y - viewTop) * camera.zoom;
+      if (screenX < 0 || screenX > camera.width || screenY < 0 || screenY > camera.height)
+        offscreenFrames += 1;
+      return result;
     };
     (
       window as unknown as {
-        __stopCameraFollowSampling: () => { maxDrift: number; samples: number };
+        __stopCameraRenderSampling: () => {
+          maxShift: number;
+          offscreenFrames: number;
+          samples: number;
+        };
       }
-    ).__stopCameraFollowSampling = () => {
-      scene.events.off('postupdate', captureRawPlayerPosition);
+    ).__stopCameraRenderSampling = () => {
       camera.preRender = originalPreRender;
-      return { maxDrift: Math.max(0, ...samples), samples: samples.length };
+      return { maxShift: Math.max(0, ...samples), offscreenFrames, samples: samples.length };
     };
   });
   await page.keyboard.down('ArrowDown');
   await page.waitForTimeout(250);
   await page.keyboard.up('ArrowDown');
-  const followSync = await page.evaluate(() =>
+  const renderSync = await page.evaluate(() =>
     (
       window as unknown as {
-        __stopCameraFollowSampling: () => { maxDrift: number; samples: number };
+        __stopCameraRenderSampling: () => {
+          maxShift: number;
+          offscreenFrames: number;
+          samples: number;
+        };
       }
-    ).__stopCameraFollowSampling(),
+    ).__stopCameraRenderSampling(),
   );
-  expect(followSync.samples).toBeGreaterThan(0);
-  expect(followSync.maxDrift).toBeLessThanOrEqual(0.01);
+  expect(renderSync.samples).toBeGreaterThan(0);
+  expect(renderSync.maxShift).toBeLessThanOrEqual(0.01);
+  expect(renderSync.offscreenFrames).toBe(0);
   await page.waitForTimeout(500);
 
   const after = await meshState();

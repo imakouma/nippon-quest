@@ -88,16 +88,16 @@ describe('cameraScrollForPoint', () => {
   it('rounds centered 960x540 scroll after applying 3x zoom', () => {
     expect(
       cameraScrollForPoint({ x: 500.4, y: 400.6 }, { width: 960, height: 540, zoom: 3 }, bounds),
-    ).toEqual({ x: 340, y: 311 });
+    ).toEqual({ x: 20, y: 131 });
   });
 
   it('clamps the rounded target at every map edge', () => {
     const viewport = { width: 960, height: 540, zoom: 3 };
 
-    expect(cameraScrollForPoint({ x: 0, y: 0 }, viewport, bounds)).toEqual({ x: 0, y: 0 });
+    expect(cameraScrollForPoint({ x: 0, y: 0 }, viewport, bounds)).toEqual({ x: -320, y: -180 });
     expect(cameraScrollForPoint({ x: 2_000, y: 2_000 }, viewport, bounds)).toEqual({
-      x: 1_680,
-      y: 1_820,
+      x: 1_360,
+      y: 1_640,
     });
   });
 
@@ -108,7 +108,7 @@ describe('cameraScrollForPoint', () => {
         { width: 960, height: 540, zoom: 3 },
         { x: 10, y: 20, width: 100, height: 80 },
       ),
-    ).toEqual({ x: 10, y: 20 });
+    ).toEqual({ x: -310, y: -160 });
   });
 });
 
@@ -125,27 +125,24 @@ describe('PhaserFieldCameraController', () => {
     expect(camera.setZoom).toHaveBeenCalledWith(3);
     expect(camera.setRotation).toHaveBeenCalledWith(0);
     expect(camera.setRoundPixels).toHaveBeenCalledWith(true);
-    expect(camera.setScroll).toHaveBeenLastCalledWith(340, 311);
-    const followTarget = vi.mocked(camera.startFollow).mock.calls[0]![0];
-    expect(followTarget).not.toBe(player);
-    expect(followTarget).toMatchObject({ x: 500.4, y: 400.6 });
-    expect(camera.startFollow).toHaveBeenCalledWith(followTarget, true, 0.2, 0.2);
+    expect(camera.setScroll).toHaveBeenLastCalledWith(20, 131);
+    expect(camera.startFollow).not.toHaveBeenCalled();
   });
 
-  it('keeps the camera target on the raw player position during render-only projection', () => {
+  it('updates camera scroll from the raw player position before rendering', () => {
     const { camera, calls, scene } = harness();
     const controller = new PhaserFieldCameraController(scene, () => bounds);
     const player = { x: 500, y: 400 } as Phaser.GameObjects.Components.Transform;
 
     controller.followPlayer(player);
-    const followTarget = vi.mocked(camera.startFollow).mock.calls[0]![0] as { x: number; y: number };
     player.x = 516;
     player.y = 400;
     calls.postUpdate?.();
     player.x = 620;
     player.y = 503;
 
-    expect(followTarget).toEqual({ x: 516, y: 400 });
+    expect(camera.setScroll).toHaveBeenLastCalledWith(23, 130);
+    expect(camera.startFollow).not.toHaveBeenCalled();
   });
 
   it('focuses, then returns to the latest player position and resumes follow', async () => {
@@ -160,7 +157,7 @@ describe('PhaserFieldCameraController', () => {
     expect(camera.pan).toHaveBeenCalledWith(900, 700, 240, 'Linear', true, expect.any(Function));
     calls.panCallbacks[0]!(camera, 1, 740, 610);
     await focus;
-    expect(camera.setScroll).toHaveBeenLastCalledWith(740, 610);
+    expect(camera.setScroll).toHaveBeenLastCalledWith(420, 430);
     expect(camera.startFollow).not.toHaveBeenCalled();
 
     player.x = 650.2;
@@ -169,13 +166,8 @@ describe('PhaserFieldCameraController', () => {
     expect(camera.pan).toHaveBeenLastCalledWith(650.2, 450.8, 180, 'Linear', true, expect.any(Function));
     calls.panCallbacks[1]!(camera, 1, 490.2, 360.8);
     await returning;
-    expect(camera.setScroll).toHaveBeenLastCalledWith(490, 361);
-    expect(camera.startFollow).toHaveBeenCalledWith(
-      expect.objectContaining({ x: 650.2, y: 450.8 }),
-      true,
-      0.2,
-      0.2,
-    );
+    expect(camera.setScroll).toHaveBeenLastCalledWith(170, 181);
+    expect(camera.startFollow).not.toHaveBeenCalled();
     expect(camera.setBounds).not.toHaveBeenCalled();
     expect(camera.setZoom).not.toHaveBeenCalled();
     expect(camera.setRotation).not.toHaveBeenCalled();
@@ -195,7 +187,7 @@ describe('PhaserFieldCameraController', () => {
     expect(camera.setScroll).not.toHaveBeenCalled();
     calls.panCallbacks[1]!(camera, 1, 840, 710);
     await current;
-    expect(camera.setScroll).toHaveBeenLastCalledWith(840, 710);
+    expect(camera.setScroll).toHaveBeenLastCalledWith(520, 530);
   });
 
   it('cancels camera tasks on map reset without clearing fade or flash effects', async () => {
