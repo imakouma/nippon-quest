@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
@@ -334,3 +334,74 @@ for (const [id, answer] of [
     await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
   });
 }
+
+test('復元した国語12問の要約をスマホで読んで正答できる', async ({ page }, testInfo) => {
+  test.setTimeout(240_000);
+  const restored = (
+    JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
+      id: string;
+      status: string;
+    }[]
+  ).filter((row) => row.status === 'restored');
+  const content = readdirSync('content/questions/kokugo', { recursive: true })
+    .filter((file) => String(file).endsWith('.json'))
+    .flatMap((file) => JSON.parse(readFileSync(`content/questions/kokugo/${file}`, 'utf8')));
+  expect(restored).toHaveLength(12);
+  const representative = new Set(['1bc2578e027c', '51a081fff200']);
+  const metrics = [];
+  for (const { id } of restored) {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/playground.html?q=${id}`);
+    await expect(page.locator('.nq-q')).toBeVisible();
+    await expect(page.locator('.nq-q-prompt')).toContainText(/要約|ようやく/);
+    await expect(page.locator('.nq-q-prompt')).not.toContainText(/原文|本文引用/);
+    const sizes = [...representative].some((suffix) => id.endsWith(suffix))
+      ? [
+          [390, 844],
+          [320, 568],
+          [844, 390],
+          [390, 844],
+        ]
+      : [[390, 844]];
+    for (const [width, height] of sizes) {
+      await page.setViewportSize({ width: width!, height: height! });
+      await expect
+        .poll(() => page.locator('.pg-stage').evaluate(inspectQuestion), { message: id })
+        .toEqual([]);
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))),
+      );
+      const measured = await page.locator('.nq-q').evaluate((q) => {
+        const scale = q.getBoundingClientRect().width / (q as HTMLElement).offsetWidth;
+        return {
+          font: parseFloat(getComputedStyle(q.querySelector('.nq-q-prompt')!).fontSize) * scale,
+          buttons: [...q.querySelectorAll('.nq-choice')].map(
+            (button) => button.getBoundingClientRect().height,
+          ),
+        };
+      });
+      if (width === 390 && height === 844) {
+        await page
+          .locator('.pg-preview')
+          .screenshot({ path: testInfo.outputPath('current-summary-mobile.png') });
+        expect(measured.font, `${id} at ${width}x${height}`).toBeGreaterThanOrEqual(18);
+      }
+      expect(measured.buttons.length, id).toBeGreaterThan(0);
+      if (width === 390) for (const height of measured.buttons) expect(height, id).toBeGreaterThanOrEqual(40);
+      metrics.push({ id, width, height, ...measured });
+    }
+    if ([...representative].some((suffix) => id.endsWith(suffix)))
+      await page.locator('.pg-preview').screenshot({ path: testInfo.outputPath(`${id}-summary-mobile.png`) });
+    const question = content.find((question) => question.id === id);
+    const correct = question.payload.choices.find(
+      (choice: { id: string; text: string }) => choice.id === question.payload.answer,
+    ).text;
+    await page.locator('.nq-choice').filter({ hasText: correct }).tap();
+    await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
+  }
+  await testInfo.attach('restored-passage-mobile-metrics', {
+    body: JSON.stringify(metrics, null, 2),
+    contentType: 'application/json',
+  });
+});
