@@ -33,6 +33,7 @@ export interface Combatant {
   hp: number;
   mp: number;
   skills: string[];
+  skillLoadoutActive?: boolean;
   buffs: { def?: Buff; atk?: Buff };
   isBoss: boolean;
   phaseIndex: number; // bossPhases の何番目まで適用済みか（-1 = 初期）

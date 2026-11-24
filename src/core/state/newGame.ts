@@ -38,6 +38,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
       },
       bonusWis: 0,
       skills: [...STARTER_SKILL_IDS],
+      skillLoadout: null,
       equipment: {},
       hp: 24,
       mp: 6,

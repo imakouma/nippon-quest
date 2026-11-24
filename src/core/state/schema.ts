@@ -14,7 +14,7 @@ import {
 import { attemptEventSchema, conceptStateSchema } from '../learning/state';
 import { battleResumeStateSchema } from './battleResume';
 
-export const SCHEMA_VERSION = 14;
+export const SCHEMA_VERSION = 15;
 
 export const fieldFacingSchema = z.enum(['down', 'left', 'right', 'up']);
 
@@ -90,6 +90,10 @@ export const gameStateSchema = z.object({
     baseStats: statsSchema,
     bonusWis: z.number().nonnegative().default(0),
     skills: z.array(idSchema),
+    skillLoadout: z
+      .object({ normal: z.array(idSchema).max(4), charge: z.array(idSchema).max(2) })
+      .nullable()
+      .default(null),
     equipment: equipmentSchema,
     hp: safeNonnegativeIntegerSchema,
     mp: safeNonnegativeIntegerSchema,

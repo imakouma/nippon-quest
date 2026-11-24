@@ -802,7 +802,7 @@ describe('buildRoadmapViewModel', () => {
       expect(input.units).toEqual(beforeUnits);
       expect(bank.all()).toEqual(beforeBank);
       expect(game).toMatchObject({
-        schemaVersion: 14,
+        schemaVersion: beforeGame.schemaVersion,
         updatedAt: beforeGame.updatedAt,
         inventory: beforeGame.inventory,
         progress: beforeGame.progress,

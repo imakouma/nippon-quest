@@ -6,15 +6,19 @@ export async function completeNewGameSetup(page: Page, name = 'ハル'): Promise
   await page.getByRole('button', { name: 'はじめる' }).click();
   const opening = page.getByRole('dialog', { name: 'ものがたりの シーン' });
   const retry = page.getByRole('button', { name: 'もういちど' });
+  const nameInput = page.getByRole('textbox', { name: 'なまえ' });
   await expect
-    .poll(async () => (await opening.isVisible()) || (await retry.isVisible()), { timeout: 30_000 })
+    .poll(
+      async () => (await opening.isVisible()) || (await retry.isVisible()) || (await nameInput.isVisible()),
+      { timeout: 30_000 },
+    )
     .toBe(true);
   if (await retry.isVisible()) {
     await retry.click();
     await expect(opening).toBeVisible({ timeout: 30_000 });
   }
-  await opening.getByRole('button', { name: 'スキップ' }).click();
-  await page.getByRole('textbox', { name: 'なまえ' }).fill(name);
+  if (await opening.isVisible()) await opening.getByRole('button', { name: 'スキップ' }).click();
+  await nameInput.fill(name);
   await page.getByRole('button', { name: 'これで けってい' }).click();
 
   // Most E2E scenarios start after onboarding. Finish the battle tutorial via

@@ -445,3 +445,17 @@ describe('GameState', () => {
     expect(summarizeSlot(1, legacy)).toMatchObject({ slot: 1, exists: true, name: 'ハル' });
   });
 });
+
+describe('主人公の技編成の保存移行', () => {
+  it('v14の習得技と中断戦闘を保持して未初期化の編成へ移行する', () => {
+    const state = fresh();
+    state.schemaVersion = 14;
+    state.player.skills.push('sk-shiraberu');
+    const previous = [...state.player.skills];
+    const migrated = migrate(state).state;
+    expect(migrated.schemaVersion).toBe(SCHEMA_VERSION);
+    expect(migrated.player.skills).toEqual(previous);
+    expect(migrated.player.skillLoadout).toBeNull();
+    expect(migrated.battle).toEqual(state.battle);
+  });
+});

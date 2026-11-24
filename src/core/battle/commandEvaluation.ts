@@ -138,13 +138,14 @@ export function battleSkills(
     skills.push({ skill, actorId, unique });
   };
   const hero = state.ally.hero;
-  for (const id of hero.skills) push(id, hero.id, false);
+  const uniqueIds = new Set(Object.values(deps.settings.subjectGauge.uniqueSkills));
+  for (const id of hero.skills) push(id, hero.id, uniqueIds.has(id));
   const companion = state.companion
     ? state.ally.monsters.find((monster) => monster.id === state.companion?.id && monster.hp > 0)
     : undefined;
   if (companion) for (const id of companion.skills) push(id, companion.id, false);
   const subjects = new Set(skills.map((entry) => entry.skill.subject));
-  for (const subject of SUBJECTS) {
+  for (const subject of hero.skillLoadoutActive ? [] : SUBJECTS) {
     const id = deps.settings.subjectGauge.uniqueSkills[subject];
     if (id && subjects.has(subject)) push(id, hero.id, true);
   }

@@ -12,6 +12,7 @@ import {
 } from '../encounter/contentAdapter';
 import { activeEquipment, adjacencyBonus, bagContext, battleRosterUids } from '../progression/bag';
 import { heroLevel } from '../progression/battleResult';
+import { resolveSkillLoadout } from '../progression/heroSkillLoadout';
 import { applySpecialtyTreasureBonus, specialtyTreasureBonus } from '../progression/specialty';
 import type { Rng } from '../rng';
 import type { GameState } from '../state/schema';
@@ -29,7 +30,7 @@ export {
 
 export function partyFromGameState(
   gs: GameState,
-  c: Pick<ContentIndex, 'areas' | 'items' | 'sets' | 'monsters' | 'xp' | 'settings'>,
+  c: Pick<ContentIndex, 'areas' | 'items' | 'sets' | 'monsters' | 'xp' | 'settings' | 'skills'>,
 ): Party {
   const p = gs.player;
   const hero = makeHero(
@@ -46,6 +47,19 @@ export function partyFromGameState(
     c.items,
     c.sets,
   );
+  const equipment = activeEquipment(gs);
+  const granted = Object.values(equipment).flatMap((id) =>
+    id ? (c.items.get(id)?.grantsSkill ? [c.items.get(id)!.grantsSkill!] : []) : [],
+  );
+  const loadout = resolveSkillLoadout(
+    p.skillLoadout,
+    p.skills,
+    granted,
+    c.skills,
+    c.settings.subjectGauge.uniqueSkills,
+  );
+  hero.skills = [...loadout.normal, ...loadout.charge];
+  hero.skillLoadoutActive = true;
   hero.stats = applySpecialtyTreasureBonus(hero.stats, specialtyTreasureBonus(gs, c.areas, c.items));
   // 戦闘は今の HP/MP から始まる（前の戦闘のダメージを持ち越す）。0 で始まらないよう最低 1
   hero.hp = Math.max(1, Math.min(hero.stats.hp, p.hp));

@@ -209,7 +209,7 @@ describe('学習成果のまなびのかけら', () => {
     const result = applyLearningRewards(game, outcome({ unit: 'math_1_2' }));
 
     expect(game).toEqual(before);
-    expect(result.state.schemaVersion).toBe(14);
+    expect(result.state.schemaVersion).toBe(before.schemaVersion);
     expect(result.state.learning.mastery).toEqual(before.learning.mastery);
     expect(result.state.learning.attempts).toEqual(before.learning.attempts);
     expect(result.state.learning.recent).toEqual(before.learning.recent);
