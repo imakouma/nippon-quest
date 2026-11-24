@@ -145,6 +145,8 @@ export function addTerrainMesh(
   };
   const topMesh = scene.add.mesh(0, 0, 'overworld-view').setDepth(-1000);
   const faceMesh = scene.add.mesh(0, 0, FACE_TEXTURE).setDepth(-999);
+  scene.sys.updateList.remove(topMesh);
+  scene.sys.updateList.remove(faceMesh);
   const groundTiles = tileIds.map((tile) => (ORCHARD_TILES.has(tile) ? VIEW.GRASS : tile));
   for (const mesh of [topMesh, faceMesh]) {
     mesh.hideCCW = false;
@@ -250,6 +252,13 @@ export function addTerrainMesh(
         vertex.y = -projected.y;
         vertex.z = 0;
       }
+      // Projection happens after Phaser's UpdateList. Refresh the transformed vertex cache now,
+      // including the first frame after a bounds rebuild, so an empty mesh is never presented.
+      (
+        mesh as unknown as {
+          preUpdate(time: number, delta: number): void;
+        }
+      ).preUpdate(scene.time.now, scene.game.loop.delta);
     }
     projectionSize = `${width}:${height}`;
     for (const prop of props) {

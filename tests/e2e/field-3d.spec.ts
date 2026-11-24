@@ -92,6 +92,55 @@ test('field terrain and billboards stay projected across camera movement', async
   expect(before.orchardProps).toBeGreaterThan(0);
   await page.evaluate(() => {
     const game = (window as unknown as { __nq: Phaser.Game }).__nq;
+    const renderer = game.renderer as Phaser.Renderer.WebGL.WebGLRenderer;
+    const gl = renderer.gl;
+    const pixel = new Uint8Array(4);
+    const frames: Array<{ average: number; darkFraction: number }> = [];
+    const sample = () => {
+      let luminance = 0;
+      let dark = 0;
+      let count = 0;
+      for (let row = 1; row <= 4; row += 1)
+        for (let column = 1; column <= 6; column += 1) {
+          const x = Math.floor((gl.drawingBufferWidth * column) / 7);
+          const y = Math.floor((gl.drawingBufferHeight * row) / 5);
+          gl.readPixels(x, y, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+          const value = pixel[0]! * 0.2126 + pixel[1]! * 0.7152 + pixel[2]! * 0.0722;
+          luminance += value;
+          if (value < 24) dark += 1;
+          count += 1;
+        }
+      frames.push({
+        average: luminance / count,
+        darkFraction: dark / count,
+      });
+    };
+    game.events.on('postrender', sample);
+    (
+      window as unknown as {
+        __stopFieldLuminanceSampling: () => {
+          frames: number;
+          maxDarkFraction: number;
+          maxRelativeDrop: number;
+        };
+      }
+    ).__stopFieldLuminanceSampling = () => {
+      game.events.off('postrender', sample);
+      let maxRelativeDrop = 0;
+      for (let index = 1; index < frames.length; index += 1) {
+        const previous = frames[index - 1]!.average;
+        const current = frames[index]!.average;
+        maxRelativeDrop = Math.max(maxRelativeDrop, (previous - current) / Math.max(1, previous));
+      }
+      return {
+        frames: frames.length,
+        maxDarkFraction: Math.max(0, ...frames.map((frame) => frame.darkFraction)),
+        maxRelativeDrop,
+      };
+    };
+  });
+  await page.evaluate(() => {
+    const game = (window as unknown as { __nq: Phaser.Game }).__nq;
     const scene = game.scene.getScene('Overworld');
     const camera = scene.cameras.main;
     const player = (scene as Phaser.Scene & { player: Phaser.GameObjects.Sprite }).player;
@@ -143,6 +192,20 @@ test('field terrain and billboards stay projected across camera movement', async
   expect(renderSync.maxShift).toBeLessThanOrEqual(0.01);
   expect(renderSync.offscreenFrames).toBe(0);
   await page.waitForTimeout(500);
+  const luminance = await page.evaluate(() =>
+    (
+      window as unknown as {
+        __stopFieldLuminanceSampling: () => {
+          frames: number;
+          maxDarkFraction: number;
+          maxRelativeDrop: number;
+        };
+      }
+    ).__stopFieldLuminanceSampling(),
+  );
+  expect(luminance.frames).toBeGreaterThan(10);
+  expect(luminance.maxDarkFraction).toBeLessThan(0.75);
+  expect(luminance.maxRelativeDrop).toBeLessThan(0.45);
 
   const after = await meshState();
   expect(after.meshes[0]?.faces).toBeGreaterThan(0);
