@@ -69,6 +69,14 @@ docker compose -f compose.account-local.yaml exec db createdb -U postgres --owne
 
 URLはプロトコル・ホスト・ポート・パスまで完全一致させます。公開条件はConsoleの表示に従います。[Google公式の設定手順](https://developers.google.com/identity/protocols/oauth2/web-server)。
 
+Googleが提供するWebクライアントのJSONをこのPCへ直接ダウンロードした場合は、プロジェクトルートで次を実行できます。ファイル自体をチャットや外部ツールへ送る必要はありません。
+
+```bash
+node scripts/import-google-oauth.mjs "/ダウンロードしたGoogle設定JSONの絶対パス"
+```
+
+この処理はcallback URLを `.env` の `NQ_ORIGIN` と照合し、秘密値を表示せず、所有者だけが読み書きできる `.env` へ保存します。既存Google設定と異なる場合は上書きを止めます。元のJSONも秘密情報なので、Git管理対象へ置かず、パスワード管理ツールなどで保管してください。取り込み後はNodeサーバーを再起動します。
+
 ### LINE
 
 1. [LINE Developers Console](https://developers.line.biz/console/) に入り、開発者登録とプロバイダー作成を行います。プロバイダーはアプリの運営者を表します。

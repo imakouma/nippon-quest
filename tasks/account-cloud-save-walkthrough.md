@@ -42,6 +42,8 @@ APIを模擬したブラウザテストで、引き継ぎ後のアカウント�
 
 ## 残る設定と検証
 
+Google側の専用プロジェクト `causal-temple-515714-n6`（NIHON QUEST）を作成。外部ブラウザ経由でclient secretを取り出す方法は自動承認レビューで拒否されたため、Googleから直接取得したJSONを端末内で取り込む `scripts/import-google-oauth.mjs` を追加した。callback完全一致、既存設定の上書き拒否、秘密値を出力しないこと、0600権限、再実行を5件のテストで確認。lint、architecture、アプリ・サーバー・テストの型検査が成功。architecture実行はサンドボックスのIPC制限に当たったため、許可された環境で再実行した。実際のclient secretはまだ取り込んでいない。
+
 2026-11-24追記: この専用worktreeのローカルDBをDocker Composeで準備した。`nq-account-local-db-1`、独立ボリューム、localhostの55439番を使用。アプリ用 `nq_app` は非superuser・DB作成不可・ロール作成不可。`.env` は0600・Git除外で生成し、秘密値は出力していない。migration初回と再実行が成功。実PostgreSQLに対して保存・再送・競合・所有者分離・cascade削除を検証し、テストtransactionはrollbackした。DB接続済みAPIは session=200（userId=null、providers=[]）、未認証slots=401を確認。検証用APIは停止し、DBは再利用用に保持する。
 
 次はGoogle・LINEのクライアント登録後、このworktreeの `.env` へID/secretを設定する。DBと認証秘密鍵のローカル準備は完了しているため、再生成は不要。本番DB・公開先は別途必要。
