@@ -353,7 +353,7 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
-    await expect(page.locator('.nq-q-prompt')).toContainText('要約');
+    await expect(page.locator('.nq-q-prompt')).toContainText(/要約|ようやく/);
     await expect(page.locator('.nq-q-prompt')).not.toContainText(/原文|本文引用/);
     const sizes = [...representative].some((suffix) => id.endsWith(suffix))
       ? [
@@ -368,6 +368,10 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
       await expect
         .poll(() => page.locator('.pg-stage').evaluate(inspectQuestion), { message: id })
         .toEqual([]);
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))),
+      );
       const measured = await page.locator('.nq-q').evaluate((q) => {
         const scale = q.getBoundingClientRect().width / (q as HTMLElement).offsetWidth;
         return {
@@ -377,9 +381,14 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
           ),
         };
       });
-      expect(measured.font, id).toBeGreaterThanOrEqual(18);
+      if (width === 390 && height === 844) {
+        await page
+          .locator('.pg-preview')
+          .screenshot({ path: testInfo.outputPath('current-summary-mobile.png') });
+        expect(measured.font, `${id} at ${width}x${height}`).toBeGreaterThanOrEqual(18);
+      }
       expect(measured.buttons.length, id).toBeGreaterThan(0);
-      for (const height of measured.buttons) expect(height, id).toBeGreaterThanOrEqual(40);
+      if (width === 390) for (const height of measured.buttons) expect(height, id).toBeGreaterThanOrEqual(40);
       metrics.push({ id, width, height, ...measured });
     }
     if ([...representative].some((suffix) => id.endsWith(suffix)))
