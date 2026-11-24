@@ -7,6 +7,15 @@ import {
 } from '../../core/world/terrainElevation';
 import { NQ } from '../palette';
 import { addImage, addSheet } from '../sheet';
+import {
+  CLIFF_FACE_BANDS,
+  CLIFF_FACE_HEIGHT,
+  CLIFF_FACE_SIDES,
+  CLIFF_FACE_WIDTH,
+  cliffFacePixels,
+  cliffFaceTextureWidth,
+  cliffFaceUvs,
+} from './terrainFaceMaterial';
 import { createField3dCamera, projectField3dPoint, type Field3dPoint } from './field3dProjection';
 import {
   buildTerrainGeometry,
@@ -32,14 +41,23 @@ const ORCHARD_TILES = new Set<number>([
   VIEW.ORCHARD_PEACH_ALT,
 ]);
 
-function buildStoneFaceTexture(scene: Phaser.Scene): void {
+function buildCliffFaceTexture(scene: Phaser.Scene): void {
   if (scene.textures.exists(FACE_TEXTURE)) return;
   const canvas = document.createElement('canvas');
-  canvas.width = 1;
-  canvas.height = 1;
+  canvas.width = cliffFaceTextureWidth();
+  canvas.height = CLIFF_FACE_HEIGHT;
   const context = canvas.getContext('2d')!;
-  context.fillStyle = NQ.white;
-  context.fillRect(0, 0, 1, 1);
+  for (const side of CLIFF_FACE_SIDES) {
+    for (const band of CLIFF_FACE_BANDS) {
+      const sideIndex = CLIFF_FACE_SIDES.indexOf(side);
+      const bandIndex = CLIFF_FACE_BANDS.indexOf(band);
+      const offsetX = (sideIndex * CLIFF_FACE_BANDS.length + bandIndex) * CLIFF_FACE_WIDTH;
+      cliffFacePixels(side, band).forEach((color, index) => {
+        context.fillStyle = color;
+        context.fillRect(offsetX + (index % CLIFF_FACE_WIDTH), Math.floor(index / CLIFF_FACE_WIDTH), 1, 1);
+      });
+    }
+  }
   addImage(scene.textures, FACE_TEXTURE, canvas);
 }
 
@@ -180,7 +198,7 @@ export function addTerrainMesh(
   blockedTiles: readonly boolean[] = [],
 ): boolean {
   if (scene.game.renderer.type !== Phaser.WEBGL) return false;
-  buildStoneFaceTexture(scene);
+  buildCliffFaceTexture(scene);
   buildOrchardPropTexture(scene);
   const texture = scene.textures.get('overworld-view').getSourceImage() as CanvasImageSource & {
     width: number;
@@ -219,26 +237,8 @@ export function addTerrainMesh(
     addMeshVertices(topMesh, topPoints, topUv);
 
     facePoints = geometry.faces.flatMap((triangle) => triangle.vertices);
-    const faceUv = geometry.faces.flatMap((_triangle, index) =>
-      index % 2 === 1 ? [1, 0, 0, 1, 1, 1] : [0, 0, 0, 1, 1, 0],
-    );
-    const colors = geometry.faces.flatMap((triangle) => {
-      const first = triangle.vertices[0];
-      const course = Math.round(
-        Math.min(...triangle.vertices.map((point) => point.height)) / ELEVATION_UNIT_PX,
-      );
-      const alternate = (Math.floor(first.x / tileSize) + Math.floor(first.z / tileSize) + course) % 2 === 0;
-      const tint =
-        triangle.side === 'south'
-          ? alternate
-            ? 0x6b6f80
-            : 0x4a5063
-          : triangle.side === 'east'
-            ? 0x4a5063
-            : 0x2e2a45;
-      return Array<number>(3).fill(tint);
-    });
-    addMeshVertices(faceMesh, facePoints, faceUv, colors);
+    const faceUv = geometry.faces.flatMap((triangle, index) => cliffFaceUvs(triangle, index % 2 === 1));
+    addMeshVertices(faceMesh, facePoints, faceUv);
 
     for (const prop of props) prop.image.destroy();
     props = [];
