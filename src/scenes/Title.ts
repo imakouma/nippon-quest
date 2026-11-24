@@ -1,7 +1,7 @@
 /**
  * タイトル画面（RPG のタイトルらしく）。
- *  - 背景：夜明けの海に、地方ごとに分かれた島々と富士山。手前のがけで主人公（うしろ姿）が海を見ている
- *  - 星がまたたき、雲が流れ、桜の花びらが舞う。ロゴは上から落ちてきて光る
+ *  - 背景：開いた「まなびの地図帳」と、問題を解いて進む知のルート。主人公はしおりの上に立つ
+ *  - 星がまたたき、道しるべが光る。ロゴは上から落ちてきて光る
  *  - メニューは DOM の黒い窓（はじめから／つづきから）。♥ カーソル
  * 絵は 1 ドット = 4px（背景 240×135 を ×4）、ロゴは 1 ドット = 8px。文字は PixelMplus12（12 の倍数の大きさ）。
  */
@@ -35,9 +35,8 @@ import {
   CLIFF_TOP,
   HERO_SPOT,
   HORIZON,
-  SAKURA,
-  SUN_X,
-  cloudArt,
+  ROUTE,
+  ROUTE_X,
   ornamentArt,
   pixelsArt,
   textLogo,
@@ -69,10 +68,8 @@ export class TitleScene extends Phaser.Scene {
     addImage(this.textures, 'title.bg', titleBackdrop());
     this.add.image(0, 0, 'title.bg').setOrigin(0).setScale(S).setDepth(0);
     this.addStars();
-    this.addClouds();
     this.addSparkles();
     this.addHero();
-    this.addPetals();
     this.addLogo();
     this.mountMenu();
     this.game.events.emit('title:ready');
@@ -110,41 +107,21 @@ export class TitleScene extends Phaser.Scene {
     }
   }
 
-  /** 夜明けの雲が、右から左へゆっくり流れる */
-  private addClouds(): void {
-    const defs: [number, number, number][] = [
-      [60, 16, 90_000],
-      [40, 26, 70_000],
-      [28, 46, 55_000],
-    ];
-    defs.forEach(([w, y, ms], i) => {
-      const key = `title.cloud.${w}`;
-      addImage(this.textures, key, cloudArt(w));
-      const half = (w * S) / 2;
-      const img = this.add
-        .image(STAGE_W + half, y * S, key)
-        .setScale(S)
-        .setDepth(2);
-      const tw = this.tweens.add({ targets: img, x: -half, duration: ms, repeat: -1 });
-      tw.seek(ms * (0.25 + i * 0.3));
-    });
-  }
-
-  /** 海にうつる朝日のきらめき */
+  /** 地図帳のルート上にあらわれる、学びのひらめき */
   private addSparkles(): void {
     addImage(this.textures, 'title.spark', pixelsArt(['###'], NQ.cream));
     const rng = createRng('title-sparks');
     for (let i = 0; i < 16; i++) {
-      const nearSun = i < 10;
-      const x = nearSun ? SUN_X + rng.int(-9, 9) : rng.int(100, 236);
+      const nearRoute = i < 10;
+      const x = nearRoute ? ROUTE_X + rng.int(-12, 12) : rng.int(ROUTE.x0, ROUTE.x1);
       const sp = this.add
-        .image(x * S, rng.int(HORIZON + 3, 130) * S, 'title.spark')
+        .image(x * S, rng.int(HORIZON + 8, ROUTE.y1) * S, 'title.spark')
         .setScale(S)
         .setDepth(1)
         .setAlpha(0);
       this.tweens.add({
         targets: sp,
-        alpha: nearSun ? 1 : 0.6,
+        alpha: nearRoute ? 1 : 0.6,
         duration: 300 + rng.int(0, 500),
         delay: rng.int(0, 2000),
         yoyo: true,
@@ -156,7 +133,7 @@ export class TitleScene extends Phaser.Scene {
     }
   }
 
-  /** がけの上で海を見ている主人公（うしろ姿） */
+  /** 次の学びへ向かう、地図帳のしおりの上の主人公（うしろ姿） */
   private addHero(): void {
     const player = (this.registry.get('game') as GameState | undefined)?.player;
     const ap = player?.appearance ?? { hair: 0, skin: 0, cloth: 0 };
@@ -180,36 +157,17 @@ export class TitleScene extends Phaser.Scene {
     });
   }
 
-  /** 桜の花びらが、海の方へ舞っていく */
-  private addPetals(): void {
-    addImage(this.textures, 'title.petal', pixelsArt(['##'], NQ.white));
-    this.add
-      .particles(0, 0, 'title.petal', {
-        x: { min: SAKURA.x0 * S, max: SAKURA.x1 * S },
-        y: { min: SAKURA.y0 * S, max: SAKURA.y1 * S },
-        speedX: { min: 14, max: 42 },
-        speedY: { min: 6, max: 22 },
-        gravityY: 3,
-        lifespan: 9000,
-        frequency: 260,
-        scale: S,
-        alpha: { start: 1, end: 0.2 },
-        tint: [0xff8fb1, 0xff8fb1, 0xffffff],
-      })
-      .setDepth(6);
-  }
-
   /** ロゴ：上から落ちてきて、ぴかっと光ってから ふわふわ */
   private addLogo(): void {
     addImage(
       this.textures,
       'title.logo',
-      textLogo(t('title'), PIXEL_FONT_NAME, [NQ.cream, NQ.gold, NQ.orange], NQ.brick),
+      textLogo(t('title'), PIXEL_FONT_NAME, [NQ.mint, NQ.aqua, NQ.gold], NQ.indigo),
     );
     addImage(
       this.textures,
       'title.logo.en',
-      textLogo('NIHON QUEST', PIXEL_FONT_NAME, [NQ.white, NQ.cloud], NQ.indigo),
+      textLogo('LEARN · JOURNEY · GROW', PIXEL_FONT_NAME, [NQ.cream, NQ.gold], NQ.ink),
     );
     addImage(this.textures, 'title.orn', ornamentArt());
     const cx = STAGE_W / 2;
