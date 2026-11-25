@@ -300,11 +300,10 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:jpn_1_3",
-      "reviewed:structural-v1",
-      "speech:disabled"
+      "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "「私は小学生です」の「は」の正しい発音（読み）はどれ？",
+      "prompt": "「わたし___しょうがくせいです。」の空欄[くうらん]に入[はい]る文字[もじ]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -323,10 +322,10 @@
           "text": "お"
         }
       ],
-      "answer": "c2",
+      "answer": "c1",
       "shuffle": true
     },
-    "explanation": "助詞の「は」は「わ」と発音します。"
+    "explanation": "「わたしは」の「は」は「わ」と読[よ]みますが、「は」と書[か]きます。"
   },
   {
     "id": "legacy.kokugo.g1.jpn-1-3.491136f1d46a",
@@ -629,11 +628,10 @@
     "tags": [
       "source:legacy-autonomy-game",
       "legacy-node:jpn_1_3",
-      "reviewed:structural-v1",
-      "speech:disabled"
+      "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "助詞の「へ」（学校へ行く、の「へ」）は、どう発音しますか？",
+      "prompt": "「がっこう___いく。」の空欄[くうらん]に入[はい]る文字[もじ]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -652,10 +650,10 @@
           "text": "べ"
         }
       ],
-      "answer": "c2",
+      "answer": "c1",
       "shuffle": true
     },
-    "explanation": "向かう方向を表す助詞の「へ」は「え」と発音します。"
+    "explanation": "「がっこうへ」の「へ」は「え」と読[よ]みますが、「へ」と書[か]きます。"
   },
   {
     "id": "legacy.kokugo.g1.jpn-1-3.9989559f65bf",
