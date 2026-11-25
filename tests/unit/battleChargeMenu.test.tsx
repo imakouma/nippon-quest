@@ -143,7 +143,11 @@ it('Qとタップで技詳細を開閉し、Escapeは先に詳細だけを閉じ
   const action = vi.fn();
   store.onAction = action;
   await act(() => {
-    store.set({ intro: false, menu: 'skills', skills: [skill('normal', 0), skill('other', 0)] });
+    store.set({
+      intro: false,
+      menu: 'skills',
+      skills: [skill('normal', 0), { ...skill('other', 0), chargeGain: [20, 20] }],
+    });
     render(h(BattleHud, { store }), document.body);
   });
   const key = (key: string, repeat = false) =>
@@ -151,13 +155,17 @@ it('Qとタップで技詳細を開閉し、Escapeは先に詳細だけを閉じ
       window.dispatchEvent(new KeyboardEvent('keydown', { key, repeat }));
     });
   expect(document.querySelector('#nq-skill-details')).toBeNull();
+  expect(document.querySelector('.nq-opt-charge')).toBeNull();
   await key('q');
-  expect(document.querySelector('#nq-skill-details')).not.toBeNull();
+  expect(document.querySelector('#nq-skill-details .nq-opt-charge')?.textContent).toBe('10〜40チャージ');
+  expect(document.querySelector('[data-skill] .nq-opt-charge')).toBeNull();
   await key('q', true);
   expect(store.get().skillDetails).toBe(true);
   await key('ArrowDown');
   expect(store.get().cursor).toBe(1);
+  expect(document.querySelector('#nq-skill-details .nq-opt-charge')?.textContent).toBe('20チャージ');
   await key('Escape');
+  expect(document.querySelector('.nq-opt-charge')).toBeNull();
   expect(store.get().skillDetails).toBe(false);
   expect(action).not.toHaveBeenCalled();
   await act(() => document.querySelector<HTMLButtonElement>('.nq-skill-details-toggle')!.click());
