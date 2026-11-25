@@ -18,32 +18,16 @@ import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { TypedText, useTypewriter } from '../typewriter';
-import {
-  useHud,
-  visibleBattleSkills,
-  type BannerView,
-  type HudState,
-  type HudStore,
-  type PopupView,
-  type SkillOption,
-} from './store';
+import { useHud, type BannerView, type HudState, type HudStore, type PopupView } from './store';
 import { BattleResultPanel } from './BattleResultPanel';
 import { AllyRow, Bar, ComboBadge, EnemyWindow, TurnBadge } from './BattleStatus';
 import { pickBattleHudOption, useBattleHudInput } from './useBattleHudInput';
 import { ChargeControl } from './ChargeControl';
+import { SkillList } from './SkillList';
 import './battle.css';
 
 /** auto メッセージを読み終えてから次へ進むまで */
 const AUTO_ADVANCE_MS = 1100;
-
-const EFFECT_HINT = {
-  damage: 'battle.powerUpHint',
-  scan: 'battle.scanHint',
-  heal: 'battle.healHint',
-  buff: 'battle.buffHint',
-  debuff: 'battle.debuffHint',
-  status: 'battle.statusHint',
-} as const;
 
 // ───────────────────────── 小さな部品 ─────────────────────────
 
@@ -126,110 +110,6 @@ function MenuHead({
       <button type="button" class="nq-back" onClick={() => backToCommands(store)}>
         × {t('ui.back')}
       </button>
-    </div>
-  );
-}
-
-/** 必殺技に 必要な 教科ゲージを 最大量に 対する 割合で 示す */
-function GaugeCost({ k, max }: { k: SkillOption; max: number }) {
-  const r = Math.min(1, k.cost / max);
-  return (
-    <span
-      class={`nq-opt-cost ${k.have >= k.cost ? 'nq-opt-cost-ok' : ''}`}
-      aria-label={t('battle.gaugeCostStatus', { cost: k.cost })}
-    >
-      <span class="nq-opt-costbar">
-        <i class={`nq-subj-${k.subject}`} style={{ width: `${r * 100}%` }} />
-      </span>
-      <span class="nq-opt-cost-value" aria-hidden="true">
-        {k.cost}
-      </span>
-    </span>
-  );
-}
-
-function SkillList({ s, store }: { s: HudState; store: HudStore }) {
-  const skills = visibleBattleSkills(s);
-  const focus = skills[s.cursor];
-  const subject = focus ? t(`subjects.${focus.subject}`) : '';
-  return (
-    <div class="nq-win nq-menu nq-menu-skill">
-      <div class="nq-menu-layout">
-        <div
-          id="nq-battle-skills"
-          class="nq-menu-grid"
-          role="group"
-          aria-label={t(s.chargeSkills ? 'battle.chargeSkills' : 'battle.normalSkills')}
-        >
-          {skills.length === 0 && <p class="nq-menu-empty">{t('battle.noChargeSkills')}</p>}
-          {skills.map((k, i) => (
-            <button
-              key={k.key}
-              type="button"
-              class={`nq-opt ${s.cursor === i ? 'nq-focus' : ''} ${k.disabled ? 'nq-opt-off' : ''}`}
-              aria-current={s.cursor === i ? 'true' : undefined}
-              aria-disabled={k.disabled}
-              data-skill={k.id}
-              data-actor={k.actorId}
-              onFocus={() => s.cursor !== i && store.set({ cursor: i })}
-              onPointerMove={() => s.cursor !== i && store.set({ cursor: i })}
-              onClick={() =>
-                pickBattleHudOption({
-                  key: k.key,
-                  disabled: k.disabled,
-                  action: () => store.dispatch({ t: 'skill', key: k.key }),
-                })
-              }
-            >
-              {/* 教科は色・ピクトだけで示す。狭い技一覧で「さんすう」等の文字を重ねない。 */}
-              <PixelIcon name={`subj-${k.subject}`} scale={2} />
-              <RubyLabel text={k.name} class="nq-opt-name" />
-              <span class="nq-opt-side">
-                {k.reason ? (
-                  <span class="nq-opt-reason">{k.reason}</span>
-                ) : (
-                  <>
-                    <PixelIcon name={`el-${k.element}`} scale={2} />
-                    {k.cost > 0 ? (
-                      <GaugeCost k={k} max={s.gauges.find((g) => g.subject === k.subject)?.max ?? k.cost} />
-                    ) : (
-                      <span class="nq-opt-charge">{t('battle.gaugeCharge')}</span>
-                    )}
-                  </>
-                )}
-              </span>
-            </button>
-          ))}
-        </div>
-        {focus && (
-          <div class="nq-menu-foot nq-menu-foot-skill">
-            <div class="nq-menu-foot-row">
-              {focus.by && <RubyLabel text={t('battle.skillBy', { name: focus.by })} class="nq-opt-by" />}
-              <RubyLabel text={focus.flavor ?? t(EFFECT_HINT[focus.effect])} />
-            </div>
-            <div class="nq-menu-foot-row">
-              {t('battle.skillAccuracy', { n: focus.accuracy ?? 100 })}
-              {focus.additionalEffect && (
-                <span>
-                  {t(
-                    `battle.effect${focus.additionalEffect.target === 'self' ? 'Self' : 'Target'}${focus.additionalEffect.stat === 'atk' ? 'Atk' : 'Def'}${focus.additionalEffect.multiplier >= 1 ? 'Up' : 'Down'}`,
-                    { n: focus.additionalEffect.chance, turns: focus.additionalEffect.turns },
-                  )}
-                </span>
-              )}
-            </div>
-            <span class="nq-menu-grade">
-              <span class="nq-menu-stars">{'★'.repeat(focus.stars)}</span>
-              {focus.gradeRange[0] === focus.gradeRange[1]
-                ? t('battle.gradeOne', { a: focus.gradeRange[0] })
-                : t('battle.gradeRange', { a: focus.gradeRange[0], b: focus.gradeRange[1] })}
-            </span>
-            {focus.cost > 0 && (
-              <span class="nq-menu-cost">{t('battle.costHint', { subject, n: focus.cost })}</span>
-            )}
-          </div>
-        )}
-      </div>
     </div>
   );
 }
@@ -475,7 +355,7 @@ export function BattleHud({ store }: { store: HudStore }) {
       battleRef.current?.querySelector<HTMLElement>('button.nq-focus')?.focus();
     });
     return () => cancelAnimationFrame(frame);
-  }, [s.cursor, s.menu, s.chargeSkills, s.question, s.result]);
+  }, [s.cursor, s.menu, s.chargeSkills, s.skillDetails, s.question, s.result]);
 
   const onStageClick = (e: JSX.TargetedMouseEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return;

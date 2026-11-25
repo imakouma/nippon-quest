@@ -31,7 +31,7 @@ for (const viewport of [
     await page.locator('.nq-box').click();
     await page.locator('.nq-cmd[data-cmd="skill"]').click();
     const normal = page.locator('[data-skill="sk-tashizan-giri"]');
-    await expect(normal.locator('.nq-opt-charge')).toHaveText('チャージ');
+    await expect(normal.locator('.nq-opt-charge')).toHaveText('10〜40チャージ');
     const normalRow = await normal.boundingBox();
     const normalIcon = await normal.locator('.nq-opt-side > .nq-picon').boundingBox();
     const charge = await normal.locator('.nq-opt-charge').boundingBox();

@@ -182,6 +182,11 @@ export function buildSkillOptions(input: {
       deps,
       selectionContext(input.context),
     );
+    const passive = state.companion?.passiveSkill;
+    const boost = passive?.subject === skill.subject ? passive.mult : 1;
+    const gains = Object.values(deps.settings.subjectGauge.charge).map((amount) =>
+      Math.round(amount * boost),
+    );
     return {
       key: `${actorId}:${skill.id}`,
       id: skill.id,
@@ -194,6 +199,7 @@ export function buildSkillOptions(input: {
       stars: skill.gauge,
       cost: skill.costGauge,
       have: state.player.subjectGauges[skill.subject],
+      chargeGain: [Math.min(...gains), Math.max(...gains)],
       effect: skill.effect,
       flavor: skill.flavor,
       accuracy: skill.accuracy ?? 100,

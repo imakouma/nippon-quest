@@ -23,7 +23,8 @@ for (const width of [960, 640]) {
     await expect(page.locator('.nq-sgauge')).toHaveCount(0);
     await expect(page.locator('.nq-charge-frame')).toBeVisible();
     await expect(page.locator('[data-charge-subject]')).toHaveCount(2);
-    await expect(page.locator('.nq-charge-hint')).toBeVisible();
+    await expect(page.locator('.nq-charge-hint')).toHaveCount(0);
+    await expect(toggle).toContainText('チャージ');
     await expect(page.locator('[data-charge-subject="kokugo"]')).toHaveAttribute('stroke-dasharray', '0 100');
     await page.evaluate(() => {
       const battle = window.__nq.scene.getScene('Battle') as ChargeBattle;
@@ -36,7 +37,7 @@ for (const width of [960, 640]) {
     await expect(page.locator('[data-charge-subject="sansu"]')).toHaveAttribute('stroke-dasharray', '25 75');
     await expect(page.locator('[data-charge-subject="sansu"]')).toHaveAttribute('stroke-dashoffset', '-50');
     await expect(toggle).toHaveAccessibleDescription(/こくご 100\/100、さんすう 50\/100/);
-    await expect(toggle).toContainText('つかえる');
+    await expect(toggle).toHaveClass(/nq-charge-ready/);
     await page.screenshot({ path: info.outputPath('split-charge-frame.png') });
     await page.evaluate(() => {
       const battle = window.__nq.scene.getScene('Battle') as ChargeBattle;
@@ -51,7 +52,25 @@ for (const width of [960, 640]) {
     await expect(page.locator('[data-skill]')).toHaveCount(4);
     await expect(page.locator('.nq-sgauge')).toHaveCount(0);
     await expect(page.locator('.nq-charge-hint')).toHaveCount(0);
+    await expect(page.locator('.nq-opt-charge').first()).toHaveText('10〜40チャージ');
+    await expect(page.locator('#nq-skill-details')).toHaveCount(0);
     await page.screenshot({ path: info.outputPath('normal-skills.png') });
+    await page.keyboard.press('q');
+    await expect(page.locator('#nq-skill-details')).toBeVisible();
+    await expect(page.locator('.nq-skill-details-toggle')).toHaveAttribute('aria-expanded', 'true');
+    expect(await page.locator('#nq-skill-details').evaluate((el) => el.scrollHeight <= el.clientHeight)).toBe(
+      true,
+    );
+    await page.keyboard.press('ArrowDown');
+    await expect(page.locator('[data-skill]').nth(1)).toBeFocused();
+    await page.screenshot({ path: info.outputPath('skill-details.png') });
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#nq-skill-details')).toHaveCount(0);
+    await expect(page.locator('[data-skill]')).toHaveCount(4);
+    await page.locator('.nq-skill-details-toggle').click();
+    await expect(page.locator('#nq-skill-details')).toBeVisible();
+    await page.keyboard.press('q');
+    await expect(page.locator('#nq-skill-details')).toHaveCount(0);
     await toggle.click();
     await expect(page.locator('[data-skill]')).toHaveCount(2);
     await expect(toggle).toHaveAttribute('aria-pressed', 'true');
@@ -72,7 +91,7 @@ for (const width of [960, 640]) {
       battle.syncViews();
       battle.showCommands();
     });
-    await expect(toggle).toContainText('つかえる');
+    await expect(toggle).toHaveClass(/nq-charge-ready/);
     await toggle.click();
     await expect(page.locator('[data-skill]')).toHaveCount(2);
     await expect(charge).toHaveAttribute('aria-disabled', 'false');

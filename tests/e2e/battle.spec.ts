@@ -275,6 +275,8 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   await expect(page.locator('.nq-menu .nq-opt-side').first()).toHaveCSS('white-space', 'nowrap');
   await expect(page.locator('.nq-menu-skill .nq-menu-head')).toHaveCount(0);
   const firstSkillBox = await page.locator('.nq-menu-skill .nq-opt').first().boundingBox();
+  await expect(page.locator('.nq-menu-foot-skill')).toHaveCount(0);
+  await page.keyboard.press('q');
   const skillListBox = await page.locator('.nq-menu-skill .nq-menu-grid').boundingBox();
   const skillDetailBox = await page.locator('.nq-menu-foot-skill').boundingBox();
   expect(firstSkillBox!.height).toBe(40);

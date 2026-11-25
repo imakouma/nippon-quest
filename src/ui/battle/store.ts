@@ -86,6 +86,8 @@ export interface SkillOption {
   cost: number;
   /** いまの その教科の ゲージ */
   have: number;
+  /** 回答評価による獲得量の範囲。オトモ補正込み、ゲージ上限適用前。 */
+  chargeGain: [number, number];
   effect: 'damage' | 'heal' | 'buff' | 'debuff' | 'scan' | 'status';
   flavor?: string;
   accuracy?: number;
@@ -204,6 +206,7 @@ export interface HudState {
   commands: CommandOption[];
   skills: SkillOption[];
   chargeSkills: boolean;
+  skillDetails: boolean;
   items: ItemOption[];
   swaps: SwapOption[];
   gauges: SubjectGaugeView[];
@@ -240,6 +243,7 @@ export const initialHudState = (): HudState => ({
   commands: [],
   skills: [],
   chargeSkills: false,
+  skillDetails: false,
   items: [],
   swaps: [],
   gauges: [],
@@ -265,7 +269,11 @@ export class HudStore {
   set(patch: Partial<HudState> | ((s: HudState) => Partial<HudState>)): void {
     const p = typeof patch === 'function' ? patch(this.state) : patch;
     this.state = { ...this.state, ...p };
-    if (p.menu && p.menu !== 'skills') this.state.chargeSkills = false;
+    if (p.menu && p.menu !== 'skills') {
+      this.state.chargeSkills = false;
+      this.state.skillDetails = false;
+    }
+    if (p.chargeSkills !== undefined) this.state.skillDetails = false;
     for (const fn of this.subs) fn();
   }
 

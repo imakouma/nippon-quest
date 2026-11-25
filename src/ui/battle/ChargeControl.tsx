@@ -35,10 +35,7 @@ export function ChargeControl({ s, store }: { s: HudState; store: HudStore }) {
             <PixelIcon key={g.subject} name={`subj-${g.subject}`} scale={s.gauges.length > 3 ? 1 : 2} />
           ))}
         </span>
-        <RubyLabel text={t('battle.gaugeCharge')} />
-        {s.menu === 'commands' && (
-          <span class="nq-charge-hint">{t(ready ? 'battle.chargeReady' : 'battle.chargeBuild')}</span>
-        )}
+        <RubyLabel text={t('battle.chargeSkills')} class="nq-charge-label" />
       </button>
       <span id="nq-charge-gauge-status" class="nq-charge-status">
         {s.gauges.map((g) => `${t(`subjects.${g.subject}`)} ${g.value}/${g.max}`).join('、')}

@@ -320,6 +320,30 @@ describe('HUD と engine の評価共有', () => {
     expect(execution.evaluation.reason).toBe(option?.blockReason);
   });
 
+  it('通常技のチャージ表示が回答評価の範囲とオトモ補正を反映する', async () => {
+    const state = await setup();
+    const options = () =>
+      buildSkillOptions({
+        state,
+        deps: D,
+        context: context(),
+        queryFor: (skill) => ({ subject: skill.subject, gradeRange: skill.gradeRange }),
+        nameOf: (id) => id,
+        preparingLabel: 'じゅんびちゅう',
+      });
+    state.companion = null;
+    expect(options().find((skill) => skill.id === 'sk-tashizan-giri')?.chargeGain).toEqual([10, 40]);
+    state.companion = {
+      id: 'pal',
+      name: 'オトモ',
+      activeSkill: null,
+      passiveSkill: { kind: 'gaugeBoost', subject: 'sansu', mult: 1.5 },
+    };
+    expect(options().find((skill) => skill.id === 'sk-tashizan-giri')?.chargeGain).toEqual([15, 60]);
+    state.companion.passiveSkill!.subject = 'kokugo';
+    expect(options().find((skill) => skill.id === 'sk-tashizan-giri')?.chargeGain).toEqual([10, 40]);
+  });
+
   it('item・swap・親 command も evaluator の理由を保持する', async () => {
     const state = await setup();
     state.isBossBattle = true;

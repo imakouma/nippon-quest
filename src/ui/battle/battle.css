@@ -578,7 +578,7 @@
 /* 通常技と必殺技で、属性アイコンとその右の表示を同じ列に揃える。 */
 [data-skill] .nq-opt-side {
   flex: none;
-  width: 108px;
+  width: 160px;
 }
 /* 必殺技に 必要な 教科ゲージ（要る 量 / 最大量） */
 .nq-opt-cost {
@@ -646,6 +646,11 @@
   border-top: 0;
   border-left: 2px dashed #4a5063;
 }
+.nq-menu-foot-skill {
+  font-size: 16px;
+  line-height: 24px;
+}
+.nq-menu-foot-skill,
 .nq-menu-foot-item {
   justify-content: flex-start;
   overflow-y: auto;
@@ -1244,9 +1249,8 @@
   gap: 4px;
   height: 28px;
 }
-.nq-charge-hint {
+.nq-charge-label {
   font-size: 12px;
-  line-height: 16px;
 }
 #ui-layer .nq-charge-ready,
 #ui-layer .nq-charge-toggle[aria-pressed='true'] {
@@ -1306,4 +1310,33 @@
   .nq-charge-progress {
     transition: none;
   }
+}
+
+/* 技の説明はQ/タップで開く。閉じている間は一覧に幅を使う。 */
+.nq-menu-skill:not(.nq-skill-details-open) .nq-menu-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+#ui-layer .nq-skill-details-toggle {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 16px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 2px solid var(--nq-white);
+  background: var(--nq-panel);
+  color: var(--nq-white);
+  font: inherit;
+  font-size: 16px;
+  line-height: 24px;
+}
+.nq-skill-details-toggle kbd {
+  font: inherit;
+  color: var(--nq-yellow);
+}
+.nq-skill-details-toggle:focus-visible {
+  outline: 4px solid var(--nq-sky);
+  outline-offset: 2px;
 }

@@ -22,6 +22,7 @@ const skill = (id: string, cost: number, disabled = false): SkillOption => ({
   stars: 1,
   cost,
   have: 0,
+  chargeGain: [10, 40],
   effect: 'damage',
   disabled,
 });
@@ -134,4 +135,38 @@ it('仲間の技で教科が増えたときも全教科を枠に残す', () => {
     0,
   );
   expect(filledLength).toBeCloseTo(100);
+});
+
+it('Qとタップで技詳細を開閉し、Escapeは先に詳細だけを閉じる', async () => {
+  const store = new HudStore();
+  const action = vi.fn();
+  store.onAction = action;
+  await act(() => {
+    store.set({ intro: false, menu: 'skills', skills: [skill('normal', 0), skill('other', 0)] });
+    render(h(BattleHud, { store }), document.body);
+  });
+  const key = (key: string, repeat = false) =>
+    act(() => {
+      window.dispatchEvent(new KeyboardEvent('keydown', { key, repeat }));
+    });
+  expect(document.querySelector('#nq-skill-details')).toBeNull();
+  await key('q');
+  expect(document.querySelector('#nq-skill-details')).not.toBeNull();
+  await key('q', true);
+  expect(store.get().skillDetails).toBe(true);
+  await key('ArrowDown');
+  expect(store.get().cursor).toBe(1);
+  await key('Escape');
+  expect(store.get().skillDetails).toBe(false);
+  expect(action).not.toHaveBeenCalled();
+  await act(() => document.querySelector<HTMLButtonElement>('.nq-skill-details-toggle')!.click());
+  expect(store.get().skillDetails).toBe(true);
+  await key('Q');
+  expect(store.get().skillDetails).toBe(false);
+  await key('Escape');
+  expect(action).toHaveBeenCalledWith({ t: 'back' });
+  await act(() => store.set({ skillDetails: true, chargeSkills: true }));
+  expect(store.get().skillDetails).toBe(false);
+  await act(() => store.set({ skillDetails: true, menu: 'commands' }));
+  expect(store.get().skillDetails).toBe(false);
 });
