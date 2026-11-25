@@ -17,11 +17,21 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
   const dialog = page.getByRole('dialog', { name: 'わざの へんせい' });
   const editor = dialog.getByRole('region', { name: 'わざの へんせい' });
   const normal = editor.getByRole('group', { name: /ふつうの わざ/ });
-  const slots = normal.getByRole('combobox');
+  const slots = normal.getByRole('button');
   await expect(slots).toHaveCount(4);
-  await expect(editor.getByRole('group', { name: /チャージわざ/ }).getByRole('combobox')).toHaveCount(2);
-  await slots.nth(3).selectOption('sk-kotoba-asobi');
-  await expect(slots.nth(3)).toHaveValue('sk-kotoba-asobi');
+  await expect(editor.getByRole('group', { name: /チャージわざ/ }).getByRole('button')).toHaveCount(2);
+  for (const width of [960, 600]) {
+    await page.setViewportSize({ width, height: 540 });
+    await expect
+      .poll(() => editor.evaluate((el) => el.scrollHeight - el.clientHeight))
+      .toBeLessThanOrEqual(1);
+  }
+  await page.setViewportSize({ width: 960, height: 540 });
+  await slots.nth(3).click();
+  await editor.getByRole('button', { name: /ことばあそび/ }).click();
+  await expect(editor.locator('aside')).toContainText('ことばあそび');
+  await editor.getByRole('button', { name: 'この わざを つける' }).click();
+  await expect(slots.nth(3)).toContainText('ことばあそび');
   await page.screenshot({ path: testInfo.outputPath('hero-skill-loadout.png') });
   await dialog.getByRole('button', { name: /もどる/ }).click();
   await page
@@ -32,9 +42,9 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
     page
       .getByRole('dialog', { name: 'わざの へんせい' })
       .getByRole('group', { name: /ふつうの わざ/ })
-      .getByRole('combobox')
+      .getByRole('button')
       .nth(3),
-  ).toHaveValue('sk-kotoba-asobi');
+  ).toContainText('ことばあそび');
   await page.reload();
   await page.getByRole('menuitem', { name: /つづきから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
@@ -47,7 +57,7 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
     page
       .getByRole('dialog', { name: 'わざの へんせい' })
       .getByRole('group', { name: /ふつうの わざ/ })
-      .getByRole('combobox')
+      .getByRole('button')
       .nth(3),
-  ).toHaveValue('sk-kotoba-asobi');
+  ).toContainText('ことばあそび');
 });
