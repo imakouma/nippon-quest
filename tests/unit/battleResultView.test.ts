@@ -84,7 +84,7 @@ describe('バトル結果の表示モデル', () => {
     expect(view.recruitName).toBeUndefined();
   });
 
-  it('レベルアップをまたぐ経験値ゲージは現在位置から満タンへ増える', async () => {
+  it('レベルアップ後のレベルと繰り越し経験値を表示する', async () => {
     const c = await content();
     const game = createNewGame({ name: 'ハル', grade: 1 });
     game.player.xp = c.xp.hero[1]! - 2;
@@ -121,9 +121,59 @@ describe('バトル結果の表示モデル', () => {
       () => '',
     );
 
-    expect(view.xpFrom).toBeGreaterThan(0);
-    expect(view.xpTo).toBe(1);
-    expect(view.needNext).toBe(0);
+    expect(view.xpFrom).toBe(0);
+    expect(view.level).toBe(2);
+    expect(view.levelXp).toBe(3);
+    expect(view.levelXpNeeded).toBe(c.xp.hero[2]! - c.xp.hero[1]!);
+    expect(view.xpTo).toBeCloseTo(3 / view.levelXpNeeded!);
+    expect(view.needNext).toBe(c.xp.hero[2]! - c.xp.hero[1]! - 3);
+  });
+
+  it('上限では繰り越しを失わず次レベルの必要量を表示しない', async () => {
+    const c = await content();
+    const game = createNewGame({ name: 'ハル', grade: 1 });
+    game.player.level = 2;
+    game.player.levelCap = 2;
+    game.player.xp = c.xp.hero[1]! + 10;
+    const summary: BattleSummary = {
+      outcome: 'victory',
+      enemyRefId: 'enemy',
+      enemyLevel: 1,
+      heroHp: 40,
+      heroMp: 10,
+      heroMaxHp: 40,
+      heroMaxMp: 10,
+      xp: 7,
+      gold: 0,
+      drops: [],
+      items: {},
+      recruitAccepted: false,
+      perfectBySubject: {},
+    };
+    const view = victoryResultView(summary, null, 'テスト', game, c, () => '');
+    expect(view).toMatchObject({ level: 2, levelXp: 17, levelXpNeeded: undefined, needNext: 0 });
+  });
+
+  it('複数レベル上昇後も最終レベルの経験値を表示する', async () => {
+    const c = await content();
+    const game = createNewGame({ name: 'ハル', grade: 1 });
+    const summary: BattleSummary = {
+      outcome: 'victory',
+      enemyRefId: 'enemy',
+      enemyLevel: 1,
+      heroHp: 40,
+      heroMp: 10,
+      heroMaxHp: 40,
+      heroMaxMp: 10,
+      xp: c.xp.hero[3]! + 2,
+      gold: 0,
+      drops: [],
+      items: {},
+      recruitAccepted: false,
+      perfectBySubject: {},
+    };
+    const view = victoryResultView(summary, null, 'テスト', game, c, () => '');
+    expect(view).toMatchObject({ level: 4, levelXp: 2, needNext: c.xp.hero[4]! - c.xp.hero[3]! - 2 });
   });
 
   it('敗北表示に失ったお金だけを渡す', () => {

@@ -137,10 +137,20 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
               {t('battle.gotXp')}
             </dt>
             <dd>+{r.xp}</dd>
+            <dt>{t('battle.resultLevel', { lv: r.level ?? 1 })}</dt>
+            <dd>
+              {r.levelXpNeeded === undefined
+                ? t('battle.savedXp', { n: r.levelXp ?? 0 })
+                : t('battle.levelXp', { n: r.levelXp ?? 0, total: r.levelXpNeeded })}
+            </dd>
             <dt class="nq-result-xpbar">
               <Bar value={xpW} max={1} label={t('battle.gotXp')} />
             </dt>
-            <dd class="nq-result-need">{t('battle.nextLevel', { n: r.needNext })}</dd>
+            <dd class="nq-result-need">
+              {r.levelXpNeeded === undefined
+                ? t('battle.levelCapReached')
+                : t('battle.nextLevel', { n: r.needNext })}
+            </dd>
             <dt>
               <PixelIcon name="coin" scale={3} />
               {t('battle.gotGold')}

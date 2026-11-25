@@ -179,6 +179,9 @@ export interface ResultView {
   gold: number;
   /** てに いれた もの（icon は どうぐの アイコン） */
   drops: { name: string; count: number; icon?: string }[];
+  level?: number;
+  levelXp?: number;
+  levelXpNeeded?: number;
   xpFrom: number;
   xpTo: number;
   needNext: number;
