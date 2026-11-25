@@ -141,6 +141,12 @@ export function AccountPanel(props: AccountPanelProps) {
                 <RubyLabel text={t('account.logout')} />
               </button>
             )}
+            {!confirmation &&
+              (view.blocked || !view.available || (!view.userId && !view.providers.includes('google'))) && (
+                <button type="button" disabled={busy} onClick={props.onReload}>
+                  <RubyLabel text={t('account.reload')} />
+                </button>
+              )}
             <button
               type="button"
               disabled={busy}
@@ -189,9 +195,6 @@ export function AccountPanel(props: AccountPanelProps) {
               <p role="alert">
                 <RubyLabel text={t('account.otherTab')} />
               </p>
-              <button type="button" onClick={props.onReload}>
-                <RubyLabel text={t('account.reload')} />
-              </button>
               <p>
                 <RubyLabel text={t('account.guestBlockedNote')} />
               </p>
@@ -211,16 +214,6 @@ export function AccountPanel(props: AccountPanelProps) {
                   !view.available || !view.providers.includes('google'),
                 )}
               </section>
-              {(!view.available || !view.providers.includes('google')) && (
-                <div class="nq-account-feedback">
-                  <p>
-                    <RubyLabel text={t(view.available ? 'account.notConfigured' : 'account.unavailable')} />
-                  </p>
-                  <button type="button" onClick={props.onReload}>
-                    <RubyLabel text={t('account.reload')} />
-                  </button>
-                </div>
-              )}
               {view.available && view.providers.includes('google') && (
                 <p class="nq-account-note">
                   <RubyLabel text={t('account.guest')} />
