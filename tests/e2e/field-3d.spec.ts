@@ -220,9 +220,8 @@ test('field terrain and billboards stay projected across camera movement', async
       (child): child is Phaser.GameObjects.Mesh => child.type === 'Mesh',
     );
     let firstTerrainVertex = meshes[0]?.vertices[0];
-    const terrainListeners = scene.events.listeners(Phaser.Scenes.Events.PRE_RENDER);
-    for (const listener of terrainListeners)
-      scene.events.off(Phaser.Scenes.Events.PRE_RENDER, listener as () => void);
+    const terrainListeners = scene.events.listeners('prerender');
+    for (const listener of terrainListeners) scene.events.off('prerender', listener as () => void);
     const measureTerrain = () => {
       const started = performance.now();
       for (const listener of terrainListeners) (listener as () => void)();
@@ -233,7 +232,7 @@ test('field terrain and billboards stay projected across camera movement', async
         firstTerrainVertex = nextFirstTerrainVertex;
       }
     };
-    scene.events.on(Phaser.Scenes.Events.PRE_RENDER, measureTerrain);
+    scene.events.on('prerender', measureTerrain);
     const sample = () => {
       frames += 1;
       const viewWidth = camera.width / camera.zoom;
@@ -264,9 +263,8 @@ test('field terrain and billboards stay projected across camera movement', async
       }
     ).__stopFieldFrameSampling = () => {
       game.events.off('postrender', sample);
-      scene.events.off(Phaser.Scenes.Events.PRE_RENDER, measureTerrain);
-      for (const listener of terrainListeners)
-        scene.events.on(Phaser.Scenes.Events.PRE_RENDER, listener as () => void);
+      scene.events.off('prerender', measureTerrain);
+      for (const listener of terrainListeners) scene.events.on('prerender', listener as () => void);
       const sortedTerrain = terrainSamples.slice(2).sort((left, right) => left - right);
       const sortedCameraOffsets = cameraOffsetSamples.slice(2).sort((left, right) => left - right);
       return {

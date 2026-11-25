@@ -35,10 +35,14 @@ it('候補を選び直しても支払わず、確定ボタンだけで変更す�
     ),
   );
   const choice = document.querySelectorAll<HTMLButtonElement>('.nq-barber-choice')[1]!;
-  await act(() => choice.dispatchEvent(new Event('pointerenter')));
+  await act(() => {
+    choice.dispatchEvent(new Event('pointerenter'));
+  });
   await act(() => choice.click());
   await act(() => choice.click());
-  await act(() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'z', bubbles: true })));
+  await act(() => {
+    window.dispatchEvent(new KeyboardEvent('keydown', { key: 'z', bubbles: true }));
+  });
   expect(onAct).not.toHaveBeenCalled();
   await act(() => document.querySelector<HTMLButtonElement>('.nq-barber-apply')!.click());
   expect(onAct).toHaveBeenCalledExactlyOnceWith('look:hair:1');
