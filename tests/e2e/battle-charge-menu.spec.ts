@@ -56,6 +56,10 @@ for (const width of [960, 640]) {
       battle.syncViews();
     });
     const party = await page.locator('.nq-party').boundingBox();
+    const foeHp = await page.locator('.nq-foe .nq-bar-hp').boundingBox();
+    const heroHp = await page.locator('.nq-ally-hero .nq-bar-hp').boundingBox();
+    expect(foeHp!.width).toBeCloseTo(heroHp!.width, 0);
+    expect(foeHp!.height).toBeCloseTo(heroHp!.height, 0);
     expect(party!.width).toBeCloseTo((252 * width) / 960, 0);
     expect(party!.height).toBeLessThanOrEqual((80 * width) / 960);
     await page.locator('[data-cmd="skill"]').click();
