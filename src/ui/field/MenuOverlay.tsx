@@ -42,7 +42,7 @@ export interface MenuOverlayProps {
   onSkills?: () => void;
   onAct: (key: string) => void;
   onRoadmapSelect: (unitId: string) => void;
-  onSave: () => void;
+  onSave: () => Promise<void>;
   onParent: () => void;
   onClose: () => void;
 }
@@ -122,7 +122,6 @@ export function MenuOverlay({
     );
   const [sel, setSel] = useState(find);
   const [home, setHome] = useState(initialHome);
-  const [saved, setSaved] = useState(false);
   const [dexGroup, setDexGroup] = useState<string | null>(null);
   const [homeSel, setHomeSel] = useState(() =>
     Math.max(
@@ -412,17 +411,9 @@ export function MenuOverlay({
               ))}
             </div>
             <div class="nq-menu-footer">
-              <button
-                type="button"
-                class="nq-opt nq-menu-save"
-                onClick={() => {
-                  onSave();
-                  setSaved(true);
-                }}
-              >
+              <button type="button" class="nq-opt nq-menu-save" onClick={() => void onSave()}>
                 <PixelIcon name="star" scale={2} /> {t('menu.save')}
               </button>
-              {saved && <span class="nq-menu-saved">{t('field.saveDone')}</span>}
               {developerTools && (
                 <div class="nq-menu-dev-tools" aria-label={displayText(t('field.devTools'))}>
                   <RubyLabel text={t('field.devTools')} />
