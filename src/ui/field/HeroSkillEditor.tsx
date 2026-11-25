@@ -8,10 +8,11 @@ import { displayText } from '../ruby';
 export interface HeroSkillEditorProps {
   initial: HeroSkillLoadout;
   skills: Skill[];
+  levels?: Record<string, number>;
   onChange: (category: keyof HeroSkillLoadout, index: number, id: string | null) => HeroSkillLoadout | null;
 }
 
-export function HeroSkillEditor({ initial, skills, onChange }: HeroSkillEditorProps) {
+export function HeroSkillEditor({ initial, skills, levels, onChange }: HeroSkillEditorProps) {
   const [loadout, setLoadout] = useState(initial);
   const [error, setError] = useState(false);
   return (
@@ -62,6 +63,7 @@ export function HeroSkillEditor({ initial, skills, onChange }: HeroSkillEditorPr
                 </label>
                 {current && (
                   <p>
+                    {levels?.[current.id] && <span>Lv.{levels[current.id]}　</span>}
                     {t('field.skillDetail', {
                       subject: t(`subjects.${current.subject}`),
                       power: current.power,

@@ -7,6 +7,7 @@ export const SUBJECTS = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'
 export interface BattleCommandDeps {
   settings: Settings;
   skills: Map<string, Skill>;
+  heroSkill?: (skill: Skill) => Skill;
   items: Map<string, Item>;
   monsters: Map<string, Monster>;
 }
@@ -126,7 +127,7 @@ export function canUseBattleItem(state: BattleState, item: Item): boolean {
 
 export function battleSkills(
   state: BattleState,
-  deps: Pick<BattleCommandDeps, 'skills' | 'settings'>,
+  deps: Pick<BattleCommandDeps, 'skills' | 'settings' | 'heroSkill'>,
 ): BattleSkill[] {
   const skills: BattleSkill[] = [];
   const seen = new Set<string>();
@@ -135,7 +136,11 @@ export function battleSkills(
     const key = `${actorId}:${id}`;
     if (!skill || seen.has(key)) return;
     seen.add(key);
-    skills.push({ skill, actorId, unique });
+    skills.push({
+      skill: actorId === state.ally.hero.id ? (deps.heroSkill?.(skill) ?? skill) : skill,
+      actorId,
+      unique,
+    });
   };
   const hero = state.ally.hero;
   const uniqueIds = new Set(Object.values(deps.settings.subjectGauge.uniqueSkills));
