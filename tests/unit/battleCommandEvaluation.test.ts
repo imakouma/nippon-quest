@@ -12,6 +12,7 @@ import { resolveBattleRuleset } from '../../src/core/battle/ruleset';
 import type { BattleState } from '../../src/core/battle/types';
 import {
   buildCommandOptions,
+  buildGaugeViews,
   buildItemOptions,
   buildSkillOptions,
   buildSwapOptions,
@@ -318,6 +319,54 @@ describe('HUD と engine の評価共有', () => {
 
     expect(option).toMatchObject({ disabled: true, blockReason: 'insufficient-gauge' });
     expect(execution.evaluation.reason).toBe(option?.blockReason);
+  });
+
+  it('1・2年は国算生活の3教科、3年以降は理社英のゲージも表示する', async () => {
+    const state = await setup();
+    const c = await content();
+    state.player.subjectGauges.seikatsu = 45;
+    for (const grade of [1, 2]) {
+      const gauges = buildGaugeViews(state, D, c, [], grade);
+      expect(gauges.map((gauge) => gauge.subject)).toEqual(['kokugo', 'sansu', 'seikatsu']);
+      expect(gauges[2]?.value).toBe(45);
+    }
+    for (const grade of [3, 6]) {
+      expect(buildGaugeViews(state, D, c, [], grade).map((gauge) => gauge.subject)).toEqual([
+        'kokugo',
+        'sansu',
+        'rika',
+        'shakai',
+        'eigo',
+      ]);
+    }
+    state.ally.hero.skills.push('sk-happa-tobashi');
+    const upperWithLife = buildGaugeViews(state, D, c, [], 3);
+    expect(upperWithLife).toHaveLength(6);
+    expect(upperWithLife.find((gauge) => gauge.subject === 'seikatsu')?.value).toBe(45);
+  });
+
+  it('通常技のチャージ表示が回答評価の範囲とオトモ補正を反映する', async () => {
+    const state = await setup();
+    const options = () =>
+      buildSkillOptions({
+        state,
+        deps: D,
+        context: context(),
+        queryFor: (skill) => ({ subject: skill.subject, gradeRange: skill.gradeRange }),
+        nameOf: (id) => id,
+        preparingLabel: 'じゅんびちゅう',
+      });
+    state.companion = null;
+    expect(options().find((skill) => skill.id === 'sk-tashizan-giri')?.chargeGain).toEqual([10, 40]);
+    state.companion = {
+      id: 'pal',
+      name: 'オトモ',
+      activeSkill: null,
+      passiveSkill: { kind: 'gaugeBoost', subject: 'sansu', mult: 1.5 },
+    };
+    expect(options().find((skill) => skill.id === 'sk-tashizan-giri')?.chargeGain).toEqual([15, 60]);
+    state.companion.passiveSkill!.subject = 'kokugo';
+    expect(options().find((skill) => skill.id === 'sk-tashizan-giri')?.chargeGain).toEqual([10, 40]);
   });
 
   it('item・swap・親 command も evaluator の理由を保持する', async () => {

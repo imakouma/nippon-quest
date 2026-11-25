@@ -165,7 +165,8 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
 
   it('ポケモン型基礎式へ教材倍率と乱数を掛け、かしこさも必殺技へ反映する', async () => {
     const { state } = await setup();
-    const sk = D.skills.get('sk-tashizan-giri')!; // power 120 / むぞくせい
+    // 計算式の検証用に威力を固定し、教材データのバランス調整から独立させる。
+    const sk = { ...D.skills.get('sk-tashizan-giri')!, power: 120 };
     const attacker = { ...state.ally.hero, stats: { ...state.ally.hero.stats, scienceAtk: 10, wis: 5 } };
     const defender = { ...state.enemy, stats: { ...state.enemy.stats, scienceDef: 5 } };
     const d = computeDamage({

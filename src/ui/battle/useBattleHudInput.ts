@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { playSfx } from '../sfx';
-import type { HudState, HudStore } from './store';
+import { visibleBattleSkills, type HudState, type HudStore } from './store';
 
 const KEY_DIR: Record<string, [number, number]> = {
   ArrowLeft: [-1, 0],
@@ -28,7 +28,7 @@ function menuOptions(state: HudState, store: HudStore): Option[] {
             : undefined,
       }));
     case 'skills':
-      return state.skills.map((skill) => ({
+      return visibleBattleSkills(state).map((skill) => ({
         disabled: skill.disabled,
         action: () => store.dispatch({ t: 'skill', key: skill.key }),
       }));
@@ -58,6 +58,14 @@ export function pickBattleHudOption(option: Option | undefined): void {
   option.action();
 }
 
+/** 詳細は技を選んだまま開閉でき、ターンを消費しない。 */
+export function toggleSkillDetails(store: HudStore): void {
+  const state = store.get();
+  if (state.menu !== 'skills' || !visibleBattleSkills(state)[state.cursor]) return;
+  playSfx(state.skillDetails ? 'back' : 'select');
+  store.set({ skillDetails: !state.skillDetails });
+}
+
 /** BattleHud のキーボード操作を Scene/UI表示から切り離す。 */
 export function useBattleHudInput(store: HudStore, advance: () => void): void {
   const advanceRef = useRef(advance);
@@ -70,6 +78,16 @@ export function useBattleHudInput(store: HudStore, advance: () => void): void {
       const ok = key === 'Enter' || key === 'z' || key === 'Z' || key === ' ';
       const back = key === 'Escape' || key === 'x' || key === 'X' || key === 'Backspace';
       const direction = KEY_DIR[key];
+      if (state.menu === 'skills' && (key === 'q' || key === 'Q')) {
+        event.preventDefault();
+        if (!event.repeat) toggleSkillDetails(store);
+        return;
+      }
+      if (state.menu === 'skills' && state.skillDetails && back) {
+        event.preventDefault();
+        toggleSkillDetails(store);
+        return;
+      }
       if (!ok && !back && !direction) return;
       if (
         (key === 'Enter' || key === ' ') &&

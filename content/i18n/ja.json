@@ -329,6 +329,15 @@
     "gaugeFull": "{subject}ゲージが まんたん！",
     "skillUnlocked": "{skill}が うてるように なった！",
     "gaugeCharge": "チャージ",
+    "normalSkills": "いつものわざ",
+    "chargeSkills": "チャージ技[わざ]",
+    "chargeAmount": "{n}チャージ",
+    "chargeAmountHint": "チャージ量[りょう]は こたえの できで かわる",
+    "skillDetails": "技[わざ]の 詳細[しょうさい]",
+    "closeSkillDetails": "詳細[しょうさい]を とじる",
+    "chargeReady": "つかえる！",
+    "chargeBuild": "ためよう",
+    "noChargeSkills": "チャージわざを セットしよう",
     "gaugeCostStatus": "ひつようゲージ {cost}",
     "chargeHint": "こたえると {subject}ゲージが たまる",
     "costHint": "{subject}ゲージを {n} つかう",
@@ -2477,6 +2486,9 @@
       "eigo_g4_actions": "J U M P JUMP! RUN!"
     },
     "skill": {
+      "sk-kazoe-giri": "10 20 50 90 100 50＋50＝100",
+      "sk-tashizan-giri": "＋ ＋ 1 2 3 4 5 3＋4＝7 5＋4＝9 2＋6＝8",
+      "sk-kuku-rush": "× × 2 4 6 8 3×4＝12 7×8＝56 9×9＝81",
       "sk-hono-no-mai": "炎[ほのお]",
       "sk-hinoko": "火[ひ]"
     }
@@ -2512,7 +2524,7 @@
     "otherTab": "ほかの タブで この アカウントを 開[ひら]いているか、この ブラウザが 同時保存[どうじほぞん]の 保護[ほご]に 対応[たいおう]していません。ほかの タブを 閉[と]じて 読[よ]み 込[こ]み 直[なお]してください。",
     "guestBlockedNote": "この 端末[たんまつ]で 遊[あそ]ぶと、Googleの データとは 別[べつ]に 保存[ほぞん]されます。",
     "guestBlockedAction": "この 端末[たんまつ]で 遊[あそ]ぶ",
-    "reload": "読[よ]み 込[こ]み 直[なお]す",
+    "reload": "再読[さいよ]み込[こ]み",
     "notConfigured": "Googleログインは 準備中[じゅんびちゅう]です。いまは この 端末[たんまつ]で 遊[あそ]べます。",
     "loginWorking": "Googleに 接続中[せつぞくちゅう]…",
     "adventures": "アカウントの 冒険[ぼうけん]",
