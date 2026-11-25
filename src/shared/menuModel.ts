@@ -3,7 +3,7 @@
  * Scene が表示データを作り、UI が描画するための中立な境界に置く。
  */
 export type MenuTab = 'roadmap' | 'mistakes' | 'monsters' | 'specialties' | 'bag' | 'equip';
-export type MenuHomeKey = MenuTab | 'party' | 'skills';
+export type MenuHomeKey = MenuTab | 'party' | 'skills' | 'settings';
 export type RoadmapSupportingKind = 'component' | 'transfer' | 'related' | 'chronological';
 export type RoadmapPendingReason = 'due-review' | 'weak-prerequisite' | 'unseen-primary' | 'unseen-question';
 export type RoadmapCompletedReason = 'review' | 'diagnosis';

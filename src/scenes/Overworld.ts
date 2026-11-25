@@ -23,6 +23,7 @@ import {
 } from '../core/world/terrainElevation';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeHeroLoadout, showHeroSkillEditor } from './overworld/heroSkillEditor';
+import { showSettings } from './overworld/settingsMenu';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
   activeEquipment,
@@ -553,6 +554,7 @@ export class OverworldScene extends Phaser.Scene {
     this.fieldInput = new FieldInputController(this, {
       canInteract: () => !this.busy && !this.inBattle,
       player: () => this.player,
+      movementKeys: () => this.gs()?.settings.movementKeys ?? 'both',
       onInteract: () => this.routeFieldInteraction('interact'),
       onAreaMap: () => this.openAreaMap(),
       onMenu: () => this.routeFieldInteraction('menu'),
@@ -2704,6 +2706,7 @@ export class OverworldScene extends Phaser.Scene {
             this.busy = false;
             this.openBag(undefined, null, undefined, true);
           },
+          onSettings: () => showSettings(root, this, () => draw(tab)),
           onSkills: () => showHeroSkillEditor(root, c, this, () => draw(tab)),
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
           onRoadmapSelect: (unitId: string) => {
@@ -3409,7 +3412,6 @@ export class OverworldScene extends Phaser.Scene {
   gs(): GameState | undefined {
     return this.registry.get('game') as GameState | undefined;
   }
-
   setGame(gs: GameState): void {
     gs = normalizeHeroLoadout(gs, this.content());
     const xp = this.content()?.xp.hero;
@@ -3417,7 +3419,6 @@ export class OverworldScene extends Phaser.Scene {
     this.registry.set('game', next);
     this.refreshHeroLook();
   }
-
   private rememberLocation(x: number, y: number): void {
     this.game.canvas.dataset.playerTile = `${x},${y}`;
     const gs = this.gs();
