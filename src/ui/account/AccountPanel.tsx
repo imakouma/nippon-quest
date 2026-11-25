@@ -122,13 +122,34 @@ export function AccountPanel(props: AccountPanelProps) {
           <h2 id="nq-account-title">
             <RubyLabel text={t('account.title')} />
           </h2>
-          <button
-            type="button"
-            disabled={busy}
-            onClick={() => (confirmation ? setConfirmation(null) : props.onClose())}
-          >
-            <RubyLabel text={t('account.close')} />
-          </button>
+          <div class="nq-account-actions">
+            {view.userId && !view.blocked && (
+              <button
+                type="button"
+                id="account-logout"
+                disabled={busy || confirmation !== null}
+                onClick={() =>
+                  unsettled
+                    ? confirm({
+                        kind: 'logout',
+                        text: t('account.logoutConfirm'),
+                        run: props.onLogout,
+                        focusId: 'account-logout',
+                      })
+                    : void run('logout', props.onLogout)
+                }
+              >
+                <RubyLabel text={t('account.logout')} />
+              </button>
+            )}
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => (confirmation ? setConfirmation(null) : props.onClose())}
+            >
+              <RubyLabel text={t('account.close')} />
+            </button>
+          </div>
         </header>
         <div class="nq-account-body">
           {error && (
@@ -220,26 +241,7 @@ export function AccountPanel(props: AccountPanelProps) {
                 <p class="nq-account-note">
                   <RubyLabel text={t('account.logoutNote')} />
                 </p>
-                <div class="nq-account-actions">
-                  {button('export', props.onExport)}
-                  <button
-                    type="button"
-                    id="account-logout"
-                    disabled={busy}
-                    onClick={() =>
-                      unsettled
-                        ? confirm({
-                            kind: 'logout',
-                            text: t('account.logoutConfirm'),
-                            run: props.onLogout,
-                            focusId: 'account-logout',
-                          })
-                        : void run('logout', props.onLogout)
-                    }
-                  >
-                    <RubyLabel text={t('account.logout')} />
-                  </button>
-                </div>
+                {button('export', props.onExport)}
                 <button
                   class="nq-account-delete"
                   type="button"

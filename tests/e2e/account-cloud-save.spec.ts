@@ -113,10 +113,6 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
     timeout: 30_000,
   });
   await other.close();
-  await dialog
-    .locator('summary')
-    .filter({ hasText: /かんり|管理/ })
-    .click();
   await dialog.getByRole('button', { name: 'ログアウト', exact: true }).click();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();
   expect(account.owner).toBeNull();
@@ -239,7 +235,6 @@ test('競合の上書きと未送信のログアウトを確認し、キャン�
   await page.keyboard.press('Escape');
   await expect(useCloud).toBeFocused();
   await expect(conflict).toBeVisible();
-  await dialog.locator('summary').click();
   const logout = dialog.getByRole('button', { name: 'ログアウト', exact: true });
   await logout.click();
   await expect(dialog.getByRole('button', { name: 'やめる' })).toBeFocused();
@@ -257,7 +252,9 @@ test('競合の上書きと未送信のログアウトを確認し、キャン�
   await expect(dialog.getByRole('button', { name: 'もどる' })).toBeInViewport();
   await expect(dialog.locator('.nq-account-slot-pending')).toHaveCount(1);
   expect(await dialog.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+  await expect(logout).toBeInViewport();
   await page.screenshot({ path: testInfo.outputPath('account-saves-narrow.png') });
+  await dialog.locator('summary').click();
   await dialog.getByRole('button', { name: /アカウントを.*さくじょ|アカウントを.*削除/ }).click();
   await dialog.getByRole('button', { name: /はい/ }).click();
   await expect(dialog.getByRole('alert')).toContainText('Google');
