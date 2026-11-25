@@ -214,7 +214,7 @@ test('バトル：ターン表示を出さず、こちらが動くと次のコ�
   // lv は敵レベル。初期パーティが1ターン耐え、敵も最初の一撃を耐える条件で完走を確認する。
   await start(page, 8);
   await expect(page.locator('.nq-turn-stage')).toHaveCount(0);
-  await expect(page.locator('.nq-sgauge')).toBeVisible();
+  await expect(page.locator('.nq-charge-frame')).toBeVisible();
   await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole('meter', { name: /リンゴロン HP/ })).toBeVisible();
   await expect(page.getByRole('meter', { name: /ハル HP/ })).toBeVisible();
@@ -230,7 +230,7 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
     page.locator('.nq-bottom-rail').boundingBox(),
     page.locator('.nq-panel').boundingBox(),
     page.locator('.nq-bottom-command-slot').boundingBox(),
-    page.locator('.nq-ally-hero .nq-sgauge').boundingBox(),
+    page.locator('.nq-charge-frame').boundingBox(),
     page.locator('.nq-party').boundingBox(),
     page.locator('.nq-ally-hero .nq-bar-hp').boundingBox(),
   ]);
@@ -252,10 +252,12 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   expect(commandSlot!.x).toBeCloseTo(rail!.x, 0);
   expect(party!.x + party!.width).toBeCloseTo(rail!.x + rail!.width, 0);
   expect(party!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
-  expect(gauge!.y).toBeGreaterThan(heroHp!.y);
-  expect(gauge!.x).toBeGreaterThanOrEqual(heroHp!.x);
-  expect(gauge!.width).toBeCloseTo(heroHp!.width, 0);
-  await expect(page.locator('.nq-ally-hero .nq-sg-value')).toHaveText(['0/100', '0/100']);
+  expect(gauge!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
+  expect(gauge!.x + gauge!.width).toBeLessThan(party!.x);
+  await expect(page.locator('.nq-ally-hero .nq-sgauge')).toHaveCount(0);
+  await expect(page.locator('[data-charge-toggle]')).toHaveAccessibleDescription(
+    /こくご 0\/100、さんすう 0\/100/,
+  );
 
   // 技一覧を開いても、右下の主人公枠は動かず、舞台を覆い過ぎない高さに保つ。
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
@@ -273,11 +275,15 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   await expect(page.locator('.nq-menu .nq-opt-side').first()).toHaveCSS('white-space', 'nowrap');
   await expect(page.locator('.nq-menu-skill .nq-menu-head')).toHaveCount(0);
   const firstSkillBox = await page.locator('.nq-menu-skill .nq-opt').first().boundingBox();
+  await expect(page.locator('.nq-menu-foot-skill')).toHaveCount(0);
+  await page.keyboard.press('q');
   const skillListBox = await page.locator('.nq-menu-skill .nq-menu-grid').boundingBox();
   const skillDetailBox = await page.locator('.nq-menu-foot-skill').boundingBox();
   expect(firstSkillBox!.height).toBe(40);
   expect(skillDetailBox!.x).toBeGreaterThan(skillListBox!.x + skillListBox!.width);
-  expect(skillDetailBox!.height).toBe(skillListBox!.height);
+  expect(skillDetailBox!.height).toBeLessThanOrEqual(208);
+  const chargeBox = await page.locator('[data-charge-toggle]').boundingBox();
+  expect(skillDetailBox!.y + skillDetailBox!.height).toBeLessThan(chargeBox!.y);
   for (const skill of await page.locator('.nq-menu-skill .nq-opt').all()) {
     expect(await skill.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true);
   }
@@ -323,11 +329,12 @@ test('バトル：使えない必殺技も理由を読める明るさで表示�
   test.setTimeout(60_000);
   await start(page, 8);
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
-  await expect(page.getByRole('group', { name: 'わざ' })).toBeVisible();
+  await page.locator('[data-charge-toggle]').click();
+  await expect(page.getByRole('group', { name: 'チャージわざ' })).toBeVisible();
   const unavailable = page.locator('[data-skill].nq-opt-off').first();
   await expect(unavailable).toBeVisible();
-  // Hover can select a disabled row; check its idle color with focus on a usable skill.
-  await page.locator('[data-skill]:not(.nq-opt-off)').first().hover();
+  // Focus another charge row to check the first row's idle disabled color.
+  await page.locator('[data-skill]').last().hover();
   await expect(unavailable).toHaveAttribute('aria-disabled', 'true');
   await expect(unavailable).toHaveCSS('color', 'rgb(163, 170, 187)');
   await expect(unavailable.locator('.nq-opt-cost')).toHaveAttribute('aria-label', /^ひつようゲージ \d+$/);

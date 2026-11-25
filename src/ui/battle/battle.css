@@ -187,7 +187,6 @@
   position: relative;
   width: 252px;
   box-sizing: border-box;
-  min-height: 160px;
   padding: 4px 8px;
   display: flex;
   flex-direction: column;
@@ -204,7 +203,7 @@
   font-size: 20px;
 }
 .nq-ally-hero {
-  min-height: 82px;
+  min-height: 62px;
 }
 .nq-ally-heading,
 .nq-ally-hp {
@@ -365,122 +364,6 @@
 .nq-turn-head,
 .nq-turn-strip {
   margin-left: auto;
-}
-
-/* ───── 下：コマンドと主人公ステータスのあいだの教科ゲージ ───── */
-.nq-sgauge {
-  position: relative;
-  width: 172px;
-  height: 152px;
-  box-sizing: border-box;
-  padding: 8px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  border-left: 4px solid var(--nq-white);
-  pointer-events: none;
-}
-.nq-sgauge-title {
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--nq-yellow);
-  text-align: center;
-}
-.nq-sgauge-hero {
-  width: 100%;
-  height: 20px;
-  margin: 0;
-  padding: 0;
-  flex-direction: row;
-  gap: 4px;
-  border: 0;
-}
-.nq-sgauge-hero .nq-sg {
-  flex: 1;
-  height: 20px;
-  padding: 0;
-  position: relative;
-}
-.nq-sgauge-hero .nq-sg > .nq-picon {
-  /* HP と同じ外枠の幅にそろえ、教科アイコンだけをバー左端のバッジとして重ねる。 */
-  position: absolute;
-  z-index: 1;
-  left: 4px;
-  top: 2px;
-}
-.nq-sgauge-hero .nq-sg-bar {
-  height: 20px;
-}
-.nq-sg {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 24px;
-  padding: 0 8px;
-}
-.nq-sg-bar {
-  position: relative;
-  flex: 1;
-  height: 16px;
-  background: #2e2a45;
-  border: 2px solid #000;
-  box-shadow: 0 0 0 2px #fff;
-}
-.nq-sg-bar > i {
-  display: block;
-  height: 100%;
-}
-.nq-sg-value {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: grid;
-  place-items: center;
-  color: var(--nq-white);
-  font-size: 12px;
-  line-height: 1;
-  text-shadow:
-    1px 0 #000,
-    -1px 0 #000,
-    0 1px #000,
-    0 -1px #000;
-}
-/* 必殺技に 要る 量の 目もり */
-.nq-sg-mark {
-  position: absolute;
-  top: -2px;
-  bottom: -2px;
-  width: 2px;
-  margin-left: -1px;
-  background: #fff;
-}
-/* まんたん：光る */
-.nq-sg-full .nq-sg-bar {
-  box-shadow: 0 0 0 2px var(--nq-yellow);
-}
-.nq-sg-full .nq-sg-bar > i {
-  animation: nq-sg-shine 0.6s steps(2) infinite;
-}
-/* オトモの 教科（たまりやすい） */
-.nq-sg-boost .nq-sg-bar {
-  box-shadow: 0 0 0 2px var(--nq-sky);
-}
-.nq-sg-gain {
-  position: absolute;
-  right: 64px;
-  top: 0;
-  font-size: 16px;
-  line-height: 20px;
-  color: var(--nq-yellow);
-  white-space: nowrap;
-  text-shadow:
-    2px 0 #000,
-    -2px 0 #000,
-    0 2px #000,
-    0 -2px #000;
-  animation: nq-sg-gain 1s steps(8) forwards;
 }
 
 /* ───── れんぞく せいかい（コンボ） ───── */
@@ -695,7 +578,7 @@
 /* 通常技と必殺技で、属性アイコンとその右の表示を同じ列に揃える。 */
 [data-skill] .nq-opt-side {
   flex: none;
-  width: 108px;
+  width: 160px;
 }
 /* 必殺技に 必要な 教科ゲージ（要る 量 / 最大量） */
 .nq-opt-cost {
@@ -763,6 +646,11 @@
   border-top: 0;
   border-left: 2px dashed #4a5063;
 }
+.nq-menu-foot-skill {
+  font-size: 16px;
+  line-height: 24px;
+}
+.nq-menu-foot-skill,
 .nq-menu-foot-item {
   justify-content: flex-start;
   overflow-y: auto;
@@ -1155,7 +1043,6 @@
   color: var(--nq-orange);
 }
 .nq-result-btns .nq-cmd.nq-focus {
-  border-color: var(--nq-yellow);
   color: var(--nq-yellow);
 }
 .nq-result-heart {
@@ -1276,28 +1163,6 @@
     text-shadow: none;
   }
 }
-@keyframes nq-sg-shine {
-  50% {
-    filter: brightness(1.6);
-  }
-}
-@keyframes nq-sg-gain {
-  0% {
-    transform: translateY(4px);
-    opacity: 0;
-  }
-  20% {
-    transform: translateY(-4px);
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-12px);
-    opacity: 0;
-  }
-}
 @keyframes nq-qshake {
   0%,
   100% {
@@ -1339,5 +1204,187 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+/* チャージ操作はメニュー状態にかかわらず主人公HP枠の左に固定する。 */
+.nq-charge-dock {
+  position: absolute;
+  right: 280px;
+  bottom: 12px;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#ui-layer .nq-charge-toggle {
+  position: relative;
+  width: 100px;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  border: 0;
+  border-radius: 24px;
+  background: var(--nq-panel);
+  color: var(--nq-white);
+  font: inherit;
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px #000;
+}
+.nq-charge-subjects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  height: 28px;
+}
+.nq-charge-label {
+  font-size: 12px;
+}
+#ui-layer .nq-charge-ready,
+#ui-layer .nq-charge-toggle[aria-pressed='true'] {
+  color: var(--nq-yellow);
+}
+.nq-charge-toggle:focus-visible {
+  outline: 4px solid var(--nq-sky);
+  outline-offset: 6px;
+}
+#ui-layer .nq-charge-toggle:disabled {
+  cursor: default;
+}
+/* 白い外周を教科ごとに等分し、その上に蓄積量の色を重ねる。 */
+.nq-charge-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 4px;
+  pointer-events: none;
+}
+.nq-charge-track {
+  stroke: var(--nq-white);
+}
+.nq-charge-progress {
+  stroke: var(--nq-silver);
+  transition: stroke-dasharray 240ms ease-out;
+}
+.nq-charge-progress[data-charge-subject='kokugo'] {
+  stroke: var(--nq-heart);
+}
+.nq-charge-progress[data-charge-subject='sansu'] {
+  stroke: var(--nq-sky);
+}
+.nq-charge-progress[data-charge-subject='rika'] {
+  stroke: #51c7b5;
+}
+.nq-charge-progress[data-charge-subject='shakai'] {
+  stroke: var(--nq-orange);
+}
+.nq-charge-progress[data-charge-subject='seikatsu'] {
+  stroke: #7dcc65;
+}
+.nq-charge-progress[data-charge-subject='eigo'] {
+  stroke: #b59aff;
+}
+.nq-charge-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-charge-progress {
+    transition: none;
+  }
+}
+
+/* 技一覧は固定幅。詳細はチャージ操作を避けて右上に出す。 */
+.nq-menu-skill {
+  width: 400px;
+  right: auto;
+}
+.nq-menu-skill [data-skill] .nq-opt-side {
+  width: 128px;
+  font-size: 12px;
+}
+.nq-menu-skill .nq-menu-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+#ui-layer .nq-skill-details-toggle {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 24px;
+  padding: 2px 6px;
+  border: 2px solid var(--nq-white);
+  background: var(--nq-panel);
+  color: var(--nq-white);
+  font: inherit;
+  font-size: 12px;
+  line-height: 16px;
+}
+.nq-skill-details-toggle kbd {
+  font: inherit;
+  color: var(--nq-yellow);
+}
+.nq-skill-details-toggle:focus-visible {
+  outline: 4px solid var(--nq-sky);
+  outline-offset: 2px;
+}
+
+.nq-menu-skill .nq-menu-foot-skill {
+  position: absolute;
+  left: calc(100% + 16px);
+  bottom: 108px;
+  width: 252px;
+  height: 208px;
+  border: 4px solid var(--nq-white);
+  background: var(--nq-panel);
+  box-shadow: 0 0 0 4px #000;
+}
+
+.nq-charge-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+}
+.nq-charge-bar-subject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.nq-charge-bar {
+  position: relative;
+  box-sizing: border-box;
+  width: 10px;
+  height: 36px;
+  border: 1px solid var(--nq-white);
+  background: #2e2a45;
+}
+.nq-charge-bar > i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: height 240ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-charge-bar > i {
+    transition: none;
   }
 }

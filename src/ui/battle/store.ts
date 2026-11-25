@@ -47,12 +47,12 @@ export interface AllyView {
   passive?: string;
 }
 
-/** 教科ゲージ（右の 窓）。こたえると たまり、必殺技で つかう */
+/** 教科ゲージ（チャージボタンの枠）。こたえると たまり、必殺技で つかう */
 export interface SubjectGaugeView {
   subject: string;
   value: number;
   max: number;
-  /** この 教科の 必殺技に 要る 量（ゲージの 目もり） */
+  /** この教科の編成済みチャージ技に要る量（最大量の技も含む） */
   marks: number[];
   /** オトモの 教科（たまりやすい） */
   boosted: boolean;
@@ -86,6 +86,8 @@ export interface SkillOption {
   cost: number;
   /** いまの その教科の ゲージ */
   have: number;
+  /** 回答評価による獲得量の範囲。オトモ補正込み、ゲージ上限適用前。 */
+  chargeGain: [number, number];
   effect: 'damage' | 'heal' | 'buff' | 'debuff' | 'scan' | 'status';
   flavor?: string;
   accuracy?: number;
@@ -203,9 +205,12 @@ export interface HudState {
   cursor: number;
   commands: CommandOption[];
   skills: SkillOption[];
+  chargeSkills: boolean;
+  skillDetails: boolean;
   items: ItemOption[];
   swaps: SwapOption[];
   gauges: SubjectGaugeView[];
+  gaugeLayout: 'frame' | 'bars';
   /** いまの れんぞく せいかい と いりょくの 上乗せ（%） */
   combo: { count: number; percent: number };
   banner: BannerView | null;
@@ -238,9 +243,12 @@ export const initialHudState = (): HudState => ({
   cursor: 0,
   commands: [],
   skills: [],
+  chargeSkills: false,
+  skillDetails: false,
   items: [],
   swaps: [],
   gauges: [],
+  gaugeLayout: 'frame',
   combo: { count: 0, percent: 0 },
   banner: null,
   popups: [],
@@ -263,6 +271,11 @@ export class HudStore {
   set(patch: Partial<HudState> | ((s: HudState) => Partial<HudState>)): void {
     const p = typeof patch === 'function' ? patch(this.state) : patch;
     this.state = { ...this.state, ...p };
+    if (p.menu && p.menu !== 'skills') {
+      this.state.chargeSkills = false;
+      this.state.skillDetails = false;
+    }
+    if (p.chargeSkills !== undefined) this.state.skillDetails = false;
     for (const fn of this.subs) fn();
   }
 
@@ -310,4 +323,9 @@ export function useHudSelector<T>(
     return store.subscribeSelector(select, setSelected, equal);
   }, [equal, select, store]);
   return selected;
+}
+
+/** 描画とキーボードで同じ技一覧を使う。仲間の技も消費ゲージで分ける。 */
+export function visibleBattleSkills(state: HudState): SkillOption[] {
+  return state.skills.filter((skill) => skill.cost > 0 === state.chargeSkills);
 }
