@@ -637,7 +637,6 @@ export class OverworldScene extends Phaser.Scene {
     this.facing = entry.facing;
     return [entry.x, entry.y];
   }
-
   private createHero(tx: number, ty: number): void {
     this.heroTex = this.heroSheet();
     const x = tx * TILE + 8;
@@ -660,7 +659,6 @@ export class OverworldScene extends Phaser.Scene {
       (x, y) => elevationAt(this.terrainElevation, x, y),
     );
   }
-
   private createMichiru(): void {
     this.michiru = createMichiruFollower(this, this.player, () => {
       void this.openMichiruGuide(this.michiruGuideKey());
@@ -901,7 +899,6 @@ export class OverworldScene extends Phaser.Scene {
       dispatch: (candidate) => this.dispatchFieldInteraction(candidate),
     });
   }
-
   private fieldInteractionCandidates(
     intent: FieldInteractionIntent,
     player: { x: number; y: number },
@@ -931,7 +928,6 @@ export class OverworldScene extends Phaser.Scene {
     this.insideTrigger = collected.insideTrigger;
     return collected.candidates;
   }
-
   private dispatchFieldInteraction(candidate: Parameters<typeof dispatchOverworldFieldInteraction>[0]): void {
     dispatchOverworldFieldInteraction(candidate, {
       menu: () => this.openMenu(),
@@ -965,7 +961,6 @@ export class OverworldScene extends Phaser.Scene {
       sign: (tile) => void this.signs.get(tile)?.(),
     });
   }
-
   private readonly activateContextAction = (): void => {
     if (this.fieldActions.activate()) this.renderHud();
   };
@@ -974,7 +969,6 @@ export class OverworldScene extends Phaser.Scene {
     if (chest.specialty) return this.gs()?.dex.motifs.includes(chest.specialty.stamp) ?? false;
     return this.gs()?.progress.chestsOpened.includes(chest.key) ?? false;
   }
-
   private syncContextAction(): void {
     if (this.fieldActions.sync()) this.renderHud();
   }
@@ -1001,7 +995,6 @@ export class OverworldScene extends Phaser.Scene {
       specialty: (object, x, y) => this.addSpecialty(object, x, y, area),
     });
   }
-
   private addTransition(obj: TiledObject, tx: number, ty: number): void {
     const target = prop(obj, 'targetMap');
     if (typeof target !== 'string') return;
@@ -1184,7 +1177,6 @@ export class OverworldScene extends Phaser.Scene {
     if (!ch || ch === '.') return null;
     return this.regionIds[ch.charCodeAt(0) - 97] ?? null;
   }
-
   private regionDef(id: string | null): Region | undefined {
     return id ? this.currentArea()?.regions.find((r) => r.id === id) : undefined;
   }
@@ -1194,7 +1186,6 @@ export class OverworldScene extends Phaser.Scene {
     const area = this.currentArea();
     return this.devAll() || (!!area && regionBossDefeated(this.gs()?.progress, area.id, g.openedBy));
   }
-
   private addRegionGate(obj: TiledObject, tx: number, ty: number): void {
     const between = String(prop(obj, 'between') ?? '').split(',') as [string, string];
     const openedBy = String(prop(obj, 'openedBy') ?? '');
@@ -1312,7 +1303,6 @@ export class OverworldScene extends Phaser.Scene {
       h(AreaTitle, { name: def.name, sub: this.currentArea()?.name ?? '', onDone: done }),
     );
   }
-
   private addMidBoss(tx: number, ty: number, area: Area | undefined): void {
     const def = area?.midBoss ? this.content()?.monsters.get(area.midBoss) : undefined;
     if (!area || !def) return;
@@ -1399,7 +1389,6 @@ export class OverworldScene extends Phaser.Scene {
     this.blocked.add(i);
     return { tile: i, def, parts: [aura, glow, halo, mark], sparks };
   }
-
   private addEvent(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const ev = area?.events.find((e) => e.trigger.map === this.mapKey && e.trigger.objectName === obj.name);
     if (!area || !ev) return;
@@ -1412,7 +1401,6 @@ export class OverworldScene extends Phaser.Scene {
     this.signs.set(this.idx(tx, ty), run);
     if (this.kind() === 'field') this.stampIds.push(sign.stamp);
   }
-
   private addLandmark(obj: TiledObject, tx: number, ty: number, area: Area | undefined): void {
     const motif = area?.motifs.find((m) => m.id === prop(obj, 'motifId'));
     if (!area || !motif) return;
@@ -1999,47 +1987,58 @@ export class OverworldScene extends Phaser.Scene {
     if (!c || !area) return;
     const stock = shopStock(area, c.items);
     let showMusubiDamaInstructions = false;
-    await this.townMenu(
-      () => {
-        const gs = this.gs()!;
-        const rows = shopRows(stock, c.items, gs);
-        return {
-          title: t('field.roleShop'),
-          icon: 'role-shop',
-          gold: gs.player.gold,
-          rows,
-          empty: t('field.townLater'),
-          keys: t('field.townShopKeys'),
-        };
-      },
-      (key) => {
-        const gs = this.gs();
-        if (key.startsWith('sell:')) {
-          const itemId = key.slice('sell:'.length);
-          const item = c.items.get(itemId);
-          const next = gs && item && sellItem(gs, item);
+    while (true) {
+      const choice = await this.choose(
+        [{ speaker, text: t('field.townShopAsk') }],
+        [t('field.townShopBuyChoice'), t('field.townSell'), t('field.townShopLeave')],
+      );
+      if (choice < 0 || choice === 2) break;
+      const mode = choice === 0 ? 'buy' : 'sell';
+      await this.townMenu(
+        () => {
+          const gs = this.gs()!;
+          const rows = shopRows(stock, c.items, gs, mode);
+          return {
+            title: t(mode === 'buy' ? 'field.townShopBuyChoice' : 'field.townSell'),
+            icon: 'role-shop',
+            gold: gs.player.gold,
+            rows,
+            empty: t(mode === 'buy' ? 'field.townLater' : 'field.townNothingToSell'),
+            keys: t('field.townShopKeys'),
+          };
+        },
+        (key) => {
+          const gs = this.gs();
+          if (key.startsWith('sell:')) {
+            const itemId = key.slice('sell:'.length);
+            const item = c.items.get(itemId);
+            const next = gs && item && sellItem(gs, item);
+            if (!next) {
+              playSfx('miss');
+              return t('field.townCantSell');
+            }
+            this.setGame(next);
+            playSfx('select');
+            return t('field.townSold', { item: item.name });
+          }
+          const e = stock.find((s) => s.itemId === key);
+          const next = gs && e && buyItem(gs, e);
           if (!next) {
             playSfx('miss');
-            return t('field.townCantSell');
+            return t('field.townPoor');
           }
-          this.setGame(next);
+          const purchase = recordMusubiDamaPurchase(next, key);
+          this.setGame(purchase.state);
+          showMusubiDamaInstructions ||= purchase.showInstructions;
           playSfx('select');
-          return t('field.townSold', { item: item.name });
-        }
-        const e = stock.find((s) => s.itemId === key);
-        const next = gs && e && buyItem(gs, e);
-        if (!next) {
-          playSfx('miss');
-          return t('field.townPoor');
-        }
-        const purchase = recordMusubiDamaPurchase(next, key);
-        this.setGame(purchase.state);
-        showMusubiDamaInstructions ||= purchase.showInstructions;
-        playSfx('select');
-        return t('field.townBought', { item: c.items.get(key)?.name ?? key });
-      },
-    );
-    if (showMusubiDamaInstructions) await this.talk(musubiDamaPurchaseLines());
+          return t('field.townBought', { item: c.items.get(key)?.name ?? key });
+        },
+      );
+      if (showMusubiDamaInstructions) {
+        await this.talk(musubiDamaPurchaseLines());
+        showMusubiDamaInstructions = false;
+      }
+    }
     await this.talk([{ speaker, text: t('field.townShopBye') }]);
   }
 
