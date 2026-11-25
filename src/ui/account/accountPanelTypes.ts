@@ -9,6 +9,7 @@ export interface AccountPanelProps {
   onExport(): Promise<void>;
   onClose(): void;
   onReload(): void;
+  onUseGuest(): void;
   loginFailed?: boolean;
 }
 export type Operation = 'login' | 'export' | 'logout' | 'import' | 'resolve';

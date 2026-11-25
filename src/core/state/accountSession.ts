@@ -18,6 +18,11 @@ const changed = () => {
   for (const listener of listeners) listener();
 };
 export const accountSession = () => ({ saves: active, available, providers, blocked });
+export function useGuestWhileBlocked() {
+  if (!blocked) return;
+  blocked = false;
+  changed();
+}
 export function subscribeAccount(listener: () => void) {
   listeners.add(listener);
   return () => {

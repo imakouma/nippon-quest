@@ -309,7 +309,8 @@ export class TitleScene extends Phaser.Scene {
     // セーブ確認が遅れて完了しても、ユーザーが開いたスロット選択や設定画面を上書きしない。
     if (this.scene.isActive() && !this.starting && this.menuView === 'main') {
       this.mountMenu();
-      if (new URLSearchParams(location.search).has('account')) this.mountAccount();
+      if (accountSession().blocked || new URLSearchParams(location.search).has('account'))
+        this.mountAccount();
     }
   }
 

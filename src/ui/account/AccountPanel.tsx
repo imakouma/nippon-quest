@@ -193,6 +193,12 @@ export function AccountPanel(props: AccountPanelProps) {
               <button type="button" onClick={props.onReload}>
                 <RubyLabel text={t('account.reload')} />
               </button>
+              <p>
+                <RubyLabel text={t('account.guestBlockedNote')} />
+              </p>
+              <button type="button" onClick={props.onUseGuest}>
+                <RubyLabel text={t('account.guestBlockedAction')} />
+              </button>
             </>
           ) : !view.userId ? (
             <>
