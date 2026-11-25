@@ -305,9 +305,11 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(page.getByRole('button', { name: 'かいはつしゃ ON' })).toBeVisible();
   // The confirmation closes before the developer-mode map transition finishes.
   await page.waitForFunction(() => {
-    const game = (window as unknown as {
-      __nq: { scene: { getScene(key: string): unknown } };
-    }).__nq;
+    const game = (
+      window as unknown as {
+        __nq: { scene: { getScene(key: string): unknown } };
+      }
+    ).__nq;
     const field = game.scene.getScene('Overworld') as {
       busy: boolean;
       fieldFlow: { isRunning: boolean };
