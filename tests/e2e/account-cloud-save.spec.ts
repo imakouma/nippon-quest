@@ -137,6 +137,11 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
   await expect(cloudSlot.getByRole('img', { name: 'Google連携' })).toBeVisible();
   await expect(cloudSlot).not.toContainText('Google');
   await expect(cloudSlot).not.toContainText('★');
+  const slotRows = otherPage.getByRole('dialog', { name: 'セーブスロット' });
+  const heights = await slotRows
+    .getByRole('button', { name: /^スロット/ })
+    .evaluateAll((rows) => rows.map((row) => row.getBoundingClientRect().height));
+  expect(new Set(heights).size).toBe(1);
   await other.close();
   await dialog.getByRole('button', { name: 'ログアウト', exact: true }).click();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();

@@ -102,7 +102,7 @@
 
 .nq-save-slots {
   position: absolute;
-  inset: 72px 180px;
+  inset: 56px 164px;
   z-index: 12;
   display: flex;
   flex-direction: column;
@@ -118,11 +118,14 @@
 }
 .nq-save-slots > div {
   display: grid;
+  grid-auto-rows: 1fr;
   gap: 8px;
+  min-height: 0;
+  overflow-y: auto;
 }
 .nq-save-slots > div > button {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 160px minmax(0, 1fr);
   align-items: center;
   min-height: 72px;
   padding: 8px 16px;
@@ -149,8 +152,20 @@
 .nq-save-slots span {
   font-size: 24px;
 }
-.nq-save-slot-google {
-  vertical-align: middle;
+.nq-save-slot-data {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 84px 112px;
+  align-items: center;
+  gap: 8px;
+}
+.nq-save-slot-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nq-save-slot-data > :last-child {
+  justify-self: center;
+  white-space: nowrap;
 }
 .nq-save-slots small {
   grid-column: 2;
