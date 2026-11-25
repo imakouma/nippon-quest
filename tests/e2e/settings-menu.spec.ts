@@ -9,6 +9,17 @@ test('設定の音量と移動キーは変更後も保存される', async ({ pa
   await completeNewGameSetup(page, 'テスト');
   const openSettings = async () => {
     await page.getByRole('button', { name: 'メニュー', exact: true }).click();
+    const cards = page.getByRole('dialog', { name: 'メニュー' }).locator('.nq-menu-card');
+    await expect(cards).toHaveCount(6);
+    const boxes = await Promise.all((await cards.all()).map((card) => card.boundingBox()));
+    expect(boxes.every(Boolean)).toBe(true);
+    expect(Math.abs(boxes[0]!.y - boxes[2]!.y)).toBeLessThanOrEqual(2);
+    expect(Math.abs(boxes[3]!.y - boxes[5]!.y)).toBeLessThanOrEqual(2);
+    expect(boxes[3]!.y).toBeGreaterThan(boxes[0]!.y);
+    expect(boxes[3]!.x).toBe(boxes[0]!.x);
+    await cards.nth(0).focus();
+    await page.keyboard.press('ArrowDown');
+    await expect(cards.nth(3)).toBeFocused();
     await page
       .getByRole('dialog', { name: 'メニュー' })
       .getByRole('button', { name: /せってい/ })

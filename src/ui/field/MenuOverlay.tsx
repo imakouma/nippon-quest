@@ -266,9 +266,8 @@ export function MenuOverlay({
         return;
       const L = live.current;
       if (L.home) {
-        // ホームは5枚を1行に並べる。列数を表示レイアウトと合わせることで、
-        // 上下キーが同じ列のカードを選び続けるようにする。
-        const columns = 5;
+        // 上下キーは同じ列のカードへ移動する。
+        const columns = 3;
         const moveHome = (delta: number) => {
           const next = (live.current.homeSel + delta + tabs.length) % tabs.length;
           live.current.homeSel = next;
