@@ -2,7 +2,13 @@ import { h, render } from 'preact';
 import { AccountPanel } from '../../ui/account/AccountPanel';
 import { t } from '../../ui/i18n';
 import type { AccountView } from '../../shared/account';
-import { accountSession, signIn, signOut, subscribeAccount } from '../../core/state/accountSession';
+import {
+  accountSession,
+  signIn,
+  signOut,
+  subscribeAccount,
+  useGuestWhileBlocked,
+} from '../../core/state/accountSession';
 import { accountDetails, guestSummaries, importGuestSlot, resolveAccountSlot } from '../../core/state/save';
 import type { GameState } from '../../core/state/schema';
 
@@ -59,6 +65,10 @@ export function mountAccountPanel(
         loginFailed,
         onClose: close,
         onReload: () => location.reload(),
+        onUseGuest: () => {
+          useGuestWhileBlocked();
+          close();
+        },
         onLogin: async (provider) => {
           location.assign(await signIn(provider));
         },

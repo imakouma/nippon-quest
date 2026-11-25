@@ -27,6 +27,24 @@ async function mockAccount(context: BrowserContext, account: { owner: string | n
     return route.fulfill({ status: 404, json: {} });
   });
 }
+test('保存ロックが使えない場合も、クラウドを変更せず端末で開始できる', async ({ page, context }) => {
+  test.setTimeout(90_000);
+  const state = createNewGame({ name: 'クラウド', grade: 3 });
+  const account = {
+    owner: 'lock-test' as string | null,
+    slots: [{ slot: 1, revision: 1, state }] as CloudSlot[],
+  };
+  await mockAccount(context, account);
+  await page.addInitScript(() => Object.defineProperty(navigator, 'locks', { value: undefined }));
+  await page.goto('/');
+  const dialog = page.getByRole('dialog', { name: 'アカウント' });
+  await expect(dialog).toBeVisible({ timeout: 30_000 });
+  await dialog.getByRole('button', { name: /この.*端末.*遊/ }).click();
+  await expect(page.getByRole('menuitem', { name: 'はじめから' })).toBeEnabled();
+  await page.getByRole('menuitem', { name: 'はじめから' }).click();
+  await expect(page.getByText(/セーブ/).first()).toBeVisible();
+  expect(account.slots[0]?.state?.player.name).toBe('クラウド');
+});
 test('未設定のログインを成功扱いにせず、ゲストプレイを維持する', async ({ page }, testInfo) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));

@@ -215,7 +215,7 @@ test('鳥取県の大きな地図で現在県だけを詳しく、周辺県を�
     database.close();
   });
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+  await page.getByRole('button', { name: /スロット 1.*Lv/ }).click();
 
   const miniMap = page.getByRole('button', { name: '鳥取県の ちずを ひらく', exact: true });
   await expect(miniMap).toBeVisible({ timeout: 40_000 });

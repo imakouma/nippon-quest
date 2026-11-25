@@ -97,7 +97,7 @@ test('岩手の町へ初到着すると限定3体から選び、選んだ相棒�
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
   await putPlayerInIwateTown(page);
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 2 Lv/ }).click();
+  await page.getByRole('button', { name: /スロット 2.*Lv/ }).click();
 
   const arrival = page.locator('.nq-cutscene-arrival');
   await expect(arrival).toBeVisible({ timeout: 30_000 });

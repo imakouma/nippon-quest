@@ -8,6 +8,7 @@ export interface AccountPanelProps {
   onResolve(slot: 1 | 2 | 3, choice: 'local' | 'cloud'): Promise<void>;
   onClose(): void;
   onReload(): void;
+  onUseGuest(): void;
   loginFailed?: boolean;
 }
 export type Operation = 'login' | 'logout' | 'import' | 'resolve';
