@@ -39,7 +39,7 @@
     "grade": 1,
     "unit": "kokugo.g1.joshi",
     "payload": {
-      "prompt": "「私[わたし]は小学生[しょうがくせい]です」の「は」は、どう読[よ]みますか？",
+      "prompt": "「わたし___しょうがくせいです。」の空欄[くうらん]に入[はい]る文字[もじ]はどれ？",
       "choices": [
         {
           "id": "a",
@@ -58,10 +58,10 @@
           "text": "や"
         }
       ],
-      "answer": "a",
+      "answer": "b",
       "shuffle": true
     },
-    "explanation": "ことばをつなぐ「は」は「わ」と読[よ]みます。",
+    "explanation": "「わたしは」の「は」は「わ」と読[よ]みますが、「は」と書[か]きます。",
     "tags": [
       "speech:disabled"
     ]
@@ -261,7 +261,7 @@
     "grade": 1,
     "unit": "kokugo.g1.joshi",
     "payload": {
-      "prompt": "「学校[がっこう]へ行[い]く」の「へ」は、どう読[よ]みますか？",
+      "prompt": "「がっこう___いく。」の空欄[くうらん]に入[はい]る文字[もじ]はどれ？",
       "choices": [
         {
           "id": "a",
@@ -280,10 +280,10 @@
           "text": "ぺ"
         }
       ],
-      "answer": "b",
+      "answer": "a",
       "shuffle": true
     },
-    "explanation": "向[む]かう方向[ほうこう]を表[あらわ]す「へ」は「え」と読[よ]みます。",
+    "explanation": "「がっこうへ」の「へ」は「え」と読[よ]みますが、「へ」と書[か]きます。",
     "tags": [
       "speech:disabled"
     ]
