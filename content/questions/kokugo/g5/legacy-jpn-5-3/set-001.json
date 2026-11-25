@@ -263,7 +263,7 @@
       "speech:disabled"
     ],
     "payload": {
-      "prompt": "「道を渡る」の「渡る」は？",
+      "prompt": "「道[みち]を渡る」の「渡る」のよみかたはどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -282,10 +282,10 @@
           "text": "のぼる"
         }
       ],
-      "answer": "c2",
+      "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「とおる」。"
+    "explanation": "「渡る[わたる]」は「わたる」とよみます。道[みち]の一方[いっぽう]から、むこうがわへ行[い]くことです。"
   },
   {
     "id": "legacy.kokugo.g5.jpn-5-3.7a30bd7b5406",

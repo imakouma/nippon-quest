@@ -630,15 +630,15 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "「氷」のへんは？",
+      "prompt": "「氷」の部首[ぶしゅ]はどれですか。",
       "choices": [
         {
           "id": "c1",
-          "text": "にすい"
+          "text": "みず"
         },
         {
           "id": "c2",
-          "text": "さんずい"
+          "text": "にすい"
         },
         {
           "id": "c3",
@@ -652,7 +652,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "氷＝にすいへん。"
+    "explanation": "「氷[こおり]」の部首[ぶしゅ]は「水[みず]」です。「冷[れい]」などの「冫[にすい]」とはちがいます。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-2.ce7c517989a5",

@@ -68,6 +68,7 @@ for (const width of [960, 640]) {
     await expect(page.locator('.nq-charge-hint')).toHaveCount(0);
     await expect(page.locator('[data-skill] .nq-opt-side')).toHaveCount(0);
     await expect(page.locator('[data-skill] .nq-picon')).toHaveCount(4);
+    await expect(page.locator('.nq-menu-skill')).toHaveCSS('transform', 'none');
     const normalMenu = await page.locator('.nq-menu-skill').boundingBox();
     expect(normalMenu!.width).toBeCloseTo((272 * width) / 960, 0);
     await expect(page.locator('[data-skill] .nq-opt-charge')).toHaveCount(0);

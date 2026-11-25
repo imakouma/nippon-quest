@@ -12,7 +12,7 @@
       "speech:disabled"
     ],
     "payload": {
-      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆絵を（描く）。",
+      "prompt": "（　）のことばを、ひらがな3もじでよんだものはどれですか。\n\n絵[え]を（描く）。",
       "choices": [
         {
           "id": "c1",
@@ -34,7 +34,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「描く」は「えがく」と読みます。"
+    "explanation": "「描く[えがく]」には「えがく」と「かく」のよみかたがあります。ひらがな3もじのよみかたは「えがく」です。"
   },
   {
     "id": "legacy.kokugo.g4.jpn-4-29.0dadf22e6ebe",

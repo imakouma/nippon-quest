@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ふりこ時計のしくみについて、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "ふりこは①やおもりの重[おも]さを変[か]えても、1往復[おうふく]の時間[じかん]は②。ふりこ時計[どけい]の進[すす]み方[かた]は③で調節[ちょうせつ]する。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -19,7 +19,7 @@
         },
         {
           "id": "c2",
-          "text": "おもりの重[おも]さ・変[か]わらない・ふりこの長[なが]さ"
+          "text": "ふりこの長[なが]さ・変[か]わらない・ふりこの長[なが]さ"
         },
         {
           "id": "c3",
@@ -32,7 +32,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/9e679f06a681992f.png"
+      "promptImage": "questions/legacy/9e679f06a681992f.png",
+      "promptSpeech": "ふりこは①やおもりの重さを変えても、1往復の時間は②。ふりこ時計の進み方は③で調節する。 ①から順にえらぼう。"
     },
     "explanation": "ふりこは、（ふれはば）や おもりの重さ が変わっても、１往復する時間は（変わらない） 。ふりこ時計は、この性質を利用して正確に時間をきざんでいる。ふりこの１往復する時間がずれてしまったときは、（ふりこの長さ）を変えて調節する。"
   },
@@ -48,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "prompt": "図[ず]のA〜Eで、1往復[おうふく]の時間[じかん]が最[もっと]も短[みじか]いふりこはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -73,7 +74,8 @@
       ],
       "answer": "c2",
       "shuffle": true,
-      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png",
+      "promptSpeech": "図のA〜Eで、1往復の時間が最も短いふりこはどれ？"
     },
     "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふりこの長さがいちばん短い B のふりこが、１往復する時間がいちばん短い。"
   },
@@ -89,7 +91,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "おもりの重さが10g、20g、30gのとき、ふりこが１往復するのにかかる時間を求めたところ、表のようになった。",
+      "prompt": "ふりこの長[なが]さ25 cm、ふれはば30度[ど]をそろえた。1往復[おうふく]の時間[じかん]は、おもり10 gで1.2秒[びょう]、20 gで1.2秒[びょう]、30 gで1.2秒[びょう]だった。重[おも]さを変[か]えた結果[けっか]から分[わ]かることはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -110,7 +112,7 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/cfd491a65f42ae69.png"
+      "promptSpeech": "ふりこの長さ25 cm、ふれはば30度をそろえた。1往復の時間は、おもり10 gで1.2秒、20 gで1.2秒、30 gで1.2秒だった。重さを変えた結果から分かることはどれ？"
     },
     "explanation": "ふりこが１往復する時間は、すべて1.2 秒になった。つまり、おもりの重さを変えても、ふりこが１往復する時間は変わらない。"
   },
@@ -163,7 +165,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ゆれているふりこを そのままにしておくと、ふりこのふれはばは、時間がたつにつれてだんだん小さくなる。",
+      "prompt": "ふりこのふれはばが少[すこ]しずつ小[ちい]さくなる間[あいだ]、1往復[おうふく]の時間[じかん]はどうなる？",
       "choices": [
         {
           "id": "c1",
@@ -180,7 +182,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/a5561a8ae9a9ef96.png"
+      "promptImage": "questions/legacy/a5561a8ae9a9ef96.png",
+      "promptSpeech": "ふりこのふれはばが少しずつ小さくなる間、1往復の時間はどうなる？"
     },
     "explanation": "ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
   },
@@ -196,7 +199,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ふりこの長さが 25cm、50cm、75cm のとき、ふりこが１０往復する時間を３回測定した結果は表のとおりだった。",
+      "prompt": "表[ひょう]で、ふりこの長[なが]さを25・50・75 cmに変[か]えた結果[けっか]から分[わ]かることはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -217,7 +220,8 @@
       ],
       "answer": "c4",
       "shuffle": true,
-      "promptImage": "questions/legacy/51ab1924481a49fc.png"
+      "promptImage": "questions/legacy/51ab1924481a49fc.png",
+      "promptSpeech": "表で、ふりこの長さを25・50・75 cmに変えた結果から分かることはどれ？"
     },
     "explanation": "ふりこの長さを変えると、ふりこが１往復する時間は変わる。"
   },
@@ -462,7 +466,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "prompt": "図[ず]のA〜Eで、1往復[おうふく]の時間[じかん]が最[もっと]も長[なが]いふりこはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -487,7 +491,8 @@
       ],
       "answer": "c3",
       "shuffle": true,
-      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png",
+      "promptSpeech": "図のA〜Eで、1往復の時間が最も長いふりこはどれ？"
     },
     "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふりこの長さがいちばん長い C のふりこが、１往復する時間がいちばん長い。"
   },
@@ -536,7 +541,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のA～Eのふりこをつかって、ふりこが１往復する時間を調べた。",
+      "prompt": "図[ず]のB〜Eで、1往復[おうふく]の時間[じかん]がAと同[おな]じになるふりこはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -557,7 +562,8 @@
       ],
       "answer": "c3",
       "shuffle": true,
-      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png"
+      "promptImage": "questions/legacy/ed0c5bcd4c9a9b21.png",
+      "promptSpeech": "図のB〜Eで、1往復の時間がAと同じになるふりこはどれ？"
     },
     "explanation": "ふりこが１往復する時間は、ふりこの長さによって変わる。ふれはば や おもりの重さ が変わっても、１往復する時間は変わらない 。 １往復する時間が A と同じになるふりこは、ふりこの長さが A と同じ 25 cm の D のふりこ。"
   },
@@ -640,7 +646,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "糸[いと]におもりをつるして、ふれるようにしたものの名前[なまえ]と、図[ず]のB・Cの道具[どうぐ]の名前[なまえ]を、順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -661,7 +667,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/8a95ad08c8addeaf.png"
+      "promptImage": "questions/legacy/8a95ad08c8addeaf.png",
+      "promptSpeech": "糸におもりをつるして、ふれるようにしたものの名前と、図のB・Cの道具の名前を、順にえらぼう。"
     },
     "explanation": "糸などにおもりをつるして、ふれるようにしたものを A（ふりこ）という。ふりこは、B（ふりこ時計）や C（メトロノーム）に利用されている。"
   },
@@ -677,7 +684,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ふれはば 10°、20°、30° のとき、ふりこが１往復する時間を求めたところ、表のようになった。",
+      "prompt": "表[ひょう]で、ふれはばを10・20・30度[ど]に変[か]えた結果[けっか]から分[わ]かることはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -698,7 +705,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/bd3edee7a3c65d69.png"
+      "promptImage": "questions/legacy/bd3edee7a3c65d69.png",
+      "promptSpeech": "表で、ふれはばを10・20・30度に変えた結果から分かることはどれ？"
     },
     "explanation": "ふりこが１往復する時間は、すべて1.2 秒になった。つまり、ふりこのふれはばを変えても、ふりこが１往復する時間は変わらない。"
   },
@@ -714,7 +722,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "メトロノームのしくみについて、かっこに当てはまることばをえらぼう。",
+      "prompt": "メトロノームのおもりを上[うえ]にすると、ふりこが①なりテンポは②なる。下[した]にすると、ふりこが③なりテンポは④なる。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -735,7 +743,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/84d4be646fcbbd32.png"
+      "promptImage": "questions/legacy/84d4be646fcbbd32.png",
+      "promptSpeech": "メトロノームのおもりを上にすると、ふりこが①なりテンポは②なる。下にすると、ふりこが③なりテンポは④なる。 ①から順にえらぼう。"
     },
     "explanation": "メトロノームは、60のめもりにおもりをあわせると１分間に60回のテンポをきざむ。おもりを上にすると、ふりこの長さが（長く）なるのでテンポは（おそく）なる。おもりを下にすると、ふりこの長さが（短く）なるのでテンポは（速く）なる。"
   },

@@ -76,6 +76,7 @@ const repairs = JSON.parse(readFileSync('scripts/data/rika-source-repairs.json',
   id: string;
   prompt: string;
   sourceAnswer: string;
+  reviewedAnswer?: string;
 }[];
 const normalize = (s: string) =>
   s
@@ -87,7 +88,7 @@ for (const repair of repairs) {
   assert(q, repair.id);
   assert.equal(
     normalize(q.payload.choices!.find((c) => c.id === q.payload.answer)!.text!),
-    normalize(repair.sourceAnswer),
+    normalize(repair.reviewedAnswer ?? repair.sourceAnswer),
     repair.id,
   );
   q.payload.prompt = repair.prompt;

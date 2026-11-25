@@ -479,7 +479,7 @@
       "speech:disabled"
     ],
     "payload": {
-      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆本を 一（冊）かう。",
+      "prompt": "（　）の漢字[かんじ]のよみかたはどれですか。\n\n本[ほん]を一[いっ]（冊）かう。",
       "choices": [
         {
           "id": "a",
@@ -498,10 +498,10 @@
           "text": "ざっ"
         }
       ],
-      "answer": "c",
+      "answer": "a",
       "shuffle": true
     },
-    "explanation": "「一冊」は「いっさつ」と読みます。"
+    "explanation": "「一冊[いっさつ]」は「いっさつ」とよみます。「一[いっ]」が「いっ」、「冊[さつ]」が「さつ」です。"
   },
   {
     "id": "source.kokugo.g6.jpn-6-kanji-9.1b082fb1e3b8",

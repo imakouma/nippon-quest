@@ -19,6 +19,7 @@ export default defineConfig({
     'sansu-g*-balance.spec.ts',
     'sansu-g*-visuals.spec.ts',
     'math-review-order.spec.ts',
+    'nonmath-review-order.spec.ts',
     'sansu-g1-content-repair.spec.ts',
     'sansu-g1-domains.spec.ts',
     'sansu-g*-curriculum.spec.ts',

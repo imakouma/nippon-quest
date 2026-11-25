@@ -1,4 +1,5 @@
 import { mathReviewMatches, mathReviewRank } from './mathReviewOrder';
+import { orderUnitQuestions } from './nonMathReviewOrder';
 /**
  * 問題いちらん（開発用。問題レビューの左側に出す）。
  * content/questions の 問題を ぜんぶ 表にして、教科・学年・タイプ・単元・ことばで しぼりこむ。
@@ -181,7 +182,8 @@ export function QuestionList({
     FACETS.every((k) => k === skip || !f[k] || valueOf(e, k) === f[k]) &&
     (!needle || (search.get(e.key) ?? '').includes(needle));
   const awaitingFolder = !!catalog && scopeUnit === undefined && !filtering;
-  const shown = awaitingFolder ? [] : pool.filter((e) => match(e));
+  const filtered = awaitingFolder ? [] : pool.filter((e) => match(e));
+  const shown = learningScope ? filtered : orderUnitQuestions(filtered);
   if (learningScope) shown.sort((a, b) => mathReviewRank(a.q) - mathReviewRank(b.q));
   const visible = shown.slice(0, 200);
   const bad = pool.filter((e) => e.problem).length;

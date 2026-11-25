@@ -11,7 +11,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに水[みず]を流[なが]すと、曲[ま]がった所[ところ]の外側[そとがわ]の旗[はた]だけがたおれた。理由[りゆう]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -32,7 +32,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/668eaac423bbb5e0.png"
+      "promptImage": "questions/legacy/668eaac423bbb5e0.png",
+      "promptSpeech": "図の土のみぞに水を流すと、曲がった所の外側の旗だけがたおれた。理由はどれ？"
     },
     "explanation": "土で山を作って水を流したとき、曲がって流れているところの外側では地面[じめん]がけずられ、内側には土が積もる。そのため、外側に立てた旗だけがたおれる。"
   },
@@ -123,7 +124,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "川の曲がったところの水のはたらきについて、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "川[かわ]の曲[ま]がった所[ところ]では、外側[そとがわ]の流[なが]れは①、②や運[うん]ぱんが強[つよ]い。内側[うちがわ]は③、④が起[お]こりやすい。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -131,7 +132,7 @@
         },
         {
           "id": "c2",
-          "text": "速[はや]く・運[うん]ぱん・ゆるやかで・たい積[せき]"
+          "text": "速[はや]く・たい積[せき]・ゆるやかで・たい積[せき]"
         },
         {
           "id": "c3",
@@ -144,7 +145,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/43b0f63647ece486.png"
+      "promptImage": "questions/legacy/43b0f63647ece486.png",
+      "promptSpeech": "川の曲がった所では、外側の流れは①、②や運ぱんが強い。内側は③、④が起こりやすい。 ①から順にえらぼう。"
     },
     "explanation": "川の曲がったところでは、川の外側では水の流れが（速く）、（しん食）や運ぱんのはたらきが大きい。川の内側では水の流れが（ゆるやかで）、（たい積）のはたらきが大きい。"
   },
@@ -160,7 +162,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに流[なが]す水[みず]を増[ふ]やすと、曲[ま]がった所[ところ]の内側[うちがわ]と外側[そとがわ]はどう変[か]わる？",
       "choices": [
         {
           "id": "c1",
@@ -181,7 +183,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png",
+      "promptSpeech": "図の土のみぞに流す水を増やすと、曲がった所の内側と外側はどう変わる？"
     },
     "explanation": "水を流す量を増やすと、（B）曲がって流れているところでは、外側ではさらに深く地面[じめん]がけずられ、内側ではさらに土が積もる。"
   },
@@ -197,7 +200,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "図[ず]の地形[ちけい]は、川[かわ]が①から②へ流[なが]れこむ所[ところ]で、③のはたらきによりできた。名前[なまえ]は④。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -218,7 +221,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/d4f2179ca51729cc.png"
+      "promptImage": "questions/legacy/d4f2179ca51729cc.png",
+      "promptSpeech": "図の地形は、川が①から②へ流れこむ所で、③のはたらきによりできた。名前は④。 ①から順にえらぼう。"
     },
     "explanation": "この地形は、川が（平地）から（海）に流れ込む場所にできる地形で、流れる水の（たい積）のはたらきによってできる。このような地形を（三角州さんかくす）という。"
   },
@@ -234,7 +238,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに水[みず]を流[なが]した。かたむきが急[きゅう]でまっすぐなAの変化[へんか]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -255,7 +259,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png",
+      "promptSpeech": "図の土のみぞに水を流した。かたむきが急でまっすぐなAの変化はどれ？"
     },
     "explanation": "（A）かたむきが急でまっすぐ流れているところ では、水の流れが速く、底が深くけずられる。"
   },
@@ -271,7 +276,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに水[みず]を流[なが]した。曲[ま]がった所[ところ]の外側[そとがわ]の変化[へんか]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -292,7 +297,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png",
+      "promptSpeech": "図の土のみぞに水を流した。曲がった所の外側の変化はどれ？"
     },
     "explanation": "（B）曲がって流れているところの外側 では、水の流れが速いので、地面[じめん]がけずられる。"
   },
@@ -308,7 +314,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "石の形や大きさ、川の様子[ようす]について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "下流[かりゅう]では小[ちい]さく丸[まる]い石[いし]のほかに①もある。中流[ちゅうりゅう]より流[なが]れは②、川[かわ]はばは③。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -329,7 +335,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/bf0e150358fe8228.png"
+      "promptImage": "questions/legacy/bf0e150358fe8228.png",
+      "promptSpeech": "下流では小さく丸い石のほかに①もある。中流より流れは②、川はばは③。 ①から順にえらぼう。"
     },
     "explanation": "海の近く（下流）では、中流よりもさらに小さくて丸みのある石が多く、（すなやどろ）も見られる。中流よりも川の流れは（ゆるやかで）、川はばや川原は（広い）。"
   },
@@ -459,7 +466,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "図[ず]の地形[ちけい]は、川[かわ]が①から②へ出[で]る所[ところ]で、③のはたらきによりできた。名前[なまえ]は④。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -480,7 +487,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/5906f240691c9c65.png"
+      "promptImage": "questions/legacy/5906f240691c9c65.png",
+      "promptSpeech": "図の地形は、川が①から②へ出る所で、③のはたらきによりできた。名前は④。 ①から順にえらぼう。"
     },
     "explanation": "この地形は、川が（山地）から（平地）に移る場所で見られ、水の流れがゆるやかになることによる、（たい積）のはたらきによってできる。このような地形を（扇せん状じょう 地ち）という。「おうぎ（扇）」の形をしている地形。「扇」は「せん」とも読む。"
   },
@@ -533,7 +541,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに流[なが]す水[みず]を増[ふ]やした。かたむきが急[きゅう]でまっすぐな所[ところ]はどう変[か]わる？",
       "choices": [
         {
           "id": "c1",
@@ -554,7 +562,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png",
+      "promptSpeech": "図の土のみぞに流す水を増やした。かたむきが急でまっすぐな所はどう変わる？"
     },
     "explanation": "水を流す量を増やすと、まっすぐで流れが速いところでは、さらに深くけずられ、はばが少し広がる。"
   },
@@ -570,11 +579,11 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに水[みず]を流[なが]した。かたむきがゆるやかな下[した]のCには、上[うえ]から運[はこ]ばれた土[つち]がどうなる？",
       "choices": [
         {
           "id": "c1",
-          "text": "さらに多くの土が運ばれ、積もった。"
+          "text": "流[なが]れがゆるやかになり、土[つち]が積[つ]もる。"
         },
         {
           "id": "c2",
@@ -591,9 +600,10 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png"
+      "promptImage": "questions/legacy/6db4e7d7253c9bc7.png",
+      "promptSpeech": "図の土のみぞに水を流した。かたむきがゆるやかな下のCには、上から運ばれた土がどうなる？"
     },
-    "explanation": "水を流す量を増やすと、（C）流れがゆるやかなところ では、積もっていた土が、より下に流される。"
+    "explanation": "かたむきがゆるやかなCでは、水[みず]の流[なが]れがゆるやかになり、上[うえ]から運[はこ]ばれた土[つち]が積[つ]もる。"
   },
   {
     "id": "legacy.rika.g5.sci-5-6.ba63745c8eea",
@@ -607,7 +617,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "石の形や大きさ、川の様子[ようす]について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "上流[じょうりゅう]には①石[いし]が多[おお]い。流[なが]れは②、川[かわ]はばは③。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -628,7 +638,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/7198744deb099d49.png"
+      "promptImage": "questions/legacy/7198744deb099d49.png",
+      "promptSpeech": "上流には①石が多い。流れは②、川はばは③。 ①から順にえらぼう。"
     },
     "explanation": "山の中（上流）では、（大きくて角ばった）石が多い。水の流れは（速く）、両岸はがけになっているところが多い。川はばや河原は（せまい）。"
   },
@@ -677,7 +688,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "石の形や大きさ、川の様子[ようす]について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "中流[ちゅうりゅう]では、上流[じょうりゅう]より①石[いし]が多[おお]い。流[なが]れは②、川[かわ]はばは③。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -698,7 +709,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/ce99132e33d4d2a5.png"
+      "promptImage": "questions/legacy/ce99132e33d4d2a5.png",
+      "promptSpeech": "中流では、上流より①石が多い。流れは②、川はばは③。 ①から順にえらぼう。"
     },
     "explanation": "平地（中流）では、上流に比べると（小さくて丸みのある）石が多い。上流よりも川の流れは（ゆるやかで）、川はばや河原は（広い）。"
   },
@@ -714,7 +726,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のように土で山を作り、川のようなみぞに水を流して、土の変化を調べる実験を行った。",
+      "prompt": "図[ず]の土[つち]のみぞに水[みず]を流[なが]した。曲[ま]がった所[ところ]の内側[うちがわ]の変化[へんか]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -735,7 +747,8 @@
       ],
       "answer": "c2",
       "shuffle": true,
-      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png"
+      "promptImage": "questions/legacy/b7c3a30cdabff6ee.png",
+      "promptSpeech": "図の土のみぞに水を流した。曲がった所の内側の変化はどれ？"
     },
     "explanation": "（C）曲がって流れているところの内側 では、水の流れがおそくなっているため、上から水とともに流れてきた土が積もる。"
   },
@@ -789,7 +802,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "図のような、川のはたらきによってできた地形について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "図[ず]の地形[ちけい]は①に見[み]られ、②のはたらきでできた。名前[なまえ]は③。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -810,7 +823,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/d0fe0228b72e54f4.png"
+      "promptImage": "questions/legacy/d0fe0228b72e54f4.png",
+      "promptSpeech": "図の地形は①に見られ、②のはたらきでできた。名前は③。 ①から順にえらぼう。"
     },
     "explanation": "この地形は、（山の中）に見られ、流れる水の（しん食）のはたらきによってできる。このような地形を（Vブイ字じ谷こく）という。"
   },
@@ -826,7 +840,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "川がまっすぐに流れるところの川底の形は、図のようになっていた。",
+      "prompt": "図[ず]はまっすぐな川[かわ]の川底[かわぞこ]。流[なが]れの速[はや]さはどうなっていると考[かんが]えられる？",
       "choices": [
         {
           "id": "c1",
@@ -847,7 +861,8 @@
       ],
       "answer": "c3",
       "shuffle": true,
-      "promptImage": "questions/legacy/7126939781d57538.png"
+      "promptImage": "questions/legacy/7126939781d57538.png",
+      "promptSpeech": "図はまっすぐな川の川底。流れの速さはどうなっていると考えられる？"
     },
     "explanation": "水の流れが速いところでは、土がけずられたり、運ぱんされたりするはたらきが大きい。川底の中央が深くけずれていることから、川の中央ほど流れが速いと考えられる。"
   },
@@ -900,7 +915,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "かっこに当てはまる言葉をえらぼう。",
+      "prompt": "大雨[おおあめ]で川[かわ]の水[みず]が増[ふ]えると、流[なが]れが①なる。川岸[かわぎし]が②、水[みず]が川[かわ]から③して、④が起[お]こることがある。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -921,7 +936,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/fa97d0f360da2b3e.png"
+      "promptImage": "questions/legacy/fa97d0f360da2b3e.png",
+      "promptSpeech": "大雨で川の水が増えると、流れが①なる。川岸が②、水が川から③して、④が起こることがある。 ①から順にえらぼう。"
     },
     "explanation": "大雨で川の水が増えると、川の流れが（速く）なり、川岸が（けずられたり）、川の外に水が（あふれたり）して、（こう水）が起こることがある。"
   }
