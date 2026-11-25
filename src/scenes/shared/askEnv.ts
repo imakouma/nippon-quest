@@ -2,6 +2,7 @@
  * 問題エンジン（ask）に渡す環境を作る。バトルの「わざ」とフィールドの名所イベントで共通。
  * ゲーム本体は問題タイプを知らない（docs/01 §3.3）。ここも score しか見ない。
  */
+import assignments from '../../../content/math-skill-assignments.json';
 import type { ContentIndex } from '../../core/content/loader';
 import type { Settings } from '../../core/content/schemas';
 import type { GameState } from '../../core/state/schema';
@@ -57,6 +58,13 @@ export function recordLearningResult(
     appVersion: '0.1.0',
   });
   appendAttemptEvent(gs.learning.attempts, event);
+  const mathSkills: Readonly<Record<string, string>> = assignments;
+  const learned = mathSkills[question.id];
+  if (learned && result.score >= 1) {
+    if (!gs.player.skills.includes(learned)) gs.player.skills.push(learned);
+    const key = 'math-training:' + learned;
+    gs.progress.counters[key] = Math.min(8, (gs.progress.counters[key] ?? 0) + 1);
+  }
   const link = questionLinksById.get(question.id);
   if (link) gs.learning.conceptStates = applyAttemptToConcepts(gs.learning.conceptStates, event, link);
   if (wisdom && result.score >= wisdom.minScore) {

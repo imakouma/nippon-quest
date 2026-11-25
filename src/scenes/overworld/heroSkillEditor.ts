@@ -1,3 +1,4 @@
+import { mathSkillLevel, trainedMathSkill } from '../../core/progression/mathSkillLevel';
 import { h, render } from 'preact';
 import { HeroSkillScreen } from '../../ui/field/HeroSkillScreen';
 import type { ContentIndex } from '../../core/content/loader';
@@ -41,6 +42,11 @@ export function heroSkillEditor(
   const bursts = content.settings.subjectGauge.uniqueSkills;
   const available = availableLoadoutSkills(state.player.skills, granted, content.skills, bursts);
   return {
+    levels: Object.fromEntries(
+      available
+        .filter((id) => content.skills.get(id)?.questionTags?.includes('assigned:' + id))
+        .map((id) => [id, mathSkillLevel(state.progress.counters['math-training:' + id] ?? 0)]),
+    ),
     initial: resolveSkillLoadout(
       state.player.skillLoadout,
       state.player.skills,
@@ -48,7 +54,9 @@ export function heroSkillEditor(
       content.skills,
       bursts,
     ),
-    skills: available.flatMap((id) => content.skills.get(id) ?? []),
+    skills: available
+      .flatMap((id) => content.skills.get(id) ?? [])
+      .map((skill) => trainedMathSkill(skill, state.progress.counters)),
     onChange: (category, index, id) => {
       const current = getGame();
       if (!current) return null;

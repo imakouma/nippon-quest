@@ -5,6 +5,9 @@
  *  - 弱い単元 : 復習 = adaptiveWeakUnitRatio : 残り
  *  - 乱数はシード付き（対戦の決定論性のため）
  */
+import assignments from '../../../content/math-skill-assignments.json';
+const mathSkillByQuestion: Readonly<Record<string, string>> = assignments;
+
 import type { QuestionBase, QuestionQuery } from '../contracts';
 import type { QuestionBank } from './bank';
 import type { MasteryStore } from './mastery';
@@ -27,6 +30,8 @@ export function filterCandidates(bank: QuestionBank, q: QuestionQuery): Question
     list = list.filter((x) => units.has(x.unit));
   }
   if (q.type) list = list.filter((x) => x.type === q.type);
+  const assigned = q.tags?.find((tag) => tag.startsWith('assigned:'));
+  if (assigned) return list.filter((question) => mathSkillByQuestion[question.id] === assigned.slice(9));
   if (q.tags?.length) {
     const tagged = list.filter((x) => q.tags!.every((t) => x.tags?.includes(t)));
     // タグ完全一致があればそれを優先。無ければ部分一致 → それも無ければタグ無視（出題ゼロを避ける）

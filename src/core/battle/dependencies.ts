@@ -5,6 +5,7 @@ export interface BattleDeps {
   settings: Settings;
   elements: ElementTable;
   skills: Map<string, Skill>;
+  heroSkill?: (skill: Skill) => Skill;
   items: Map<string, Item>;
   monsters: Map<string, Monster>;
 }
