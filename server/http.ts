@@ -2,50 +2,12 @@ import { createServer, type IncomingMessage, type ServerResponse } from 'node:ht
 import { createReadStream } from 'node:fs';
 import { realpath, stat } from 'node:fs/promises';
 import { resolve, sep, extname } from 'node:path';
-import { Pool } from 'pg';
 import { clientIp } from './client-ip';
-import { createAuth } from './auth';
-import { createAccountApi, json } from './account-api';
-import { saveRepository } from './save-repository';
+import { api, configured, db } from './runtime';
 import { MAX_CLOUD_BYTES } from '../src/core/state/cloudProtocol';
 
 const origin = process.env.NQ_ORIGIN ?? 'http://127.0.0.1:4175';
 const port = Number(process.env.PORT ?? 8787);
-const configured = Boolean(process.env.DATABASE_URL && process.env.BETTER_AUTH_SECRET);
-const db = configured
-  ? new Pool({
-      connectionString: process.env.DATABASE_URL,
-      max: 5,
-      connectionTimeoutMillis: 5000,
-      statement_timeout: 10_000,
-    })
-  : null;
-const auth = db ? createAuth(db, { ...process.env, NQ_ORIGIN: origin }) : null;
-const providers = ['google'].filter(
-  (provider) =>
-    process.env[`${provider.toUpperCase()}_CLIENT_ID`] &&
-    process.env[`${provider.toUpperCase()}_CLIENT_SECRET`],
-);
-const accountApi =
-  db && auth
-    ? createAccountApi({
-        origin,
-        providers,
-        repository: saveRepository(db),
-        session: async (request) => {
-          const session = await auth.api.getSession({ headers: request.headers });
-          return session ? { userId: session.user.id, createdAt: new Date(session.session.createdAt) } : null;
-        },
-      })
-    : null;
-const allowedAuth = /^\/api\/auth\/(sign-in\/social|sign-out|callback\/google)$/;
-async function api(request: Request): Promise<Response> {
-  if (!auth || !accountApi) return json({ error: 'unconfigured' }, 503);
-  const path = new URL(request.url).pathname;
-  if (path.startsWith('/api/account/')) return accountApi(request);
-  if (allowedAuth.test(path)) return auth.handler(request);
-  return json({ error: 'not_found' }, 404);
-}
 async function handleApi(req: IncomingMessage, res: ServerResponse) {
   const headers = new Headers();
   for (const [key, value] of Object.entries(req.headers))
