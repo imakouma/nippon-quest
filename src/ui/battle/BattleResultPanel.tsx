@@ -7,7 +7,7 @@ import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import type { HudStore, ResultView } from './store';
 
-function Bar({ value, max, label }: { value: number; max: number; label: string }) {
+function Bar({ value, max, label, text }: { value: number; max: number; label: string; text: string }) {
   const ratio = max > 0 ? Math.max(0, Math.min(1, value / max)) : 0;
   return (
     <div
@@ -17,8 +17,12 @@ function Bar({ value, max, label }: { value: number; max: number; label: string 
       aria-valuemin={0}
       aria-valuenow={value}
       aria-valuemax={max}
+      aria-valuetext={label}
     >
       <i class="nq-fill-xp" style={{ width: `${ratio * 100}%` }} />
+      <span class="nq-bar-value" aria-hidden="true">
+        {text}
+      </span>
     </div>
   );
 }
@@ -125,11 +129,6 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
           {title}
           {r.kind === 'victory' && <PixelIcon name="star" scale={4} />}
         </h2>
-        {r.kind === 'victory' && r.bonus > 1 && (
-          <p class="nq-result-bonus">
-            {t('battle.rewardBonus', { n: r.maxCombo, m: Math.round(r.bonus * 100) / 100 })}
-          </p>
-        )}
         {r.kind === 'victory' && (
           <dl class="nq-result-list">
             <dt>
@@ -137,14 +136,22 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
               {t('battle.gotXp')}
             </dt>
             <dd>+{r.xp}</dd>
-            <dt>{t('battle.resultLevel', { lv: r.level ?? 1 })}</dt>
-            <dd>
-              {r.levelXpNeeded === undefined
-                ? t('battle.savedXp', { n: r.levelXp ?? 0 })
-                : t('battle.levelXp', { n: r.levelXp ?? 0, total: r.levelXpNeeded })}
-            </dd>
             <dt class="nq-result-xpbar">
-              <Bar value={xpW} max={1} label={t('battle.gotXp')} />
+              <span class="nq-result-level">{t('battle.resultLevel', { lv: r.level ?? 1 })}</span>
+              <Bar
+                value={xpW}
+                max={1}
+                label={
+                  r.levelXpNeeded === undefined
+                    ? t('battle.savedXp', { n: r.levelXp ?? 0 })
+                    : t('battle.levelXp', { n: r.levelXp ?? 0, total: r.levelXpNeeded })
+                }
+                text={
+                  r.levelXpNeeded === undefined
+                    ? String(r.levelXp ?? 0)
+                    : `${r.levelXp ?? 0}/${r.levelXpNeeded}`
+                }
+              />
             </dt>
             <dd class="nq-result-need">
               {r.levelXpNeeded === undefined
@@ -156,17 +163,26 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
               {t('battle.gotGold')}
             </dt>
             <dd>+{r.gold}G</dd>
-            <dt>
+            <dt class="nq-result-drops-heading" id="nq-result-drops-heading">
               <PixelIcon name="chest" scale={3} />
               {t('battle.gotItems')}
             </dt>
-            <dd>
+            <dd
+              class="nq-result-drops"
+              role="region"
+              aria-labelledby="nq-result-drops-heading"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key !== 'Tab') event.stopPropagation();
+              }}
+            >
               {r.drops.length === 0
                 ? t('battle.none')
                 : r.drops.map((drop) => (
                     <span class="nq-result-drop" key={drop.name}>
                       {drop.icon && <img class="nq-item-icon" src={drop.icon} alt="" />}
-                      <RubyLabel text={drop.name} /> {t('battle.itemCount', { n: drop.count })}
+                      <RubyLabel class="nq-result-drop-name" text={drop.name} />
+                      <span class="nq-result-drop-count">{t('battle.itemCount', { n: drop.count })}</span>
                     </span>
                   ))}
             </dd>
