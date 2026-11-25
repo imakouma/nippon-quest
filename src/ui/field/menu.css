@@ -27,7 +27,7 @@
   display: grid;
   flex: 1;
   min-height: 0;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: minmax(0, 1fr);
   gap: 12px;
   padding: 12px;
@@ -130,6 +130,9 @@
 .nq-menu-card-party {
   background: linear-gradient(135deg, #74472f, #342118);
 }
+.nq-menu-card-skills {
+  background: linear-gradient(135deg, #584477, #29203e);
+}
 .nq-menu-card-look {
   background: linear-gradient(135deg, #633f78, #2b1d39);
 }
@@ -156,8 +159,10 @@
 .nq-menu-card-party .nq-menu-card-label {
   font-size: 20px;
   line-height: 24px;
-  overflow-wrap: normal;
   white-space: nowrap;
+}
+.nq-menu-card-party .nq-menu-card-label > span {
+  display: block;
 }
 .nq-menu-card-count {
   position: absolute;

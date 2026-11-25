@@ -149,6 +149,16 @@ export function settleBattleOnce(
   }
 
   const applied = applyBattleResult(previous, input.summary, content.settings, now);
+  const dropItems =
+    input.summary.outcome === 'victory'
+      ? input.summary.drops.filter((id) => {
+          const item = content.items.get(id);
+          return item?.kind === 'consumable' && !!item.use && (applied.state.inventory[id] ?? 0) > 0;
+        })
+      : [];
+  if (dropItems.length) {
+    applied.state.party.bagItems = [...new Set([...applied.state.party.bagItems, ...dropItems])];
+  }
   const settled = settleBattleBag(previous, applied, content);
   const result: PersistedBattleEndPayload = {
     outcome: input.summary.outcome,

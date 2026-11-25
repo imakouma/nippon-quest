@@ -39,6 +39,7 @@ export interface MenuOverlayProps {
   initialHome?: boolean;
   onTab: (tab: MenuTab) => void;
   onBag: () => void;
+  onSkills?: () => void;
   onAct: (key: string) => void;
   onRoadmapSelect: (unitId: string) => void;
   onSave: () => void;
@@ -107,6 +108,7 @@ export function MenuOverlay({
   initialHome = true,
   onTab,
   onBag,
+  onSkills,
   onAct,
   onRoadmapSelect,
   onSave,
@@ -194,6 +196,10 @@ export function MenuOverlay({
     if (!next) return;
     playSfx('select');
     setHomeSel(index);
+    if (next.key === 'skills') {
+      onSkills?.();
+      return;
+    }
     if (next.key === 'party') {
       onBag();
       return;
@@ -251,9 +257,9 @@ export function MenuOverlay({
         return;
       const L = live.current;
       if (L.home) {
-        // ホームは4枚を1行に並べる。列数を表示レイアウトと合わせることで、
+        // ホームは5枚を1行に並べる。列数を表示レイアウトと合わせることで、
         // 上下キーが同じ列のカードを選び続けるようにする。
-        const columns = 4;
+        const columns = 5;
         const moveHome = (delta: number) => {
           const next = (live.current.homeSel + delta + tabs.length) % tabs.length;
           live.current.homeSel = next;
@@ -393,7 +399,14 @@ export function MenuOverlay({
                   <span class="nq-menu-card-icon">
                     <MenuCategoryIcon name={x.key} />
                   </span>
-                  <RubyLabel text={x.label} class="nq-menu-card-label" />
+                  {x.key === 'party' && x.label.includes('・') ? (
+                    <span class="nq-menu-card-label" aria-label={displayText(x.label)}>
+                      <span aria-hidden="true">{displayText(x.label).split('・')[0]}・</span>
+                      <span aria-hidden="true">{displayText(x.label).split('・').slice(1).join('・')}</span>
+                    </span>
+                  ) : (
+                    <RubyLabel text={x.label} class="nq-menu-card-label" />
+                  )}
                   {x.count && Number(x.count) > 0 && <span class="nq-menu-card-count">{x.count}</span>}
                 </button>
               ))}

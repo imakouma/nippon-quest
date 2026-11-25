@@ -55,6 +55,13 @@ const ICONS: Readonly<Record<MenuHomeKey, readonly Shape[]>> = {
     [9, 1, 4, 3, NQ.ink],
     [9, 2, 3, 2, NQ.red],
   ],
+  skills: [
+    [7, 1, 2, 14, NQ.ink],
+    [6, 2, 2, 9, NQ.silver],
+    [8, 2, 2, 9, NQ.white],
+    [4, 10, 8, 2, NQ.gold],
+    [7, 12, 2, 3, NQ.brown],
+  ],
   party: [
     [4, 1, 8, 4, NQ.ink],
     [5, 2, 6, 3, NQ.tan],

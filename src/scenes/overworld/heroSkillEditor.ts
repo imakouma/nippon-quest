@@ -1,3 +1,5 @@
+import { h, render } from 'preact';
+import { HeroSkillScreen } from '../../ui/field/HeroSkillScreen';
 import type { ContentIndex } from '../../core/content/loader';
 import { activeEquipment } from '../../core/progression/bag';
 import {
@@ -63,4 +65,26 @@ export function heroSkillEditor(
       return next;
     },
   };
+}
+
+export function showHeroSkillEditor(
+  root: HTMLElement,
+  content: ContentIndex,
+  scene: { gs(): GameState | undefined; setGame(state: GameState): void },
+  onClose: () => void,
+): void {
+  const state = scene.gs();
+  if (!state) return;
+  render(
+    h(HeroSkillScreen, {
+      ...heroSkillEditor(
+        state,
+        content,
+        () => scene.gs(),
+        (next) => scene.setGame(next),
+      ),
+      onClose,
+    }),
+    root,
+  );
 }

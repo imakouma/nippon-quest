@@ -17,7 +17,6 @@ import { useModalFocus } from '../useModalFocus';
 import type { BagCell } from './bagLayout';
 import './field.css';
 import './bag.css';
-import { HeroSkillEditor, type HeroSkillEditorProps } from './HeroSkillEditor';
 
 export interface BagThing {
   /** 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび） */
@@ -66,7 +65,6 @@ export interface BagThing {
 
 export interface BagOverlayProps {
   hero: BagThing;
-  skillEditor?: HeroSkillEditorProps;
   /** バッグの 中身（仲間 → そうび。マスの じゅん） */
   inBag: BagThing[];
   /** あずけている 仲間・そうび */
@@ -130,7 +128,6 @@ function Pic({ x, size }: { x: BagThing; size: number }) {
 
 export function BagOverlay({
   hero,
-  skillEditor,
   inBag,
   outside,
   cells,
@@ -159,19 +156,10 @@ export function BagOverlay({
     );
   const [sel, setSel] = useState(() => indexOf(focusKey));
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const [editingSkills, setEditingSkills] = useState(false);
-  const [currentLoadout, setCurrentLoadout] = useState(() => skillEditor?.initial);
   const [dragKey, setDragKey] = useState<string | null>(null);
   const sig = order.map((x) => x.key).join(',');
   useEffect(() => setSel(indexOf(focusKey)), [focusKey, sig]);
   const m = order[Math.min(sel, order.length - 1)]!;
-  const shownSkills =
-    m.kind === 'hero' && currentLoadout && skillEditor
-      ? [...currentLoadout.normal, ...currentLoadout.charge].flatMap((id) => {
-          const skill = skillEditor.skills.find((entry) => entry.id === id);
-          return skill ? [{ name: skill.name, gauge: skill.gauge, scan: skill.effect === 'scan' }] : [];
-        })
-      : m.skills;
   const boxRef = useRef<HTMLDivElement>(null);
   useModalFocus(boxRef, '[data-bag-key].nq-focus');
 
@@ -186,7 +174,6 @@ export function BagOverlay({
     if (k === sel || !order[k]) return;
     playSfx('move');
     setSel(k);
-    setEditingSkills(false);
     setDetailsOpen(true);
     const el = boxRef.current?.querySelector(`[data-bag-key="${CSS.escape(order[k]!.key)}"]`);
     el?.scrollIntoView({ block: 'nearest' });
@@ -196,7 +183,6 @@ export function BagOverlay({
     if (next === sel) {
       playSfx('back');
       setDetailsOpen((open) => !open);
-      setEditingSkills(false);
       return;
     }
     pick(next);
@@ -225,17 +211,10 @@ export function BagOverlay({
     onEvolve(m.key);
   };
 
-  const live = useRef({ pick, toggle, onClose, sel, n: order.length, editingSkills });
-  live.current = { pick, toggle, onClose, sel, n: order.length, editingSkills };
+  const live = useRef({ pick, toggle, onClose, sel, n: order.length });
+  live.current = { pick, toggle, onClose, sel, n: order.length };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (live.current.editingSkills) {
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          setEditingSkills(false);
-        }
-        return;
-      }
       const isConfirm = e.key === 'Enter' || e.key === ' ';
       const selectedItem = e.target instanceof HTMLElement && e.target.closest<HTMLElement>('[data-bag-key]');
       if (isConfirm && selectedItem) {
@@ -487,13 +466,6 @@ export function BagOverlay({
                   </span>
                 </div>
               </div>
-              {m.kind === 'hero' && skillEditor && (
-                <>
-                  <button type="button" class="nq-opt" onClick={() => setEditingSkills((open) => !open)}>
-                    <RubyLabel text={t(editingSkills ? 'field.skillEditClose' : 'field.skillEditOpen')} />
-                  </button>
-                </>
-              )}
               {m.stats && (
                 <div class="nq-party-stats">
                   {STATS.map(([k, key]) => (
@@ -511,13 +483,13 @@ export function BagOverlay({
                   ))}
                 </div>
               )}
-              {!!shownSkills?.length && (
+              {!!m.skills?.length && (
                 <>
                   <p class="nq-party-label">
                     <RubyLabel text={t('cmd.skill')} />
                   </p>
                   <ul class="nq-party-skills">
-                    {shownSkills.map((s, i) => (
+                    {m.skills.map((s, i) => (
                       <li key={i}>
                         <RubyLabel text={s.name} />
                         <span class="nq-party-star">{s.scan ? '' : '★'.repeat(s.gauge)}</span>
@@ -593,48 +565,36 @@ export function BagOverlay({
               × {t('ui.close')}
             </button>
           </div>
-          {editingSkills && skillEditor && currentLoadout ? (
-            <HeroSkillEditor
-              {...skillEditor}
-              initial={currentLoadout}
-              onChange={(category, index, id) => {
-                const next = skillEditor.onChange(category, index, id);
-                if (next) setCurrentLoadout(next);
-                return next;
+          <section class="nq-bag-reserve" aria-label={t('field.bagOutside')}>
+            <p
+              class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+              onDragOver={(e) => {
+                if (canReturnItem) e.preventDefault();
               }}
-            />
-          ) : (
-            <section class="nq-bag-reserve" aria-label={t('field.bagOutside')}>
-              <p
-                class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-                onDragOver={(e) => {
-                  if (canReturnItem) e.preventDefault();
-                }}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  returnItem();
-                }}
-              >
-                {t('field.bagOutside')}
-              </p>
-              <ul
-                class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-                onDragOver={(e) => {
-                  if (canReturnItem) e.preventDefault();
-                }}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  returnItem();
-                }}
-              >
-                {outside.length ? (
-                  outside.map(reserveTile)
-                ) : (
-                  <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
-                )}
-              </ul>
-            </section>
-          )}
+              onDrop={(e) => {
+                e.preventDefault();
+                returnItem();
+              }}
+            >
+              {t('field.bagOutside')}
+            </p>
+            <ul
+              class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+              onDragOver={(e) => {
+                if (canReturnItem) e.preventDefault();
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                returnItem();
+              }}
+            >
+              {outside.length ? (
+                outside.map(reserveTile)
+              ) : (
+                <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
+              )}
+            </ul>
+          </section>
         </div>
       </div>
     </div>
