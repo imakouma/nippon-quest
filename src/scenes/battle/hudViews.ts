@@ -103,10 +103,7 @@ export function buildGaugeViews(
       marks: [
         ...new Set(
           skills
-            .filter(
-              (entry) =>
-                entry.skill.subject === subject && entry.skill.costGauge > 0 && entry.skill.costGauge < max,
-            )
+            .filter((entry) => entry.skill.subject === subject && entry.skill.costGauge > 0)
             .map((entry) => entry.skill.costGauge),
         ),
       ],

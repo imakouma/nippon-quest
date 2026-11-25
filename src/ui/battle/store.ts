@@ -47,12 +47,12 @@ export interface AllyView {
   passive?: string;
 }
 
-/** 教科ゲージ（右の 窓）。こたえると たまり、必殺技で つかう */
+/** 教科ゲージ（チャージボタンの枠）。こたえると たまり、必殺技で つかう */
 export interface SubjectGaugeView {
   subject: string;
   value: number;
   max: number;
-  /** この 教科の 必殺技に 要る 量（ゲージの 目もり） */
+  /** この教科の編成済みチャージ技に要る量（最大量の技も含む） */
   marks: number[];
   /** オトモの 教科（たまりやすい） */
   boosted: boolean;

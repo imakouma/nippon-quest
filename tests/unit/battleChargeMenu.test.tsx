@@ -3,6 +3,7 @@ import { h } from 'preact';
 import { render } from 'preact/compat';
 import { act } from 'preact/test-utils';
 import { afterEach, expect, it, vi } from 'vitest';
+import { ChargeGaugeFrame } from '../../src/ui/battle/ChargeGaugeFrame';
 import { BattleHud } from '../../src/ui/battle/BattleHud';
 import { HudStore, type SkillOption } from '../../src/ui/battle/store';
 
@@ -84,4 +85,53 @@ it('チャージ技が未編成でも通常技へ戻れ、道具メニューを�
   expect(document.querySelector('[data-skill="normal"]')).not.toBeNull();
   await act(() => store.set({ menu: 'items' }));
   expect(document.querySelector('[data-charge-toggle]')).toBeNull();
+});
+
+it('枠ゲージは教科ごとの残量を独立して更新し、範囲外を枠内に収める', () => {
+  render(
+    h(ChargeGaugeFrame, {
+      gauges: [
+        { subject: 'kokugo', value: 100, max: 100, marks: [], boosted: false },
+        { subject: 'sansu', value: 50, max: 100, marks: [], boosted: false },
+      ],
+    }),
+    document.body,
+  );
+  const left = document.querySelector('[data-charge-subject="kokugo"]')!;
+  const right = document.querySelector('[data-charge-subject="sansu"]')!;
+  expect(left.getAttribute('stroke-dasharray')).toBe('50 50');
+  expect(right.getAttribute('stroke-dasharray')).toBe('25 75');
+  render(
+    h(ChargeGaugeFrame, {
+      gauges: [
+        { subject: 'kokugo', value: -10, max: 100, marks: [], boosted: false },
+        { subject: 'sansu', value: 200, max: 100, marks: [], boosted: false },
+      ],
+    }),
+    document.body,
+  );
+  expect(left.getAttribute('stroke-dasharray')).toBe('0 100');
+  expect(right.getAttribute('stroke-dasharray')).toBe('50 50');
+});
+
+it('仲間の技で教科が増えたときも全教科を枠に残す', () => {
+  render(
+    h(ChargeGaugeFrame, {
+      gauges: ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'].map((subject) => ({
+        subject,
+        value: 100,
+        max: 100,
+        marks: [],
+        boosted: false,
+      })),
+    }),
+    document.body,
+  );
+  const segments = [...document.querySelectorAll('[data-charge-subject]')];
+  expect(segments).toHaveLength(6);
+  const filledLength = segments.reduce(
+    (sum, segment) => sum + Number(segment.getAttribute('stroke-dasharray')!.split(' ')[0]),
+    0,
+  );
+  expect(filledLength).toBeCloseTo(100);
 });

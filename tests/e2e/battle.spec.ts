@@ -214,7 +214,7 @@ test('バトル：ターン表示を出さず、こちらが動くと次のコ�
   // lv は敵レベル。初期パーティが1ターン耐え、敵も最初の一撃を耐える条件で完走を確認する。
   await start(page, 8);
   await expect(page.locator('.nq-turn-stage')).toHaveCount(0);
-  await expect(page.locator('.nq-sgauge')).toBeVisible();
+  await expect(page.locator('.nq-charge-frame')).toBeVisible();
   await expect(page.locator('.nq-cmd[data-cmd="skill"]')).toBeVisible({ timeout: 20_000 });
   await expect(page.getByRole('meter', { name: /リンゴロン HP/ })).toBeVisible();
   await expect(page.getByRole('meter', { name: /ハル HP/ })).toBeVisible();
@@ -230,7 +230,7 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
     page.locator('.nq-bottom-rail').boundingBox(),
     page.locator('.nq-panel').boundingBox(),
     page.locator('.nq-bottom-command-slot').boundingBox(),
-    page.locator('.nq-charge-dock .nq-sgauge').boundingBox(),
+    page.locator('.nq-charge-frame').boundingBox(),
     page.locator('.nq-party').boundingBox(),
     page.locator('.nq-ally-hero .nq-bar-hp').boundingBox(),
   ]);
@@ -255,7 +255,9 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   expect(gauge!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
   expect(gauge!.x + gauge!.width).toBeLessThan(party!.x);
   await expect(page.locator('.nq-ally-hero .nq-sgauge')).toHaveCount(0);
-  await expect(page.locator('.nq-charge-dock .nq-sg-value')).toHaveText(['0/100', '0/100']);
+  await expect(page.locator('[data-charge-toggle]')).toHaveAccessibleDescription(
+    /こくご 0\/100、さんすう 0\/100/,
+  );
 
   // 技一覧を開いても、右下の主人公枠は動かず、舞台を覆い過ぎない高さに保つ。
   await page.locator('.nq-cmd[data-cmd="skill"]').click();

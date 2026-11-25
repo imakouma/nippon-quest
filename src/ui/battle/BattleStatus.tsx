@@ -2,7 +2,7 @@ import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
-import type { AllyView, EnemyView, HudState, StatusEffectView, SubjectGaugeView } from './store';
+import type { AllyView, EnemyView, HudState, StatusEffectView } from './store';
 
 export type BarKind = 'hp' | 'mp' | 'xp' | 'cmd' | 'time';
 
@@ -127,41 +127,6 @@ export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
         )}
       </div>
       <StatusEffects effects={a.effects} />
-    </div>
-  );
-}
-
-export function GaugeColumn({ list }: { list: SubjectGaugeView[] }) {
-  return (
-    <div class="nq-sgauge">
-      <span class="nq-sgauge-title">{t('battle.gauge')}</span>
-      {list.map((g) => (
-        <div
-          key={g.subject}
-          class={`nq-sg ${g.value >= g.max ? 'nq-sg-full' : ''} ${g.boosted ? 'nq-sg-boost' : ''}`}
-          role="meter"
-          aria-label={t(`subjects.${g.subject}`)}
-          aria-valuemin={0}
-          aria-valuenow={g.value}
-          aria-valuemax={g.max}
-        >
-          <PixelIcon name={`subj-${g.subject}`} scale={2} />
-          <span class="nq-sg-bar">
-            <i class={`nq-subj-${g.subject}`} style={{ width: `${(g.value / g.max) * 100}%` }} />
-            {g.marks.map((mark) => (
-              <b key={mark} class="nq-sg-mark" style={{ left: `${(mark / g.max) * 100}%` }} />
-            ))}
-            <span class="nq-sg-value" aria-hidden="true">
-              {g.value}/{g.max}
-            </span>
-          </span>
-          {g.gain && (
-            <span key={g.gain.id} class="nq-sg-gain">
-              +{g.gain.amount}
-            </span>
-          )}
-        </div>
-      ))}
     </div>
   );
 }

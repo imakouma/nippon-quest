@@ -20,8 +20,30 @@ for (const width of [960, 640]) {
     const toggle = page.locator('[data-charge-toggle]');
     await expect(toggle).toBeVisible();
     await expect(page.locator('.nq-party .nq-sgauge')).toHaveCount(0);
-    await expect(page.locator('.nq-charge-dock .nq-sgauge')).toBeVisible();
+    await expect(page.locator('.nq-sgauge')).toHaveCount(0);
+    await expect(page.locator('.nq-charge-frame')).toBeVisible();
+    await expect(page.locator('[data-charge-subject]')).toHaveCount(2);
     await expect(page.locator('.nq-charge-hint')).toBeVisible();
+    await expect(page.locator('[data-charge-subject="kokugo"]')).toHaveAttribute('stroke-dasharray', '0 100');
+    await page.evaluate(() => {
+      const battle = window.__nq.scene.getScene('Battle') as ChargeBattle;
+      battle.state.player.subjectGauges.kokugo = 100;
+      battle.state.player.subjectGauges.sansu = 50;
+      battle.syncViews();
+    });
+    await expect(page.locator('[data-charge-subject="kokugo"]')).toHaveAttribute('stroke-dasharray', '50 50');
+    await expect(page.locator('[data-charge-subject="kokugo"]')).toHaveAttribute('stroke-dashoffset', '0');
+    await expect(page.locator('[data-charge-subject="sansu"]')).toHaveAttribute('stroke-dasharray', '25 75');
+    await expect(page.locator('[data-charge-subject="sansu"]')).toHaveAttribute('stroke-dashoffset', '-50');
+    await expect(toggle).toHaveAccessibleDescription(/こくご 100\/100、さんすう 50\/100/);
+    await expect(toggle).toContainText('つかえる');
+    await page.screenshot({ path: info.outputPath('split-charge-frame.png') });
+    await page.evaluate(() => {
+      const battle = window.__nq.scene.getScene('Battle') as ChargeBattle;
+      battle.state.player.subjectGauges.kokugo = 0;
+      battle.state.player.subjectGauges.sansu = 0;
+      battle.syncViews();
+    });
     const party = await page.locator('.nq-party').boundingBox();
     expect(party!.width).toBeCloseTo((252 * width) / 960, 0);
     expect(party!.height).toBeLessThanOrEqual((80 * width) / 960);
