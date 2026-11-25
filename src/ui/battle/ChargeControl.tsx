@@ -33,11 +33,11 @@ export function ChargeControl({ s, store }: { s: HudState; store: HudStore }) {
           ✦
         </span>
         <RubyLabel text={t('battle.gaugeCharge')} />
-        <span class="nq-charge-hint">
-          {t(active ? 'ui.back' : ready ? 'battle.chargeReady' : 'battle.chargeBuild')}
-        </span>
+        {s.menu === 'commands' && (
+          <span class="nq-charge-hint">{t(ready ? 'battle.chargeReady' : 'battle.chargeBuild')}</span>
+        )}
       </button>
-      <GaugeColumn list={s.gauges} />
+      {s.menu === 'commands' && <GaugeColumn list={s.gauges} />}
     </div>
   );
 }
