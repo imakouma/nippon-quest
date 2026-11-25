@@ -269,15 +269,16 @@ export class TitleScene extends Phaser.Scene {
         items: [
           { label: t('ui.newGame'), disabled: !this.saveChecked || accountSession().blocked },
           { label: t('ui.continue'), disabled: !this.hasSave || accountSession().blocked },
-          { label: t('account.title'), disabled: !this.saveChecked },
         ],
+        googleLabel: t('account.google'),
+        googleDisabled: !this.saveChecked,
+        onGoogle: () => this.mountAccount(),
         hint: t('ui.titleHint'),
         disabledNote: this.saveChecked ? null : t('ui.saveChecking'),
         credit: t('ui.credits'),
         onSelect: (index: number) => {
           if (index === 0) this.mountSlotPicker('new');
           if (index === 1 && this.hasSave) this.mountSlotPicker('continue');
-          if (index === 2) this.mountAccount();
         },
       }),
       this.menuRoot,

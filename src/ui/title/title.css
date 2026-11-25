@@ -397,3 +397,32 @@
   cursor: not-allowed;
   opacity: 1;
 }
+
+/* Googleの公式スクエアボタンをクレジット帯の上に置く。 */
+.nq-title-google {
+  position: absolute;
+  right: 18px;
+  bottom: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.nq-title-google img {
+  display: block;
+}
+
+.nq-title-google:focus-visible {
+  outline: 3px solid var(--nq-yellow);
+  outline-offset: 3px;
+}
+
+.nq-title-google:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
