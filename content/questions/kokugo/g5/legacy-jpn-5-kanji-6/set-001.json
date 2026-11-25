@@ -155,29 +155,29 @@
       "speech:disabled"
     ],
     "payload": {
-      "prompt": "（ ）の漢字の正しい読み方はどれですか。◆データを 保（存）する。",
+      "prompt": "（　）の漢字[かんじ]のよみかたはどれですか。\n\nデータを保[ほ]（存）する。",
       "choices": [
         {
           "id": "a",
-          "text": "ぽ"
+          "text": "そん"
         },
         {
           "id": "b",
-          "text": "ぼ"
+          "text": "ぞん"
         },
         {
           "id": "c",
-          "text": "も"
+          "text": "ほ"
         },
         {
           "id": "d",
-          "text": "ほ"
+          "text": "ざん"
         }
       ],
-      "answer": "d",
+      "answer": "b",
       "shuffle": true
     },
-    "explanation": "「保存」は「ほぞん」と読みます（※「保」は「ほ」と読みます）。"
+    "explanation": "「保存[ほぞん]」は「ほぞん」とよみます。このことばの「存[ぞん]」は「ぞん」です。"
   },
   {
     "id": "source.kokugo.g5.jpn-5-kanji-6.ae9bd61a60bf",

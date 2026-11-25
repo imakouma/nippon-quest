@@ -415,29 +415,28 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、友達と仲よくするために大切なことはどれでしょう。",
+      "prompt": "ともだちとなかよくあそぶとき、たいせつなことはどれですか。",
       "choices": [
         {
           "id": "c1",
-          "text": "一緒に遊び、話を聞く"
+          "text": "いっしょにあそび、はなしをきく"
         },
         {
           "id": "c2",
-          "text": "友達を無視する"
+          "text": "ともだちのはなしをきかない"
         },
         {
           "id": "c3",
-          "text": "一人だけ遊ぶ"
+          "text": "じぶんだけであそびをきめる"
         },
         {
           "id": "c4",
-          "text": "けんかをする"
+          "text": "あいてをおしのける"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/e66d04bc983c2792.jpg"
+      "shuffle": true
     },
-    "explanation": "友達と一緒に遊び、話をよく聞くことが大切です。"
+    "explanation": "ともだちのはなしをよくきいて、いっしょにたのしくあそびましょう。"
   }
 ]

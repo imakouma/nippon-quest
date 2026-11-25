@@ -49,7 +49,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "受粉について調べるために、ヘチマを使って図のような実験を行った。",
+      "prompt": "図[ず]の実験[じっけん]で、明日[あした]さきそうなヘチマのめばなにふくろをかぶせた理由[りゆう]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -70,7 +70,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/828b789393eb611e.png"
+      "promptImage": "questions/legacy/828b789393eb611e.png",
+      "promptSpeech": "図の実験で、明日さきそうなヘチマのめばなにふくろをかぶせた理由はどれ？"
     },
     "explanation": "ヘチマの場合、ハチなどのこん虫が、おしべの花粉をめしべに運んでいる。明日さきそうなめばなに ふくろをかぶせるのは、こん虫などによって、受粉させないため。"
   },
@@ -86,7 +87,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "アブラナ や アサガオの花のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "図[ず]のAは①、Bは②。花[はな]の外側[そとがわ]から③・④・B・Aの順[じゅん]についている。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -107,7 +108,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/77dfbe034741cad6.png"
+      "promptImage": "questions/legacy/77dfbe034741cad6.png",
+      "promptSpeech": "図のAは①、Bは②。花の外側から③・④・B・Aの順についている。 ①から順にえらぼう。"
     },
     "explanation": "アブラナ や アサガオには１つの花に Aの（めしべ）と Bの（おしべ）がある。花は外側から、（がく）、（花びら）、B、A の順についている。"
   },
@@ -160,7 +162,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "アサガオとヘチマの花について、次の部分として当てはまる記号[きごう]の組み合わせを、それぞれえらぼう。",
+      "prompt": "図[ず]で花粉[かふん]をつくる所[ところ]・花粉[かふん]がつく所[ところ]・実[み]になる所[ところ]の記号[きごう]の組[く]み合[あ]わせを、順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -181,7 +183,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/b7565df23a90481f.png"
+      "promptImage": "questions/legacy/b7565df23a90481f.png",
+      "promptSpeech": "図で花粉をつくる所・花粉がつく所・実になる所の記号の組み合わせを、順にえらぼう。"
     },
     "explanation": "花粉をつくる部分：イとエ 花粉がつく部分：アとオ 将来、実になる部分（子ぼう）：ウとカ"
   },
@@ -197,7 +200,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ヘチマの花粉をけんび鏡で観察すると、図のように見えた。",
+      "prompt": "図[ず]の花粉[かふん]を視野[しや]の中央[ちゅうおう]に動[うご]かすには、プレパラートをA〜Dのどちらへ動[うご]かす？",
       "choices": [
         {
           "id": "c1",
@@ -218,7 +221,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/0c914d76017fc419.png"
+      "promptImage": "questions/legacy/0c914d76017fc419.png",
+      "promptSpeech": "図の花粉を視野の中央に動かすには、プレパラートをA〜Dのどちらへ動かす？"
     },
     "explanation": "ふつう、けんび鏡では、上下左右が逆ぎゃくに見えている。見たいものを右下に動かしたいときには、プレパラートを上下左右が逆の、A（左上）の方向に動かす。"
   },
@@ -272,7 +276,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "受粉について調べるために、アサガオを使って図のような実験を行った。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "図[ず]の実験[じっけん]で、受粉[じゅふん]させたアサガオは実[み]や種子[しゅし]が①。受粉[じゅふん]させないと②。実[み]や種子[しゅし]ができるには③が必要[ひつよう]と分[わ]かる。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -293,7 +297,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f7a1c29e0383057a.png"
+      "promptImage": "questions/legacy/f7a1c29e0383057a.png",
+      "promptSpeech": "図の実験で、受粉させたアサガオは実や種子が①。受粉させないと②。実や種子ができるには③が必要と分かる。 ①から順にえらぼう。"
     },
     "explanation": "受粉をしたアサガオは、実や種子が（できた）。受粉をしなかったアサガオは、実や種子が（できなかった）。よって、実や種子ができるためには（受粉）が必要だということが分かった。"
   },
@@ -417,7 +422,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "受粉について調べるために、ヘチマを使って図のような実験を行った。この実験の結果について、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "図[ず]の実験[じっけん]で、受粉[じゅふん]させたヘチマは実[み]が①。受粉[じゅふん]させないと②。実[み]ができるには③が必要[ひつよう]と分[わ]かる。 ①から順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -438,7 +443,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/828b789393eb611e.png"
+      "promptImage": "questions/legacy/828b789393eb611e.png",
+      "promptSpeech": "図の実験で、受粉させたヘチマは実が①。受粉させないと②。実ができるには③が必要と分かる。 ①から順にえらぼう。"
     },
     "explanation": "受粉させためばなは、めしべのふくらんだ部分が大きくなり、実が（できた）。受粉させなかっためばなは、実が（できなかった）。よって、実（果実）ができるためには、（受粉）が必要だということが分かった。"
   },
@@ -492,7 +498,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "ヘチマの花のつくりについて、かっこに当てはまる言葉をえらぼう。",
+      "prompt": "ヘチマの図[ず]で、A・Bの花[はな]の名前[なまえ]と、ア・イの部分[ぶぶん]の名前[なまえ]を、順[じゅん]にえらぼう。",
       "choices": [
         {
           "id": "c1",
@@ -513,7 +519,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/17b7a6edafc43717.png"
+      "promptImage": "questions/legacy/17b7a6edafc43717.png",
+      "promptSpeech": "ヘチマの図で、A・Bの花の名前と、ア・イの部分の名前を、順にえらぼう。"
     },
     "explanation": "ヘチマは、A の（おばな）、B の（めばな）のように、花のつくりがちがう２種類の花がさく。A には ア（おしべ）があり、B には イ（めしべ）がある。"
   },
@@ -566,7 +573,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "受粉について調べるために、アサガオを使って図のような実験を行った。",
+      "prompt": "図[ず]の実験[じっけん]で、アサガオのつぼみからおしべを取[と]った理由[りゆう]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -587,7 +594,8 @@
       ],
       "answer": "c1",
       "shuffle": true,
-      "promptImage": "questions/legacy/f7a1c29e0383057a.png"
+      "promptImage": "questions/legacy/f7a1c29e0383057a.png",
+      "promptSpeech": "図の実験で、アサガオのつぼみからおしべを取った理由はどれ？"
     },
     "explanation": "アサガオは１つの花におしべとめしべが両方あって、花がさくのと同時に受粉する。アサガオのつぼみからおしべをとったのは、受粉させないため。"
   },

@@ -121,7 +121,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "（　）に入る正しい漢字を選ぼう。\n\n◆よい（おこな）いをつつしむ。",
+      "prompt": "（　）にあうことばを、漢字[かんじ]をつかってかいたものはどれですか。\n\nよい（おこない）を心[こころ]がける。",
       "choices": [
         {
           "id": "c1",
@@ -143,7 +143,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「行（おこな）い」と書きます。"
+    "explanation": "「おこない」は「行い[おこない]」とかきます。「い」は送り仮名[おくりがな]です。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-22.3e7f5ace63a6",
@@ -486,11 +486,11 @@
       "speech:disabled"
     ],
     "payload": {
-      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆プールで（泳ぐ）。",
+      "prompt": "（　）のことばのよみかたはどれですか。\n\nプールで（泳ぐ）。",
       "choices": [
         {
           "id": "c1",
-          "text": "泳ぐ"
+          "text": "およぐ"
         },
         {
           "id": "c2",
@@ -508,7 +508,7 @@
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「泳ぐ」は「およぐ」と読みます。"
+    "explanation": "「泳ぐ[およぐ]」は「およぐ」とよみます。「ぐ」までふくめてよみましょう。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-22.f7c09ce02645",

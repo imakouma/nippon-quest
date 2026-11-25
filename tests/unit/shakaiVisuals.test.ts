@@ -34,8 +34,9 @@ it('preserves all 469 targets and answers, with documented wording corrections',
     }
     return [q.id, q.type, q.grade, q.unit, p.answer, p.answers, choices];
   });
+  // Reviewed content corrections: tasks/nonmath-audit-repair-20261124-result.md.
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '50934f9a85b4d1e7014cff5fb094b4592b9d6df0cba9772c4260b2a9c20f1bea',
+    'bb604e8a76f85f551e7abe2a4cb6041d28708b543b1305fa839b073270eec364',
   );
 });
 
