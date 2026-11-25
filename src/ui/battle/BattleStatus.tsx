@@ -94,15 +94,7 @@ export function EnemyWindow({ e }: { e: EnemyView }) {
   );
 }
 
-export function AllyRow({
-  a,
-  active,
-  gauges = [],
-}: {
-  a: AllyView;
-  active: boolean;
-  gauges?: SubjectGaugeView[];
-}) {
+export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
   const down = a.hp <= 0;
   return (
     <div
@@ -135,15 +127,14 @@ export function AllyRow({
         )}
       </div>
       <StatusEffects effects={a.effects} />
-      {a.isHero && !down && gauges.length > 0 && <GaugeColumn list={gauges} compact />}
     </div>
   );
 }
 
-export function GaugeColumn({ list, compact = false }: { list: SubjectGaugeView[]; compact?: boolean }) {
+export function GaugeColumn({ list }: { list: SubjectGaugeView[] }) {
   return (
-    <div class={`nq-sgauge ${compact ? 'nq-sgauge-hero' : ''}`}>
-      {!compact && <span class="nq-sgauge-title">{t('battle.gauge')}</span>}
+    <div class="nq-sgauge">
+      <span class="nq-sgauge-title">{t('battle.gauge')}</span>
       {list.map((g) => (
         <div
           key={g.subject}

@@ -30,6 +30,12 @@ for (const viewport of [
     await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
     await page.locator('.nq-box').click();
     await page.locator('.nq-cmd[data-cmd="skill"]').click();
+    const normal = page.locator('[data-skill="sk-tashizan-giri"]');
+    await expect(normal.locator('.nq-opt-charge')).toHaveText('チャージ');
+    const normalRow = await normal.boundingBox();
+    const normalIcon = await normal.locator('.nq-opt-side > .nq-picon').boundingBox();
+    const charge = await normal.locator('.nq-opt-charge').boundingBox();
+    await page.locator('[data-charge-toggle]').click();
     const burst = page.locator('[data-skill="sk-burst-sansu"]');
     await expect(burst.locator('.nq-opt-cost-value')).toHaveText(String(viewport.cost));
     await expect(burst.locator('.nq-opt-cost')).toHaveAttribute(
@@ -37,7 +43,6 @@ for (const viewport of [
       `ひつようゲージ ${viewport.cost}`,
     );
     await expect(burst).toHaveAttribute('aria-disabled', 'true');
-    await expect(page.locator('[data-skill="sk-tashizan-giri"] .nq-opt-charge')).toHaveText('チャージ');
     for (const value of await page.locator('.nq-opt-cost-value').allTextContents()) {
       expect(value.trim()).toMatch(/^\d+$/);
     }
@@ -46,13 +51,9 @@ for (const viewport of [
       return element.clientWidth / track.clientWidth;
     });
     expect.soft(fill).toBeCloseTo(viewport.cost / 100, 2);
-    const normal = page.locator('[data-skill="sk-tashizan-giri"]');
-    const normalRow = await normal.boundingBox();
     const burstRow = await burst.boundingBox();
-    const normalIcon = await normal.locator('.nq-opt-side > .nq-picon').boundingBox();
     const burstIcon = await burst.locator('.nq-opt-side > .nq-picon').boundingBox();
     expect.soft(normalIcon!.x - normalRow!.x).toBeCloseTo(burstIcon!.x - burstRow!.x, 0);
-    const charge = await normal.locator('.nq-opt-charge').boundingBox();
     const costbar = await burst.locator('.nq-opt-costbar').boundingBox();
     expect.soft(charge!.x - normalRow!.x).toBeCloseTo(costbar!.x - burstRow!.x, 0);
     await page.screenshot({ path: info.outputPath('skill-gauge-cost.png') });

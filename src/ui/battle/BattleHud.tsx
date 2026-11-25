@@ -2,7 +2,7 @@
  * バトル画面の DOM オーバーレイ（リアルタイム・コマンドゲージバトル）。サイドビュー（敵が左・味方が右）の SFC 風 RPG：
  *  - 上：左に敵、右にメッセージ。下：左にコマンド、右に仲間の窓（名前・Lv・HP ゲージ）
  *  - 敵の 足もと：こうげきタイマー（たまると こうげきして くる。もうすぐなら 赤く 点めつ）
- *  - 下：コマンドの右、味方ステータスの左に教科ゲージ（こたえると たまり、必殺技で へる）
+ *  - チャージ操作と教科ゲージはコマンドの右、技一覧では左上に独立して配置する。
  *  - 下：メッセージ窓、コマンドは下の左に 2 列 × 2 段。わざ・どうぐ・いれかえは下から大きな窓
  *  - 問題の あいだは 問題の 枠の 見出しに 敵の こうげきタイマーと HP（問題中も 敵は うごく）
  * 窓は黒＋白い太枠、文字は PixelMplus12（12 / 24 / 36 / 48px）。
@@ -20,6 +20,7 @@ import { playSfx } from '../sfx';
 import { TypedText, useTypewriter } from '../typewriter';
 import {
   useHud,
+  visibleBattleSkills,
   type BannerView,
   type HudState,
   type HudStore,
@@ -29,6 +30,7 @@ import {
 import { BattleResultPanel } from './BattleResultPanel';
 import { AllyRow, Bar, ComboBadge, EnemyWindow, TurnBadge } from './BattleStatus';
 import { pickBattleHudOption, useBattleHudInput } from './useBattleHudInput';
+import { ChargeControl } from './ChargeControl';
 import './battle.css';
 
 /** auto メッセージを読み終えてから次へ進むまで */
@@ -147,13 +149,20 @@ function GaugeCost({ k, max }: { k: SkillOption; max: number }) {
 }
 
 function SkillList({ s, store }: { s: HudState; store: HudStore }) {
-  const focus = s.skills[s.cursor];
+  const skills = visibleBattleSkills(s);
+  const focus = skills[s.cursor];
   const subject = focus ? t(`subjects.${focus.subject}`) : '';
   return (
     <div class="nq-win nq-menu nq-menu-skill">
       <div class="nq-menu-layout">
-        <div class="nq-menu-grid" role="group" aria-label={t('cmd.skill')}>
-          {s.skills.map((k, i) => (
+        <div
+          id="nq-battle-skills"
+          class="nq-menu-grid"
+          role="group"
+          aria-label={t(s.chargeSkills ? 'battle.chargeSkills' : 'battle.normalSkills')}
+        >
+          {skills.length === 0 && <p class="nq-menu-empty">{t('battle.noChargeSkills')}</p>}
+          {skills.map((k, i) => (
             <button
               key={k.key}
               type="button"
@@ -466,7 +475,7 @@ export function BattleHud({ store }: { store: HudStore }) {
       battleRef.current?.querySelector<HTMLElement>('button.nq-focus')?.focus();
     });
     return () => cancelAnimationFrame(frame);
-  }, [s.cursor, s.menu, s.question, s.result]);
+  }, [s.cursor, s.menu, s.chargeSkills, s.question, s.result]);
 
   const onStageClick = (e: JSX.TargetedMouseEvent<HTMLDivElement>) => {
     if (e.target !== e.currentTarget) return;
@@ -512,16 +521,13 @@ export function BattleHud({ store }: { store: HudStore }) {
           {s.menu !== 'commands' && <div class="nq-bottom-command-spacer" aria-hidden="true" />}
           <div class="nq-party">
             {s.allies.map((a) => (
-              <AllyRow
-                key={a.id}
-                a={a}
-                active={s.allies.length > 1 && s.actorId === a.id && menuOpen}
-                gauges={a.isHero ? s.gauges : []}
-              />
+              <AllyRow key={a.id} a={a} active={s.allies.length > 1 && s.actorId === a.id && menuOpen} />
             ))}
           </div>
         </div>
       )}
+
+      {!s.intro && !s.result && <ChargeControl s={s} store={store} />}
 
       {s.menu === 'skills' && (
         <>

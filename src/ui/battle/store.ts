@@ -203,6 +203,7 @@ export interface HudState {
   cursor: number;
   commands: CommandOption[];
   skills: SkillOption[];
+  chargeSkills: boolean;
   items: ItemOption[];
   swaps: SwapOption[];
   gauges: SubjectGaugeView[];
@@ -238,6 +239,7 @@ export const initialHudState = (): HudState => ({
   cursor: 0,
   commands: [],
   skills: [],
+  chargeSkills: false,
   items: [],
   swaps: [],
   gauges: [],
@@ -263,6 +265,7 @@ export class HudStore {
   set(patch: Partial<HudState> | ((s: HudState) => Partial<HudState>)): void {
     const p = typeof patch === 'function' ? patch(this.state) : patch;
     this.state = { ...this.state, ...p };
+    if (p.menu && p.menu !== 'skills') this.state.chargeSkills = false;
     for (const fn of this.subs) fn();
   }
 
@@ -310,4 +313,9 @@ export function useHudSelector<T>(
     return store.subscribeSelector(select, setSelected, equal);
   }, [equal, select, store]);
   return selected;
+}
+
+/** 描画とキーボードで同じ技一覧を使う。仲間の技も消費ゲージで分ける。 */
+export function visibleBattleSkills(state: HudState): SkillOption[] {
+  return state.skills.filter((skill) => skill.cost > 0 === state.chargeSkills);
 }

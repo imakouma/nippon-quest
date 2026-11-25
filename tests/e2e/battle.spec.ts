@@ -230,7 +230,7 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
     page.locator('.nq-bottom-rail').boundingBox(),
     page.locator('.nq-panel').boundingBox(),
     page.locator('.nq-bottom-command-slot').boundingBox(),
-    page.locator('.nq-ally-hero .nq-sgauge').boundingBox(),
+    page.locator('.nq-charge-dock .nq-sgauge').boundingBox(),
     page.locator('.nq-party').boundingBox(),
     page.locator('.nq-ally-hero .nq-bar-hp').boundingBox(),
   ]);
@@ -252,10 +252,10 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   expect(commandSlot!.x).toBeCloseTo(rail!.x, 0);
   expect(party!.x + party!.width).toBeCloseTo(rail!.x + rail!.width, 0);
   expect(party!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
-  expect(gauge!.y).toBeGreaterThan(heroHp!.y);
-  expect(gauge!.x).toBeGreaterThanOrEqual(heroHp!.x);
-  expect(gauge!.width).toBeCloseTo(heroHp!.width, 0);
-  await expect(page.locator('.nq-ally-hero .nq-sg-value')).toHaveText(['0/100', '0/100']);
+  expect(gauge!.x).toBeGreaterThan(commandSlot!.x + commandSlot!.width);
+  expect(gauge!.x + gauge!.width).toBeLessThan(party!.x);
+  await expect(page.locator('.nq-ally-hero .nq-sgauge')).toHaveCount(0);
+  await expect(page.locator('.nq-charge-dock .nq-sg-value')).toHaveText(['0/100', '0/100']);
 
   // 技一覧を開いても、右下の主人公枠は動かず、舞台を覆い過ぎない高さに保つ。
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
@@ -323,11 +323,12 @@ test('バトル：使えない必殺技も理由を読める明るさで表示�
   test.setTimeout(60_000);
   await start(page, 8);
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
-  await expect(page.getByRole('group', { name: 'わざ' })).toBeVisible();
+  await page.locator('[data-charge-toggle]').click();
+  await expect(page.getByRole('group', { name: 'チャージわざ' })).toBeVisible();
   const unavailable = page.locator('[data-skill].nq-opt-off').first();
   await expect(unavailable).toBeVisible();
-  // Hover can select a disabled row; check its idle color with focus on a usable skill.
-  await page.locator('[data-skill]:not(.nq-opt-off)').first().hover();
+  // Focus another charge row to check the first row's idle disabled color.
+  await page.locator('[data-skill]').last().hover();
   await expect(unavailable).toHaveAttribute('aria-disabled', 'true');
   await expect(unavailable).toHaveCSS('color', 'rgb(163, 170, 187)');
   await expect(unavailable.locator('.nq-opt-cost')).toHaveAttribute('aria-label', /^ひつようゲージ \d+$/);

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'preact/hooks';
 import { playSfx } from '../sfx';
-import type { HudState, HudStore } from './store';
+import { visibleBattleSkills, type HudState, type HudStore } from './store';
 
 const KEY_DIR: Record<string, [number, number]> = {
   ArrowLeft: [-1, 0],
@@ -28,7 +28,7 @@ function menuOptions(state: HudState, store: HudStore): Option[] {
             : undefined,
       }));
     case 'skills':
-      return state.skills.map((skill) => ({
+      return visibleBattleSkills(state).map((skill) => ({
         disabled: skill.disabled,
         action: () => store.dispatch({ t: 'skill', key: skill.key }),
       }));
