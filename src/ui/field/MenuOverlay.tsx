@@ -40,6 +40,7 @@ export interface MenuOverlayProps {
   onTab: (tab: MenuTab) => void;
   onBag: () => void;
   onSkills?: () => void;
+  onSettings: () => void;
   onAct: (key: string) => void;
   onRoadmapSelect: (unitId: string) => void;
   onSave: () => Promise<void>;
@@ -111,6 +112,7 @@ export function MenuOverlay({
   onTab,
   onBag,
   onSkills,
+  onSettings,
   onAct,
   onRoadmapSelect,
   onSave,
@@ -199,6 +201,10 @@ export function MenuOverlay({
     if (!next) return;
     playSfx('select');
     setHomeSel(index);
+    if (next.key === 'settings') {
+      onSettings();
+      return;
+    }
     if (next.key === 'skills') {
       onSkills?.();
       return;

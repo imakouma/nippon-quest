@@ -1,3 +1,4 @@
+import { showSettings } from './overworld/settingsMenu';
 /** フィールド・町・ダンジョン・離島をマス移動で調停する Scene。 */
 import Phaser from 'phaser';
 import { isLocalDevelopmentUrl } from '../core/localDevelopment';
@@ -553,6 +554,7 @@ export class OverworldScene extends Phaser.Scene {
     this.fieldInput = new FieldInputController(this, {
       canInteract: () => !this.busy && !this.inBattle,
       player: () => this.player,
+      movementKeys: () => this.gs()?.settings.movementKeys ?? 'both',
       onInteract: () => this.routeFieldInteraction('interact'),
       onAreaMap: () => this.openAreaMap(),
       onMenu: () => this.routeFieldInteraction('menu'),
@@ -2704,6 +2706,7 @@ export class OverworldScene extends Phaser.Scene {
             this.busy = false;
             this.openBag(undefined, null, undefined, true);
           },
+          onSettings: () => showSettings(root, this, () => draw(tab)),
           onSkills: () => showHeroSkillEditor(root, c, this, () => draw(tab)),
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
           onRoadmapSelect: (unitId: string) => {

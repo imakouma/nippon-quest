@@ -27,7 +27,7 @@
   display: grid;
   flex: 1;
   min-height: 0;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   grid-template-rows: minmax(0, 1fr);
   gap: 12px;
   padding: 12px;
@@ -1570,4 +1570,15 @@
 .nq-menu-unknown-art img {
   filter: brightness(0);
   opacity: 0.75;
+}
+
+.nq-settings-box {
+  width: min(32rem, 92vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 1.5rem;
+}
+.nq-settings-box input,
+.nq-settings-box select {
+  max-width: 100%;
 }
