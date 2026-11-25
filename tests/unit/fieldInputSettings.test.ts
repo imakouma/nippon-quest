@@ -6,7 +6,8 @@ describe('移動キー設定', () => {
   it('選択したキーだけで移動し、タッチ操作は常に使える', () => {
     let mode: 'both' | 'arrows' | 'wasd' = 'both';
     const key = (isDown = false) => ({ isDown });
-    const controller = Object.assign(Object.create(FieldInputController.prototype) as FieldInputController, {
+    const controller = Object.create(FieldInputController.prototype) as FieldInputController;
+    Object.assign(controller, {
       callbacks: { movementKeys: () => mode },
       cursors: { left: key(true), right: key(), up: key(), down: key() },
       wasd: { A: key(), D: key(true), W: key(), S: key() },

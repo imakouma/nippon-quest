@@ -1,4 +1,3 @@
-import { showSettings } from './overworld/settingsMenu';
 /** フィールド・町・ダンジョン・離島をマス移動で調停する Scene。 */
 import Phaser from 'phaser';
 import { isLocalDevelopmentUrl } from '../core/localDevelopment';
@@ -24,6 +23,7 @@ import {
 } from '../core/world/terrainElevation';
 import { evolutionOf } from '../core/progression/evolution';
 import { normalizeHeroLoadout, showHeroSkillEditor } from './overworld/heroSkillEditor';
+import { showSettings } from './overworld/settingsMenu';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
   activeEquipment,
@@ -3412,7 +3412,6 @@ export class OverworldScene extends Phaser.Scene {
   gs(): GameState | undefined {
     return this.registry.get('game') as GameState | undefined;
   }
-
   setGame(gs: GameState): void {
     gs = normalizeHeroLoadout(gs, this.content());
     const xp = this.content()?.xp.hero;
@@ -3420,7 +3419,6 @@ export class OverworldScene extends Phaser.Scene {
     this.registry.set('game', next);
     this.refreshHeroLook();
   }
-
   private rememberLocation(x: number, y: number): void {
     this.game.canvas.dataset.playerTile = `${x},${y}`;
     const gs = this.gs();
