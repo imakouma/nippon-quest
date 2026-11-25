@@ -6,6 +6,7 @@ import type { Skill } from '../../src/core/content/schemas';
 
 type Combat = Phaser.Scene & {
   state: BattleState;
+  gs: { progress: { counters: Record<string, number> } };
   enemySprite: Phaser.GameObjects.Image;
   content: ContentIndex;
   askSkill(): Promise<{ score: number; timeMs: number; attempts: number }>;
@@ -96,6 +97,8 @@ for (const viewport of [
       battle.state.enemy.hp = 1;
       battle.askSkill = async () => ({ score: 0.6, timeMs: 1000, attempts: 1 });
       const skill = battle.content.skills.get(battle.state.ally.hero.skills[0]!)!;
+      // This test measures KO rendering; max training keeps the attack guaranteed to hit.
+      battle.gs.progress.counters[`math-training:${skill.id}`] = 8;
       window.__koRun = battle
         .runIntent({ kind: 'skill', entry: { actorId: battle.state.ally.hero.id, skill } })
         .then(() => ({
