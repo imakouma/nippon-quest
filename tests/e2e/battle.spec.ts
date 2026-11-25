@@ -226,13 +226,14 @@ test('バトル：ターン表示を出さず、こちらが動くと次のコ�
 test('バトル：コマンドと主人公情報はポケモン風の独立したコンパクトな枠に収まる', async ({ page }) => {
   test.setTimeout(60_000);
   await start(page, 8);
-  const [rail, foe, commandSlot, gauge, party, heroHp] = await Promise.all([
+  const [rail, foe, commandSlot, gauge, party, heroHp, foeHp] = await Promise.all([
     page.locator('.nq-bottom-rail').boundingBox(),
     page.locator('.nq-panel').boundingBox(),
     page.locator('.nq-bottom-command-slot').boundingBox(),
     page.locator('.nq-charge-frame').boundingBox(),
     page.locator('.nq-party').boundingBox(),
     page.locator('.nq-ally-hero .nq-bar-hp').boundingBox(),
+    page.locator('.nq-foe .nq-bar-hp').boundingBox(),
   ]);
 
   expect(rail).not.toBeNull();
@@ -246,7 +247,9 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   await expect(page.locator('.nq-box')).toHaveCount(0);
   await expect(page.locator('.nq-foe-row')).toHaveCount(0);
   await expect(page.locator('.nq-bar-hp .nq-bar-value')).toHaveCount(2);
-  expect(foe!.width).toBeLessThanOrEqual(225);
+  expect(foe!.width).toBeCloseTo(party!.width, 0);
+  expect(foeHp!.width).toBeCloseTo(heroHp!.width, 0);
+  expect(foeHp!.height).toBeCloseTo(heroHp!.height, 0);
   expect(commandSlot!.width).toBeLessThanOrEqual(190);
   expect(party!.width).toBeLessThanOrEqual(260);
   expect(commandSlot!.x).toBeCloseTo(rail!.x, 0);
@@ -309,6 +312,12 @@ test('バトル：ボスのHP枠は敵の頭上に中央揃えし、会話枠と
   expect(message).not.toBeNull();
   expect(panel!.x + panel!.width / 2).toBeCloseTo(300, 0);
   expect(message!.x - (panel!.x + panel!.width)).toBeGreaterThanOrEqual(8);
+  await expect(page.locator('.nq-box-next')).toBeVisible();
+  await page.locator('.nq-box').click();
+  const foeHp = await page.locator('.nq-foe .nq-bar-hp').boundingBox();
+  const heroHp = await page.locator('.nq-ally-hero .nq-bar-hp').boundingBox();
+  expect(foeHp!.width).toBeCloseTo(heroHp!.width, 0);
+  expect(foeHp!.height).toBeCloseTo(heroHp!.height, 0);
 });
 
 test('バトル：矢印で選んだコマンドへ実フォーカスが追従する', async ({ page }) => {
