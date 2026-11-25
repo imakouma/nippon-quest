@@ -253,7 +253,7 @@ test('競合の上書きと未送信のログアウトを確認し、キャン�
   await expect(dialog.locator('.nq-account-slot-pending')).toHaveCount(1);
   await expect(dialog.getByRole('status')).toContainText(/切|き/);
   await page.setViewportSize({ width: 844, height: 390 });
-  await dialog.getByRole('button', { name: /同期|どうき/ }).click();
+  await expect(dialog.getByRole('button', { name: /同期|どうき/ })).toHaveCount(0);
   await expect(dialog.getByRole('button', { name: 'もどる' })).toBeInViewport();
   await expect(dialog.locator('.nq-account-slot-pending')).toHaveCount(1);
   expect(await dialog.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);

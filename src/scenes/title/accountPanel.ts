@@ -14,7 +14,6 @@ import {
   guestSummaries,
   importGuestSlot,
   resolveAccountSlot,
-  syncAccount,
   exportAccountData,
 } from '../../core/state/save';
 import type { GameState } from '../../core/state/schema';
@@ -85,10 +84,6 @@ export function mountAccountPanel(
         },
         onResolve: async (slot, choice) => {
           await resolveAccountSlot(slot, choice);
-          await refresh();
-        },
-        onSync: async () => {
-          await syncAccount();
           await refresh();
         },
         onExport: async () => {

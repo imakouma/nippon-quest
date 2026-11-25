@@ -105,11 +105,6 @@
   color: var(--nq-yellow);
   font-size: 26px;
 }
-.nq-account .nq-account-eyebrow {
-  font-size: 20px;
-  color: #b7d6ff;
-  margin: 12px 0 4px;
-}
 
 .nq-account .nq-account-primary {
   min-height: 56px;
@@ -121,15 +116,11 @@
 .nq-account button:hover:not(:disabled) {
   filter: brightness(1.15);
 }
-.nq-account-overview,
 .nq-account-slot-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-}
-.nq-account-overview > button {
-  flex-shrink: 0;
 }
 .nq-account-slot p {
   margin: 4px 0;
@@ -176,8 +167,4 @@
 .nq-account .nq-account-error {
   border-color: #ffbca9;
   color: #ffdbd0;
-}
-
-.nq-account-overview .nq-account-note {
-  margin: 4px 0;
 }

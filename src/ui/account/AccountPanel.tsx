@@ -79,7 +79,7 @@ export function AccountPanel(props: AccountPanelProps) {
     setConfirmation(null);
     try {
       await action();
-      if (['sync', 'export', 'import', 'resolve'].includes(kind)) setMessage(t(`account.${kind}Done`));
+      if (['export', 'import', 'resolve'].includes(kind)) setMessage(t(`account.${kind}Done`));
     } catch {
       setError(t(`account.${kind}Failed`));
     } finally {
@@ -211,17 +211,6 @@ export function AccountPanel(props: AccountPanelProps) {
             </>
           ) : (
             <>
-              <div class="nq-account-overview">
-                <div>
-                  <p class="nq-account-eyebrow">
-                    <RubyLabel text={t('account.connected')} />
-                  </p>
-                  <p class="nq-account-note">
-                    <RubyLabel text={t(unsettled ? 'account.checkSaves' : 'account.autoSave')} />
-                  </p>
-                </div>
-                {button('sync', props.onSync)}
-              </div>
               <AccountAdventures
                 view={view}
                 busy={busy}
