@@ -5,7 +5,7 @@ for (const viewport of [
   { width: 640, height: 360, cost: 100 },
   { width: 960, height: 540, cost: 50 },
 ]) {
-  test(`技一覧は必要ゲージ数・量を表示してアイコンを揃える (${viewport.width}px・${viewport.cost})`, async ({
+  test(`技一覧は必要ゲージ数・量を表示して教科アイコンを揃える (${viewport.width}px・${viewport.cost})`, async ({
     page,
   }, info) => {
     test.setTimeout(90_000);
@@ -36,8 +36,9 @@ for (const viewport of [
     await expect(page.locator('#nq-skill-details .nq-opt-charge')).toHaveText('10〜40チャージ');
     await page.keyboard.press('q');
     await expect(page.locator('.nq-opt-charge')).toHaveCount(0);
+    await expect(normal.locator('.nq-opt-side')).toHaveCount(0);
     const normalRow = await normal.boundingBox();
-    const normalIcon = await normal.locator('.nq-opt-side > .nq-picon').boundingBox();
+    const normalIcon = await normal.locator(':scope > .nq-picon').boundingBox();
     await page.locator('[data-charge-toggle]').click();
     const burst = page.locator('[data-skill="sk-burst-sansu"]');
     await expect(burst.locator('.nq-opt-cost-value')).toHaveText(String(viewport.cost));
@@ -55,7 +56,7 @@ for (const viewport of [
     });
     expect.soft(fill).toBeCloseTo(viewport.cost / 100, 2);
     const burstRow = await burst.boundingBox();
-    const burstIcon = await burst.locator('.nq-opt-side > .nq-picon').boundingBox();
+    const burstIcon = await burst.locator(':scope > .nq-picon').boundingBox();
     expect.soft(normalIcon!.x - normalRow!.x).toBeCloseTo(burstIcon!.x - burstRow!.x, 0);
     const costbar = await burst.locator('.nq-opt-costbar').boundingBox();
     expect.soft(costbar!.x).toBeGreaterThanOrEqual(burstIcon!.x + burstIcon!.width);

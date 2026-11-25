@@ -37,7 +37,9 @@ export function SkillList({ s, store }: { s: HudState; store: HudStore }) {
   const focus = skills[s.cursor];
   const subject = focus ? t(`subjects.${focus.subject}`) : '';
   return (
-    <div class={`nq-win nq-menu nq-menu-skill ${s.skillDetails ? 'nq-skill-details-open' : ''}`}>
+    <div
+      class={`nq-win nq-menu nq-menu-skill ${s.chargeSkills ? '' : 'nq-menu-skill-normal'} ${s.skillDetails ? 'nq-skill-details-open' : ''}`}
+    >
       <div class="nq-menu-layout">
         <div
           id="nq-battle-skills"
@@ -68,18 +70,15 @@ export function SkillList({ s, store }: { s: HudState; store: HudStore }) {
               {/* 教科は色・ピクトだけで示す。狭い技一覧で「さんすう」等の文字を重ねない。 */}
               <PixelIcon name={`subj-${k.subject}`} scale={2} />
               <RubyLabel text={k.name} class="nq-opt-name" />
-              <span class="nq-opt-side">
-                {k.reason ? (
-                  <span class="nq-opt-reason">{k.reason}</span>
-                ) : (
-                  <>
-                    <PixelIcon name={`el-${k.element}`} scale={2} />
-                    {k.cost > 0 && (
-                      <GaugeCost k={k} max={s.gauges.find((g) => g.subject === k.subject)?.max ?? k.cost} />
-                    )}
-                  </>
-                )}
-              </span>
+              {(k.reason || k.cost > 0) && (
+                <span class="nq-opt-side">
+                  {k.reason ? (
+                    <span class="nq-opt-reason">{k.reason}</span>
+                  ) : (
+                    <GaugeCost k={k} max={s.gauges.find((g) => g.subject === k.subject)?.max ?? k.cost} />
+                  )}
+                </span>
+              )}
             </button>
           ))}
         </div>

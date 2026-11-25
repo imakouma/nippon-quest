@@ -575,11 +575,6 @@
 .nq-opt-swap .nq-bar {
   min-width: 80px;
 }
-/* 通常技と必殺技で、属性アイコンとその右の表示を同じ列に揃える。 */
-[data-skill] .nq-opt-side {
-  flex: none;
-  width: 160px;
-}
 /* 必殺技に 必要な 教科ゲージ（要る 量 / 最大量） */
 .nq-opt-cost {
   display: inline-flex;
@@ -1313,8 +1308,10 @@
   width: 400px;
   right: auto;
 }
+.nq-menu-skill-normal {
+  width: 272px;
+}
 .nq-menu-skill [data-skill] .nq-opt-side {
-  width: 128px;
   font-size: 12px;
 }
 .nq-menu-skill .nq-menu-layout {
