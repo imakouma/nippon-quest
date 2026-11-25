@@ -40,3 +40,50 @@ it('does not reveal the answer or highlight extra kanji in the reviewed reading 
     expect(question.payload.prompt.match(/\p{Script=Han}/gu), question.id).toHaveLength(1);
   }
 });
+
+it('asks for the mass of a solution without printing it in the prompt or illustration', () => {
+  const questions = JSON.parse(
+    readFileSync('content/questions/rika/g5/legacy-sci-5-8/set-001.json', 'utf8'),
+  ) as {
+    id: string;
+    payload: { prompt: string; promptImage: string; promptImageAlt: string; answers: string[] };
+  }[];
+  const question = questions.find((item) => item.id === 'legacy.rika.g5.sci-5-8.143d35c53ce7')!;
+  const answer = question.payload.answers[0]!;
+  const illustration = readFileSync(`assets/${question.payload.promptImage}`, 'utf8');
+  expect(answer).toBe('115');
+  expect(question.payload.prompt).toContain('100 g');
+  expect(question.payload.prompt).toContain('15 g');
+  expect(question.payload.prompt).not.toContain(answer);
+  expect(question.payload.promptImageAlt).not.toContain(answer);
+  expect(illustration).not.toMatch(/>\s*115\s*g\s*</i);
+  expect(illustration).toContain('100 g');
+  expect(illustration).toContain('15 g');
+});
+
+it('describes clock hands without revealing the answer in accessible image text', () => {
+  const questions = JSON.parse(
+    readFileSync('content/questions/sansu/g2/legacy-math-2-5/set-001.json', 'utf8'),
+  ) as { id: string; payload: { promptImage: string; promptImageAlt: string; answers: string[] } }[];
+  const question = questions.find((item) => item.id === 'legacy.sansu.g2.math-2-5.c7023dee205f')!;
+  const illustration = readFileSync(`assets/${question.payload.promptImage}`, 'utf8');
+  expect(question.payload.promptImageAlt).toContain('長い針は9');
+  expect(question.payload.promptImageAlt).not.toContain(question.payload.answers[0]);
+  expect(illustration).toContain('<title>短い針は3と4の間、長い針は9を指している時計</title>');
+});
+
+it('describes the groups of circles without stating the total', () => {
+  const questions = JSON.parse(
+    readFileSync('content/questions/sansu/g1/kazu-100/balance-001.json', 'utf8'),
+  ) as {
+    id: string;
+    payload: { promptImage: string; promptImageAlt: string; answers: string[] };
+  }[];
+  const question = questions.find((item) => item.id === 'sansu.g1.balance.count-10')!;
+  const illustration = readFileSync(`assets/${question.payload.promptImage}`, 'utf8');
+  expect(question.payload.promptImageAlt).toContain('５こずつ');
+  expect(question.payload.promptImageAlt).not.toMatch(/10|１０/);
+  expect(illustration).not.toContain('まるが 10こ あります');
+  expect(illustration.match(/<circle\b/g)).toHaveLength(10);
+  expect(question.payload.answers).toEqual(['10']);
+});
