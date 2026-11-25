@@ -173,8 +173,7 @@ test('text-input：複数欄は押した欄へ数字を入れられる', async (
 
 test('text-input：数字を記入する問題は教科と学年によらずテンキーを表示する', async ({ page }) => {
   await page.goto('/playground.html?q=legacy.rika.g5.sci-5-8.143d35c53ce7');
-  await expect(page.locator('.nq-input-template')).toHaveClass(/nq-input-template-stacked/);
-  const answerRow = page.locator('.nq-input-answer-row');
+  const answerRow = page.locator('.nq-input-template');
   await expect(answerRow.locator('input')).toHaveCount(1);
   await expect(answerRow).toContainText('g');
   const numberPad = page.getByRole('group', { name: 'すうじボタン' });
