@@ -1,4 +1,4 @@
-import { beforeAll, describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it, vi } from 'vitest';
 import type { ContentIndex } from '../../src/core/content/loader';
 import {
   acceptMission,
@@ -25,6 +25,9 @@ import {
 import { createNewGame } from '../../src/core/state/newGame';
 import type { GameState } from '../../src/core/state/schema';
 import { content } from './helpers';
+import { shopRows } from '../../src/scenes/overworld/townMenuViews';
+
+vi.mock('../../src/rendering/itemIcons', () => ({ itemIconUrl: () => '' }));
 
 let c: ContentIndex;
 let gs: GameState;
@@ -40,6 +43,16 @@ beforeAll(async () => {
 const fresh = (): GameState => createNewGame({ name: 'テスト', grade: 3 }, 1000);
 
 describe('おみせ・やどや・かじや', () => {
+  it('選んだ売買の品だけを表示する', () => {
+    const game = { ...fresh(), inventory: { 'aomori-ringo': 1 } };
+    const stock = shopStock(c.areas.get('aomori')!, c.items);
+    const buy = shopRows(stock, c.items, game, 'buy');
+    const sell = shopRows(stock, c.items, game, 'sell');
+    expect(buy.length).toBeGreaterThan(0);
+    expect(buy.every((row) => !row.key.startsWith('sell:'))).toBe(true);
+    expect(sell.map((row) => row.key)).toEqual(['sell:aomori-ringo']);
+    expect(shopRows(stock, c.items, { ...game, inventory: {} }, 'sell')).toEqual([]);
+  });
   it('青森の おみせは content の品ぞろえ、無い県は その県の どうぐ', () => {
     expect(shopStock(c.areas.get('aomori')!, c.items).map((s) => s.itemId)).toContain('aomori-ringo');
     const akita = shopStock(c.areas.get('akita')!, c.items);

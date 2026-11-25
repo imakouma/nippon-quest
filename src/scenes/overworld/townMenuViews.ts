@@ -27,6 +27,7 @@ export function shopRows(
   stock: readonly ShopEntry[],
   items: ReadonlyMap<string, Item>,
   game: GameState,
+  mode: 'buy' | 'sell',
 ): TownRow[] {
   const buyRows = stock.flatMap((entry): TownRow[] => {
     const item = items.get(entry.itemId);
@@ -63,7 +64,7 @@ export function shopRows(
       },
     ];
   });
-  return [...buyRows, ...sellRows];
+  return mode === 'buy' ? buyRows : sellRows;
 }
 
 export function smithRows(
