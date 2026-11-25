@@ -180,7 +180,7 @@ function useSkill(
 ): void {
   const actorId = evaluation.actorId!;
   const base = def.skills.get(command.skillId)!;
-  const sk = actorId === s.ally.hero.id ? def.heroSkill?.(base) ?? base : base;
+  const sk = actorId === s.ally.hero.id ? (def.heroSkill?.(base) ?? base) : base;
   const actor = actorId === s.ally.hero.id ? s.ally.hero : s.ally.monsters.find((m) => m.id === actorId)!;
   const p = s.player;
   const st = def.settings;

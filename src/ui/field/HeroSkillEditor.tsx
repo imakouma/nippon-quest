@@ -63,7 +63,12 @@ export function HeroSkillEditor({ initial, skills, levels, onChange }: HeroSkill
                 </label>
                 {current && (
                   <p>
-                    {levels?.[current.id] && <span>Lv.{levels[current.id]}　</span>}
+                    {levels?.[current.id] && (
+                      <span>
+                        Lv.{levels[current.id]}
+                        {'\u3000'}
+                      </span>
+                    )}
                     {t('field.skillDetail', {
                       subject: t(`subjects.${current.subject}`),
                       power: current.power,
