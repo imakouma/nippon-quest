@@ -74,17 +74,8 @@ export function SkillList({ s, store }: { s: HudState; store: HudStore }) {
                 ) : (
                   <>
                     <PixelIcon name={`el-${k.element}`} scale={2} />
-                    {k.cost > 0 ? (
+                    {k.cost > 0 && (
                       <GaugeCost k={k} max={s.gauges.find((g) => g.subject === k.subject)?.max ?? k.cost} />
-                    ) : (
-                      <span class="nq-opt-charge">
-                        {t('battle.chargeAmount', {
-                          n:
-                            k.chargeGain[0] === k.chargeGain[1]
-                              ? k.chargeGain[0]
-                              : `${k.chargeGain[0]}〜${k.chargeGain[1]}`,
-                        })}
-                      </span>
                     )}
                   </>
                 )}
@@ -125,7 +116,16 @@ export function SkillList({ s, store }: { s: HudState; store: HudStore }) {
                 ? t('battle.gradeOne', { a: focus.gradeRange[0] })
                 : t('battle.gradeRange', { a: focus.gradeRange[0], b: focus.gradeRange[1] })}
             </span>
-            {focus.cost === 0 && <RubyLabel text={t('battle.chargeAmountHint')} />}
+            {focus.cost === 0 && (
+              <span class="nq-opt-charge" title={displayText(t('battle.chargeAmountHint'))}>
+                {t('battle.chargeAmount', {
+                  n:
+                    focus.chargeGain[0] === focus.chargeGain[1]
+                      ? focus.chargeGain[0]
+                      : `${focus.chargeGain[0]}〜${focus.chargeGain[1]}`,
+                })}
+              </span>
+            )}
             {focus.cost > 0 && (
               <span class="nq-menu-cost">{t('battle.costHint', { subject, n: focus.cost })}</span>
             )}

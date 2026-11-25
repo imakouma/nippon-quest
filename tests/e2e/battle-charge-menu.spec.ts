@@ -62,11 +62,12 @@ for (const width of [960, 640]) {
     await expect(page.locator('[data-skill]')).toHaveCount(4);
     await expect(page.locator('.nq-sgauge')).toHaveCount(0);
     await expect(page.locator('.nq-charge-hint')).toHaveCount(0);
-    await expect(page.locator('.nq-opt-charge').first()).toHaveText('10〜40チャージ');
+    await expect(page.locator('[data-skill] .nq-opt-charge')).toHaveCount(0);
     await expect(page.locator('#nq-skill-details')).toHaveCount(0);
     await page.screenshot({ path: info.outputPath('normal-skills.png') });
     await page.keyboard.press('q');
     await expect(page.locator('#nq-skill-details')).toBeVisible();
+    await expect(page.locator('#nq-skill-details .nq-opt-charge')).toHaveText('10〜40チャージ');
     const detail = await page.locator('#nq-skill-details').boundingBox();
     const chargeDuringDetails = await toggle.boundingBox();
     expect(detail!.y + detail!.height).toBeLessThan(chargeDuringDetails!.y);
