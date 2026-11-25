@@ -7,6 +7,7 @@
  * 文字は 12 / 24 / 36 / 48px だけ（PixelMplus12 のマス目の倍数）。
  */
 .nq-battle {
+  --nq-status-width: 252px;
   position: absolute;
   inset: 0;
   z-index: 30;
@@ -59,8 +60,8 @@
   position: absolute;
   left: 12px;
   top: 12px;
-  width: 220px;
-  min-height: 84px;
+  width: var(--nq-status-width);
+  min-height: 78px;
   display: flex;
 }
 .nq-panel-boss {
@@ -70,10 +71,10 @@
 .nq-foe {
   box-sizing: border-box;
   width: 100%;
-  padding: 2px 12px 6px;
+  padding: 4px 8px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0;
 }
 .nq-effects {
   display: flex;
@@ -128,14 +129,17 @@
   color: var(--nq-cream);
   text-align: right;
 }
+/* 枠線8pxと左右余白16pxを除き、ボス戦でも味方と同じゲージ幅にする。 */
 .nq-foe .nq-bar {
-  min-width: 96px;
+  flex: none;
+  width: calc(var(--nq-status-width) - 24px);
+  max-width: 100%;
 }
 .nq-foe-hp {
   display: flex;
   align-items: center;
   gap: 0;
-  min-height: 24px;
+  min-height: 26px;
 }
 .nq-foe-name {
   flex: 1;
@@ -185,7 +189,7 @@
 }
 .nq-party {
   position: relative;
-  width: 252px;
+  width: var(--nq-status-width);
   box-sizing: border-box;
   padding: 4px 8px;
   display: flex;
@@ -242,14 +246,13 @@
   color: var(--nq-yellow);
 }
 .nq-ally-hp {
-  padding-left: 56px;
+  padding-left: 0;
 }
 .nq-ally-hero .nq-ally-heading {
   height: 36px;
 }
 .nq-ally-hero .nq-ally-hp {
   height: 26px;
-  padding-left: 0;
 }
 .nq-ally-hero .nq-ally-lv {
   font-size: 20px;
