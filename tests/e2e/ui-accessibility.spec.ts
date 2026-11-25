@@ -25,7 +25,7 @@ for (const width of [640, 960]) {
     const first = page.getByRole('menuitem').first();
     await expect(page.getByRole('menuitem')).toHaveCount(2);
     await expect(page.getByRole('menuitem', { name: /もんだいいちらん/ })).toHaveCount(0);
-    await expect(page.getByText(/タップで けってい/)).toBeVisible();
+    await expect(page.getByText(/タップで けってい/)).toHaveCount(0);
     await expect(page.getByText(/キーボードは/)).toHaveCount(0);
     await expect(first).toBeFocused();
     const continueItem = page.getByRole('menuitem').nth(1);
@@ -42,14 +42,12 @@ for (const width of [640, 960]) {
     expect(box!.y).toBeGreaterThanOrEqual(0);
     expect(box!.x + box!.width).toBeLessThanOrEqual(width + 1);
     expect(box!.y + box!.height).toBeLessThanOrEqual(541);
-    const hintBox = await page.locator('.nq-title-hint').boundingBox();
+    await expect(page.locator('.nq-title-hint')).toBeHidden();
     const menuBox = await page.locator('.nq-title-menu').boundingBox();
     const creditBox = await page.locator('.nq-title-credit').boundingBox();
-    expect(hintBox).not.toBeNull();
     expect(menuBox).not.toBeNull();
     expect(creditBox).not.toBeNull();
-    expect(menuBox!.y + menuBox!.height).toBeLessThanOrEqual(hintBox!.y);
-    expect(hintBox!.y + hintBox!.height).toBeLessThanOrEqual(creditBox!.y);
+    expect(menuBox!.y + menuBox!.height).toBeLessThanOrEqual(creditBox!.y);
     await page.screenshot({ path: `/tmp/nihonquest-title-${width}x540.png` });
   });
 }
