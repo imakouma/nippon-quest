@@ -7,7 +7,7 @@
  */
 import Phaser from 'phaser';
 import { h, render } from 'preact';
-import { accountSession } from '../core/state/accountSession';
+import { accountSession, signIn } from '../core/state/accountSession';
 import { mountAccountPanel } from './title/accountPanel';
 import { createRng } from '../core/rng';
 import {
@@ -55,6 +55,7 @@ export class TitleScene extends Phaser.Scene {
   private hasSave = false;
   private slots: SlotSummary[] = SLOTS.map((slot) => ({ slot, exists: false }));
   private selectedSlot: SlotId = 1;
+  private openingGoogle = false;
   private menuView: 'main' | 'slots' | 'setup' | 'account' = 'main';
   private closeAccount: (() => void) | null = null;
 
@@ -272,7 +273,7 @@ export class TitleScene extends Phaser.Scene {
         ],
         googleLabel: t('account.google'),
         googleDisabled: !this.saveChecked,
-        onGoogle: () => this.mountAccount(),
+        onGoogle: () => void this.openGoogle(),
         disabledNote: this.saveChecked ? null : t('ui.saveChecking'),
         credit: t('ui.credits'),
         onSelect: (index: number) => {
@@ -355,16 +356,39 @@ export class TitleScene extends Phaser.Scene {
     );
   }
 
-  private mountAccount(): void {
+  private async openGoogle(): Promise<void> {
+    if (this.openingGoogle) return;
+    const session = accountSession();
+    if (session.saves || session.blocked || !session.available || !session.providers.includes('google')) {
+      this.mountAccount();
+      return;
+    }
+
+    this.openingGoogle = true;
+    try {
+      const url = await signIn('google');
+      if (this.menuRoot && this.menuView === 'main' && !this.starting) location.assign(url);
+    } catch {
+      if (this.menuView === 'main') this.mountAccount(true);
+    } finally {
+      this.openingGoogle = false;
+    }
+  }
+
+  private mountAccount(loginFailed = false): void {
     if (!this.menuRoot) return;
     this.menuView = 'account';
     this.closeAccount?.();
-    this.closeAccount = mountAccountPanel(this.menuRoot, () => {
-      this.closeAccount?.();
-      this.closeAccount = null;
-      this.mountMenu();
-      void this.checkSave();
-    });
+    this.closeAccount = mountAccountPanel(
+      this.menuRoot,
+      () => {
+        this.closeAccount?.();
+        this.closeAccount = null;
+        this.mountMenu();
+        void this.checkSave();
+      },
+      loginFailed,
+    );
   }
 
   private unmountMenu(): void {

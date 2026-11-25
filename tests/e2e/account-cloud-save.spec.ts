@@ -263,3 +263,15 @@ test('競合の上書きと未送信のログアウトを確認し、キャン�
   await expect(dialog.getByRole('alert')).toContainText('Google');
   expect(account.owner).toBe('alice');
 });
+
+test('タイトルのGoogleアイコンから直接Google認証へ進む', async ({ page, context }) => {
+  await mockAccount(context, { owner: null, slots: [] });
+  const googleUrl = 'https://accounts.google.com/o/oauth2/v2/auth?prompt=select_account';
+  await page.route('**/api/auth/sign-in/social', (route) => route.fulfill({ json: { url: googleUrl } }));
+  await page.route('https://accounts.google.com/**', (route) =>
+    route.fulfill({ contentType: 'text/html', body: '<h1>Google account chooser</h1>' }),
+  );
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Googleでログイン', exact: true }).click();
+  await expect(page).toHaveURL(googleUrl);
+});

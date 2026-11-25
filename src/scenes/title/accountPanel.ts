@@ -28,11 +28,15 @@ function describe(state: GameState | null) {
       })
     : null;
 }
-export function mountAccountPanel(root: HTMLElement, close: () => void): () => void {
+export function mountAccountPanel(
+  root: HTMLElement,
+  close: () => void,
+  directLoginFailed = false,
+): () => void {
   let disposed = false;
   let sequence = 0;
   const url = new URL(location.href);
-  const loginFailed = url.searchParams.has('error');
+  const loginFailed = directLoginFailed || url.searchParams.has('error');
   for (const key of ['account', 'error', 'error_description']) url.searchParams.delete(key);
   history.replaceState(null, '', url);
   const refresh = async () => {
