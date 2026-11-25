@@ -11,7 +11,7 @@ const questions = readdirSync('content/questions/kokugo', { recursive: true })
   .map((q) => questionBaseSchema.parse(q))
   .sort((a, b) => a.id.localeCompare(b.id));
 
-// Includes the seven original G4 reading replacements; all question IDs and answer IDs are retained.
+// Snapshot includes the reviewed answer and choice changes for the answer-reveal corrections.
 it('preserves all Japanese question identities and answers', () => {
   expect(questions).toHaveLength(4665);
   const rows = questions.map((q) => {
@@ -19,7 +19,7 @@ it('preserves all Japanese question identities and answers', () => {
     return [q.id, q.type, q.grade, q.unit, p.answer, p.answers, p.choices];
   });
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '48f5f5128122ec27e9e0370446cc2c0ead8cdfced867e8dfedb0e3484219d8a1',
+    '959637b791f77fe268a4e0006deb4c1c2b0b2d0c019904fcaa0a785beb25746e',
   );
 });
 
