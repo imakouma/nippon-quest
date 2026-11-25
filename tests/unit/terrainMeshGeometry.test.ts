@@ -56,6 +56,16 @@ describe('terrain mesh geometry', () => {
     expect(new Set(geometry.faces.flatMap((face) => face.vertices.map((vertex) => vertex.height)))).toEqual(
       new Set([0, 4, 8, 12, 16]),
     );
+    expect(geometry.faces.filter((face) => face.side === 'south').map((face) => face.band)).toEqual([
+      'top',
+      'top',
+      'middle',
+      'middle',
+      'middle',
+      'middle',
+      'bottom',
+      'bottom',
+    ]);
   });
 
   it('turns consecutive stair heights into separate real risers', () => {
@@ -68,6 +78,14 @@ describe('terrain mesh geometry', () => {
 
     const risers = geometry.faces.filter((face) => face.side === 'south');
     expect(risers).toHaveLength(6);
+    expect(risers.map((face) => face.band)).toEqual([
+      'single',
+      'single',
+      'single',
+      'single',
+      'single',
+      'single',
+    ]);
     expect(new Set(risers.flatMap((face) => face.vertices.map((vertex) => vertex.height)))).toEqual(
       new Set([4, 8, 12, 16]),
     );

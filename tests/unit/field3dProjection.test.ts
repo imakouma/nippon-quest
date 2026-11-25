@@ -26,4 +26,13 @@ describe('field 3D projection', () => {
 
     expect(rows.map((point) => point.y)).toEqual([...rows].map((point) => point.y).sort((a, b) => a - b));
   });
+
+  it('reuses a supplied projection result in the per-frame terrain hot path', () => {
+    const target = { x: 0, y: 0, depth: 0, scale: 0 };
+
+    const projected = projectField3dPoint({ x: 24, height: 16, z: 48 }, camera, target);
+
+    expect(projected).toBe(target);
+    expect(projected.scale).toBeGreaterThan(0);
+  });
 });
