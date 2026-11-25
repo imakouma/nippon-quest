@@ -146,8 +146,8 @@ export function HeroSkillEditor({ initial, skills, levels, onChange }: HeroSkill
           {(['normal', 'charge'] as const).map((category) => (
             <fieldset key={category} class={'nq-skill-' + category}>
               <legend>
-                {fieldLabel(category === 'normal' ? 'skillNormal' : 'skillCharge')}{' '}
-                {loadout[category].length}/{category === 'normal' ? 4 : 2}
+                {fieldLabel(category === 'normal' ? 'skillNormal' : 'skillCharge')} {loadout[category].length}
+                /{category === 'normal' ? 4 : 2}
               </legend>
               {Array.from({ length: category === 'normal' ? 4 : 2 }, (_, index) => {
                 const skill = skills.find((s) => s.id === loadout[category][index]);
