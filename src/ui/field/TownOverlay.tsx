@@ -113,7 +113,7 @@ export function TownOverlay({
         case ' ':
         case 'z':
         case 'Z':
-          L.act();
+          if (icon !== 'role-barber') L.act();
           break;
         case 'Escape':
         case 'x':
@@ -127,7 +127,7 @@ export function TownOverlay({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, []);
+  }, [icon]);
 
   if (icon === 'role-barber') {
     const groups = Object.values(
@@ -181,7 +181,7 @@ export function TownOverlay({
                           aria-pressed={!!option.tag}
                           aria-current={index === sel ? 'true' : undefined}
                           onPointerEnter={() => pick(index)}
-                          onClick={() => (index === sel ? act() : pick(index))}
+                          onClick={() => pick(index)}
                         >
                           {option.icon && <img src={option.icon} alt="" />}
                           {option.tag && <span>✓</span>}
