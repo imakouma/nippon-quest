@@ -4,6 +4,7 @@ import type { Dir } from '../../rendering/characters';
 interface FieldInputCallbacks {
   canInteract(): boolean;
   player(): Phaser.GameObjects.Sprite;
+  movementKeys(): 'both' | 'arrows' | 'wasd';
   onInteract(): void;
   onAreaMap(): void;
   onMenu(): void;
@@ -41,8 +42,9 @@ export class FieldInputController {
   }
 
   readDirection(): Dir | null {
-    const c = this.cursors;
-    const k = this.wasd;
+    const mode = this.callbacks.movementKeys();
+    const c = mode === 'wasd' ? undefined : this.cursors;
+    const k = mode === 'arrows' ? undefined : this.wasd;
     if (c?.left.isDown || k?.A.isDown) return 'left';
     if (c?.right.isDown || k?.D.isDown) return 'right';
     if (c?.up.isDown || k?.W.isDown) return 'up';
