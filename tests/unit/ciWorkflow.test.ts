@@ -37,6 +37,7 @@ describe('CI workflow', () => {
   it('runs handwriting and math visual checks with development pages', () => {
     for (const file of [
       'kanji-writing.spec.ts',
+      'nonmath-review-order.spec.ts',
       'question-speech.spec.ts',
       'sansu-g*-balance.spec.ts',
       'sansu-g*-visuals.spec.ts',
