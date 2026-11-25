@@ -42,7 +42,10 @@ test('未設定のログインを成功扱いにせず、ゲストプレイを�
   await page.keyboard.press('Escape');
   await expect(page.getByRole('menuitem', { name: 'はじめから' })).toBeEnabled();
   await page.setViewportSize({ width: 844, height: 390 });
-  await page.getByRole('menuitem', { name: 'アカウント', exact: true }).click();
+  await expect(page.getByRole('menuitem', { name: 'アカウント', exact: true })).toHaveCount(0);
+  const googleIcon = page.getByRole('button', { name: 'Googleでログイン', exact: true });
+  await expect(googleIcon).toBeInViewport();
+  await googleIcon.press('Enter');
   await expect(dialog.getByRole('button', { name: 'もどる' })).toBeInViewport();
   await expect(dialog.getByRole('button', { name: 'Googleでログイン' })).toBeInViewport();
   await page.screenshot({ path: testInfo.outputPath('account-narrow.png') });

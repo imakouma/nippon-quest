@@ -8,6 +8,8 @@ import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import './title.css';
 
+const googleIcon = `${import.meta.env.BASE_URL}google-account-square.png`;
+
 export interface TitleMenuItem {
   label: string;
   disabled?: boolean;
@@ -15,14 +17,24 @@ export interface TitleMenuItem {
 
 export interface TitleMenuProps {
   items: TitleMenuItem[];
-  hint: string;
+  googleLabel: string;
+  googleDisabled: boolean;
+  onGoogle: () => void;
   /** えらべない項目を選んだときに出す一言 */
   disabledNote: string | null;
   credit: string;
   onSelect: (index: number) => void;
 }
 
-export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: TitleMenuProps) {
+export function TitleMenu({
+  items,
+  disabledNote,
+  credit,
+  onSelect,
+  googleLabel,
+  googleDisabled,
+  onGoogle,
+}: TitleMenuProps) {
   const [cursor, setCursor] = useState(0);
   const [note, setNote] = useState<string | null>(null);
   const [chosen, setChosen] = useState<number | null>(null);
@@ -55,6 +67,7 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
   live.current = { cursor, choose };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLElement && e.target.closest('.nq-title-google')) return;
       const k = e.key;
       if (k === 'ArrowUp' || k === 'ArrowDown') {
         const direction = k === 'ArrowUp' ? -1 : 1;
@@ -75,7 +88,10 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
   }, [items.length]);
 
   useEffect(() => {
-    const focusCursor = () => buttons.current[cursor]?.focus({ preventScroll: true });
+    const focusCursor = () => {
+      if (!document.activeElement?.matches('.nq-title-google'))
+        buttons.current[cursor]?.focus({ preventScroll: true });
+    };
     focusCursor();
     // 初回ロードではフォント確定時に canvas の初期化と競合することがあるため、
     // レイアウト確定後にも現在項目へ戻す。
@@ -125,9 +141,23 @@ export function TitleMenu({ items, hint, disabledNote, credit, onSelect }: Title
           </p>
         ) : null}
       </div>
-      <p class={`nq-title-hint ${note ? 'nq-title-note' : ''}`} aria-live="polite">
-        <RubyLabel text={note ?? hint} />
+      <p class="nq-title-hint nq-title-note" aria-live="polite" hidden={!note}>
+        {note && <RubyLabel text={note} />}
       </p>
+      <button
+        type="button"
+        class="nq-title-google"
+        aria-label={displayText(googleLabel)}
+        aria-haspopup="dialog"
+        title={displayText(googleLabel)}
+        disabled={googleDisabled}
+        onClick={() => {
+          playSfx('select');
+          onGoogle();
+        }}
+      >
+        <img src={googleIcon} alt="" width="64" height="64" />
+      </button>
       <p class="nq-title-credit" aria-label={displayText(credit)}>
         <RubyLabel text={credit} />
       </p>
