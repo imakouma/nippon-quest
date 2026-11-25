@@ -1312,25 +1312,33 @@
   }
 }
 
-/* 技の説明はQ/タップで開く。閉じている間は一覧に幅を使う。 */
+/* 説明を閉じた技一覧は従来の左カラム相当の幅に収める。 */
+.nq-menu-skill:not(.nq-skill-details-open) {
+  width: 400px;
+  right: auto;
+}
+.nq-menu-skill [data-skill] .nq-opt-side {
+  width: 128px;
+  font-size: 12px;
+}
 .nq-menu-skill:not(.nq-skill-details-open) .nq-menu-layout {
   grid-template-columns: minmax(0, 1fr);
 }
 #ui-layer .nq-skill-details-toggle {
   position: absolute;
   right: 0;
-  bottom: calc(100% + 16px);
+  bottom: calc(100% + 8px);
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 32px;
-  padding: 4px 8px;
+  gap: 4px;
+  min-height: 24px;
+  padding: 2px 6px;
   border: 2px solid var(--nq-white);
   background: var(--nq-panel);
   color: var(--nq-white);
   font: inherit;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 16px;
 }
 .nq-skill-details-toggle kbd {
   font: inherit;
