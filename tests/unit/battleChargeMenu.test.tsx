@@ -2,7 +2,9 @@
 import { h } from 'preact';
 import { render } from 'preact/compat';
 import { act } from 'preact/test-utils';
-import { afterEach, expect, it, vi } from 'vitest';
+import { afterEach, beforeAll, expect, it, vi } from 'vitest';
+import ja from '../../content/i18n/ja.json';
+import { setDictionary } from '../../src/ui/i18n';
 import { ChargeControl } from '../../src/ui/battle/ChargeControl';
 import { ChargeGaugeFrame } from '../../src/ui/battle/ChargeGaugeFrame';
 import { BattleHud } from '../../src/ui/battle/BattleHud';
@@ -10,6 +12,7 @@ import { HudStore, type SkillOption } from '../../src/ui/battle/store';
 
 vi.mock('../../src/ui/PixelIcon', () => ({ PixelIcon: () => null }));
 vi.mock('../../src/ui/sfx', () => ({ playSfx: () => undefined }));
+beforeAll(() => setDictionary(ja));
 afterEach(() => render(null, document.body));
 
 const skill = (id: string, cost: number, disabled = false): SkillOption => ({
