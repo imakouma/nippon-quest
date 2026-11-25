@@ -880,13 +880,6 @@
   color: #fff;
   text-shadow: 4px 4px 0 #4a5063;
 }
-.nq-result-bonus {
-  margin: -8px 0 12px;
-  text-align: center;
-  font-size: 24px;
-  line-height: 36px;
-  color: var(--nq-sky);
-}
 .nq-result-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -960,12 +953,28 @@
   color: var(--nq-cloud);
   white-space: nowrap;
 }
+.nq-result-drops-heading,
+.nq-result-list .nq-result-drops {
+  grid-column: 1 / -1;
+}
+.nq-result-list .nq-result-drops {
+  display: grid;
+  gap: 4px;
+  text-align: left;
+}
 .nq-result-drop {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   margin-left: 0;
+}
+.nq-result-drop-name {
+  flex: 1;
+  min-width: 0;
+}
+.nq-result-drop-count {
+  flex: none;
+  white-space: nowrap;
 }
 .nq-result-body {
   text-align: center;

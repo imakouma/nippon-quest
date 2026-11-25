@@ -32,10 +32,11 @@ for (const viewport of [
           xpTo: 10 / 61,
           needNext: 51,
           goldLost: 0,
-          bonus: 1,
-          maxCombo: 0,
+          bonus: 1.1,
+          maxCombo: 2,
           drops: [
             { name: 'りんご', count: 1 },
+            { name: 'りんごのよろい', count: 1 },
             { name: '大間[おおま]のマグロ', count: 1 },
           ],
         },
@@ -50,6 +51,13 @@ for (const viewport of [
     await expect(result).not.toContainText('いまの レベル');
     await expect(result.locator('.nq-result-level')).toHaveText('Lv.2');
     await expect(result.getByRole('meter')).toContainText('10/61');
+    await expect(result).not.toContainText('ボーナス');
+    const armor = result.locator('.nq-result-drop').filter({ hasText: 'りんごのよろい' });
+    const armorName = (await armor.locator('.nq-result-drop-name').boundingBox())!;
+    const armorCount = (await armor.locator('.nq-result-drop-count').boundingBox())!;
+    expect(armorName.height).toBeCloseTo(armorCount.height, 0);
+    expect(armorName.x + armorName.width).toBeLessThan(armorCount.x);
+    expect(armorName.y + armorName.height / 2).toBeCloseTo(armorCount.y + armorCount.height / 2, 0);
     const level = (await result.locator('.nq-result-level').boundingBox())!;
     const xpBar = (await result.getByRole('meter').boundingBox())!;
     expect(level.x + level.width).toBeLessThan(xpBar.x);

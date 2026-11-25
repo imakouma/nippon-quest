@@ -129,11 +129,6 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
           {title}
           {r.kind === 'victory' && <PixelIcon name="star" scale={4} />}
         </h2>
-        {r.kind === 'victory' && r.bonus > 1 && (
-          <p class="nq-result-bonus">
-            {t('battle.rewardBonus', { n: r.maxCombo, m: Math.round(r.bonus * 100) / 100 })}
-          </p>
-        )}
         {r.kind === 'victory' && (
           <dl class="nq-result-list">
             <dt>
@@ -168,17 +163,18 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
               {t('battle.gotGold')}
             </dt>
             <dd>+{r.gold}G</dd>
-            <dt>
+            <dt class="nq-result-drops-heading">
               <PixelIcon name="chest" scale={3} />
               {t('battle.gotItems')}
             </dt>
-            <dd>
+            <dd class="nq-result-drops">
               {r.drops.length === 0
                 ? t('battle.none')
                 : r.drops.map((drop) => (
                     <span class="nq-result-drop" key={drop.name}>
                       {drop.icon && <img class="nq-item-icon" src={drop.icon} alt="" />}
-                      <RubyLabel text={drop.name} /> {t('battle.itemCount', { n: drop.count })}
+                      <RubyLabel class="nq-result-drop-name" text={drop.name} />
+                      <span class="nq-result-drop-count">{t('battle.itemCount', { n: drop.count })}</span>
                     </span>
                   ))}
             </dd>
