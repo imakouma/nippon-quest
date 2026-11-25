@@ -133,7 +133,9 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
   await otherPage.getByRole('button', { name: 'もどる', exact: true }).click();
   await otherPage.getByRole('menuitem', { name: 'つづきから' }).click();
   const cloudSlot = otherPage.getByRole('button', { name: /^スロット 1/ });
-  await expect(cloudSlot).toContainText(/ハル.*Google/);
+  await expect(cloudSlot).toContainText('ハル');
+  await expect(cloudSlot.getByRole('img', { name: 'Google連携' })).toBeVisible();
+  await expect(cloudSlot).not.toContainText('Google');
   await expect(cloudSlot).not.toContainText('★');
   await other.close();
   await dialog.getByRole('button', { name: 'ログアウト', exact: true }).click();

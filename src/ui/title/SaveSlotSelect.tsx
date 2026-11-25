@@ -3,6 +3,7 @@ import type { SlotId, SlotSummary } from '../../core/state/slots';
 import { useRef } from 'preact/hooks';
 import { RubyLabel } from '../RubyLabel';
 import { t } from '../i18n';
+import { displayText } from '../ruby';
 import { useModalFocus } from '../useModalFocus';
 import './title.css';
 
@@ -71,7 +72,17 @@ export function SaveSlotSelect({
             ) : slot.exists ? (
               <span>
                 <bdi>{slot.name}</bdi> ・ Lv{slot.level} ・{' '}
-                <RubyLabel text={t(slot.source === 'google' ? 'saveSlots.google' : 'saveSlots.device')} />
+                {slot.source === 'google' ? (
+                  <img
+                    class="nq-save-slot-google"
+                    src={`${import.meta.env.BASE_URL}google-account-square.png`}
+                    alt={displayText(t('saveSlots.google'))}
+                    width="28"
+                    height="28"
+                  />
+                ) : (
+                  <RubyLabel text={t('saveSlots.device')} />
+                )}
               </span>
             ) : (
               <span>{t('saveSlots.empty')}</span>
