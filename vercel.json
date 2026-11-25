@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm build && pnpm exec vite build --config vite.account.config.ts",
   "outputDirectory": "dist",
   "headers": [
     {

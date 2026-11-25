@@ -1,4 +1,4 @@
-import { api } from '../server/runtime';
+import { api } from './runtime';
 import { MAX_CLOUD_BYTES } from '../src/core/state/cloudProtocol';
 
 export default {
