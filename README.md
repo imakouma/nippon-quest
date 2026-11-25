@@ -160,7 +160,7 @@ tests/           ← ユニット 582 件 + E2E（件数は増えるため実行
 
 ## CI とデプロイ
 
-`.github/workflows/ci.yml` が push / PR で lint・test・validate・build を回し、スキーマの再生成漏れも検出します。正式なゲームURLは https://nippon-quest-bay.vercel.app/ です。Vercel が `main` から配信し、旧 GitHub Pages は正式URLへの案内だけを配信します。旧URLでゲームを別途公開しないでください。
+`.github/workflows/ci.yml` が push / PR で lint・test・validate・build を回し、スキーマの再生成漏れも検出します。正式なゲームURLは https://nippon-quest-bay.vercel.app/ です。Vercel が `main` から配信し、旧 GitHub Pages のゲーム入口は正式URLへ転送します。Pages の問題レビューは引き続き利用できます。旧URLでゲームを別途公開しないでください。
 
 ## ライセンスと素材の注意
 

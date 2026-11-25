@@ -52,8 +52,10 @@ describe('CI workflow', () => {
     expect(workflow).toContain('needs: [check, e2e, developer-tools, mobile-layout]');
   });
 
-  it('publishes only a redirect at the former Pages game URL', () => {
-    expect(workflow).toContain('with: { path: legacy-pages }');
+  it('redirects the former Pages game URL while retaining problem review', () => {
+    expect(workflow).toContain('test -f dist/playground.html');
+    expect(workflow).toContain('cp legacy-pages/index.html dist/index.html');
+    expect(workflow).toContain('cp legacy-pages/404.html dist/404.html');
     for (const page of ['index.html', '404.html']) {
       const legacy = readFileSync(new URL(`../../legacy-pages/${page}`, import.meta.url), 'utf8');
       expect(legacy).toContain('content="0; url=https://nippon-quest-bay.vercel.app/"');
