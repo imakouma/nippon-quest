@@ -890,10 +890,18 @@
   color: var(--nq-sky);
 }
 .nq-result-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 8px 12px;
   margin: 0 0 16px;
+}
+.nq-result-list dd {
+  margin: 0;
+  text-align: right;
+}
+.nq-result-xpbar .nq-bar {
+  width: 100%;
 }
 .nq-result-reward {
   display: flex;
@@ -944,10 +952,11 @@
   white-space: nowrap;
 }
 .nq-result-drop {
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 4px;
-  margin-left: 8px;
+  margin-left: 0;
 }
 .nq-result-body {
   text-align: center;

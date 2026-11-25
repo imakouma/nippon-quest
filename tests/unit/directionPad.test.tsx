@@ -19,7 +19,9 @@ it('押した方向へ移動し、指を離すかキャンセルすると停止�
   const send = (type: string) => {
     const event = new Event(type, { bubbles: true, cancelable: true });
     Object.defineProperty(event, 'pointerId', { value: 1 });
-    act(() => right.dispatchEvent(event));
+    act(() => {
+      right.dispatchEvent(event);
+    });
   };
   send('pointerdown');
   send('pointerup');

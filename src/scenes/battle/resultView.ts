@@ -63,11 +63,12 @@ export function victoryResultView(
       const item = content.items.get(id);
       return { name: item?.name ?? id, count, icon: item ? iconUrl(item) : undefined };
     }),
-    xpFrom: from.ratio,
-    // レベル境界をまたぐ場合、新Lvの残量へ直接つなぐとゲージが逆走して見える。
-    // リザルトでは旧Lvの満タンまで見せ、確定後のレベルアップ演出へ引き継ぐ。
-    xpTo: leveledUp ? 1 : to.ratio,
-    needNext: leveledUp ? 0 : to.need,
+    level: toLevel,
+    levelXp: Math.max(0, xp + summary.xp - (table[toLevel - 1] ?? 0)),
+    levelXpNeeded: to.need === 0 ? undefined : (table[toLevel] ?? 0) - (table[toLevel - 1] ?? 0),
+    xpFrom: leveledUp ? 0 : from.ratio,
+    xpTo: to.ratio,
+    needNext: to.need,
     recruitName: showRecruitOffer ? enemyName : undefined,
     recruitArt: showRecruitOffer ? recruitArt : undefined,
     goldLost: 0,
