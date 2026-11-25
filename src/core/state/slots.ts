@@ -5,6 +5,7 @@ export type SlotId = (typeof SLOTS)[number];
 export interface SlotSummary {
   slot: SlotId;
   exists: boolean;
+  source?: 'google';
   corrupted?: boolean;
   recovered?: boolean;
   name?: string;

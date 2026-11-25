@@ -242,22 +242,6 @@ export function AccountPanel(props: AccountPanelProps) {
                   <RubyLabel text={t('account.logoutNote')} />
                 </p>
                 {button('export', props.onExport)}
-                <button
-                  class="nq-account-delete"
-                  type="button"
-                  id="account-delete"
-                  disabled={busy}
-                  onClick={() =>
-                    confirm({
-                      kind: 'delete',
-                      text: t('account.deleteConfirm'),
-                      run: props.onDelete,
-                      focusId: 'account-delete',
-                    })
-                  }
-                >
-                  <RubyLabel text={t('account.delete')} />
-                </button>
               </details>
             </>
           )}

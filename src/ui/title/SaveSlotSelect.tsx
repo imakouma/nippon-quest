@@ -1,6 +1,7 @@
 import { useEffect } from 'preact/hooks';
 import type { SlotId, SlotSummary } from '../../core/state/slots';
 import { useRef } from 'preact/hooks';
+import { RubyLabel } from '../RubyLabel';
 import { t } from '../i18n';
 import { useModalFocus } from '../useModalFocus';
 import './title.css';
@@ -69,7 +70,8 @@ export function SaveSlotSelect({
               <span>{t('saveSlots.corrupted')}</span>
             ) : slot.exists ? (
               <span>
-                Lv{slot.level} ・ ★{slot.signs ?? 0}
+                <bdi>{slot.name}</bdi> ・ Lv{slot.level} ・{' '}
+                <RubyLabel text={t(slot.source === 'google' ? 'saveSlots.google' : 'saveSlots.device')} />
               </span>
             ) : (
               <span>{t('saveSlots.empty')}</span>

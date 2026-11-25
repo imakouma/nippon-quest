@@ -2,13 +2,7 @@ import { h, render } from 'preact';
 import { AccountPanel } from '../../ui/account/AccountPanel';
 import { t } from '../../ui/i18n';
 import type { AccountView } from '../../shared/account';
-import {
-  accountSession,
-  signIn,
-  signOut,
-  deleteCloudAccount,
-  subscribeAccount,
-} from '../../core/state/accountSession';
+import { accountSession, signIn, signOut, subscribeAccount } from '../../core/state/accountSession';
 import {
   accountDetails,
   guestSummaries,
@@ -94,10 +88,6 @@ export function mountAccountPanel(
           link.download = 'nihonquest-account.json';
           link.click();
           setTimeout(() => URL.revokeObjectURL(href), 1000);
-        },
-        onDelete: async () => {
-          await deleteCloudAccount();
-          location.assign('/');
         },
       }),
       root,

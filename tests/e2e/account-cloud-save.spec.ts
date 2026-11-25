@@ -112,10 +112,17 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
   await expect(otherPage.getByRole('dialog').locator('.nq-account-slot').first()).toContainText('ハル', {
     timeout: 30_000,
   });
+  await otherPage.getByRole('button', { name: 'もどる', exact: true }).click();
+  await otherPage.getByRole('menuitem', { name: 'つづきから' }).click();
+  const cloudSlot = otherPage.getByRole('button', { name: /^スロット 1/ });
+  await expect(cloudSlot).toContainText(/ハル.*Google/);
+  await expect(cloudSlot).not.toContainText('★');
   await other.close();
   await dialog.getByRole('button', { name: 'ログアウト', exact: true }).click();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();
   expect(account.owner).toBeNull();
+  await page.getByRole('menuitem', { name: 'つづきから' }).click();
+  await expect(page.getByRole('button', { name: /^スロット 1/ })).toContainText(/ハル.*この.*のみ/);
 });
 
 test('起動リトライは遅い認証応答を待ち、ゲスト進行をアカウントへ混ぜない', async ({ page, context }) => {
@@ -255,9 +262,9 @@ test('競合の上書きと未送信のログアウトを確認し、キャン�
   await expect(logout).toBeInViewport();
   await page.screenshot({ path: testInfo.outputPath('account-saves-narrow.png') });
   await dialog.locator('summary').click();
-  await dialog.getByRole('button', { name: /アカウントを.*さくじょ|アカウントを.*削除/ }).click();
-  await dialog.getByRole('button', { name: /はい/ }).click();
-  await expect(dialog.getByRole('alert')).toContainText('Google');
+  await expect(dialog.getByRole('button', { name: /アカウントを.*さくじょ|アカウントを.*削除/ })).toHaveCount(
+    0,
+  );
   expect(account.owner).toBe('alice');
 });
 

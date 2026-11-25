@@ -222,7 +222,13 @@ export async function removeGuestSlot(slot: SlotId): Promise<void> {
 
 export async function summaries(): Promise<SlotSummary[]> {
   const account = accountSession().saves;
-  if (account) return Promise.all(SLOTS.map(async (slot) => summarizeSlot(slot, await account.load(slot))));
+  if (account)
+    return Promise.all(
+      SLOTS.map(async (slot) => ({
+        ...summarizeSlot(slot, await account.load(slot)),
+        source: 'google' as const,
+      })),
+    );
   return guestSummaries();
 }
 
