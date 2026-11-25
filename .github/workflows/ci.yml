@@ -132,10 +132,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - name: Build the game and problem review
-        run: VITE_NQ_DEV_TOOLS=1 BASE_PATH=/${{ github.event.repository.name }}/ pnpm build
-      - name: Verify the online problem review is included
-        run: test -f dist/playground.html
+      - name: Build problem review and replace the legacy game entry
+        run: |
+          VITE_NQ_DEV_TOOLS=1 BASE_PATH=/${{ github.event.repository.name }}/ pnpm build
+          test -f dist/playground.html
+          cp legacy-pages/index.html dist/index.html
+          cp legacy-pages/404.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - id: deployment
