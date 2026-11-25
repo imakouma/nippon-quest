@@ -20,7 +20,6 @@ export interface TitleMenuProps {
   googleLabel: string;
   googleDisabled: boolean;
   onGoogle: () => void;
-  hint: string;
   /** えらべない項目を選んだときに出す一言 */
   disabledNote: string | null;
   credit: string;
@@ -29,7 +28,6 @@ export interface TitleMenuProps {
 
 export function TitleMenu({
   items,
-  hint,
   disabledNote,
   credit,
   onSelect,
@@ -143,8 +141,8 @@ export function TitleMenu({
           </p>
         ) : null}
       </div>
-      <p class={`nq-title-hint ${note ? 'nq-title-note' : ''}`} aria-live="polite">
-        <RubyLabel text={note ?? hint} />
+      <p class="nq-title-hint nq-title-note" aria-live="polite" hidden={!note}>
+        {note && <RubyLabel text={note} />}
       </p>
       <button
         type="button"

@@ -273,7 +273,6 @@ export class TitleScene extends Phaser.Scene {
         googleLabel: t('account.google'),
         googleDisabled: !this.saveChecked,
         onGoogle: () => this.mountAccount(),
-        hint: t('ui.titleHint'),
         disabledNote: this.saveChecked ? null : t('ui.saveChecking'),
         credit: t('ui.credits'),
         onSelect: (index: number) => {
