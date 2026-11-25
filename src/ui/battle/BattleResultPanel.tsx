@@ -163,11 +163,19 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
               {t('battle.gotGold')}
             </dt>
             <dd>+{r.gold}G</dd>
-            <dt class="nq-result-drops-heading">
+            <dt class="nq-result-drops-heading" id="nq-result-drops-heading">
               <PixelIcon name="chest" scale={3} />
               {t('battle.gotItems')}
             </dt>
-            <dd class="nq-result-drops">
+            <dd
+              class="nq-result-drops"
+              role="region"
+              aria-labelledby="nq-result-drops-heading"
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key !== 'Tab') event.stopPropagation();
+              }}
+            >
               {r.drops.length === 0
                 ? t('battle.none')
                 : r.drops.map((drop) => (

@@ -957,10 +957,45 @@
 .nq-result-list .nq-result-drops {
   grid-column: 1 / -1;
 }
+.nq-result-drops-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 2px solid var(--nq-slate);
+  color: var(--nq-yellow);
+}
 .nq-result-list .nq-result-drops {
   display: grid;
   gap: 4px;
+  max-height: 132px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: 4px 8px 4px 24px;
+  border-left: 2px solid var(--nq-slate);
+  font-size: 20px;
+  line-height: 28px;
   text-align: left;
+}
+.nq-result-drops:focus-visible {
+  outline: 2px solid var(--nq-sky);
+  outline-offset: 2px;
+}
+.nq-result-drops::-webkit-scrollbar {
+  width: 8px;
+}
+.nq-result-drops::-webkit-scrollbar-track {
+  background: var(--nq-panel);
+}
+.nq-result-drops::-webkit-scrollbar-thumb {
+  background: var(--nq-cloud);
+  border: 2px solid var(--nq-panel);
+}
+.nq-result-drop .nq-item-icon {
+  width: 16px;
+  height: 16px;
 }
 .nq-result-drop {
   display: flex;
