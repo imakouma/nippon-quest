@@ -14,7 +14,6 @@ export function AccountPanel(props: AccountPanelProps) {
   const [error, setError] = useState(props.loginFailed ? t('account.loginFailed') : '');
   const [message, setMessage] = useState('');
   const [confirmation, setConfirmation] = useState<AccountConfirmation | null>(null);
-  const [managementOpen, setManagementOpen] = useState(false);
   useEffect(() => {
     if (confirmation) {
       panel.current?.querySelector<HTMLElement>('.nq-account-body')?.scrollTo(0, 0);
@@ -43,7 +42,7 @@ export function AccountPanel(props: AccountPanelProps) {
       }
       if (event.key !== 'Tab') return;
       const controls = Array.from(
-        panel.current?.querySelectorAll<HTMLElement>('button:not(:disabled), summary') ?? [],
+        panel.current?.querySelectorAll<HTMLElement>('button:not(:disabled)') ?? [],
       ).filter((element) => element.getClientRects().length > 0);
       const first = controls[0],
         last = controls.at(-1);
@@ -79,7 +78,7 @@ export function AccountPanel(props: AccountPanelProps) {
     setConfirmation(null);
     try {
       await action();
-      if (['export', 'import', 'resolve'].includes(kind)) setMessage(t(`account.${kind}Done`));
+      if (['import', 'resolve'].includes(kind)) setMessage(t(`account.${kind}Done`));
     } catch {
       setError(t(`account.${kind}Failed`));
     } finally {
@@ -237,18 +236,6 @@ export function AccountPanel(props: AccountPanelProps) {
                 onImport={props.onImport}
                 onResolve={props.onResolve}
               />
-              <details
-                open={managementOpen}
-                onToggle={(event) => setManagementOpen(event.currentTarget.open)}
-              >
-                <summary>
-                  <RubyLabel text={t('account.management')} />
-                </summary>
-                <p class="nq-account-note">
-                  <RubyLabel text={t('account.logoutNote')} />
-                </p>
-                {button('export', props.onExport)}
-              </details>
             </>
           )}
         </div>

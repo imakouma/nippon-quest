@@ -279,7 +279,7 @@ test('競合の上書きと未送信のログアウトを確認し、キャン�
   expect(await dialog.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
   await expect(logout).toBeInViewport();
   await page.screenshot({ path: testInfo.outputPath('account-saves-narrow.png') });
-  await dialog.locator('summary').click();
+  await expect(dialog.getByRole('button', { name: /ダウンロード/ })).toHaveCount(0);
   await expect(dialog.getByRole('button', { name: /アカウントを.*さくじょ|アカウントを.*削除/ })).toHaveCount(
     0,
   );
