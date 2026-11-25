@@ -15,6 +15,7 @@ export interface TerrainTopTriangle {
 
 export interface TerrainFaceTriangle {
   side: 'south' | 'east' | 'west';
+  band: 'single' | 'top' | 'middle' | 'bottom';
   vertices: [Field3dPoint, Field3dPoint, Field3dPoint];
 }
 
@@ -73,13 +74,15 @@ export function buildTerrainGeometry(
   ) => {
     const courses = Math.max(1, Math.round((topA.height - bottomA.height) / ELEVATION_UNIT_PX));
     for (let course = 0; course < courses; course++) {
+      const band: TerrainFaceTriangle['band'] =
+        courses === 1 ? 'single' : course === 0 ? 'top' : course === courses - 1 ? 'bottom' : 'middle';
       const high = topA.height - course * ELEVATION_UNIT_PX;
       const low = Math.max(bottomA.height, high - ELEVATION_UNIT_PX);
       const a = { ...topA, height: high };
       const b = { ...topB, height: high };
       const c = { ...bottomA, height: low };
       const d = { ...bottomB, height: low };
-      faces.push({ side, vertices: [a, b, c] }, { side, vertices: [c, b, d] });
+      faces.push({ side, band, vertices: [a, b, c] }, { side, band, vertices: [c, b, d] });
     }
   };
 

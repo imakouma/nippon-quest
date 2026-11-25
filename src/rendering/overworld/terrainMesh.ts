@@ -7,6 +7,15 @@ import {
 } from '../../core/world/terrainElevation';
 import { NQ } from '../palette';
 import { addImage, addSheet } from '../sheet';
+import {
+  CLIFF_FACE_BANDS,
+  CLIFF_FACE_HEIGHT,
+  CLIFF_FACE_SIDES,
+  CLIFF_FACE_WIDTH,
+  cliffFacePixels,
+  cliffFaceTextureWidth,
+  cliffFaceUvs,
+} from './terrainFaceMaterial';
 import { createField3dCamera, projectField3dPoint, type Field3dPoint } from './field3dProjection';
 import {
   buildTerrainGeometry,
@@ -19,8 +28,12 @@ import { VIEW_COLS } from './viewTiles';
 
 const FACE_TEXTURE = 'overworld-3d-stone-face';
 const PROP_TEXTURE = 'overworld-3d-orchard-props';
-const CAMERA_HORIZONTAL_MARGIN_TILES = 24;
-const CAMERA_VERTICAL_MARGIN_TILES = 6;
+const CAMERA_HORIZONTAL_MARGIN_TILES = 4;
+const CAMERA_VERTICAL_MARGIN_TILES = 4;
+// Keep one overscanned chunk alive until the camera reaches its inner guard band. This prevents
+// a full geometry rebuild on every 16px player step while retaining enough offscreen terrain.
+const CAMERA_BOUNDS_CHUNK_TILES = 4;
+const CAMERA_REBUILD_GUARD_TILES = 2;
 const ORCHARD_TILES = new Set<number>([
   VIEW.ORCHARD,
   VIEW.ORCHARD_ALT,
@@ -28,14 +41,23 @@ const ORCHARD_TILES = new Set<number>([
   VIEW.ORCHARD_PEACH_ALT,
 ]);
 
-function buildStoneFaceTexture(scene: Phaser.Scene): void {
+function buildCliffFaceTexture(scene: Phaser.Scene): void {
   if (scene.textures.exists(FACE_TEXTURE)) return;
   const canvas = document.createElement('canvas');
-  canvas.width = 1;
-  canvas.height = 1;
+  canvas.width = cliffFaceTextureWidth();
+  canvas.height = CLIFF_FACE_HEIGHT;
   const context = canvas.getContext('2d')!;
-  context.fillStyle = NQ.white;
-  context.fillRect(0, 0, 1, 1);
+  for (const side of CLIFF_FACE_SIDES) {
+    for (const band of CLIFF_FACE_BANDS) {
+      const sideIndex = CLIFF_FACE_SIDES.indexOf(side);
+      const bandIndex = CLIFF_FACE_BANDS.indexOf(band);
+      const offsetX = (sideIndex * CLIFF_FACE_BANDS.length + bandIndex) * CLIFF_FACE_WIDTH;
+      cliffFacePixels(side, band).forEach((color, index) => {
+        context.fillStyle = color;
+        context.fillRect(offsetX + (index % CLIFF_FACE_WIDTH), Math.floor(index / CLIFF_FACE_WIDTH), 1, 1);
+      });
+    }
+  }
   addImage(scene.textures, FACE_TEXTURE, canvas);
 }
 
@@ -80,14 +102,55 @@ function visibleBounds(
 ): TerrainBounds {
   const width = camera.width / camera.zoom;
   const height = camera.height / camera.zoom;
-  const x = Math.max(0, Math.floor(camera.scrollX / tileSize) - CAMERA_HORIZONTAL_MARGIN_TILES);
-  const y = Math.max(0, Math.floor(camera.scrollY / tileSize) - CAMERA_VERTICAL_MARGIN_TILES);
+  const left = camera.scrollX + (camera.width - width) / 2;
+  const top = camera.scrollY + (camera.height - height) / 2;
+  const snapDown = (tile: number) => Math.floor(tile / CAMERA_BOUNDS_CHUNK_TILES) * CAMERA_BOUNDS_CHUNK_TILES;
+  const snapUp = (tile: number) => Math.ceil(tile / CAMERA_BOUNDS_CHUNK_TILES) * CAMERA_BOUNDS_CHUNK_TILES;
+  const x = Math.max(0, snapDown(Math.floor(left / tileSize) - CAMERA_HORIZONTAL_MARGIN_TILES));
+  const y = Math.max(0, snapDown(Math.floor(top / tileSize) - CAMERA_VERTICAL_MARGIN_TILES));
+  const right = Math.min(
+    mapWidth,
+    snapUp(Math.ceil((left + width) / tileSize) + CAMERA_HORIZONTAL_MARGIN_TILES + 1),
+  );
+  const bottom = Math.min(
+    mapHeight,
+    snapUp(Math.ceil((top + height) / tileSize) + CAMERA_VERTICAL_MARGIN_TILES + 1),
+  );
   return {
     x,
     y,
-    width: Math.min(mapWidth - x, Math.ceil(width / tileSize) + CAMERA_HORIZONTAL_MARGIN_TILES * 2 + 1),
-    height: Math.min(mapHeight - y, Math.ceil(height / tileSize) + CAMERA_VERTICAL_MARGIN_TILES * 2 + 1),
+    width: right - x,
+    height: bottom - y,
   };
+}
+
+function boundsCoverCamera(
+  bounds: TerrainBounds,
+  camera: Phaser.Cameras.Scene2D.Camera,
+  tileSize: number,
+  mapWidth: number,
+  mapHeight: number,
+): boolean {
+  const width = camera.width / camera.zoom;
+  const height = camera.height / camera.zoom;
+  const left = camera.scrollX + (camera.width - width) / 2;
+  const top = camera.scrollY + (camera.height - height) / 2;
+  const visibleLeft = Math.floor(left / tileSize);
+  const visibleTop = Math.floor(top / tileSize);
+  const visibleRight = Math.ceil((left + width) / tileSize);
+  const visibleBottom = Math.ceil((top + height) / tileSize);
+  const boundsRight = bounds.x + bounds.width;
+  const boundsBottom = bounds.y + bounds.height;
+  const safeLeft = bounds.x === 0 ? 0 : bounds.x + CAMERA_REBUILD_GUARD_TILES;
+  const safeTop = bounds.y === 0 ? 0 : bounds.y + CAMERA_REBUILD_GUARD_TILES;
+  const safeRight = boundsRight === mapWidth ? mapWidth : boundsRight - CAMERA_REBUILD_GUARD_TILES;
+  const safeBottom = boundsBottom === mapHeight ? mapHeight : boundsBottom - CAMERA_REBUILD_GUARD_TILES;
+  return (
+    visibleLeft >= safeLeft &&
+    visibleTop >= safeTop &&
+    visibleRight <= safeRight &&
+    visibleBottom <= safeBottom
+  );
 }
 
 const boundsKey = (bounds: TerrainBounds): string =>
@@ -135,7 +198,7 @@ export function addTerrainMesh(
   blockedTiles: readonly boolean[] = [],
 ): boolean {
   if (scene.game.renderer.type !== Phaser.WEBGL) return false;
-  buildStoneFaceTexture(scene);
+  buildCliffFaceTexture(scene);
   buildOrchardPropTexture(scene);
   const texture = scene.textures.get('overworld-view').getSourceImage() as CanvasImageSource & {
     width: number;
@@ -143,6 +206,8 @@ export function addTerrainMesh(
   };
   const topMesh = scene.add.mesh(0, 0, 'overworld-view').setDepth(-1000);
   const faceMesh = scene.add.mesh(0, 0, FACE_TEXTURE).setDepth(-999);
+  scene.sys.updateList.remove(topMesh);
+  scene.sys.updateList.remove(faceMesh);
   const groundTiles = tileIds.map((tile) => (ORCHARD_TILES.has(tile) ? VIEW.GRASS : tile));
   for (const mesh of [topMesh, faceMesh]) {
     mesh.hideCCW = false;
@@ -150,6 +215,7 @@ export function addTerrainMesh(
   }
 
   let currentBounds = '';
+  let terrainBounds: TerrainBounds | null = null;
   let projectionSize = '';
   let topPoints: Field3dPoint[] = [];
   let facePoints: Field3dPoint[] = [];
@@ -171,26 +237,8 @@ export function addTerrainMesh(
     addMeshVertices(topMesh, topPoints, topUv);
 
     facePoints = geometry.faces.flatMap((triangle) => triangle.vertices);
-    const faceUv = geometry.faces.flatMap((_triangle, index) =>
-      index % 2 === 1 ? [1, 0, 0, 1, 1, 1] : [0, 0, 0, 1, 1, 0],
-    );
-    const colors = geometry.faces.flatMap((triangle) => {
-      const first = triangle.vertices[0];
-      const course = Math.round(
-        Math.min(...triangle.vertices.map((point) => point.height)) / ELEVATION_UNIT_PX,
-      );
-      const alternate = (Math.floor(first.x / tileSize) + Math.floor(first.z / tileSize) + course) % 2 === 0;
-      const tint =
-        triangle.side === 'south'
-          ? alternate
-            ? 0x6b6f80
-            : 0x4a5063
-          : triangle.side === 'east'
-            ? 0x4a5063
-            : 0x2e2a45;
-      return Array<number>(3).fill(tint);
-    });
-    addMeshVertices(faceMesh, facePoints, faceUv, colors);
+    const faceUv = geometry.faces.flatMap((triangle, index) => cliffFaceUvs(triangle, index % 2 === 1));
+    addMeshVertices(faceMesh, facePoints, faceUv);
 
     for (const prop of props) prop.image.destroy();
     props = [];
@@ -222,15 +270,22 @@ export function addTerrainMesh(
     const camera = scene.cameras.main;
     const width = camera.width / camera.zoom;
     const height = camera.height / camera.zoom;
-    const centerX = camera.scrollX + width / 2;
-    const centerZ = camera.scrollY + height / 2;
-    const bounds = visibleBounds(camera, tileSize, elevation.width, elevation.height);
-    const key = boundsKey(bounds);
-    if (key !== currentBounds) {
-      currentBounds = key;
-      rebuild(bounds);
+    const centerX = camera.scrollX + camera.width / 2;
+    const centerZ = camera.scrollY + camera.height / 2;
+    if (
+      !terrainBounds ||
+      !boundsCoverCamera(terrainBounds, camera, tileSize, elevation.width, elevation.height)
+    ) {
+      const nextBounds = visibleBounds(camera, tileSize, elevation.width, elevation.height);
+      const key = boundsKey(nextBounds);
+      terrainBounds = nextBounds;
+      if (key !== currentBounds) {
+        currentBounds = key;
+        rebuild(nextBounds);
+      }
     }
     const fieldCamera = createField3dCamera({ targetX: centerX, targetZ: centerZ, viewportHeight: height });
+    const projectedPoint = { x: 0, y: 0, depth: 0, scale: 0 };
     for (const [mesh, points] of [
       [topMesh, topPoints],
       [faceMesh, facePoints],
@@ -242,12 +297,19 @@ export function addTerrainMesh(
         mesh.setOrtho(width, height, -2000, 2000);
       }
       for (let index = 0; index < points.length; index++) {
-        const projected = projectField3dPoint(points[index]!, fieldCamera);
+        const projected = projectField3dPoint(points[index]!, fieldCamera, projectedPoint);
         const vertex = mesh.vertices[index]!;
         vertex.x = projected.x;
         vertex.y = -projected.y;
         vertex.z = 0;
       }
+      // Projection happens after Phaser's UpdateList. Refresh the transformed vertex cache now,
+      // including the first frame after a bounds rebuild, so an empty mesh is never presented.
+      (
+        mesh as unknown as {
+          preUpdate(time: number, delta: number): void;
+        }
+      ).preUpdate(scene.time.now, scene.game.loop.delta);
     }
     projectionSize = `${width}:${height}`;
     for (const prop of props) {
@@ -261,11 +323,10 @@ export function addTerrainMesh(
 
   const projectBillboards = () => {
     const camera = scene.cameras.main;
-    const width = camera.width / camera.zoom;
     const height = camera.height / camera.zoom;
-    const centerX = camera.scrollX + width / 2;
-    const centerZ = camera.scrollY + height / 2;
-    const bounds = visibleBounds(camera, tileSize, elevation.width, elevation.height);
+    const centerX = camera.scrollX + camera.width / 2;
+    const centerZ = camera.scrollY + camera.height / 2;
+    const bounds = terrainBounds ?? visibleBounds(camera, tileSize, elevation.width, elevation.height);
     const fieldCamera = createField3dCamera({ targetX: centerX, targetZ: centerZ, viewportHeight: height });
     const left = bounds.x * tileSize;
     const top = bounds.y * tileSize;
@@ -311,12 +372,15 @@ export function addTerrainMesh(
     projectedBillboards = [];
   };
 
-  scene.events.on(Phaser.Scenes.Events.POST_UPDATE, update);
-  scene.events.on(Phaser.Scenes.Events.PRE_RENDER, projectBillboards);
+  const prepareRender = () => {
+    update();
+    projectBillboards();
+  };
+
+  scene.events.on(Phaser.Scenes.Events.PRE_RENDER, prepareRender);
   scene.events.on(Phaser.Scenes.Events.RENDER, restoreBillboards);
   scene.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
-    scene.events.off(Phaser.Scenes.Events.POST_UPDATE, update);
-    scene.events.off(Phaser.Scenes.Events.PRE_RENDER, projectBillboards);
+    scene.events.off(Phaser.Scenes.Events.PRE_RENDER, prepareRender);
     scene.events.off(Phaser.Scenes.Events.RENDER, restoreBillboards);
     restoreBillboards();
     topMesh.destroy();
