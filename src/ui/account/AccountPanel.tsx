@@ -200,14 +200,6 @@ export function AccountPanel(props: AccountPanelProps) {
                   <RubyLabel text={t('account.guest')} />
                 </p>
               )}
-              <details>
-                <summary>
-                  <RubyLabel text={t('account.guardian')} />
-                </summary>
-                <p class="nq-account-note">
-                  <RubyLabel text={t('account.privacy')} />
-                </p>
-              </details>
             </>
           ) : (
             <>

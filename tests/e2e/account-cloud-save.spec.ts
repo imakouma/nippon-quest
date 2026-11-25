@@ -160,7 +160,7 @@ test('起動リトライは遅い認証応答を待ち、ゲスト進行をア�
   expect(writes.every((name) => name === 'クラウド')).toBe(true);
 });
 
-test('Googleの接続失敗を説明して再試行でき、閉じた説明の中へTabが移らない', async ({ page, context }) => {
+test('Googleの接続失敗を説明して再試行でき、Tabが画面の外へ移らない', async ({ page, context }) => {
   await mockAccount(context, { owner: null, slots: [] });
   let attempts = 0;
   await page.route('**/api/auth/sign-in/social', async (route) => {
@@ -175,12 +175,12 @@ test('Googleの接続失敗を説明して再試行でき、閉じた説明の�
   await expect(login).toBeEnabled();
   await login.click();
   await expect.poll(() => attempts).toBe(2);
-  const disclosure = dialog.locator('summary');
-  await disclosure.focus();
+  await expect(dialog.locator('summary')).toHaveCount(0);
+  await login.focus();
   await page.keyboard.press('Tab');
   await expect(dialog.getByRole('button', { name: 'もどる' })).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(disclosure).toBeFocused();
+  await expect(login).toBeFocused();
 });
 
 test('競合の上書きと未送信のログアウトを確認し、キャンセルでは冒険を変えない', async ({
