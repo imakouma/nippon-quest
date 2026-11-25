@@ -553,7 +553,9 @@ export function BagOverlay({
                 disabled={!m.usable}
                 onClick={() => onUse(m.key)}
               >
-                <span class="nq-heart" aria-hidden="true">♥</span>
+                <span class="nq-heart" aria-hidden="true">
+                  ♥
+                </span>
                 <RubyLabel text={t('field.bagUse')} />
               </button>
             </div>

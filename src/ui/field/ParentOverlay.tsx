@@ -216,6 +216,19 @@ export function ParentOverlay({ game, getGame, mastery, onChange, onImport, onCl
               </h3>
               <div class="nq-parent-sliders">
                 <label>
+                  <RubyLabel text={t('parent.movementControl')} />
+                  <select
+                    data-setting="movement-control"
+                    value={game.settings.movementControl ?? 'stick'}
+                    onChange={(ev) =>
+                      patchSettings({ movementControl: ev.currentTarget.value === 'dpad' ? 'dpad' : 'stick' })
+                    }
+                  >
+                    <option value="stick">{t('parent.movementStick')}</option>
+                    <option value="dpad">{t('parent.movementDpad')}</option>
+                  </select>
+                </label>
+                <label>
                   {t('parent.bgm')}{' '}
                   <input
                     type="range"

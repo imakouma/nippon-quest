@@ -70,7 +70,16 @@ export function titleBackdrop(): HTMLCanvasElement {
 
   // 問題を解くと進む「知のルート」。日本列島の写し絵ではなく、学びの章を表す独自の道。
   const route: ReadonlyArray<readonly [number, number]> = [
-    [34, 108], [51, 101], [67, 106], [83, 91], [101, 96], [117, 81], [136, 87], [151, 71], [172, 78], [191, 64],
+    [34, 108],
+    [51, 101],
+    [67, 106],
+    [83, 91],
+    [101, 96],
+    [117, 81],
+    [136, 87],
+    [151, 71],
+    [172, 78],
+    [191, 64],
   ];
   for (let i = 1; i < route.length; i++) {
     const [x0, y0] = route[i - 1]!;
@@ -89,7 +98,11 @@ export function titleBackdrop(): HTMLCanvasElement {
 
   // 章を表す「本・ことば・ひらめき」のスタンプ。
   const stamps: ReadonlyArray<readonly [number, number, string]> = [
-    [45, 75, NQ.red], [75, 67, NQ.azure], [117, 108, NQ.green], [155, 99, NQ.orange], [195, 99, NQ.violet],
+    [45, 75, NQ.red],
+    [75, 67, NQ.azure],
+    [117, 108, NQ.green],
+    [155, 99, NQ.orange],
+    [195, 99, NQ.violet],
   ];
   stamps.forEach(([x, y, col], i) => {
     r(x - 5, y - 5, 11, 11, NQ.ink);

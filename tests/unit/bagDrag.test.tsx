@@ -10,9 +10,12 @@ vi.mock('../../src/ui/i18n', () => ({ t: (key: string) => key }));
 
 afterEach(() => {
   document.body.innerHTML = '';
+  vi.unstubAllGlobals();
 });
 
 it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控えへ戻せる', () => {
+  vi.stubGlobal('CSS', { escape: (value: string) => value });
+  Element.prototype.scrollIntoView = vi.fn();
   const thing = (key: string, kind: BagThing['kind'], inBag: boolean): BagThing => ({
     key,
     kind,

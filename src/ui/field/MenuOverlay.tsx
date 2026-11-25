@@ -43,6 +43,8 @@ export interface MenuOverlayProps {
   onAct: (key: string) => void;
   onRoadmapSelect: (unitId: string) => void;
   onSave: () => Promise<void>;
+  movementControl?: 'stick' | 'dpad';
+  onMovementControl?: (mode: 'stick' | 'dpad') => void;
   onParent: () => void;
   onClose: () => void;
 }
@@ -112,6 +114,8 @@ export function MenuOverlay({
   onAct,
   onRoadmapSelect,
   onSave,
+  movementControl = 'stick',
+  onMovementControl,
   onParent,
   onClose,
 }: MenuOverlayProps) {
@@ -432,6 +436,21 @@ export function MenuOverlay({
                     <RubyLabel text={t('field.devQuestionEdit')} />
                   </a>
                 </div>
+              )}
+              {onMovementControl && (
+                <label class="nq-opt">
+                  <RubyLabel text={t('parent.movementControl')} />{' '}
+                  <select
+                    onKeyDown={(event) => event.stopPropagation()}
+                    value={movementControl}
+                    onChange={(event) =>
+                      onMovementControl(event.currentTarget.value === 'dpad' ? 'dpad' : 'stick')
+                    }
+                  >
+                    <option value="stick">{t('parent.movementStick')}</option>
+                    <option value="dpad">{t('parent.movementDpad')}</option>
+                  </select>
+                </label>
               )}
               <button type="button" class="nq-opt nq-parent-open" onClick={onParent}>
                 ⚙ {t('menu.parent')}

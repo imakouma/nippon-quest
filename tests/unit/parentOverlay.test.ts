@@ -136,6 +136,31 @@ describe('保護者設定の更新日時', () => {
     expect(gameStateSchema.parse(game).settings.practiceUnlimitedTime).toBeUndefined();
   });
 
+  it('移動操作の設定を選びセーブ形式に保持する', async () => {
+    const game = createNewGame({ name: 'ハル', grade: 3 }, 0);
+    let changed = game;
+    const container = document.createElement('div');
+    document.body.append(container);
+    render(
+      h(ParentOverlay, {
+        game,
+        getGame: () => changed,
+        mastery: [],
+        onChange: (next) => (changed = next),
+        onImport: vi.fn(),
+        onClose: vi.fn(),
+      }),
+      container,
+    );
+    await unlock(container);
+    const select = container.querySelector<HTMLSelectElement>('select[data-setting="movement-control"]')!;
+    expect(select.value).toBe('stick');
+    select.value = 'dpad';
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    expect(gameStateSchema.parse(changed).settings.movementControl).toBe('dpad');
+    expect(gameStateSchema.parse(game).settings.movementControl ?? 'stick').toBe('stick');
+  });
+
   it('音量を変更した時刻を GameState に記録する', async () => {
     vi.spyOn(Date, 'now').mockReturnValue(6_000);
     const game = createNewGame({ name: 'ハル', grade: 3 }, 0);

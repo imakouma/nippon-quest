@@ -44,7 +44,7 @@ import {
   toggleBattleItem,
 } from '../core/progression/bag';
 import { heroLevel, syncHeroLevel } from '../core/progression/battleResult';
-import { canUse, EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
+import { EQUIP_SLOTS, isEquip, unequip, useItem } from '../core/progression/inventory';
 import {
   acceptMission,
   claimDexReward,
@@ -2597,9 +2597,8 @@ export class OverworldScene extends Phaser.Scene {
         onAreaMap: () => this.openAreaMap(),
         menuLabel: t('field.menu'),
         onMenu: () => this.routeFieldInteraction('menu'),
-        onMove: (direction) => {
-          this.fieldInput.setTouchDirection(direction);
-        },
+        movementControl: this.gs()?.settings.movementControl,
+        onMove: (direction) => this.fieldInput.setTouchDirection(direction),
         action,
         dev: this.devAvailable()
           ? {
@@ -2721,6 +2720,8 @@ export class OverworldScene extends Phaser.Scene {
               close,
             );
           },
+          movementControl: this.gs()?.settings.movementControl,
+          onMovementControl: (mode) => bagItems.changeMovementControl(this, mode, () => draw(tab)),
           onParent: () => {
             const game = this.gs()!;
             render(
@@ -2778,9 +2779,6 @@ export class OverworldScene extends Phaser.Scene {
     );
   }
 
-  private heroStats(gs: GameState) {
-    return partyFromGameState(gs, this.content()!).hero.stats;
-  }
   /** タブの 中身 */
   private menuView(tab: MenuTab): { entries: MenuEntry[]; summary?: string; empty: string } {
     const c = this.content()!;
@@ -2789,7 +2787,7 @@ export class OverworldScene extends Phaser.Scene {
       content: c,
       game: gs,
       tab,
-      stats: this.heroStats(gs),
+      stats: bagItems.heroStats(gs, this.content()!),
       revealAll: this.devAll(),
       bank: this.registry.get('bank') as QuestionBank | undefined,
       heroArt: (look) => this.heroFrameUrl(look),
@@ -2810,7 +2808,7 @@ export class OverworldScene extends Phaser.Scene {
   private menuAct(tab: MenuTab, key: string): string | null {
     const c = this.content()!;
     const gs = this.gs()!;
-    const max = this.heroStats(gs);
+    const max = bagItems.heroStats(gs, this.content()!);
     if (tab === 'equip') {
       const slot = EQUIP_SLOTS.find((s) => `slot:${s}` === key);
       const id = slot && gs.player.equipment[slot];
@@ -2934,21 +2932,7 @@ export class OverworldScene extends Phaser.Scene {
           const put = this.equipToBag(cur, it);
           again(put.ok ? `eq:${it.kind}` : key, put.msg);
         },
-        onUse: (key: string) => {
-          const cur = this.gs();
-          const item = c.items.get(key.slice('item:'.length));
-          if (!cur || !item) return;
-          const max = this.heroStats(cur);
-          const used = useItem(cur, item, { hp: max.hp, mp: max.mp });
-          if (!used) {
-            playSfx('miss');
-            again(key, t('field.bagFull'));
-            return;
-          }
-          this.setGame(used.state);
-          playSfx('heal');
-          again(key, t('field.bagUsed', { item: item.name, n: used.healed }));
-        },
+        onUse: (key: string) => bagItems.useBagItem(this, c, key, again),
         onLeader: (key: string) => {
           const cur = this.gs();
           if (!cur) return;
@@ -3075,12 +3059,7 @@ export class OverworldScene extends Phaser.Scene {
       ];
     };
     const owned = new Map(gs.party.owned.map((o) => [o.uid, o]));
-    const stored = bagItems.storedBagThings(gs, c).map((thing) => {
-      const item = thing.kind === 'item' ? c.items.get(thing.key.slice('item:'.length)) : undefined;
-      return item
-        ? { ...thing, usable: canUse(gs, item, { hp: heroC.stats.hp, mp: heroC.stats.mp }) }
-        : thing;
-    });
+    const stored = bagItems.usableStoredBagThings(gs, c, heroC.stats);
     const inBag = [
       ...bagUids.flatMap((u) => monster(owned.get(u)!)),
       ...bagItems.equippedBagThings(gs, c),
@@ -3136,7 +3115,7 @@ export class OverworldScene extends Phaser.Scene {
 
   /** そうびを かえた GameState を セーブ。さいだい HP・MP が へったら、いまの HP・MP も あわせる */
   private commitEquip(next: GameState): void {
-    const m = this.heroStats(next);
+    const m = bagItems.heroStats(next, this.content()!);
     next.player.hp = Math.min(next.player.hp, m.hp);
     next.player.mp = Math.min(next.player.mp, m.mp);
     this.setGame(next);
