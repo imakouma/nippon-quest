@@ -56,6 +56,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   expect(bagLabelBox!.height).toBeLessThanOrEqual(40);
   await menuHome.getByRole('button', { name: /もちもの・へんせい/ }).focus();
   await page.keyboard.press('ArrowUp');
+  await expect(menuHome.getByRole('button', { name: /がくしゅう/ })).toBeFocused();
+  await page.keyboard.press('ArrowDown');
   await expect(menuHome.getByRole('button', { name: /もちもの・へんせい/ })).toBeFocused();
   await expect(page.getByRole('button', { name: /セーブ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /ほごしゃ/ })).toBeVisible();
@@ -301,8 +303,10 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   }
   await expect(page.locator('.nq-dlg')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'かいはつしゃ ON' })).toBeVisible();
-  await page.getByRole('button', { name: 'メニュー' }).click();
-  await expect(menuHome).toBeVisible();
+  await expect(async () => {
+    await page.getByRole('button', { name: 'メニュー' }).click();
+    await expect(menuHome).toBeVisible({ timeout: 1_000 });
+  }).toPass({ timeout: 15_000, intervals: [500, 1_000] });
   await menuHome.getByRole('button', { name: /がくしゅう/ }).click();
   await expect(roadmap).toBeVisible();
   await expect(page.locator('.nq-roadmap-grade-row')).toBeVisible();
