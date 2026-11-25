@@ -31,10 +31,13 @@ for (const viewport of [
     await page.locator('.nq-box').click();
     await page.locator('.nq-cmd[data-cmd="skill"]').click();
     const normal = page.locator('[data-skill="sk-tashizan-giri"]');
-    await expect(normal.locator('.nq-opt-charge')).toHaveText('10〜40チャージ');
+    await expect(normal.locator('.nq-opt-charge')).toHaveCount(0);
+    await page.locator('.nq-skill-details-toggle').click();
+    await expect(page.locator('#nq-skill-details .nq-opt-charge')).toHaveText('10〜40チャージ');
+    await page.keyboard.press('q');
+    await expect(page.locator('.nq-opt-charge')).toHaveCount(0);
     const normalRow = await normal.boundingBox();
     const normalIcon = await normal.locator('.nq-opt-side > .nq-picon').boundingBox();
-    const charge = await normal.locator('.nq-opt-charge').boundingBox();
     await page.locator('[data-charge-toggle]').click();
     const burst = page.locator('[data-skill="sk-burst-sansu"]');
     await expect(burst.locator('.nq-opt-cost-value')).toHaveText(String(viewport.cost));
@@ -55,7 +58,8 @@ for (const viewport of [
     const burstIcon = await burst.locator('.nq-opt-side > .nq-picon').boundingBox();
     expect.soft(normalIcon!.x - normalRow!.x).toBeCloseTo(burstIcon!.x - burstRow!.x, 0);
     const costbar = await burst.locator('.nq-opt-costbar').boundingBox();
-    expect.soft(charge!.x - normalRow!.x).toBeCloseTo(costbar!.x - burstRow!.x, 0);
+    expect.soft(costbar!.x).toBeGreaterThanOrEqual(burstIcon!.x + burstIcon!.width);
+    expect.soft(costbar!.x + costbar!.width).toBeLessThanOrEqual(burstRow!.x + burstRow!.width);
     await page.screenshot({ path: info.outputPath('skill-gauge-cost.png') });
     expect(errors).toEqual([]);
   });
