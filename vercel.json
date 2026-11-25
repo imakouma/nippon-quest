@@ -4,7 +4,18 @@
   "headers": [
     {
       "source": "/api/:path*",
-      "headers": [{ "key": "Cache-Control", "value": "no-store" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:section(account|auth)/:rest*",
+      "destination": "/api/dispatch?nqPath=:section/:rest*"
     }
   ]
 }
