@@ -3,6 +3,7 @@ import { h } from 'preact';
 import { render } from 'preact/compat';
 import { act } from 'preact/test-utils';
 import { afterEach, expect, it, vi } from 'vitest';
+import { ChargeControl } from '../../src/ui/battle/ChargeControl';
 import { ChargeGaugeFrame } from '../../src/ui/battle/ChargeGaugeFrame';
 import { BattleHud } from '../../src/ui/battle/BattleHud';
 import { HudStore, type SkillOption } from '../../src/ui/battle/store';
@@ -115,10 +116,10 @@ it('枠ゲージは教科ごとの残量を独立して更新し、範囲外を�
   expect(right.getAttribute('stroke-dasharray')).toBe('50 50');
 });
 
-it('仲間の技で教科が増えたときも全教科を枠に残す', () => {
+it('低学年の3教科が枠を均等に分ける', () => {
   render(
     h(ChargeGaugeFrame, {
-      gauges: ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'].map((subject) => ({
+      gauges: ['kokugo', 'sansu', 'seikatsu'].map((subject) => ({
         subject,
         value: 100,
         max: 100,
@@ -129,7 +130,7 @@ it('仲間の技で教科が増えたときも全教科を枠に残す', () => {
     document.body,
   );
   const segments = [...document.querySelectorAll('[data-charge-subject]')];
-  expect(segments).toHaveLength(6);
+  expect(segments).toHaveLength(3);
   const filledLength = segments.reduce(
     (sum, segment) => sum + Number(segment.getAttribute('stroke-dasharray')!.split(' ')[0]),
     0,
@@ -169,4 +170,22 @@ it('Qとタップで技詳細を開閉し、Escapeは先に詳細だけを閉じ
   expect(store.get().skillDetails).toBe(false);
   await act(() => store.set({ skillDetails: true, menu: 'commands' }));
   expect(store.get().skillDetails).toBe(false);
+});
+
+it('高学年の縦棒は独立した残量を下から表示し、範囲外を収める', () => {
+  const store = new HudStore();
+  store.set({
+    menu: 'skills',
+    gaugeLayout: 'bars',
+    gauges: [
+      { subject: 'kokugo', value: -10, max: 100, marks: [], boosted: false },
+      { subject: 'sansu', value: 50, max: 100, marks: [], boosted: false },
+      { subject: 'rika', value: 200, max: 100, marks: [], boosted: false },
+      { subject: 'shakai', value: 20, max: 0, marks: [], boosted: false },
+    ],
+  });
+  render(h(ChargeControl, { store, s: store.get() }), document.body);
+  expect(document.querySelectorAll('[data-charge-subject]')).toHaveLength(0);
+  const fills = [...document.querySelectorAll<HTMLElement>('[data-charge-bar] > i')];
+  expect(fills.map((fill) => fill.style.height)).toEqual(['0%', '50%', '100%', '0%']);
 });

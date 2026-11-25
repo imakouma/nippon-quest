@@ -210,6 +210,7 @@ export interface HudState {
   items: ItemOption[];
   swaps: SwapOption[];
   gauges: SubjectGaugeView[];
+  gaugeLayout: 'frame' | 'bars';
   /** いまの れんぞく せいかい と いりょくの 上乗せ（%） */
   combo: { count: number; percent: number };
   banner: BannerView | null;
@@ -247,6 +248,7 @@ export const initialHudState = (): HudState => ({
   items: [],
   swaps: [],
   gauges: [],
+  gaugeLayout: 'frame',
   combo: { count: 0, percent: 0 },
   banner: null,
   popups: [],

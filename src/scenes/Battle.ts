@@ -554,9 +554,15 @@ export class BattleScene extends Phaser.Scene {
     return buildAllyViews(this.state, this.gs, this.content);
   }
 
-  /** 教科ゲージ：主人公・オトモの わざに ある 教科の ぶん */
+  /** 教科ゲージ：低学年は3教科、高学年は増えた教科も表示する。 */
   private gaugeViews(): SubjectGaugeView[] {
-    return buildGaugeViews(this.state, this.deps, this.content, this.hud.get().gauges);
+    return buildGaugeViews(
+      this.state,
+      this.deps,
+      this.content,
+      this.hud.get().gauges,
+      this.gs.learning.grade,
+    );
   }
 
   /** 演出に あわせて 教科ゲージの 1 本を 書きかえる（gain = 「+n」を 出す） */
@@ -578,6 +584,7 @@ export class BattleScene extends Phaser.Scene {
       turn: s.outcome === 'ongoing' ? s.turn : null,
       allies: this.allyViews(),
       gauges: this.gaugeViews(),
+      gaugeLayout: this.gs.learning.grade <= 2 ? 'frame' : 'bars',
       combo: { count: c, percent: Math.round((comboBonus(c, this.content.settings) - 1) * 100) },
     });
   }

@@ -1,3 +1,4 @@
+import { ChargeGaugeBars } from './ChargeGaugeBars';
 import { ChargeGaugeFrame } from './ChargeGaugeFrame';
 import type { HudState, HudStore } from './store';
 import { t } from '../i18n';
@@ -29,12 +30,16 @@ export function ChargeControl({ s, store }: { s: HudState; store: HudStore }) {
           if (store.get().menu === 'skills') store.set({ chargeSkills: !active, cursor: 0 });
         }}
       >
-        <ChargeGaugeFrame gauges={s.gauges} />
-        <span class="nq-charge-subjects" aria-hidden="true">
-          {s.gauges.map((g) => (
-            <PixelIcon key={g.subject} name={`subj-${g.subject}`} scale={s.gauges.length > 3 ? 1 : 2} />
-          ))}
-        </span>
+        <ChargeGaugeFrame gauges={s.gaugeLayout === 'frame' ? s.gauges : []} />
+        {s.gaugeLayout === 'bars' ? (
+          <ChargeGaugeBars gauges={s.gauges} />
+        ) : (
+          <span class="nq-charge-subjects" aria-hidden="true">
+            {s.gauges.map((g) => (
+              <PixelIcon key={g.subject} name={`subj-${g.subject}`} scale={s.gauges.length > 3 ? 1 : 2} />
+            ))}
+          </span>
+        )}
         <RubyLabel text={t('battle.chargeSkills')} class="nq-charge-label" />
       </button>
       <span id="nq-charge-gauge-status" class="nq-charge-status">

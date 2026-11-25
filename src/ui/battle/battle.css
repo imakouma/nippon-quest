@@ -1355,3 +1355,36 @@
   background: var(--nq-panel);
   box-shadow: 0 0 0 4px #000;
 }
+
+.nq-charge-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+}
+.nq-charge-bar-subject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.nq-charge-bar {
+  position: relative;
+  box-sizing: border-box;
+  width: 10px;
+  height: 36px;
+  border: 1px solid var(--nq-white);
+  background: #2e2a45;
+}
+.nq-charge-bar > i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: height 240ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-charge-bar > i {
+    transition: none;
+  }
+}

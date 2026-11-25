@@ -7,7 +7,7 @@ import type { BattleState, Combatant } from '../../core/battle/types';
 import type { ContentIndex } from '../../core/content/loader';
 import { heroLevel, xpToNextLevel } from '../../core/progression/battleResult';
 import type { GameState } from '../../core/state/schema';
-import type { Item, Skill } from '../../core/content/schemas';
+import type { Item, Skill, Subject } from '../../core/content/schemas';
 import type { QuestionQuery } from '../../questions/contracts';
 import type {
   AllyView,
@@ -91,26 +91,31 @@ export function buildGaugeViews(
   deps: BattleDeps,
   content: ContentIndex,
   previous: readonly SubjectGaugeView[],
+  grade: number,
 ): SubjectGaugeView[] {
   const max = content.settings.subjectGauge.max;
   const skills = battleSkills(state, deps);
   const boost = state.companion?.passiveSkill?.subject;
-  return SUBJECTS.filter((subject) => skills.some((entry) => entry.skill.subject === subject)).map(
-    (subject) => ({
-      subject,
-      value: state.player.subjectGauges[subject],
-      max,
-      marks: [
-        ...new Set(
-          skills
-            .filter((entry) => entry.skill.subject === subject && entry.skill.costGauge > 0)
-            .map((entry) => entry.skill.costGauge),
-        ),
-      ],
-      boosted: boost === subject,
-      gain: previous.find((gauge) => gauge.subject === subject)?.gain,
-    }),
-  );
+  const subjects: readonly Subject[] =
+    grade <= 2
+      ? ['kokugo', 'sansu', 'seikatsu']
+      : SUBJECTS.filter(
+          (subject) => subject !== 'seikatsu' || skills.some((entry) => entry.skill.subject === subject),
+        );
+  return subjects.map((subject) => ({
+    subject,
+    value: state.player.subjectGauges[subject],
+    max,
+    marks: [
+      ...new Set(
+        skills
+          .filter((entry) => entry.skill.subject === subject && entry.skill.costGauge > 0)
+          .map((entry) => entry.skill.costGauge),
+      ),
+    ],
+    boosted: boost === subject,
+    gain: previous.find((gauge) => gauge.subject === subject)?.gain,
+  }));
 }
 
 export function buildItemOptions(
