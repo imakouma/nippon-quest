@@ -51,4 +51,13 @@ describe('CI workflow', () => {
   it('deploys Pages only after game, developer-tool and mobile quality gates succeed', () => {
     expect(workflow).toContain('needs: [check, e2e, developer-tools, mobile-layout]');
   });
+
+  it('publishes only a redirect at the former Pages game URL', () => {
+    expect(workflow).toContain('with: { path: legacy-pages }');
+    for (const page of ['index.html', '404.html']) {
+      const legacy = readFileSync(new URL(`../../legacy-pages/${page}`, import.meta.url), 'utf8');
+      expect(legacy).toContain('content="0; url=https://nippon-quest-bay.vercel.app/"');
+      expect(legacy).toContain('href="https://nippon-quest-bay.vercel.app/"');
+    }
+  });
 });
