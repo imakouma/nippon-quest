@@ -175,20 +175,16 @@ export function AccountPanel(props: AccountPanelProps) {
             </>
           ) : !view.userId ? (
             <>
-              <p class="nq-account-eyebrow">
-                <RubyLabel text={t('account.guestBadge')} />
-              </p>
-              <h3 class="nq-account-lead">
-                <RubyLabel text={t('account.intro')} />
-              </h3>
-              <p class="nq-account-note">
-                <RubyLabel text={t('account.signInHint')} />
-              </p>
-              {button(
-                'login',
-                () => props.onLogin('google'),
-                !view.available || !view.providers.includes('google'),
-              )}
+              <section class="nq-account-signin" aria-labelledby="nq-account-signin-title">
+                <h3 id="nq-account-signin-title">
+                  <RubyLabel text={t('account.intro')} />
+                </h3>
+                {button(
+                  'login',
+                  () => props.onLogin('google'),
+                  !view.available || !view.providers.includes('google'),
+                )}
+              </section>
               {(!view.available || !view.providers.includes('google')) && (
                 <div class="nq-account-feedback">
                   <p>
@@ -199,9 +195,11 @@ export function AccountPanel(props: AccountPanelProps) {
                   </button>
                 </div>
               )}
-              <p class="nq-account-note">
-                <RubyLabel text={t('account.guest')} />
-              </p>
+              {view.available && view.providers.includes('google') && (
+                <p class="nq-account-note">
+                  <RubyLabel text={t('account.guest')} />
+                </p>
+              )}
               <details>
                 <summary>
                   <RubyLabel text={t('account.guardian')} />

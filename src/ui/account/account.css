@@ -91,10 +91,19 @@
 .nq-account h4 {
   margin: 0;
 }
-.nq-account .nq-account-lead {
-  font-size: 30px;
+.nq-account-signin {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding: 16px;
+  margin-top: 12px;
+  border: 2px solid #747f9c;
+  background: #18203a;
+}
+.nq-account-signin h3 {
+  margin: 0;
   color: var(--nq-yellow);
-  margin-top: 4px;
+  font-size: 26px;
 }
 .nq-account .nq-account-eyebrow {
   font-size: 20px;
