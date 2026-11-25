@@ -272,7 +272,7 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   expect(partyWhileMenu!.x).toBeCloseTo(party!.x, 0);
   await expect(page.locator('.nq-menu .nq-chip')).toHaveCount(0);
   await expect(page.locator('.nq-menu [data-skill] .nq-cur')).toHaveCount(0);
-  await expect(page.locator('.nq-menu .nq-opt-side').first()).toHaveCSS('white-space', 'nowrap');
+  await expect(page.locator('.nq-menu .nq-opt-side')).toHaveCount(0);
   await expect(page.locator('.nq-menu-skill .nq-menu-head')).toHaveCount(0);
   const firstSkillBox = await page.locator('.nq-menu-skill .nq-opt').first().boundingBox();
   await expect(page.locator('.nq-menu-foot-skill')).toHaveCount(0);
