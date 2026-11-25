@@ -145,7 +145,7 @@ test.describe('レベル上限のタッチ操作', () => {
     await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
     await seedLevelCapUnlock(page);
     await page.getByRole('menuitem', { name: 'つづきから' }).click();
-    await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+    await page.getByRole('button', { name: /スロット 1.*Lv/ }).click();
     await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
 
     await page.getByRole('button', { name: 'メニュー' }).click();

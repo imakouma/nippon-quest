@@ -58,7 +58,7 @@ test('完成した装備セットの名前と効果をバッグ詳細に表示�
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+  await page.getByRole('button', { name: /スロット 1.*Lv/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
 
   await page.getByRole('button', { name: 'メニュー' }).click();

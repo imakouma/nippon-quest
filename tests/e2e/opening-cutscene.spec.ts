@@ -97,7 +97,7 @@ test('新規ゲームのオープニングが自動進行し、停止・手動�
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled({ timeout: 30_000 });
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await page.getByRole('button', { name: /スロット 1 Lv/ }).click();
+  await page.getByRole('button', { name: /スロット 1.*Lv/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 30_000 });
   await expect(battleTutorial).toHaveCount(0);
   expect(errors.filter((error) => !error.includes('favicon'))).toEqual([]);

@@ -69,7 +69,7 @@ test('再ビルドで古いゲームSceneが消えても、続きからを保っ
   });
   await page.reload();
   await page.getByRole('menuitem', { name: /つづきから/ }).click();
-  await page.getByRole('button', { name: /スロット 2 Lv/ }).click();
+  await page.getByRole('button', { name: /スロット 2.*Lv/ }).click();
 
   const retry = page.getByRole('button', { name: 'もういちど' });
   await expect(page.getByRole('button', { name: /の ちずを ひらく/ })).toBeVisible({ timeout: 30_000 });
