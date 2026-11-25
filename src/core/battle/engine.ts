@@ -23,8 +23,10 @@ import {
   resolveCompanionAction,
   resolveEnemyTurn,
   resolveHit,
+  applyAdditionalEffect,
 } from './actionResolver';
 import { comboBonus, fleeChance, recruitChance, scoreBand, scoreMultiplier } from './damage';
+import { skillHits } from './skillEffects';
 import type { BattleDeps } from './dependencies';
 import { commandPriority, initiativeOrder } from './initiative';
 import { useMusubiDama } from './musubiDama';
@@ -215,6 +217,13 @@ function useSkill(
     command: sk.effect === 'scan' ? 'scan' : 'skill',
     skillId: sk.id,
   });
+  if (sk.effect !== 'damage' && !skillHits(sk.accuracy ?? 100, rng)) {
+    for (const target of evaluation.resolvedTargets) {
+      ev.push({ t: 'miss', ...action, side: target.side, targetId: target.combatantId });
+    }
+    chargeGauge(s, sk, score, def, ev, action);
+    return;
+  }
   switch (sk.effect) {
     case 'damage':
       resolveHit(s, def, rng, ev, action, {
@@ -270,6 +279,12 @@ function useSkill(
       s.enemy.skipTurns += turns;
       ev.push({ t: 'status', ...action, targetId: s.enemy.id, turns });
       break;
+    }
+  }
+  if (sk.effect !== 'damage' && sk.additionalEffect) {
+    for (const target of evaluation.resolvedTargets) {
+      applyAdditionalEffect(sk, actor, targetCombatant(s, target), target.side, 'ally', rng, ev, action);
+      if (sk.additionalEffect.target === 'self') break;
     }
   }
   chargeGauge(s, sk, score, def, ev, action);

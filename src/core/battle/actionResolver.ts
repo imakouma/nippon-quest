@@ -1,6 +1,7 @@
 import type { Skill } from '../content/schemas';
 import type { Rng } from '../rng';
 import { computeDamage } from './damage';
+import { skillHits } from './skillEffects';
 import type { BattleDeps } from './dependencies';
 import { selectEnemyIntent } from './enemyPolicy';
 import { victoryEvent } from './rewards';
@@ -91,6 +92,32 @@ function allyDown(
   });
 }
 
+export function applyAdditionalEffect(
+  skill: Skill,
+  actor: Combatant,
+  defender: Combatant,
+  defenderSide: Side,
+  actorSide: Side,
+  rng: Rng,
+  events: BattleEvent[],
+  action: BattleActionRef,
+): void {
+  const effect = skill.additionalEffect;
+  if (!effect) return;
+  const target = effect.target === 'self' ? actor : defender;
+  if (target.hp <= 0 || !skillHits(effect.chance, rng)) return;
+  target.buffs[effect.stat] = { mult: effect.multiplier, turns: effect.turns + 1 };
+  events.push({
+    t: 'buff',
+    ...action,
+    side: effect.target === 'self' ? actorSide : defenderSide,
+    targetId: target.id,
+    stat: effect.stat,
+    mult: effect.multiplier,
+    turns: effect.turns,
+  });
+}
+
 /** こうげきを当て、同じ action に damage / down / boss phase を関連付ける。 */
 export function resolveHit(
   state: BattleState,
@@ -107,6 +134,10 @@ export function resolveHit(
   },
 ): void {
   const byAlly = input.side === 'enemy';
+  if (input.skill && !skillHits(input.skill.accuracy ?? 100, rng)) {
+    events.push({ t: 'miss', ...action, side: input.side, targetId: input.defender.id });
+    return;
+  }
   const damage = computeDamage({
     attacker: input.attacker,
     defender: input.defender,
@@ -131,6 +162,18 @@ export function resolveHit(
     scoreBand: damage.band,
     comboMult: damage.comboMult,
   });
+  if (input.skill && input.defender.hp > 0) {
+    applyAdditionalEffect(
+      input.skill,
+      input.attacker,
+      input.defender,
+      input.side,
+      byAlly ? 'ally' : 'enemy',
+      rng,
+      events,
+      action,
+    );
+  }
   if (byAlly && input.defender.hp > 0) checkBossPhase(state.enemy, def, events, action);
   else if (!byAlly && input.defender.hp <= 0) allyDown(state, input.defender, def, events, action);
 }
@@ -183,7 +226,6 @@ export function resolveEnemyTurn(
     const healSkill = def.skills.get(intent.skillId)!;
     enemy.mp -= healSkill.mp;
     const before = enemy.hp;
-    enemy.hp = Math.min(enemy.stats.hp, enemy.hp + Math.round(enemy.stats.hp * ENEMY_HEAL_RATIO));
     events.push({
       t: 'act',
       ...action,
@@ -193,7 +235,13 @@ export function resolveEnemyTurn(
       command: 'skill',
       skillId: healSkill.id,
     });
+    if (!skillHits(healSkill.accuracy ?? 100, rng)) {
+      events.push({ t: 'miss', ...action, side: 'enemy', targetId: enemy.id });
+      return;
+    }
+    enemy.hp = Math.min(enemy.stats.hp, enemy.hp + Math.round(enemy.stats.hp * ENEMY_HEAL_RATIO));
     events.push({ t: 'heal', ...action, side: 'enemy', targetId: enemy.id, amount: enemy.hp - before });
+    applyAdditionalEffect(healSkill, enemy, enemy, 'enemy', 'enemy', rng, events, action);
     return;
   }
 

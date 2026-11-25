@@ -521,3 +521,14 @@ describe('前の セーブの どうぐ', () => {
     expect(partyFromGameState(gs, c).items).toEqual({ 'aomori-ringo': 1 });
   });
 });
+
+describe('主人公の技編成', () => {
+  it('初期習得技を失わず4つとバースト2つだけを戦闘に持ち込む', async () => {
+    const c = await content();
+    const gs = newGame();
+    const hero = partyFromGameState(gs, c).hero;
+    expect(gs.player.skills).toHaveLength(5);
+    expect(hero.skills).toEqual([...gs.player.skills.slice(0, 4), 'sk-burst-kokugo', 'sk-burst-sansu']);
+    expect(hero.skillLoadoutActive).toBe(true);
+  });
+});

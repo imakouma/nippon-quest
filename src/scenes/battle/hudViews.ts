@@ -199,6 +199,8 @@ export function buildSkillOptions(input: {
       have: state.player.subjectGauges[skill.subject],
       effect: skill.effect,
       flavor: skill.flavor,
+      accuracy: skill.accuracy ?? 100,
+      additionalEffect: skill.additionalEffect,
       disabled: !evaluation.allowed,
       ...(evaluation.reason ? { blockReason: evaluation.reason } : {}),
       reason: evaluation.reason === 'question-unavailable' ? input.preparingLabel : undefined,

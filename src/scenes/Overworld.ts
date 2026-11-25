@@ -22,6 +22,7 @@ import {
   type TerrainElevation,
 } from '../core/world/terrainElevation';
 import { evolutionOf } from '../core/progression/evolution';
+import { normalizeHeroLoadout, showHeroSkillEditor } from './overworld/heroSkillEditor';
 import { normalizeLevelCaps } from '../core/state/levelCaps';
 import {
   activeEquipment,
@@ -2696,6 +2697,7 @@ export class OverworldScene extends Phaser.Scene {
             this.busy = false;
             this.openBag(undefined, null, undefined, true);
           },
+          onSkills: () => showHeroSkillEditor(root, c, this, () => draw(tab)),
           onAct: (key: string) => draw(tab, key, this.menuAct(tab, key)),
           onRoadmapSelect: (unitId: string) => {
             render(null, root);
@@ -3403,7 +3405,8 @@ export class OverworldScene extends Phaser.Scene {
     return this.registry.get('game') as GameState | undefined;
   }
 
-  private setGame(gs: GameState): void {
+  setGame(gs: GameState): void {
+    gs = normalizeHeroLoadout(gs, this.content());
     const xp = this.content()?.xp.hero;
     const next = this.captureFieldState(xp ? syncHeroLevel(gs, xp) : gs);
     this.registry.set('game', next);

@@ -88,6 +88,14 @@ export interface SkillOption {
   have: number;
   effect: 'damage' | 'heal' | 'buff' | 'debuff' | 'scan' | 'status';
   flavor?: string;
+  accuracy?: number;
+  additionalEffect?: {
+    stat: 'atk' | 'def';
+    target: 'self' | 'target';
+    multiplier: number;
+    chance: number;
+    turns: number;
+  };
   disabled: boolean;
   blockReason?: BattleCommandBlockReason;
   /** 使えない理由（問題じゅんびちゅう）。ゲージ不足は ゲージの 絵で 見せる */

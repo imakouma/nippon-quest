@@ -257,6 +257,8 @@ interface Item {
 interface Skill {
   id: string; name: RubyText; subject: Subject; gradeRange: [Grade, Grade];
   power: number; element: Element; mp: number; questionTags?: string[];
+  accuracy?: number; // 命中率 0〜100。省略時は100
+  additionalEffect?: { stat: 'atk'|'def'; target: 'self'|'target'; multiplier: number; chance: number; turns: number };
   effect?: 'damage'|'heal'|'buff'|'debuff'|'scan';   // scan = じゃくてん判明（理科）
 }
 ```
@@ -282,6 +284,8 @@ interface Skill {
 - ブランチ：`main`（常に動く）／`feat/<step>`。Antigravity には feat ブランチで作業させる。
 - コミットは小さく。1ステップ＝1PR 相当。
 # 文理戦闘契約（v10）
+
+主人公の習得済み技と戦闘用の技編成は別々に保存する。通常技4枠・チャージ技2枠の検証は `src/core/progression/heroSkillLoadout.ts`、戦闘用の適用は `src/core/battle/setup.ts`、編成画面はメニューの5番目から開く `src/ui/field/HeroSkillScreen.tsx` と `HeroSkillEditor.tsx` に分離する。旧セーブはv15へ移行し、中断中の戦闘は保存済みの戦闘状態を保持する。
 
 能力値の正は `src/core/content/schemas.ts` の8能力契約、成長は `{ base, every5, every10 }` です。文理ペア選択とポケモン型基礎式は `src/core/battle/damage.ts`、行動順は `src/core/battle/initiative.ts` に分離します。Sceneは計算せず、BattleEventをエンジンが返した順に再生します。旧セーブの6能力は `src/core/state/migrations.ts` で一度だけv10へ変換します。
 

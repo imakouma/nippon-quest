@@ -209,6 +209,11 @@ const migrations: Record<number, Migration> = {
     }
     return { ...s, schemaVersion: 14, player: { ...player, skills } };
   },
+  14: (s) => ({
+    ...s,
+    schemaVersion: 15,
+    player: { ...((s.player ?? {}) as Record<string, unknown>), skillLoadout: null },
+  }),
 };
 
 export interface MigrateResult {

@@ -5,7 +5,8 @@ import { motifStamp } from '../../src/core/progression/route';
 import { chooseStoryCompanion } from '../../src/core/progression/storyCompanion';
 import { barberRows, buildMenuView, itemStatText, menuTabs } from '../../src/scenes/overworld/menuEntries';
 import { shopItemLines } from '../../src/scenes/overworld/townMenuViews';
-import { levelProgressLine } from '../../src/scenes/overworld/bagItems';
+import { levelProgressLine, storedBagThings } from '../../src/scenes/overworld/bagItems';
+import { applyBattleResult, type BattleSummary } from '../../src/core/progression/battleResult';
 import { setDictionary, type I18nDict } from '../../src/ui/i18n';
 import { content } from './helpers';
 
@@ -48,6 +49,41 @@ describe('フィールドメニューの表示モデル', () => {
   it('バッグをフィールドメニューの入口として表示する', () => {
     expect(menuTabs(0).map((entry) => entry.key)).toContain('party');
     expect(menuTabs(0).map((entry) => entry.key)).not.toContain('look');
+  });
+
+  it('技の項目は持ち物とは別の5番目に表示する', () => {
+    expect(menuTabs(0).map((entry) => entry.key)).toEqual([
+      'roadmap',
+      'mistakes',
+      'monsters',
+      'party',
+      'skills',
+    ]);
+  });
+
+  it('東北クリア前に戦闘で拾った装備も持ち物一覧へ表示する', async () => {
+    const c = await content();
+    const state = game();
+    const summary: BattleSummary = {
+      outcome: 'victory',
+      enemyRefId: 'aomori-ringoron',
+      enemyLevel: 1,
+      heroHp: 20,
+      heroMp: 5,
+      heroMaxHp: 24,
+      heroMaxMp: 6,
+      xp: 0,
+      gold: 0,
+      drops: ['aomori-ringo-no-yoroi'],
+      items: {},
+      recruitAccepted: false,
+      perfectBySubject: {},
+    };
+    const { state: next } = applyBattleResult(state, summary, c.settings);
+    expect(next.inventory['aomori-ringo-no-yoroi']).toBe(1);
+    expect(storedBagThings(next, c)).toContainEqual(
+      expect.objectContaining({ key: 'inv:aomori-ringo-no-yoroi', inBag: false }),
+    );
   });
 
   it('仲間のモンスターだけを発見済みとして図鑑へ出す', async () => {

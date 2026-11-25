@@ -33,6 +33,7 @@ export interface Combatant {
   hp: number;
   mp: number;
   skills: string[];
+  skillLoadoutActive?: boolean;
   buffs: { def?: Buff; atk?: Buff };
   isBoss: boolean;
   phaseIndex: number; // bossPhases の何番目まで適用済みか（-1 = 初期）
@@ -153,6 +154,7 @@ type BattleActionEvent =
       scoreBand: ScoreBandName | null;
       comboMult: number;
     }
+  | { t: 'miss'; side: Side; targetId: string }
   | { t: 'heal'; side: Side; targetId: string; amount: number }
   | { t: 'buff'; side: Side; targetId: string; stat: 'def' | 'atk'; mult: number; turns: number }
   /** 敵の うごきを とめた（turns ターン 休む） */

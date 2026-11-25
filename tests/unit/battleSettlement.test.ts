@@ -334,3 +334,26 @@ describe('battle settlement ledger', () => {
     expect(second.applied).toBe(false);
   });
 });
+
+describe('戦闘で拾ったどうぐ', () => {
+  it('使用できる消耗品をバッグへ入れ、重複しても1種類として扱う', async () => {
+    const { c, state, snapshot } = await resumableBattle();
+    const result = summary({ drops: ['aomori-ringo', 'aomori-ringo', 'aomori-ringo-no-yoroi'] });
+    const settled = settleBattleOnce(
+      state,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence, summary: result },
+      c,
+    );
+    expect(settled.state.inventory['aomori-ringo']).toBe(2);
+    expect(settled.state.party.bagItems).toEqual(['aomori-ringo']);
+    expect(partyFromGameState(settled.state, c).items['aomori-ringo']).toBe(2);
+    expect(settled.state.party.bagItems).not.toContain('aomori-ringo-no-yoroi');
+    const repeated = settleBattleOnce(
+      settled.state,
+      { battleId: snapshot.battleId, sequence: snapshot.sequence, summary: result },
+      c,
+    );
+    expect(repeated.state.party.bagItems).toEqual(['aomori-ringo']);
+    expect(repeated.state.inventory['aomori-ringo']).toBe(2);
+  });
+});

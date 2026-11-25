@@ -249,19 +249,16 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
       },
     ];
   });
-  if (!equipmentUnlocked(gs)) {
-    const starter = rows.find(({ item }) => item.id === STARTER_EQUIPMENT_ID);
-    return starter
-      ? [...tools, equipmentThing(starter.item, `inv:${starter.item.id}`, starter.count)]
-      : tools;
-  }
   return [
     ...tools,
     ...rows
       .filter(({ item }) => isEquip(item))
       .sort((a, b) => rank(a.item) - rank(b.item))
       .map(({ item, count }) =>
-        equipmentThing(item, `inv:${item.id}`, count, equipmentSetLines(gs, content, item)),
+        equipmentThing(item, `inv:${item.id}`, count, [
+          ...equipmentSetLines(gs, content, item),
+          ...(!equipmentUnlocked(gs) && item.id !== STARTER_EQUIPMENT_ID ? [t('field.equipLocked')] : []),
+        ]),
       ),
   ];
 }

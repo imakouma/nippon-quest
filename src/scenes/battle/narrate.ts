@@ -58,13 +58,26 @@ export function narrate(e: BattleEvent, ctx: NarrateCtx, prev?: BattleEvent): st
       else if (e.elementMult < 1) lines.push(t('battle.notEffective'));
       return lines;
     }
+    case 'miss':
+      return [t('battle.skillMiss')];
     case 'heal':
       return [t('battle.heal', { name: ctx.nameOf(e.targetId), n: e.amount })];
     case 'buff': {
       // 「みを まもっている！」の直後の防御アップは言い直さない
       if (prev?.t === 'act' && prev.command === 'defend') return [];
       const name = e.side === 'enemy' ? ctx.enemyName : ctx.nameOf(e.targetId);
-      return [t(e.mult >= 1 ? 'battle.defUp' : 'battle.defDown', { name })];
+      return [
+        t(
+          e.stat === 'atk'
+            ? e.mult >= 1
+              ? 'battle.atkUp'
+              : 'battle.atkDown'
+            : e.mult >= 1
+              ? 'battle.defUp'
+              : 'battle.defDown',
+          { name },
+        ),
+      ];
     }
     case 'status':
       return [t('battle.statusStop', { name: ctx.enemyName, n: e.turns })];

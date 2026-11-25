@@ -40,6 +40,7 @@ const combatantSchema = z.object({
   hp: safeNonnegativeIntegerSchema,
   mp: safeNonnegativeIntegerSchema,
   skills: z.array(z.string().min(1)),
+  skillLoadoutActive: z.boolean().optional(),
   buffs: z.object({ def: buffSchema.optional(), atk: buffSchema.optional() }),
   isBoss: z.boolean(),
   phaseIndex: z.number().int().min(-1).max(Number.MAX_SAFE_INTEGER),
