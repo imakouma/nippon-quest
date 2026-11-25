@@ -281,7 +281,9 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
   const skillDetailBox = await page.locator('.nq-menu-foot-skill').boundingBox();
   expect(firstSkillBox!.height).toBe(40);
   expect(skillDetailBox!.x).toBeGreaterThan(skillListBox!.x + skillListBox!.width);
-  expect(skillDetailBox!.height).toBe(skillListBox!.height);
+  expect(skillDetailBox!.height).toBeLessThanOrEqual(208);
+  const chargeBox = await page.locator('[data-charge-toggle]').boundingBox();
+  expect(skillDetailBox!.y + skillDetailBox!.height).toBeLessThan(chargeBox!.y);
   for (const skill of await page.locator('.nq-menu-skill .nq-opt').all()) {
     expect(await skill.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true);
   }

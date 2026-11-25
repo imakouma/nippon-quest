@@ -14,7 +14,7 @@ export function ChargeControl({ s, store }: { s: HudState; store: HudStore }) {
     s.menu === 'skills' ||
     (s.menu === 'commands' && s.commands.some((c) => c.kind === 'skill' && !c.disabled));
   return (
-    <div class={`nq-charge-dock ${s.menu === 'skills' ? 'nq-charge-dock-skills' : ''}`}>
+    <div class="nq-charge-dock">
       <button
         type="button"
         class={`nq-charge-toggle ${ready ? 'nq-charge-ready' : ''}`}

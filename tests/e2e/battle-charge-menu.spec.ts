@@ -57,6 +57,9 @@ for (const width of [960, 640]) {
     await page.screenshot({ path: info.outputPath('normal-skills.png') });
     await page.keyboard.press('q');
     await expect(page.locator('#nq-skill-details')).toBeVisible();
+    const detail = await page.locator('#nq-skill-details').boundingBox();
+    const chargeDuringDetails = await toggle.boundingBox();
+    expect(detail!.y + detail!.height).toBeLessThan(chargeDuringDetails!.y);
     await expect(page.locator('.nq-skill-details-toggle')).toHaveAttribute('aria-expanded', 'true');
     expect(await page.locator('#nq-skill-details').evaluate((el) => el.scrollHeight <= el.clientHeight)).toBe(
       true,
@@ -97,7 +100,10 @@ for (const width of [960, 640]) {
     await expect(charge).toHaveAttribute('aria-disabled', 'false');
     const bounds = await toggle.boundingBox();
     const menu = await page.locator('.nq-menu-skill').boundingBox();
-    expect(bounds!.y + bounds!.height).toBeLessThan(menu!.y);
+    const hp = await page.locator('.nq-party').boundingBox();
+    expect(bounds!.x + bounds!.width).toBeLessThan(hp!.x);
+    expect(bounds!.y + bounds!.height).toBeCloseTo(hp!.y + hp!.height, 0);
+    expect(menu!.x + menu!.width).toBeLessThan(bounds!.x);
     expect(
       await toggle.evaluate((el) => el.scrollWidth <= el.clientWidth && el.scrollHeight <= el.clientHeight),
     ).toBe(true);
