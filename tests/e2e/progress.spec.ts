@@ -303,6 +303,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   }
   await expect(page.locator('.nq-dlg')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'かいはつしゃ ON' })).toBeVisible();
+  await expect(page.locator('#game-root canvas')).toHaveAttribute('data-input-ready', 'true');
   await page.getByRole('button', { name: 'メニュー' }).click();
   await expect(menuHome).toBeVisible();
   await menuHome.getByRole('button', { name: /がくしゅう/ }).click();
