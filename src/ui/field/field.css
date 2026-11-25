@@ -65,6 +65,45 @@
     display: block;
   }
 }
+/* 見やすい方向ボタン。スティックと同じ位置に表示する。 */
+.nq-direction-pad {
+  position: fixed;
+  left: max(24px, env(safe-area-inset-left));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  z-index: 12;
+  display: none;
+  grid-template: repeat(3, 48px) / repeat(3, 48px);
+  pointer-events: auto;
+  touch-action: none;
+}
+.nq-direction-pad button {
+  border: 3px solid var(--nq-white);
+  border-radius: 8px;
+  background: rgba(7, 12, 30, 0.88);
+  color: var(--nq-white);
+  font-size: 24px;
+  touch-action: none;
+}
+.nq-direction-pad button:active {
+  background: #257edd;
+}
+.nq-direction-pad-up {
+  grid-area: 1 / 2;
+}
+.nq-direction-pad-left {
+  grid-area: 2 / 1;
+}
+.nq-direction-pad-right {
+  grid-area: 2 / 3;
+}
+.nq-direction-pad-down {
+  grid-area: 3 / 2;
+}
+@media (hover: none) and (pointer: coarse) and (orientation: landscape) {
+  .nq-direction-pad {
+    display: grid;
+  }
+}
 /* ───── 左上の小さな地図（いまいる地方を、主人公を まん中に拡大）。タップで県の大きな地図 ───── */
 .nq-mini {
   position: relative;

@@ -50,6 +50,8 @@ export interface BagThing {
   skills?: { name: string; gauge: number; scan: boolean }[];
   blurb?: string;
   action?: 'pack';
+  /** フィールドで回復アイテムを使ったとき、いま効果があるか。 */
+  usable?: boolean;
   growth?: { canUnlock: boolean; levelCap: number; maximum: number };
   /** しんかできる仲間なら、しんか先と条件。room＝バッグに 入りきるか（extra マス ふえる） */
   evolve?: {
@@ -85,6 +87,7 @@ export interface BagOverlayProps {
   /** しんかした 直後（絵を 光らせる） */
   flashKey?: string;
   onToggle: (key: string) => void;
+  onUse: (key: string) => void;
   onLeader: (key: string) => void;
   onEvolve: (key: string) => void;
   onGrow: (key: string) => void;
@@ -139,6 +142,7 @@ export function BagOverlay({
   message,
   flashKey,
   onToggle,
+  onUse,
   onLeader,
   onEvolve,
   onGrow,
@@ -539,6 +543,21 @@ export function BagOverlay({
                   {t('field.partyEvolve')}
                 </button>
               )}
+            </div>
+          )}
+          {detailsOpen && m.kind === 'item' && m.action === 'pack' && (
+            <div class="nq-wmap-foot nq-party-foot">
+              <button
+                type="button"
+                class={`nq-opt nq-wmap-go nq-bag-use ${m.usable ? 'nq-party-evolve-ok' : ''}`}
+                disabled={!m.usable}
+                onClick={() => onUse(m.key)}
+              >
+                <span class="nq-heart" aria-hidden="true">
+                  ♥
+                </span>
+                <RubyLabel text={t('field.bagUse')} />
+              </button>
             </div>
           )}
           {detailsOpen && m.evolve && (

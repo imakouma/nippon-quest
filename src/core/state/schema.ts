@@ -157,6 +157,7 @@ export const gameStateSchema = z.object({
     seVolume: z.number().min(0).max(1),
     timeLimitScale: z.number().positive().default(1),
     practiceUnlimitedTime: z.boolean().optional(),
+    movementControl: z.enum(['stick', 'dpad']).optional(),
   }),
 });
 

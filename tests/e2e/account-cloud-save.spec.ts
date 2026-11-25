@@ -66,7 +66,14 @@ test('未設定のログインを成功扱いにせず、ゲストプレイを�
   await googleIcon.press('Enter');
   await expect(dialog.getByRole('button', { name: 'もどる' })).toBeInViewport();
   await expect(dialog.getByRole('button', { name: 'Googleでログイン' })).toBeInViewport();
+  await expect(dialog.locator('.nq-account-body').getByRole('button', { name: /再読|さいよ/ })).toHaveCount(
+    0,
+  );
+  const reload = dialog.locator('header').getByRole('button', { name: /再読|さいよ/ });
+  await expect(reload).toBeInViewport();
   await page.screenshot({ path: testInfo.outputPath('account-narrow.png') });
+  await Promise.all([page.waitForEvent('framenavigated'), reload.click()]);
+  await expect(dialog.getByRole('button', { name: 'Googleでログイン' })).toBeDisabled();
   expect(errors).toEqual([]);
 });
 test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元し、ログアウトでゲストへ戻る', async ({
@@ -137,6 +144,11 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
   await expect(cloudSlot.getByRole('img', { name: 'Google連携' })).toBeVisible();
   await expect(cloudSlot).not.toContainText('Google');
   await expect(cloudSlot).not.toContainText('★');
+  const slotRows = otherPage.getByRole('dialog', { name: 'セーブスロット' });
+  const heights = await slotRows
+    .getByRole('button', { name: /^スロット/ })
+    .evaluateAll((rows) => rows.map((row) => row.getBoundingClientRect().height));
+  expect(new Set(heights).size).toBe(1);
   await other.close();
   await dialog.getByRole('button', { name: 'ログアウト', exact: true }).click();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();

@@ -64,7 +64,12 @@ export function mountAccountPanel(
         view,
         loginFailed,
         onClose: close,
-        onReload: () => location.reload(),
+        onReload: () => {
+          const retryUrl = new URL(location.href);
+          retryUrl.searchParams.set('account', '1');
+          history.replaceState(null, '', retryUrl);
+          location.reload();
+        },
         onUseGuest: () => {
           useGuestWhileBlocked();
           close();

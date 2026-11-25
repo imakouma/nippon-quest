@@ -70,8 +70,9 @@ export function SaveSlotSelect({
             {slot.corrupted ? (
               <span>{t('saveSlots.corrupted')}</span>
             ) : slot.exists ? (
-              <span>
-                <bdi>{slot.name}</bdi> ・ Lv{slot.level} ・{' '}
+              <span class="nq-save-slot-data">
+                <bdi class="nq-save-slot-name">{slot.name}</bdi>
+                <span>Lv{slot.level}</span>
                 {slot.source === 'google' ? (
                   <img
                     class="nq-save-slot-google"
