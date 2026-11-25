@@ -3,13 +3,7 @@ import { AccountPanel } from '../../ui/account/AccountPanel';
 import { t } from '../../ui/i18n';
 import type { AccountView } from '../../shared/account';
 import { accountSession, signIn, signOut, subscribeAccount } from '../../core/state/accountSession';
-import {
-  accountDetails,
-  guestSummaries,
-  importGuestSlot,
-  resolveAccountSlot,
-  exportAccountData,
-} from '../../core/state/save';
+import { accountDetails, guestSummaries, importGuestSlot, resolveAccountSlot } from '../../core/state/save';
 import type { GameState } from '../../core/state/schema';
 
 function describe(state: GameState | null) {
@@ -79,15 +73,6 @@ export function mountAccountPanel(
         onResolve: async (slot, choice) => {
           await resolveAccountSlot(slot, choice);
           await refresh();
-        },
-        onExport: async () => {
-          const blob = new Blob([await exportAccountData()], { type: 'application/json' });
-          const href = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = href;
-          link.download = 'nihonquest-account.json';
-          link.click();
-          setTimeout(() => URL.revokeObjectURL(href), 1000);
         },
       }),
       root,
