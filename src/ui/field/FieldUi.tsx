@@ -10,6 +10,7 @@ import { displayText } from '../ruby';
 import { ContextActionButton, type ContextActionView } from './ContextActionButton';
 import { RegionMiniMap, type RegionMiniView } from './RegionMiniMap';
 import { VirtualStick, type VirtualStickDirection } from './VirtualStick';
+import { DirectionPad } from './DirectionPad';
 import './field.css';
 
 export interface FieldHudProps {
@@ -22,6 +23,7 @@ export interface FieldHudProps {
   menuLabel: string;
   onMenu: () => void;
   onMove: (direction: VirtualStickDirection | null) => void;
+  movementControl?: 'stick' | 'dpad';
   /** Scene が一度だけ解決した、キーボード操作と共通のアクション。 */
   action?: ContextActionView | null;
   /** 開発者モード（ぜんぶの 場所へ ワープ）。ローカル開発環境だけボタンを出す */
@@ -36,12 +38,17 @@ export function FieldHud({
   menuLabel,
   onMenu,
   onMove,
+  movementControl = 'stick',
   action = null,
   dev,
 }: FieldHudProps) {
   return (
     <div class="nq-fhud">
-      <VirtualStick label={t('field.moveStick')} onDirection={onMove} />
+      {movementControl === 'dpad' ? (
+        <DirectionPad onDirection={onMove} />
+      ) : (
+        <VirtualStick label={t('field.moveStick')} onDirection={onMove} />
+      )}
       {map && <RegionMiniMap region={map} label={mapLabel} displayLabel={mapName} onOpen={onAreaMap} />}
       <div class="nq-fhud-right">
         {dev && (

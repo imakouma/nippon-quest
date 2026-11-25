@@ -4,7 +4,7 @@ import { bagContext, equipmentUnlocked, evolveRoom } from '../../core/progressio
 import { xpToNextLevel } from '../../core/progression/battleResult';
 import { TRIAL_CORE_ID } from '../../core/progression/eventReward';
 import { evolve, skillChanges } from '../../core/progression/evolution';
-import { EQUIP_SLOTS, equipSetProgress, isEquip } from '../../core/progression/inventory';
+import { canUse, EQUIP_SLOTS, equipSetProgress, isEquip, useItem } from '../../core/progression/inventory';
 import { LEARNING_FRAGMENT_ID } from '../../core/progression/learningRewards';
 import {
   previewLevelCapUnlock,
@@ -18,6 +18,8 @@ import { itemIconUrl } from '../../rendering/itemIcons';
 import type { BagThing } from '../../ui/field/BagOverlay';
 import { t } from '../../ui/i18n';
 import { itemStatText } from './menuEntries';
+import { partyFromGameState } from '../../core/battle/setup';
+import { playSfx } from '../../ui/sfx';
 
 export interface LevelCapBagTarget extends LevelCapTarget {
   xp: number;
@@ -261,4 +263,56 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
         ]),
       ),
   ];
+}
+
+interface FieldStatePort {
+  gs(): GameState | undefined;
+  setGame(game: GameState): void;
+}
+
+export function changeMovementControl(
+  scene: FieldStatePort,
+  mode: 'stick' | 'dpad',
+  redraw: () => void,
+): void {
+  const game = scene.gs();
+  if (!game) return;
+  scene.setGame({ ...game, updatedAt: Date.now(), settings: { ...game.settings, movementControl: mode } });
+  redraw();
+}
+
+export function usableStoredBagThings(
+  game: GameState,
+  content: ContentIndex,
+  max: { hp: number; mp: number },
+): BagThing[] {
+  return storedBagThings(game, content).map((thing) => {
+    const item = thing.kind === 'item' ? content.items.get(thing.key.slice('item:'.length)) : undefined;
+    return item ? { ...thing, usable: canUse(game, item, max) } : thing;
+  });
+}
+
+export function useBagItem(
+  scene: FieldStatePort,
+  content: ContentIndex,
+  key: string,
+  redraw: (key: string, message: string) => void,
+): void {
+  const game = scene.gs();
+  const item = content.items.get(key.slice('item:'.length));
+  if (!game || !item) return;
+  const max = partyFromGameState(game, content).hero.stats;
+  const used = useItem(game, item, max);
+  if (!used) {
+    playSfx('miss');
+    redraw(key, t('field.bagFull'));
+    return;
+  }
+  scene.setGame(used.state);
+  playSfx('heal');
+  redraw(key, t('field.bagUsed', { item: item.name, n: used.healed }));
+}
+
+export function heroStats(game: GameState, content: ContentIndex) {
+  return partyFromGameState(game, content).hero.stats;
 }

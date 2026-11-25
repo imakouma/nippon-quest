@@ -10,9 +10,12 @@ vi.mock('../../src/ui/i18n', () => ({ t: (key: string) => key }));
 
 afterEach(() => {
   document.body.innerHTML = '';
+  vi.unstubAllGlobals();
 });
 
 it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控えへ戻せる', () => {
+  vi.stubGlobal('CSS', { escape: (value: string) => value });
+  Element.prototype.scrollIntoView = vi.fn();
   const thing = (key: string, kind: BagThing['kind'], inBag: boolean): BagThing => ({
     key,
     kind,
@@ -21,13 +24,14 @@ it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控�
     art: null,
     cost: 1,
     inBag,
-    ...(kind === 'item' ? { action: 'pack' as const } : {}),
+    ...(kind === 'item' ? { action: 'pack' as const, usable: true } : {}),
   });
   const hero = thing('hero', 'hero', true);
   const item = thing('item', 'item', false);
   const monster = thing('monster', 'monster', false);
   const packed = thing('packed', 'monster', true);
   const onToggle = vi.fn();
+  const onUse = vi.fn();
   const root = document.createElement('div');
   document.body.append(root);
   act(() =>
@@ -49,6 +53,7 @@ it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控�
         nextLevel={null}
         message={null}
         onToggle={onToggle}
+        onUse={onUse}
         onLeader={vi.fn()}
         onEvolve={vi.fn()}
         onGrow={vi.fn()}
@@ -78,5 +83,12 @@ it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控�
   drag(root.querySelector('[data-bag-key="monster"]')!, empty, 'monster');
   drag(root.querySelector('[data-bag-key="packed"]')!, root.querySelector('.nq-bag-reserve-grid')!, 'packed');
   expect(onToggle.mock.calls).toEqual([['item'], ['item'], ['monster'], ['packed']]);
+  act(() => (root.querySelector('[data-bag-key="item"]') as HTMLButtonElement).click());
+  act(() =>
+    [...root.querySelectorAll<HTMLButtonElement>('button')]
+      .find((button) => button.textContent?.includes('field.bagUse'))
+      ?.click(),
+  );
+  expect(onUse).toHaveBeenCalledWith('item');
   act(() => render(null, root));
 });
