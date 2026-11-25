@@ -12,29 +12,29 @@
       "speech:disabled"
     ],
     "payload": {
-      "prompt": "（　）に入る正しい読みがなを選ぼう。\n\n◆栃木県",
+      "prompt": "「栃木県」のよみかたはどれですか。",
       "choices": [
         {
           "id": "c1",
-          "text": "toちぎ"
+          "text": "とちぎけん"
         },
         {
           "id": "c2",
-          "text": "とちき"
+          "text": "とちきけん"
         },
         {
           "id": "c3",
-          "text": "とちきい"
+          "text": "とちきいけん"
         },
         {
           "id": "c4",
-          "text": "とじぎ"
+          "text": "とじぎけん"
         }
       ],
       "answer": "c1",
       "shuffle": true
     },
-    "explanation": "「栃木県」は「とちぎけん」と読みます。"
+    "explanation": "「栃木県[とちぎけん]」は「とちぎけん」とよみます。「木[ぎ]」のところは「ぎ」です。"
   },
   {
     "id": "legacy.kokugo.g4.jpn-4-28.3a0f5c1c6358",

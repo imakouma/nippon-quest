@@ -465,8 +465,10 @@ test('漢字の書き問題は一覧に問題ごとの漢字を表示する', as
 
   const rows = grade.locator('.pg-question-row[title="questions/kokugo/g1/kanji-writing/set-001.json"]');
   await expect(rows.nth(0).locator('strong')).toContainText('一');
-  await expect(rows.nth(1).locator('strong')).toContainText('右');
-  await expect(rows.nth(2).locator('strong')).toContainText('雨');
+  await expect(rows.nth(1).locator('strong')).toContainText('九');
+  await expect(rows.nth(2).locator('strong')).toContainText('下');
+  await expect(rows.filter({ has: page.locator('strong', { hasText: '右' }) })).toHaveCount(1);
+  await expect(rows.filter({ has: page.locator('strong', { hasText: '雨' }) })).toHaveCount(1);
 
   await rows.nth(0).click();
   await expect(page.locator('.pg-preview h2')).toContainText('一');

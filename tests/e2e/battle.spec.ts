@@ -264,6 +264,7 @@ test('バトル：コマンドと主人公情報はポケモン風の独立し�
 
   // 技一覧を開いても、右下の主人公枠は動かず、舞台を覆い過ぎない高さに保つ。
   await page.locator('.nq-cmd[data-cmd="skill"]').click();
+  await expect(page.locator('.nq-menu')).toHaveCSS('transform', 'none');
   const [menu, partyWhileMenu] = await Promise.all([
     page.locator('.nq-menu').boundingBox(),
     page.locator('.nq-party').boundingBox(),

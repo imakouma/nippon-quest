@@ -304,7 +304,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真[しゃしん]を見[み]て、けがや病気[びょうき]の人[ひと]を助[たす]ける施設[しせつ]はどれでしょう。",
+      "prompt": "けがや病気[びょうき]の人[ひと]を、医師[いし]や看護師[かんごし]などが診察[しんさつ]や手当[てあ]てで助[たす]ける施設[しせつ]はどれですか。",
       "choices": [
         {
           "id": "c1",
@@ -324,8 +324,7 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/e1e5c00d367ab314.jpg"
+      "shuffle": true
     },
     "explanation": "病院[びょういん]では、医師[いし]や看護師[かんごし]などが、けがや病気[びょうき]の人[ひと]を助[たす]けています。"
   },
@@ -341,30 +340,29 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域で働く人の仕事の場所はどれでしょう。",
+      "prompt": "まちで、パンを作[つく]って売[う]る人[ひと]がはたらくお店[みせ]はどれですか。",
       "choices": [
         {
           "id": "c1",
-          "text": "パン屋"
+          "text": "パン屋[や]"
         },
         {
           "id": "c2",
-          "text": "月面"
+          "text": "花屋[はなや]"
         },
         {
           "id": "c3",
-          "text": "海底"
+          "text": "本屋[ほんや]"
         },
         {
           "id": "c4",
-          "text": "火山"
+          "text": "くつ屋[や]"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/884fa4899687dd39.jpg"
+      "shuffle": true
     },
-    "explanation": "パン屋の人は、パンを作って地域の人の食事を支えています。"
+    "explanation": "パン屋[や]の人[ひと]は、パンを作[つく]って売[う]り、まちの人[ひと]の食事[しょくじ]をささえています。"
   },
   {
     "id": "legacy.seikatsu.g2.cur-1802-01.fc7e29951868",

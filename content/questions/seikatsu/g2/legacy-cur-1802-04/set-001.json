@@ -47,30 +47,29 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、交流の活動として正しいものはどれでしょう。",
+      "prompt": "まちの人[ひと]に、こうりゅうかいのおしらせをとどけたいです。公民館[こうみんかん]のけいじばんに、はってよいといわれました。どうするとよいですか。",
       "choices": [
         {
           "id": "c1",
-          "text": "お知らせを掲示する"
+          "text": "おしらせをけいじする"
         },
         {
           "id": "c2",
-          "text": "隠す"
+          "text": "おしらせをかくす"
         },
         {
           "id": "c3",
-          "text": "破る"
+          "text": "おしらせをやぶる"
         },
         {
           "id": "c4",
-          "text": "無視する"
+          "text": "おしらせをしまったままにする"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/dc899e941a88c15c.jpg"
+      "shuffle": true
     },
-    "explanation": "公民館などにお知らせを掲示することも交流の活動です。"
+    "explanation": "けいじばんにおしらせをはると、公民館[こうみんかん]に来[く]る人[ひと]にこうりゅうかいのことをつたえられます。"
   },
   {
     "id": "legacy.seikatsu.g2.cur-1802-04.51dc1ddeb89b",

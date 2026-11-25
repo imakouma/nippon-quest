@@ -11,14 +11,15 @@ const questions = readdirSync('content/questions/rika', { recursive: true })
   .map((q) => questionBaseSchema.parse(q))
   .sort((a, b) => a.id.localeCompare(b.id));
 
-it('preserves all 689 science learning targets, answer keys and choices', () => {
+it('preserves all 689 science learning targets and reviewed answer keys and choices', () => {
   expect(questions).toHaveLength(689);
   const rows = questions.map((q) => {
     const p = getRenderer(q.type)!.schema.parse(q.payload) as Record<string, unknown>;
     return [q.id, q.type, q.grade, q.unit, p.answer, p.answers, p.choices];
   });
+  // Reviewed content corrections: tasks/nonmath-audit-repair-20261124-result.md.
   expect(createHash('sha256').update(JSON.stringify(rows)).digest('hex')).toBe(
-    '856499fb903f576247f26ec8e527773369ac00dfe763c54ecadfd996cf5d6fe6',
+    'df3ad276db0b3cbaf095fa6bd748ddbeb2fac28698b34639fb8fe51be02beafc',
   );
 });
 it('illustrates circuits, magnets, compression, plant growth and generation', () => {
@@ -56,9 +57,23 @@ it('restores missing statements without exposing the selected answer in speech',
   const repairs = JSON.parse(readFileSync('scripts/data/rika-source-repairs.json', 'utf8')) as {
     id: string;
     prompt: string;
+    sourceAnswer: string;
+    reviewedAnswer?: string;
   }[];
   for (const repair of repairs) {
-    const p = questions.find((q) => q.id === repair.id)!.payload as { prompt: string };
+    const p = questions.find((q) => q.id === repair.id)!.payload as {
+      prompt: string;
+      answer: string;
+      choices: { id: string; text: string }[];
+    };
+    const normalize = (text: string) =>
+      text
+        .replace(/\[[^\]]+\]/g, '')
+        .normalize('NFKC')
+        .replace(/[\s,、・。]/g, '');
+    expect(normalize(p.choices.find((choice) => choice.id === p.answer)!.text), repair.id).toBe(
+      normalize(repair.reviewedAnswer ?? repair.sourceAnswer),
+    );
     expect(p.prompt, repair.id).toBe(repair.prompt);
     expect(p.prompt.length).toBeGreaterThan(15);
   }
