@@ -47,8 +47,13 @@ for (const viewport of [
     await result.evaluate(async (node) => {
       await Promise.all(node.getAnimations().map((animation) => animation.finished));
     });
-    await expect(result).toContainText('いまの レベル 2');
-    await expect(result).toContainText('けいけんち 10 / 61');
+    await expect(result).not.toContainText('いまの レベル');
+    await expect(result.locator('.nq-result-level')).toHaveText('Lv.2');
+    await expect(result.getByRole('meter')).toContainText('10/61');
+    const level = (await result.locator('.nq-result-level').boundingBox())!;
+    const xpBar = (await result.getByRole('meter').boundingBox())!;
+    expect(level.x + level.width).toBeLessThan(xpBar.x);
+    expect(level.y + level.height / 2).toBeCloseTo(xpBar.y + xpBar.height / 2, 0);
     const box = (await result.boundingBox())!;
     expect(box.x).toBeGreaterThanOrEqual(0);
     expect(box.y).toBeGreaterThanOrEqual(0);

@@ -7,7 +7,7 @@ import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
 import type { HudStore, ResultView } from './store';
 
-function Bar({ value, max, label }: { value: number; max: number; label: string }) {
+function Bar({ value, max, label, text }: { value: number; max: number; label: string; text: string }) {
   const ratio = max > 0 ? Math.max(0, Math.min(1, value / max)) : 0;
   return (
     <div
@@ -17,8 +17,12 @@ function Bar({ value, max, label }: { value: number; max: number; label: string 
       aria-valuemin={0}
       aria-valuenow={value}
       aria-valuemax={max}
+      aria-valuetext={label}
     >
       <i class="nq-fill-xp" style={{ width: `${ratio * 100}%` }} />
+      <span class="nq-bar-value" aria-hidden="true">
+        {text}
+      </span>
     </div>
   );
 }
@@ -137,14 +141,22 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
               {t('battle.gotXp')}
             </dt>
             <dd>+{r.xp}</dd>
-            <dt>{t('battle.resultLevel', { lv: r.level ?? 1 })}</dt>
-            <dd>
-              {r.levelXpNeeded === undefined
-                ? t('battle.savedXp', { n: r.levelXp ?? 0 })
-                : t('battle.levelXp', { n: r.levelXp ?? 0, total: r.levelXpNeeded })}
-            </dd>
             <dt class="nq-result-xpbar">
-              <Bar value={xpW} max={1} label={t('battle.gotXp')} />
+              <span class="nq-result-level">{t('battle.resultLevel', { lv: r.level ?? 1 })}</span>
+              <Bar
+                value={xpW}
+                max={1}
+                label={
+                  r.levelXpNeeded === undefined
+                    ? t('battle.savedXp', { n: r.levelXp ?? 0 })
+                    : t('battle.levelXp', { n: r.levelXp ?? 0, total: r.levelXpNeeded })
+                }
+                text={
+                  r.levelXpNeeded === undefined
+                    ? String(r.levelXp ?? 0)
+                    : `${r.levelXp ?? 0}/${r.levelXpNeeded}`
+                }
+              />
             </dt>
             <dd class="nq-result-need">
               {r.levelXpNeeded === undefined

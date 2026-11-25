@@ -898,8 +898,19 @@
   margin: 0;
   text-align: right;
 }
+.nq-result-xpbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.nq-result-level {
+  flex: none;
+  white-space: nowrap;
+}
 .nq-result-xpbar .nq-bar {
-  width: 100%;
+  min-width: 0;
+  height: 20px;
 }
 .nq-result-reward {
   display: flex;
