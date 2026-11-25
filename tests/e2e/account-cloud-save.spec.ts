@@ -122,7 +122,7 @@ test('ゲストの冒険を確認して引き継ぎ、別ブラウザで復元�
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();
   expect(account.owner).toBeNull();
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await expect(page.getByRole('button', { name: /^スロット 1/ })).toContainText(/ハル.*この.*のみ/);
+  await expect(page.getByRole('button', { name: /^スロット 1/ })).toContainText(/ハル.*なし/);
 });
 
 test('起動リトライは遅い認証応答を待ち、ゲスト進行をアカウントへ混ぜない', async ({ page, context }) => {
