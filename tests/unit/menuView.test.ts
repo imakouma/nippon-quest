@@ -58,6 +58,7 @@ describe('フィールドメニューの表示モデル', () => {
       'monsters',
       'party',
       'skills',
+      'settings',
     ]);
   });
 

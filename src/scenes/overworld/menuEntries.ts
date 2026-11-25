@@ -97,6 +97,7 @@ export function menuTabs(mistakeCount: number): {
     { key: 'monsters', label: t('field.dexGroup'), icon: 'boss' },
     { key: 'party', label: t('field.bagTitle'), icon: 'cmd-item' },
     { key: 'skills', label: t('field.skillMenu'), icon: 'star' },
+    { key: 'settings', label: t('field.settingsMenu'), icon: 'star' },
   ];
 }
 
