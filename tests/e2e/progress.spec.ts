@@ -60,7 +60,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(page.getByRole('button', { name: /セーブ/ })).toBeVisible();
   await expect(page.getByRole('button', { name: /ほごしゃ/ })).toBeVisible();
   await page.getByRole('button', { name: /セーブ/ }).click();
-  await expect(page.getByText('セーブしたよ')).toBeVisible();
+  await page.getByRole('menuitem', { name: /いいえ$/ }).click();
+  await page.getByRole('button', { name: 'メニュー', exact: true }).click();
   await page.screenshot({ path: testInfo.outputPath('menu-home.png') });
   await menuHome.getByRole('button', { name: /がくしゅう/ }).click();
   const roadmap = page.getByRole('region', { name: 'がくしゅうロードマップ' });
@@ -317,7 +318,24 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.reload();
   await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeVisible({ timeout: 20_000 });
   await page.getByRole('menuitem', { name: 'つづきから' }).click();
-  await expect(page.getByRole('button', { name: /スロット 3 Lv/ })).toBeVisible();
-  await page.getByRole('button', { name: /スロット 3 Lv/ }).click();
+  await expect(page.getByRole('button', { name: /^スロット 3 .*Lv/ })).toBeVisible();
+  await page.getByRole('button', { name: /^スロット 3 .*Lv/ }).click();
   await expect(page.getByRole('button', { name: 'メニュー' })).toBeVisible({ timeout: 20_000 });
+});
+
+test('手動セーブのあとにホームへ戻り、同じ冒険を再開できる', async ({ page }) => {
+  await page.goto('/?resetSaves=1');
+  await page.getByRole('menuitem', { name: 'はじめから' }).click();
+  await page.getByRole('button', { name: /^スロット 1/ }).click();
+  await completeNewGameSetup(page, 'テスト');
+  const menu = page.getByRole('button', { name: 'メニュー', exact: true });
+  for (const answer of ['いいえ', 'はい']) {
+    await menu.click({ timeout: 30000 });
+    await page.getByRole('button', { name: /セーブ/ }).click();
+    await expect(page.locator('.nq-dlg')).toContainText(/ホームに.*りますか/);
+    await page.getByRole('menuitem', { name: new RegExp(answer + '$') }).click();
+  }
+  await page.getByRole('menuitem', { name: 'つづきから' }).click({ timeout: 30000 });
+  await page.getByRole('button', { name: /^スロット 1 .*Lv/ }).click();
+  await expect(menu).toBeVisible({ timeout: 30000 });
 });

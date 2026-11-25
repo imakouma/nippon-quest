@@ -87,6 +87,7 @@ import type { RegionMiniView } from '../ui/field/RegionMiniMap';
 import { AreaTitle, FieldHud, LandmarkCutin } from '../ui/field/FieldUi';
 import { BagOverlay, type BagThing } from '../ui/field/BagOverlay';
 import { bagCells } from '../ui/field/bagLayout';
+import { saveFromFieldMenu } from './overworld/manualSave';
 import { MenuOverlay, type MenuEntry, type MenuTab } from '../ui/field/MenuOverlay';
 import type { RoadmapViewModel } from '../shared/menuModel';
 import { ParentOverlay } from '../ui/field/ParentOverlay';
@@ -2572,7 +2573,6 @@ export class OverworldScene extends Phaser.Scene {
     }
   }
 
-  /** 会話を出す。choices があれば最後の行で選ばせて、その番号を返す（選択肢なしは -1） */
   private choose(lines: DialogueLine[], choices?: string[]): Promise<number> {
     return presentDialogue(this.root('dialogue'), lines, choices, () => {
       this.inputLockUntil = this.time.now + 250;
@@ -2675,6 +2675,14 @@ export class OverworldScene extends Phaser.Scene {
     this.standStill();
     if (playOpenSfx) playSfx('select');
     const root = this.root('travel');
+    const close = () => {
+      playSfx('back');
+      render(null, root);
+      this.busy = false;
+      this.inputLockUntil = this.time.now + 250;
+      this.waitRelease = true;
+      this.renderHud();
+    };
     const draw = (tab: MenuTab, focusKey?: string, message: string | null = null, initialHome = true) => {
       const view = this.menuView(tab);
       const roadmapView = this.roadmapViewModel();
@@ -2705,8 +2713,13 @@ export class OverworldScene extends Phaser.Scene {
           },
           onSave: () => {
             const game = this.gs();
-            if (game) this.setGame({ ...game, updatedAt: Date.now() });
-            playSfx('recruit');
+            return saveFromFieldMenu(
+              this.registry,
+              game && this.captureFieldState(game),
+              () => render(null, root),
+              (text, choices) => this.choose([{ text }], choices),
+              close,
+            );
           },
           onParent: () => {
             const game = this.gs()!;
@@ -2725,14 +2738,7 @@ export class OverworldScene extends Phaser.Scene {
               root,
             );
           },
-          onClose: () => {
-            playSfx('back');
-            render(null, root);
-            this.busy = false;
-            this.inputLockUntil = this.time.now + 250;
-            this.waitRelease = true;
-            this.renderHud();
-          },
+          onClose: close,
         }),
         root,
       );
@@ -3410,7 +3416,6 @@ export class OverworldScene extends Phaser.Scene {
     const xp = this.content()?.xp.hero;
     const next = this.captureFieldState(xp ? syncHeroLevel(gs, xp) : gs);
     this.registry.set('game', next);
-    // 見た目・めいさんひんの そうびが かわったら 主人公の 絵も
     this.refreshHeroLook();
   }
 
