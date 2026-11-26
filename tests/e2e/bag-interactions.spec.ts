@@ -179,7 +179,10 @@ test.describe('レベル上限のタッチ操作', () => {
     await expect(detail).toContainText(/はじめの (?:上限|じょうげん) Lv10/);
     await expect(detail).toContainText(/さいごの (?:上限|じょうげん) Lv100/);
     await page.screenshot({ path: testInfo.outputPath('dex-level-caps-known.png'), fullPage: true });
-    await menu.locator('[data-menu-entry]').filter({ hasText: '？？？' }).first().click();
+    await menu
+      .getByRole('button', { name: /？？？/ })
+      .first()
+      .click();
     await expect(detail).not.toContainText(/はじめの (?:上限|じょうげん)/);
     await page.screenshot({ path: testInfo.outputPath('dex-level-caps-hidden.png'), fullPage: true });
   });

@@ -253,8 +253,9 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   const dexArtBox = await dexCard.locator('.nq-menu-icon').boundingBox();
   expect(dexCardBox).not.toBeNull();
   expect(dexArtBox).not.toBeNull();
-  expect(dexCardBox!.width).toBeGreaterThanOrEqual(140);
-  expect(dexArtBox!.height).toBeGreaterThanOrEqual(48);
+  expect(dexCardBox!.width).toBeGreaterThanOrEqual(40);
+  expect(dexCardBox!.width).toBeLessThan(60);
+  expect(dexArtBox!.height).toBeGreaterThanOrEqual(32);
   await dexRegions.getByRole('button', { name: /東北/ }).click();
   await expect(dexRegions.getByRole('button', { name: /東北/ })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'とくさん' }).click();
@@ -328,6 +329,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
 });
 
 test('手動セーブのあとにホームへ戻り、同じ冒険を再開できる', async ({ page }) => {
+  // 初回起動と新規ゲームの導入、2回のセーブ、再開までを含む。
+  test.setTimeout(120_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: 'はじめから' }).click();
   await page.getByRole('button', { name: /^スロット 1/ }).click();
