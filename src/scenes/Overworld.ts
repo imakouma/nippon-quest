@@ -2722,8 +2722,6 @@ export class OverworldScene extends Phaser.Scene {
               close,
             );
           },
-          movementControl: this.gs()?.settings.movementControl,
-          onMovementControl: (mode) => bagItems.changeMovementControl(this, mode, () => draw(tab)),
           onParent: () => {
             const game = this.gs()!;
             render(
