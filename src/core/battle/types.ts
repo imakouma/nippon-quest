@@ -180,7 +180,7 @@ type BattleActionEvent =
   | { t: 'recruitGift'; itemId: string; targetId: string }
   /** auto = オトモが たおれて、次の 仲間が 自動で 前に 出た */
   | { t: 'swap'; from: string; to: string; auto?: boolean }
-  | { t: 'recruitAttempt'; targetId: string; success: boolean; chance: number }
+  | { t: 'recruitAttempt'; targetId: string; success: boolean; chance: number; shakes?: number }
   | { t: 'fleeAttempt'; success: boolean; chance: number }
   | { t: 'ko'; side: Side; targetId: string }
   | { t: 'bossPhase'; phaseIndex: number; line?: string }

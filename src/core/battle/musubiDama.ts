@@ -1,6 +1,5 @@
 const SPEED_BONUS_MAX = 0.4;
 const SPEED_BONUS_WINDOW_MS = 15_000;
-const MAX_CHANCE = 0.9;
 
 export interface MusubiDamaAttempt {
   baseRate: number;
@@ -12,6 +11,20 @@ export interface MusubiDamaAttempt {
 
 const clamp01 = (value: number) => Math.min(1, Math.max(0, Number.isFinite(value) ? value : 0));
 
+/** ４回の判定をすべて通る確率が元の捕獲率になるようにする。 */
+export function rollMusubiDama(
+  chance: number,
+  rng: Pick<Rng, 'chance'>,
+): { success: boolean; shakes: number } {
+  const probability = clamp01(chance);
+  if (probability === 0) return { success: false, shakes: 0 };
+  const check = probability ** 0.25;
+  for (let shakes = 0; shakes < 4; shakes++) {
+    if (!rng.chance(check)) return { success: false, shakes };
+  }
+  return { success: true, shakes: 3 };
+}
+
 export function canUseMusubiDama(input: { isBoss: boolean; hp: number; recruitRate: number }): boolean {
   return !input.isBoss && input.hp > 0 && input.recruitRate > 0;
 }
@@ -20,11 +33,11 @@ export function canUseMusubiDama(input: { isBoss: boolean; hp: number; recruitRa
 export function musubiDamaChance(input: MusubiDamaAttempt): number {
   const score = clamp01(input.score);
   if (input.baseRate <= 0) return 0;
-  const hpChance = clamp01(input.baseRate) + (1 - clamp01(input.hpRatio)) * 0.65;
+  const hpChance = (clamp01(input.baseRate) * (3 - 2 * clamp01(input.hpRatio))) / 3;
   const timeScale = Number.isFinite(input.timeLimitScale) ? Math.max(0.1, input.timeLimitScale) : 1;
   const elapsed = Math.max(0, Number.isFinite(input.timeMs) ? input.timeMs : SPEED_BONUS_WINDOW_MS);
   const speedRatio = 1 - Math.min(1, elapsed / (SPEED_BONUS_WINDOW_MS * timeScale));
-  return Math.min(MAX_CHANCE, hpChance * score * (1 + SPEED_BONUS_MAX * speedRatio));
+  return clamp01(hpChance * score * (1 + SPEED_BONUS_MAX * speedRatio));
 }
 import type { Item, Monster } from '../content/schemas';
 import type { Rng } from '../rng';
@@ -61,8 +74,8 @@ export function useMusubiDama(
     timeMs: command.result.timeMs,
     timeLimitScale: command.timeLimitScale ?? 1,
   });
-  const success = chance > 0 && rng.chance(chance);
-  events.push({ t: 'recruitAttempt', ...action, targetId: state.enemy.id, success, chance });
+  const { success, shakes } = rollMusubiDama(chance, rng);
+  events.push({ t: 'recruitAttempt', ...action, targetId: state.enemy.id, success, chance, shakes });
   if (success) {
     state.outcome = 'recruited';
     events.push({ t: 'recruited', ...action, monsterId: state.enemy.refId });

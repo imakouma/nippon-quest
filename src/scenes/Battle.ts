@@ -1,3 +1,4 @@
+import { prepareNewDexCelebration } from './battle/newDexCelebration';
 import { trainedAssignedSkill } from '../core/progression/assignedSkillTraining';
 /** ターン制バトルの Scene。計算は core、文字と操作は DOM、Scene は演出と進行を担当する。 */
 import Phaser from 'phaser';
@@ -1682,6 +1683,7 @@ export class BattleScene extends Phaser.Scene {
 
     const snapshot = this.resumeSnapshot;
     if (!snapshot) throw new Error('戦闘snapshotが見つかりません');
+    const dexPage = prepareNewDexCelebration(outcome, summary.enemyRefId, this.syncGame(), this.content);
     const decision = await this.resumeRuntime.settle(
       snapshot.battleId,
       snapshot.sequence,
@@ -1691,6 +1693,10 @@ export class BattleScene extends Phaser.Scene {
     if (!decision.result) throw new Error('戦闘結果を確定できませんでした');
     this.gs = decision.state;
     this.resumeSnapshot = decision.state.battle.active;
+    if (decision.settlement && dexPage && decision.state.dex.monsters.includes(summary.enemyRefId)) {
+      playSfx('discover');
+      await this.hudFlow.showDex(s.enemy.name, t('battle.dexRegistered'), dexPage);
+    }
     if (decision.settlement) await this.announceSettlement(decision.settlement);
     await this.leave(decision.result.outcome, decision.result.goldLost);
   }

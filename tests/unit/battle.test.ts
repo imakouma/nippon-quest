@@ -110,6 +110,43 @@ const testSkill = (over: Partial<Skill>): Skill => ({
 });
 
 describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × ElementMultiplier）', () => {
+  it('仲間本人の属性付き攻撃技だけに一致倍率を掛け、相性と乱数を維持する', async () => {
+    const { state } = await setup({ withMonster: true });
+    const monster = { ...state.ally.monsters[0]!, element: 'hino' as const };
+    const skill = testSkill({ element: 'hino', power: 200 });
+    const hit = (attacker: Combatant, side: 'ally' | 'enemy', usedSkill: Skill | null) => {
+      const events: BattleEvent[] = [];
+      const target = { ...state.enemy, element: 'mori' as const, hp: 9999 };
+      resolveHit(
+        state,
+        D,
+        { ...createRng('element-match'), int: () => 100, chance: () => false },
+        events,
+        { actionId: 'turn:1:action:1' },
+        {
+          attacker,
+          defender: target,
+          side,
+          skill: usedSkill,
+          score: null,
+        },
+      );
+      const event = events.find((event) => event.t === 'damage');
+      if (!event || event.t !== 'damage') throw new Error('damage event missing');
+      return event;
+    };
+    const matched = hit(monster, 'enemy', skill);
+    const unmatched = hit({ ...monster, element: 'mizu' }, 'enemy', skill);
+    expect(matched.amount).toBe(Math.floor(unmatched.amount * 1.5));
+    expect(matched.elementMult).toBe(unmatched.elementMult);
+    expect(hit({ ...monster, isHero: true }, 'enemy', skill).amount).toBe(unmatched.amount);
+    expect(hit(monster, 'ally', skill).amount).toBe(unmatched.amount);
+    expect(hit({ ...monster, element: 'none' }, 'enemy', { ...skill, element: 'none' }).amount).toBe(
+      hit({ ...monster, element: 'mizu' }, 'enemy', { ...skill, element: 'none' }).amount,
+    );
+    expect(hit(monster, 'enemy', null).amount).toBe(hit({ ...monster, isHero: true }, 'enemy', null).amount);
+  });
+
   it('主人公はLv101以降もダメージ式のレベル係数をLv100で止める', async () => {
     const { state } = await setup({ level: 100 });
     const skill = D.skills.get('sk-tashizan-giri')!;

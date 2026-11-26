@@ -56,6 +56,7 @@ interface MenuListRowProps {
   index: number;
   selected: boolean;
   compactMeta?: boolean;
+  numberOnly?: boolean;
   onPick: MenuPick;
 }
 
@@ -65,11 +66,19 @@ class MenuListRow extends Component<MenuListRowProps> {
       next.entry !== this.props.entry ||
       next.selected !== this.props.selected ||
       next.compactMeta !== this.props.compactMeta ||
+      next.numberOnly !== this.props.numberOnly ||
       next.onPick !== this.props.onPick
     );
   }
 
-  override render({ entry, index, selected, compactMeta = false, onPick }: MenuListRowProps) {
+  override render({
+    entry,
+    index,
+    selected,
+    compactMeta = false,
+    numberOnly = false,
+    onPick,
+  }: MenuListRowProps) {
     return (
       <li>
         <button
@@ -77,17 +86,22 @@ class MenuListRow extends Component<MenuListRowProps> {
           data-menu-entry
           class={`nq-opt ${selected ? 'nq-focus' : ''} ${entry.known ? '' : 'nq-menu-unknown'}`}
           aria-current={selected ? 'true' : undefined}
+          aria-label={
+            numberOnly
+              ? displayText([entry.right, entry.name, entry.tag].filter(Boolean).join(' '))
+              : undefined
+          }
           onPointerEnter={() => onPick(index)}
           onClick={() => onPick(index)}
         >
           <span class="nq-amap-cur">{selected && <span class="nq-heart">♥</span>}</span>
           {entry.icon && <img class="nq-item-icon nq-town-icon nq-menu-icon" src={entry.icon} alt="" />}
           <span class={compactMeta ? 'nq-mistake-row-copy' : undefined}>
-            <RubyLabel text={entry.name} class="nq-opt-name" />
+            <RubyLabel text={numberOnly ? (entry.right ?? entry.name) : entry.name} class="nq-opt-name" />
             {compactMeta && entry.sub && <RubyLabel text={entry.sub} class="nq-mistake-row-meta" />}
           </span>
-          {entry.tag && <span class="nq-party-tag">{entry.tag}</span>}
-          {entry.right && <RubyLabel text={entry.right} class="nq-town-right" />}
+          {!numberOnly && entry.tag && <span class="nq-party-tag">{entry.tag}</span>}
+          {!numberOnly && entry.right && <RubyLabel text={entry.right} class="nq-town-right" />}
         </button>
       </li>
     );
@@ -140,6 +154,7 @@ export function MenuOverlay({
   }
   const isDex = tab === 'monsters' || tab === 'specialties';
   const isMistakes = tab === 'mistakes';
+  const dexColumns = tab === 'monsters' ? 6 : 2;
   const groups = isDex
     ? [
         ...new Map(
@@ -235,6 +250,7 @@ export function MenuOverlay({
     home,
     homeSel,
     isDex,
+    dexColumns,
     visibleIndexes,
     visibleSel,
   });
@@ -249,6 +265,7 @@ export function MenuOverlay({
     home,
     homeSel,
     isDex,
+    dexColumns,
     visibleIndexes,
     visibleSel,
   };
@@ -310,14 +327,17 @@ export function MenuOverlay({
         case 'ArrowUp':
           if (L.isDex && L.visibleIndexes.length)
             L.pick(
-              L.visibleIndexes[(L.visibleSel - 3 + L.visibleIndexes.length) % L.visibleIndexes.length]!,
+              L.visibleIndexes[
+                (L.visibleSel - (L.dexColumns % L.visibleIndexes.length) + L.visibleIndexes.length) %
+                  L.visibleIndexes.length
+              ]!,
               true,
             );
           else if (L.n) L.pick((L.sel - 1 + L.n) % L.n, true);
           break;
         case 'ArrowDown':
           if (L.isDex && L.visibleIndexes.length)
-            L.pick(L.visibleIndexes[(L.visibleSel + 3) % L.visibleIndexes.length]!, true);
+            L.pick(L.visibleIndexes[(L.visibleSel + L.dexColumns) % L.visibleIndexes.length]!, true);
           else if (L.n) L.pick((L.sel + 1) % L.n, true);
           break;
         case 'ArrowLeft':
@@ -492,7 +512,7 @@ export function MenuOverlay({
                 {summary && <RubyLabel text={summary} class="nq-menu-summary" as="p" />}
                 {entries.length ? (
                   <ul
-                    class={`nq-party-list nq-town-list ${isDex ? 'nq-dex-grid' : ''} ${isMistakes ? 'nq-mistake-list' : ''}`}
+                    class={`nq-party-list nq-town-list ${isDex ? 'nq-dex-grid' : ''} ${tab === 'monsters' ? 'nq-dex-monsters' : ''} ${isMistakes ? 'nq-mistake-list' : ''}`}
                     ref={listRef}
                   >
                     {visibleEntries.map((x) => {
@@ -504,6 +524,7 @@ export function MenuOverlay({
                           index={k}
                           selected={k === sel}
                           compactMeta={isMistakes}
+                          numberOnly={tab === 'monsters'}
                           onPick={pick}
                         />
                       );
