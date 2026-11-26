@@ -1,6 +1,5 @@
 const SPEED_BONUS_MAX = 0.4;
 const SPEED_BONUS_WINDOW_MS = 15_000;
-const MAX_CHANCE = 0.9;
 
 export interface MusubiDamaAttempt {
   baseRate: number;
@@ -34,11 +33,11 @@ export function canUseMusubiDama(input: { isBoss: boolean; hp: number; recruitRa
 export function musubiDamaChance(input: MusubiDamaAttempt): number {
   const score = clamp01(input.score);
   if (input.baseRate <= 0) return 0;
-  const hpChance = clamp01(input.baseRate) + (1 - clamp01(input.hpRatio)) * 0.65;
+  const hpChance = (clamp01(input.baseRate) * (3 - 2 * clamp01(input.hpRatio))) / 3;
   const timeScale = Number.isFinite(input.timeLimitScale) ? Math.max(0.1, input.timeLimitScale) : 1;
   const elapsed = Math.max(0, Number.isFinite(input.timeMs) ? input.timeMs : SPEED_BONUS_WINDOW_MS);
   const speedRatio = 1 - Math.min(1, elapsed / (SPEED_BONUS_WINDOW_MS * timeScale));
-  return Math.min(MAX_CHANCE, hpChance * score * (1 + SPEED_BONUS_MAX * speedRatio));
+  return clamp01(hpChance * score * (1 + SPEED_BONUS_MAX * speedRatio));
 }
 import type { Item, Monster } from '../content/schemas';
 import type { Rng } from '../rng';

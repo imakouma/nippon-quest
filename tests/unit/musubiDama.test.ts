@@ -33,6 +33,13 @@ describe('むすび玉の仲間化確率', () => {
     );
   });
 
+  it('HP補正は (3 × 最大HP − 2 × 現在HP) / (3 × 最大HP)', () => {
+    const input = { ...attempt, baseRate: 0.6, score: 1, timeMs: 15_000 };
+    expect(musubiDamaChance({ ...input, hpRatio: 1 })).toBeCloseTo(0.2);
+    expect(musubiDamaChance({ ...input, hpRatio: 0.5 })).toBeCloseTo(0.4);
+    expect(musubiDamaChance({ ...input, hpRatio: 0.01 })).toBeCloseTo(0.596);
+  });
+
   it('正解度が高いほど成功率が上がり、不正解は0%', () => {
     expect(musubiDamaChance({ ...attempt, score: 1 })).toBeGreaterThan(
       musubiDamaChance({ ...attempt, score: 0.5 }),
@@ -52,8 +59,8 @@ describe('むすび玉の仲間化確率', () => {
     );
   });
 
-  it('成功率は90%を超えない', () => {
-    expect(musubiDamaChance({ ...attempt, baseRate: 1, hpRatio: 0, timeMs: 0 })).toBe(0.9);
+  it('成功率は100%を超えない', () => {
+    expect(musubiDamaChance({ ...attempt, baseRate: 1, hpRatio: 0, timeMs: 0 })).toBe(1);
   });
 
   it('ボス・加入率0・倒れた敵には使えない', () => {

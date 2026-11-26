@@ -31,7 +31,8 @@ for (const viewport of [
       battle.state.isBossBattle = false;
       battle.state.enemy.isBoss = false;
       battle.state.enemy.hp = 1;
-      battle.state.seed = 'capture-check';
+      // 登録演出を確実に検証できる捕獲成功シード。
+      battle.state.seed = 'visual-23002';
       battle.state.rngState = undefined;
       battle.state.ally.hero.stats.spd = 9999;
       battle.state.enemy.stats.spd = 1;
