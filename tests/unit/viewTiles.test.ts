@@ -23,11 +23,15 @@ it('atlas 内を palette 色で描き、孤立した森と砂の両側の角を�
   };
   const canvas = { width: 0, height: 0, getContext: () => context };
   vi.stubGlobal('document', { createElement: () => canvas });
-  const textures = { exists: () => false, addCanvas: vi.fn() };
+  const textures = {
+    exists: () => false,
+    emit: () => undefined,
+    create: vi.fn(() => ({ add: () => undefined })),
+  };
   buildViewTexture({ textures } as unknown as Phaser.Scene);
   expect(canvas.width).toBe(VIEW_COLS * 16);
   expect(canvas.height).toBe(Math.ceil(VIEW_COUNT / VIEW_COLS) * 16);
-  expect(textures.addCanvas).toHaveBeenCalledOnce();
+  expect(textures.create).toHaveBeenCalledOnce();
   const pixel = (tile: number, x: number, y: number) =>
     pixels.get(`${(tile % VIEW_COLS) * 16 + x},${Math.floor(tile / VIEW_COLS) * 16 + y}`);
   for (const tile of [VIEW.FOREST, VIEW.SAND_EDGE]) {

@@ -22,7 +22,9 @@ it('屋根の表示タイルはパレット内の色で不透明に塗られる'
   };
   const canvas = { width: 0, height: 0, getContext: () => context };
   vi.stubGlobal('document', { createElement: () => canvas });
-  const scene = { textures: { exists: () => false, addCanvas: () => undefined } };
+  const scene = {
+    textures: { exists: () => false, emit: () => undefined, create: () => ({ add: () => undefined }) },
+  };
   buildTownViewTexture(scene as unknown as Parameters<typeof buildTownViewTexture>[0]);
 
   const invalid = new Set<string | undefined>();
