@@ -6,6 +6,7 @@ export async function playMusubiResult(
   scene: Phaser.Scene,
   at: { x: number; y: number },
   success: boolean,
+  shakes: number,
   burst: (x: number, y: number, tint: number, texture: string, count: number, gravityY?: number) => void,
   onWobble: () => void,
 ): Promise<void> {
@@ -14,7 +15,7 @@ export async function playMusubiResult(
     new Promise<void>((resolve) => scene.tweens.add({ ...config, onComplete: () => resolve() }));
   try {
     const wait = () => new Promise<void>((resolve) => scene.time.delayedCall(350, resolve));
-    for (let i = 0; i < (success ? 3 : 2); i++) {
+    for (let i = 0; i < shakes; i++) {
       await wait();
       onWobble();
       await tween({ targets: ball, angle: -14, duration: 110, yoyo: true, ease: 'Sine.easeInOut' });

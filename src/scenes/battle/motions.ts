@@ -88,8 +88,8 @@ export class Motions {
     this.burst(to.x, to.y, 0xffd66c, 'bt.fx.star', 12, -80);
   }
 
-  resolveMusubiDama(at: Pt, success: boolean, onWobble: () => void): Promise<void> {
-    return playMusubiResult(this.scene, at, success, this.burst, onWobble);
+  resolveMusubiDama(at: Pt, success: boolean, shakes: number, onWobble: () => void): Promise<void> {
+    return playMusubiResult(this.scene, at, success, shakes, this.burst, onWobble);
   }
   // ───────────────────────── 必殺技 ─────────────────────────
 

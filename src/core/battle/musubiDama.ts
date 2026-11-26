@@ -12,6 +12,20 @@ export interface MusubiDamaAttempt {
 
 const clamp01 = (value: number) => Math.min(1, Math.max(0, Number.isFinite(value) ? value : 0));
 
+/** ４回の判定をすべて通る確率が元の捕獲率になるようにする。 */
+export function rollMusubiDama(
+  chance: number,
+  rng: Pick<Rng, 'chance'>,
+): { success: boolean; shakes: number } {
+  const probability = clamp01(chance);
+  if (probability === 0) return { success: false, shakes: 0 };
+  const check = probability ** 0.25;
+  for (let shakes = 0; shakes < 4; shakes++) {
+    if (!rng.chance(check)) return { success: false, shakes };
+  }
+  return { success: true, shakes: 3 };
+}
+
 export function canUseMusubiDama(input: { isBoss: boolean; hp: number; recruitRate: number }): boolean {
   return !input.isBoss && input.hp > 0 && input.recruitRate > 0;
 }
@@ -61,8 +75,8 @@ export function useMusubiDama(
     timeMs: command.result.timeMs,
     timeLimitScale: command.timeLimitScale ?? 1,
   });
-  const success = chance > 0 && rng.chance(chance);
-  events.push({ t: 'recruitAttempt', ...action, targetId: state.enemy.id, success, chance });
+  const { success, shakes } = rollMusubiDama(chance, rng);
+  events.push({ t: 'recruitAttempt', ...action, targetId: state.enemy.id, success, chance, shakes });
   if (success) {
     state.outcome = 'recruited';
     events.push({ t: 'recruited', ...action, monsterId: state.enemy.refId });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { canUseMusubiDama, musubiDamaChance } from '../../src/core/battle/musubiDama';
+import { canUseMusubiDama, musubiDamaChance, rollMusubiDama } from '../../src/core/battle/musubiDama';
 
 const attempt = {
   baseRate: 0.2,
@@ -10,6 +10,23 @@ const attempt = {
 };
 
 describe('むすび玉の仲間化確率', () => {
+  it('４段階判定で０〜３回の揺れと成功を決める', () => {
+    for (let failed = 0; failed < 4; failed++) {
+      const rolls = Array(failed).fill(true).concat(false);
+      expect(rollMusubiDama(0.5, { chance: () => rolls.shift()! })).toEqual({
+        success: false,
+        shakes: failed,
+      });
+    }
+    const thresholds: number[] = [];
+    expect(rollMusubiDama(0.5, { chance: (p) => (thresholds.push(p), true) })).toEqual({
+      success: true,
+      shakes: 3,
+    });
+    expect(thresholds).toHaveLength(4);
+    expect(thresholds[0] ** 4).toBeCloseTo(0.5);
+    expect(rollMusubiDama(0, { chance: () => true })).toEqual({ success: false, shakes: 0 });
+  });
   it('HPが低いほど成功率が上がる', () => {
     expect(musubiDamaChance({ ...attempt, hpRatio: 0.1 })).toBeGreaterThan(
       musubiDamaChance({ ...attempt, hpRatio: 0.9 }),

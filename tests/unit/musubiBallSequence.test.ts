@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type Phaser from 'phaser';
 import { playMusubiResult } from '../../src/scenes/battle/musubiAnimation';
 
-async function sequence(success: boolean): Promise<string[]> {
+async function sequence(success: boolean, shakes: number): Promise<string[]> {
   const events: string[] = [];
   const ball = {
     setScale() {
@@ -34,6 +34,7 @@ async function sequence(success: boolean): Promise<string[]> {
     scene,
     { x: 100, y: 100 },
     success,
+    shakes,
     () => events.push('result'),
     () => events.push('shake'),
   );
@@ -42,12 +43,17 @@ async function sequence(success: boolean): Promise<string[]> {
 
 describe('むすび玉の結果待ち', () => {
   it('成功は３回、失敗は２回揺れ、結果は揺れ終わるまで見せない', async () => {
-    const success = await sequence(true);
-    const failure = await sequence(false);
+    const success = await sequence(true, 3);
+    const failure = await sequence(false, 2);
     expect(success.filter((event) => event === 'shake')).toHaveLength(3);
     expect(failure.filter((event) => event === 'shake')).toHaveLength(2);
     expect(success.slice(0, failure.indexOf('result'))).toEqual(failure.slice(0, failure.indexOf('result')));
     expect(success.lastIndexOf('shake')).toBeLessThan(success.indexOf('result'));
     expect(failure.lastIndexOf('shake')).toBeLessThan(failure.indexOf('result'));
+  });
+  it.each([0, 1, 2, 3])('失敗時は指定された %i 回だけ揺れる', async (shakes) => {
+    const events = await sequence(false, shakes);
+    expect(events.filter((event) => event === 'shake')).toHaveLength(shakes);
+    expect(events.indexOf('result')).toBeGreaterThan(events.lastIndexOf('shake'));
   });
 });
