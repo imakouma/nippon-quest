@@ -66,6 +66,13 @@ export class BattleHudFlow {
     if (this.hud.get().banner?.id === id) this.hud.set({ banner: null });
   }
 
+  async showDex(text: string, sub: string, art: string): Promise<void> {
+    const id = ++this.bannerId;
+    this.hud.set({ message: null, banner: { id, kind: 'dex', text, sub, art } });
+    await this.wait(3000);
+    if (this.hud.get().banner?.id === id) this.hud.set({ banner: null });
+  }
+
   popup(x: number, y: number, text: string, kind: PopupView['kind']): void {
     const id = ++this.popupId;
     this.hud.set((state) => ({ popups: [...state.popups, { id, x, y, text, kind }] }));

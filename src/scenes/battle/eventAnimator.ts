@@ -248,6 +248,11 @@ export class BattleEventAnimator {
         p.hud.patchGauge(event.subject, event.value);
         return;
       case 'itemUsed':
+        p.audio.play('select');
+        if (event.itemId === 'common-musubi-dama' && event.side === 'enemy') {
+          await fx.throwMusubiDama(p.sprites.anchor(state.ally.hero.id), p.sprites.anchor(state.enemy.id));
+        }
+        return;
       case 'recruitGift':
         p.audio.play('select');
         return;

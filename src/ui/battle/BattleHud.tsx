@@ -225,6 +225,21 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
 // ───────────────────────── 演出（わざの名前・できばえ・数字） ─────────────────────────
 
 function Banner({ b }: { b: BannerView }) {
+  if (b.kind === 'dex')
+    return (
+      <div class="nq-dex-celebration" role="status" aria-live="polite">
+        <div class="nq-win nq-dex-celebration-card">
+          <div class="nq-dex-celebration-heading">
+            <RubyLabel text={b.sub ?? ''} />
+          </div>
+          <div class="nq-dex-celebration-picture">{b.art && <img src={b.art} alt="" />}</div>
+          <RubyLabel text={b.text} class="nq-dex-celebration-name" />
+          <span class="nq-dex-celebration-spark" aria-hidden="true">
+            ✦
+          </span>
+        </div>
+      </div>
+    );
   if (b.kind === 'skill')
     return (
       <div key={b.id} class="nq-banner">

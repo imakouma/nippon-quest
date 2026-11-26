@@ -1452,3 +1452,93 @@
     transition: none;
   }
 }
+
+.nq-dex-celebration {
+  position: absolute;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 13, 29, 0.76);
+  pointer-events: none;
+}
+.nq-dex-celebration-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: min(360px, 84%);
+  padding: 18px;
+  text-align: center;
+  border-color: #ffd557;
+  background: linear-gradient(145deg, #315376, #17233f);
+  animation: nq-dex-appear 450ms steps(6) both;
+}
+.nq-dex-celebration-heading {
+  color: #ffe477;
+  font-size: 24px;
+}
+.nq-dex-celebration-picture {
+  display: grid;
+  place-items: center;
+  width: 116px;
+  height: 116px;
+  background: #182a3c;
+  border: 4px solid #efd183;
+  animation: nq-dex-reveal 700ms steps(6) both;
+}
+.nq-dex-celebration-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+.nq-dex-celebration-name {
+  color: white;
+  font-size: 24px;
+}
+.nq-dex-celebration-spark {
+  position: absolute;
+  right: 16%;
+  top: 27%;
+  color: #ffe477;
+  font-size: 32px;
+  animation: nq-dex-spark 550ms steps(3) infinite alternate;
+}
+@keyframes nq-dex-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes nq-dex-reveal {
+  from {
+    filter: brightness(0);
+    transform: scale(0.7);
+  }
+  to {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+}
+@keyframes nq-dex-spark {
+  from {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nq-dex-celebration-card,
+  .nq-dex-celebration-picture,
+  .nq-dex-celebration-spark {
+    animation: none;
+  }
+}
