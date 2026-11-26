@@ -85,6 +85,8 @@ export interface DamageInput {
   combo: number;
   /** かいしんが 出るか（味方の こうげきだけ） */
   canCrit: boolean;
+  /** 味方モンスター本人の行動か。省略時は倍率なし。 */
+  allyMonster?: boolean;
   settings: Settings;
   elements: ElementTable;
   rng: Rng;
@@ -117,6 +119,8 @@ export function computeDamage(input: DamageInput): DamageOutput {
   const comboMult = comboBonus(input.combo, settings);
 
   const elementMult = elementMultiplier(element, defender.element, elements);
+  const sameElementMult =
+    input.allyMonster && skill && element !== 'none' && element === attacker.element ? 1.5 : 1;
   const weaknessHit =
     defender.weaknessRevealed && defender.weakness !== undefined && defender.weakness === element;
   const weakMult = weaknessHit ? settings.weaknessMultiplier : 1;
@@ -130,7 +134,16 @@ export function computeDamage(input: DamageInput): DamageOutput {
   const amount = Math.max(
     1,
     Math.floor(
-      base * scoreMult * comboMult * elementMult * weakMult * setBoost * resistance * critMult * randomMult,
+      base *
+        scoreMult *
+        comboMult *
+        elementMult *
+        sameElementMult *
+        weakMult *
+        setBoost *
+        resistance *
+        critMult *
+        randomMult,
     ),
   );
   return { amount, critical, elementMult, weaknessHit, band, scoreMult, comboMult };
