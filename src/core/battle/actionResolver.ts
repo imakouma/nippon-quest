@@ -145,6 +145,7 @@ export function resolveHit(
     score: input.score,
     combo: byAlly ? state.player.comboCount : 0,
     canCrit: byAlly,
+    allyMonster: byAlly && !input.attacker.isHero,
     settings: def.settings,
     elements: def.elements,
     rng,
