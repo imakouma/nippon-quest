@@ -4,11 +4,12 @@ import type { BattleEvent } from '../../src/core/battle/types';
 
 describe('むすび玉の捕獲演出', () => {
   for (const success of [true, false]) {
-    it(`${success ? '成功' : '失敗'}時も揺れた後にモンスターを戻す`, async () => {
+    it(`${success ? '成功時は姿を隠してハートを出す' : '失敗時は姿を戻しハートを出さない'}`, async () => {
       const enemy = { x: 50, y: 80, scaleX: 2, scaleY: 3 };
       const throwBall = vi.fn().mockResolvedValue(undefined);
       const resolveBall = vi.fn().mockResolvedValue(undefined);
       const tween = vi.fn().mockResolvedValue(undefined);
+      const burst = vi.fn();
       const port = {
         state: () => ({ enemy: { id: 'enemy' }, ally: { hero: { id: 'hero' } } }),
         layout: () => ({}),
@@ -20,7 +21,7 @@ describe('むすび玉の捕獲演出', () => {
           shake: vi.fn(),
         },
         motion: { effects: () => ({ throwMusubiDama: throwBall, resolveMusubiDama: resolveBall }) },
-        effects: { burst: vi.fn() },
+        effects: { burst },
         audio: { play: vi.fn() },
         clock: { wait: vi.fn() },
       } as unknown as BattleEventAnimationPort;
@@ -34,9 +35,9 @@ describe('むすび玉の捕獲演出', () => {
       await animator.play({ t: 'recruitAttempt', targetId: 'enemy', success, chance: 0.5 } as BattleEvent);
       expect(throwBall).toHaveBeenCalledOnce();
       expect(resolveBall).toHaveBeenCalledWith(expect.any(Object), success, 0, expect.any(Function));
-      expect(tween).toHaveBeenLastCalledWith(
-        expect.objectContaining({ targets: enemy, scaleX: 2, scaleY: 3, alpha: 1 }),
-      );
+      const restores = tween.mock.calls.filter(([config]) => config.targets === enemy && config.alpha === 1);
+      expect(restores).toHaveLength(success ? 0 : 1);
+      expect(burst.mock.calls.some((args) => args[3] === 'bt.fx.heart')).toBe(success);
       await animator.play({ t: 'recruitAttempt', targetId: 'enemy', success, chance: 0.5 } as BattleEvent);
       expect(resolveBall).toHaveBeenCalledOnce();
     });

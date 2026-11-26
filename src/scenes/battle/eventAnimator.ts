@@ -291,10 +291,11 @@ export class BattleEventAnimator {
             'shakes' in event ? (event.shakes ?? 0) : 0,
             () => p.audio.play('select'),
           );
-          await p.sprites.tween({ targets: enemy, scaleX, scaleY, alpha: 1, duration: 260 });
+          if (!event.success)
+            await p.sprites.tween({ targets: enemy, scaleX, scaleY, alpha: 1, duration: 260 });
         }
         const anchor = p.sprites.anchor(state.enemy.id);
-        p.effects.burst(anchor.x, anchor.y, 0xff8fb1, 'bt.fx.heart', 10, -80);
+        if (event.success) p.effects.burst(anchor.x, anchor.y, 0xff8fb1, 'bt.fx.heart', 10, -80);
         p.audio.play(event.success ? 'recruit' : 'miss');
         if (!event.success) await p.sprites.shake(enemy, 8);
         await p.clock.wait(400);
