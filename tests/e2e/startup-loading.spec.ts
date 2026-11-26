@@ -6,10 +6,13 @@ test('ゲーム本体の読込中も起動状態を表示し、起動後に消�
   const gate = new Promise<void>((resolve) => {
     releaseModule = resolve;
   });
-  await page.route('**/src/main.ts', async (route) => {
-    await gate;
-    await route.continue();
-  });
+  await page.route(
+    (url) => url.pathname === '/src/main.ts' || /^\/assets\/main-[^/]+\.js$/.test(url.pathname),
+    async (route) => {
+      await gate;
+      await route.continue();
+    },
+  );
   await page.goto('/', { waitUntil: 'commit' });
   try {
     await expect(page.getByRole('status', { name: 'ゲームを じゅんびしているよ' })).toBeVisible({
