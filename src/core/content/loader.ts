@@ -169,12 +169,9 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     const assigned = assignedSkillIds(subject);
     for (const row of rows) {
       const skill = parseWith<Skill>(skillSchema, row, `${subject}-skills.json`);
-      if (assigned.has(skill.id)) {
-        skill.questionTags = [`assigned:${skill.id}`];
-        skills.set(skill.id, skill);
-      } else if (!skills.has(skill.id)) {
-        skills.set(skill.id, skill);
-      }
+      if (!assigned.has(skill.id) && skills.has(skill.id)) continue;
+      if (assigned.has(skill.id)) skill.questionTags = [`assigned:${skill.id}`];
+      skills.set(skill.id, skill);
     }
   }
 
