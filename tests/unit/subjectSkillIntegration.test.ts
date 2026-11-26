@@ -43,6 +43,17 @@ describe('subject skill question and training integration', () => {
       expect(filterCandidates(bank, query).length, id).toBeGreaterThan(0);
     }
   });
+  it('keeps existing unassigned skill settings from the content source', async () => {
+    const content = await loadContent(async (path) => {
+      const data = JSON.parse(readFileSync(`content/${path}`, 'utf8'));
+      if (path === 'skills.json') {
+        const burst = data.find((skill: { id: string }) => skill.id === 'sk-burst-sansu');
+        burst.costGauge = 50;
+      }
+      return data;
+    });
+    expect(content.skills.get('sk-burst-sansu')?.costGauge).toBe(50);
+  });
   it('loads assigned skills with question filters and applies their saved level', async () => {
     const content = await loadContent(async (path) => JSON.parse(readFileSync(`content/${path}`, 'utf8')));
     for (const { subject, table } of cases) {
