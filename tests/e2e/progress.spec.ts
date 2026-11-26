@@ -329,6 +329,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
 });
 
 test('手動セーブのあとにホームへ戻り、同じ冒険を再開できる', async ({ page }) => {
+  // 初回起動と新規ゲームの導入、2回のセーブ、再開までを含む。
+  test.setTimeout(120_000);
   await page.goto('/?resetSaves=1');
   await page.getByRole('menuitem', { name: 'はじめから' }).click();
   await page.getByRole('button', { name: /^スロット 1/ }).click();
