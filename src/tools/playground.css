@@ -69,6 +69,13 @@ button:disabled {
   background: rgba(248, 250, 249, 0.94);
 }
 
+.pg-header-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .pg-header h1,
 .pg-list h2,
 .pg-question-heading h2 {
