@@ -285,7 +285,9 @@ export class BattleEventAnimator {
             alpha: 0,
             duration: 260,
           });
-          await fx.resolveMusubiDama({ x: enemy.x, y: enemy.y - 12 * S }, event.success);
+          await fx.resolveMusubiDama({ x: enemy.x, y: enemy.y - 12 * S }, event.success, () =>
+            p.audio.play('select'),
+          );
           await p.sprites.tween({ targets: enemy, scaleX, scaleY, alpha: 1, duration: 260 });
         }
         const anchor = p.sprites.anchor(state.enemy.id);

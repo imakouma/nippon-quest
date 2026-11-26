@@ -33,7 +33,7 @@ describe('むすび玉の捕獲演出', () => {
       } as BattleEvent);
       await animator.play({ t: 'recruitAttempt', targetId: 'enemy', success, chance: 0.5 } as BattleEvent);
       expect(throwBall).toHaveBeenCalledOnce();
-      expect(resolveBall).toHaveBeenCalledWith(expect.any(Object), success);
+      expect(resolveBall).toHaveBeenCalledWith(expect.any(Object), success, expect.any(Function));
       expect(tween).toHaveBeenLastCalledWith(
         expect.objectContaining({ targets: enemy, scaleX: 2, scaleY: 3, alpha: 1 }),
       );
