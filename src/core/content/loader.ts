@@ -76,11 +76,12 @@ export function fetchReader(base: string): FileReader {
 /** Browser reader optimized for game boot: one generated response instead of ~1,000 JSON requests. */
 export function bundledFetchReader(base: string, bundleName = 'content-bundle.json'): FileReader {
   const fallback = fetchReader(base);
-  let bundlePromise: Promise<Record<string, unknown> | null> | undefined;
+  const bundlePromise: Promise<Record<string, unknown> | null> = fetch(`${base}/${bundleName}`, {
+    cache: 'no-cache',
+  })
+    .then(async (res) => (res.ok ? ((await res.json()) as Record<string, unknown>) : null))
+    .catch(() => null);
   return async (rel) => {
-    bundlePromise ??= fetch(`${base}/${bundleName}`, { cache: 'no-cache' })
-      .then(async (res) => (res.ok ? ((await res.json()) as Record<string, unknown>) : null))
-      .catch(() => null);
     const bundle = await bundlePromise;
     if (!bundle) return fallback(rel);
     if (!Object.prototype.hasOwnProperty.call(bundle, rel)) return fallback(rel);

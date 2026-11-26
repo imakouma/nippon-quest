@@ -7,8 +7,29 @@ import { isGameAssetPath } from './scripts/game-asset-policy';
 import { questionSaveMiddleware } from './scripts/question-save-server';
 import { folderSaveMiddleware } from './scripts/folder-save-server';
 import { integratedPreview } from './scripts/integrated-preview';
+import { readDevContentBundle } from './scripts/dev-content-bundle';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
+
+function devContentBundle(): Plugin {
+  return {
+    name: 'nihonquest:dev-content-bundle',
+    configureServer(server) {
+      server.middlewares.use('/content/content-bundle.json', (_req, res) => {
+        void readDevContentBundle(resolve(root, 'content'))
+          .then((bundle) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Cache-Control', 'no-store');
+            res.end(JSON.stringify(bundle));
+          })
+          .catch(() => {
+            res.statusCode = 500;
+            res.end();
+          });
+      });
+    },
+  };
+}
 
 /**
  * content/ assets/ schemas/ をプロジェクト直下に置いたまま、
@@ -96,6 +117,7 @@ export default defineConfig({
     preact(),
     integratedPreview(),
     questionSave(),
+    devContentBundle(),
     serveRootDirs(['content', 'assets', 'schemas', 'maps']),
   ],
   preview: {

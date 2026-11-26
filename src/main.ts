@@ -20,7 +20,7 @@ import { accountSession } from './core/state/accountSession';
 import { AutosaveCoordinator } from './core/state/autosave';
 import { GROUNDS } from './core/world/ground';
 import { setSfxVolume } from './ui/sfx';
-import { bundledFetchReader, fetchReader, loadContent, type ContentIndex } from './core/content/loader';
+import { bundledFetchReader, loadContent, type ContentIndex } from './core/content/loader';
 import type { QuestionBank } from './questions/engine/bank';
 import { isLocalDevelopmentUrl } from './core/localDevelopment';
 import { setDictionary, t } from './ui/i18n';
@@ -261,7 +261,7 @@ function ensureContent(): Promise<ContentIndex> {
   if (contentPromise) return contentPromise;
   performance.mark('nq:content-load-start');
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-  const read = import.meta.env.DEV ? fetchReader(`${base}/content`) : bundledFetchReader(`${base}/content`);
+  const read = bundledFetchReader(`${base}/content`);
   const pending = loadContent(read)
     .then((content) => {
       game.registry.set('content', content);
@@ -284,13 +284,15 @@ function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBan
   if (loadedGrade === grade && game.registry.get('bank'))
     return Promise.resolve(game.registry.get('bank') as QuestionBank);
   if (bankPromise?.grade === grade) return bankPromise.promise;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const read = bundledFetchReader(`${base}/content`, `questions-g${grade}-bundle.json`);
   const promise = (async () => {
-    const content = await ensureContent();
-    const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-    const read = bundledFetchReader(`${base}/content`, `questions-g${grade}-bundle.json`);
+    const [content, { QuestionBank }] = await Promise.all([
+      ensureContent(),
+      import('./questions/engine/bank'),
+    ]);
     const filesByGrade = content.questionFilesByGrade ?? {};
     const files = filesByGrade[String(grade)] ?? [];
-    const { QuestionBank } = await import('./questions/engine/bank');
     const { bank, report } = await QuestionBank.load(files, read);
     if (report.skipped.length) console.warn('[questions] 読み込めなかった問題:', report.skipped);
     if (report.omitted)
@@ -309,8 +311,7 @@ function ensureQuestionBank(grade: NewGameOptions['grade']): Promise<QuestionBan
 game.events.on('title:ready', () => {
   performance.mark('nq:title-ready');
   performance.measure('nq:title-ready-time', 'nq:boot-start', 'nq:title-ready');
-  // 本番は設定画面を操作している間にbundleを背景読込する。開発時は編集直後の
-  // 個別JSONを開始時に読み、タイトル確認だけで約1,000リクエストを発生させない。
+  // 本番は設定画面の操作中に背景読込する。開発時は開始時に最新の bundle を取得する。
   if (import.meta.env.PROD) setTimeout(() => void ensureContent().catch(() => undefined), 0);
 });
 

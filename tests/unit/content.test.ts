@@ -867,6 +867,7 @@ describe('content loader', () => {
     vi.stubGlobal('fetch', fetchMock);
     const bundledRead = bundledFetchReader('/content');
 
+    expect(fetchMock).toHaveBeenCalledTimes(1);
     await expect(bundledRead('a.json')).resolves.toEqual({ id: 'a' });
     await expect(bundledRead('b.json')).resolves.toEqual({ id: 'b' });
     expect(fetchMock).toHaveBeenCalledTimes(1);
