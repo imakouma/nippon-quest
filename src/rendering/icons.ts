@@ -33,30 +33,25 @@ const BAG = icon(
     T: NQ.orange,
   },
 );
+// 教科と属性の対応を、色だけでなく形でも見分けられるようにする。
+const FIRE = icon(
+  ['...o....', '..oRo...', '..oRRo..', '.oRYRo..', '.oRYYRo.', 'oRYYYYRo', 'oRRYYRRo', '.oooooo.'],
+  { R: NQ.vermilion, Y: NQ.gold },
+);
+const WATER = icon(
+  ['...oo...', '...BBo..', '..oBBBo.', '.oBWBBBo', '.oBBBBBo', '.oBBBBBo', '..oBBBo.', '...ooo..'],
+  { B: NQ.azure, W: NQ.ice },
+);
+const WOOD = icon(
+  ['...oo...', '..oGGo..', '.oGGGGo.', 'oGGLGGGo', '.oGGGGo.', '..oGGo..', '...BB...', '..oBBo..'],
+  { G: NQ.leaf, L: NQ.green, B: NQ.brown },
+);
 
 export const ICONS: Readonly<Record<string, IconDef>> = {
   // ── 属性
-  'el-hino': icon(
-    ['...o....', '..oRo...', '..oRRo..', '.oRYRo..', '.oRYYRo.', 'oRYYYYRo', 'oRRYYRRo', '.oooooo.'],
-    {
-      R: NQ.vermilion,
-      Y: NQ.gold,
-    },
-  ),
-  'el-mizu': icon(
-    ['...oo...', '..oBBo..', '.oBBBBo.', '.oBWBBo.', 'oBWBBBBo', 'oBBBBBBo', '.oBBBBo.', '..oooo..'],
-    {
-      B: NQ.azure,
-      W: NQ.ice,
-    },
-  ),
-  'el-mori': icon(
-    ['.....oo.', '...ooGGo', '..oGGGGo', '.oGGLGGo', '.oGLGGo.', 'oGLGoo..', 'oLoo....', '.o......'],
-    {
-      G: NQ.leaf,
-      L: NQ.green,
-    },
-  ),
+  'el-hino': FIRE,
+  'el-mizu': WATER,
+  'el-mori': WOOD,
   'el-tsuchi': icon(
     ['..oooo..', '.oTTTSo.', 'oTTSTTTo', 'oTTTTSTo', 'oSTTTTTo', 'oTTSTTSo', '.oTTTTo.', '..oooo..'],
     {
@@ -91,20 +86,8 @@ export const ICONS: Readonly<Record<string, IconDef>> = {
     },
   ),
   // ── 教科
-  'subj-sansu': icon(
-    ['oooooooo', 'oBBBBBBo', 'oBBWWBBo', 'oBWWWWBo', 'oBWWWWBo', 'oBBWWBBo', 'oBBBBBBo', 'oooooooo'],
-    {
-      B: NQ.azure,
-      W: NQ.white,
-    },
-  ),
-  'subj-kokugo': icon(
-    ['.oooooo.', 'oRRRRRWo', 'oRWWWRWo', 'oRRRRRWo', 'oRWWWRWo', 'oRRRRRWo', 'oRRRRRWo', '.oooooo.'],
-    {
-      R: NQ.red,
-      W: NQ.paper,
-    },
-  ),
+  'subj-sansu': WATER,
+  'subj-kokugo': FIRE,
   'subj-rika': icon(
     ['..oooo..', '...oo...', '...oo...', '..oWWo..', '.oWWWWo.', 'oGGGGGGo', 'oGGWGGGo', '.oooooo.'],
     {
@@ -119,13 +102,7 @@ export const ICONS: Readonly<Record<string, IconDef>> = {
       W: NQ.white,
     },
   ),
-  'subj-seikatsu': icon(
-    ['........', '.oo..oo.', 'oLLooLLo', '.oLLLLo.', '...oo...', '...oo...', '.oooooo.', 'oBBBBBBo'],
-    {
-      L: NQ.lime,
-      B: NQ.brown,
-    },
-  ),
+  'subj-seikatsu': WOOD,
   'subj-eigo': icon(
     ['oooooooo', 'oWWWWWWo', 'oWWooWWo', 'oWoWWoWo', 'oWooooWo', 'oWoWWoWo', 'ooooWooo', '....oo..'],
     {

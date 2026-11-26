@@ -203,7 +203,7 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
   it('ポケモン型基礎式へ教材倍率と乱数を掛け、かしこさも必殺技へ反映する', async () => {
     const { state } = await setup();
     // 計算式の検証用に威力を固定し、教材データのバランス調整から独立させる。
-    const sk = { ...D.skills.get('sk-tashizan-giri')!, power: 120 };
+    const sk = { ...D.skills.get('sk-tashizan-giri')!, power: 120, element: 'none' as const };
     const attacker = { ...state.ally.hero, stats: { ...state.ally.hero.stats, scienceAtk: 10, wis: 5 } };
     const defender = { ...state.enemy, stats: { ...state.enemy.stats, scienceDef: 5 } };
     const d = computeDamage({
@@ -291,9 +291,9 @@ describe('ダメージ計算（BaseDamage × ScoreMultiplier × ComboBonus × El
         rng: createRng('k'),
       });
     const f = run('sk-hono-no-mai'); // hino
-    const n = run('sk-tashizan-giri'); // none
+    const n = run('sk-tashizan-giri'); // mizu
     expect(f.elementMult).toBe(2);
-    expect(n.elementMult).toBe(1);
+    expect(n.elementMult).toBe(0.5);
     expect(f.amount).toBeGreaterThan(n.amount);
   });
 
@@ -522,6 +522,19 @@ describe('コンボ＆ストリーク', () => {
 });
 
 describe('オトモ（Companion）', () => {
+  it('火・水・木の仲間は属性に対応する教科を強化する', async () => {
+    const c = await content();
+    const monster = makeMonster(c.monsters.get('aomori-magurodo')!, 10, 'p');
+    for (const [element, subject] of [
+      ['hino', 'kokugo'],
+      ['mizu', 'sansu'],
+      ['mori', 'seikatsu'],
+    ] as const) {
+      expect(makeCompanion({ ...monster, element, subjectAffinity: 'eigo' }, D)?.passiveSkill?.subject).toBe(
+        subject,
+      );
+    }
+  });
   it('出撃中の 仲間が オトモに なる（自動わざは ゲージを 使わない いちばん 強い こうげきわざ、パッシブは その教科）', async () => {
     const c = await content();
     const taisho = makeMonster(c.monsters.get('aomori-nebuta-taisho')!, 10, 'p');

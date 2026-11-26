@@ -1,4 +1,4 @@
-import type { Skill } from '../content/schemas';
+import type { Element, Skill, Subject } from '../content/schemas';
 import type { Rng } from '../rng';
 import { computeDamage } from './damage';
 import { skillHits } from './skillEffects';
@@ -20,6 +20,11 @@ const ENEMY_GUARD_MULT = 1.5;
 const ENEMY_GUARD_TURNS = 1;
 /** 敵の かいふく わざ：最大 HP × この割合 */
 const ENEMY_HEAL_RATIO = 0.25;
+const SUBJECT_BY_ELEMENT: Partial<Record<Element, Subject>> = {
+  hino: 'kokugo',
+  mizu: 'sansu',
+  mori: 'seikatsu',
+};
 
 /** 敵が ねらう 相手：前に 立つ オトモ。いなければ 主人公 */
 export function frontAlly(s: BattleState): Combatant {
@@ -37,7 +42,8 @@ export function makeCompanion(
   const active = skills
     .filter((skill) => skill.effect === 'damage' && skill.costGauge === 0)
     .reduce<Skill | null>((best, skill) => (!best || skill.power > best.power ? skill : best), null);
-  const subject = monster.subjectAffinity ?? (active ?? skills[0])?.subject;
+  const subject =
+    SUBJECT_BY_ELEMENT[monster.element] ?? monster.subjectAffinity ?? (active ?? skills[0])?.subject;
   return {
     id: monster.id,
     name: monster.name,

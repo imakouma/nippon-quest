@@ -107,11 +107,6 @@ export function AllyRow({ a, active }: { a: AllyView; active: boolean }) {
         <span class="nq-ally-lv">
           {t('battle.lv')} {a.level}
         </span>
-        {a.passive && (
-          <span class="nq-ally-passive">
-            <PixelIcon name={`subj-${a.passive}`} scale={2} />
-          </span>
-        )}
       </div>
       <div class="nq-ally-hp">
         {down ? (
