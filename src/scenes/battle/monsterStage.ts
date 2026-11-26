@@ -44,7 +44,34 @@ export function monsterFrameVisibleBounds(
   const cacheKey = `${key}:${String(frame)}`;
   const cached = cache.get(cacheKey);
   if (cached) return cached;
-  const bounds = visiblePixelBounds(width, height, (x, y) => textures.getPixelAlpha(x, y, key, frame));
+  const textureFrame = textures.getFrame(key, frame);
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext('2d', { willReadFrequently: true });
+  let pixels: Uint8ClampedArray | undefined;
+  const image = textureFrame?.source.image;
+  if (textureFrame && image && !(image instanceof Uint8Array) && context) {
+    try {
+      context.drawImage(
+        image,
+        textureFrame.cutX,
+        textureFrame.cutY,
+        textureFrame.cutWidth,
+        textureFrame.cutHeight,
+        textureFrame.x,
+        textureFrame.y,
+        textureFrame.cutWidth,
+        textureFrame.cutHeight,
+      );
+      pixels = context.getImageData(0, 0, width, height).data;
+    } catch {
+      // 読み取れない特殊なテクスチャは従来の Phaser 経路へ戻す。
+    }
+  }
+  const bounds = visiblePixelBounds(width, height, (x, y) =>
+    pixels ? pixels[(y * width + x) * 4 + 3]! : textures.getPixelAlpha(x, y, key, frame),
+  );
   cache.set(cacheKey, bounds);
   return bounds;
 }

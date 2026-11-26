@@ -82,12 +82,14 @@ describe('県境・実在交通のフィールド入口', () => {
     });
     const textures = {
       exists: () => false,
-      addCanvas: (key: string, canvas: FakeCanvas) => {
+      emit: () => undefined,
+      create: (key: string, canvas: FakeCanvas) => {
         registered.set(key, {
           width: canvas.width,
           height: canvas.height,
           colors: [...(draws.get(canvas) ?? [])],
         });
+        return { add: () => undefined };
       },
     };
 

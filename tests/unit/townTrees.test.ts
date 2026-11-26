@@ -39,7 +39,14 @@ describe('町の木の表示位置', () => {
     };
     vi.stubGlobal('document', { createElement: () => ({ width: 0, height: 0, getContext: () => context }) });
     const keys = new Set<string>();
-    const textures = { exists: (key: string) => keys.has(key), addCanvas: (key: string) => keys.add(key) };
+    const textures = {
+      exists: (key: string) => keys.has(key),
+      emit: () => undefined,
+      create: (key: string) => {
+        keys.add(key);
+        return { add: () => undefined };
+      },
+    };
     const scene = { textures } as unknown as Parameters<typeof buildTownTreeTexture>[0];
     buildTownTreeTexture(scene);
     expect(keys.size).toBe(6);
