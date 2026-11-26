@@ -105,6 +105,13 @@ export function compileBattlePresentation(
         : visual;
     const talk = sequence(textCommands(event, events[index - 1], ctx));
     if (!talk) return animation;
+    const previous = events[index - 1];
+    if (
+      event.t === 'recruitAttempt' &&
+      previous?.t === 'itemUsed' &&
+      previous.itemId === 'common-musubi-dama'
+    )
+      return { kind: 'sequence', commands: [animation, talk] };
     return TALK_FIRST.has(event.t)
       ? { kind: 'parallel', commands: [talk, animation] }
       : { kind: 'sequence', commands: [animation, talk] };

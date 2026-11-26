@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { canUseMusubiDama, musubiDamaChance } from '../../src/core/battle/musubiDama';
+import { canUseMusubiDama, musubiDamaChance, rollMusubiDama } from '../../src/core/battle/musubiDama';
 
 const attempt = {
   baseRate: 0.2,
@@ -10,10 +10,34 @@ const attempt = {
 };
 
 describe('むすび玉の仲間化確率', () => {
+  it('４段階判定で０〜３回の揺れと成功を決める', () => {
+    for (let failed = 0; failed < 4; failed++) {
+      const rolls = Array(failed).fill(true).concat(false);
+      expect(rollMusubiDama(0.5, { chance: () => rolls.shift()! })).toEqual({
+        success: false,
+        shakes: failed,
+      });
+    }
+    const thresholds: number[] = [];
+    expect(rollMusubiDama(0.5, { chance: (p) => (thresholds.push(p), true) })).toEqual({
+      success: true,
+      shakes: 3,
+    });
+    expect(thresholds).toHaveLength(4);
+    expect(thresholds[0] ** 4).toBeCloseTo(0.5);
+    expect(rollMusubiDama(0, { chance: () => true })).toEqual({ success: false, shakes: 0 });
+  });
   it('HPが低いほど成功率が上がる', () => {
     expect(musubiDamaChance({ ...attempt, hpRatio: 0.1 })).toBeGreaterThan(
       musubiDamaChance({ ...attempt, hpRatio: 0.9 }),
     );
+  });
+
+  it('HP補正は (3 × 最大HP − 2 × 現在HP) / (3 × 最大HP)', () => {
+    const input = { ...attempt, baseRate: 0.6, score: 1, timeMs: 15_000 };
+    expect(musubiDamaChance({ ...input, hpRatio: 1 })).toBeCloseTo(0.2);
+    expect(musubiDamaChance({ ...input, hpRatio: 0.5 })).toBeCloseTo(0.4);
+    expect(musubiDamaChance({ ...input, hpRatio: 0.01 })).toBeCloseTo(0.596);
   });
 
   it('正解度が高いほど成功率が上がり、不正解は0%', () => {
@@ -35,8 +59,8 @@ describe('むすび玉の仲間化確率', () => {
     );
   });
 
-  it('成功率は90%を超えない', () => {
-    expect(musubiDamaChance({ ...attempt, baseRate: 1, hpRatio: 0, timeMs: 0 })).toBe(0.9);
+  it('成功率は100%を超えない', () => {
+    expect(musubiDamaChance({ ...attempt, baseRate: 1, hpRatio: 0, timeMs: 0 })).toBe(1);
   });
 
   it('ボス・加入率0・倒れた敵には使えない', () => {

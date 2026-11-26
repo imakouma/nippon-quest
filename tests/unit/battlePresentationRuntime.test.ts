@@ -30,7 +30,15 @@ const attack = (): BattleEvent => ({
 });
 
 beforeAll(() => {
-  setDictionary({ battle: { attack: '{name} attacks', defeat: 'Defeat' } } as I18nDict);
+  setDictionary({
+    battle: {
+      attack: '{name} attacks',
+      defeat: 'Defeat',
+      musubiUsed: '{item}',
+      recruitTry: '{name}',
+      recruitFail: '{name}',
+    },
+  } as I18nDict);
 });
 
 function createPort(overrides: Partial<BattlePresentationPort> = {}): BattlePresentationPort {
@@ -60,6 +68,15 @@ function turn(turnNumber: number): BattleEvent {
 }
 
 describe('battle presentation command compiler', () => {
+  it('むすび玉の成否は玉の演出が終わってから表示する', () => {
+    const events: BattleEvent[] = [
+      { t: 'itemUsed', ...ACTION, itemId: 'common-musubi-dama', targetId: 'enemy', side: 'enemy' },
+      { t: 'recruitAttempt', ...ACTION, targetId: 'enemy', success: false, chance: 0.5 },
+    ];
+    const [, result] = compileBattlePresentation(events, ctx);
+    expect(result).toMatchObject({ kind: 'sequence', commands: [{ kind: 'visual' }, { kind: 'sequence' }] });
+  });
+
   it('keeps event boundaries ordered while allowing only declared within-event parallelism', () => {
     const action = attack();
     const commands = compileBattlePresentation([action, turn(2)], ctx);

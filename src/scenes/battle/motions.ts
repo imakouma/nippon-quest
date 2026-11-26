@@ -22,6 +22,9 @@
 import type Phaser from 'phaser';
 import type { Element } from '../../core/content/schemas';
 import { addImage } from '../../rendering/sheet';
+import { toCanvas } from '../../rendering/grid';
+import { itemIconGrid } from '../../rendering/itemIcons';
+import { playMusubiResult } from './musubiAnimation';
 import { PIXEL_FONT } from '../../ui/fonts';
 import { fxArt, type FxKind } from '../../rendering/battle/fxArt';
 import type { SkillLook } from '../../rendering/battle/skillLook';
@@ -73,6 +76,21 @@ export class Motions {
     private readonly burst: Burst,
   ) {}
 
+  /** むすび玉を主人公から相手へ山なりに投げる。 */
+  async throwMusubiDama(from: Pt, to: Pt): Promise<void> {
+    const key = 'bt.item.musubi-dama';
+    addImage(
+      this.scene.textures,
+      key,
+      toCanvas(itemIconGrid({ id: 'common-musubi-dama', kind: 'consumable' })),
+    );
+    await this.flyTex(key, from, to, 650, 60 * S, 0, S);
+    this.burst(to.x, to.y, 0xffd66c, 'bt.fx.star', 12, -80);
+  }
+
+  resolveMusubiDama(at: Pt, success: boolean, shakes: number, onWobble: () => void): Promise<void> {
+    return playMusubiResult(this.scene, at, success, shakes, this.burst, onWobble);
+  }
   // ───────────────────────── 必殺技 ─────────────────────────
 
   /** 必殺技の 動き。stars は 技ゲージの 段（★1〜★3） */
