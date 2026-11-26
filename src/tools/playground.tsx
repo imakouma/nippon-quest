@@ -363,7 +363,13 @@ function App() {
   return (
     <div class="pg">
       <header class="pg-header">
-        <div>
+        <div class="pg-header-title">
+          <a
+            class="pg-link pg-link-secondary"
+            href="https://nihon-quest-portal.imamurakouma623.chatgpt.site/"
+          >
+            {pgText('backToPortal')}
+          </a>
           <h1>{pgText('title')}</h1>
         </div>
         <nav class="pg-header-actions" aria-label={pgText('pageNavigation')}>
