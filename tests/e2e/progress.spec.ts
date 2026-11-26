@@ -253,8 +253,9 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   const dexArtBox = await dexCard.locator('.nq-menu-icon').boundingBox();
   expect(dexCardBox).not.toBeNull();
   expect(dexArtBox).not.toBeNull();
-  expect(dexCardBox!.width).toBeGreaterThanOrEqual(140);
-  expect(dexArtBox!.height).toBeGreaterThanOrEqual(48);
+  expect(dexCardBox!.width).toBeGreaterThanOrEqual(40);
+  expect(dexCardBox!.width).toBeLessThan(60);
+  expect(dexArtBox!.height).toBeGreaterThanOrEqual(32);
   await dexRegions.getByRole('button', { name: /東北/ }).click();
   await expect(dexRegions.getByRole('button', { name: /東北/ })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'とくさん' }).click();

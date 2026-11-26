@@ -1348,6 +1348,27 @@
   margin: 0;
   object-fit: contain;
 }
+.nq-menu-body .nq-dex-monsters {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.nq-menu-body .nq-dex-monsters > li {
+  contain-intrinsic-size: auto 84px;
+}
+.nq-menu-body .nq-dex-monsters .nq-opt {
+  height: 84px;
+  padding: 4px 2px;
+  grid-template-rows: 48px 18px;
+  gap: 2px;
+}
+.nq-menu-body .nq-dex-monsters .nq-menu-icon {
+  width: 48px;
+  height: 48px;
+}
+.nq-menu-body .nq-dex-monsters .nq-amap-cur {
+  top: 1px;
+  left: 2px;
+  font-size: 12px;
+}
 .nq-dex-bag-size {
   display: inline-flex;
   align-items: center;
@@ -1421,6 +1442,12 @@
   line-height: 20px;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+.nq-menu-body .nq-dex-monsters .nq-opt-name {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
 }
 .nq-menu-body .nq-dex-grid .nq-town-right {
   font-size: 14px;
