@@ -270,17 +270,6 @@ interface FieldStatePort {
   setGame(game: GameState): void;
 }
 
-export function changeMovementControl(
-  scene: FieldStatePort,
-  mode: 'stick' | 'dpad',
-  redraw: () => void,
-): void {
-  const game = scene.gs();
-  if (!game) return;
-  scene.setGame({ ...game, updatedAt: Date.now(), settings: { ...game.settings, movementControl: mode } });
-  redraw();
-}
-
 export function usableStoredBagThings(
   game: GameState,
   content: ContentIndex,
