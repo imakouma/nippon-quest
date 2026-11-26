@@ -225,18 +225,39 @@ function SwapList({ s, store }: { s: HudState; store: HudStore }) {
 // ───────────────────────── 演出（わざの名前・できばえ・数字） ─────────────────────────
 
 function Banner({ b }: { b: BannerView }) {
-  if (b.kind === 'dex')
+  if (b.kind === 'dex' && b.dex)
     return (
       <div class="nq-dex-celebration" role="status" aria-live="polite">
         <div class="nq-win nq-dex-celebration-card">
           <div class="nq-dex-celebration-heading">
             <RubyLabel text={b.sub ?? ''} />
           </div>
-          <div class="nq-dex-celebration-picture">{b.art && <img src={b.art} alt="" />}</div>
-          <RubyLabel text={b.text} class="nq-dex-celebration-name" />
-          <span class="nq-dex-celebration-spark" aria-hidden="true">
-            ✦
-          </span>
+          <div class="nq-dex-book" aria-label={displayText(t('battle.dexCollection'))}>
+            {b.dex.slots.map((slot) => (
+              <div
+                class={`nq-dex-slot ${slot.known ? 'is-known' : ''} ${slot.target ? 'is-new' : ''}`}
+                key={slot.number}
+              >
+                <span class="nq-dex-slot-number">{String(slot.number).padStart(3, '0')}</span>
+                {(!slot.known || slot.target) && <span class="nq-dex-slot-unknown">?</span>}
+                {slot.art && <img src={slot.art} alt="" />}
+                {slot.target && <span class="nq-dex-slot-new">{t('battle.dexNew')}</span>}
+              </div>
+            ))}
+          </div>
+          <div class="nq-dex-celebration-footer">
+            <RubyLabel text={b.text} class="nq-dex-celebration-name" />
+            <span
+              class="nq-dex-count"
+              aria-label={displayText(t('battle.dexCount', { n: b.dex.after, total: b.dex.total }))}
+            >
+              <span class="nq-dex-count-value" aria-hidden="true">
+                <span class="nq-dex-count-before">{b.dex.before}</span>
+                <span class="nq-dex-count-after">{b.dex.after}</span>
+              </span>
+              <span aria-hidden="true"> / {b.dex.total}</span>
+            </span>
+          </div>
         </div>
       </div>
     );

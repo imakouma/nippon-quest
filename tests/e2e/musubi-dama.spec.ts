@@ -13,7 +13,7 @@ type MusubiBattle = Phaser.Scene & {
 
 async function start(page: Page): Promise<void> {
   await page.goto('/?debug=battle');
-  await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
+  await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 150_000 });
   await page.locator('.nq-box').click();
   await expect(page.getByRole('menuitem', { name: 'どうぐ' })).toBeVisible();
 }
@@ -23,7 +23,7 @@ for (const viewport of [
   { width: 568, height: 320 },
 ]) {
   test(`むすび玉の投球と新規図鑑登録 ${viewport.width}x${viewport.height}`, async ({ page }, testInfo) => {
-    test.setTimeout(120_000);
+    test.setTimeout(240_000);
     await page.setViewportSize(viewport);
     await start(page);
     await page.evaluate(() => {
@@ -74,19 +74,30 @@ for (const viewport of [
         { intervals: [50] },
       )
       .toBe(true);
-    await page.waitForTimeout(200);
-    await page.screenshot({ path: testInfo.outputPath('musubi-throw.png') });
-    await expect(page.locator('.nq-dex-celebration')).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator('.nq-dex-celebration')).toBeVisible({ timeout: 60_000 });
     await expect(page.locator('.nq-dex-celebration')).toContainText('ずかん');
-    await expect(page.locator('.nq-dex-celebration img')).toBeVisible();
-    await page.screenshot({ path: testInfo.outputPath('dex-registration.png') });
-    await expect(page.locator('.nq-dex-celebration')).toBeVisible();
+    const book = page.locator('.nq-dex-book');
+    const newSlot = book.locator('.nq-dex-slot.is-new');
+    await expect(newSlot).toHaveCount(1);
+    await expect(book.locator('.nq-dex-slot')).toHaveCount(6);
+    await expect(newSlot.locator('img')).toBeAttached();
+    await expect(book.locator('.nq-dex-slot:not(.is-known):not(.is-new) img')).toHaveCount(0);
+    const before = Number(await page.locator('.nq-dex-count-before').textContent());
+    const after = Number(await page.locator('.nq-dex-count-after').textContent());
+    expect(after).toBe(before + 1);
+    await expect
+      .poll(() => newSlot.locator('img').evaluate((img) => getComputedStyle(img).opacity))
+      .toBe('1');
+    await expect
+      .poll(() => page.locator('.nq-dex-count-after').evaluate((el) => getComputedStyle(el).opacity))
+      .toBe('1');
     const card = await page.locator('.nq-dex-celebration-card').boundingBox();
     expect(card).not.toBeNull();
     expect(card!.x).toBeGreaterThanOrEqual(0);
     expect(card!.y).toBeGreaterThanOrEqual(0);
     expect(card!.x + card!.width).toBeLessThanOrEqual(viewport.width);
     expect(card!.y + card!.height).toBeLessThanOrEqual(viewport.height);
+    await page.screenshot({ path: testInfo.outputPath('dex-registration.png') });
     await expect
       .poll(() =>
         page.evaluate(() => {

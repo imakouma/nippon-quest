@@ -1459,86 +1459,166 @@
   z-index: 120;
   display: grid;
   place-items: center;
-  background: rgba(8, 13, 29, 0.76);
+  background: rgba(8, 13, 29, 0.82);
   pointer-events: none;
 }
 .nq-dex-celebration-card {
-  position: relative;
   display: grid;
-  justify-items: center;
   gap: 8px;
-  width: min(360px, 84%);
-  padding: 18px;
-  text-align: center;
+  width: min(470px, 90%);
+  padding: 12px 20px;
+  color: #fff;
   border-color: #ffd557;
   background: linear-gradient(145deg, #315376, #17233f);
-  animation: nq-dex-appear 450ms steps(6) both;
+  animation: nq-dex-appear 400ms steps(5) both;
 }
 .nq-dex-celebration-heading {
   color: #ffe477;
-  font-size: 24px;
+  text-align: center;
+  font-size: 22px;
 }
-.nq-dex-celebration-picture {
+.nq-dex-book {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 78px);
+  gap: 6px;
+  padding: 8px;
+  background: #101b30;
+  border: 3px solid #6c7890;
+}
+.nq-dex-slot {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 116px;
-  height: 116px;
-  background: #182a3c;
-  border: 4px solid #efd183;
-  animation: nq-dex-reveal 700ms steps(6) both;
+  overflow: hidden;
+  background: #26364c;
+  border: 3px solid #64738b;
+  color: #aebbd0;
 }
-.nq-dex-celebration-picture img {
-  width: 100%;
-  height: 100%;
+.nq-dex-slot.is-known {
+  background: #385b69;
+}
+.nq-dex-slot.is-new {
+  animation: nq-dex-slot-fill 700ms 1100ms steps(5) both;
+}
+.nq-dex-slot img {
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   image-rendering: pixelated;
 }
+.nq-dex-slot.is-new img {
+  animation: nq-dex-reveal 600ms 1100ms steps(5) both;
+}
+.nq-dex-slot-number {
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  font-size: 12px;
+  z-index: 1;
+}
+.nq-dex-slot-unknown {
+  font-size: 30px;
+}
+.nq-dex-slot.is-new .nq-dex-slot-unknown {
+  position: absolute;
+  animation: nq-dex-hide 1ms 1100ms forwards;
+}
+.nq-dex-slot-new {
+  position: absolute;
+  right: 3px;
+  top: 2px;
+  color: #ffe477;
+  font-size: 12px;
+  animation: nq-dex-reveal 300ms 1500ms both;
+}
+.nq-dex-celebration-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
 .nq-dex-celebration-name {
   color: white;
-  font-size: 24px;
+  font-size: 22px;
 }
-.nq-dex-celebration-spark {
-  position: absolute;
-  right: 16%;
-  top: 27%;
+.nq-dex-count {
   color: #ffe477;
-  font-size: 32px;
-  animation: nq-dex-spark 550ms steps(3) infinite alternate;
+  font-size: 20px;
+  white-space: nowrap;
+}
+.nq-dex-count-value {
+  display: inline-grid;
+}
+.nq-dex-count-value > span {
+  grid-area: 1 / 1;
+}
+.nq-dex-count-before {
+  animation: nq-dex-hide 1ms 1500ms forwards;
+}
+.nq-dex-count-after {
+  opacity: 0;
+  animation: nq-dex-count-in 1ms 1500ms forwards;
 }
 @keyframes nq-dex-appear {
   from {
     opacity: 0;
-    transform: scale(0.75);
+    transform: scale(0.82);
   }
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+@keyframes nq-dex-slot-fill {
+  from {
+    border-color: #64738b;
+    background: #26364c;
+  }
+  to {
+    border-color: #ffde67;
+    background: #476b5b;
   }
 }
 @keyframes nq-dex-reveal {
   from {
-    filter: brightness(0);
-    transform: scale(0.7);
-  }
-  to {
-    filter: brightness(1);
-    transform: scale(1);
-  }
-}
-@keyframes nq-dex-spark {
-  from {
-    opacity: 0.3;
-    transform: scale(0.7);
+    opacity: 0;
+    transform: scale(0.6);
   }
   to {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1);
+  }
+}
+@keyframes nq-dex-hide {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes nq-dex-count-in {
+  to {
+    opacity: 1;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .nq-dex-celebration-card,
-  .nq-dex-celebration-picture,
-  .nq-dex-celebration-spark {
+  .nq-dex-slot.is-new,
+  .nq-dex-slot.is-new img,
+  .nq-dex-slot-new,
+  .nq-dex-count-before,
+  .nq-dex-count-after,
+  .nq-dex-slot.is-new .nq-dex-slot-unknown {
     animation: none;
+  }
+  .nq-dex-slot.is-new {
+    border-color: #ffde67;
+    background: #476b5b;
+  }
+  .nq-dex-slot.is-new .nq-dex-slot-unknown,
+  .nq-dex-count-before {
+    opacity: 0;
+  }
+  .nq-dex-count-after {
+    opacity: 1;
   }
 }

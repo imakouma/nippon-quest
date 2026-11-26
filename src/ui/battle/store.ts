@@ -148,7 +148,12 @@ export interface BannerView {
   text: string;
   sub?: string;
   subject?: string;
-  art?: string;
+  dex?: {
+    before: number;
+    after: number;
+    total: number;
+    slots: { number: number; known: boolean; target: boolean; art?: string }[];
+  };
 }
 
 export interface PopupView {

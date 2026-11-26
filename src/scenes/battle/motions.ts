@@ -24,6 +24,7 @@ import type { Element } from '../../core/content/schemas';
 import { addImage } from '../../rendering/sheet';
 import { toCanvas } from '../../rendering/grid';
 import { itemIconGrid } from '../../rendering/itemIcons';
+import { playMusubiResult } from './musubiAnimation';
 import { PIXEL_FONT } from '../../ui/fonts';
 import { fxArt, type FxKind } from '../../rendering/battle/fxArt';
 import type { SkillLook } from '../../rendering/battle/skillLook';
@@ -87,6 +88,9 @@ export class Motions {
     this.burst(to.x, to.y, 0xffd66c, 'bt.fx.star', 12, -80);
   }
 
+  resolveMusubiDama(at: Pt, success: boolean): Promise<void> {
+    return playMusubiResult(this.scene, at, success, this.burst);
+  }
   // ───────────────────────── 必殺技 ─────────────────────────
 
   /** 必殺技の 動き。stars は 技ゲージの 段（★1〜★3） */

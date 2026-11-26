@@ -1,4 +1,4 @@
-import { shouldCelebrateNewRecruit } from './battle/newDexCelebration';
+import { prepareNewDexCelebration } from './battle/newDexCelebration';
 import { trainedMathSkill } from '../core/progression/mathSkillLevel';
 /** ターン制バトルの Scene。計算は core、文字と操作は DOM、Scene は演出と進行を担当する。 */
 import Phaser from 'phaser';
@@ -1683,7 +1683,7 @@ export class BattleScene extends Phaser.Scene {
 
     const snapshot = this.resumeSnapshot;
     if (!snapshot) throw new Error('戦闘snapshotが見つかりません');
-    const newDexEntry = shouldCelebrateNewRecruit(outcome, summary.enemyRefId, this.syncGame().dex.monsters);
+    const dexPage = prepareNewDexCelebration(outcome, summary.enemyRefId, this.syncGame(), this.content);
     const decision = await this.resumeRuntime.settle(
       snapshot.battleId,
       snapshot.sequence,
@@ -1693,9 +1693,9 @@ export class BattleScene extends Phaser.Scene {
     if (!decision.result) throw new Error('戦闘結果を確定できませんでした');
     this.gs = decision.state;
     this.resumeSnapshot = decision.state.battle.active;
-    if (decision.settlement && newDexEntry && decision.state.dex.monsters.includes(summary.enemyRefId)) {
+    if (decision.settlement && dexPage && decision.state.dex.monsters.includes(summary.enemyRefId)) {
       playSfx('discover');
-      await this.hudFlow.showDex(s.enemy.name, t('battle.dexRegistered'), monsterMenuArtUrl(this.enemyDef));
+      await this.hudFlow.showDex(s.enemy.name, t('battle.dexRegistered'), dexPage);
     }
     if (decision.settlement) await this.announceSettlement(decision.settlement);
     await this.leave(decision.result.outcome, decision.result.goldLost);

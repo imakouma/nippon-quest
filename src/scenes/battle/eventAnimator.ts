@@ -92,6 +92,7 @@ export interface BattleEventAnimationPort {
 
 /** BattleEvent-specific visual adapter; battle rules never enter this module. */
 export class BattleEventAnimator {
+  private musubiPending = false;
   constructor(private readonly port: BattleEventAnimationPort) {}
 
   async play(event: BattleEvent): Promise<void> {
@@ -250,6 +251,7 @@ export class BattleEventAnimator {
       case 'itemUsed':
         p.audio.play('select');
         if (event.itemId === 'common-musubi-dama' && event.side === 'enemy') {
+          this.musubiPending = true;
           await fx.throwMusubiDama(p.sprites.anchor(state.ally.hero.id), p.sprites.anchor(state.enemy.id));
         }
         return;
@@ -272,6 +274,20 @@ export class BattleEventAnimator {
         return;
       }
       case 'recruitAttempt': {
+        if (this.musubiPending) {
+          this.musubiPending = false;
+          const scaleX = enemy.scaleX;
+          const scaleY = enemy.scaleY;
+          await p.sprites.tween({
+            targets: enemy,
+            scaleX: scaleX * 0.1,
+            scaleY: scaleY * 0.1,
+            alpha: 0,
+            duration: 260,
+          });
+          await fx.resolveMusubiDama({ x: enemy.x, y: enemy.y - 12 * S }, event.success);
+          await p.sprites.tween({ targets: enemy, scaleX, scaleY, alpha: 1, duration: 260 });
+        }
         const anchor = p.sprites.anchor(state.enemy.id);
         p.effects.burst(anchor.x, anchor.y, 0xff8fb1, 'bt.fx.heart', 10, -80);
         p.audio.play(event.success ? 'recruit' : 'miss');

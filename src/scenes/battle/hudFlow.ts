@@ -1,4 +1,11 @@
-import type { BannerKind, HudStore, PopupView, StripPopView, UiAction } from '../../ui/battle/store';
+import type {
+  BannerView,
+  BannerKind,
+  HudStore,
+  PopupView,
+  StripPopView,
+  UiAction,
+} from '../../ui/battle/store';
 
 type Delay = (ms: number, done: () => void) => void;
 
@@ -66,10 +73,10 @@ export class BattleHudFlow {
     if (this.hud.get().banner?.id === id) this.hud.set({ banner: null });
   }
 
-  async showDex(text: string, sub: string, art: string): Promise<void> {
+  async showDex(text: string, sub: string, dex: NonNullable<BannerView['dex']>): Promise<void> {
     const id = ++this.bannerId;
-    this.hud.set({ message: null, banner: { id, kind: 'dex', text, sub, art } });
-    await this.wait(3000);
+    this.hud.set({ message: null, banner: { id, kind: 'dex', text, sub, dex } });
+    await this.wait(5500);
     if (this.hud.get().banner?.id === id) this.hud.set({ banner: null });
   }
 
