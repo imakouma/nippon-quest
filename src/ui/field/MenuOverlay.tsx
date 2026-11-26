@@ -396,7 +396,7 @@ export function MenuOverlay({
                   ref={index === homeSel ? homeButtonRef : undefined}
                   type="button"
                   class={`nq-menu-card nq-menu-card-${x.key} ${index === homeSel ? 'nq-focus' : ''}`}
-                  onPointerEnter={() => setHomeSel(index)}
+                  onPointerEnter={(event) => event.currentTarget.focus()}
                   onFocus={() => setHomeSel(index)}
                   onClick={() => openTab(index)}
                 >
