@@ -1,0 +1,1653 @@
+[
+  {
+    "id": "sk-kazoe-giri",
+    "name": "かぞえぎり",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "かずを かぞえて きりつける。しんかすると「たしざんぎり」に なる",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kazoe-giri"
+    ]
+  },
+  {
+    "id": "sk-tashizan-giri",
+    "name": "たしざんぎり",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 3,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "たしざんを といて きりつける！",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-tashizan-giri"
+    ]
+  },
+  {
+    "id": "sk-kuku-rush",
+    "name": "くくラッシュ",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 5,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kuku-rush"
+    ]
+  },
+  {
+    "id": "sk-shizuku",
+    "name": "しずく",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "unitHint": [
+      "sansu.g1.hikizan"
+    ],
+    "power": 90,
+    "element": "mizu",
+    "mp": 2,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "水[みず]の しずくを ぽたっと おとす。しんかすると「みずてっぽう」に なる",
+    "attackClass": "science",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-mizu-teppo",
+    "name": "みずてっぽう",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "unitHint": [
+      "sansu.g1.hikizan"
+    ],
+    "power": 110,
+    "element": "mizu",
+    "mp": 3,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "attackClass": "science",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-uzushio",
+    "name": "うずしお",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      2
+    ],
+    "unitHint": [
+      "sansu.g1.kazu-100",
+      "sansu.g2.kuku"
+    ],
+    "power": 140,
+    "element": "mizu",
+    "mp": 5,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "flavor": "うずまく しおで まきこむ！",
+    "attackClass": "science",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-burst-sansu",
+    "name": "さんすうバースト",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      6
+    ],
+    "power": 180,
+    "element": "none",
+    "mp": 0,
+    "gauge": 3,
+    "costGauge": 100,
+    "effect": "damage",
+    "flavor": "ためた さんすうの ちからを いっきに はなつ！",
+    "attackClass": "science",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-math-1-01",
+    "name": "ひゃくのひびき",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-01"
+    ]
+  },
+  {
+    "id": "sk-math-1-02",
+    "name": "テンリング",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-02"
+    ]
+  },
+  {
+    "id": "sk-math-1-03",
+    "name": "えならべのほし",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-03"
+    ]
+  },
+  {
+    "id": "sk-math-1-05",
+    "name": "かたちスタンプ",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-05"
+    ]
+  },
+  {
+    "id": "sk-math-1-06",
+    "name": "くらべのてんびん",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-06"
+    ]
+  },
+  {
+    "id": "sk-math-1-08",
+    "name": "プラスマイナスダンス",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-08"
+    ]
+  },
+  {
+    "id": "sk-math-1-09",
+    "name": "とけいのはり",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-09"
+    ]
+  },
+  {
+    "id": "sk-math-1-10",
+    "name": "ひきざんづき",
+    "subject": "sansu",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-1-10"
+    ]
+  },
+  {
+    "id": "sk-math-2-01",
+    "name": "だんのうねり",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-01"
+    ]
+  },
+  {
+    "id": "sk-math-2-03",
+    "name": "たしざんアッパー",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-03"
+    ]
+  },
+  {
+    "id": "sk-math-2-04",
+    "name": "ひっさんコンボ",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-04"
+    ]
+  },
+  {
+    "id": "sk-math-2-05",
+    "name": "ひきざんキック",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-05"
+    ]
+  },
+  {
+    "id": "sk-math-2-06",
+    "name": "ぶんすうカット",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-06"
+    ]
+  },
+  {
+    "id": "sk-math-2-07",
+    "name": "くらいのたいこ",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-07"
+    ]
+  },
+  {
+    "id": "sk-math-2-08",
+    "name": "かたちのたて",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-08"
+    ]
+  },
+  {
+    "id": "sk-math-2-09",
+    "name": "ときのしずく",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-09"
+    ]
+  },
+  {
+    "id": "sk-math-2-10",
+    "name": "ますのなみ",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-10"
+    ]
+  },
+  {
+    "id": "sk-math-2-11",
+    "name": "グラフのや",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-11"
+    ]
+  },
+  {
+    "id": "sk-math-2-12",
+    "name": "くふうがえし",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-12"
+    ]
+  },
+  {
+    "id": "sk-math-2-13",
+    "name": "ものさしづき",
+    "subject": "sansu",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-2-13"
+    ]
+  },
+  {
+    "id": "sk-math-3-01",
+    "name": "しかくのかぎ",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-01"
+    ]
+  },
+  {
+    "id": "sk-math-3-02",
+    "name": "あまりのかけら",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-02"
+    ]
+  },
+  {
+    "id": "sk-math-3-03",
+    "name": "かけざんハンマー",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 145,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-03"
+    ]
+  },
+  {
+    "id": "sk-math-3-04",
+    "name": "そろばんはじき",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-04"
+    ]
+  },
+  {
+    "id": "sk-math-3-05",
+    "name": "けたのつらなり",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-05"
+    ]
+  },
+  {
+    "id": "sk-math-3-06",
+    "name": "わけっこぎり",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-06"
+    ]
+  },
+  {
+    "id": "sk-math-3-07",
+    "name": "えんとさんかく",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-07"
+    ]
+  },
+  {
+    "id": "sk-math-3-08",
+    "name": "ぶんすうカット",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-08"
+    ]
+  },
+  {
+    "id": "sk-math-3-09",
+    "name": "けいさんのひらめき",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-09"
+    ]
+  },
+  {
+    "id": "sk-math-3-10",
+    "name": "てんのつぶ",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-10"
+    ]
+  },
+  {
+    "id": "sk-math-3-11",
+    "name": "びょうしんづき",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-11"
+    ]
+  },
+  {
+    "id": "sk-math-3-12",
+    "name": "ひょうとグラフ",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-12"
+    ]
+  },
+  {
+    "id": "sk-math-3-13",
+    "name": "はかりのいし",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-13"
+    ]
+  },
+  {
+    "id": "sk-math-4-01",
+    "name": "まるめうち",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-01"
+    ]
+  },
+  {
+    "id": "sk-math-4-02",
+    "name": "わりざんドリル",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-02"
+    ]
+  },
+  {
+    "id": "sk-math-4-03",
+    "name": "おびのやいば",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-03"
+    ]
+  },
+  {
+    "id": "sk-math-4-04",
+    "name": "かわりみのなみ",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-04"
+    ]
+  },
+  {
+    "id": "sk-math-4-05",
+    "name": "おくちょうほう",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 155,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-05"
+    ]
+  },
+  {
+    "id": "sk-math-4-06",
+    "name": "しょうすうのあらし",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 155,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-06"
+    ]
+  },
+  {
+    "id": "sk-math-4-07",
+    "name": "ひょうとグラフ",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-07"
+    ]
+  },
+  {
+    "id": "sk-math-4-08",
+    "name": "はこのとりで",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-08"
+    ]
+  },
+  {
+    "id": "sk-math-4-09",
+    "name": "かたちとかど",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-09"
+    ]
+  },
+  {
+    "id": "sk-math-4-10",
+    "name": "けいさんのきまり",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-10"
+    ]
+  },
+  {
+    "id": "sk-math-4-11",
+    "name": "しきつめスタンプ",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 115,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-11"
+    ]
+  },
+  {
+    "id": "sk-math-5-01",
+    "name": "かさねブロック",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-01"
+    ]
+  },
+  {
+    "id": "sk-math-5-02",
+    "name": "やくすうとばいすう",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-02"
+    ]
+  },
+  {
+    "id": "sk-math-5-03",
+    "name": "えんとせいたかくけい",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-03"
+    ]
+  },
+  {
+    "id": "sk-math-5-04",
+    "name": "ぶんすうのしくみ",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 165,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-04"
+    ]
+  },
+  {
+    "id": "sk-math-5-05",
+    "name": "わりあいのにじ",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 165,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-05"
+    ]
+  },
+  {
+    "id": "sk-math-5-06",
+    "name": "ごうどうとかく",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-06"
+    ]
+  },
+  {
+    "id": "sk-math-5-07",
+    "name": "そこべんスライス",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-07"
+    ]
+  },
+  {
+    "id": "sk-math-5-08",
+    "name": "てんのかけや",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-08"
+    ]
+  },
+  {
+    "id": "sk-math-5-09",
+    "name": "てんのわりや",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-09"
+    ]
+  },
+  {
+    "id": "sk-math-5-10",
+    "name": "へいきんとたんいりょう",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-10"
+    ]
+  },
+  {
+    "id": "sk-math-5-11",
+    "name": "くらいシフト",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-11"
+    ]
+  },
+  {
+    "id": "sk-math-5-12",
+    "name": "かずのかわりかた",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-12"
+    ]
+  },
+  {
+    "id": "sk-math-5-13",
+    "name": "はやてがけ",
+    "subject": "sansu",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 125,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-5-13"
+    ]
+  },
+  {
+    "id": "sk-math-6-01",
+    "name": "ぶんぷのほし",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-01"
+    ]
+  },
+  {
+    "id": "sk-math-6-02",
+    "name": "ていめんのうず",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 175,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-02"
+    ]
+  },
+  {
+    "id": "sk-math-6-03",
+    "name": "ぶんすうかけぎり",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-03"
+    ]
+  },
+  {
+    "id": "sk-math-6-04",
+    "name": "わりざんとぎゃくすう",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-04"
+    ]
+  },
+  {
+    "id": "sk-math-6-05",
+    "name": "ならべかたとくみあわせ",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 175,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-05"
+    ]
+  },
+  {
+    "id": "sk-math-6-06",
+    "name": "たいしょうのたて",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-06"
+    ]
+  },
+  {
+    "id": "sk-math-6-07",
+    "name": "かくだいとしゅくず",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-07"
+    ]
+  },
+  {
+    "id": "sk-math-6-08",
+    "name": "もじしきのふで",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-08"
+    ]
+  },
+  {
+    "id": "sk-math-6-09",
+    "name": "ひのてんびん",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-09"
+    ]
+  },
+  {
+    "id": "sk-math-6-10",
+    "name": "ひれいとはんぴれい",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 135,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-10"
+    ]
+  },
+  {
+    "id": "sk-math-3-large-numbers",
+    "name": "おおきなかず",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-large-numbers"
+    ],
+    "flavor": "大[おお]きな数[かず]の しくみや 位[くらい]を たしかめる。"
+  },
+  {
+    "id": "sk-math-3-length",
+    "name": "ながさのものさし",
+    "subject": "sansu",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-3-length"
+    ],
+    "flavor": "長[なが]さや 道[みち]のりを はかる。"
+  },
+  {
+    "id": "sk-math-4-multiply",
+    "name": "かけざんハンマー",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 155,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-multiply"
+    ],
+    "flavor": "大[おお]きな数[かず]の かけ算[ざん]で こうげき。"
+  },
+  {
+    "id": "sk-math-4-ratio",
+    "name": "ばいのものさし",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 155,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-ratio"
+    ],
+    "flavor": "くらべる大[おお]きさと もとにする大[おお]きさを くらべる。"
+  },
+  {
+    "id": "sk-math-4-abacus",
+    "name": "そろばんはじき",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 155,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-abacus"
+    ],
+    "flavor": "そろばんの玉[たま]を使[つか]って 数[かず]を読[よ]み、計算[けいさん]する。"
+  },
+  {
+    "id": "sk-math-4-position",
+    "name": "いちのしるし",
+    "subject": "sansu",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 155,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-4-position"
+    ],
+    "flavor": "基準[きじゅん]からの 位置[いち]を表[あらわ]す。"
+  },
+  {
+    "id": "sk-math-6-area",
+    "name": "ずけいのめんせき",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 175,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-area"
+    ],
+    "flavor": "円[えん]などの 図形[ずけい]の 面積[めんせき]を 求[もと]める。"
+  },
+  {
+    "id": "sk-math-6-fraction-time",
+    "name": "ぶんすうとじかん",
+    "subject": "sansu",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 175,
+    "element": "none",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "accuracy": 100,
+    "attackClass": "science",
+    "questionTags": [
+      "assigned:sk-math-6-fraction-time"
+    ],
+    "flavor": "時間[じかん]の 単位[たんい]を 分数[ぶんすう]で 表[あらわ]す。"
+  }
+]
