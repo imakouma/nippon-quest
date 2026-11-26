@@ -15,10 +15,47 @@
     <link rel="icon" href="%BASE_URL%favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%icons/apple-touch-icon.png" />
     <title>ニホンクエスト</title>
+    <style>
+      #nq-startup {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 16px;
+        background: #0b0d16;
+        color: #fff;
+        font:
+          700 24px/1.5 system-ui,
+          sans-serif;
+        text-align: center;
+      }
+      #nq-startup::after {
+        content: '';
+        width: 48px;
+        height: 8px;
+        background: #4cbf4c;
+        animation: nq-startup-pulse 1s steps(2, end) infinite alternate;
+      }
+      @keyframes nq-startup-pulse {
+        to {
+          opacity: 0.3;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #nq-startup::after {
+          animation: none;
+        }
+      }
+    </style>
     <script src="%BASE_URL%boot-timing.js"></script>
     <link rel="stylesheet" href="/src/ui/app.css" />
   </head>
   <body>
+    <div id="nq-startup" role="status" aria-label="ゲームを じゅんびしているよ">
+      ゲームを じゅんびしているよ…
+    </div>
     <div id="app">
       <div id="game-root"></div>
       <!-- Canvas の上に重ねる DOM レイヤ。会話・メニュー・問題UIはすべてここに描く（docs/01 §1,§5） -->

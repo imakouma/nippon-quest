@@ -33,6 +33,10 @@ import { ENCLAVES } from '../scripts/data/prefectures';
 import { prepareResumeGame } from './scenes/overworld/fieldMapCatalog';
 import { GAME_PERSISTENCE_PORT_KEY, type GamePersistencePort } from './core/state/persistence';
 
+performance.mark('nq:module-ready');
+if (performance.getEntriesByName('nq:boot-start', 'mark').length)
+  performance.measure('nq:module-load', 'nq:boot-start', 'nq:module-ready');
+
 // 通常辞書を読み込めない起動失敗でも、再試行画面だけは日本語で表示する。
 setDictionary(BOOTSTRAP_JA);
 enableMobileFullscreen();
@@ -168,6 +172,7 @@ const game = new Phaser.Game({
 });
 
 attachOverlay(gameRoot, uiLayer);
+document.getElementById('nq-startup')?.remove();
 
 game.events.on('boot:progress', (v: number) => {
   const bar = loading.querySelector<HTMLDivElement>('.nq-loading-bar > div');
