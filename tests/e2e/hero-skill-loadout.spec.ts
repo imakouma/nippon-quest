@@ -30,12 +30,12 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
   const sortModes = editor.getByRole('group', { name: /並べ替え|ならべかえ/ });
   for (const label of ['いりょく', 'めいちゅう']) {
     await sortModes.getByRole('button', { name: label }).click();
-    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*高') })).toHaveAttribute(
+    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*(?:高|たか)') })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
-    await sortModes.getByRole('button', { name: new RegExp(label + '.*高') }).click();
-    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*低') })).toHaveAttribute(
+    await sortModes.getByRole('button', { name: new RegExp(label + '.*(?:高|たか)') }).click();
+    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*(?:低|ひく)') })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
