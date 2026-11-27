@@ -1,134 +1,19 @@
-/**
- * バッグ：左の上に 主人公、その下に バッグの マス（仲間は しんかの だんかい ぶん 1〜3 マス、そうびは 1 マス。
- * あいている マスは 点線、まだ ひらいていない マスは あく レベル）、その下に あずけている 仲間・そうび。
- * えらんで バッグに いれる ⇄ だす、せんとう（バトルで さいしょに出る）に する、しんかさせる。
- * ロジックは持たない（中身は Overworld が GameState と content から作って渡す）。
- * 操作：↑↓←→ えらぶ / Z・Enter いれる・だす / X・Esc とじる。
- */
+/** 持ち物・配置・詳細を同時に表示し、操作はSceneのcallbackへ渡す。 */
 import { useEffect, useRef, useState } from 'preact/hooks';
-import type { Element, Item, Stats } from '../../core/content/schemas';
-import { ElementChip } from '../chips';
 import { t } from '../i18n';
 import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
-import { displayText, stripRuby } from '../ruby';
+import { displayText } from '../ruby';
 import { playSfx } from '../sfx';
 import { useModalFocus } from '../useModalFocus';
-import type { BagCell } from './bagLayout';
+import type { BagThing, BagOverlayProps } from './bagTypes';
+import { BagDetails } from './BagDetails';
+import { BagGrid, dropProblem } from './BagGrid';
+import { Pic } from './BagVisuals';
 import './field.css';
 import './bag.css';
 
-export interface BagThing {
-  /** 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび） */
-  key: string;
-  kind: 'hero' | 'monster' | 'equip' | 'item';
-  /** 装備なら、主人公のまわりの決められた装備位置。 */
-  equipSlot?: Item['kind'];
-  /** 名前（RubyText） */
-  name: string;
-  /** マス・リストの 小さな 絵（data URL） */
-  icon: string | null;
-  /** 右の 大きな 絵（data URL）。無ければ icon */
-  art: string | null;
-  /** つかう マスの数（主人公は 0） */
-  cost: number;
-  /** 2Dバッグ上の大きさ */
-  size?: { w: number; h: number };
-  inBag: boolean;
-  /** 主人公を含む最大8体の戦闘編成に入っている */
-  roster?: boolean;
-  /** バトルで さいしょに出る 仲間 */
-  leader?: boolean;
-  level?: number;
-  element?: Element;
-  /** あずけている そうびの こすう */
-  count?: number;
-  stats?: Stats;
-  /** 名前の下（そうびの 部位 など） */
-  sub?: string;
-  lines?: string[];
-  skills?: { name: string; gauge: number; scan: boolean }[];
-  blurb?: string;
-  action?: 'pack';
-  /** フィールドで回復アイテムを使ったとき、いま効果があるか。 */
-  usable?: boolean;
-  growth?: { canUnlock: boolean; levelCap: number; maximum: number };
-  /** しんかできる仲間なら、しんか先と条件。room＝バッグに 入りきるか（extra マス ふえる） */
-  evolve?: {
-    toName: string;
-    itemName: string;
-    need: number;
-    have: number;
-    ok: boolean;
-    room: boolean;
-    extra: number;
-  } | null;
-}
-
-export interface BagOverlayProps {
-  hero: BagThing;
-  /** バッグの 中身（仲間 → そうび。マスの じゅん） */
-  inBag: BagThing[];
-  /** あずけている 仲間・そうび */
-  outside: BagThing[];
-  cells: BagCell[];
-  cols: number;
-  rows: number;
-  dropSlots: Partial<Record<Item['kind'], { x: number; y: number }>>;
-  used: number;
-  capacity: number;
-  /** マスより 多く 入っている（マスが できる前の セーブ） */
-  over: boolean;
-  /** つぎに マスが ふえる レベル（もう ふえないなら null） */
-  nextLevel: number | null;
-  /** さっき えらんでいた もの（いれる・だす・しんかの あとも 同じ ものを えらんだまま） */
-  focusKey?: string;
-  message: string | null;
-  /** しんかした 直後（絵を 光らせる） */
-  flashKey?: string;
-  onToggle: (key: string) => void;
-  onUse: (key: string) => void;
-  onLeader: (key: string) => void;
-  onEvolve: (key: string) => void;
-  onGrow: (key: string) => void;
-  onMove: (key: string, x: number, y: number) => void;
-  onRosterRemove: (key: string) => void;
-  onClose: () => void;
-}
-
-const STATS: [keyof Stats, string][] = [
-  ['hp', 'field.statHp'],
-  ['mp', 'field.statMp'],
-  ['scienceAtk', 'field.statScienceAtk'],
-  ['humanitiesAtk', 'field.statHumanitiesAtk'],
-  ['scienceDef', 'field.statScienceDef'],
-  ['humanitiesDef', 'field.statHumanitiesDef'],
-  ['spd', 'field.statSpd'],
-  ['wis', 'field.statWis'],
-];
-
-/** つかう マスの数を ■ で */
-function Pips({ n }: { n: number }) {
-  return (
-    <span class="nq-bag-pips" aria-label={t('field.bagCost', { n })}>
-      {Array.from({ length: n }, (_, i) => (
-        <i key={i} />
-      ))}
-    </span>
-  );
-}
-
-function Pic({ x, size }: { x: BagThing; size: number }) {
-  const src = x.kind === 'hero' ? (x.art ?? x.icon) : size > 3 ? (x.art ?? x.icon) : x.icon;
-  if (src) return <img src={src} alt="" />;
-  return (
-    <PixelIcon
-      name={x.kind === 'hero' ? 'hero' : x.kind === 'equip' ? 'cmd-item' : `el-${x.element ?? 'none'}`}
-      scale={size}
-    />
-  );
-}
-
+export type { BagThing, BagOverlayProps } from './bagTypes';
 export function BagOverlay({
   hero,
   inBag,
@@ -136,7 +21,6 @@ export function BagOverlay({
   cells,
   cols,
   rows,
-  dropSlots,
   over,
   focusKey,
   message,
@@ -159,12 +43,14 @@ export function BagOverlay({
       order.findIndex((x) => x.key === key),
     );
   const [sel, setSel] = useState(() => indexOf(focusKey));
-  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [filter, setFilter] = useState('all');
   const [dragKey, setDragKey] = useState<string | null>(null);
   const sig = order.map((x) => x.key).join(',');
   useEffect(() => setSel(indexOf(focusKey)), [focusKey, sig]);
   const m = order[Math.min(sel, order.length - 1)]!;
   const boxRef = useRef<HTMLDivElement>(null);
+  const pouchRef = useRef<HTMLUListElement>(null);
   useModalFocus(boxRef, '[data-bag-key].nq-focus');
 
   useEffect(() => {
@@ -178,24 +64,19 @@ export function BagOverlay({
     if (k === sel || !order[k]) return;
     playSfx('move');
     setSel(k);
-    setDetailsOpen(true);
+    setNotice(null);
     const el = boxRef.current?.querySelector(`[data-bag-key="${CSS.escape(order[k]!.key)}"]`);
     el?.scrollIntoView({ block: 'nearest' });
   };
   const activateKey = (key: string) => {
-    const next = indexOf(key);
-    if (next === sel) {
-      playSfx('back');
-      setDetailsOpen((open) => !open);
-      return;
-    }
-    pick(next);
+    pick(indexOf(key));
   };
   const toggle = () => {
-    if (m.kind === 'hero') {
+    if (m.kind === 'hero' || m.blockedReason || (m.kind === 'item' && m.action !== 'pack')) {
       playSfx('miss');
       return;
     }
+    setNotice(null);
     playSfx('select');
     onToggle(m.key);
   };
@@ -262,52 +143,15 @@ export function BagOverlay({
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const heart = (x: BagThing) => x.key === m.key && <span class="nq-heart">♥</span>;
-  const listRow = (x: BagThing) => (
-    <li key={x.key}>
-      <button
-        type="button"
-        data-bag-key={x.key}
-        class={`nq-opt ${x.key === m.key ? 'nq-focus' : ''}`}
-        draggable={x.kind === 'equip' || (x.kind === 'item' && x.inBag)}
-        onDragStart={(e) => {
-          e.dataTransfer?.setData('text/plain', x.key);
-          setDragKey(x.key);
-        }}
-        onDragEnd={() => setDragKey(null)}
-        onClick={() => activateKey(x.key)}
-      >
-        <span class="nq-amap-cur">{heart(x)}</span>
-        {x.kind === 'equip' || x.kind === 'item' ? (
-          <img class="nq-item-icon nq-town-icon" src={x.icon ?? ''} alt="" />
-        ) : (
-          <PixelIcon name={x.kind === 'hero' ? 'hero' : `el-${x.element ?? 'none'}`} scale={2} />
-        )}
-        <RubyLabel text={x.name} class="nq-opt-name" />
-        {x.level !== undefined && (
-          <span class="nq-party-lv">
-            {t('battle.lv')}
-            {x.level}
-          </span>
-        )}
-        {x.count !== undefined && x.count > 1 && (
-          <span class="nq-party-lv">{t('battle.itemCount', { n: x.count })}</span>
-        )}
-        {x.evolve?.ok && x.evolve.room && (
-          <span class="nq-party-tag nq-party-tag-evo">{t('field.partyCanEvolve')}</span>
-        )}
-        {x.cost > 0 && <Pips n={x.cost} />}
-      </button>
-    </li>
-  );
   const reserveTile = (x: BagThing) => (
     <li key={x.key}>
       <button
         type="button"
         data-bag-key={x.key}
         class={`nq-bag-reserve-tile ${x.key === m.key ? 'nq-focus' : ''}`}
-        draggable={x.kind !== 'item' || x.action === 'pack'}
-        aria-pressed={x.key === m.key && detailsOpen}
+        draggable={!x.blockedReason && (x.kind !== 'item' || x.action === 'pack')}
+        aria-pressed={x.key === m.key}
+        aria-label={displayText(x.name)}
         onDragStart={(e) => {
           e.dataTransfer?.setData('text/plain', x.key);
           setDragKey(x.key);
@@ -316,28 +160,57 @@ export function BagOverlay({
         onClick={() => activateKey(x.key)}
       >
         <span class="nq-bag-reserve-pic">
-          <Pic x={x} size={3} />
-          {x.key === m.key && <span class="nq-heart nq-bag-reserve-heart">♥</span>}
+          <Pic x={x} size={2} />
         </span>
-        <RubyLabel text={x.name} class="nq-bag-reserve-name" />
         {x.count !== undefined && x.count > 1 && <span class="nq-bag-reserve-count">×{x.count}</span>}
       </button>
     </li>
   );
 
-  const monsInBag = inBag.some((x) => x.kind === 'monster');
   const itemsInBag = inBag.filter((x) => x.kind === 'item');
   const draggedThing = dragKey ? byKey.get(dragKey) : undefined;
   const canReturnItem = !!draggedThing?.inBag && draggedThing.kind !== 'hero';
   const returnItem = () => {
     if (!canReturnItem || !dragKey) return;
+    setNotice(null);
     onToggle(dragKey);
     setDragKey(null);
   };
+  const pack = (thing: BagThing) => {
+    setDragKey(null);
+    if (thing.action !== 'pack') {
+      setNotice(t('field.bagStorageOnly'));
+      return;
+    }
+    if (thing.inBag) {
+      setNotice(t('field.bagToolPlace'));
+      return;
+    }
+    setNotice(null);
+    onToggle(thing.key);
+  };
+  const place = (thing: BagThing, x: number, y: number) => {
+    setDragKey(null);
+    if (thing.kind === 'item') {
+      pack(thing);
+      return;
+    }
+    const problem = dropProblem(thing, { x, y }, cells, cols, rows);
+    if (problem) {
+      setNotice(problem);
+      playSfx('miss');
+      return;
+    }
+    setNotice(null);
+    if (thing.inBag) onMove(thing.key, x, y);
+    else onToggle(thing.key, { x, y });
+  };
+  const category = (x: BagThing) => (x.kind === 'item' ? (x.action === 'pack' ? 'tool' : 'storage') : x.kind);
+  const shown = outside.filter((x) => filter === 'all' || category(x) === filter);
   return (
     <div class="nq-wmap" onClick={onClose}>
       <div
-        class={`nq-win nq-wmap-box ${detailsOpen ? '' : 'nq-bag-details-closed'}`}
+        class="nq-win nq-wmap-box nq-bag-window"
         ref={boxRef}
         role="dialog"
         aria-modal="true"
@@ -345,275 +218,139 @@ export function BagOverlay({
         tabindex={-1}
         onClick={(e) => e.stopPropagation()}
       >
-        <div class="nq-wmap-left nq-bag-left">
-          <div class="nq-wmap-region">
-            <span class="nq-wmap-title">
-              <PixelIcon name="cmd-item" scale={3} />
-              {t('field.bagTitle')}
-            </span>
-          </div>
-          {over && (
-            <p class="nq-bag-capacity-warning" role="alert">
-              {t('field.bagLayoutInvalid')}
-            </p>
-          )}
-          <div
-            class="nq-bag-grid"
-            role="group"
-            aria-label={t('field.bagTitle')}
-            style={{
-              gridTemplateColumns: `repeat(${cols}, 76px)`,
-              gridTemplateRows: `repeat(${rows}, 76px)`,
-            }}
+        <header class="nq-bag-header">
+          <span class="nq-wmap-title">
+            <PixelIcon name="cmd-item" scale={3} />
+            {t('field.bagTitle')}
+          </span>
+          <button type="button" class="nq-back" onClick={onClose}>
+            × {t('ui.close')}
+          </button>
+        </header>
+        <div class="nq-bag-body">
+          <section
+            class={`nq-bag-reserve ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
+            aria-label={t('field.bagOutside')}
             onDragOver={(e) => {
-              if (draggedThing?.kind === 'item' && !draggedThing.inBag && draggedThing.action === 'pack')
-                e.preventDefault();
+              if (canReturnItem) e.preventDefault();
             }}
             onDrop={(e) => {
-              if (draggedThing?.kind !== 'item' || draggedThing.inBag || draggedThing.action !== 'pack')
-                return;
               e.preventDefault();
-              onToggle(draggedThing.key);
-              setDragKey(null);
+              returnItem();
             }}
           >
-            {cells.map((c, i) => {
-              if (c.kind === 'empty') {
-                const slot = Object.entries(dropSlots).find(
-                  ([, pos]) => pos?.x === c.x && pos.y === c.y,
-                )?.[0];
-                const dragged = dragKey ? byKey.get(dragKey) : undefined;
-                const canDrop =
-                  !dragged ||
-                  dragged.inBag ||
-                  dragged.kind === 'monster' ||
-                  (dragged.kind === 'item' && dragged.action === 'pack') ||
-                  (dragged.equipSlot === slot && dragged.kind === 'equip');
-                return (
-                  <div
-                    key={`e${i}`}
-                    class={`nq-bag-cell nq-bag-empty ${dragKey && canDrop ? 'nq-bag-drop-ok' : ''}`}
-                    data-drop-slot={slot}
-                    style={{ gridColumn: c.x + 1, gridRow: c.y + 1 }}
-                    aria-label={t('field.bagEmptyCell')}
-                    onClick={() => {
-                      if (m.kind !== 'hero' && m.inBag) onMove(m.key, c.x, c.y);
-                    }}
-                    onDragOver={(e) => {
-                      if (canDrop) e.preventDefault();
-                    }}
-                    onDrop={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      const key = e.dataTransfer?.getData('text/plain');
-                      if (!key) return;
-                      const thing = byKey.get(key);
-                      if (!thing || (!thing.inBag && thing.kind === 'equip' && thing.equipSlot !== slot))
-                        return;
-                      if (!thing.inBag && thing.kind === 'item' && thing.action !== 'pack') return;
-                      if (thing.inBag) onMove(key, c.x, c.y);
-                      else onToggle(key);
-                      setDragKey(null);
-                    }}
-                  />
-                );
-              }
-              const x = byKey.get(c.key);
-              if (!x) return null;
-              return (
-                <button
-                  key={x.key}
-                  type="button"
-                  data-bag-key={x.key}
-                  class={`nq-bag-cell nq-bag-item nq-bag-${x.kind} ${x.key === m.key ? 'nq-focus' : ''}`}
-                  style={{ gridColumn: `${c.x + 1} / span ${c.w}`, gridRow: `${c.y + 1} / span ${c.h}` }}
-                  draggable={x.kind !== 'hero'}
-                  onDragStart={(e) => {
-                    e.dataTransfer?.setData('text/plain', x.key);
-                    setDragKey(x.key);
-                  }}
-                  onDragEnd={() => setDragKey(null)}
-                  aria-label={displayText(x.name)}
-                  onClick={() => activateKey(x.key)}
-                >
-                  <Pic x={x} size={2} />
-                  {x.key === m.key && <span class="nq-heart nq-bag-heart">♥</span>}
-                  {x.leader && <span class="nq-bag-lead">{t('field.partyLeader')}</span>}
-                  {x.evolve?.ok && x.evolve.room && <span class="nq-bag-evo">★</span>}
+            <p class="nq-party-sep nq-bag-sep">{t('field.bagOutside')}</p>
+            <div class="nq-bag-filters" role="group" aria-label={displayText(t('field.bagFilter'))}>
+              {['all', 'tool', 'equip', 'monster', 'storage'].map((key) => (
+                <button type="button" key={key} aria-pressed={filter === key} onClick={() => setFilter(key)}>
+                  <RubyLabel text={t(`field.bagFilter_${key}`)} />
                 </button>
-              );
-            })}
-          </div>
-          {!!itemsInBag.length && (
-            <>
-              <p class="nq-party-sep nq-bag-sep">{t('field.bagBattleItems')}</p>
-              <ul class="nq-party-list nq-bag-packed">{itemsInBag.map(listRow)}</ul>
-            </>
-          )}
-          {detailsOpen && (
-            <div class="nq-wmap-info nq-party-info">
-              <div class="nq-party-head">
-                <div class={`nq-party-art ${flashKey === m.key ? 'nq-party-evolved' : ''}`}>
-                  <Pic x={m} size={6} />
-                </div>
-                <div class="nq-party-who">
-                  <RubyLabel text={m.name} class="nq-party-name" />
-                  <span class="nq-party-sub">
-                    {m.level !== undefined && (
-                      <>
-                        {t('battle.lv')}
-                        {m.level}
-                        {m.growth && ` / ${m.growth.levelCap}`}
-                      </>
-                    )}
-                    {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
-                  </span>
-                </div>
-              </div>
-              {m.stats && (
-                <div class="nq-party-stats">
-                  {STATS.map(([k, key]) => (
-                    <span key={k}>
-                      <small>{stripRuby(t(key))}</small>
-                      {Math.round(m.stats![k])}
-                    </span>
-                  ))}
-                </div>
-              )}
-              {!!m.lines?.length && (
-                <div class="nq-bag-facts">
-                  {m.lines.map((l, i) => (
-                    <RubyLabel key={i} text={l} class="nq-bag-line" as="p" />
-                  ))}
-                </div>
-              )}
-              {!!m.skills?.length && (
-                <>
-                  <p class="nq-party-label">
-                    <RubyLabel text={t('cmd.skill')} />
-                  </p>
-                  <ul class="nq-party-skills">
-                    {m.skills.map((s, i) => (
-                      <li key={i}>
-                        <RubyLabel text={s.name} />
-                        <span class="nq-party-star">{s.scan ? '' : '★'.repeat(s.gauge)}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-              {m.kind === 'hero' && !monsInBag && (
-                <RubyLabel text={t('field.bagNoMonster')} class="nq-party-hint" as="p" />
-              )}
-              {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
+              ))}
             </div>
-          )}
-          {detailsOpen && (m.growth || (m.kind === 'monster' && (m.inBag || m.roster || m.evolve))) && (
-            <div class="nq-wmap-foot nq-party-foot">
-              {m.growth && (
-                <button
-                  type="button"
-                  class={`nq-opt nq-wmap-go nq-bag-grow ${m.growth.canUnlock ? 'nq-bag-grow-ready' : ''}`}
-                  onClick={() => onGrow(m.key)}
-                >
-                  <PixelIcon name="star" scale={3} />
-                  <RubyLabel text={t('field.levelCapGrow')} />
-                </button>
-              )}
-              {m.kind === 'monster' && m.inBag && !m.leader && (
-                <button type="button" class="nq-opt nq-wmap-go" onClick={leader}>
-                  <PixelIcon name="hero" scale={3} />
-                  {t('field.partySetLeader')}
-                </button>
-              )}
-              {m.kind === 'monster' && !m.inBag && m.roster && (
-                <button type="button" class="nq-opt nq-wmap-go" onClick={() => onRosterRemove(m.key)}>
-                  <PixelIcon name="cmd-item" scale={3} />
-                  {t('field.bagRosterRemove')}
-                </button>
-              )}
-              {m.evolve && (
-                <button
-                  type="button"
-                  class={`nq-opt nq-wmap-go nq-party-evolve ${m.evolve.ok && m.evolve.room ? 'nq-party-evolve-ok' : ''}`}
-                  disabled={!m.evolve.ok || !m.evolve.room}
-                  onClick={evolve}
-                >
-                  <PixelIcon name="star" scale={3} />
-                  {t('field.partyEvolve')}
-                </button>
-              )}
-            </div>
-          )}
-          {detailsOpen && m.kind === 'item' && m.action === 'pack' && (
-            <div class="nq-wmap-foot nq-party-foot">
-              <button
-                type="button"
-                class={`nq-opt nq-wmap-go nq-bag-use ${m.usable ? 'nq-party-evolve-ok' : ''}`}
-                disabled={!m.usable}
-                onClick={() => onUse(m.key)}
-              >
-                <span class="nq-heart" aria-hidden="true">
-                  ♥
-                </span>
-                <RubyLabel text={t('field.bagUse')} />
-              </button>
-            </div>
-          )}
-          {detailsOpen && m.evolve && (
-            <RubyLabel
-              class="nq-wmap-keys"
-              text={
-                m.evolve.ok && !m.evolve.room
-                  ? t('field.bagEvolveNoRoom', { n: m.evolve.extra })
-                  : t(m.evolve.ok ? 'field.partyEvolveNeed' : 'field.partyEvolveNo', {
-                      item: m.evolve.itemName,
-                      to: m.evolve.toName,
-                      need: m.evolve.need,
-                      n: m.evolve.have,
-                    })
-              }
-            />
-          )}
-        </div>
-
-        <div class="nq-wmap-right nq-bag-right">
-          <div class="nq-wmap-head">
-            {message ? <RubyLabel text={message} class="nq-party-msg" /> : <span />}
-            <button type="button" class="nq-back" onClick={onClose}>
-              × {t('ui.close')}
-            </button>
-          </div>
-          <section class="nq-bag-reserve" aria-label={t('field.bagOutside')}>
-            <p
-              class={`nq-party-sep nq-bag-sep ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-              onDragOver={(e) => {
-                if (canReturnItem) e.preventDefault();
-              }}
-              onDrop={(e) => {
-                e.preventDefault();
-                returnItem();
-              }}
-            >
-              {t('field.bagOutside')}
-            </p>
-            <ul
-              class={`nq-bag-reserve-grid ${canReturnItem ? 'nq-bag-return-ok' : ''}`}
-              onDragOver={(e) => {
-                if (canReturnItem) e.preventDefault();
-              }}
-              onDrop={(e) => {
-                e.preventDefault();
-                returnItem();
-              }}
-            >
-              {outside.length ? (
-                outside.map(reserveTile)
+            <ul class="nq-bag-reserve-grid">
+              {shown.length ? (
+                shown.map(reserveTile)
               ) : (
                 <li class="nq-party-none">{t('field.bagOutsideNone')}</li>
               )}
             </ul>
           </section>
+          <section class="nq-bag-board">
+            <p class="nq-party-sep nq-bag-sep">{t('field.bagFormation')}</p>
+            {over && (
+              <p class="nq-bag-capacity-warning" role="alert">
+                {t('field.bagLayoutInvalid')}
+              </p>
+            )}
+            <BagGrid
+              cells={cells}
+              cols={cols}
+              rows={rows}
+              byKey={byKey}
+              selected={m}
+              dragged={draggedThing}
+              setDragKey={setDragKey}
+              activateKey={activateKey}
+              place={place}
+              pack={pack}
+            />
+            <p class="nq-bag-place-hint">
+              <RubyLabel text={t('field.bagPlaceHint')} />
+            </p>
+            <section
+              class={`nq-bag-pouch ${draggedThing?.kind === 'item' ? 'nq-bag-return-ok' : ''}`}
+              aria-label={t('field.bagBattleItems')}
+              onDragOver={(e) => {
+                if (draggedThing?.action === 'pack') e.preventDefault();
+              }}
+              onDrop={(e) => {
+                if (draggedThing?.action === 'pack') {
+                  e.preventDefault();
+                  pack(draggedThing);
+                }
+              }}
+            >
+              <div class="nq-bag-pouch-heading">
+                <p class="nq-party-sep nq-bag-sep">{t('field.bagBattleItems')}</p>
+                {itemsInBag.length > 3 && (
+                  <span class="nq-bag-pouch-controls">
+                    <button
+                      type="button"
+                      aria-label={displayText(t('field.bagToolsPrevious'))}
+                      onClick={() => pouchRef.current?.scrollBy({ left: -150 })}
+                    >
+                      ‹
+                    </button>
+                    <button
+                      type="button"
+                      aria-label={displayText(t('field.bagToolsNext'))}
+                      onClick={() => pouchRef.current?.scrollBy({ left: 150 })}
+                    >
+                      ›
+                    </button>
+                  </span>
+                )}
+              </div>
+              <ul class="nq-bag-packed" ref={pouchRef}>
+                {itemsInBag.length ? (
+                  itemsInBag.map((x) => (
+                    <li key={x.key}>
+                      <button
+                        type="button"
+                        data-bag-key={x.key}
+                        class={`nq-bag-packed-item ${x.key === m.key ? 'nq-focus' : ''}`}
+                        aria-label={displayText(x.name)}
+                        title={displayText(x.name)}
+                        draggable
+                        onDragStart={(e) => {
+                          e.dataTransfer?.setData('text/plain', x.key);
+                          setDragKey(x.key);
+                        }}
+                        onDragEnd={() => setDragKey(null)}
+                        onClick={() => activateKey(x.key)}
+                      >
+                        <Pic x={x} size={2} />
+                        {x.count !== undefined && <span>×{x.count}</span>}
+                      </button>
+                    </li>
+                  ))
+                ) : (
+                  <li class="nq-party-none">{t('field.bagPouchEmpty')}</li>
+                )}
+              </ul>
+            </section>
+          </section>
+          <BagDetails
+            m={m}
+            message={notice ?? message}
+            flashKey={flashKey}
+            toggle={toggle}
+            leader={leader}
+            evolve={evolve}
+            onGrow={onGrow}
+            onUse={onUse}
+            onRosterRemove={onRosterRemove}
+          />
         </div>
       </div>
     </div>
