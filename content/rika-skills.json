@@ -668,7 +668,7 @@
     "unitHint": [
       "rika.g5.legacy-sci-5-5"
     ],
-    "power": 245,
+    "power": 220,
     "element": "none",
     "mp": 0,
     "gauge": 1,
@@ -677,6 +677,13 @@
     "flavor": "たいふうの ようすと そなえを しらべる ちから。",
     "attackClass": "science",
     "accuracy": 100,
+    "additionalEffect": {
+      "stat": "def",
+      "target": "self",
+      "multiplier": 1.2,
+      "chance": 30,
+      "turns": 3
+    },
     "questionTags": [
       "assigned:sk-rika-g5-typhoon"
     ]

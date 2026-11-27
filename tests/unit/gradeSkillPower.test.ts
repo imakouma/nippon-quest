@@ -17,13 +17,13 @@ const ranges = [
 ] as const;
 
 describe('学年と学習時期に応じた技の威力', () => {
-  it('単一学年の技はその学年の威力範囲に入る', () => {
+  it('単一学年の技は学年の目安に沿い、チャージ技には上乗せを認める', () => {
     for (const skill of skills) {
       const [first, last] = skill.gradeRange;
-      if (first !== last || first < 1 || first > 6) continue;
+      if (first === undefined || first !== last || first < 1 || first > 6) continue;
       const [min, max] = ranges[first - 1]!;
       expect(skill.power, skill.id).toBeGreaterThanOrEqual(min);
-      expect(skill.power, skill.id).toBeLessThanOrEqual(max);
+      expect(skill.power, skill.id).toBeLessThanOrEqual(skill.costGauge === 50 ? Math.ceil(max * 1.3) : max);
     }
   });
 
@@ -42,4 +42,20 @@ describe('学年と学習時期に応じた技の威力', () => {
     expect(power('sk-shakai-g6-constitution')).toBe(280);
     expect(power('sk-shakai-g6-modern')).toBe(360);
   });
+});
+
+it('チャージのある技や追加効果を考慮して威力に差をつける', () => {
+  const power = (id: string) => skills.find((skill) => skill.id === id)!.power;
+  expect(power('sk-math-1-08')).toBeGreaterThan(30);
+  expect(power('sk-math-4-05')).toBeGreaterThan(150);
+  expect(power('sk-eigo-direction')).toBeGreaterThan(210);
+  const leafStorm = seikatsu.find((skill) => skill.id === 'sk-happa-arashi')!;
+  expect(leafStorm.additionalEffect).toMatchObject({ stat: 'atk', target: 'self', chance: 30 });
+  expect(leafStorm.power).toBeLessThan(70);
+  const safety = shakai.find((skill) => skill.id === 'sk-shakai-g3-safety')!;
+  expect(safety.power).toBeLessThan(power('sk-shakai-g3-work'));
+  expect(safety.additionalEffect).toMatchObject({ stat: 'def', target: 'self' });
+  const typhoon = rika.find((skill) => skill.id === 'sk-rika-g5-typhoon')!;
+  expect(typhoon.power).toBeLessThan(power('sk-rika-g5-river'));
+  expect(typhoon.additionalEffect).toMatchObject({ stat: 'def', target: 'self' });
 });

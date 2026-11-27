@@ -106,7 +106,7 @@
     "unitHint": [
       "shakai.g3.legacy-cur-1403-03"
     ],
-    "power": 125,
+    "power": 110,
     "element": "hikari",
     "mp": 0,
     "gauge": 1,
@@ -115,6 +115,13 @@
     "flavor": "地域[ちいき]の 安全[あんぜん]を まもる くふうを しらべる ちから。",
     "attackClass": "humanities",
     "accuracy": 100,
+    "additionalEffect": {
+      "stat": "def",
+      "target": "self",
+      "multiplier": 1.2,
+      "chance": 30,
+      "turns": 3
+    },
     "questionTags": [
       "assigned:sk-shakai-g3-safety"
     ]

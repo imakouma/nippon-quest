@@ -1,4 +1,8 @@
-import { assignedSkillLevel, trainedAssignedSkill } from '../../core/progression/assignedSkillTraining';
+import {
+  assignedSkillLevel,
+  subjectBurstForGrade,
+  trainedAssignedSkill,
+} from '../../core/progression/assignedSkillTraining';
 import { h, render } from 'preact';
 import { HeroSkillScreen } from '../../ui/field/HeroSkillScreen';
 import type { ContentIndex } from '../../core/content/loader';
@@ -59,7 +63,13 @@ export function heroSkillEditor(
     ),
     skills: available
       .flatMap((id) => content.skills.get(id) ?? [])
-      .map((skill) => trainedAssignedSkill(skill, state.progress.counters)),
+      .map((skill) =>
+        subjectBurstForGrade(
+          trainedAssignedSkill(skill, state.progress.counters),
+          state.learning.grade,
+          bursts,
+        ),
+      ),
     onChange: (category, index, id) => {
       const current = getGame();
       if (!current) return null;

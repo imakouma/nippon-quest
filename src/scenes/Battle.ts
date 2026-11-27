@@ -1,5 +1,5 @@
 import { prepareNewDexCelebration } from './battle/newDexCelebration';
-import { trainedAssignedSkill } from '../core/progression/assignedSkillTraining';
+import { subjectBurstForGrade, trainedAssignedSkill } from '../core/progression/assignedSkillTraining';
 /** ターン制バトルの Scene。計算は core、文字と操作は DOM、Scene は演出と進行を担当する。 */
 import Phaser from 'phaser';
 import { h, render } from 'preact';
@@ -278,7 +278,12 @@ export class BattleScene extends Phaser.Scene {
       settings: c.settings,
       elements: c.elements,
       skills: c.skills,
-      heroSkill: (skill) => trainedAssignedSkill(skill, this.gs.progress.counters),
+      heroSkill: (skill) =>
+        subjectBurstForGrade(
+          trainedAssignedSkill(skill, this.gs.progress.counters),
+          this.gs.learning.grade,
+          c.settings.subjectGauge.uniqueSkills,
+        ),
       items: c.items,
       // モンスターは その県の特産品も落とす（合わせて settings.specialtyDropRate の確率）
       monsters: withSpecialtyDrops(c.monsters, c.areas, c.items, c.settings.specialtyDropRate),

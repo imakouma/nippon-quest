@@ -209,7 +209,7 @@
     "subject": "seikatsu",
     "gradeRange": [2, 2],
     "unitHint": ["seikatsu.g2.spring"],
-    "power": 60,
+    "power": 65,
     "element": "mori",
     "mp": 0,
     "gauge": 2,
@@ -218,7 +218,14 @@
     "flavor": "はるの ようすを くらべて はなつ はっぱの あらし。",
     "attackClass": "balanced",
     "accuracy": 100,
-    "questionTags": ["assigned:sk-happa-arashi"]
+    "questionTags": ["assigned:sk-happa-arashi"],
+    "additionalEffect": {
+      "stat": "atk",
+      "target": "self",
+      "multiplier": 1.2,
+      "chance": 30,
+      "turns": 3
+    }
   },
   {
     "id": "sk-seikatsu-vegetable",

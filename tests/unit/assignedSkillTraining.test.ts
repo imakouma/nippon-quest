@@ -19,3 +19,14 @@ describe('assigned skill training', () => {
     expect(trainedAssignedSkill({ ...skill, questionTags: [] }, {})).toEqual({ ...skill, questionTags: [] });
   });
 });
+
+it('学年共通の教科バーストは、設定学年が上がると威力も上がる', async () => {
+  const { subjectBurstForGrade } = await import('../../src/core/progression/assignedSkillTraining');
+  const burst = { id: 'sk-burst-sansu', subject: 'sansu', power: 180 } as Skill;
+  const uniqueSkills = { sansu: burst.id };
+  expect(subjectBurstForGrade(burst, 1, uniqueSkills).power).toBe(80);
+  expect(subjectBurstForGrade(burst, 3, uniqueSkills).power).toBe(205);
+  expect(subjectBurstForGrade(burst, 6, uniqueSkills).power).toBe(490);
+  const other = { ...burst, id: 'sk-normal' };
+  expect(subjectBurstForGrade(other, 6, uniqueSkills)).toBe(other);
+});

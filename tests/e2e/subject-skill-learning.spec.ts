@@ -177,3 +177,20 @@ test('各教科の習得済み技を編成画面で選んで保存できる', as
       .toBe(true);
   }
 });
+
+test('防災の技は戦闘の詳細に防御効果を表示する', async ({ page }, info) => {
+  await page.goto('/?debug=battle&grade=3&resetSaves=1');
+  await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
+  await page.locator('.nq-box').click();
+  await page.evaluate(() => {
+    const battle = window.__nq.scene.getScene('Battle') as SkillBattle;
+    battle.state.ally.hero.skills = ['sk-shakai-g3-safety'];
+    battle.syncViews();
+    battle.showCommands();
+  });
+  await page.locator('[data-cmd="skill"]').click();
+  await page.locator('[data-skill="sk-shakai-g3-safety"]').focus();
+  await page.locator('.nq-skill-details-toggle').click();
+  await expect(page.locator('#nq-skill-details')).toContainText('30%で じぶんの ぼうぎょアップ');
+  await page.screenshot({ path: info.outputPath('safety-skill-effect.png') });
+});
