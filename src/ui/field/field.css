@@ -104,6 +104,57 @@
     display: grid;
   }
 }
+:is(.nq-virtual-stick, .nq-direction-pad) {
+  --pad-size: min(var(--touch-size, 144px), 52dvh, 55dvw);
+}
+.nq-virtual-stick {
+  width: var(--pad-size);
+  height: var(--pad-size);
+}
+.nq-virtual-stick-cross,
+.nq-virtual-stick-cross::before {
+  width: 63%;
+}
+.nq-virtual-stick-knob {
+  width: 41%;
+  height: 41%;
+}
+.nq-direction-pad {
+  grid-template: repeat(3, calc(var(--pad-size) / 3)) / repeat(3, calc(var(--pad-size) / 3));
+}
+.nq-virtual-stick {
+  opacity: var(--touch-opacity, 0.42);
+}
+.nq-virtual-stick.is-active {
+  opacity: var(--touch-opacity, 0.68);
+}
+.nq-direction-pad {
+  opacity: var(--touch-opacity, 1);
+}
+.nq-fhud[style*='--touch-x'] :is(.nq-virtual-stick, .nq-direction-pad),
+.nq-settings-preview :is(.nq-virtual-stick, .nq-direction-pad) {
+  left: clamp(
+    calc(24px + env(safe-area-inset-left)),
+    calc(var(--touch-x) - var(--pad-size) / 2),
+    calc(100% - var(--pad-size) - 24px - env(safe-area-inset-right))
+  );
+  top: clamp(
+    calc(24px + env(safe-area-inset-top)),
+    calc(var(--touch-y) - var(--pad-size) / 2),
+    calc(100% - var(--pad-size) - 24px - env(safe-area-inset-bottom))
+  );
+  bottom: auto;
+}
+.nq-settings-preview :is(.nq-virtual-stick, .nq-direction-pad) {
+  --pad-size: min(var(--touch-size), 45cqh, 60cqw);
+  left: clamp(4px, calc(var(--touch-x) - var(--pad-size) / 2), calc(100% - var(--pad-size) - 4px));
+  top: clamp(4px, calc(var(--touch-y) - var(--pad-size) / 2), calc(100% - var(--pad-size) - 4px));
+}
+.nq-settings-preview {
+  container-type: size;
+  touch-action: none;
+  cursor: move;
+}
 /* ───── 左上の小さな地図（いまいる地方を、主人公を まん中に拡大）。タップで県の大きな地図 ───── */
 .nq-mini {
   position: relative;

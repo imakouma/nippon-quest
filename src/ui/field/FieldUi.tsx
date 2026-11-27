@@ -1,3 +1,4 @@
+import type { GameState } from '../../core/state/schema';
 /**
  * フィールドの DOM 部品：地図ボタン（HUD）、移動したときの場所の名前、名所のカットイン。
  * ロジックは持たない。Overworld シーンが props を渡して render する。
@@ -24,6 +25,7 @@ export interface FieldHudProps {
   onMenu: () => void;
   onMove: (direction: VirtualStickDirection | null) => void;
   movementControl?: 'stick' | 'dpad';
+  touchLayout?: GameState['settings']['touchLayout'];
   /** Scene が一度だけ解決した、キーボード操作と共通のアクション。 */
   action?: ContextActionView | null;
   /** 開発者モード（ぜんぶの 場所へ ワープ）。ローカル開発環境だけボタンを出す */
@@ -39,11 +41,24 @@ export function FieldHud({
   onMenu,
   onMove,
   movementControl = 'stick',
+  touchLayout,
   action = null,
   dev,
 }: FieldHudProps) {
   return (
-    <div class="nq-fhud">
+    <div
+      class="nq-fhud"
+      style={
+        touchLayout
+          ? {
+              '--touch-x': `${touchLayout.x}%`,
+              '--touch-y': `${touchLayout.y}%`,
+              '--touch-size': `${(144 * touchLayout.size) / 100}px`,
+              '--touch-opacity': touchLayout.opacity / 100,
+            }
+          : undefined
+      }
+    >
       {movementControl === 'dpad' ? (
         <DirectionPad onDirection={onMove} />
       ) : (

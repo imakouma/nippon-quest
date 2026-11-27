@@ -70,7 +70,7 @@ export function VirtualStick({
       <span
         class="nq-virtual-stick-knob"
         aria-hidden="true"
-        style={{ transform: `translate(calc(-50% + ${offset.x * 40}px), calc(-50% + ${offset.y * 40}px))` }}
+        style={{ transform: `translate(calc(-50% + ${offset.x * 76}%), calc(-50% + ${offset.y * 76}%))` }}
       />
     </div>
   );
