@@ -152,12 +152,14 @@ export function BagDetails({
           {m.kind === 'hero' && m.growth && (
             <section class="nq-bag-hero-growth">
               <RubyLabel text={t('field.levelCapHeroTitle')} class="nq-bag-hero-heading" as="p" />
-              <strong class="nq-bag-hero-cap">{m.growth.levelCap}</strong>
-              <RubyLabel
-                text={t('field.levelCapHeroMaximum', { n: m.growth.maximum })}
-                class="nq-bag-hero-growth-small"
-                as="p"
-              />
+              <div class="nq-bag-hero-cap-row">
+                <strong class="nq-bag-hero-cap">{m.growth.levelCap}</strong>
+                <RubyLabel
+                  text={t('field.levelCapHeroMaximum', { n: m.growth.maximum })}
+                  class="nq-bag-hero-growth-small"
+                  as="p"
+                />
+              </div>
               {m.growth.levelCap < m.growth.maximum && m.growth.materials && (
                 <>
                   <RubyLabel

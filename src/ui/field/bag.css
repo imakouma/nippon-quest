@@ -414,6 +414,11 @@
 .nq-bag-hero-cap {
   color: var(--nq-yellow);
 }
+.nq-bag-hero-cap-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
 .nq-bag-hero-stat.attack {
   background: #64404b;
   border-left: 3px solid #e87572;

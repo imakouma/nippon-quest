@@ -63,7 +63,11 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   await expect(bag.locator('.nq-bag-hero-bars .nq-bag-hero-bar')).toHaveCount(2);
   await expect(bag.locator('.nq-bag-hero-stat')).toHaveCount(6);
   await expect(bag.locator('.nq-bag-hero-cap')).toHaveText('10');
+  await expect(bag.locator('.nq-bag-hero-cap-row')).toContainText('Max 200');
   await expect(bag.locator('.nq-bag-hero-materials')).toContainText('0/3');
+  expect(await bag.locator('.nq-party-info').evaluate((el) => el.scrollHeight <= el.clientHeight + 1)).toBe(
+    true,
+  );
   await page.screenshot({ path: testInfo.outputPath('hero-details-b.png') });
   await bag.getByRole('button', { name: 'どうぐ', exact: true }).click();
   await page.keyboard.press('ArrowDown');
