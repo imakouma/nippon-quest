@@ -77,12 +77,31 @@
   touch-action: none;
 }
 .nq-direction-pad button {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
   border: 3px solid var(--nq-white);
   border-radius: 8px;
   background: #101a30;
   color: var(--nq-white);
-  font-size: 24px;
   touch-action: none;
+}
+.nq-direction-pad-arrow {
+  width: 56%;
+  aspect-ratio: 1;
+  background: currentColor;
+  clip-path: polygon(50% 12%, 95% 78%, 5% 78%);
+}
+.nq-direction-pad-left .nq-direction-pad-arrow {
+  rotate: -90deg;
+}
+.nq-direction-pad-right .nq-direction-pad-arrow {
+  rotate: 90deg;
+}
+.nq-direction-pad-down .nq-direction-pad-arrow {
+  rotate: 180deg;
 }
 .nq-direction-pad button:active {
   background: #257edd;
