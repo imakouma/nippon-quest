@@ -458,7 +458,7 @@ export function MenuOverlay({
                 </div>
               )}
               <button type="button" class="nq-opt nq-parent-open" onClick={onParent}>
-                ⚙ {t('menu.parent')}
+                <MenuCategoryIcon name="parent" /> {t('menu.parent')}
               </button>
             </div>
           </>
