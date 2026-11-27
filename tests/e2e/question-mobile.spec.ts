@@ -2,6 +2,19 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { inspectQuestion } from '../../src/tools/questionLayoutAudit';
 
+const rubyTextPattern = (text: string) => {
+  const escape = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(
+    text
+      .split(/([一-鿿々〆ヶ]+\[[^\]]+\])/)
+      .map((segment) => {
+        const ruby = /^([一-鿿々〆ヶ]+)\[([^\]]+)\]$/.exec(segment);
+        return ruby ? `(?:${escape(ruby[1]!)}(?:${escape(ruby[2]!)})?|${escape(ruby[2]!)})` : escape(segment);
+      })
+      .join(''),
+  );
+};
+
 test('スマホの幅変更後も問題名と操作ボタンが重ならず切れない', async ({ page }) => {
   await page.goto('/playground.html?q=sansu.g1.tokei.0002');
   await expect(page.locator('.nq-q')).toBeVisible();
@@ -335,7 +348,7 @@ for (const [id, answer] of [
   });
 }
 
-test('復元した国語12問の要約をスマホで読んで正答できる', async ({ page }, testInfo) => {
+test('復元した国語12問の練習文をスマホで読んで正答できる', async ({ page }, testInfo) => {
   test.setTimeout(240_000);
   const restored = (
     JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
@@ -353,7 +366,7 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
-    await expect(page.locator('.nq-q-prompt')).toContainText(/要約|ようやく/);
+    await expect(page.locator('.nq-q-prompt')).toContainText(/練習用|れんしゅうよう/);
     await expect(page.locator('.nq-q-prompt')).not.toContainText(/原文|本文引用/);
     const sizes = [...representative].some((suffix) => id.endsWith(suffix))
       ? [
@@ -397,7 +410,10 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
     const correct = question.payload.choices.find(
       (choice: { id: string; text: string }) => choice.id === question.payload.answer,
     ).text;
-    await page.locator('.nq-choice').filter({ hasText: correct }).tap();
+    await page
+      .locator('.nq-choice')
+      .filter({ hasText: rubyTextPattern(correct) })
+      .tap();
     await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
   }
   await testInfo.attach('restored-passage-mobile-metrics', {
@@ -406,7 +422,7 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
   });
 });
 
-test('自作に置換した国語7問をスマホで読んで正答できる', async ({ page }, testInfo) => {
+test('置換した国語7問の練習文をスマホで読んで正答できる', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
   const rows = (
     JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
@@ -423,7 +439,7 @@ test('自作に置換した国語7問をスマホで読んで正答できる', a
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
-    await expect(page.locator('.nq-q-prompt')).toContainText(/自作|じさく/);
+    await expect(page.locator('.nq-q-prompt')).toContainText(/練習用|れんしゅうよう/);
     const representative = /a94e12e7a508|6b30823de3da/.test(id);
     for (const width of representative ? [390, 320, 768, 1024, 1440, 390] : [390]) {
       await page.setViewportSize({ width, height: 844 });
@@ -461,17 +477,9 @@ test('自作に置換した国語7問をスマホで読んで正答できる', a
     const q = content.find((q) => q.id === id);
     const correct = q.payload.choices.find((choice: { id: string }) => choice.id === q.payload.answer)
       .text as string;
-    const escape = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const pattern = correct
-      .split(/([一-鿿々〆ヶ]+\[[^\]]+\])/)
-      .map((segment) => {
-        const ruby = /^([一-鿿々〆ヶ]+)\[([^\]]+)\]$/.exec(segment);
-        return ruby ? `(?:${escape(ruby[1]!)}(?:${escape(ruby[2]!)})?|${escape(ruby[2]!)})` : escape(segment);
-      })
-      .join('');
     await page
       .locator('.nq-choice')
-      .filter({ hasText: new RegExp(pattern) })
+      .filter({ hasText: rubyTextPattern(correct) })
       .tap();
     await expect(page.getByRole('region', { name: 'テスト結果' }).locator('dd').first()).toHaveText('100%');
   }
