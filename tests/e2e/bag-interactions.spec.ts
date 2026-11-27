@@ -194,9 +194,14 @@ test('どうぐが増えても詳細と操作を保ち、クリック追加・�
       cards.map((card) => ({
         height: (card as HTMLElement).offsetHeight,
         width: (card as HTMLElement).offsetWidth,
-        fits: card.scrollHeight <= card.clientHeight + 1,
+        fits: card.scrollHeight <= card.clientHeight + 1 && card.scrollWidth <= card.clientWidth + 1,
       })),
     );
+    expect(
+      await bag
+        .locator('.nq-bag-reserve-grid')
+        .evaluate((el) => getComputedStyle(el).gridTemplateColumns.split(' ').length),
+    ).toBe(4);
     expect(new Set(cardSizes.map((card) => card.height)).size).toBe(1);
     expect(new Set(cardSizes.map((card) => card.width)).size).toBe(1);
     expect(cardSizes.every((card) => card.fits)).toBe(true);
