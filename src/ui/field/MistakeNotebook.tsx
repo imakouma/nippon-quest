@@ -195,7 +195,7 @@ export function MistakeNotebook(p: Props) {
         <div class="nqn-question-actions">
           {result !== null && <RubyLabel text={label(result ? 'correct' : 'retry')} />}
           <button onClick={back}>
-            <RubyLabel text={label(screen === 'subjects' ? 'backCompanion' : 'back')} />
+            <RubyLabel text={label('back')} />
           </button>
         </div>
       </div>
