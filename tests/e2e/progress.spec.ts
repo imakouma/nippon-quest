@@ -289,8 +289,9 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await storedWeapon.dragTo(page.locator('.nq-bag-empty').first());
   const starterWeapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
   await expect(starterWeapon).toBeVisible();
-  await page.locator('.nq-bag-empty').first().click();
+  await page.locator('.nq-bag-empty[data-cell-x="0"][data-cell-y="2"]').click();
   await expect(starterWeapon).toHaveCSS('grid-column-start', '1');
+  await expect(starterWeapon).toHaveCSS('grid-row-start', '3');
   await page.screenshot({ path: testInfo.outputPath('bag-moved.png') });
   await page.getByRole('button', { name: /とじる/ }).click();
   await expect(menuHome).toBeVisible();
