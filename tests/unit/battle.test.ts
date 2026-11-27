@@ -1216,3 +1216,29 @@ it('ネブタイショウは前衛を攻撃し、予告の次のターンだけ�
   );
   expect(after.events.some((event) => event.t === 'bossTargetWarning')).toBe(false);
 });
+
+it('予告されたターンは傷ついた主人公を先に回復し、その後に狙い撃ちを受ける', async () => {
+  const { state } = await setup({ enemyId: 'aomori-midboss-nebuta-taisho', withMonster: true });
+  const battle = { ...tough(state), isBossBattle: true, turn: 3 };
+  battle.ally.hero.hp -= 25;
+  battle.ally.monsters[0]!.hp -= 80;
+  const step = act(battle, { kind: 'item', itemId: 'aomori-ringo' }, D);
+  expect(step.evaluation.allowed).toBe(true);
+  const heal = step.events.findIndex((e) => e.t === 'heal' && e.targetId === 'hero' && e.amount === 15);
+  const damage = step.events.findIndex((e) => e.t === 'damage' && e.targetId === 'hero');
+  expect(heal).toBeGreaterThanOrEqual(0);
+  expect(damage).toBeGreaterThan(heal);
+});
+
+it.each([
+  ['aomori-boss-tsugaru-no-nushi', 4],
+  ['aomori-lastboss-tsugaru-tamenobu', 5],
+] as const)('%s はターン%dの前に主人公への攻撃を予告する', async (enemyId, turn) => {
+  const { state } = await setup({ enemyId, withMonster: true });
+  const battle = { ...tough(state), isBossBattle: true, turn: turn - 1 };
+  const before = act(battle, { kind: 'attack' }, D);
+  expect(before.events.at(-1)?.t).toBe('bossTargetWarning');
+  expect(act(before.state, { kind: 'attack' }, D).events).toContainEqual(
+    expect.objectContaining({ t: 'damage', side: 'ally', targetId: 'hero' }),
+  );
+});

@@ -1,3 +1,4 @@
+import { aimedBossAttack } from './bossTargeting';
 import type { Element, Skill, Subject } from '../content/schemas';
 import type { Rng } from '../rng';
 import { computeDamage } from './damage';
@@ -211,15 +212,6 @@ export function finishAction(
   }
 }
 
-export function nebutaTargetsHero(state: BattleState, turn: number): boolean {
-  return (
-    state.isBossBattle &&
-    state.enemy.refId === 'aomori-midboss-nebuta-taisho' &&
-    state.ally.hero.hp > 0 &&
-    turn % 3 === 0
-  );
-}
-
 /** 敵の initiative slot。休み・回復・攻撃・防御を 1 action bundle として解決する。 */
 export function resolveEnemyTurn(
   state: BattleState,
@@ -235,7 +227,7 @@ export function resolveEnemyTurn(
     return;
   }
 
-  const aimed = nebutaTargetsHero(state, state.turn);
+  const aimed = aimedBossAttack(state);
   const target = aimed ? state.ally.hero : frontAlly(state);
   const skills = enemy.skills.map((id) => def.skills.get(id)).filter((skill): skill is Skill => !!skill);
   const intent = aimed

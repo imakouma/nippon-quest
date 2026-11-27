@@ -127,7 +127,7 @@ export function narrate(e: BattleEvent, ctx: NarrateCtx, prev?: BattleEvent): st
         ? [t('battle.koEnemy', { name: ctx.enemyName })]
         : [t('battle.koAlly', { name: ctx.nameOf(e.targetId) })];
     case 'bossTargetWarning':
-      return [t('battle.bossTargetWarning', { name: ctx.enemyName })];
+      return [t('battle.bossTargetWarning', { name: ctx.enemyName }), t('battle.bossTargetHealHint')];
     case 'bossPhase': {
       const lines = [t('battle.bossPhase', { name: ctx.enemyName })];
       if (e.line) lines.push(`「${e.line}」`);
