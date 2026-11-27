@@ -1,6 +1,7 @@
 import { MathReviewFolders, OriginalMathFolders } from './MathReviewFolders';
 import type { QuestionCatalog } from '../core/content/manifest';
 import type { ComponentChildren } from 'preact';
+import { useMemo } from 'preact/hooks';
 import { tOpt } from '../ui/i18n';
 import { stripRuby } from '../ui/ruby';
 import type { QuestionBase } from '../questions/contracts';
@@ -45,6 +46,16 @@ export function QuestionTree({
   questions,
   folderTools,
 }: QuestionTreeProps) {
+  const movedByFile = useMemo(() => {
+    const counts = new Map<string, number>();
+    const assignments = folderTools.state?.layout.assignments;
+    if (assignments) {
+      for (const { file, q } of entries) {
+        if (q && Object.hasOwn(assignments, q.id)) counts.set(file, (counts.get(file) ?? 0) + 1);
+      }
+    }
+    return counts;
+  }, [entries, folderTools.state?.layout.assignments]);
   const isKanji = (unit: { unit: string }) => isKanjiUnit(unit.unit, units);
   const splitKokugo = (subject: QuestionCatalog['subjects'][number], kanji: boolean) => {
     const grades = subject.grades.flatMap((grade) => {
@@ -448,12 +459,7 @@ export function QuestionTree({
                                 )}
                                 <span class="pg-tree-count" id={`pg-unit-count-${unit.unit}`}>
                                   {unit.count -
-                                    entries.filter(
-                                      ({ file, q }) =>
-                                        unit.sets.some((set) => set.file === file) &&
-                                        q &&
-                                        Object.hasOwn(folderTools.state?.layout.assignments ?? {}, q.id),
-                                    ).length}
+                                    unit.sets.reduce((sum, set) => sum + (movedByFile.get(set.file) ?? 0), 0)}
                                   {pgText('questionSuffix')}
                                 </span>
                               </div>
