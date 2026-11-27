@@ -62,6 +62,9 @@ export function BagDetails({
               </span>
             </div>
           </div>
+          {m.kind === 'item' && m.action === 'pack' && (
+            <RubyLabel text={t('field.bagToolPlace')} class="nq-bag-reason" as="p" />
+          )}
           {m.stats && (
             <div class="nq-party-stats">
               {STATS.map(([k, key]) => (
@@ -98,9 +101,6 @@ export function BagDetails({
             <RubyLabel text={t('field.bagNoMonster')} class="nq-party-hint" as="p" />
           )}
           {reason && <RubyLabel text={reason} class="nq-bag-reason" as="p" />}
-          {m.kind === 'item' && m.action === 'pack' && (
-            <RubyLabel text={t('field.bagToolPlace')} class="nq-bag-reason" as="p" />
-          )}
           {m.sub && <RubyLabel text={m.sub} class="nq-party-blurb" as="p" />}
           {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
         </div>
