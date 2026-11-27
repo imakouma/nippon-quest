@@ -149,6 +149,7 @@ test('text-input：小1算数は画面内の数字ボタンだけで答えられ
       }),
     ),
   ).toEqual(Array.from({ length: 11 }, () => ['96px', '56px']));
+  await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveAttribute('inputmode', 'none');
   await expect(page.getByRole('textbox', { name: 'こたえ 1' })).toHaveCSS('outline-style', 'none');
   await expect(page.locator('.nq-input-key-hint')).toHaveCount(0);
   await numberPad.getByRole('button', { name: '5', exact: true }).click();

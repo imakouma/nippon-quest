@@ -101,7 +101,7 @@ export function TextInputView({
       class={numberPad && activeInput === index ? 'nq-input-active' : undefined}
       value={values[index]}
       disabled={done}
-      inputMode={numberPad ? 'decimal' : 'text'}
+      inputMode={numberPad ? 'none' : 'text'}
       style={
         reading ? { width: `${Math.max(4, Math.min(12, (values[index]?.length ?? 0) + 1))}em` } : undefined
       }
