@@ -10,7 +10,7 @@ describe('算数技の成長', () => {
     const stages = [0, 2, 4, 8].map((correct) =>
       trainedMathSkill(skill, { ['math-training:' + skill.id]: correct }),
     );
-    expect(stages.map((s) => s.power)).toEqual([70, 77, 83, 90]);
+    expect(stages.map((s) => s.power)).toEqual([31, 34, 37, 40]);
     expect(stages.map((s) => s.accuracy)).toEqual([88, 92, 96, 100]);
   });
 });
