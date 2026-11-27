@@ -13,9 +13,9 @@ test('設定の音量と移動キーは変更後も保存される', async ({ pa
     await expect(cards).toHaveCount(6);
     const boxes = await Promise.all((await cards.all()).map((card) => card.boundingBox()));
     expect(boxes.every(Boolean)).toBe(true);
-    for (let i = 1; i < boxes.length; i++) {
-      expect(boxes[i]!.y).toBeGreaterThan(boxes[i - 1]!.y);
+    for (let i = 1; i < boxes.length; i += 1) {
       expect(boxes[i]!.x).toBe(boxes[0]!.x);
+      expect(boxes[i]!.y).toBeGreaterThan(boxes[i - 1]!.y);
     }
     await cards.nth(3).hover();
     await expect(cards.nth(3)).toBeFocused();
