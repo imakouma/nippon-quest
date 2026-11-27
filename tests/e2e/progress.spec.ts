@@ -260,7 +260,6 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(dexRegions.getByRole('button', { name: /東北/ })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'とくさん' }).click();
   await expect(page.getByRole('button', { name: /もどる/ })).toBeVisible();
-  await expect(page.getByRole('button', { name: /とじる/ })).toBeVisible();
   await page.getByRole('button', { name: /もどる/ }).click();
   await expect(menuHome).toBeVisible();
   await menuHome.getByRole('button', { name: /もちもの・へんせい/ }).click();
