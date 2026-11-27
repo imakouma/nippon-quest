@@ -2972,6 +2972,12 @@ export class OverworldScene extends Phaser.Scene {
       level,
       ...heroGrowth,
       stats: heroC.stats,
+      hp: gs.player.hp,
+      experience: {
+        current: Math.max(0, gs.player.xp - (c.xp.hero[level - 1] ?? 0)),
+        total: Math.max(0, (c.xp.hero[level] ?? c.xp.hero[level - 1] ?? 0) - (c.xp.hero[level - 1] ?? 0)),
+        capped: level >= gs.player.levelCap,
+      },
       skills: skills(heroC.skills),
     };
     const bagUids = bagMonsterUids(gs);

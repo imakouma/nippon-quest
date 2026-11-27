@@ -34,7 +34,7 @@ function setup() {
   act(() =>
     render(
       <BagOverlay
-        hero={thing('hero', 'hero', true)}
+        hero={{ ...thing('hero', 'hero', true), skills: [{ name: 'hero skill', gauge: 1, scan: false }] }}
         inBag={[{ ...thing('packed', 'item', true), action: 'pack' }]}
         outside={[
           thing('mon:one', 'monster'),
@@ -94,6 +94,11 @@ it('分類で隠れたものを選ばず、選択中のものが隠れたら主�
   filter('equip');
   arrow('ArrowUp');
   expect(root.querySelector('.nq-party-info')?.textContent).toContain('weapon');
+});
+it('主人公の詳細に技一覧や星を表示しない', () => {
+  setup();
+  expect(root.querySelector('.nq-party-info')?.textContent).not.toContain('hero skill');
+  expect(root.querySelector('.nq-party-skills')).toBeNull();
 });
 it('選び直しても詳細が残り、入れるボタンから道具を追加できる', () => {
   const { onToggle } = setup();

@@ -18,6 +18,41 @@ const STATS: [keyof Stats, string][] = [
   ['wis', 'field.statWis'],
 ];
 
+function HeroBar({
+  label,
+  current,
+  total,
+  color,
+}: {
+  label: string;
+  current: number;
+  total: number;
+  color: string;
+}) {
+  const value = Math.max(0, Math.min(current, total));
+  return (
+    <div class="nq-bag-hero-bar-row">
+      <span class="nq-bag-hero-bar-label">{label}</span>
+      <div
+        class="nq-bag-hero-bar"
+        role="progressbar"
+        aria-label={label}
+        aria-valuemin={0}
+        aria-valuemax={total}
+        aria-valuenow={value}
+      >
+        <span
+          class={`nq-bag-hero-bar-fill ${color}`}
+          style={{ width: `${total > 0 ? (value / total) * 100 : 0}%` }}
+        />
+        <span class="nq-bag-hero-bar-value">
+          {value}/{total}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 type Props = Pick<BagOverlayProps, 'onGrow' | 'onUse' | 'onRosterRemove' | 'flashKey'> & {
   m: BagThing;
   message: string | null;
@@ -36,6 +71,7 @@ export function BagDetails({
   onRosterRemove,
   flashKey,
 }: Props) {
+  const isObject = m.kind === 'item' || m.kind === 'equip';
   const reason =
     m.blockedReason ?? (m.kind === 'item' && m.action !== 'pack' ? t('field.bagStorageOnly') : null);
   return (
@@ -59,11 +95,91 @@ export function BagDetails({
                 {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
               </span>
             </div>
+            {m.kind === 'hero' && m.stats && m.hp !== undefined && m.experience && (
+              <div class="nq-bag-hero-bars">
+                <HeroBar label={t('field.statHp')} current={m.hp} total={m.stats.hp} color="hp" />
+                {m.experience.capped ? (
+                  <div class="nq-bag-hero-bar-row">
+                    <span class="nq-bag-hero-bar-label">{t('field.bagHeroExperience')}</span>
+                    <div class="nq-bag-hero-bar">
+                      <span class="nq-bag-hero-bar-value">{stripRuby(t('field.bagHeroXpCapped'))}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <HeroBar
+                    label={t('field.bagHeroExperience')}
+                    current={m.experience.current}
+                    total={m.experience.total}
+                    color="xp"
+                  />
+                )}
+              </div>
+            )}
+            {isObject && m.count !== undefined && (
+              <span class="nq-bag-detail-count" aria-label={displayText(t('field.townHave', { n: m.count }))}>
+                ×{m.count}
+              </span>
+            )}
           </div>
+          {isObject && m.sub && <RubyLabel text={m.sub} class="nq-bag-detail-kind" as="p" />}
           {m.kind === 'item' && m.action === 'pack' && (
             <RubyLabel text={t('field.bagToolPlace')} class="nq-bag-reason" as="p" />
           )}
-          {m.stats && (
+          {!!m.effects?.length && (
+            <section class="nq-bag-effects" aria-label={displayText(t('field.bagEffect'))}>
+              <RubyLabel text={t('field.bagEffect')} class="nq-bag-effects-title" as="p" />
+              {m.effects.map((effect, i) => (
+                <div class="nq-bag-effect-row" key={i}>
+                  <RubyLabel text={effect.label} />
+                  {effect.value && <strong class="nq-bag-effect-value">{effect.value}</strong>}
+                </div>
+              ))}
+            </section>
+          )}
+          {m.kind === 'hero' && m.stats && (
+            <section class="nq-bag-hero-stats" aria-label={displayText(t('field.bagHeroStats'))}>
+              <RubyLabel text={t('field.bagHeroStats')} class="nq-bag-hero-heading" as="p" />
+              <div class="nq-bag-hero-stat-grid">
+                {STATS.slice(2).map(([key, label], i) => (
+                  <div class={`nq-bag-hero-stat ${i < 2 ? 'attack' : i < 4 ? 'defense' : 'other'}`} key={key}>
+                    <span>{stripRuby(t(label))}</span>
+                    <strong>{Math.round(m.stats![key])}</strong>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+          {m.kind === 'hero' && m.growth && (
+            <section class="nq-bag-hero-growth">
+              <RubyLabel text={t('field.levelCapHeroTitle')} class="nq-bag-hero-heading" as="p" />
+              <strong class="nq-bag-hero-cap">{m.growth.levelCap}</strong>
+              <RubyLabel
+                text={t('field.levelCapHeroMaximum', { n: m.growth.maximum })}
+                class="nq-bag-hero-growth-small"
+                as="p"
+              />
+              {m.growth.levelCap < m.growth.maximum && m.growth.materials && (
+                <>
+                  <RubyLabel
+                    text={t('field.levelCapHeroMaterials')}
+                    class="nq-bag-hero-growth-small"
+                    as="p"
+                  />
+                  <div class="nq-bag-hero-materials">
+                    {m.growth.materials.map((material) => (
+                      <div key={material.name}>
+                        <RubyLabel text={material.name} />
+                        <strong>
+                          {material.have}/{material.need}
+                        </strong>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+            </section>
+          )}
+          {m.kind !== 'hero' && m.stats && (
             <div class="nq-party-stats">
               {STATS.map(([k, key]) => (
                 <span key={k}>
@@ -80,7 +196,7 @@ export function BagDetails({
               ))}
             </div>
           )}
-          {!!m.skills?.length && (
+          {m.kind !== 'hero' && !!m.skills?.length && (
             <>
               <p class="nq-party-label">
                 <RubyLabel text={t('cmd.skill')} />
@@ -96,7 +212,7 @@ export function BagDetails({
             </>
           )}
           {reason && <RubyLabel text={reason} class="nq-bag-reason" as="p" />}
-          {m.sub && <RubyLabel text={m.sub} class="nq-party-blurb" as="p" />}
+          {!isObject && m.sub && <RubyLabel text={m.sub} class="nq-party-blurb" as="p" />}
           {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
         </div>
       }

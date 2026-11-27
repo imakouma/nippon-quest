@@ -1,13 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
-async function expectEightStatsFit(page: Page) {
+async function expectHeroStatsFit(page: Page) {
   const info = page.locator('.nq-party-info');
-  const stats = info.locator('.nq-party-stats > span');
-  await expect(stats).toHaveCount(8);
+  const stats = info.locator('.nq-bag-hero-stat');
+  await expect(stats).toHaveCount(6);
+  await expect(info.getByRole('progressbar', { name: 'HP' })).toBeVisible();
   for (const label of [
-    /HP/,
-    /MP/,
     /理系.*こうげき/,
     /文系攻撃/,
     /理系.*ぼうぎょ/,
@@ -16,11 +15,11 @@ async function expectEightStatsFit(page: Page) {
     /かしこさ/,
   ])
     await expect(info).toContainText(label);
-  await expect(stats.locator('small').filter({ hasText: '文系攻撃' })).toHaveText('文系攻撃');
-  await expect(info.locator('.nq-party-stats')).not.toContainText(/[[\]]/);
+  await expect(stats.filter({ hasText: '文系攻撃' })).toHaveCount(1);
+  await expect(info.locator('.nq-bag-hero-stat-grid')).not.toContainText(/[[\]]/);
   const [infoBox, statsBox] = await Promise.all([
     info.boundingBox(),
-    info.locator('.nq-party-stats').boundingBox(),
+    info.locator('.nq-bag-hero-stat-grid').boundingBox(),
   ]);
   expect(infoBox).not.toBeNull();
   expect(statsBox).not.toBeNull();
@@ -272,9 +271,9 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await expect(page.locator('.nq-party-info')).toBeVisible();
   await heroCell.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
-  await expectEightStatsFit(page);
+  await expectHeroStatsFit(page);
   await page.setViewportSize({ width: 960, height: 540 });
-  await expectEightStatsFit(page);
+  await expectHeroStatsFit(page);
   await page.screenshot({ path: testInfo.outputPath('bag-stat-labels.png') });
   await page.setViewportSize({ width: 640, height: 540 });
   await heroCell.click();
