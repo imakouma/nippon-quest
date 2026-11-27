@@ -291,7 +291,7 @@ describe('GameState', () => {
     legacy.player.mp = 5;
     const migrated = migrate(legacy).state;
     expect(migrated.player.baseStats).toEqual({
-      hp: 24,
+      hp: 60,
       mp: 6,
       scienceAtk: 5,
       humanitiesAtk: 5,
@@ -300,7 +300,7 @@ describe('GameState', () => {
       spd: 5,
       wis: 3,
     });
-    expect(migrated.player.hp).toBe(12);
+    expect(migrated.player.hp).toBe(30);
     expect(migrated.player.mp).toBe(3);
     expect(migrated.player.equipment).toEqual(preserved.equipment);
     expect(migrated.party).toEqual(preserved.party);

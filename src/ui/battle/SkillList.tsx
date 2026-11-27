@@ -99,7 +99,8 @@ export function SkillList({ s, store }: { s: HudState; store: HudStore }) {
               <RubyLabel text={focus.flavor ?? t(EFFECT_HINT[focus.effect])} />
             </div>
             <div class="nq-menu-foot-row">
-              {t('battle.skillAccuracy', { n: focus.accuracy ?? 100 })}
+              {focus.power !== undefined && <span>{t('field.skillPower', { n: focus.power })}</span>}
+              <span>{t('battle.skillAccuracy', { n: focus.accuracy ?? 100 })}</span>
               {focus.additionalEffect && (
                 <span>
                   {t(

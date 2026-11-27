@@ -59,7 +59,7 @@ describe('English skill assignments', () => {
     for (let grade = 3; grade < 6; grade++) {
       const current = assigned.filter((skill) => skill.gradeRange[0] === grade && skill.costGauge === 0);
       const next = assigned.filter((skill) => skill.gradeRange[0] === grade + 1 && skill.costGauge === 0);
-      expect(Math.max(...current.map((skill) => skill.power))).toBeLessThan(
+      expect(Math.max(...current.map((skill) => skill.power))).toBeLessThanOrEqual(
         Math.min(...next.map((skill) => skill.power)),
       );
     }

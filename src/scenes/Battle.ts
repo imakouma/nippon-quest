@@ -1,5 +1,5 @@
 import { prepareNewDexCelebration } from './battle/newDexCelebration';
-import { trainedAssignedSkill } from '../core/progression/assignedSkillTraining';
+import { subjectBurstForGrade, trainedAssignedSkill } from '../core/progression/assignedSkillTraining';
 /** ターン制バトルの Scene。計算は core、文字と操作は DOM、Scene は演出と進行を担当する。 */
 import Phaser from 'phaser';
 import { h, render } from 'preact';
@@ -8,9 +8,8 @@ import type { Element, Monster, Skill } from '../core/content/schemas';
 import { comboBonus } from '../core/battle/damage';
 import { act, battleSkills, createBattle, isHeroReady, type BattleDeps } from '../core/battle/engine';
 import type { BattleCommandEvaluationContext } from '../core/battle/commandEvaluation';
-import { makeMonster } from '../core/battle/factory';
 import { shouldPersistBattleResult } from '../core/battle/ruleset';
-import { partyFromGameState, resolveBattleParty } from '../core/battle/setup';
+import { makeEncounterEnemy, partyFromGameState, resolveBattleParty } from '../core/battle/setup';
 import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
 import { applyBattleResult } from '../core/progression/battleResult';
 import { evolutionStage } from '../core/progression/bag';
@@ -276,9 +275,15 @@ export class BattleScene extends Phaser.Scene {
     const c = this.content;
     this.deps = {
       settings: c.settings,
+      heroXp: c.xp.hero,
       elements: c.elements,
       skills: c.skills,
-      heroSkill: (skill) => trainedAssignedSkill(skill, this.gs.progress.counters),
+      heroSkill: (skill) =>
+        subjectBurstForGrade(
+          trainedAssignedSkill(skill, this.gs.progress.counters),
+          this.gs.learning.grade,
+          c.settings.subjectGauge.uniqueSkills,
+        ),
       items: c.items,
       // モンスターは その県の特産品も落とす（合わせて settings.specialtyDropRate の確率）
       monsters: withSpecialtyDrops(c.monsters, c.areas, c.items, c.settings.specialtyDropRate),
@@ -286,7 +291,6 @@ export class BattleScene extends Phaser.Scene {
     this.resumeRuntime = new BattleResumeRuntime(() => this.syncGame(), persistence);
     this.mastery = new MasteryStore(this.gs.learning.mastery);
     void prepareBattleSfx(this.gs.settings.seVolume);
-
     const isBoss = this.opts.isBoss ?? def.isBoss;
     const ruleset = resolveBattleLaunchRuleset({
       kind: this.opts.kind,
@@ -301,13 +305,21 @@ export class BattleScene extends Phaser.Scene {
       this.perfectBySubject = { ...active.perfectBySubject };
       this.resumeSnapshot = active;
     } else {
+      const ally = resolveBattleParty(ruleset, {
+        saved: () => partyFromGameState(this.gs, c),
+        provided: this.opts.party,
+      });
       this.state = createBattle(
         {
-          ally: resolveBattleParty(ruleset, {
-            saved: () => partyFromGameState(this.gs, c),
-            provided: this.opts.party,
-          }),
-          enemy: makeMonster(def, this.opts.level, 'enemy'),
+          ally,
+          enemy: makeEncounterEnemy(
+            def,
+            this.opts.level,
+            this.gs.learning.grade,
+            c.settings.heroGrowth,
+            ruleset.id,
+            (ally.monsters[ally.activeMonsterIndex]?.hp ?? 0) > 0,
+          ),
           seed: freshSeed(),
           isBossBattle: isBoss,
           ruleset,
@@ -316,7 +328,6 @@ export class BattleScene extends Phaser.Scene {
       );
       if (this.opts.forceRecruitOffer) this.state.enemy.hp = 1;
     }
-
     this.cameras.main.setBackgroundColor('#000000');
     this.fx = new Motions(this, (x, y, tint, texture, count, gravityY) =>
       this.burst(x, y, tint, texture, count, gravityY),
@@ -457,7 +468,6 @@ export class BattleScene extends Phaser.Scene {
     this.idleBob(this.heroSprite, this.layout.hero.y);
     if (this.palSprite) this.idleBob(this.palSprite, this.layout.partner.y);
   }
-
   /** 待機中は 1 ドットだけ上下（コマ送り） */
   private idleBob(sp: Sprite, baseY: number): void {
     this.idleMotion.start(sp, baseY);
@@ -494,7 +504,6 @@ export class BattleScene extends Phaser.Scene {
       this.hudRoot = null;
     }
   }
-
   /** runtime の中断時に、Phaser 側へ残った演出だけを安全な見た目へ戻す。 */
   private cleanupPresentation(): void {
     this.tweens?.killAll();

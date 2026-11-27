@@ -10,6 +10,17 @@ export interface NewGameOptions {
   grade: Grade;
 }
 
+export const STARTER_HERO_STATS = {
+  hp: 60,
+  mp: 6,
+  scienceAtk: 5,
+  humanitiesAtk: 5,
+  scienceDef: 4,
+  humanitiesDef: 4,
+  spd: 5,
+  wis: 3,
+};
+
 export const UNNAMED_HERO = '？？？';
 
 export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLevelCap = 10): GameState {
@@ -26,22 +37,13 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
       levelCap: heroInitialLevelCap,
       xp: 0,
       gold: 100,
-      baseStats: {
-        hp: 24,
-        mp: 6,
-        scienceAtk: 5,
-        humanitiesAtk: 5,
-        scienceDef: 4,
-        humanitiesDef: 4,
-        spd: 5,
-        wis: 3,
-      },
+      baseStats: { ...STARTER_HERO_STATS },
       bonusWis: 0,
       skills: [...STARTER_SKILL_IDS],
       skillLoadout: null,
       equipment: {},
-      hp: 24,
-      mp: 6,
+      hp: STARTER_HERO_STATS.hp,
+      mp: STARTER_HERO_STATS.mp,
     },
     party: {
       owned: [],

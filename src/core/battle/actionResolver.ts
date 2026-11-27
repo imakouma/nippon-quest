@@ -1,3 +1,4 @@
+import { aimedBossAttack } from './bossTargeting';
 import type { Element, Skill, Subject } from '../content/schemas';
 import type { Rng } from '../rng';
 import { computeDamage } from './damage';
@@ -147,7 +148,11 @@ export function resolveHit(
   const damage = computeDamage({
     attacker: input.attacker,
     defender: input.defender,
-    skill: input.skill,
+    // 学習用の低威力技を使う通常敵にも、基本攻撃と同程度の反撃を持たせる。
+    skill:
+      !byAlly && state.ruleset.id === 'normal' && input.skill && input.skill.power < 100
+        ? { ...input.skill, power: 100 }
+        : input.skill,
     score: input.score,
     combo: byAlly ? state.player.comboCount : 0,
     canCrit: byAlly,
@@ -198,7 +203,7 @@ export function finishAction(
     events.push({ t: 'ko', ...action, side: 'enemy', targetId: state.enemy.id });
     const monster = def.monsters.get(state.enemy.refId);
     state.outcome = 'victory';
-    events.push(victoryEvent(state, monster, def.settings, rng, action));
+    events.push(victoryEvent(state, monster, def.settings, rng, action, def.heroXp));
     return;
   }
   if (state.ally.hero.hp <= 0 && state.ally.monsters.every((combatant) => combatant.hp <= 0)) {
@@ -222,13 +227,16 @@ export function resolveEnemyTurn(
     return;
   }
 
-  const target = frontAlly(state);
+  const aimed = aimedBossAttack(state);
+  const target = aimed ? state.ally.hero : frontAlly(state);
   const skills = enemy.skills.map((id) => def.skills.get(id)).filter((skill): skill is Skill => !!skill);
-  const intent = selectEnemyIntent(
-    { hp: enemy.hp, maxHp: enemy.stats.hp, mp: enemy.mp, skills },
-    state.ruleset.enemyTactics,
-    rng,
-  );
+  const intent = aimed
+    ? { kind: 'attack' as const }
+    : selectEnemyIntent(
+        { hp: enemy.hp, maxHp: enemy.stats.hp, mp: enemy.mp, skills },
+        state.ruleset.enemyTactics,
+        rng,
+      );
   if (intent.kind === 'heal') {
     const healSkill = def.skills.get(intent.skillId)!;
     enemy.mp -= healSkill.mp;

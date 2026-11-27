@@ -506,6 +506,21 @@ describe('コンボ＆ストリーク', () => {
     expect(e && e.t === 'combo' && e.bonus).toBeCloseTo(comboBonus(4, D.settings));
   });
 
+  it('上限突破用の経験値差は敵の報酬に反映しない', async () => {
+    const { state } = await setup({ level: 30 });
+    const heroXp = Array.from({ length: 102 }, (_, level) => level * 1000);
+    heroXp[100] = 200_000;
+    heroXp[101] = 500_000;
+    const winXp = (level: number) => {
+      const battle = { ...state, enemy: { ...state.enemy, level, hp: 1 } };
+      return act(battle, { kind: 'attack' }, { ...D, heroXp }).events.find((event) => event.t === 'victory')
+        ?.xp;
+    };
+    expect(winXp(99)).toBe(94);
+    expect(winXp(100)).toBe(winXp(99));
+    expect(winXp(101)).toBe(winXp(99));
+  });
+
   it('いちばん 長かった コンボで けいけんち・おかねが ふえる', async () => {
     const { state } = await setup({ level: 30 });
     const s: BattleState = {
@@ -1183,4 +1198,47 @@ describe('技の命中と追加効果', () => {
     const finished = act(fragile, { kind: 'skill', skillId: skill.id, result: R(1) }, withSkills([lethal]));
     expect(finished.events.some((event) => event.t === 'buff' && event.side === 'enemy')).toBe(false);
   });
+});
+
+it('ネブタイショウは前衛を攻撃し、予告の次のターンだけ主人公を狙う', async () => {
+  const { state } = await setup({ enemyId: 'aomori-midboss-nebuta-taisho', withMonster: true });
+  const battle = { ...tough(state), isBossBattle: true, turn: 2 };
+  const before = act(battle, { kind: 'attack' }, D);
+  expect(before.events.at(-1)?.t).toBe('bossTargetWarning');
+  expect(
+    before.events.some(
+      (event) => event.t === 'act' && event.side === 'enemy' && event.targetIds.includes('hero'),
+    ),
+  ).toBe(false);
+  const after = act(before.state, { kind: 'attack' }, D);
+  expect(after.events).toContainEqual(
+    expect.objectContaining({ t: 'damage', side: 'ally', targetId: 'hero' }),
+  );
+  expect(after.events.some((event) => event.t === 'bossTargetWarning')).toBe(false);
+});
+
+it('予告されたターンは傷ついた主人公を先に回復し、その後に狙い撃ちを受ける', async () => {
+  const { state } = await setup({ enemyId: 'aomori-midboss-nebuta-taisho', withMonster: true });
+  const battle = { ...tough(state), isBossBattle: true, turn: 3 };
+  battle.ally.hero.hp -= 25;
+  battle.ally.monsters[0]!.hp -= 80;
+  const step = act(battle, { kind: 'item', itemId: 'aomori-ringo' }, D);
+  expect(step.evaluation.allowed).toBe(true);
+  const heal = step.events.findIndex((e) => e.t === 'heal' && e.targetId === 'hero' && e.amount === 15);
+  const damage = step.events.findIndex((e) => e.t === 'damage' && e.targetId === 'hero');
+  expect(heal).toBeGreaterThanOrEqual(0);
+  expect(damage).toBeGreaterThan(heal);
+});
+
+it.each([
+  ['aomori-boss-tsugaru-no-nushi', 4],
+  ['aomori-lastboss-tsugaru-tamenobu', 5],
+] as const)('%s はターン%dの前に主人公への攻撃を予告する', async (enemyId, turn) => {
+  const { state } = await setup({ enemyId, withMonster: true });
+  const battle = { ...tough(state), isBossBattle: true, turn: turn - 1 };
+  const before = act(battle, { kind: 'attack' }, D);
+  expect(before.events.at(-1)?.t).toBe('bossTargetWarning');
+  expect(act(before.state, { kind: 'attack' }, D).events).toContainEqual(
+    expect.objectContaining({ t: 'damage', side: 'ally', targetId: 'hero' }),
+  );
 });

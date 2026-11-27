@@ -201,6 +201,7 @@ type BattleActionEvent =
 export type BattleEvent =
   /** ターンの はじまり（主人公が 動く 前） */
   | { t: 'turnStart'; turn: number }
+  | { t: 'bossTargetWarning' }
   /** 教科ゲージが たりなくて 打てない（ターンは すすまない） */
   | { t: 'gaugeShort'; subject: Subject; need: number; have: number }
   /** にげられないボスへの試行は成立行動ではないので actionId を持たない。 */

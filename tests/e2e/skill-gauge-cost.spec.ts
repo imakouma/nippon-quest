@@ -1,4 +1,6 @@
 import { expect, test } from '@playwright/test';
+import type { ContentIndex } from '../../src/core/content/loader';
+import type { BattleDeps } from '../../src/core/battle/dependencies';
 
 for (const viewport of [
   { width: 960, height: 540, cost: 100 },
@@ -65,3 +67,32 @@ for (const viewport of [
     expect(errors).toEqual([]);
   });
 }
+
+test('算数バーストの戦闘威力は設定学年に応じて変わる', async ({ page }, info) => {
+  test.setTimeout(90_000);
+  for (const { grade, power, enemyHp } of [
+    { grade: 1, power: 80, enemyHp: 23 },
+    { grade: 6, power: 490, enemyHp: 104 },
+  ]) {
+    await page.goto(`/?debug=battle&grade=${grade}&resetSaves=1`);
+    await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
+    await page.locator('.nq-box').click();
+    await page.locator('.nq-cmd[data-cmd="skill"]').click();
+    await page.locator('[data-charge-toggle]').click();
+    await expect(page.locator('[data-skill="sk-burst-sansu"]')).toBeVisible();
+    await expect(page.getByText('60/60', { exact: true })).toBeVisible();
+    await expect(page.getByText(`${enemyHp}/${enemyHp}`, { exact: true })).toBeVisible();
+    const observed = await page.evaluate(() => {
+      const battle = window.__nq.scene.getScene('Battle') as Phaser.Scene & {
+        content: ContentIndex;
+        deps: BattleDeps;
+      };
+      return battle.deps.heroSkill!(battle.content.skills.get('sk-burst-sansu')!).power;
+    });
+    expect(observed).toBe(power);
+    await page.locator('[data-skill="sk-burst-sansu"]').focus();
+    await page.locator('.nq-skill-details-toggle').click();
+    await expect(page.locator('#nq-skill-details')).toContainText('いりょく ' + power);
+    await page.screenshot({ path: info.outputPath(`burst-grade-${grade}.png`) });
+  }
+});

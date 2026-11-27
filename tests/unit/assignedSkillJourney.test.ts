@@ -147,3 +147,22 @@ it('全教科の各問題を、実際の戦闘用クエリから割り当て先�
     expect(actual.sort(), skillId).toEqual(ids.sort());
   }
 });
+
+it('学年に応じたバーストの威力を編成画面に表示する', async () => {
+  const c = await content();
+  for (const [grade, expected] of [
+    [1, 80],
+    [6, 490],
+  ] as const) {
+    let game = createNewGame({ name: 'ハル', grade }, 100);
+    const editor = heroSkillEditor(
+      game,
+      c,
+      () => game,
+      (next) => {
+        game = next;
+      },
+    );
+    expect(editor.skills.find((skill) => skill.id === 'sk-burst-sansu')?.power).toBe(expected);
+  }
+});

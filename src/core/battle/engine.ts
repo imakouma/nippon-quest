@@ -1,3 +1,4 @@
+import { aimedBossAttack } from './bossTargeting';
 /**
  * バトルエンジン本体（ターン制。GDD §4）。純粋関数だけ。Phaser も DOM も知らない。
  *  - act(state, command) … 1 ターンを 解決する。主人公 → オトモ（前に 立つ 仲間）→ てき の じゅんで 1 回ずつ 動く。
@@ -463,6 +464,7 @@ export function act(
   if (s.outcome === 'ongoing') {
     for (const c of [s.ally.hero, ...s.ally.monsters, s.enemy]) decayBuffs(c);
     s.turn += 1;
+    if (aimedBossAttack(s)) ev.push({ t: 'bossTargetWarning' });
   }
   return done(s, rng, ev, evaluation);
 }

@@ -1,3 +1,4 @@
+import { aimedBossAttack } from './bossTargeting';
 import type { Item, Monster, Settings, Skill, Subject } from '../content/schemas';
 import { canUseMusubiDama } from './musubiDama';
 import type { BattleState, Combatant, Command, TargetType } from './types';
@@ -118,10 +119,18 @@ export function weakestAlly(state: BattleState): BattleCommandTarget {
   return { side: 'ally', combatantId: state.ally.hero.id };
 }
 
+function battleItemTarget(state: BattleState, item: Item): BattleCommandTarget {
+  const hero = state.ally.hero;
+  if (item.use?.heal && hero.hp < hero.stats.hp && aimedBossAttack(state)) {
+    return { side: 'ally', combatantId: hero.id };
+  }
+  return weakestAlly(state);
+}
+
 export function canUseBattleItem(state: BattleState, item: Item): boolean {
   if (item.kind !== 'consumable' || !item.use) return false;
   if (item.use.recruit) return true;
-  const target = combatantForTarget(state, weakestAlly(state));
+  const target = combatantForTarget(state, battleItemTarget(state, item));
   return (!!item.use.heal && target.hp < target.stats.hp) || (!!item.use.mp && target.mp < target.stats.mp);
 }
 
@@ -281,7 +290,7 @@ export function evaluateBattleCommand(
       if (!canUseBattleItem(state, item)) return denied('item-no-effect');
       return allowed(
         state.ally.hero.id,
-        [weakestAlly(state)],
+        [battleItemTarget(state, item)],
         [{ kind: 'item', itemId: item.id, amount: 1 }],
       );
     }

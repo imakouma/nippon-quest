@@ -15,8 +15,10 @@ import { heroLevel } from '../progression/battleResult';
 import { resolveSkillLoadout } from '../progression/heroSkillLoadout';
 import { applySpecialtyTreasureBonus, specialtyTreasureBonus } from '../progression/specialty';
 import type { Rng } from '../rng';
+import { STARTER_HERO_STATS } from '../state/newGame';
 import type { GameState } from '../state/schema';
-import { makeHero, makeMonster, makeParty } from './factory';
+import { pokemonLikeBaseDamage } from './damage';
+import { makeHero, makeMonster, makeParty, statsAtLevel } from './factory';
 import type { BattleRuleset } from './ruleset';
 import type { Party } from './types';
 
@@ -91,6 +93,61 @@ export function partyFromGameState(
   const active = owned.findIndex((o) => o.uid === gs.party.activeUid);
   party.activeMonsterIndex = Math.max(0, active);
   return party;
+}
+
+const normalPowerByGrade = [40, 80, 125, 180, 245, 320] as const;
+const companionDurabilityByGrade = [2.25, 1.65, 1.55, 1.45, 1.35, 1.25] as const;
+
+// 同レベル・仲間ありで、装備なしでも4ターン以内の勝利が繰り返されたボス。
+const shortBossEncounters = new Set([
+  'fukuoka-midboss-banana-taisho',
+  'hokkaido-lastboss-clark',
+  'ishikawa-boss-yukitsuri-oomatsu',
+  'kyoto-midboss-kayabuki-monban',
+  'nagasaki-lastboss-siebold',
+  'nara-midboss-hitome-senbon',
+  'saitama-lastboss-shibusawa-eiichi',
+  'shizuoka-lastboss-tokugawa-ieyasu',
+  'wakayama-lastboss-tokugawa-yoshimune',
+  'yamagata-lastboss-matsuo-basho',
+]);
+
+export function makeEncounterEnemy(
+  def: Parameters<typeof makeMonster>[0],
+  level: number,
+  grade: GameState['learning']['grade'],
+  growth: ContentIndex['settings']['heroGrowth'],
+  kind: BattleRuleset['id'] = def.isBoss ? 'boss' : 'normal',
+  hasActiveCompanion = false,
+) {
+  const enemy = makeMonster(def, level, 'enemy');
+  if (kind === 'tutorial' || kind === 'event') return enemy;
+
+  // 同レベル・初期装備なし・習得直後の通常技を基準にする。
+  const referenceHero = statsAtLevel(STARTER_HERO_STATS, growth, level);
+  const attack =
+    (referenceHero.scienceAtk + referenceHero.humanitiesAtk) / 2 + Math.floor(referenceHero.wis / 5);
+  const defense = (enemy.stats.scienceDef + enemy.stats.humanitiesDef) / 2;
+  const power = Math.round(normalPowerByGrade[grade - 1]! * 0.775);
+  const baseDamage = pokemonLikeBaseDamage(level, power, attack, defense);
+
+  // 満点3回・部分点1回、通常の乱数とコンボ込みの4発分より少し低い値。
+  const targetHp = baseDamage * 5.8;
+  const boss = kind === 'boss' || def.isBoss;
+  const variation = Math.max(0.9, Math.min(1.1, enemy.hp / (16 + 3 * (level - 1))));
+  // 仲間は前衛の1体だけが毎ターン追撃する。控えの人数で倍率を重ねない。
+  const durability = boss ? 4 : hasActiveCompanion ? companionDurabilityByGrade[grade - 1]! : 1;
+  // 序盤は主人公の技に対して追撃の比重が大きい。Lv.30までに補正を外す。
+  const earlyLevelWeight = Math.max(0, Math.min(1, (30 - level) / 20));
+  const extraBossHp = shortBossEncounters.has(def.id)
+    ? 0.75
+    : def.id === 'aomori-midboss-nebuta-taisho'
+      ? 0.48
+      : 0;
+  const bossAdjustment = boss && hasActiveCompanion && grade <= 2 ? 1 + extraBossHp * earlyLevelWeight : 1;
+  enemy.stats.hp = Math.round(targetHp * durability * variation * bossAdjustment);
+  enemy.hp = enemy.stats.hp;
+  return enemy;
 }
 
 /** ruleset が指定した供給元だけから戦闘用 party を解決する。 */

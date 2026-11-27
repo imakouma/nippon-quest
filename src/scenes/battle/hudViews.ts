@@ -207,6 +207,7 @@ export function buildSkillOptions(input: {
       chargeGain: [Math.min(...gains), Math.max(...gains)],
       effect: skill.effect,
       flavor: skill.flavor,
+      power: skill.effect === 'damage' ? skill.power : undefined,
       accuracy: skill.accuracy ?? 100,
       additionalEffect: skill.additionalEffect,
       disabled: !evaluation.allowed,

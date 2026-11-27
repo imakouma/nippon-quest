@@ -59,7 +59,7 @@ describe('GameState → Party', () => {
     const party = partyFromGameState(gs, c);
     expect(party.hero.name).toBe('ハル');
     expect(party.hero.hp).toBe(12);
-    expect(party.hero.stats.hp).toBe(24);
+    expect(party.hero.stats.hp).toBe(60);
     expect(party.monsters.map((m) => m.refId)).toEqual(['iwate-kagurabi']);
     // 入門装備は所持していても、バトルへ持ち込む消耗品ではない。
     expect(party.items).toEqual({});

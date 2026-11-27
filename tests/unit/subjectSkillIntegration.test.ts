@@ -117,3 +117,14 @@ describe('subject skill question and training integration', () => {
     },
   );
 });
+
+it('はっぱあらしの追加効果が実際の戦闘用データにも引き継がれる', async () => {
+  const content = await loadContent(async (path) => JSON.parse(readFileSync(`content/${path}`, 'utf8')));
+  expect(content.skills.get('sk-happa-arashi')?.additionalEffect).toMatchObject({
+    stat: 'atk',
+    target: 'self',
+    chance: 30,
+    multiplier: 1.2,
+    turns: 3,
+  });
+});
