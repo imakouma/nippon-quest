@@ -51,5 +51,7 @@ it('中盤の同レベル戦は満点中心の通常技で決着し、ボスは�
   const damage = hits.reduce((sum, hit) => sum + hit, 0);
   expect(enemy.hp).toBeGreaterThan(hits[0]! + hits[1]!);
   expect(enemy.hp).toBeLessThanOrEqual(damage);
-  expect(boss.hp).toBeGreaterThan(damage);
+  const estimatedBossHits = Math.ceil((boss.hp / damage) * hits.length);
+  expect(estimatedBossHits).toBeGreaterThanOrEqual(12);
+  expect(estimatedBossHits).toBeLessThanOrEqual(20);
 });

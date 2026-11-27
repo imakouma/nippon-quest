@@ -119,7 +119,7 @@ export function makeEncounterEnemy(
   const targetHp = baseDamage * 5.8;
   const boss = kind === 'boss' || def.isBoss;
   const variation = Math.max(0.9, Math.min(1.1, enemy.hp / (16 + 3 * (level - 1))));
-  enemy.stats.hp = Math.round(targetHp * (boss ? 2 : 1) * variation);
+  enemy.stats.hp = Math.round(targetHp * (boss ? 4 : 1) * variation);
   enemy.hp = enemy.stats.hp;
   return enemy;
 }
