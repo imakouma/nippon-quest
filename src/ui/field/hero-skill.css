@@ -1,0 +1,226 @@
+.nq-wmap-box.nq-menu-box.nq-hero-skill-window {
+  background: radial-gradient(ellipse at 85% 15%, #2d4a63, #172337 60%);
+  border-color: #6c829c;
+  color: #f8edd5;
+}
+
+.nq-hero-skill-window .nq-menu-head {
+  border-bottom: 1px solid #73859a;
+  padding-bottom: 4px;
+}
+
+.nq-hero-skill-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr) minmax(0, 1.5fr);
+  flex: 1;
+  min-height: 0;
+  gap: 12px;
+}
+
+.nq-hero-skill-editor h2,
+.nq-hero-skill-editor h3,
+.nq-hero-skill-editor p,
+.nq-hero-skill-editor dl,
+.nq-hero-skill-editor dd {
+  margin: 0;
+}
+
+.nq-hero-skill-editor h2,
+.nq-hero-skill-editor legend {
+  font-size: 22px;
+}
+
+.nq-hero-skill-slots {
+  overflow: auto;
+}
+
+.nq-hero-skill-slots fieldset {
+  display: grid;
+  min-width: 0;
+  padding: 0;
+  margin: 0 0 9px;
+  border: 0;
+  gap: 4px;
+}
+
+.nq-hero-skill-slots legend {
+  color: #f4d88b;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+.nq-hero-skill-editor button {
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  padding: 4px 7px;
+  border: 1px solid #687e97;
+  color: inherit;
+  background: #23354b;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nq-hero-skill-editor button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -3px;
+}
+
+.nq-hero-skill-slots button,
+.nq-hero-skill-list button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.nq-hero-skill-editor .nq-picon {
+  flex: none;
+  image-rendering: pixelated;
+  background: #101c2d;
+  border: 1px solid #687e97;
+  box-sizing: content-box;
+  padding: 2px;
+}
+
+.nq-hero-skill-editor button[aria-pressed='true'] {
+  border-color: #f7df99;
+  box-shadow: inset 0 0 0 1px #f7df99;
+  background: #3c4c57;
+}
+
+.nq-hero-skill-library {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  min-height: 0;
+  gap: 4px;
+}
+
+.nq-hero-skill-sort {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.35fr 1.65fr 1fr;
+  gap: 3px;
+}
+
+.nq-hero-skill-sort button {
+  min-height: 24px;
+  padding: 2px 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.nq-hero-skill-sort button[aria-pressed='true'],
+.nq-hero-skill-actions button:first-child {
+  background: #efd58f;
+  color: #251e14;
+}
+
+.nq-hero-skill-sort button span[aria-hidden='true'] {
+  font-size: 0.72em;
+}
+
+.nq-hero-skill-list {
+  overflow: auto;
+  min-height: 0;
+  padding-right: 3px;
+}
+
+.nq-hero-skill-list button {
+  margin-bottom: 4px;
+}
+
+.nq-hero-skill-list button > small {
+  flex: none;
+  margin-left: auto;
+  font-size: 13px;
+}
+
+.nq-hero-skill-list h3 {
+  color: #c1d2e2;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-bottom: 1px solid #52657c;
+}
+
+.nq-hero-skill-detail {
+  display: grid;
+  grid-template-rows: 60px 88px minmax(0, 1fr) auto;
+  min-height: 0;
+  padding: 8px;
+  gap: 7px;
+  border: 1px solid #8c9bac;
+  background: #202d41;
+}
+
+.nq-hero-skill-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  border-bottom: 1px solid #52657c;
+  overflow: auto;
+}
+
+.nq-hero-skill-heading h2 {
+  line-height: 1.1;
+}
+
+.nq-hero-skill-heading small,
+.nq-hero-skill-detail dt {
+  color: #d1deeb;
+  font-size: 13px;
+}
+
+.nq-hero-skill-detail dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: start;
+  gap: 4px;
+  text-align: center;
+}
+
+.nq-hero-skill-detail dl > div {
+  padding: 4px 1px;
+  border-bottom: 1px solid #60738a;
+}
+
+.nq-hero-skill-detail dl > div:last-child {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1 / -1;
+}
+
+.nq-hero-skill-detail dd {
+  color: #ffe5a8;
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+}
+
+.nq-hero-skill-description {
+  align-self: start;
+  max-height: 100%;
+  overflow: auto;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.nq-hero-skill-description p {
+  padding: 6px;
+  background: #162336;
+  border: 1px solid #52657c;
+}
+
+.nq-hero-skill-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.nq-hero-skill-actions button:disabled {
+  opacity: 0.62;
+  cursor: default;
+}
+
+.nq-skill-level {
+  white-space: nowrap;
+  font-size: 0.8em;
+}
