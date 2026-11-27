@@ -241,29 +241,63 @@ describe('装備・隣接効果・描画セル', () => {
     expect(bagUsage(result.state, bagContext(result.state, c)).used).toBe(3);
   });
 
-  it('東北クリア前は装備できず、解放後は自由に動かせて正しい隣接位置だけで効果が出る', () => {
+  it('東北クリア前は装備できず、解放後はどの配置マスでも効果が出る', () => {
     const s = fresh();
     const weapon = [...c.items.values()].find((i) => i.kind === 'weapon' && i.id !== 'common-renshu-no-bou')!;
     s.inventory[weapon.id] = 1;
     expect(putEquip(s, weapon, bagContext(s, c)).result).toBe('none');
     s.progress.islandsCleared = ['tohoku'];
     const placed = putEquip(s, weapon, bagContext(s, c));
-    expect(placed.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 2, y: 1 });
+    expect(placed.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 0, y: 0 });
     expect(activeEquipment(placed.state).weapon).toBe(weapon.id);
     const moved = moveBagThing(placed.state, 'eq:weapon', { x: 0, y: 2 }, bagContext(placed.state, c));
     expect(moved?.party.bagPlacements['eq:weapon']).toMatchObject({ x: 0, y: 2 });
-    expect(activeEquipment(moved!).weapon).toBeUndefined();
+    expect(activeEquipment(moved!).weapon).toBe(weapon.id);
+    expect(partyFromGameState(moved!, c).hero.stats).toEqual(partyFromGameState(placed.state, c).hero.stats);
   });
 
-  it('序盤はれんしゅうのぼうだけを主人公の右に装備できる', () => {
+  it('序盤もれんしゅうのぼうを任意の空きマスへ装備できる', () => {
     const s = fresh();
     const beforeAtk = partyFromGameState(s, c).hero.stats.scienceAtk;
     const starter = c.items.get('common-renshu-no-bou')!;
     const placed = putEquip(s, starter, bagContext(s, c));
     expect(placed.result).toBe('added');
-    expect(placed.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 2, y: 1 });
+    expect(placed.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 0, y: 0 });
     expect(activeEquipment(placed.state).weapon).toBe(starter.id);
     expect(partyFromGameState(placed.state, c).hero.stats.scienceAtk).toBe(beforeAtk + 1);
+  });
+
+  it('指定位置へ装備し、不正な場所への配置では持ち物を消費しない', () => {
+    const s = fresh();
+    const starter = c.items.get('common-renshu-no-bou')!;
+    const placed = putEquip(s, starter, bagContext(s, c), 2000, { x: 0, y: 2 });
+    expect(placed.result).toBe('added');
+    expect(placed.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 0, y: 2 });
+    expect(activeEquipment(placed.state).weapon).toBe(starter.id);
+    for (const position of [
+      { x: 1, y: 1 },
+      { x: -1, y: 0 },
+      { x: 3, y: 0 },
+    ]) {
+      const failed = putEquip(s, starter, bagContext(s, c), 2000, position);
+      expect(failed.result).toBe('full');
+      expect(failed.state).toBe(s);
+    }
+  });
+
+  it('装備交換は元の配置を保ち、指定位置ならそこへ交換できる', () => {
+    const s = fresh();
+    s.progress.islandsCleared = ['tohoku'];
+    const starter = c.items.get('common-renshu-no-bou')!;
+    const weapon = [...c.items.values()].find((i) => i.kind === 'weapon' && i.id !== starter.id)!;
+    s.inventory[weapon.id] = 1;
+    const placed = putEquip(s, starter, bagContext(s, c), 2000, { x: 0, y: 2 }).state;
+    const swapped = putEquip(placed, weapon, bagContext(placed, c));
+    expect(swapped.result).toBe('swapped');
+    expect(swapped.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 0, y: 2 });
+    expect(swapped.state.inventory[starter.id]).toBe(s.inventory[starter.id]);
+    const moved = putEquip(placed, weapon, bagContext(placed, c), 2001, { x: 2, y: 2 });
+    expect(moved.state.party.bagPlacements['eq:weapon']).toMatchObject({ x: 2, y: 2 });
   });
 
   it('主人公に隣接した仲間が属性に応じた5%支援を与える', () => {

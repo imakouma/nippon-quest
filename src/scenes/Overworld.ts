@@ -33,7 +33,6 @@ import {
   bagUsage,
   evolveRoom,
   equipmentUnlocked,
-  equipPosition,
   moveBagThing,
   monsterCost,
   monsterSize,
@@ -2911,7 +2910,7 @@ export class OverworldScene extends Phaser.Scene {
           }
           const it = c.items.get(key.slice('inv:'.length));
           if (!it || !isEquip(it)) return;
-          const put = this.equipToBag(cur, it);
+          const put = this.equipToBag(cur, it, position);
           again(put.ok ? `eq:${it.kind}` : key, put.msg);
         },
         onUse: (key: string) => bagItems.useBagItem(this, c, key, again),
@@ -3068,7 +3067,6 @@ export class OverworldScene extends Phaser.Scene {
         ),
         cols: ctx.cols,
         rows: ctx.rows,
-        dropSlots: Object.fromEntries(EQUIP_SLOTS.map((slot) => [slot, equipPosition(gs, slot)])),
         used: usage.used,
         capacity: usage.capacity,
         over: usage.over,
@@ -3078,14 +3076,21 @@ export class OverworldScene extends Phaser.Scene {
   }
 
   /** そうびを バッグに いれる（＝そうびする）。マスが たりなければ いれない。ひとことを かえす */
-  private equipToBag(gs: GameState, it: Item): { ok: boolean; msg: string | null } {
+  private equipToBag(
+    gs: GameState,
+    it: Item,
+    position?: { x: number; y: number },
+  ): { ok: boolean; msg: string | null } {
     const c = this.content()!;
     const ctx = bagContext(gs, c);
-    const put = putEquip(gs, it, ctx);
+    const put = putEquip(gs, it, ctx, Date.now(), position);
     if (put.result === 'none') return { ok: false, msg: null };
     if (put.result === 'full') {
       playSfx('miss');
-      return { ok: false, msg: t('field.bagFullMsg', { free: bagUsage(gs, ctx).free }) };
+      return {
+        ok: false,
+        msg: position ? t('field.bagPlaceBlocked') : t('field.bagFullMsg', { free: bagUsage(gs, ctx).free }),
+      };
     }
     this.commitEquip(put.state);
     playSfx('recruit');

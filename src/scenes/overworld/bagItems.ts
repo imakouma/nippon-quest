@@ -200,7 +200,6 @@ function equipmentThing(it: Item, key: string, count?: number, setLines: string[
   return {
     key,
     kind: 'equip',
-    equipSlot: it.kind,
     name: it.name,
     icon: itemIconUrl(it),
     art: itemIconUrl(it),

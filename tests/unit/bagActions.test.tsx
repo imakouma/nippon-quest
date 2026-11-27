@@ -38,7 +38,7 @@ function setup() {
         inBag={[{ ...thing('packed', 'item', true), action: 'pack' }]}
         outside={[
           thing('mon:one', 'monster'),
-          { ...thing('weapon', 'equip'), equipSlot: 'weapon' },
+          thing('weapon', 'equip'),
           { ...thing('apple', 'item'), action: 'pack' },
           thing('material', 'item'),
         ]}
@@ -49,7 +49,6 @@ function setup() {
         ]}
         cols={2}
         rows={2}
-        dropSlots={{ weapon: { x: 1, y: 0 } }}
         used={1}
         capacity={4}
         over={false}
@@ -84,12 +83,11 @@ it('ひかえの仲間をクリックで空きマスに追加できる', () => {
   click('.nq-bag-empty');
   expect(onToggle).toHaveBeenCalledWith('mon:one', { x: 0, y: 0 });
 });
-it('装備の違う置き先には理由を表示し、素材を入れる操作は無効にする', () => {
+it('装備を任意の空き位置へ追加し、保管用素材は拒否する', () => {
   const { onToggle, onMove } = setup();
   click('[data-bag-key="weapon"]');
   click('.nq-bag-empty');
-  expect(root.querySelector('[role="status"]')?.textContent).toContain('field.bagEquipPlace');
-  expect(onToggle).not.toHaveBeenCalled();
+  expect(onToggle).toHaveBeenCalledWith('weapon', { x: 0, y: 0 });
   expect(onMove).not.toHaveBeenCalled();
   click('[data-bag-key="material"]');
   expect(root.querySelector<HTMLButtonElement>('.nq-bag-toggle')?.disabled).toBe(true);

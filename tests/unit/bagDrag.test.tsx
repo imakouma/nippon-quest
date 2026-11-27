@@ -46,7 +46,6 @@ it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控�
         ]}
         cols={2}
         rows={1}
-        dropSlots={{}}
         used={1}
         capacity={9}
         over={false}

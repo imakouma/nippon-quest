@@ -1,12 +1,10 @@
-import type { Element, Item, Stats } from '../../core/content/schemas';
+import type { Element, Stats } from '../../core/content/schemas';
 import type { BagCell } from './bagLayout';
 
 export interface BagThing {
   /** 'hero' / 'mon:<uid>' / 'eq:<部位>'（バッグの そうび）/ 'inv:<itemId>'（あずけている そうび） */
   key: string;
   kind: 'hero' | 'monster' | 'equip' | 'item';
-  /** 装備なら、主人公のまわりの決められた装備位置。 */
-  equipSlot?: Item['kind'];
   /** 名前（RubyText） */
   name: string;
   /** マス・リストの 小さな 絵（data URL） */
@@ -59,7 +57,6 @@ export interface BagOverlayProps {
   cells: BagCell[];
   cols: number;
   rows: number;
-  dropSlots: Partial<Record<Item['kind'], { x: number; y: number }>>;
   used: number;
   capacity: number;
   /** マスより 多く 入っている（マスが できる前の セーブ） */

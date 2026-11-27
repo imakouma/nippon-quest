@@ -12,15 +12,10 @@ export function dropProblem(
   cells: BagCell[],
   cols: number,
   rows: number,
-  slots: BagOverlayProps['dropSlots'],
 ): string | null {
   if (thing.blockedReason) return thing.blockedReason;
   if (thing.kind === 'hero') return t('field.bagPlaceBlocked');
   if (thing.kind === 'item') return thing.action === 'pack' ? null : t('field.bagStorageOnly');
-  if (thing.kind === 'equip' && !thing.inBag) {
-    const slot = thing.equipSlot && slots[thing.equipSlot];
-    if (!slot || slot.x !== pos.x || slot.y !== pos.y) return t('field.bagEquipPlace');
-  }
   const current = cells.find((c) => c.kind === 'item' && c.key === thing.key);
   const size = current?.kind === 'item' ? current : (thing.size ?? { w: Math.max(1, thing.cost), h: 1 });
   if (pos.x < 0 || pos.y < 0 || pos.x + size.w > cols || pos.y + size.h > rows)
@@ -40,7 +35,7 @@ export function dropProblem(
   return null;
 }
 
-type Props = Pick<BagOverlayProps, 'cells' | 'cols' | 'rows' | 'dropSlots'> & {
+type Props = Pick<BagOverlayProps, 'cells' | 'cols' | 'rows'> & {
   byKey: Map<string, BagThing>;
   selected: BagThing;
   dragged?: BagThing;
@@ -53,7 +48,6 @@ export function BagGrid({
   cells,
   cols,
   rows,
-  dropSlots,
   byKey,
   selected,
   dragged,
@@ -84,9 +78,7 @@ export function BagGrid({
     >
       {cells.map((c, i) => {
         const thing = c.kind === 'item' ? byKey.get(c.key) : undefined;
-        const slot = Object.entries(dropSlots).find(([, pos]) => pos?.x === c.x && pos.y === c.y)?.[0];
-        const possible =
-          candidate.kind !== 'item' && !dropProblem(candidate, c, cells, cols, rows, dropSlots);
+        const possible = candidate.kind !== 'item' && !dropProblem(candidate, c, cells, cols, rows);
         return (
           <button
             key={c.kind === 'item' ? c.key : `e${i}`}
@@ -97,16 +89,9 @@ export function BagGrid({
               gridRow: c.kind === 'item' ? `${c.y + 1} / span ${c.h}` : c.y + 1,
             }}
             data-bag-key={thing?.key}
-            data-drop-slot={slot}
             data-cell-x={c.x}
             data-cell-y={c.y}
-            aria-label={
-              thing
-                ? displayText(thing.name)
-                : slot
-                  ? displayText(t(`slots.${slot}`))
-                  : t('field.bagEmptyCell')
-            }
+            aria-label={thing ? displayText(thing.name) : t('field.bagEmptyCell')}
             draggable={!!thing && thing.kind !== 'hero'}
             onDragStart={(e) => {
               if (thing) {

@@ -21,7 +21,6 @@ export function BagOverlay({
   cells,
   cols,
   rows,
-  dropSlots,
   over,
   focusKey,
   message,
@@ -196,7 +195,7 @@ export function BagOverlay({
       pack(thing);
       return;
     }
-    const problem = dropProblem(thing, { x, y }, cells, cols, rows, dropSlots);
+    const problem = dropProblem(thing, { x, y }, cells, cols, rows);
     if (problem) {
       setNotice(problem);
       playSfx('miss');
@@ -204,8 +203,7 @@ export function BagOverlay({
     }
     setNotice(null);
     if (thing.inBag) onMove(thing.key, x, y);
-    else if (thing.kind === 'monster') onToggle(thing.key, { x, y });
-    else onToggle(thing.key);
+    else onToggle(thing.key, { x, y });
   };
   const category = (x: BagThing) => (x.kind === 'item' ? (x.action === 'pack' ? 'tool' : 'storage') : x.kind);
   const shown = outside.filter((x) => filter === 'all' || category(x) === filter);
@@ -268,7 +266,6 @@ export function BagOverlay({
               cells={cells}
               cols={cols}
               rows={rows}
-              dropSlots={dropSlots}
               byKey={byKey}
               selected={m}
               dragged={draggedThing}
