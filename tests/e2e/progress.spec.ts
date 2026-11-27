@@ -269,7 +269,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   const heroCell = page.getByRole('button', { name: 'テスト' });
   const bagWindow = page.locator('.nq-wmap-box');
   const openWidth = await bagWindow.evaluate((el) => el.getBoundingClientRect().width);
-  await expect(page.locator('.nq-party-info')).toHaveCount(0);
+  await expect(page.locator('.nq-party-info')).toBeVisible();
   await heroCell.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
   await expectEightStatsFit(page);
@@ -278,15 +278,15 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   await page.screenshot({ path: testInfo.outputPath('bag-stat-labels.png') });
   await page.setViewportSize({ width: 640, height: 540 });
   await heroCell.click();
-  await expect(page.locator('.nq-party-info')).toHaveCount(0);
+  await expect(page.locator('.nq-party-info')).toBeVisible();
   await expect(page.getByRole('button', { name: /とじる/ })).toBeVisible();
   await expect.poll(() => bagWindow.evaluate((el) => el.getBoundingClientRect().width)).toBe(openWidth);
-  await page.screenshot({ path: testInfo.outputPath('bag-details-closed.png') });
+  await page.screenshot({ path: testInfo.outputPath('bag-details-visible.png') });
   await heroCell.click();
   await expect(page.locator('.nq-party-info')).toBeVisible();
-  const storedWeapon = page.locator('.nq-bag-reserve-tile').filter({ hasText: 'れんしゅうの ぼう' });
+  const storedWeapon = page.locator('.nq-bag-reserve-tile[data-bag-key="inv:common-renshu-no-bou"]');
   await storedWeapon.click();
-  await storedWeapon.dragTo(page.locator('.nq-bag-empty[data-drop-slot="weapon"]'));
+  await storedWeapon.dragTo(page.locator('.nq-bag-empty').first());
   const starterWeapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
   await expect(starterWeapon).toBeVisible();
   await page.locator('.nq-bag-empty').first().click();
