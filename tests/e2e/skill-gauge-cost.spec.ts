@@ -70,8 +70,8 @@ for (const viewport of [
 
 test('算数バーストの戦闘威力は設定学年に応じて変わる', async ({ page }, info) => {
   for (const { grade, power, enemyHp } of [
-    { grade: 1, power: 80, enemyHp: 40 },
-    { grade: 6, power: 490, enemyHp: 80 },
+    { grade: 1, power: 80, enemyHp: 23 },
+    { grade: 6, power: 490, enemyHp: 104 },
   ]) {
     await page.goto(`/?debug=battle&grade=${grade}&resetSaves=1`);
     await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });

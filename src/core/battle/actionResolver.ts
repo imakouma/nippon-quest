@@ -198,7 +198,7 @@ export function finishAction(
     events.push({ t: 'ko', ...action, side: 'enemy', targetId: state.enemy.id });
     const monster = def.monsters.get(state.enemy.refId);
     state.outcome = 'victory';
-    events.push(victoryEvent(state, monster, def.settings, rng, action));
+    events.push(victoryEvent(state, monster, def.settings, rng, action, def.heroXp));
     return;
   }
   if (state.ally.hero.hp <= 0 && state.ally.monsters.every((combatant) => combatant.hp <= 0)) {

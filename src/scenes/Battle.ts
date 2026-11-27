@@ -275,6 +275,7 @@ export class BattleScene extends Phaser.Scene {
     const c = this.content;
     this.deps = {
       settings: c.settings,
+      heroXp: c.xp.hero,
       elements: c.elements,
       skills: c.skills,
       heroSkill: (skill) =>
@@ -290,7 +291,6 @@ export class BattleScene extends Phaser.Scene {
     this.resumeRuntime = new BattleResumeRuntime(() => this.syncGame(), persistence);
     this.mastery = new MasteryStore(this.gs.learning.mastery);
     void prepareBattleSfx(this.gs.settings.seVolume);
-
     const isBoss = this.opts.isBoss ?? def.isBoss;
     const ruleset = resolveBattleLaunchRuleset({
       kind: this.opts.kind,
@@ -311,7 +311,13 @@ export class BattleScene extends Phaser.Scene {
             saved: () => partyFromGameState(this.gs, c),
             provided: this.opts.party,
           }),
-          enemy: makeEncounterEnemy(def, this.opts.level, this.gs.learning.grade),
+          enemy: makeEncounterEnemy(
+            def,
+            this.opts.level,
+            this.gs.learning.grade,
+            c.settings.heroGrowth,
+            ruleset.id,
+          ),
           seed: freshSeed(),
           isBossBattle: isBoss,
           ruleset,
@@ -320,7 +326,6 @@ export class BattleScene extends Phaser.Scene {
       );
       if (this.opts.forceRecruitOffer) this.state.enemy.hp = 1;
     }
-
     this.cameras.main.setBackgroundColor('#000000');
     this.fx = new Motions(this, (x, y, tint, texture, count, gravityY) =>
       this.burst(x, y, tint, texture, count, gravityY),

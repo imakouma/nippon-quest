@@ -15,8 +15,10 @@ import { heroLevel } from '../progression/battleResult';
 import { resolveSkillLoadout } from '../progression/heroSkillLoadout';
 import { applySpecialtyTreasureBonus, specialtyTreasureBonus } from '../progression/specialty';
 import type { Rng } from '../rng';
+import { STARTER_HERO_STATS } from '../state/newGame';
 import type { GameState } from '../state/schema';
-import { makeHero, makeMonster, makeParty } from './factory';
+import { pokemonLikeBaseDamage } from './damage';
+import { makeHero, makeMonster, makeParty, statsAtLevel } from './factory';
 import type { BattleRuleset } from './ruleset';
 import type { Party } from './types';
 
@@ -93,14 +95,31 @@ export function partyFromGameState(
   return party;
 }
 
-/** 出題学年が高いほど技の威力が上がるので、敵の最大HPも増やす。 */
+const normalPowerByGrade = [40, 80, 125, 180, 245, 320] as const;
+
 export function makeEncounterEnemy(
   def: Parameters<typeof makeMonster>[0],
   level: number,
   grade: GameState['learning']['grade'],
+  growth: ContentIndex['settings']['heroGrowth'],
+  kind: BattleRuleset['id'] = def.isBoss ? 'boss' : 'normal',
 ) {
   const enemy = makeMonster(def, level, 'enemy');
-  enemy.stats.hp = Math.round(enemy.stats.hp * (2.5 + (grade - 1) * 0.5));
+  if (kind === 'tutorial' || kind === 'event') return enemy;
+
+  // 同レベル・初期装備なし・習得直後の通常技を基準にする。
+  const referenceHero = statsAtLevel(STARTER_HERO_STATS, growth, level);
+  const attack =
+    (referenceHero.scienceAtk + referenceHero.humanitiesAtk) / 2 + Math.floor(referenceHero.wis / 5);
+  const defense = (enemy.stats.scienceDef + enemy.stats.humanitiesDef) / 2;
+  const power = Math.round(normalPowerByGrade[grade - 1]! * 0.775);
+  const baseDamage = pokemonLikeBaseDamage(level, power, attack, defense);
+
+  // 満点3回・部分点1回、通常の乱数とコンボ込みの4発分より少し低い値。
+  const targetHp = baseDamage * 5.8;
+  const boss = kind === 'boss' || def.isBoss;
+  const variation = Math.max(0.9, Math.min(1.1, enemy.hp / (16 + 3 * (level - 1))));
+  enemy.stats.hp = Math.round(targetHp * (boss ? 2 : 1) * variation);
   enemy.hp = enemy.stats.hp;
   return enemy;
 }
