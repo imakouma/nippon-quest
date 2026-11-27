@@ -326,6 +326,15 @@
 }
 .nq-bag-details .nq-party-head:has(.nq-bag-hero-bars) {
   gap: 5px;
+  padding-bottom: 4px;
+}
+.nq-bag-details:has(.nq-bag-hero-bars) .nq-party-info {
+  gap: 4px;
+}
+.nq-bag-details .nq-party-head:has(.nq-bag-hero-bars) .nq-party-art,
+.nq-bag-details .nq-party-head:has(.nq-bag-hero-bars) .nq-party-art img {
+  width: 40px;
+  height: 40px;
 }
 .nq-bag-details .nq-party-head:has(.nq-bag-hero-bars) .nq-party-who {
   flex: 0 1 72px;
@@ -418,7 +427,7 @@
   border-left: 3px solid #72c69a;
 }
 .nq-bag-hero-growth {
-  padding: 8px 10px;
+  padding: 5px 10px;
   border-left: 3px solid #73ddca;
   background: #1b2033;
   line-height: 16px;
@@ -426,16 +435,16 @@
 .nq-bag-hero-cap {
   display: block;
   font-size: 22px;
-  line-height: 25px;
+  line-height: 21px;
 }
 .nq-bag-hero-growth-small {
-  margin: 3px 0;
+  margin: 1px 0;
   color: var(--nq-cloud);
   font-size: 11px;
   line-height: 15px;
 }
 .nq-bag-hero-materials > div {
-  padding: 4px 6px;
+  padding: 2px 6px;
   background: #252d42;
   font-size: 12px;
   line-height: 15px;
