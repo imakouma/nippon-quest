@@ -27,10 +27,26 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
       .toBeLessThanOrEqual(1);
   }
   await page.setViewportSize({ width: 960, height: 540 });
+  const sortModes = editor.getByRole('group', { name: '並べ替え' });
+  for (const label of ['いりょく', 'めいちゅう']) {
+    await sortModes.getByRole('button', { name: label }).click();
+    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*高') })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+    await sortModes.getByRole('button', { name: new RegExp(label + '.*高') }).click();
+    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*低') })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
+  }
   await slots.nth(3).click();
-  await editor.getByRole('button', { name: /ことばあそび/ }).click();
+  await editor
+    .locator('.nq-hero-skill-list')
+    .getByRole('button', { name: /ことばあそび/ })
+    .click();
   await expect(editor.locator('aside')).toContainText('ことばあそび');
-  await editor.getByRole('button', { name: 'この わざを つける' }).click();
+  await editor.getByRole('button', { name: /この.*枠.*セット/ }).click();
   await expect(slots.nth(3)).toContainText('ことばあそび');
   await page.screenshot({ path: testInfo.outputPath('hero-skill-loadout.png') });
   await dialog.getByRole('button', { name: /もどる/ }).click();

@@ -83,7 +83,7 @@ for (const item of examples) {
       .locator('.nq-choice')
       .filter({ has: page.locator('.nq-choice-content').getByText(item.answer, { exact: true }) });
     await correct.click();
-    if (item.subject === 'sansu') await advanceQuestionFeedback(page);
+    await advanceQuestionFeedback(page);
     await expect.poll(() => page.evaluate(async () => (await window.__subjectSkillResult).score)).toBe(1);
     const learned = await page.evaluate(({ skill, subject }) => {
       const battle = window.__nq.scene.getScene('Battle') as SkillBattle;
@@ -106,7 +106,7 @@ for (const item of examples) {
     await page.locator(`[data-skill="${item.skill}"]`).click();
     await expect(correct).toBeVisible();
     await correct.click();
-    if (item.subject === 'sansu') await advanceQuestionFeedback(page);
+    await advanceQuestionFeedback(page);
     await expect
       .poll(
         async () =>
@@ -162,8 +162,11 @@ test('各教科の習得済み技を編成画面で選んで保存できる', as
   const slots = editor.getByRole('group', { name: /ふつうの わざ/ }).getByRole('button');
   for (const [index, item] of examples.entries()) {
     await slots.nth(3).click();
-    await editor.getByRole('button', { name: new RegExp(names[index]!) }).click();
-    await editor.getByRole('button', { name: 'この わざを つける' }).click();
+    await editor
+      .locator('.nq-hero-skill-list')
+      .getByRole('button', { name: new RegExp(names[index]!) })
+      .click();
+    await editor.getByRole('button', { name: /この.*枠.*セット/ }).click();
     await expect
       .poll(() =>
         page.evaluate((id) => {

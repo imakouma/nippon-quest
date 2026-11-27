@@ -1,15 +1,11 @@
 import { useRef, useState } from 'preact/hooks';
 import type { Skill } from '../../core/content/schemas';
 import type { HeroSkillLoadout } from '../../core/progression/heroSkillLoadout';
-import ja from '../../../content/i18n/ja.json';
-import { format, t, type I18nVars } from '../i18n';
+import { t } from '../i18n';
+import { PixelIcon } from '../PixelIcon';
 import { RubyLabel } from '../RubyLabel';
 import { displayText } from '../ruby';
-
-// Keep editor labels in the same build as the controls that use them.
-function fieldLabel(key: keyof typeof ja.field, vars?: I18nVars): string {
-  return format(ja.field[key] as string, vars);
-}
+import './hero-skill.css';
 
 export interface HeroSkillEditorProps {
   initial: HeroSkillLoadout;
@@ -18,159 +14,232 @@ export interface HeroSkillEditorProps {
   onChange: (category: keyof HeroSkillLoadout, index: number, id: string | null) => HeroSkillLoadout | null;
 }
 
+const slots = { normal: 4, charge: 2 } as const;
+const sortModes = ['element', 'grade', 'power', 'accuracy', 'special'] as const;
+const elements = ['hino', 'mizu', 'mori', 'tsuchi', 'kaze', 'hikari', 'yami', 'none'];
+type SortMode = (typeof sortModes)[number];
+
+const orderBy: Record<SortMode, (a: Skill, b: Skill) => number> = {
+  element: (a, b) => elements.indexOf(a.element) - elements.indexOf(b.element),
+  grade: (a, b) => a.gradeRange[0] - b.gradeRange[0],
+  power: (a, b) => b.power - a.power,
+  accuracy: (a, b) => (b.accuracy ?? 100) - (a.accuracy ?? 100),
+  special: () => 0,
+};
+
 export function HeroSkillEditor({ initial, skills, levels, onChange }: HeroSkillEditorProps) {
   const [loadout, setLoadout] = useState(initial);
+  const [slot, setSlot] = useState<{ category: keyof HeroSkillLoadout; index: number }>({
+    category: 'normal',
+    index: 0,
+  });
+  const [previewId, setPreviewId] = useState<string>();
+  const [sort, setSort] = useState<{ mode: SortMode; ascending: boolean }>({
+    mode: 'element',
+    ascending: false,
+  });
   const [error, setError] = useState(false);
-  const [editing, setEditing] = useState<{ category: keyof HeroSkillLoadout; index: number } | null>(null);
-  const [previewId, setPreviewId] = useState<string | null>(null);
-  const region = useRef<HTMLElement>(null);
-  const closePicker = () => {
-    if (!editing) return;
-    const key = editing.category + editing.index;
-    setEditing(null);
-    setPreviewId(null);
-    requestAnimationFrame(() =>
-      region.current?.querySelector<HTMLButtonElement>(`[data-slot="${key}"]`)?.focus(),
-    );
-  };
+  const list = useRef<HTMLDivElement>(null);
+
+  const current = loadout[slot.category][slot.index];
+  const candidates = skills.filter((skill) => (skill.costGauge === 0) === (slot.category === 'normal'));
+  const visible = candidates
+    .filter((skill) => sort.mode !== 'special' || skill.effect !== 'damage' || skill.additionalEffect)
+    .sort((a, b) => (sort.ascending ? -1 : 1) * orderBy[sort.mode](a, b));
+  const preview = candidates.find((skill) => skill.id === (previewId ?? current)) ?? visible[0];
+  const equipped = preview && (loadout.normal.includes(preview.id) || loadout.charge.includes(preview.id));
+  const removable =
+    current && preview?.id === current && (slot.category === 'charge' || loadout.normal.length > 1);
+
   function equip(id: string | null) {
-    if (!editing) return;
-    const next = onChange(editing.category, Math.min(editing.index, loadout[editing.category].length), id);
+    const next = onChange(slot.category, Math.min(slot.index, loadout[slot.category].length), id);
     setError(!next);
-    if (next) {
-      setLoadout(next);
-      closePicker();
-    }
+    if (!next) return;
+    const index = Math.min(
+      slot.index,
+      id ? Math.max(0, next[slot.category].length - 1) : next[slot.category].length,
+    );
+    setLoadout(next);
+    setSlot({ ...slot, index });
+    setPreviewId(id ?? undefined);
   }
-  const equipped = [...loadout.normal, ...loadout.charge];
-  const current = editing ? loadout[editing.category][editing.index] : undefined;
-  const candidates = editing
-    ? skills
-        .filter((s) => (s.costGauge === 0) === (editing.category === 'normal') && !equipped.includes(s.id))
-        .sort((a, b) => a.power - b.power)
-    : [];
-  const preview = candidates.find((s) => s.id === previewId) ?? candidates[0];
+
   const skillName = (skill: Skill) => (
     <>
       <RubyLabel text={skill.name} />
-      {levels?.[skill.id] && <span class="nq-skill-level"> Lv.{levels[skill.id]}</span>}
+      {levels?.[skill.id] && <small class="nq-skill-level"> Lv.{levels[skill.id]}</small>}
     </>
   );
-  const subject = (skill: Skill) => (
-    <small class="nq-skill-school" data-subject={skill.subject}>
-      {t(`subjects.${skill.subject}`)}
-    </small>
-  );
+  const subject = (skill: Skill) => t(`subjects.${skill.subject}`);
+  const group = (skill: Skill) =>
+    sort.mode === 'element'
+      ? t(`elements.${skill.element}`)
+      : sort.mode === 'grade'
+        ? t('field.skillGradeGroup', { n: skill.gradeRange[0] })
+        : '';
+  const secondary = (skill: Skill) =>
+    sort.mode === 'power'
+      ? skill.power
+      : sort.mode === 'accuracy'
+        ? `${skill.accuracy ?? 100}%`
+        : subject(skill);
+
   return (
-    <section
-      ref={region}
-      class={editing ? 'nq-skill-editor nq-skill-picking' : 'nq-skill-editor'}
-      aria-label={fieldLabel('skillLoadoutTitle')}
-      onKeyDown={(e) => {
-        if (editing && e.key === 'Escape') {
-          e.stopPropagation();
-          e.preventDefault();
-          closePicker();
-        }
-      }}
-    >
-      {error && <p role="status">{fieldLabel('skillEditError')}</p>}
-      {editing ? (
-        <>
-          <header class="nq-skill-picker-head">
-            <strong>
-              {current
-                ? fieldLabel('skillReplace', {
-                    name: displayText(skills.find((s) => s.id === current)!.name),
-                  })
-                : fieldLabel('skillAdd')}
-            </strong>
-            <button type="button" autoFocus onClick={closePicker}>
-              {t('ui.back')}
-            </button>
-          </header>
-          <div class="nq-skill-choices">
-            {candidates.map((s) => (
+    <section class="nq-hero-skill-editor" aria-label={t('field.skillLoadoutTitle')}>
+      <div class="nq-hero-skill-slots">
+        {(Object.keys(slots) as (keyof HeroSkillLoadout)[]).map((category) => (
+          <fieldset key={category}>
+            <legend>{t(category === 'normal' ? 'field.skillNormal' : 'field.skillCharge')}</legend>
+            {Array.from({ length: slots[category] }, (_, index) => {
+              const skill = skills.find((item) => item.id === loadout[category][index]);
+              const active = slot.category === category && slot.index === index;
+              return (
+                <button
+                  type="button"
+                  key={index}
+                  data-slot={category + index}
+                  aria-pressed={active}
+                  onClick={() => {
+                    setSlot({ category, index });
+                    setPreviewId(undefined);
+                    setError(false);
+                    if (list.current) list.current.scrollTop = 0;
+                  }}
+                >
+                  {skill ? (
+                    <>
+                      <PixelIcon name={`el-${skill.element}`} scale={2} />
+                      <span>{skillName(skill)}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span aria-hidden="true">＋</span>
+                      <RubyLabel text={t('field.skillOpenSlot')} />
+                    </>
+                  )}
+                </button>
+              );
+            })}
+          </fieldset>
+        ))}
+        {error && <p role="status">{t('field.skillEditError')}</p>}
+      </div>
+
+      <section class="nq-hero-skill-library">
+        <h2>
+          <RubyLabel text={t('field.skillLearned')} />
+        </h2>
+        <div class="nq-hero-skill-sort" role="group" aria-label={displayText(t('field.skillSort'))}>
+          {sortModes.map((mode) => {
+            const active = sort.mode === mode;
+            const directional = mode === 'power' || mode === 'accuracy';
+            const label = t(`field.skillSort_${mode}`);
+            return (
               <button
                 type="button"
-                key={s.id}
-                aria-pressed={s.id === preview?.id}
-                onClick={() => setPreviewId(s.id)}
+                key={mode}
+                aria-pressed={active}
+                aria-label={
+                  active && directional
+                    ? displayText(
+                        t(sort.ascending ? 'field.skillSortAscending' : 'field.skillSortDescending', {
+                          label,
+                        }),
+                      )
+                    : displayText(label)
+                }
+                onClick={() => {
+                  setSort({ mode, ascending: directional && active && !sort.ascending });
+                  if (list.current) list.current.scrollTop = 0;
+                }}
               >
-                <b>{skillName(s)}</b>
-                {subject(s)}
+                <RubyLabel text={label} />
+                {active && directional && <span aria-hidden="true">{sort.ascending ? '▲' : '▼'}</span>}
               </button>
-            ))}
-            {!candidates.length && <p>{fieldLabel('skillNoChoice')}</p>}
-            {current && (editing.category === 'charge' || loadout.normal.length > 1) && (
-              <button type="button" onClick={() => equip(null)}>
-                {fieldLabel('skillRemove')}
+            );
+          })}
+        </div>
+        <div class="nq-hero-skill-list" ref={list}>
+          {visible.map((skill, index) => (
+            <div key={skill.id}>
+              {group(skill) && (index === 0 || group(visible[index - 1]!) !== group(skill)) && (
+                <h3>
+                  <RubyLabel text={group(skill)} />
+                </h3>
+              )}
+              <button
+                type="button"
+                aria-pressed={skill.id === preview?.id}
+                onClick={() => setPreviewId(skill.id)}
+              >
+                <PixelIcon name={`el-${skill.element}`} scale={2} />
+                <span>{skillName(skill)}</span>
+                <small>{secondary(skill)}</small>
               </button>
-            )}
-          </div>
-          {preview && (
-            <aside class="nq-skill-detail">
-              <div class="nq-skill-description" aria-live="polite">
-                <strong>{skillName(preview)}</strong>
-                {subject(preview)}
-                {preview.flavor && (
-                  <p>
-                    <RubyLabel text={preview.flavor} />
-                  </p>
-                )}
-                <small>
-                  {fieldLabel('skillPower', { n: preview.power })}{' '}
-                  {fieldLabel('skillAccuracy', { n: preview.accuracy ?? 100 })}{' '}
-                  {preview.costGauge > 0 && fieldLabel('skillGauge', { n: preview.costGauge })}
-                </small>
-                {preview.additionalEffect && (
-                  <small>
-                    {t(
-                      `battle.effect${preview.additionalEffect.target === 'self' ? 'Self' : 'Target'}${preview.additionalEffect.stat === 'atk' ? 'Atk' : 'Def'}${preview.additionalEffect.multiplier >= 1 ? 'Up' : 'Down'}`,
-                      { n: preview.additionalEffect.chance, turns: preview.additionalEffect.turns },
-                    )}
-                  </small>
-                )}
-              </div>
-              <button type="button" onClick={() => equip(preview.id)}>
-                {fieldLabel('skillEquipSelected')}
-              </button>
-            </aside>
-          )}
-        </>
-      ) : (
-        <>
-          <p class="nq-skill-hint">
-            <RubyLabel text={fieldLabel('skillEditHint')} />
-          </p>
-          {(['normal', 'charge'] as const).map((category) => (
-            <fieldset key={category} class={'nq-skill-' + category}>
-              <legend>
-                {fieldLabel(category === 'normal' ? 'skillNormal' : 'skillCharge')} {loadout[category].length}
-                /{category === 'normal' ? 4 : 2}
-              </legend>
-              {Array.from({ length: category === 'normal' ? 4 : 2 }, (_, index) => {
-                const skill = skills.find((s) => s.id === loadout[category][index]);
-                return (
-                  <button
-                    type="button"
-                    key={index}
-                    data-slot={category + index}
-                    aria-label={skill ? undefined : fieldLabel('skillAdd') + ' ' + (index + 1)}
-                    onClick={() => {
-                      setError(false);
-                      setEditing({ category, index });
-                    }}
-                  >
-                    {skill && <b>{skillName(skill)}</b>}
-                    {skill && subject(skill)}
-                  </button>
-                );
-              })}
-            </fieldset>
+            </div>
           ))}
-        </>
-      )}
+          {!visible.length && (
+            <RubyLabel text={t(sort.mode === 'special' ? 'field.skillNoSpecial' : 'field.skillNoChoice')} />
+          )}
+        </div>
+      </section>
+
+      <aside class="nq-hero-skill-detail" aria-label={displayText(t('field.skillDetails'))}>
+        {preview && (
+          <>
+            <div class="nq-hero-skill-heading">
+              <PixelIcon name={`el-${preview.element}`} scale={3} />
+              <div>
+                <h2>{skillName(preview)}</h2>
+                <small>{subject(preview)}</small>
+              </div>
+            </div>
+            <dl>
+              <div>
+                <dt>{t('field.skillSort_power')}</dt>
+                <dd>{preview.power}</dd>
+              </div>
+              <div>
+                <dt>{t('field.skillSort_accuracy')}</dt>
+                <dd>{preview.accuracy ?? 100}%</dd>
+              </div>
+              <div>
+                <dt>MP</dt>
+                <dd>{preview.mp}</dd>
+              </div>
+              <div>
+                <dt>{t('field.skillGaugeLabel')}</dt>
+                <dd>{preview.costGauge ? `${preview.costGauge}%` : '—'}</dd>
+              </div>
+            </dl>
+            <div class="nq-hero-skill-description">
+              {preview.flavor && (
+                <p>
+                  <RubyLabel text={preview.flavor} />
+                </p>
+              )}
+              {preview.additionalEffect && (
+                <p>
+                  {t(
+                    `battle.effect${preview.additionalEffect.target === 'self' ? 'Self' : 'Target'}${preview.additionalEffect.stat === 'atk' ? 'Atk' : 'Def'}${preview.additionalEffect.multiplier >= 1 ? 'Up' : 'Down'}`,
+                    { n: preview.additionalEffect.chance, turns: preview.additionalEffect.turns },
+                  )}
+                </p>
+              )}
+            </div>
+            <div class="nq-hero-skill-actions">
+              <button type="button" disabled={equipped} onClick={() => equip(preview.id)}>
+                <RubyLabel text={t(equipped ? 'field.skillEquipped' : 'field.skillSetSlot')} />
+              </button>
+              {removable && (
+                <button type="button" onClick={() => equip(null)}>
+                  {t('field.skillRemove')}
+                </button>
+              )}
+            </div>
+          </>
+        )}
+      </aside>
     </section>
   );
 }
