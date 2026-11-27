@@ -59,6 +59,9 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   const reserve = bag.locator('.nq-bag-reserve-grid');
   const storedWeapon = reserve.locator('[data-bag-key="inv:common-renshu-no-bou"]');
   await expect(bag).toHaveAttribute('aria-modal', 'true');
+  await expect(bag.locator('.nq-bag-filters button').first()).toHaveCSS('font-size', '14px');
+  await expect(bag.locator(':scope > .nq-bag-message')).toHaveCount(0);
+  await expect(bag.getByRole('status')).toHaveCount(0);
   await expect(bag.locator('[data-bag-key="hero"]')).toBeFocused();
   for (const [width, height] of [
     [960, 540],
@@ -87,6 +90,7 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   await storedWeapon.press('Enter');
   await storedWeapon.press('Space');
   await expect(bag.locator('.nq-party-info')).toContainText('れんしゅうの ぼう');
+  await expect(bag.getByRole('status')).toHaveCount(0);
   await storedWeapon.dragTo(bag.locator('.nq-bag-empty').first());
   await expect(bag.getByRole('status')).toContainText(/決|き/);
   await expect(storedWeapon).toBeVisible();

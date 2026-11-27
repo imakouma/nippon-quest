@@ -346,6 +346,7 @@ export function BagOverlay({
           </section>
           <BagDetails
             m={m}
+            message={notice ?? message}
             monsInBag={inBag.some((x) => x.kind === 'monster')}
             flashKey={flashKey}
             toggle={toggle}
@@ -355,9 +356,6 @@ export function BagOverlay({
             onUse={onUse}
             onRosterRemove={onRosterRemove}
           />
-        </div>
-        <div class="nq-party-msg nq-bag-message" role="status" aria-live="polite">
-          <RubyLabel text={notice ?? message ?? t('field.bagSelectHint')} />
         </div>
       </div>
     </div>

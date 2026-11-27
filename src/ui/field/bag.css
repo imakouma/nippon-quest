@@ -51,12 +51,14 @@
   color: var(--nq-white);
 }
 .nq-bag-filters {
+  font-size: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
 }
 .nq-bag-filters button {
-  padding: 4px;
+  padding: 4px 7px;
+  min-height: 34px;
   border: 2px solid var(--nq-slate);
   font: inherit;
   font-size: 14px;

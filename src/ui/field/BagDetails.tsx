@@ -20,6 +20,7 @@ const STATS: [keyof Stats, string][] = [
 
 type Props = Pick<BagOverlayProps, 'onGrow' | 'onUse' | 'onRosterRemove' | 'flashKey'> & {
   m: BagThing;
+  message: string | null;
   monsInBag: boolean;
   toggle: () => void;
   leader: () => void;
@@ -27,6 +28,7 @@ type Props = Pick<BagOverlayProps, 'onGrow' | 'onUse' | 'onRosterRemove' | 'flas
 };
 export function BagDetails({
   m,
+  message,
   monsInBag,
   toggle,
   leader,
@@ -103,6 +105,11 @@ export function BagDetails({
           {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
         </div>
       }
+      {message && (
+        <div class="nq-party-msg nq-bag-message" role="status" aria-live="polite">
+          <RubyLabel text={message} />
+        </div>
+      )}
       <div class="nq-bag-actions">
         {m.kind !== 'hero' && (
           <button type="button" class="nq-opt nq-bag-toggle" disabled={!!reason} onClick={toggle}>
