@@ -2569,6 +2569,7 @@ export class OverworldScene extends Phaser.Scene {
         menuLabel: t('field.menu'),
         onMenu: () => this.routeFieldInteraction('menu'),
         movementControl: this.gs()?.settings.movementControl,
+        touchLayout: this.gs()?.settings.touchLayout,
         onMove: (direction) => this.fieldInput.setTouchDirection(direction),
         action,
         dev: this.devAvailable()

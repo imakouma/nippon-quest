@@ -1599,11 +1599,124 @@
 }
 
 .nq-settings-box {
-  overflow: auto;
+  width: min(888px, 100%);
+  height: min(504px, 100%);
+  min-height: 0;
 }
-.nq-settings-box input,
-.nq-settings-box select {
-  max-width: 100%;
+.nq-settings-box .nq-menu-head {
+  justify-content: space-between;
+}
+.nq-settings-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
+}
+.nq-settings-card:is(:focus-visible, :hover) {
+  outline: 4px solid var(--nq-yellow);
+  outline-offset: -4px;
+  color: var(--nq-yellow);
+}
+.nq-settings-cross {
+  width: 40px;
+  height: 40px;
+  background: var(--nq-yellow);
+  clip-path: polygon(
+    35% 0,
+    65% 0,
+    65% 35%,
+    100% 35%,
+    100% 65%,
+    65% 65%,
+    65% 100%,
+    35% 100%,
+    35% 65%,
+    0 65%,
+    0 35%,
+    35% 35%
+  );
+}
+.nq-settings-controls {
+  display: grid;
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+.nq-settings-practice {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: center;
+  container-type: size;
+  gap: 6px;
+  min-height: 0;
+}
+.nq-settings-preview {
+  width: min(100%, calc(max(0px, 100cqh - 48px) * 16 / 9));
+  aspect-ratio: 16 / 9;
+  position: relative;
+  outline: 2px solid #4f5c7a;
+  background: #202e42;
+}
+.nq-settings-preview canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+.nq-settings-options {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+.nq-settings-row {
+  display: grid;
+  grid-template-columns: 5.25em minmax(0, 1fr) 5ch;
+  gap: 8px;
+  align-items: center;
+  min-height: 30px;
+}
+.nq-settings-row input {
+  width: 100%;
+  margin: 0;
+}
+.nq-settings-row output {
+  text-align: right;
+}
+.nq-settings-pick {
+  display: flex;
+  gap: 8px;
+}
+.nq-settings-pick > * {
+  min-width: 0;
+  flex: 1;
+}
+.nq-settings-pick button[aria-pressed='true'] {
+  color: var(--nq-yellow);
+  border-color: currentColor;
+}
+.nq-settings-preview .nq-virtual-stick {
+  display: block;
+  position: absolute;
+}
+.nq-settings-preview .nq-direction-pad {
+  display: grid;
+  position: absolute;
+}
+@media (orientation: portrait) {
+  .nq-settings-controls {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+}
+@media (max-height: 430px) {
+  .nq-settings-options {
+    gap: 4px;
+  }
+  .nq-settings-row {
+    min-height: 24px;
+  }
 }
 
 .nq-wmap.nq-menu-drawer-layer {

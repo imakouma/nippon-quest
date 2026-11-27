@@ -173,6 +173,14 @@ export const gameStateSchema = z.object({
     timeLimitScale: z.number().positive().default(1),
     practiceUnlimitedTime: z.boolean().optional(),
     movementControl: z.enum(['stick', 'dpad']).optional(),
+    touchLayout: z
+      .object({
+        x: z.number().min(0).max(100),
+        y: z.number().min(0).max(100),
+        size: z.number().min(70).max(150),
+        opacity: z.number().min(2).max(100),
+      })
+      .optional(),
   }),
 });
 
