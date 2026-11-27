@@ -79,6 +79,7 @@ class MenuListRow extends Component<MenuListRowProps> {
     numberOnly = false,
     onPick,
   }: MenuListRowProps) {
+    const icon = entry.icon ?? entry.getIcon?.();
     return (
       <li>
         <button
@@ -95,7 +96,7 @@ class MenuListRow extends Component<MenuListRowProps> {
           onClick={() => onPick(index)}
         >
           <span class="nq-amap-cur">{selected && <span class="nq-heart">♥</span>}</span>
-          {entry.icon && <img class="nq-item-icon nq-town-icon nq-menu-icon" src={entry.icon} alt="" />}
+          {icon && <img class="nq-item-icon nq-town-icon nq-menu-icon" src={icon} alt="" />}
           <span class={compactMeta ? 'nq-mistake-row-copy' : undefined}>
             <RubyLabel text={numberOnly ? (entry.right ?? entry.name) : entry.name} class="nq-opt-name" />
             {compactMeta && entry.sub && <RubyLabel text={entry.sub} class="nq-mistake-row-meta" />}
@@ -373,7 +374,7 @@ export function MenuOverlay({
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  const pic = e?.art ?? e?.icon;
+  const pic = e?.art ?? e?.icon ?? e?.getIcon?.();
   return (
     <div class={home ? 'nq-wmap nq-menu-drawer-layer' : 'nq-wmap'} onClick={onClose}>
       <div
