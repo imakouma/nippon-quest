@@ -397,10 +397,11 @@ test('国語の練習用短文12問をスマホで読んで正答できる', asy
         await page
           .locator('.pg-preview')
           .screenshot({ path: testInfo.outputPath('current-summary-mobile.png') });
-        expect(measured.font, `${id} at ${width}x${height}`).toBeGreaterThanOrEqual(18);
+        expect.soft(measured.font, `${id} at ${width}x${height}`).toBeGreaterThanOrEqual(18);
       }
       expect(measured.buttons.length, id).toBeGreaterThan(0);
-      if (width === 390) for (const height of measured.buttons) expect(height, id).toBeGreaterThanOrEqual(40);
+      if (width === 390)
+        for (const height of measured.buttons) expect.soft(height, id).toBeGreaterThanOrEqual(40);
       metrics.push({ id, width, height, ...measured });
     }
     if ([...representative].some((suffix) => id.endsWith(suffix)))
@@ -469,8 +470,8 @@ test('国語の練習用文章7問をスマホで読んで正答できる', asyn
           .locator('.pg-preview')
           .screenshot({ path: testInfo.outputPath(`${id}-original-mobile.png`) });
         readings.push({ id, width, ...metrics });
-        expect(metrics.font, id).toBeGreaterThanOrEqual(18);
-        for (const height of metrics.heights) expect(height, id).toBeGreaterThanOrEqual(40);
+        expect.soft(metrics.font, id).toBeGreaterThanOrEqual(18);
+        for (const height of metrics.heights) expect.soft(height, id).toBeGreaterThanOrEqual(40);
       }
     }
     const q = content.find((q) => q.id === id);
