@@ -6,16 +6,16 @@ import mistakes from './menu-icons/mistakes.png';
 import monsters from './menu-icons/monsters.png';
 import party from './menu-icons/party.png';
 import skills from './menu-icons/skills.png';
-import settings from './menu-icons/settings.png';
+import parent from './menu-icons/parent.png';
 import save from './menu-icons/save.png';
 
-const DRAWER_ICONS: Partial<Record<MenuHomeKey | 'save', string>> = {
+const DRAWER_ICONS: Partial<Record<MenuHomeKey | 'save' | 'parent', string>> = {
   roadmap,
   mistakes,
   monsters,
   party,
   skills,
-  settings,
+  parent,
   save,
 };
 
@@ -58,10 +58,16 @@ const FALLBACK_ICONS: Partial<Record<MenuHomeKey, readonly Shape[]>> = {
   ],
 };
 
-export function MenuCategoryIcon({ name }: { name: MenuHomeKey | 'save' }) {
+export function MenuCategoryIcon({ name }: { name: MenuHomeKey | 'save' | 'parent' }) {
   const src = DRAWER_ICONS[name];
   if (src) return <img class="nq-menu-category-icon" src={src} width={32} height={32} alt="" />;
-  if (name === 'save') return null;
+  if (name === 'settings')
+    return (
+      <span class="nq-menu-category-icon nq-settings-gear" aria-hidden="true">
+        ⚙
+      </span>
+    );
+  if (name === 'save' || name === 'parent') return null;
 
   return (
     <svg class="nq-menu-category-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
