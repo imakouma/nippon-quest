@@ -383,6 +383,7 @@
   color: var(--nq-cloud);
 }
 .nq-bag-actions {
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   flex: none;
@@ -406,6 +407,7 @@
   line-height: 22px;
 }
 .nq-bag-actions .nq-bag-toggle {
+  white-space: nowrap;
   border-color: #73ddca;
   color: #73ddca;
   background: #173433;

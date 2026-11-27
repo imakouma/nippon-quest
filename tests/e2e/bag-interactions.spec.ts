@@ -197,6 +197,9 @@ test('どうぐが増えても詳細と操作を保ち、クリック追加・�
       true,
     );
     await expect(bag.locator('.nq-bag-toggle')).toBeVisible();
+    await expect(bag.locator('.nq-bag-toggle')).toHaveCSS('font-size', '18px');
+    await expect(bag.locator('.nq-bag-toggle')).toHaveCSS('white-space', 'nowrap');
+    expect(await bag.locator('.nq-bag-toggle').evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(true);
     const cardSizes = await bag.locator('.nq-bag-reserve-tile').evaluateAll((cards) =>
       cards.map((card) => ({
         height: (card as HTMLElement).offsetHeight,

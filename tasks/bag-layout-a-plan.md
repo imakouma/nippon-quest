@@ -49,3 +49,5 @@
 - ゼルダの伝説 ムジュラの仮面の任天堂公式説明書：アイテムをグリッドに並べ、選んでAを押すと説明を表示。https://www.nintendo.com/eu/media/downloads/games_8/emanuals/nintendo_8/Manual_Nintendo64_TheLegendOfZeldaMajorasMask_EN.pdf
 
 上記は公開画面・説明書からの観察。今回の右詳細欄への常時表示はNIHON QUEST向けの提案であり、各作品の配置のコピーではない。
+
+「せんとうように いれる」の末尾が折れる問題を修正。共通CSSのフォント継承に合わせて操作欄に18pxを設定し、追加/取り外しボタンは折り返さない。アイコンのみの一覧案は引き続き未採用・未実装。資料室4種に関連変更なし。本番公開は保留。
