@@ -38,6 +38,9 @@ for (const tab of ['マナビモノ', 'とくさん']) {
     const panelBox = await detail.boundingBox();
     const gridBox = await grid.boundingBox();
     expect(panelBox!.x).toBeGreaterThanOrEqual(gridBox!.x + gridBox!.width);
+    const headingBox = await detail.locator('.nq-party-head').boundingBox();
+    const linesBox = await detail.locator('.nq-town-lines').boundingBox();
+    expect(linesBox!.y).toBeGreaterThanOrEqual(headingBox!.y + headingBox!.height - 1);
     await page.screenshot({ path: info.outputPath(`dex-${tab}-record.png`) });
     await owned.click();
     await expect(detail).toHaveCount(0);

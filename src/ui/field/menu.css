@@ -1845,6 +1845,7 @@
   overflow: auto;
 }
 .nq-dex-record-head {
+  flex: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1855,18 +1856,45 @@
 .nq-dex-body .nq-dex-info .nq-party-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  min-height: 0;
+  flex: none;
+  gap: 5px;
 }
 .nq-dex-body .nq-dex-info .nq-party-art {
   width: 100%;
-  height: 112px;
+  height: 96px;
   background: radial-gradient(ellipse at 50% 80%, #486873, #24384e 65%);
 }
 .nq-dex-body .nq-dex-info .nq-party-who {
   grid-template-rows: auto auto auto;
+  gap: 2px;
 }
-.nq-dex-body .nq-dex-info .nq-party-name,
+.nq-dex-body .nq-dex-info .nq-dex-name-row .nq-party-name,
 .nq-dex-body .nq-dex-info .nq-party-sub {
   height: auto;
   min-height: 0;
+}
+
+.nq-dex-body .nq-dex-info .nq-town-lines,
+.nq-dex-body .nq-dex-info .nq-party-blurb {
+  flex: none;
+  font-size: 16px;
+  line-height: 21px;
+}
+.nq-dex-body .nq-dex-info .nq-town-lines li {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.nq-dex-body .nq-dex-info .nq-dex-name-row .nq-party-name {
+  line-height: 28px;
+}
+.nq-dex-body .nq-dex-info .nq-menu-detail-count {
+  grid-row: auto;
+  justify-self: start;
+  padding: 0 4px;
+}
+.nq-dex-body .nq-dex-info .nq-town-lines {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 8px;
 }
