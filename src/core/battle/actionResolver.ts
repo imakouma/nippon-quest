@@ -211,6 +211,15 @@ export function finishAction(
   }
 }
 
+export function nebutaTargetsHero(state: BattleState, turn: number): boolean {
+  return (
+    state.isBossBattle &&
+    state.enemy.refId === 'aomori-midboss-nebuta-taisho' &&
+    state.ally.hero.hp > 0 &&
+    turn % 3 === 0
+  );
+}
+
 /** 敵の initiative slot。休み・回復・攻撃・防御を 1 action bundle として解決する。 */
 export function resolveEnemyTurn(
   state: BattleState,
@@ -226,13 +235,16 @@ export function resolveEnemyTurn(
     return;
   }
 
-  const target = frontAlly(state);
+  const aimed = nebutaTargetsHero(state, state.turn);
+  const target = aimed ? state.ally.hero : frontAlly(state);
   const skills = enemy.skills.map((id) => def.skills.get(id)).filter((skill): skill is Skill => !!skill);
-  const intent = selectEnemyIntent(
-    { hp: enemy.hp, maxHp: enemy.stats.hp, mp: enemy.mp, skills },
-    state.ruleset.enemyTactics,
-    rng,
-  );
+  const intent = aimed
+    ? { kind: 'attack' as const }
+    : selectEnemyIntent(
+        { hp: enemy.hp, maxHp: enemy.stats.hp, mp: enemy.mp, skills },
+        state.ruleset.enemyTactics,
+        rng,
+      );
   if (intent.kind === 'heal') {
     const healSkill = def.skills.get(intent.skillId)!;
     enemy.mp -= healSkill.mp;

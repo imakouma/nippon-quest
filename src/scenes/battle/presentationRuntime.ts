@@ -67,12 +67,15 @@ function sequence(commands: BattlePresentationCommand[]): BattlePresentationComm
 function textCommands(event: BattleEvent, previous: BattleEvent | undefined, ctx: NarrateCtx) {
   const lines = narrate(event, ctx, previous);
   const commands: BattlePresentationCommand[] = [];
-  if (event.t === 'defeat' || event.t === 'bossPhase') {
+  if (event.t === 'defeat' || event.t === 'bossPhase' || event.t === 'bossTargetWarning') {
     for (const line of lines) {
       commands.push({
         kind: 'text',
         text: line,
-        mode: event.t === 'defeat' || line.startsWith('「') ? 'say-wait' : 'say-auto',
+        mode:
+          event.t === 'defeat' || event.t === 'bossTargetWarning' || line.startsWith('「')
+            ? 'say-wait'
+            : 'say-auto',
       });
     }
     return commands;

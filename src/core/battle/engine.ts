@@ -20,6 +20,7 @@ import {
   finishAction,
   frontAlly,
   makeCompanion,
+  nebutaTargetsHero,
   resolveCompanionAction,
   resolveEnemyTurn,
   resolveHit,
@@ -463,6 +464,7 @@ export function act(
   if (s.outcome === 'ongoing') {
     for (const c of [s.ally.hero, ...s.ally.monsters, s.enemy]) decayBuffs(c);
     s.turn += 1;
+    if (nebutaTargetsHero(s, s.turn) && s.enemy.skipTurns === 0) ev.push({ t: 'bossTargetWarning' });
   }
   return done(s, rng, ev, evaluation);
 }

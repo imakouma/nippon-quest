@@ -358,6 +358,10 @@ export class BattleEventAnimator {
         }
         return;
       }
+      case 'bossTargetWarning':
+        p.audio.play('buff');
+        await p.sprites.flash(enemy, 0xffc45c, 2);
+        return;
       case 'bossPhase': {
         p.audio.play('crit');
         p.camera.flash(420, 229, 72, 77);

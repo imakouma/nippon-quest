@@ -1199,3 +1199,20 @@ describe('技の命中と追加効果', () => {
     expect(finished.events.some((event) => event.t === 'buff' && event.side === 'enemy')).toBe(false);
   });
 });
+
+it('ネブタイショウは前衛を攻撃し、予告の次のターンだけ主人公を狙う', async () => {
+  const { state } = await setup({ enemyId: 'aomori-midboss-nebuta-taisho', withMonster: true });
+  const battle = { ...tough(state), isBossBattle: true, turn: 2 };
+  const before = act(battle, { kind: 'attack' }, D);
+  expect(before.events.at(-1)?.t).toBe('bossTargetWarning');
+  expect(
+    before.events.some(
+      (event) => event.t === 'act' && event.side === 'enemy' && event.targetIds.includes('hero'),
+    ),
+  ).toBe(false);
+  const after = act(before.state, { kind: 'attack' }, D);
+  expect(after.events).toContainEqual(
+    expect.objectContaining({ t: 'damage', side: 'ally', targetId: 'hero' }),
+  );
+  expect(after.events.some((event) => event.t === 'bossTargetWarning')).toBe(false);
+});
