@@ -223,6 +223,12 @@
   line-height: 1.1;
 }
 
+.nq-hero-skill-actions button + button {
+  flex: 0 0 auto;
+  width: auto;
+  white-space: nowrap;
+}
+
 .nq-hero-skill-actions button:disabled {
   opacity: 0.62;
   cursor: default;
