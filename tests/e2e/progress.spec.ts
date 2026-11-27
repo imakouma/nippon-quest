@@ -56,7 +56,7 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
   expect(bagLabelBox!.height).toBeLessThanOrEqual(40);
   await menuHome.getByRole('button', { name: /もちもの・へんせい/ }).focus();
   await page.keyboard.press('ArrowUp');
-  await expect(menuHome.getByRole('button', { name: /がくしゅう/ })).toBeFocused();
+  await expect(menuHome.getByRole('button', { name: /ずかん/ })).toBeFocused();
   await page.keyboard.press('ArrowDown');
   await expect(menuHome.getByRole('button', { name: /もちもの・へんせい/ })).toBeFocused();
   await expect(page.getByRole('button', { name: /セーブ/ })).toBeVisible();
