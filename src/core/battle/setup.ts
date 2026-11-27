@@ -140,9 +140,9 @@ export function makeEncounterEnemy(
   // 序盤は主人公の技に対して追撃の比重が大きい。Lv.30までに補正を外す。
   const earlyLevelWeight = Math.max(0, Math.min(1, (30 - level) / 20));
   const extraBossHp = shortBossEncounters.has(def.id)
-    ? 0.6
+    ? 0.75
     : def.id === 'aomori-midboss-nebuta-taisho'
-      ? 0.35
+      ? 0.48
       : 0;
   const bossAdjustment = boss && hasActiveCompanion && grade <= 2 ? 1 + extraBossHp * earlyLevelWeight : 1;
   enemy.stats.hp = Math.round(targetHp * durability * variation * bossAdjustment);
