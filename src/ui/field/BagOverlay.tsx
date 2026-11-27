@@ -46,9 +46,14 @@ export function BagOverlay({
   const [notice, setNotice] = useState<string | null>(null);
   const [filter, setFilter] = useState('all');
   const [dragKey, setDragKey] = useState<string | null>(null);
+  const category = (x: BagThing) => (x.kind === 'item' ? (x.action === 'pack' ? 'tool' : 'storage') : x.kind);
+  const shown = outside.filter((x) => filter === 'all' || category(x) === filter);
   const sig = order.map((x) => x.key).join(',');
   useEffect(() => setSel(indexOf(focusKey)), [focusKey, sig]);
   const m = order[Math.min(sel, order.length - 1)]!;
+  useEffect(() => {
+    if (outside.some((x) => x.key === m.key) && !shown.some((x) => x.key === m.key)) setSel(0);
+  }, [m.key, filter, sig]);
   const boxRef = useRef<HTMLDivElement>(null);
   const pouchRef = useRef<HTMLUListElement>(null);
   useModalFocus(boxRef, '[data-bag-key].nq-focus');
@@ -96,8 +101,10 @@ export function BagOverlay({
     onEvolve(m.key);
   };
 
-  const live = useRef({ pick, toggle, onClose, sel, n: order.length });
-  live.current = { pick, toggle, onClose, sel, n: order.length };
+  const visibleKeys = new Set([hero, ...inBag, ...shown].map((x) => x.key));
+  const visibleIndexes = order.flatMap((x, i) => (visibleKeys.has(x.key) ? [i] : []));
+  const live = useRef({ pick, toggle, onClose, sel, visibleIndexes });
+  live.current = { pick, toggle, onClose, sel, visibleIndexes };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const isConfirm = e.key === 'Enter' || e.key === ' ';
@@ -117,11 +124,17 @@ export function BagOverlay({
       switch (e.key) {
         case 'ArrowUp':
         case 'ArrowLeft':
-          if (L.n) L.pick((L.sel - 1 + L.n) % L.n);
+          if (L.visibleIndexes.length) {
+            const i = L.visibleIndexes.indexOf(L.sel);
+            L.pick(L.visibleIndexes[(i - 1 + L.visibleIndexes.length) % L.visibleIndexes.length]!);
+          }
           break;
         case 'ArrowDown':
         case 'ArrowRight':
-          if (L.n) L.pick((L.sel + 1) % L.n);
+          if (L.visibleIndexes.length) {
+            const i = L.visibleIndexes.indexOf(L.sel);
+            L.pick(L.visibleIndexes[(i + 1) % L.visibleIndexes.length]!);
+          }
           break;
         case 'Enter':
         case ' ':
@@ -205,8 +218,6 @@ export function BagOverlay({
     if (thing.inBag) onMove(thing.key, x, y);
     else onToggle(thing.key, { x, y });
   };
-  const category = (x: BagThing) => (x.kind === 'item' ? (x.action === 'pack' ? 'tool' : 'storage') : x.kind);
-  const shown = outside.filter((x) => filter === 'all' || category(x) === filter);
   return (
     <div class="nq-wmap" onClick={onClose}>
       <div
@@ -242,7 +253,15 @@ export function BagOverlay({
             <p class="nq-party-sep nq-bag-sep">{t('field.bagOutside')}</p>
             <div class="nq-bag-filters" role="group" aria-label={displayText(t('field.bagFilter'))}>
               {['all', 'tool', 'equip', 'monster', 'storage'].map((key) => (
-                <button type="button" key={key} aria-pressed={filter === key} onClick={() => setFilter(key)}>
+                <button
+                  type="button"
+                  key={key}
+                  aria-pressed={filter === key}
+                  onClick={() => {
+                    if (outside.includes(m) && key !== 'all' && category(m) !== key) pick(0);
+                    setFilter(key);
+                  }}
+                >
                   <RubyLabel text={t(`field.bagFilter_${key}`)} />
                 </button>
               ))}
