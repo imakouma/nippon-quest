@@ -237,9 +237,9 @@ export function MistakeNotebook(p: Props) {
                 style={{ backgroundImage: `url(${artAssets})` }}
                 aria-hidden="true"
               />
-              <section>
+              <section class={pending || mistakes.length ? undefined : 'nqn-empty-speech'}>
                 <h2>
-                  <RubyLabel text={label('invite')} />
+                  <RubyLabel text={label(pending || mistakes.length ? 'invite' : 'companionEmpty')} />
                 </h2>
                 {pending ? (
                   <button
@@ -251,11 +251,11 @@ export function MistakeNotebook(p: Props) {
                   >
                     <RubyLabel text={label('press')} />
                   </button>
-                ) : (
-                  <button disabled={!mistakes.length} onClick={() => mistakes[0] && begin(mistakes[0].q)}>
-                    <RubyLabel text={label(mistakes.length ? 'start' : 'empty')} />
+                ) : mistakes.length ? (
+                  <button onClick={() => mistakes[0] && begin(mistakes[0].q)}>
+                    <RubyLabel text={label('start')} />
                   </button>
-                )}
+                ) : null}
               </section>
             </div>
           )}

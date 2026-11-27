@@ -422,3 +422,25 @@
   background: #edb567;
   border-color: #ffdc98;
 }
+
+.nqn-hero .nqn-empty-speech {
+  position: relative;
+  border-radius: 14px;
+  background: var(--paper);
+  color: #30271f;
+}
+.nqn-empty-speech h2 {
+  margin: 0;
+}
+.nqn-empty-speech::before {
+  position: absolute;
+  top: 50%;
+  left: -11px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%) rotate(45deg);
+  border-bottom: 3px solid var(--line);
+  border-left: 3px solid var(--line);
+  background: var(--paper);
+  content: '';
+}
