@@ -30,16 +30,19 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
   const sortModes = editor.getByRole('group', { name: /並べ替え|ならべかえ/ });
   for (const label of ['いりょく', 'めいちゅう']) {
     await sortModes.getByRole('button', { name: label }).click();
-    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*(?:高|たか)') })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
+    await expect(
+      sortModes.getByRole('button', { name: new RegExp(label + '.*(?:高|たか)') }),
+    ).toHaveAttribute('aria-pressed', 'true');
     await sortModes.getByRole('button', { name: new RegExp(label + '.*(?:高|たか)') }).click();
-    await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*(?:低|ひく)') })).toHaveAttribute(
-      'aria-pressed',
-      'true',
-    );
+    await expect(
+      sortModes.getByRole('button', { name: new RegExp(label + '.*(?:低|ひく)') }),
+    ).toHaveAttribute('aria-pressed', 'true');
   }
+  expect(
+    await sortModes
+      .getByRole('button')
+      .evaluateAll((buttons) => buttons.every((button) => button.scrollWidth <= button.clientWidth + 1)),
+  ).toBe(true);
   await slots.nth(3).click();
   await editor
     .locator('.nq-hero-skill-list')
