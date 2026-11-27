@@ -190,6 +190,16 @@ test('どうぐが増えても詳細と操作を保ち、クリック追加・�
       true,
     );
     await expect(bag.locator('.nq-bag-toggle')).toBeVisible();
+    const cardSizes = await bag.locator('.nq-bag-reserve-tile').evaluateAll((cards) =>
+      cards.map((card) => ({
+        height: (card as HTMLElement).offsetHeight,
+        width: (card as HTMLElement).offsetWidth,
+        fits: card.scrollHeight <= card.clientHeight + 1,
+      })),
+    );
+    expect(new Set(cardSizes.map((card) => card.height)).size).toBe(1);
+    expect(new Set(cardSizes.map((card) => card.width)).size).toBe(1);
+    expect(cardSizes.every((card) => card.fits)).toBe(true);
   }
   await page.setViewportSize({ width: 960, height: 540 });
   await bag.locator('.nq-bag-toggle').click();

@@ -86,11 +86,12 @@
 }
 .nq-bag-reserve-tile {
   display: grid;
-  grid-template-rows: 44px minmax(24px, auto);
+  grid-template-rows: 40px minmax(0, 1fr);
   place-items: center;
   position: relative;
   width: 100%;
-  min-height: 86px;
+  height: 96px;
+  box-sizing: border-box;
   padding: 4px;
   border: 3px solid var(--nq-slate);
   background: #1d2033;
@@ -101,8 +102,8 @@
 .nq-bag-reserve-pic {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 }
 .nq-bag-reserve-pic img {
   width: 40px;
@@ -110,13 +111,22 @@
   object-fit: contain;
   image-rendering: pixelated;
 }
+/* Names may wrap, but never resize the inventory card. The detail panel shows the full name. */
 .nq-bag-reserve-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   max-width: 100%;
-  font-size: 14px;
-  line-height: 20px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 18px;
   text-align: center;
   word-break: keep-all;
   overflow-wrap: anywhere;
+}
+.nq-bag-reserve-name rt {
+  font-size: 6px;
 }
 .nq-bag-reserve-heart {
   position: absolute;
@@ -129,7 +139,7 @@
   top: 2px;
   right: 3px;
   color: var(--nq-cloud);
-  font-size: 14px;
+  font-size: 12px;
 }
 .nq-bag-reserve-grid > .nq-party-none {
   grid-column: 1/-1;
