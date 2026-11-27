@@ -69,6 +69,32 @@ function setup() {
   return { onToggle, onMove };
 }
 const click = (selector: string) => act(() => root.querySelector<HTMLButtonElement>(selector)!.click());
+const filter = (key: string) =>
+  act(() =>
+    [...root.querySelectorAll<HTMLButtonElement>('.nq-bag-filters button')]
+      .find((button) => button.textContent?.includes(`field.bagFilter_${key}`))!
+      .click(),
+  );
+const arrow = (key: string) =>
+  act(() => window.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true })));
+it('分類で隠れたものを選ばず、選択中のものが隠れたら主人公に戻る', () => {
+  setup();
+  click('[data-bag-key="weapon"]');
+  filter('tool');
+  expect(root.querySelector('.nq-party-info')?.textContent).toContain('hero');
+  arrow('ArrowDown');
+  expect(root.querySelector('.nq-party-info')?.textContent).toContain('packed');
+  arrow('ArrowDown');
+  expect(root.querySelector('.nq-party-info')?.textContent).toContain('apple');
+  filter('all');
+  filter('tool');
+  expect(root.querySelector('.nq-party-info')?.textContent).toContain('apple');
+  arrow('ArrowDown');
+  expect(root.querySelector('.nq-party-info')?.textContent).toContain('hero');
+  filter('equip');
+  arrow('ArrowUp');
+  expect(root.querySelector('.nq-party-info')?.textContent).toContain('weapon');
+});
 it('選び直しても詳細が残り、入れるボタンから道具を追加できる', () => {
   const { onToggle } = setup();
   click('[data-bag-key="apple"]');
