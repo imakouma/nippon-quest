@@ -152,6 +152,7 @@ export function BagOverlay({
         class={`nq-bag-reserve-tile ${x.key === m.key ? 'nq-focus' : ''}`}
         draggable={!x.blockedReason && (x.kind !== 'item' || x.action === 'pack')}
         aria-pressed={x.key === m.key}
+        aria-label={displayText(x.name)}
         onDragStart={(e) => {
           e.dataTransfer?.setData('text/plain', x.key);
           setDragKey(x.key);
@@ -160,10 +161,8 @@ export function BagOverlay({
         onClick={() => activateKey(x.key)}
       >
         <span class="nq-bag-reserve-pic">
-          <Pic x={x} size={3} />
-          {x.key === m.key && <span class="nq-heart nq-bag-reserve-heart">♥</span>}
+          <Pic x={x} size={2} />
         </span>
-        <RubyLabel text={x.name} class="nq-bag-reserve-name" />
         {x.count !== undefined && x.count > 1 && <span class="nq-bag-reserve-count">×{x.count}</span>}
       </button>
     </li>

@@ -184,6 +184,8 @@ test('どうぐが増えても詳細と操作を保ち、クリック追加・�
   await openBag();
   const bag = page.getByRole('dialog', { name: /もちもの・へんせい/ });
   const apple = bag.locator('[data-bag-key="item:aomori-ringo"]');
+  await expect(apple).toHaveAccessibleName('りんご');
+  await expect(bag.locator('.nq-bag-reserve-name')).toHaveCount(0);
   await apple.click();
   await apple.click();
   for (const [width, height] of [
@@ -215,6 +217,7 @@ test('どうぐが増えても詳細と操作を保ち、クリック追加・�
     expect(new Set(cardSizes.map((card) => card.height)).size).toBe(1);
     expect(new Set(cardSizes.map((card) => card.width)).size).toBe(1);
     expect(cardSizes.every((card) => card.fits)).toBe(true);
+    expect(cardSizes.every((card) => Math.abs(card.width - card.height) <= 1)).toBe(true);
   }
   await page.setViewportSize({ width: 960, height: 540 });
   await bag.locator('.nq-bag-toggle').click();
