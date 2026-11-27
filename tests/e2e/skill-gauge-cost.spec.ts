@@ -69,6 +69,7 @@ for (const viewport of [
 }
 
 test('算数バーストの戦闘威力は設定学年に応じて変わる', async ({ page }, info) => {
+  test.setTimeout(90_000);
   for (const { grade, power, enemyHp } of [
     { grade: 1, power: 80, enemyHp: 23 },
     { grade: 6, power: 490, enemyHp: 104 },
@@ -89,6 +90,9 @@ test('算数バーストの戦闘威力は設定学年に応じて変わる', as
       return battle.deps.heroSkill!(battle.content.skills.get('sk-burst-sansu')!).power;
     });
     expect(observed).toBe(power);
+    await page.locator('[data-skill="sk-burst-sansu"]').focus();
+    await page.locator('.nq-skill-details-toggle').click();
+    await expect(page.locator('#nq-skill-details')).toContainText('いりょく ' + power);
     await page.screenshot({ path: info.outputPath(`burst-grade-${grade}.png`) });
   }
 });

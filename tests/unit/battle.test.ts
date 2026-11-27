@@ -506,6 +506,21 @@ describe('コンボ＆ストリーク', () => {
     expect(e && e.t === 'combo' && e.bonus).toBeCloseTo(comboBonus(4, D.settings));
   });
 
+  it('上限突破用の経験値差は敵の報酬に反映しない', async () => {
+    const { state } = await setup({ level: 30 });
+    const heroXp = Array.from({ length: 102 }, (_, level) => level * 1000);
+    heroXp[100] = 200_000;
+    heroXp[101] = 500_000;
+    const winXp = (level: number) => {
+      const battle = { ...state, enemy: { ...state.enemy, level, hp: 1 } };
+      return act(battle, { kind: 'attack' }, { ...D, heroXp }).events.find((event) => event.t === 'victory')
+        ?.xp;
+    };
+    expect(winXp(99)).toBe(94);
+    expect(winXp(100)).toBe(winXp(99));
+    expect(winXp(101)).toBe(winXp(99));
+  });
+
   it('いちばん 長かった コンボで けいけんち・おかねが ふえる', async () => {
     const { state } = await setup({ level: 30 });
     const s: BattleState = {

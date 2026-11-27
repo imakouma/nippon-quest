@@ -90,6 +90,7 @@ export interface SkillOption {
   chargeGain: [number, number];
   effect: 'damage' | 'heal' | 'buff' | 'debuff' | 'scan' | 'status';
   flavor?: string;
+  power?: number;
   accuracy?: number;
   additionalEffect?: {
     stat: 'atk' | 'def';

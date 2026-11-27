@@ -21,7 +21,8 @@ export function victoryEvent(
     rewards && state.ruleset.recruitment.mode === 'standard' && rng.chance(monster?.recruitRate ?? 0);
   const bonus = comboBonus(state.player.maxCombo, settings);
   const baseXp = monster?.xp ?? 0;
-  const level = state.enemy.level;
+  // Lv.100以降の必要経験値は上限突破用。敵の報酬には通常成長の最後の区間を使う。
+  const level = Math.min(state.enemy.level, 99);
   const from = heroXp?.[level - 1];
   const to = heroXp?.[level];
   // 同レベルの通常戦なら約8勝。敵ごとの基本報酬差は緩やかに残す。
