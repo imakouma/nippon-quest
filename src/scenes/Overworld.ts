@@ -2683,7 +2683,7 @@ export class OverworldScene extends Phaser.Scene {
     };
     const draw = (tab: MenuTab, focusKey?: string, message: string | null = null, initialHome = true) => {
       const view = this.menuView(tab);
-      const roadmapView = this.roadmapViewModel();
+      const roadmapView = tab === 'roadmap' ? this.roadmapViewModel() : undefined;
       render(
         h(MenuOverlay, {
           tab,

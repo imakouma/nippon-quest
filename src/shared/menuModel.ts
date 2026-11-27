@@ -70,6 +70,7 @@ export interface MenuEntry {
   groupLabel?: string;
   icon?: string;
   art?: string;
+  getIcon?: () => string;
   /** バッグ内で占有するマスの形。 */
   bagSize?: { w: number; h: number };
   known: boolean;
