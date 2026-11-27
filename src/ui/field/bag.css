@@ -155,6 +155,8 @@
 }
 .nq-bag-cell {
   display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   place-items: center;
   position: relative;
   box-sizing: border-box;
@@ -183,14 +185,15 @@
   object-fit: contain;
   image-rendering: pixelated;
 }
+.nq-bag-hero img {
+  width: auto;
+  height: 48px;
+  max-width: 90%;
+  max-height: 90%;
+}
 .nq-bag-empty {
   border-color: #80654c;
   background: #211e27;
-}
-.nq-bag-slot-label {
-  font-size: 12px;
-  line-height: 16px;
-  color: #c8b9a3;
 }
 .nq-bag-drop-ok,
 .nq-bag-return-ok {

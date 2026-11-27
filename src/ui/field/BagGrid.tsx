@@ -100,7 +100,13 @@ export function BagGrid({
             data-drop-slot={slot}
             data-cell-x={c.x}
             data-cell-y={c.y}
-            aria-label={thing ? displayText(thing.name) : t('field.bagEmptyCell')}
+            aria-label={
+              thing
+                ? displayText(thing.name)
+                : slot
+                  ? displayText(t(`slots.${slot}`))
+                  : t('field.bagEmptyCell')
+            }
             draggable={!!thing && thing.kind !== 'hero'}
             onDragStart={(e) => {
               if (thing) {
@@ -123,13 +129,11 @@ export function BagGrid({
           >
             {thing ? (
               <>
-                <Pic x={thing} size={2} />
+                <Pic x={thing} size={2} centerVisible={thing.kind === 'hero'} />
                 {thing.key === selected.key && <span class="nq-heart nq-bag-heart">♥</span>}
                 {thing.leader && <span class="nq-bag-lead">{t('field.partyLeader')}</span>}
                 {thing.evolve?.ok && thing.evolve.room && <span class="nq-bag-evo">★</span>}
               </>
-            ) : slot ? (
-              <span class="nq-bag-slot-label">{t(`slots.${slot}`)}</span>
             ) : null}
           </button>
         );
