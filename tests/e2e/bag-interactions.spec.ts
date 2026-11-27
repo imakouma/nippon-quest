@@ -59,7 +59,7 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   const reserve = bag.locator('.nq-bag-reserve-grid');
   const storedWeapon = reserve.locator('[data-bag-key="inv:common-renshu-no-bou"]');
   await expect(bag).toHaveAttribute('aria-modal', 'true');
-  await expect(bag.locator('.nq-bag-filters button').first()).toHaveCSS('font-size', '14px');
+  await expect(bag.locator('.nq-bag-filters button').first()).toHaveCSS('font-size', '12px');
   await expect(bag.locator(':scope > .nq-bag-message')).toHaveCount(0);
   await expect(bag.getByRole('status')).toHaveCount(0);
   await expect(bag.locator('[data-bag-key="hero"]')).toBeFocused();

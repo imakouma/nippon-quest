@@ -51,18 +51,18 @@
   color: var(--nq-white);
 }
 .nq-bag-filters {
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 3px;
 }
 .nq-bag-filters button {
-  padding: 4px 7px;
-  min-height: 34px;
+  padding: 2px 5px;
+  min-height: 26px;
   border: 2px solid var(--nq-slate);
   font: inherit;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 12px;
+  line-height: 16px;
   color: var(--nq-cloud);
   background: var(--nq-night);
   cursor: pointer;
