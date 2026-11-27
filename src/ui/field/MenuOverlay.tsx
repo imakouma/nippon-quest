@@ -398,14 +398,15 @@ export function MenuOverlay({
               <RubyLabel text={tabs[tabIdx]?.label ?? ''} />
             </span>
           )}
-          {!home && (
+          {home ? (
+            <button type="button" class="nq-back nq-menu-close" onClick={onClose}>
+              × {t('ui.close')}
+            </button>
+          ) : (
             <button type="button" class="nq-back nq-menu-back" onClick={backToHome}>
               ← {t('ui.back')}
             </button>
           )}
-          <button type="button" class="nq-back nq-menu-close" onClick={onClose}>
-            × {t('ui.close')}
-          </button>
         </div>
         {home ? (
           <>

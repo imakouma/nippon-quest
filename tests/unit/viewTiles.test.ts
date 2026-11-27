@@ -8,16 +8,24 @@ afterEach(() => vi.unstubAllGlobals());
 
 it('atlas 内を palette 色で描き、孤立した森と砂の両側の角を丸める', () => {
   const pixels = new Map<string, string>();
+  const palette = new Set<string>(Object.values(NQ));
+  const invalid: string[] = [];
   const context = {
     fillStyle: '',
     fillRect(x: number, y: number, width: number, height: number) {
-      expect(width).toBe(1);
-      expect(height).toBe(1);
-      expect(x).toBeGreaterThanOrEqual(0);
-      expect(y).toBeGreaterThanOrEqual(0);
-      expect(x).toBeLessThan(canvas.width);
-      expect(y).toBeLessThan(canvas.height);
-      expect(Object.values(NQ)).toContain(this.fillStyle);
+      if (
+        width !== 1 ||
+        height !== 1 ||
+        !Number.isFinite(x) ||
+        !Number.isFinite(y) ||
+        x < 0 ||
+        y < 0 ||
+        x >= canvas.width ||
+        y >= canvas.height ||
+        !palette.has(this.fillStyle)
+      ) {
+        invalid.push(`${x},${y}: ${width}x${height} ${this.fillStyle}`);
+      }
       pixels.set(`${x},${y}`, this.fillStyle);
     },
   };
@@ -29,6 +37,7 @@ it('atlas 内を palette 色で描き、孤立した森と砂の両側の角を�
     create: vi.fn(() => ({ add: () => undefined })),
   };
   buildViewTexture({ textures } as unknown as Phaser.Scene);
+  expect(invalid).toEqual([]);
   expect(canvas.width).toBe(VIEW_COLS * 16);
   expect(canvas.height).toBe(Math.ceil(VIEW_COUNT / VIEW_COLS) * 16);
   expect(textures.create).toHaveBeenCalledOnce();

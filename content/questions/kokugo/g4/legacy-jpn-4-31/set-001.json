@@ -5,10 +5,7 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-31",
-    "tags": [
-      "source:codex-supplemental",
-      "reviewed:source-aligned-v1"
-    ],
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
     "payload": {
       "prompt": "「ユウタは落[お]ちていたりんごを拾[ひろ]い、持[も]ち主[ぬし]を探[さが]した。」この行動[こうどう]から分[わ]かるユウタの性格[せいかく]はどれ？",
       "choices": [
@@ -36,13 +33,10 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-31",
-    "tags": [
-      "legacy-node:jpn_4_31",
-      "reviewed:structural-v1",
-      "source:original-practice-replacement"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_4_31", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]（自作[じさく]）\n\nトウキビ畑[ばたけ]の奥[おく]で、がさりと音[おと]がした。ぼくは息[いき]をひそめた。だれかが近[ちか]づいてくる。足[あし]がすくみ、声[こえ]も出[で]なかった。\n\nこの場面[ばめん]の雰囲気[ふんいき]に合[あ]うものはどれ？",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nトウキビ畑[ばたけ]の奥[おく]で、がさりと音[おと]がした。ぼくは息[いき]をひそめた。だれかが近[ちか]づいてくる。足[あし]がすくみ、声[こえ]も出[で]なかった。\n\nこの場面[ばめん]の雰囲気[ふんいき]に合[あ]うものはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -62,11 +56,9 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "れんしゅうようのたんぶん（じさく）\n\nトウキビばたけのおくで、がさりとおとがした。ぼくはいきをひそめた。だれかがちかづいてくる。あしがすくみ、こえもでなかった。\n\nこのばめんのふんいきにあうものはどれ？"
+      "shuffle": true
     },
-    "explanation": "息[いき]をひそめ、足[あし]がすくむ様子[ようす]から、緊張[きんちょう]が伝[つた]わります。",
-    "timeLimitSec": 90
+    "explanation": "息[いき]をひそめ、足[あし]がすくむ様子[ようす]から、緊張[きんちょう]が伝[つた]わります。"
   },
   {
     "id": "legacy.kokugo.g4.jpn-4-31.e392172ca672",
@@ -74,13 +66,10 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-31",
-    "tags": [
-      "legacy-node:jpn_4_31",
-      "reviewed:structural-v1",
-      "source:original-practice-replacement"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_4_31", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]（自作[じさく]）\n\nりんごを持[も]ち去[さ]ろうとする人[ひと]と、ばったり目[め]が合[あ]った。ぼくは、思[おも]わず後[あと]ずさりした。胸[むね]がどきどきして、言葉[ことば]が出[で]なかった。\n\n「ぼく」の様子[ようす]に合[あ]うものはどれ？",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nりんごを持[も]ち去[さ]ろうとする人[ひと]と、ばったり目[め]が合[あ]った。ぼくは、思[おも]わず後[あと]ずさりした。胸[むね]がどきどきして、言葉[ことば]が出[で]なかった。\n\n「ぼく」の様子[ようす]に合[あ]うものはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -100,10 +89,8 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "れんしゅうようのたんぶん（じさく）\n\nりんごをもちさろうとするひとと、ばったりめがあった。ぼくは、おもわずあとずさりした。むねがどきどきして、ことばがでなかった。\n\n「ぼく」のようすにあうものはどれ？"
+      "shuffle": true
     },
-    "explanation": "後[あと]ずさりして言葉[ことば]が出[で]ない様子[ようす]から、驚[おどろ]きが分[わ]かります。",
-    "timeLimitSec": 90
+    "explanation": "後[あと]ずさりして言葉[ことば]が出[で]ない様子[ようす]から、驚[おどろ]きが分[わ]かります。"
   }
 ]

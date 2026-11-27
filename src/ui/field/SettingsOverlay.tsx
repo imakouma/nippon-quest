@@ -20,7 +20,7 @@ export function SettingsOverlay({
     <div class="nq-wmap">
       <section
         ref={dialogRef}
-        class="nq-win nq-settings-box"
+        class="nq-win nq-wmap-box nq-menu-box nq-settings-box"
         role="dialog"
         aria-modal="true"
         aria-label={displayText(t('field.settingsMenu'))}
@@ -31,9 +31,14 @@ export function SettingsOverlay({
           }
         }}
       >
-        <h2>
-          <RubyLabel text={t('field.settingsMenu')} />
-        </h2>
+        <header class="nq-menu-head">
+          <h2 class="nq-menu-title">
+            <RubyLabel text={t('field.settingsMenu')} />
+          </h2>
+          <button type="button" class="nq-back nq-menu-back" onClick={onClose}>
+            ← <RubyLabel text={t('ui.back')} />
+          </button>
+        </header>
         {(['bgmVolume', 'seVolume'] as const).map((key) => (
           <label style={{ display: 'block', margin: '1rem 0' }}>
             <RubyLabel text={t(key === 'bgmVolume' ? 'parent.bgm' : 'parent.se')} />{' '}
@@ -61,11 +66,6 @@ export function SettingsOverlay({
             <option value="wasd">{displayText(t('field.movementWasd'))}</option>
           </select>
         </label>
-        <p>
-          <button type="button" onClick={onClose}>
-            <RubyLabel text={t('ui.back')} />
-          </button>
-        </p>
       </section>
     </div>
   );

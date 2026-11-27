@@ -318,6 +318,8 @@ test('新規ゲームから2Dロードマップを開き、セーブ後に同じ
     await expect(page.getByRole('button', { name: new RegExp(`^${label} `) })).toBeVisible();
   }
   await page.screenshot({ path: testInfo.outputPath('learning-roadmap-developer-mode.png') });
+  await page.locator('.nq-menu-back').click();
+  await expect(menuHome).toBeVisible();
   await page.locator('.nq-menu-close').click();
 
   await page.reload();

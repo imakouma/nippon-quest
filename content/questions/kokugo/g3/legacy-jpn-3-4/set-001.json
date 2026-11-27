@@ -5,11 +5,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「白い 犬が ねる。」で「白い」がくわしくしているのは？",
       "choices": [
@@ -41,11 +37,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "聞き手（相手）の近くのものを指すのは？",
       "choices": [
@@ -77,11 +69,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「弟が 本を 読む。」の主語はどれ？",
       "choices": [
@@ -115,37 +103,32 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "【要約[ようやく]】\nかっちゃんは、ならったばかりの文字を自分で読んだり書いたりできるようになり、大よろこびでした。道を歩く間も、その文字を何度も口にしました。\n\n【問題[もんだい]】かっちゃんがよろこんだ理由は何ですか。",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nアキは、はじめて自分[じぶん]の名前[なまえ]を読[よ]み、書[か]くことができた。うれしくて、うれしくて、家[いえ]の人[ひと]に何度[なんど]も見[み]せた。\n\nアキは何[なに]がうれしかったの？",
       "choices": [
         {
           "id": "c1",
-          "text": "もじをよむことやかくことができること。"
+          "text": "自分[じぶん]で文字[もじ]を読[よ]んだり書[か]いたりできたこと"
         },
         {
           "id": "c2",
-          "text": "さむらいにぶつかったこと"
+          "text": "人[ひと]にぶつかったこと"
         },
         {
           "id": "c3",
-          "text": "おいしいお菓子をもらったこと"
+          "text": "おかしをもらったこと"
         },
         {
           "id": "c4",
-          "text": "新しい服を買ってもらったこと"
+          "text": "新[あたら]しい服[ふく]を買[か]ってもらったこと"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "【要約[ようやく]】\nかっちゃんは、ならったばかりの文字を自分で読んだり書いたりできるようになり、大よろこびでした。道を歩く間も、その文字を何度も口にしました。\n\n【問題[もんだい]】かっちゃんがよろこんだ理由は何ですか。"
+      "shuffle": true
     },
-    "explanation": "文字を自分でよみ書きできるようになったのがうれしかったのです。\n要約のもと：今江祥智『いろはにほへと』。",
-    "timeLimitSec": 90
+    "explanation": "名前[なまえ]を読[よ]み書[か]きできた後[あと]に喜[よろこ]んでいることが根拠[こんきょ]です。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-4.2cca79eaec89",
@@ -153,11 +136,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "話し手の近くのものを指すこそあど言葉は？",
       "choices": [
@@ -189,11 +168,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "前の文と後の文をつなぐ「だから・しかし」などを何という？",
       "choices": [
@@ -225,11 +200,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「弟が 本を 読む。」の述語はどれ？",
       "choices": [
@@ -261,11 +232,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「ゆっくり 歩く。」で「ゆっくり」がくわしくしている言葉は？",
       "choices": [
@@ -297,11 +264,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「赤い花」の「赤い」は？",
       "choices": [
@@ -335,11 +298,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "新しい段落のはじめは、ふつうどう書く？",
       "choices": [
@@ -371,11 +330,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "前に出たことばのかわりに使う「それ・これ」などを何という？",
       "choices": [
@@ -407,11 +362,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「青い 鳥が 鳴く。」で「青い」がくわしくしている言葉は？",
       "choices": [
@@ -443,11 +394,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "文章の中で、いくつかの文をまとめたまとまりを何という？",
       "choices": [
@@ -479,11 +426,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "場所をたずねるこそあど言葉は？",
       "choices": [
@@ -515,37 +458,32 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "【要約[ようやく]】\nかっちゃんは、新しくならった文字をわすれまいと、歩きながらくり返していました。前への注意がおろそかになり、さむらいに前を見て歩くように言われました。\n\n【問題[もんだい]】かっちゃんが前をよく見ていなかったのはなぜですか。",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nアキは、覚[おぼ]えた文字[もじ]を忘[わす]れないよう、手[て]のひらに指[ゆび]で書[か]きながら歩[ある]いていた。「前[まえ]を見[み]てね。」と声[こえ]をかけられた。\n\nアキが前[まえ]を見[み]ていなかったのはなぜ？",
       "choices": [
         {
           "id": "c1",
-          "text": "もじをいっしょうけんめいおぼえながらあるいていたから。"
+          "text": "文字[もじ]を覚[おぼ]えることに夢中[むちゅう]だったから"
         },
         {
           "id": "c2",
-          "text": "上を向いて歩いていたから"
+          "text": "空[そら]を見上[みあ]げていたから"
         },
         {
           "id": "c3",
-          "text": "目を閉じて走っていたから"
+          "text": "目[め]を閉[と]じて走[はし]っていたから"
         },
         {
           "id": "c4",
-          "text": "お菓子を食べていたから"
+          "text": "おかしを食[た]べていたから"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "【要約[ようやく]】\nかっちゃんは、新しくならった文字をわすれまいと、歩きながらくり返していました。前への注意がおろそかになり、さむらいに前を見て歩くように言われました。\n\n【問題[もんだい]】かっちゃんが前をよく見ていなかったのはなぜですか。"
+      "shuffle": true
     },
-    "explanation": "覚えた文字を忘れないように一生懸命覚えながら歩いていたからです。\n要約のもと：今江祥智『いろはにほへと』。",
-    "timeLimitSec": 90
+    "explanation": "手[て]のひらに文字[もじ]を書[か]いて覚[おぼ]えることに集中[しゅうちゅう]していました。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-4.72fbcbc2c72f",
@@ -553,13 +491,10 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "【要約[ようやく]】\n文字をくり返しながら歩いていたかっちゃんは、人にぶつかってころびました。顔を上げると、こわい顔のさむらいが目の前に立っていました。\n\n【問題[もんだい]】かっちゃんはだれにぶつかりましたか。",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nアキが歩[ある]いていると、何[なに]かにぶつかった。顔[かお]を上[あ]げると、目[め]の前[まえ]に、かたなを持[も]ったさむらいが立[た]っていた。\n\nアキがぶつかった相手[あいて]はだれ？",
       "choices": [
         {
           "id": "c1",
@@ -567,23 +502,21 @@
         },
         {
           "id": "c2",
-          "text": "いぬ"
+          "text": "犬[いぬ]"
         },
         {
           "id": "c3",
-          "text": "大きな石"
+          "text": "大[おお]きな石[いし]"
         },
         {
           "id": "c4",
-          "text": "木の枝"
+          "text": "木[き]の枝[えだ]"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "【要約[ようやく]】\n文字をくり返しながら歩いていたかっちゃんは、人にぶつかってころびました。顔を上げると、こわい顔のさむらいが目の前に立っていました。\n\n【問題[もんだい]】かっちゃんはだれにぶつかりましたか。"
+      "shuffle": true
     },
-    "explanation": "目の前にいた「さむらい」にぶつかってしまいました。\n要約のもと：今江祥智『いろはにほへと』。",
-    "timeLimitSec": 90
+    "explanation": "ぶつかった直後[ちょくご]に目[め]の前[まえ]にいた人[ひと]を読[よ]み取[と]ります。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-4.7c9cab4b60ba",
@@ -591,11 +524,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「ゆっくり 歩く。」で「ゆっくり」がくわしくしているのは？",
       "choices": [
@@ -627,11 +556,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「とても大きい」の「とても」は？",
       "choices": [
@@ -663,11 +588,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「これ・それ・あれ」は？",
       "choices": [
@@ -699,11 +620,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「妹が 走る。」と主語・述語の組み立てが同じ文はどれ？",
       "choices": [
@@ -737,36 +654,31 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-4",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_4",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_4", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "【要約[ようやく]】\nかっちゃんは、ぶつかった相手につきとばされ、いたがりました。目の前のさむらいの手あらいふるまいに腹を立て、言い返しました。\n\n【問題[もんだい]】かっちゃんはさむらいのことを、どのように思いましたか。",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nさむらいは、アキを強[つよ]く押[お]して通[とお]りすぎた。アキはよろけて、「もっとやさしくしてくれればいいのに。」と思[おも]った。\n\nアキはさむらいをどう思[おも]ったと考[かんが]えられる？",
       "choices": [
         {
           "id": "c1",
-          "text": "らんぼうだと思った。"
+          "text": "らんぼうだ"
         },
         {
           "id": "c2",
-          "text": "優しいと思った"
+          "text": "やさしい"
         },
         {
           "id": "c3",
-          "text": "かっこいいと思った"
+          "text": "かっこいい"
         },
         {
           "id": "c4",
-          "text": "おもしろいと思った"
+          "text": "おもしろい"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "【要約[ようやく]】\nかっちゃんは、ぶつかった相手につきとばされ、いたがりました。目の前のさむらいの手あらいふるまいに腹を立て、言い返しました。\n\n【問題[もんだい]】かっちゃんはさむらいのことを、どのように思いましたか。"
+      "shuffle": true
     },
-    "explanation": "さむらいのことを「らんぼうだ」と思いました。\n要約のもと：今江祥智『いろはにほへと』。",
-    "timeLimitSec": 90
+    "explanation": "強[つよ]く押[お]されたことと、やさしくしてほしいという言葉[ことば]が根拠[こんきょ]です。"
   }
 ]

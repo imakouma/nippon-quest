@@ -5,36 +5,34 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:yasuoka-docx",
-      "review:pending-human"
-    ],
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
     "payload": {
-      "prompt": "「見る」を、特別な言い方の尊敬語に直したものはどれですか。◆先生が 本を（見る）。",
+      "prompt": "先生[せんせい]の動作[どうさ]を高[たか]める尊敬語[そんけいご]を選[えら]ぼう。\n先生[せんせい]が本[ほん]を（見[み]る）。",
       "choices": [
         {
           "id": "a",
-          "text": "拝見する"
+          "text": "拝見[はいけん]する"
         },
         {
           "id": "b",
-          "text": "見られる"
+          "text": "見[み]ます"
         },
         {
           "id": "c",
-          "text": "ご覧になる"
+          "text": "ご覧[らん]になる"
         },
         {
           "id": "d",
-          "text": "見ませる"
+          "text": "見[み]る"
         }
       ],
       "answer": "c",
       "shuffle": true,
       "promptImage": "questions/kokugo/visuals/g6-teacher-reading.svg",
-      "promptSpeech": "「見る」を、特別な言い方の尊敬語に直したものはどれですか。◆先生が 本を（見る）。\n図の説明：先生が本を見ている場面。"
+      "promptSpeech": "せんせいのどうさをたかめるそんけいごをえらぼう。\nせんせいがほんを（みる）。",
+      "promptImageAlt": "先生[せんせい]が本[ほん]を見[み]ている場面[ばめん]。"
     },
-    "explanation": "目上の人が「見る」ことは、尊敬語で「ご覧になる」と言います。"
+    "explanation": "「ご覧[らん]になる」は「見[み]る」の尊敬語[そんけいご]です。「拝見[はいけん]する」は謙譲語[けんじょうご]、「見[み]ます」は丁寧語[ていねいご]です。"
   },
   {
     "id": "source.kokugo.g6.jpn-6-2.b31934b6165d",
@@ -42,10 +40,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:yasuoka-docx",
-      "review:pending-human"
-    ],
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
     "payload": {
       "prompt": "自分の動作をへりくだって言い、相手を立てる「謙譲語（けんじょうご）」として正しいものはどれですか。◆私が 本を（見る）。",
       "choices": [
@@ -79,10 +74,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:yasuoka-docx",
-      "review:pending-human"
-    ],
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
     "payload": {
       "prompt": "次の文のうち、主語と述語の対応が正しくない「ねじれ文」はどれですか。",
       "choices": [
@@ -114,35 +106,31 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:yasuoka-docx",
-      "review:pending-human"
-    ],
+    "tags": ["source:yasuoka-docx", "review:pending-human"],
     "payload": {
-      "prompt": "「保健」に、場所を表す漢字一字を加えた三字熟語はどれですか。",
+      "prompt": "漢字[かんじ]三[さん]文字[もじ]でできた三字熟語[さんじじゅくご]はどれ？",
       "choices": [
         {
           "id": "a",
-          "text": "一生懸命"
+          "text": "一生懸命[いっしょうけんめい]"
         },
         {
           "id": "b",
-          "text": "保健室"
+          "text": "保健室[ほけんしつ]"
         },
         {
           "id": "c",
-          "text": "共通語"
+          "text": "共通[きょうつう]"
         },
         {
           "id": "d",
-          "text": "身体測定"
+          "text": "身体測定[しんたいそくてい]"
         }
       ],
       "answer": "b",
-      "shuffle": true,
-      "promptSpeech": "「保健」に、場所を表す漢字一字を加えた三字熟語はどれですか。"
+      "shuffle": true
     },
-    "explanation": "「保健」に、部屋や場所を表す「室」を加えると「保健室」になります。「共通語」も三字熟語ですが、この条件には合いません。"
+    "explanation": "「保[ほ]・健[けん]・室[しつ]」は三[さん]文字[もじ]です。「共通[きょうつう]」は二[に]文字[もじ]、ほかの二[ふた]つは四[よん]文字[もじ]です。"
   },
   {
     "id": "legacy.kokugo.g6.jpn-6-2.067a48e72468",
@@ -150,11 +138,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「言う」の謙譲語は？",
       "choices": [
@@ -186,11 +170,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「言う」の謙譲語はどれ？",
       "choices": [
@@ -222,11 +202,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "自分をへりくだる言い方は？",
       "choices": [
@@ -258,11 +234,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「です・ます」は？",
       "choices": [
@@ -294,11 +266,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「見る」の尊敬語はどれ？",
       "choices": [
@@ -330,11 +298,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「行く」の尊敬語はどれ？",
       "choices": [
@@ -366,11 +330,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「見る」の謙譲語はどれ？",
       "choices": [
@@ -402,11 +362,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "目上の人への言い方は？",
       "choices": [
@@ -438,11 +394,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「お花」「ご飯」のように、ものごとを上品に言う言い方は？",
       "choices": [
@@ -474,11 +426,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「見る」の尊敬語は？",
       "choices": [
@@ -510,11 +458,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "先生が来ることを表す、正しい敬語は？",
       "choices": [
@@ -548,11 +492,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "自分や身内を一歩下げてへりくだることで、間接的に相手を高める敬語は何ですか？",
       "choices": [
@@ -584,11 +524,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "相手（先生など）を高めて、敬意を表す敬語の種類は何ですか？",
       "choices": [
@@ -620,11 +556,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「行く・来る」の謙譲語は？",
       "choices": [
@@ -656,11 +588,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "先生の動作にはどの敬語を使う？",
       "choices": [
@@ -692,11 +620,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「言う」の尊敬語はどれ？",
       "choices": [
@@ -728,11 +652,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「行く」の尊敬語は？",
       "choices": [
@@ -764,11 +684,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「行く・来る」の謙譲語はどれ？",
       "choices": [
@@ -800,11 +716,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「食べる」の「尊敬語（目上の人が食べるとき）」はどれですか？",
       "choices": [
@@ -836,11 +748,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "文末に「です・ます」をつけて上品に言う敬語は何ですか？",
       "choices": [
@@ -872,11 +780,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「もらう」の謙譲語は？",
       "choices": [
@@ -908,11 +812,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「食べる・もらう」の「謙譲語（自分が食べるとき・もらうとき）」はどれですか？",
       "choices": [
@@ -944,11 +844,7 @@
     "subject": "kokugo",
     "grade": 6,
     "unit": "kokugo.g6.legacy-jpn-6-2",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_6_2",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_6_2", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「言う」の尊敬語は？",
       "choices": [

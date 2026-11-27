@@ -5,11 +5,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-20",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_20",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_20", "reviewed:structural-v1"],
     "payload": {
       "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\n運動[うんどう]に使[つか]う道具[どうぐ]には、使[つか]いやすくする工夫[くふう]があります。（　）、ラケットの持[も]つ所[ところ]には、すべりにくいテープを巻[ま]きます。\n\n具体的[ぐたいてき]な例[れい]をつなぐ言葉[ことば]を選[えら]ぼう。",
       "choices": [
@@ -41,11 +37,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-20",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_20",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_20", "reviewed:structural-v1"],
     "payload": {
       "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\n体育館[たいいくかん]に行[い]くには、東[ひがし]の道[みち]（　）西[にし]の道[みち]の、どちらかを通[とお]ります。\n\n「または」と同[おな]じ意味[いみ]の言葉[ことば]を入[い]れよう。",
       "choices": [
@@ -77,11 +69,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-20",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_20",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_20", "reviewed:structural-v1"],
     "payload": {
       "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\n体育館[たいいくかん]の修理[しゅうり]が終[お]わりました。中[なか]で運動[うんどう]できるようになり、授業[じゅぎょう]を行[おこな]うことが（　）になりました。\n\n「できる」という意味[いみ]の言葉[ことば]を入[い]れよう。",
       "choices": [
@@ -113,37 +101,32 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-20",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_20",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_20", "reviewed:structural-v1"],
+    "timeLimitSec": 120,
     "payload": {
-      "prompt": "【要約[ようやく]】\nりく上きょうぎで使うぎ足には、地面をとらえるピンや、曲げたカーボンの板を使うものがあります。このように、きょうぎに合ったくふうが重ねられています。\n\n【問題[もんだい]】この要約で説明しているぎ足は、どのようなものですか。",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\n陸上競技[りくじょうきょうぎ]に使[つか]う義手[ぎしゅ]や義足[ぎそく]には、動[うご]きに合[あ]わせた工夫[くふう]があります。こうした義手[ぎしゅ]・義足[ぎそく]は、選手[せんしゅ]を支[ささ]えます。\n\n「こうした義手[ぎしゅ]・義足[ぎそく]」は、どのようなもの？",
       "choices": [
         {
           "id": "c1",
-          "text": "りく上きょうぎ用にさまざまにくふうされているもの。"
+          "text": "陸上競技[りくじょうきょうぎ]の動[うご]きに合[あ]わせて工夫[くふう]したもの"
         },
         {
           "id": "c2",
-          "text": "日常生活を普通に送るためのもの"
+          "text": "日常生活[にちじょうせいかつ]だけのために作[つく]ったもの"
         },
         {
           "id": "c3",
-          "text": "誰にでも簡単に作れるもの"
+          "text": "だれでもすぐに作[つく]れるもの"
         },
         {
           "id": "c4",
-          "text": "高価で手に入いにくいもの"
+          "text": "値段[ねだん]だけを重視[じゅうし]したもの"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "【要約[ようやく]】\nりく上きょうぎで使うぎ足には、地面をとらえるピンや、曲げたカーボンの板を使うものがあります。このように、きょうぎに合ったくふうが重ねられています。\n\n【問題[もんだい]】この要約で説明しているぎ足は、どのようなものですか。"
+      "shuffle": true
     },
-    "explanation": "スポーツや競技のために特別にくふうされているぎ手・ぎ足を指します。\n要約のもと：藤田紀昭『よくわかる障がい者スポーツ』。",
-    "timeLimitSec": 120
+    "explanation": "「こうした」は、前[まえ]の文[ぶん]の陸上競技[りくじょうきょうぎ]に合[あ]わせた工夫[くふう]を受[う]けています。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-20.c7c16f373027",
@@ -151,36 +134,31 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-20",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_20",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_20", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "【要約[ようやく]】\nスポーツで使うぎ手やぎ足には、走ったり、とんだり、物を投げたりする動作を支える役目があります。選手がその力を十分に出せるよう、つくり方が考えられています。\n\n【問題[もんだい]】要約の「その力」は、どのようなのう力を指しますか。",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\n選手[せんしゅ]には、走[はし]る、とぶ、投[な]げるなどの能力[のうりょく]があります。道具[どうぐ]にも工夫[くふう]をして、その能力[のうりょく]を発揮[はっき]します。\n\n「その能力[のうりょく]」は、どのような能力[のうりょく]？",
       "choices": [
         {
           "id": "c1",
-          "text": "走る、とぶ、投げるなどののう力。"
+          "text": "走[はし]る、とぶ、投[な]げるなどの能力[のうりょく]"
         },
         {
           "id": "c2",
-          "text": "日常生活のために作られた力"
+          "text": "道具[どうぐ]を工場[こうじょう]で作[つく]る能力[のうりょく]"
         },
         {
           "id": "c3",
-          "text": "人間本来の手や足の力"
+          "text": "競技[きょうぎ]の結果[けっか]を予想[よそう]する能力[のうりょく]"
         },
         {
           "id": "c4",
-          "text": "機械のように強い力"
+          "text": "機械[きかい]だけが持[も]つ強[つよ]い力[ちから]"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "【要約[ようやく]】\nスポーツで使うぎ手やぎ足には、走ったり、とんだり、物を投げたりする動作を支える役目があります。選手がその力を十分に出せるよう、つくり方が考えられています。\n\n【問題[もんだい]】要約の「その力」は、どのようなのう力を指しますか。"
+      "shuffle": true
     },
-    "explanation": "直前にある「走る、とぶ、投げるなどの動き」に対応したのう力です。\n要約のもと：藤田紀昭『よくわかる障がい者スポーツ』。",
-    "timeLimitSec": 90
+    "explanation": "「その」は直前[ちょくぜん]の文[ぶん]で述[の]べた、選手[せんしゅ]の能力[のうりょく]を指[さ]しています。"
   }
 ]

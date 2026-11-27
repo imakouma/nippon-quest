@@ -5,21 +5,17 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
-      "prompt": "「（　）絵がほめられた。」の空欄に、絵をかいた人が分かるように修飾語を入れます。どれが当てはまりますか。",
+      "prompt": "「（　）絵[え]がほめられた。」に、「だれがかいた絵[え]か」を説明[せつめい]する言葉[ことば]を入[い]れよう。",
       "choices": [
         {
           "id": "c1",
-          "text": "兄のかいた"
+          "text": "兄[あに]のかいた"
         },
         {
           "id": "c2",
-          "text": "小さな"
+          "text": "小[ちい]さな"
         },
         {
           "id": "c3",
@@ -27,14 +23,13 @@
         },
         {
           "id": "c4",
-          "text": "学校で"
+          "text": "学校[がっこう]で"
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "「（　）絵がほめられた。」の空欄に、絵をかいた人が分かるように修飾語を入れます。どれが当てはまりますか。"
+      "shuffle": true
     },
-    "explanation": "「兄のかいた」を入れると、絵をかいた人が兄だと分かります。「小さな」は絵の大きさを説明します。"
+    "explanation": "「兄[あに]のかいた」は、絵[え]をかいた人[ひと]を説明[せつめい]します。「小[ちい]さな」は大[おお]きさの説明[せつめい]です。"
   },
   {
     "id": "legacy.kokugo.g3.jpn-3-16.1ee2d9d477c9",
@@ -42,11 +37,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「水そうの中に魚がいる。」で、「水そうの中に」という修飾語がくわしくしている言葉はどれですか。",
       "choices": [
@@ -72,11 +63,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「たくさんの本がある。」で、「たくさんの」という修飾語がくわしくしている言葉はどれですか。",
       "choices": [
@@ -102,11 +89,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「[  ]子どもが走る。」の空欄に当てはまる修飾語はどれですか。",
       "choices": [
@@ -138,11 +121,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「きれいな色の糸を使ってししゅうした。」で、「きれいな色の」という修飾語がくわしくしている言葉はどれですか。",
       "choices": [
@@ -170,11 +149,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「花が[  ]さいた。」の空欄に当てはまる修飾語はどれですか。",
       "choices": [
@@ -206,11 +181,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「絵が[  ]ほめられた。」の空欄に当てはまる修飾語はどれですか。",
       "choices": [
@@ -242,11 +213,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆（ ）ごぼうを買った。",
       "choices": [
@@ -278,11 +245,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「犬が元気に走る。」の主語と述語の正しい組み合わせはどれですか。",
       "choices": [
@@ -316,11 +279,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「水がしずかに流れる。」の主語と述語の正しい組み合わせはどれですか。",
       "choices": [
@@ -354,11 +313,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "「赤い大きな玉が転がった。」で、「大きな」という修飾語がくわしくしている言葉はどれですか。",
       "choices": [
@@ -384,11 +339,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆ねこが（ ）鳴いた。",
       "choices": [
@@ -420,11 +371,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆（ ）空を見上げた。",
       "choices": [
@@ -456,11 +403,7 @@
     "subject": "kokugo",
     "grade": 3,
     "unit": "kokugo.g3.legacy-jpn-3-16",
-    "tags": [
-      "source:legacy-autonomy-game",
-      "legacy-node:jpn_3_16",
-      "reviewed:structural-v1"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_3_16", "reviewed:structural-v1"],
     "payload": {
       "prompt": "次の文の（ ）に入る修飾語としてもっともふさわしいものはどれですか。\n\n◆兄が（ ）くれた。",
       "choices": [

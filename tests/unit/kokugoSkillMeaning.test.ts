@@ -29,9 +29,18 @@ it('文法、読解、作文、語彙を内容に合う技へ割り当てる', (
   expect(table['legacy.kokugo.g3.jpn-3-7.98feb53edf80']).toBe('sk-kokugo-3-reading');
   expect(table['legacy.kokugo.g4.jpn-4-40.8a4784d5eb93']).toBe('sk-kokugo-4-reading');
   expect(table['legacy.kokugo.g3.jpn-3-4.6c6faa38d290']).toBe('sk-kokugo-3-reading');
-  expect(table['legacy.kokugo.g3.jpn-3-20.4088987de6cc']).toBe('sk-kokugo-3-sentence');
+  expect(table['legacy.kokugo.g3.jpn-3-20.4088987de6cc']).toBe('sk-kokugo-3-words');
   expect(table['legacy.kokugo.g4.jpn-4-29.090bb8d834b4']).toBe('sk-kokugo-4-readkanji');
   expect(table['source.kokugo.g5.jpn-5-3.b8fc84548a85']).toBe('sk-kokugo-5-express');
   expect(table['legacy.kokugo.g6.jpn-6-4.55954b3412ec']).toBe('sk-kokugo-6-express');
   expect(table['legacy.kokugo.g6.jpn-6-4.a756b80a9e2f']).toBe('sk-kokugo-6-reading');
+});
+
+it('指示語は語彙、発表・引用・推敲は表現の技に割り当てる', () => {
+  const table: Readonly<Record<string, string>> = assignments;
+  expect(table['legacy.kokugo.g3.jpn-3-4.0c2791c7cc12']).toBe('sk-kokugo-3-words');
+  expect(table['legacy.kokugo.g3.jpn-3-4.2cca79eaec89']).toBe('sk-kokugo-3-words');
+  expect(table['kokugo.g5.discussion-and-listening.0005']).toBe('sk-kokugo-5-express');
+  expect(table['kokugo.g5.writing-with-evidence.0004']).toBe('sk-kokugo-5-express');
+  expect(table['kokugo.g5.writing-with-evidence.0005']).toBe('sk-kokugo-5-express');
 });
