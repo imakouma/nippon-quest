@@ -367,9 +367,16 @@
 .nqn-card aside > strong {
   font-size: 22px;
 }
+.nqn footer {
+  flex-wrap: wrap;
+  min-width: 0;
+}
 .nqn footer button {
+  min-width: 0;
+  max-width: 100%;
   font-size: 18px;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .nqn-hero section > button:not(:disabled),
 .nqn-see-card {
