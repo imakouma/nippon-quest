@@ -166,7 +166,7 @@ test('各教科の習得済み技を編成画面で選んで保存できる', as
       .locator('.nq-hero-skill-list')
       .getByRole('button', { name: new RegExp(names[index]!) })
       .click();
-    await editor.getByRole('button', { name: /この.*枠.*セット/ }).click();
+    await editor.getByRole('button', { name: /この.*(?:枠|わく).*セット/ }).click();
     await expect
       .poll(() =>
         page.evaluate((id) => {

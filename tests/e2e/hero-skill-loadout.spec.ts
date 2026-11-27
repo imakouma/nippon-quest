@@ -27,7 +27,7 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
       .toBeLessThanOrEqual(1);
   }
   await page.setViewportSize({ width: 960, height: 540 });
-  const sortModes = editor.getByRole('group', { name: '並べ替え' });
+  const sortModes = editor.getByRole('group', { name: /並べ替え|ならべかえ/ });
   for (const label of ['いりょく', 'めいちゅう']) {
     await sortModes.getByRole('button', { name: label }).click();
     await expect(sortModes.getByRole('button', { name: new RegExp(label + '.*高') })).toHaveAttribute(
@@ -46,7 +46,7 @@ test('5番目の技メニューで編成し、再読み込み後も保持する'
     .getByRole('button', { name: /ことばあそび/ })
     .click();
   await expect(editor.locator('aside')).toContainText('ことばあそび');
-  await editor.getByRole('button', { name: /この.*枠.*セット/ }).click();
+  await editor.getByRole('button', { name: /この.*(?:枠|わく).*セット/ }).click();
   await expect(slots.nth(3)).toContainText('ことばあそび');
   await page.screenshot({ path: testInfo.outputPath('hero-skill-loadout.png') });
   await dialog.getByRole('button', { name: /もどる/ }).click();
