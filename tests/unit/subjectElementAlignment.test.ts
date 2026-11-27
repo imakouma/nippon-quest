@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import skills from '../../content/skills.json';
+import { content } from './helpers';
 import elements from '../../content/balance/elements.json';
 import { ICONS } from '../../src/rendering/icons';
 
@@ -7,6 +8,13 @@ describe('教科と属性の対応', () => {
   it('３教科の技は算数＝水、国語＝火、生活科＝木', () => {
     const expected: Record<string, string> = { sansu: 'mizu', kokugo: 'hino', seikatsu: 'mori' };
     for (const skill of skills) {
+      if (expected[skill.subject]) expect(skill.element, skill.id).toBe(expected[skill.subject]);
+    }
+  });
+  it('問題に割り当てた技も、実際に使う教科の属性を保つ', async () => {
+    const c = await content();
+    const expected: Record<string, string> = { sansu: 'mizu', kokugo: 'hino', seikatsu: 'mori' };
+    for (const skill of c.skills.values()) {
       if (expected[skill.subject]) expect(skill.element, skill.id).toBe(expected[skill.subject]);
     }
   });

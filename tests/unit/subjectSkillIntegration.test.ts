@@ -54,6 +54,17 @@ describe('subject skill question and training integration', () => {
     });
     expect(content.skills.get('sk-burst-sansu')?.costGauge).toBe(50);
   });
+  it('preserves a changed canonical element when loading an assigned skill', async () => {
+    const content = await loadContent(async (path) => {
+      const data = JSON.parse(readFileSync(`content/${path}`, 'utf8'));
+      if (path === 'skills.json') {
+        const skill = data.find((entry: { id: string }) => entry.id === 'sk-tashizan-giri');
+        skill.element = 'mori';
+      }
+      return data;
+    });
+    expect(content.skills.get('sk-tashizan-giri')?.element).toBe('mori');
+  });
   it('loads assigned skills with question filters and applies their saved level', async () => {
     const content = await loadContent(async (path) => JSON.parse(readFileSync(`content/${path}`, 'utf8')));
     for (const { subject, table } of cases) {

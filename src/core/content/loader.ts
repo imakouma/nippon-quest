@@ -171,11 +171,11 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     for (const row of rows) {
       const skill = parseWith<Skill>(skillSchema, row, `${subject}-skills.json`);
       if (!assigned.has(skill.id) && skills.has(skill.id)) continue;
+      skill.element = skills.get(skill.id)?.element ?? skill.element;
       if (assigned.has(skill.id)) skill.questionTags = [`assigned:${skill.id}`];
       skills.set(skill.id, skill);
     }
   }
-
   const monstersByArea = new Map<string, Monster[]>();
   for (const m of monsters.values()) {
     const list = monstersByArea.get(m.area) ?? [];
