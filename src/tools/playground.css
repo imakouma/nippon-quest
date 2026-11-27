@@ -1099,3 +1099,23 @@ button:disabled {
     min-height: 560px;
   }
 }
+.pg-skill-assignment {
+  margin-top: 0.6rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.5rem;
+  background: #eef6f4;
+  color: #173a37;
+  font-size: 0.9rem;
+}
+.pg-skill-assignment strong {
+  margin-right: 0.4rem;
+}
+.pg-skill-assignment a {
+  margin-left: 0.6rem;
+  color: #086d64;
+}
+.pg-skill-assignment small {
+  display: block;
+  margin-top: 0.2rem;
+  color: #536b68;
+}

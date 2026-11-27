@@ -20,6 +20,7 @@ import { kanjiGradeTable, setKanjiLevel, stripRuby, type KanjiGradeTable } from 
 import { RubyLabel } from '../ui/RubyLabel';
 import { EditorQuestionForm } from './editorQuestionForm';
 import { QuestionList, questionLabel, type QuestionEntry } from './QuestionList';
+import { assignedSkillForQuestion, subjectSkillRows } from '../core/progression/subjectSkillAssignments';
 import '../questions/renderers/shared/questions.css';
 import './playground.css';
 
@@ -29,6 +30,9 @@ const QUESTION_FILE_CONCURRENCY = 8;
 const assets = { image: (p: string) => `${base}/assets/${p}`, audio: (p: string) => `${base}/assets/${p}` };
 // ゲームと同じ 読み上げ（英語だけの 文は 英語の 声）
 const speak = createSpeaker();
+const skillNames = new Map(
+  subjectSkillRows.flatMap(([, rows]) => rows.map((skill) => [skill.id, skill.name] as const)),
+);
 
 const issues = (e: { issues: { path: (string | number)[]; message: string }[] }) =>
   e.issues.map((i) => `${i.path.join('.') || '(ぜんたい)'}: ${i.message}`).join('; ');
@@ -416,6 +420,27 @@ function App() {
                 <div class="pg-question-heading">
                   <p class="pg-section-label">{pgText('selectedQuestion')}</p>
                   <h2>{questionTitle ? <RubyLabel text={questionTitle} /> : pgText('chooseQuestion')}</h2>
+                  {question &&
+                    (() => {
+                      const skillId = assignedSkillForQuestion(question.subject, question.id);
+                      const name = skillId && skillNames.get(skillId);
+                      return (
+                        <div class="pg-skill-assignment">
+                          <strong>{pgText('assignedSkill')}</strong>{' '}
+                          {name ? <RubyLabel text={name} /> : pgText('noAssignedSkill')}
+                          {name && (
+                            <a
+                              href="https://nihon-quest-skill-library.imamurakouma623.chatgpt.site/"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {pgText('skillDetails')}
+                            </a>
+                          )}
+                          <small>{pgText('assignedSkillNote')}</small>
+                        </div>
+                      );
+                    })()}
                 </div>
                 <div class="pg-test-controls" aria-label={pgText('testSettings')}>
                   <button

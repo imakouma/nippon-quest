@@ -6,6 +6,17 @@ const catalog = (JSON.parse(readFileSync('content/manifest.json', 'utf8')) as Co
   .questionCatalog!;
 const totalQuestions = catalog.totalQuestions;
 
+test('選んだ問題の直接割り当て技を表示する', async ({ page }) => {
+  await page.goto('/playground.html?q=kokugo.g1.bun-no-kimari.0001');
+  const assignment = page.locator('.pg-skill-assignment');
+  await expect(assignment).toContainText('直接割り当てられた技');
+  await expect(assignment).toContainText('のつばさ');
+  await expect(assignment.getByRole('link')).toHaveAttribute(
+    'href',
+    'https://nihon-quest-skill-library.imamurakouma623.chatgpt.site/',
+  );
+});
+
 test('単元の直下に問題を表示し、検索時だけ検索結果欄を表示する', async ({ page }) => {
   await page.goto('/playground.html');
   await expect(page.locator('.pg-results')).toHaveCount(0);
