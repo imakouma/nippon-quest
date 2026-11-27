@@ -5,10 +5,7 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-39",
-    "tags": [
-      "source:codex-supplemental",
-      "reviewed:source-aligned-v1"
-    ],
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
     "payload": {
       "prompt": "「ミカは発表[はっぴょう]の前[まえ]は手[て]が震[ふる]えていた。発表[はっぴょう]の後[あと]、笑顔[えがお]で席[せき]に戻[もど]った。」気持[きも]ちはどう変[か]わった？",
       "choices": [
@@ -36,10 +33,7 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-39",
-    "tags": [
-      "source:codex-supplemental",
-      "reviewed:source-aligned-v1"
-    ],
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
     "payload": {
       "prompt": "「ケンは失敗[しっぱい]して下[した]を向[む]いた。友[とも]だちの言葉[ことば]を聞[き]くと、もう一度[いちど]やってみようと立[た]ち上[あ]がった。」ケンの変化[へんか]はどれ？",
       "choices": [
@@ -67,13 +61,10 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-39",
-    "tags": [
-      "legacy-node:jpn_4_39",
-      "reviewed:structural-v1",
-      "source:original-practice-replacement"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_4_39", "reviewed:structural-v1"],
+    "timeLimitSec": 90,
     "payload": {
-      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]（自作[じさく]）\n\n牛[うし]のモモがえさを食[た]べず、ケンは心配[しんぱい]でねむれなかった。翌朝[よくあさ]、少[すこ]し食[た]べたのを見[み]て、ほっとした。元気[げんき]に歩[ある]く姿[すがた]を見[み]ると、「やったあ！」と飛[と]び上[あ]がった。\n\nケンの気持[きも]ちの変化[へんか]はどれ？",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\n牛[うし]のモモがえさを食[た]べず、ケンは心配[しんぱい]でねむれなかった。翌朝[よくあさ]、少[すこ]し食[た]べたのを見[み]て、ほっとした。元気[げんき]に歩[ある]く姿[すがた]を見[み]ると、「やったあ！」と飛[と]び上[あ]がった。\n\nケンの気持[きも]ちの変化[へんか]はどれ？",
       "choices": [
         {
           "id": "c1",
@@ -93,10 +84,8 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "れんしゅうようのたんぶん（じさく）\n\nうしのモモがえさをたべず、ケンはしんぱいでねむれなかった。よくあさ、すこしたべたのをみて、ほっとした。げんきにあるくすがたをみると、「やったあ！」ととびあがった。\n\nケンのきもちのへんかはどれ？"
+      "shuffle": true
     },
-    "explanation": "ねむれない、ほっとする、喜[よろこ]んで飛[と]び上[あ]がるという三[みっ]つの様子[ようす]を順[じゅん]に読[よ]み取[と]ります。",
-    "timeLimitSec": 90
+    "explanation": "ねむれない、ほっとする、喜[よろこ]んで飛[と]び上[あ]がるという三[みっ]つの様子[ようす]を順[じゅん]に読[よ]み取[と]ります。"
   }
 ]

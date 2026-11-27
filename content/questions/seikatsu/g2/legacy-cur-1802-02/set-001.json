@@ -48,7 +48,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域の安全を守る施設はどれでしょう。",
+      "prompt": "地域[ちいき]の安全[あんぜん]を守[まも]る施設[しせつ]はどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -68,8 +68,7 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/7bdf0c0f691bc79a.jpg"
+      "shuffle": true
     },
     "explanation": "消防署の人々は、地域の安全を守る仕事をしています。"
   },
@@ -195,7 +194,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、地域のくらしを支える公共施設はどれでしょう。",
+      "prompt": "地域[ちいき]のくらしを支[ささ]える公共[こうきょう]施設[しせつ]はどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -215,8 +214,7 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/918801b6b107fd00.jpg"
+      "shuffle": true
     },
     "explanation": "消防署は、火事や救急のときに地域を守る施設です。"
   },
@@ -269,7 +267,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真[しゃしん]を見[み]て、施設[しせつ]の人[ひと]にすぐ伝[つた]えたほうがよいことはどれでしょう。",
+      "prompt": "施設[しせつ]の人[ひと]にすぐ伝[つた]えたほうがよいことはどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -289,8 +287,7 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/9f1cdb0700f28a25.jpg"
+      "shuffle": true
     },
     "explanation": "安全[あんぜん]のための物[もの]が決[き]められた場所[ばしょ]にないときや、壊[こわ]れている物[もの]を見[み]つけたときは、触[さわ]らずに施設[しせつ]の人[ひと]や先生[せんせい]へ伝[つた]えましょう。"
   },
@@ -415,7 +412,7 @@
       "reviewed:structural-v1"
     ],
     "payload": {
-      "prompt": "写真を見て、公共施設の例はどれでしょう。",
+      "prompt": "みんなが手紙[てがみ]を出[だ]すために使[つか]う公共[こうきょう]の設備[せつび]はどれでしょう。",
       "choices": [
         {
           "id": "c1",
@@ -435,8 +432,7 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptImage": "questions/legacy/1daec7e667ee008e.jpg"
+      "shuffle": true
     },
     "explanation": "郵便ポストは、みんなが手紙を出すための公共の設備です。"
   }

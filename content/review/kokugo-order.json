@@ -410,7 +410,7 @@
       ],
       "standard": ["legacy.kokugo.g3.jpn-3-11.5b85d888629e"],
       "applied": ["legacy.kokugo.g3.jpn-3-11.764763e0fbc1"],
-      "rationale": "季節・季語の特定を先に、音数の構成、比喩を含む情景解釈へ。音数問題の内容疑義は別記。"
+      "rationale": "季節・季語の特定を先に、音数の構成、比喩を含む情景解釈へ。"
     },
     {
       "unit": "kokugo.g3.legacy-jpn-3-12",
@@ -479,14 +479,11 @@
         "legacy.kokugo.g3.jpn-3-16.abe542f19aec",
         "legacy.kokugo.g3.jpn-3-16.6593d825665d",
         "legacy.kokugo.g3.jpn-3-16.4f29ba72ae6e",
-        "legacy.kokugo.g3.jpn-3-16.fa0908413ff4"
-      ],
-      "applied": [
-        "legacy.kokugo.g3.jpn-3-16.7df06ee97fc8",
-        "legacy.kokugo.g3.jpn-3-16.3ee273f33607",
+        "legacy.kokugo.g3.jpn-3-16.fa0908413ff4",
         "legacy.kokugo.g3.jpn-3-16.0cc07d0d5f15"
       ],
-      "rationale": "主述を確認してから短い修飾・補充、複数の修飾語や長い修飾句の関係へ。複数正解疑義は別記。"
+      "applied": ["legacy.kokugo.g3.jpn-3-16.7df06ee97fc8", "legacy.kokugo.g3.jpn-3-16.3ee273f33607"],
+      "rationale": "主述を確認してから短い修飾・補充、複数の修飾語や長い修飾句の関係へ。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g3.legacy-jpn-3-17",
@@ -514,17 +511,26 @@
       "unit": "kokugo.g3.legacy-jpn-3-19",
       "grade": 3,
       "basic": [],
-      "standard": ["legacy.kokugo.g3.jpn-3-19.2f10f53b2af5", "legacy.kokugo.g3.jpn-3-19.79f54db33e7d"],
-      "applied": ["legacy.kokugo.g3.jpn-3-19.848362467da6"],
-      "rationale": "気持ち・状態の選択を先に、うれしかった理由の選択へ。本文不足により内容検証が制限される。"
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-19.2f10f53b2af5",
+        "legacy.kokugo.g3.jpn-3-19.79f54db33e7d",
+        "legacy.kokugo.g3.jpn-3-19.848362467da6"
+      ],
+      "applied": [],
+      "rationale": "気持ち・状態の選択を先に、うれしかった理由の選択へ。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g3.legacy-jpn-3-20",
       "grade": 3,
       "basic": ["legacy.kokugo.g3.jpn-3-20.b4394c8a3140"],
-      "standard": ["legacy.kokugo.g3.jpn-3-20.4d362455242a", "legacy.kokugo.g3.jpn-3-20.4088987de6cc"],
-      "applied": ["legacy.kokugo.g3.jpn-3-20.c7c16f373027", "legacy.kokugo.g3.jpn-3-20.b7adfb821ddb"],
-      "rationale": "語彙の補充から接続関係、指示内容を文章と結び付ける読解へ。指示先の本文不足を別記。"
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-20.4d362455242a",
+        "legacy.kokugo.g3.jpn-3-20.4088987de6cc",
+        "legacy.kokugo.g3.jpn-3-20.c7c16f373027",
+        "legacy.kokugo.g3.jpn-3-20.b7adfb821ddb"
+      ],
+      "applied": [],
+      "rationale": "語彙の補充から接続関係、指示内容を文章と結び付ける読解へ。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g3.legacy-jpn-3-21",
@@ -549,7 +555,7 @@
         "legacy.kokugo.g3.jpn-3-21.3e340faa1ca5"
       ],
       "applied": [],
-      "rationale": "慣用句の形を補ってから慣用的な意味の解釈へ。場面への応用問題はないため応用欄は空。文脈不足の多義選択は別記。"
+      "rationale": "慣用句の形を補ってから慣用的な意味の解釈へ。場面への応用問題はないため応用欄は空。"
     },
     {
       "unit": "kokugo.g3.legacy-jpn-3-24",
@@ -582,14 +588,13 @@
         "legacy.kokugo.g3.jpn-3-4.420d054cb245",
         "legacy.kokugo.g3.jpn-3-4.7c9cab4b60ba",
         "legacy.kokugo.g3.jpn-3-4.b75eb9f7aa8c",
-        "legacy.kokugo.g3.jpn-3-4.72fbcbc2c72f"
-      ],
-      "applied": [
+        "legacy.kokugo.g3.jpn-3-4.72fbcbc2c72f",
         "legacy.kokugo.g3.jpn-3-4.1bc2578e027c",
         "legacy.kokugo.g3.jpn-3-4.6c6faa38d290",
         "legacy.kokugo.g3.jpn-3-4.d2c8f30eef1d"
       ],
-      "rationale": "混在単元。指示語・接続語・段落・修飾語の基本を横断して先に確認し、文の要素の識別、人物の行動と心理の理由へ。読解本文不足は別記。"
+      "applied": [],
+      "rationale": "混在単元。指示語・接続語・段落・修飾語の基本を横断して先に確認し、文の要素の識別、人物の行動と心理の理由へ。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g3.legacy-jpn-3-5",
@@ -626,10 +631,14 @@
     {
       "unit": "kokugo.g3.legacy-jpn-3-7",
       "grade": 3,
-      "basic": ["legacy.kokugo.g3.jpn-3-7.51a081fff200"],
-      "standard": ["legacy.kokugo.g3.jpn-3-7.98feb53edf80", "legacy.kokugo.g3.jpn-3-7.3397886944fc"],
+      "basic": [],
+      "standard": [
+        "legacy.kokugo.g3.jpn-3-7.51a081fff200",
+        "legacy.kokugo.g3.jpn-3-7.98feb53edf80",
+        "legacy.kokugo.g3.jpn-3-7.3397886944fc"
+      ],
       "applied": ["legacy.kokugo.g3.jpn-3-7.530cc8361ed8"],
-      "rationale": "問いの段落の役割から動物の調整・因果の接続、動物間の比較へ。本文のない設問は要求操作に基づく暫定難度。"
+      "rationale": "問いの段落の役割から動物の調整・因果の接続、動物間の比較へ。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g4.legacy-jpn-4-2",
@@ -725,9 +734,13 @@
       "unit": "kokugo.g4.legacy-jpn-4-31",
       "grade": 4,
       "basic": [],
-      "standard": ["kokugo.g4.supplemental.story-a.0001", "legacy.kokugo.g4.jpn-4-31.e392172ca672"],
-      "applied": ["legacy.kokugo.g4.jpn-4-31.c4499447c517"],
-      "rationale": "行動から人物像・反応を読む問題を先に、文章全体の雰囲気へ。本文が省略された設問は別記。"
+      "standard": [
+        "kokugo.g4.supplemental.story-a.0001",
+        "legacy.kokugo.g4.jpn-4-31.e392172ca672",
+        "legacy.kokugo.g4.jpn-4-31.c4499447c517"
+      ],
+      "applied": [],
+      "rationale": "行動から人物像・反応を読む問題を先に、文章全体の雰囲気へ。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g4.legacy-jpn-4-32",
@@ -946,6 +959,7 @@
       "standard": [
         "legacy.kokugo.g6.jpn-6-2.56d010b3bbd1",
         "legacy.kokugo.g6.jpn-6-2.7fb66b9ebabd",
+        "source.kokugo.g6.jpn-6-2.c4d48e6fc1be",
         "legacy.kokugo.g6.jpn-6-2.5912cd45ce12",
         "legacy.kokugo.g6.jpn-6-2.c759762b0041",
         "legacy.kokugo.g6.jpn-6-2.c0b21c308b0d",
@@ -961,11 +975,10 @@
       ],
       "applied": [
         "legacy.kokugo.g6.jpn-6-2.966b69f6f2ac",
-        "source.kokugo.g6.jpn-6-2.c4d48e6fc1be",
         "source.kokugo.g6.jpn-6-2.b31934b6165d",
         "source.kokugo.g6.jpn-6-2.9eaab2cc0a55"
       ],
-      "rationale": "敬語の種類と対象・三字熟語の知識を先に、動詞ごとの尊敬・謙譲の対応、具体的な主語に応じた選択と文のねじれ検出へ。混在単元の独立知識も基礎段階へ集約。複数正解は別記。"
+      "rationale": "敬語の種類と対象・三字熟語の知識を先に、動詞ごとの尊敬・謙譲の対応、具体的な主語に応じた選択と文のねじれ検出へ。混在単元の独立知識も基礎段階へ集約。本文補完後、明示情報の直接読取り・定型変換は標準へ再分類。"
     },
     {
       "unit": "kokugo.g6.legacy-jpn-6-4",

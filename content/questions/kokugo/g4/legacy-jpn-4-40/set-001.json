@@ -5,10 +5,7 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-40",
-    "tags": [
-      "source:codex-supplemental",
-      "reviewed:source-aligned-v1"
-    ],
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
     "payload": {
       "prompt": "「木[き]を植[う]えると、根[ね]が土[つち]を支[ささ]えます。そのため、大雨[おおあめ]で土[つち]が流[なが]れにくくなります。」事例[じれい]が示[しめ]すことはどれ？",
       "choices": [
@@ -36,10 +33,7 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-40",
-    "tags": [
-      "source:codex-supplemental",
-      "reviewed:source-aligned-v1"
-    ],
+    "tags": ["source:codex-supplemental", "reviewed:source-aligned-v1"],
     "payload": {
       "prompt": "「水筒[すいとう]を使[つか]うと、使[つか]い捨[す]ての容器[ようき]を減[へ]らせます。だから、ごみを減[へ]らす方法[ほうほう]の一[ひと]つです。」文章[ぶんしょう]の中心[ちゅうしん]はどれ？",
       "choices": [
@@ -67,13 +61,10 @@
     "subject": "kokugo",
     "grade": 4,
     "unit": "kokugo.g4.legacy-jpn-4-40",
-    "tags": [
-      "legacy-node:jpn_4_40",
-      "reviewed:structural-v1",
-      "source:original-practice-replacement"
-    ],
+    "tags": ["source:legacy-autonomy-game", "legacy-node:jpn_4_40", "reviewed:structural-v1"],
+    "timeLimitSec": 120,
     "payload": {
-      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]（自作[じさく]）\n\nシカが草[くさ]を食[た]べてふんをします。ふんを食[た]べる虫[むし]などの働[はたら]きで、ふんの養分[ようぶん]は土[つち]に戻[もど]ります。その養分[ようぶん]で草[くさ]が育[そだ]ち、シカがまた食[た]べます。\n\n本文[ほんぶん]の循環[じゅんかん]を表[あらわ]すものはどれ？",
+      "prompt": "練習用[れんしゅうよう]の短文[たんぶん]\n\nシカが草[くさ]を食[た]べてふんをします。ふんを食[た]べる虫[むし]などの働[はたら]きで、ふんの養分[ようぶん]は土[つち]に戻[もど]ります。その養分[ようぶん]で草[くさ]が育[そだ]ち、シカがまた食[た]べます。\n\n本文[ほんぶん]の循環[じゅんかん]を表[あらわ]すものはどれ？",
       "choices": [
         {
           "id": "c1",
@@ -93,10 +84,8 @@
         }
       ],
       "answer": "c1",
-      "shuffle": true,
-      "promptSpeech": "れんしゅうようのたんぶん（じさく）\n\nシカがくさをたべてふんをします。ふんをたべるむしなどのはたらきで、ふんのようぶんはつちにもどります。そのようぶんでくさがそだち、シカがまたたべます。\n\nほんぶんのじゅんかんをあらわすものはどれ？"
+      "shuffle": true
     },
-    "explanation": "ふんの養分[ようぶん]が土[つち]、草[くさ]、シカへとつながり、再[ふたた]びふんになる循環[じゅんかん]です。",
-    "timeLimitSec": 120
+    "explanation": "ふんの養分[ようぶん]が土[つち]、草[くさ]、シカへとつながり、再[ふたた]びふんになる循環[じゅんかん]です。"
   }
 ]
