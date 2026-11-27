@@ -21,7 +21,6 @@ const STATS: [keyof Stats, string][] = [
 type Props = Pick<BagOverlayProps, 'onGrow' | 'onUse' | 'onRosterRemove' | 'flashKey'> & {
   m: BagThing;
   message: string | null;
-  monsInBag: boolean;
   toggle: () => void;
   leader: () => void;
   evolve: () => void;
@@ -29,7 +28,6 @@ type Props = Pick<BagOverlayProps, 'onGrow' | 'onUse' | 'onRosterRemove' | 'flas
 export function BagDetails({
   m,
   message,
-  monsInBag,
   toggle,
   leader,
   evolve,
@@ -96,9 +94,6 @@ export function BagDetails({
                 ))}
               </ul>
             </>
-          )}
-          {m.kind === 'hero' && !monsInBag && (
-            <RubyLabel text={t('field.bagNoMonster')} class="nq-party-hint" as="p" />
           )}
           {reason && <RubyLabel text={reason} class="nq-bag-reason" as="p" />}
           {m.sub && <RubyLabel text={m.sub} class="nq-party-blurb" as="p" />}

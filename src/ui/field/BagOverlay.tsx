@@ -346,7 +346,6 @@ export function BagOverlay({
           <BagDetails
             m={m}
             message={notice ?? message}
-            monsInBag={inBag.some((x) => x.kind === 'monster')}
             flashKey={flashKey}
             toggle={toggle}
             leader={leader}
