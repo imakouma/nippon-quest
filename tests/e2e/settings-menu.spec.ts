@@ -13,16 +13,16 @@ test('設定の音量と移動キーは変更後も保存される', async ({ pa
     await expect(cards).toHaveCount(6);
     const boxes = await Promise.all((await cards.all()).map((card) => card.boundingBox()));
     expect(boxes.every(Boolean)).toBe(true);
-    expect(Math.abs(boxes[0]!.y - boxes[2]!.y)).toBeLessThanOrEqual(2);
-    expect(Math.abs(boxes[3]!.y - boxes[5]!.y)).toBeLessThanOrEqual(2);
-    expect(boxes[3]!.y).toBeGreaterThan(boxes[0]!.y);
-    expect(boxes[3]!.x).toBe(boxes[0]!.x);
+    for (let index = 1; index < boxes.length; index++) {
+      expect(boxes[index]!.y).toBeGreaterThan(boxes[index - 1]!.y);
+      expect(boxes[index]!.x).toBe(boxes[0]!.x);
+    }
     await cards.nth(3).hover();
     await expect(cards.nth(3)).toBeFocused();
     await expect(cards.filter({ hasText: 'がくしゅう' })).toHaveCSS('color', 'rgb(255, 255, 255)');
     // マウスをもちものに残したままキーで移動しても、選択中の1枚だけを強調する。
     await page.keyboard.press('ArrowUp');
-    await expect(cards.nth(0)).toBeFocused();
+    await expect(cards.nth(2)).toBeFocused();
     await expect(cards.nth(3)).toHaveCSS('color', 'rgb(255, 255, 255)');
     await expect(cards.nth(3)).toHaveCSS('outline-style', 'none');
     await expect(page.locator('.nq-menu-card.nq-focus')).toHaveCount(1);
