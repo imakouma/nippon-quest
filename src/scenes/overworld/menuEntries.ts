@@ -265,7 +265,6 @@ export function buildMenuView(input: MenuViewInput): MenuView {
     const owned = new Set(game.party.owned.map((entry) => entry.monsterId));
     const monsters = monsterCatalog(content, game, input.revealAll);
     const entries = monsters.map(({ m, known }, index): MenuEntry => {
-      const art = input.monsterArt(m);
       const area = t('field.dexArea', { area: areaName(m.area) });
       const region = dexRegionOf(m.area);
       return {
@@ -273,8 +272,7 @@ export function buildMenuView(input: MenuViewInput): MenuView {
         name: known ? m.name : unknown,
         group: region.id,
         groupLabel: t(region.nameKey),
-        icon: art,
-        art,
+        getIcon: () => input.monsterArt(m),
         bagSize: monsterSize(m.id, content.monsters),
         known,
         right: t('field.dexNo', { n: String(index + 1).padStart(3, '0') }),
@@ -310,7 +308,7 @@ export function buildMenuView(input: MenuViewInput): MenuView {
         name: known ? motif.name : unknown,
         group: region.id,
         groupLabel: t(region.nameKey),
-        icon: item ? itemIconUrl(item) : undefined,
+        getIcon: item ? () => itemIconUrl(item) : undefined,
         known,
         right: t('field.dexNo', { n: String(index + 1).padStart(3, '0') }),
         detailIndex: `${index + 1}/${specialties.length}`,
