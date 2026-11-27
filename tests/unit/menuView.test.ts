@@ -109,7 +109,6 @@ describe('フィールドメニューの表示モデル', () => {
     });
     expect(view.entries.find((entry) => entry.key === 'iwate-kagurabi')).toMatchObject({
       known: true,
-      art: 'monster:iwate-kagurabi',
     });
     expect(view.entries.some((entry) => !entry.known)).toBe(true);
     expect(new Set(view.entries.map((entry) => entry.group))).toEqual(
@@ -126,6 +125,7 @@ describe('フィールドメニューの表示モデル', () => {
 
   it('図鑑にバッグ内で使うマスの形を渡す', async () => {
     const c = await content();
+    const monsterArt = vi.fn((monster: { id: string }) => `monster:${monster.id}`);
     const view = buildMenuView({
       content: c,
       game: game(),
@@ -142,8 +142,13 @@ describe('フィールドメニューの表示モデル', () => {
       },
       revealAll: true,
       heroArt: () => 'hero',
-      monsterArt: (monster) => `monster:${monster.id}`,
+      monsterArt,
     });
+    expect(monsterArt).not.toHaveBeenCalled();
+    expect(view.entries.find((entry) => entry.key === 'aomori-nebutan')?.getIcon?.()).toBe(
+      'monster:aomori-nebutan',
+    );
+    expect(monsterArt).toHaveBeenCalledOnce();
     expect(view.entries.find((entry) => entry.key === 'aomori-nebutan')?.bagSize).toEqual({ w: 1, h: 1 });
     expect(view.entries.find((entry) => entry.key === 'aomori-nebuta-musha')?.bagSize).toEqual({
       w: 2,
