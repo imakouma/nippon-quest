@@ -15,6 +15,8 @@ import { t } from '../i18n';
 import './mistakeNotebook.css';
 
 const subjects = ['kokugo', 'sansu', 'rika', 'shakai', 'seikatsu', 'eigo'] as const;
+const doorColors = ['#435f99', '#865132', '#366747', '#704c78', '#437063', '#8a4658'];
+const doorIcons = ['📖', '🧮', '🔍', '🗺️', '🌱', '🔤'];
 const icons = ['▤', '＋', '◎', '◇', '♧', 'Aa'];
 const inks = ['#344e8d', '#824921', '#2d6543', '#6c4678', '#2d625e', '#89394f'];
 const dayFormat = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' });
@@ -193,7 +195,7 @@ export function MistakeNotebook(p: Props) {
         <div class="nqn-question-actions">
           {result !== null && <RubyLabel text={label(result ? 'correct' : 'retry')} />}
           <button onClick={back}>
-            <RubyLabel text={label('back')} />
+            <RubyLabel text={label(screen === 'subjects' ? 'backCompanion' : 'back')} />
           </button>
         </div>
       </div>
@@ -203,7 +205,7 @@ export function MistakeNotebook(p: Props) {
     <div class="nq-wmap" onClick={p.onClose}>
       <div
         ref={dialog}
-        class={`nq-win nq-wmap-box nq-menu-box nqn ${element ?? 'mori'}`}
+        class={`nq-win nq-wmap-box nq-menu-box nqn ${element ?? 'mori'}${screen === 'subjects' ? ' nqn-door-screen' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label={t('field.tabMistakes')}
@@ -217,7 +219,15 @@ export function MistakeNotebook(p: Props) {
         }}
       >
         <header>
-          <RubyLabel text={screen === 'list' ? t(`subjects.${subject}`) : t('field.tabMistakes')} />
+          <RubyLabel
+            text={
+              screen === 'list'
+                ? t(`subjects.${subject}`)
+                : screen === 'subjects'
+                  ? label('doorTitle')
+                  : t('field.tabMistakes')
+            }
+          />
         </header>
         <main>
           {screen === 'home' && (
@@ -254,7 +264,7 @@ export function MistakeNotebook(p: Props) {
               {subjects.map((s, i) => (
                 <button
                   key={s}
-                  style={{ background: inks[i] }}
+                  style={{ '--nqn-door': doorColors[i] }}
                   onClick={() => {
                     setSubject(s);
                     setDate('');
@@ -262,7 +272,10 @@ export function MistakeNotebook(p: Props) {
                     setScreen('list');
                   }}
                 >
-                  <i aria-hidden="true">{icons[i]}</i> <RubyLabel text={t(`subjects.${s}`)} />{' '}
+                  <i aria-hidden="true">{doorIcons[i]}</i>{' '}
+                  <b>
+                    <RubyLabel text={t(`subjects.${s}`)} />
+                  </b>{' '}
                   <small>
                     <RubyLabel
                       text={t('field.notebook.questionCount', {
@@ -508,7 +521,7 @@ export function MistakeNotebook(p: Props) {
         </main>
         <footer>
           <button onClick={back}>
-            <RubyLabel text={label('back')} />
+            <RubyLabel text={label(screen === 'subjects' ? 'backCompanion' : 'back')} />
           </button>
           {screen === 'home' && (
             <button onClick={() => setScreen('subjects')}>
@@ -517,7 +530,7 @@ export function MistakeNotebook(p: Props) {
           )}
           {(screen === 'home' || screen === 'subjects') && (
             <button onClick={showCard}>
-              <RubyLabel text={label('seeCard')} />
+              <RubyLabel text={label(screen === 'subjects' ? 'doorCard' : 'seeCard')} />
             </button>
           )}
           {screen === 'card' && (
