@@ -8,9 +8,8 @@ import type { Element, Monster, Skill } from '../core/content/schemas';
 import { comboBonus } from '../core/battle/damage';
 import { act, battleSkills, createBattle, isHeroReady, type BattleDeps } from '../core/battle/engine';
 import type { BattleCommandEvaluationContext } from '../core/battle/commandEvaluation';
-import { makeMonster } from '../core/battle/factory';
 import { shouldPersistBattleResult } from '../core/battle/ruleset';
-import { partyFromGameState, resolveBattleParty } from '../core/battle/setup';
+import { makeEncounterEnemy, partyFromGameState, resolveBattleParty } from '../core/battle/setup';
 import type { ActionResult, BattleEvent, BattleState, Command } from '../core/battle/types';
 import { applyBattleResult } from '../core/progression/battleResult';
 import { evolutionStage } from '../core/progression/bag';
@@ -312,7 +311,7 @@ export class BattleScene extends Phaser.Scene {
             saved: () => partyFromGameState(this.gs, c),
             provided: this.opts.party,
           }),
-          enemy: makeMonster(def, this.opts.level, 'enemy'),
+          enemy: makeEncounterEnemy(def, this.opts.level, this.gs.learning.grade),
           seed: freshSeed(),
           isBossBattle: isBoss,
           ruleset,

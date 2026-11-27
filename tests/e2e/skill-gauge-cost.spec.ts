@@ -69,9 +69,9 @@ for (const viewport of [
 }
 
 test('算数バーストの戦闘威力は設定学年に応じて変わる', async ({ page }, info) => {
-  for (const { grade, power } of [
-    { grade: 1, power: 80 },
-    { grade: 6, power: 490 },
+  for (const { grade, power, enemyHp } of [
+    { grade: 1, power: 80, enemyHp: 40 },
+    { grade: 6, power: 490, enemyHp: 80 },
   ]) {
     await page.goto(`/?debug=battle&grade=${grade}&resetSaves=1`);
     await expect(page.locator('.nq-box-next')).toBeVisible({ timeout: 60_000 });
@@ -79,6 +79,8 @@ test('算数バーストの戦闘威力は設定学年に応じて変わる', as
     await page.locator('.nq-cmd[data-cmd="skill"]').click();
     await page.locator('[data-charge-toggle]').click();
     await expect(page.locator('[data-skill="sk-burst-sansu"]')).toBeVisible();
+    await expect(page.getByText('60/60', { exact: true })).toBeVisible();
+    await expect(page.getByText(`${enemyHp}/${enemyHp}`, { exact: true })).toBeVisible();
     const observed = await page.evaluate(() => {
       const battle = window.__nq.scene.getScene('Battle') as Phaser.Scene & {
         content: ContentIndex;

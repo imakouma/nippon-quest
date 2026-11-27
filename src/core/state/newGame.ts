@@ -27,7 +27,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
       xp: 0,
       gold: 100,
       baseStats: {
-        hp: 24,
+        hp: 60,
         mp: 6,
         scienceAtk: 5,
         humanitiesAtk: 5,
@@ -40,7 +40,7 @@ export function createNewGame(o: NewGameOptions, now = Date.now(), heroInitialLe
       skills: [...STARTER_SKILL_IDS],
       skillLoadout: null,
       equipment: {},
-      hp: 24,
+      hp: 60,
       mp: 6,
     },
     party: {

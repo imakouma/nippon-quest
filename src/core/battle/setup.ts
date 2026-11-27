@@ -93,6 +93,18 @@ export function partyFromGameState(
   return party;
 }
 
+/** 出題学年が高いほど技の威力が上がるので、敵の最大HPも増やす。 */
+export function makeEncounterEnemy(
+  def: Parameters<typeof makeMonster>[0],
+  level: number,
+  grade: GameState['learning']['grade'],
+) {
+  const enemy = makeMonster(def, level, 'enemy');
+  enemy.stats.hp = Math.round(enemy.stats.hp * (2.5 + (grade - 1) * 0.5));
+  enemy.hp = enemy.stats.hp;
+  return enemy;
+}
+
 /** ruleset が指定した供給元だけから戦闘用 party を解決する。 */
 export function resolveBattleParty(
   ruleset: Pick<BattleRuleset, 'party'>,

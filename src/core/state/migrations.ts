@@ -214,6 +214,27 @@ const migrations: Record<number, Migration> = {
     schemaVersion: 15,
     player: { ...((s.player ?? {}) as Record<string, unknown>), skillLoadout: null },
   }),
+  15: (s) => {
+    const player = s.player as GameState['player'];
+    const battle = s.battle as GameState['battle'];
+    const scaleHp = (hp: number) => Math.round(hp * 2.5);
+    const active = battle?.active ? structuredClone(battle.active) : null;
+    if (active) {
+      const hero = active.battleState.ally.hero;
+      hero.hp = scaleHp(hero.hp);
+      hero.stats.hp = scaleHp(hero.stats.hp);
+    }
+    return {
+      ...s,
+      schemaVersion: 16,
+      player: {
+        ...player,
+        hp: scaleHp(player.hp),
+        baseStats: { ...player.baseStats, hp: scaleHp(player.baseStats.hp) },
+      },
+      battle: { ...battle, active },
+    };
+  },
 };
 
 export interface MigrateResult {
