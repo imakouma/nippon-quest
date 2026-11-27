@@ -51,20 +51,21 @@
   color: var(--nq-white);
 }
 .nq-bag-filters {
-  font-size: 12px;
+  font-size: 10px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 3px;
 }
 .nq-bag-filters button {
-  padding: 2px 5px;
-  min-height: 26px;
+  padding: 2px 3px;
+  min-height: 24px;
   border: 2px solid var(--nq-slate);
   font: inherit;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 10px;
+  line-height: 14px;
   color: var(--nq-cloud);
   background: var(--nq-night);
+  white-space: nowrap;
   cursor: pointer;
 }
 .nq-bag-filters button[aria-pressed='true'] {

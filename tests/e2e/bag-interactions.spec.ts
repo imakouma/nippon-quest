@@ -59,7 +59,7 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   const reserve = bag.locator('.nq-bag-reserve-grid');
   const storedWeapon = reserve.locator('[data-bag-key="inv:common-renshu-no-bou"]');
   await expect(bag).toHaveAttribute('aria-modal', 'true');
-  await expect(bag.locator('.nq-bag-filters button').first()).toHaveCSS('font-size', '12px');
+  await expect(bag.locator('.nq-bag-filters button').first()).toHaveCSS('font-size', '10px');
   await expect(bag.locator(':scope > .nq-bag-message')).toHaveCount(0);
   await expect(bag.getByRole('status')).toHaveCount(0);
   await expect(bag.locator('[data-bag-key="hero"]')).toBeFocused();
@@ -82,6 +82,13 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
     expect(await bag.locator('.nq-bag-body').evaluate((el) => el.scrollHeight <= el.clientHeight + 1)).toBe(
       true,
     );
+    const filters = bag.locator('.nq-bag-filters');
+    expect(await filters.evaluate((el) => el.scrollWidth <= el.clientWidth)).toBe(true);
+    expect(
+      await filters
+        .locator('button')
+        .evaluateAll((buttons) => new Set(buttons.map((b) => (b as HTMLElement).offsetTop)).size),
+    ).toBe(1);
     await expect(storedWeapon).toBeVisible();
   }
   await page.setViewportSize({ width: 960, height: 540 });
