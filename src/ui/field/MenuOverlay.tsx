@@ -58,6 +58,8 @@ interface MenuListRowProps {
   compactMeta?: boolean;
   numberOnly?: boolean;
   onPick: MenuPick;
+  onActivate?: MenuPick;
+  expanded?: boolean;
 }
 
 class MenuListRow extends Component<MenuListRowProps> {
@@ -67,6 +69,8 @@ class MenuListRow extends Component<MenuListRowProps> {
       next.selected !== this.props.selected ||
       next.compactMeta !== this.props.compactMeta ||
       next.numberOnly !== this.props.numberOnly ||
+      next.onActivate !== this.props.onActivate ||
+      next.expanded !== this.props.expanded ||
       next.onPick !== this.props.onPick
     );
   }
@@ -78,6 +82,8 @@ class MenuListRow extends Component<MenuListRowProps> {
     compactMeta = false,
     numberOnly = false,
     onPick,
+    onActivate,
+    expanded,
   }: MenuListRowProps) {
     const icon = entry.icon ?? entry.getIcon?.();
     return (
@@ -86,19 +92,29 @@ class MenuListRow extends Component<MenuListRowProps> {
           type="button"
           data-menu-entry
           class={`nq-opt ${selected ? 'nq-focus' : ''} ${entry.known ? '' : 'nq-menu-unknown'}`}
+          aria-expanded={expanded}
           aria-current={selected ? 'true' : undefined}
           aria-label={
             numberOnly
               ? displayText([entry.right, entry.name, entry.tag].filter(Boolean).join(' '))
               : undefined
           }
-          onPointerEnter={() => onPick(index)}
-          onClick={() => onPick(index)}
+          onPointerEnter={numberOnly ? undefined : () => onPick(index)}
+          onClick={() => (onActivate ?? onPick)(index)}
         >
+          {numberOnly && <RubyLabel text={entry.right ?? ''} class="nq-dex-card-number" />}
           <span class="nq-amap-cur">{selected && <span class="nq-heart">♥</span>}</span>
-          {icon && <img class="nq-item-icon nq-town-icon nq-menu-icon" src={icon} alt="" />}
+          {icon && (!numberOnly || entry.known) ? (
+            <img class="nq-item-icon nq-town-icon nq-menu-icon" src={icon} alt="" />
+          ) : (
+            numberOnly && (
+              <span class="nq-dex-card-unknown" aria-hidden="true">
+                ？
+              </span>
+            )
+          )}
           <span class={compactMeta ? 'nq-mistake-row-copy' : undefined}>
-            <RubyLabel text={numberOnly ? (entry.right ?? entry.name) : entry.name} class="nq-opt-name" />
+            <RubyLabel text={entry.name} class="nq-opt-name" />
             {compactMeta && entry.sub && <RubyLabel text={entry.sub} class="nq-mistake-row-meta" />}
           </span>
           {!numberOnly && entry.tag && <span class="nq-party-tag">{entry.tag}</span>}
@@ -139,6 +155,8 @@ export function MenuOverlay({
     );
   const [sel, setSel] = useState(find);
   const [home, setHome] = useState(initialHome);
+  const [dexEntry, setDexEntry] = useState<string | null>(null);
+  const dexScroll = useRef(0);
   const [dexGroup, setDexGroup] = useState<string | null>(null);
   const [homeSel, setHomeSel] = useState(() =>
     Math.max(
@@ -150,12 +168,13 @@ export function MenuOverlay({
   const lastTab = useRef(tab);
   if (lastTab.current !== tab) {
     lastTab.current = tab;
+    setDexEntry(null);
     const k = find();
     if (k !== sel) setSel(k);
   }
   const isDex = tab === 'monsters' || tab === 'specialties';
   const isMistakes = tab === 'mistakes';
-  const dexColumns = 6;
+  const dexColumns = dexEntry ? 3 : 6;
   const groups = isDex
     ? [
         ...new Map(
@@ -167,7 +186,9 @@ export function MenuOverlay({
   const visibleEntries = activeGroup ? entries.filter((entry) => entry.group === activeGroup) : entries;
   const visibleIndexes = visibleEntries.map((entry) => entries.indexOf(entry));
   const visibleSel = Math.max(0, visibleIndexes.indexOf(sel));
-  const e = entries[Math.min(sel, entries.length - 1)];
+  const e = isDex
+    ? visibleEntries.find((entry) => entry.key === dexEntry)
+    : entries[Math.min(sel, entries.length - 1)];
   const listRef = useRef<HTMLUListElement>(null);
   const homeButtonRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -180,7 +201,9 @@ export function MenuOverlay({
   // 一覧を矢印で動かした時も、見た目の選択と実際のフォーカスを一致させる。
   useEffect(() => {
     if (home || tab === 'roadmap') return;
-    dialogRef.current?.querySelector<HTMLButtonElement>('[data-menu-entry].nq-focus')?.focus();
+    dialogRef.current
+      ?.querySelector<HTMLButtonElement>('[data-menu-entry].nq-focus')
+      ?.focus({ preventScroll: true });
   }, [activeGroup, home, sel, tab]);
 
   const pick = useCallback<MenuPick>(
@@ -200,7 +223,37 @@ export function MenuOverlay({
     },
     [entries],
   );
+  const closeDex = () => {
+    const restoreFocus = dialogRef.current?.querySelector('.nq-dex-info')?.contains(document.activeElement);
+    setDexEntry(null);
+    requestAnimationFrame(() => {
+      if (listRef.current) listRef.current.scrollTop = dexScroll.current;
+      if (restoreFocus)
+        listRef.current
+          ?.querySelector<HTMLButtonElement>('[data-menu-entry].nq-focus')
+          ?.focus({ preventScroll: true });
+    });
+  };
+  const activateDex = (index: number) => {
+    const entry = entries[index];
+    if (!entry) return;
+    if (dexEntry === entry.key) {
+      closeDex();
+      return;
+    }
+    if (!dexEntry) dexScroll.current = listRef.current?.scrollTop ?? 0;
+    setSel(index);
+    setDexEntry(entry.key);
+    playSfx('select');
+    requestAnimationFrame(() =>
+      listRef.current?.querySelector('[aria-expanded="true"]')?.scrollIntoView({ block: 'nearest' }),
+    );
+  };
   const act = () => {
+    if (isDex) {
+      activateDex(visibleIndexes[visibleSel] ?? sel);
+      return;
+    }
     if (!e?.action?.ok) {
       playSfx('miss');
       return;
@@ -229,6 +282,7 @@ export function MenuOverlay({
     if (next.key !== tab) onTab(next.key);
   };
   const backToHome = () => {
+    setDexEntry(null);
     playSfx('back');
     setHome(true);
   };
@@ -236,6 +290,8 @@ export function MenuOverlay({
     const index = entries.findIndex((entry) => entry.group === group);
     if (index < 0) return;
     playSfx('move');
+    setDexEntry(null);
+    if (listRef.current) listRef.current.scrollTop = 0;
     setDexGroup(group);
     setSel(index);
   };
@@ -252,6 +308,7 @@ export function MenuOverlay({
     homeSel,
     isDex,
     dexColumns,
+    closeDex: isDex && dexEntry ? closeDex : null,
     visibleIndexes,
     visibleSel,
   });
@@ -267,6 +324,7 @@ export function MenuOverlay({
     homeSel,
     isDex,
     dexColumns,
+    closeDex: isDex && dexEntry ? closeDex : null,
     visibleIndexes,
     visibleSel,
   };
@@ -359,7 +417,8 @@ export function MenuOverlay({
         case 'Escape':
         case 'x':
         case 'X':
-          L.backToHome();
+          if (L.closeDex) L.closeDex();
+          else L.backToHome();
           break;
         case 'i':
         case 'I':
@@ -376,7 +435,10 @@ export function MenuOverlay({
 
   const pic = e?.art ?? e?.icon ?? e?.getIcon?.();
   return (
-    <div class={home ? 'nq-wmap nq-menu-drawer-layer' : 'nq-wmap'} onClick={onClose}>
+    <div
+      class={home ? 'nq-wmap nq-menu-drawer-layer' : 'nq-wmap'}
+      onClick={isDex && dexEntry && !home ? closeDex : onClose}
+    >
       <div
         ref={dialogRef}
         class={`nq-win nq-wmap-box nq-menu-box${home ? ' nq-menu-drawer' : ''}`}
@@ -384,7 +446,11 @@ export function MenuOverlay({
         aria-modal="true"
         aria-label={t('field.menu')}
         tabindex={-1}
-        onClick={(ev) => ev.stopPropagation()}
+        onClick={(ev) => {
+          ev.stopPropagation();
+          if (isDex && dexEntry && ev.target instanceof Element && !ev.target.closest('button, .nq-dex-info'))
+            closeDex();
+        }}
       >
         <div class="nq-menu-head">
           <span class="nq-menu-title">
@@ -507,7 +573,7 @@ export function MenuOverlay({
                 ))}
               </div>
             )}
-            <div class={`nq-menu-body ${isMistakes ? 'nq-mistake-menu' : ''}`}>
+            <div class={`nq-menu-body ${isDex ? 'nq-dex-body' : isMistakes ? 'nq-mistake-menu' : ''}`}>
               <div class="nq-wmap-left">
                 {summary && <RubyLabel text={summary} class="nq-menu-summary" as="p" />}
                 {entries.length ? (
@@ -526,6 +592,8 @@ export function MenuOverlay({
                           compactMeta={isMistakes}
                           numberOnly={isDex}
                           onPick={pick}
+                          onActivate={isDex ? activateDex : undefined}
+                          expanded={isDex ? x.key === dexEntry : undefined}
                         />
                       );
                     })}
@@ -535,48 +603,58 @@ export function MenuOverlay({
                 )}
               </div>
 
-              <div class="nq-wmap-right">
-                {message && <RubyLabel text={message} class="nq-party-msg" as="p" />}
-                {e && (
-                  <div
-                    class={`nq-wmap-info nq-party-info ${isDex ? 'nq-dex-info' : ''} ${isMistakes ? 'nq-mistake-info' : ''}`}
-                  >
-                    <div class="nq-party-head">
-                      <div class={`nq-party-art ${e.known ? '' : 'nq-menu-unknown-art'}`}>
-                        {pic ? <img src={pic} alt="" /> : <PixelIcon name="star-off" scale={6} />}
-                      </div>
-                      <div class="nq-party-who">
-                        <div class="nq-dex-name-row">
-                          <RubyLabel text={e.name} class="nq-party-name" />
-                          {e.bagSize && <BagFootprint size={e.bagSize} />}
-                        </div>
-                        {e.detailIndex && <span class="nq-menu-detail-count">{e.detailIndex}</span>}
-                        {e.sub && <RubyLabel text={e.sub} class="nq-party-sub" />}
-                      </div>
-                    </div>
-                    <ul class="nq-town-lines">
-                      {e.lines.map((l, i) => (
-                        <li key={i}>
-                          <RubyLabel text={l} />
-                        </li>
-                      ))}
-                    </ul>
-                    {e.blurb && <RubyLabel text={e.blurb} class="nq-party-blurb" as="p" />}
-                  </div>
-                )}
-                {e?.action && (
-                  <div class="nq-wmap-foot nq-party-foot">
-                    <button
-                      type="button"
-                      class={`nq-opt nq-wmap-go ${e.action.ok ? 'nq-party-evolve-ok' : ''}`}
-                      disabled={!e.action.ok}
-                      onClick={act}
+              {(!isDex || e) && (
+                <div class="nq-wmap-right">
+                  {message && <RubyLabel text={message} class="nq-party-msg" as="p" />}
+                  {e && (
+                    <div
+                      class={`nq-wmap-info nq-party-info ${isDex ? 'nq-dex-info' : ''} ${isMistakes ? 'nq-mistake-info' : ''}`}
                     >
-                      <RubyLabel text={e.action.label} />
-                    </button>
-                  </div>
-                )}
-              </div>
+                      {isDex && (
+                        <div class="nq-dex-record-head">
+                          <RubyLabel text={e.right ?? ''} />
+                          <button type="button" class="nq-back" onClick={closeDex}>
+                            × {t('ui.close')}
+                          </button>
+                        </div>
+                      )}
+                      <div class="nq-party-head">
+                        <div class={`nq-party-art ${e.known ? '' : 'nq-menu-unknown-art'}`}>
+                          {pic ? <img src={pic} alt="" /> : <PixelIcon name="star-off" scale={6} />}
+                        </div>
+                        <div class="nq-party-who">
+                          <div class="nq-dex-name-row">
+                            <RubyLabel text={e.name} class="nq-party-name" />
+                            {e.bagSize && <BagFootprint size={e.bagSize} />}
+                          </div>
+                          {e.detailIndex && <span class="nq-menu-detail-count">{e.detailIndex}</span>}
+                          {e.sub && <RubyLabel text={e.sub} class="nq-party-sub" />}
+                        </div>
+                      </div>
+                      <ul class="nq-town-lines">
+                        {e.lines.map((l, i) => (
+                          <li key={i}>
+                            <RubyLabel text={l} />
+                          </li>
+                        ))}
+                      </ul>
+                      {e.blurb && <RubyLabel text={e.blurb} class="nq-party-blurb" as="p" />}
+                    </div>
+                  )}
+                  {e?.action && (
+                    <div class="nq-wmap-foot nq-party-foot">
+                      <button
+                        type="button"
+                        class={`nq-opt nq-wmap-go ${e.action.ok ? 'nq-party-evolve-ok' : ''}`}
+                        disabled={!e.action.ok}
+                        onClick={act}
+                      >
+                        <RubyLabel text={e.action.label} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </>
         )}
