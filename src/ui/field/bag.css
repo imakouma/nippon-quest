@@ -330,6 +330,47 @@
   color: var(--nq-white);
   overflow-wrap: anywhere;
 }
+.nq-bag-detail-count {
+  flex: none;
+  align-self: flex-start;
+  color: var(--nq-cloud);
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+.nq-bag-detail-kind {
+  margin: 0;
+  padding: 2px 0 8px;
+  border-bottom: 2px solid var(--nq-slate);
+  color: var(--nq-cloud);
+  font-size: 14px;
+  line-height: 20px;
+}
+.nq-bag-effects {
+  padding: 8px 10px;
+  border-left: 3px solid #73ddca;
+  background: #1b2033;
+}
+.nq-bag-effects-title {
+  margin: 0 0 3px;
+  color: #73ddca;
+  font-size: 14px;
+  line-height: 20px;
+}
+.nq-bag-effect-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 22px;
+}
+.nq-bag-effect-value {
+  flex: none;
+  color: var(--nq-yellow);
+  font-size: 20px;
+  white-space: nowrap;
+}
 .nq-bag-details .nq-party-sub,
 .nq-bag-details .nq-party-stats,
 .nq-bag-details .nq-bag-line,

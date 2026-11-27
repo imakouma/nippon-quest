@@ -66,6 +66,12 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   await bag.getByRole('button', { name: 'そうび', exact: true }).click();
   await page.keyboard.press('ArrowDown');
   await expect(bag.locator('.nq-party-info')).toContainText('れんしゅうの ぼう');
+  await expect(bag.locator('.nq-bag-detail-count')).toHaveText('×1');
+  await expect(bag.locator('.nq-bag-detail-kind')).toContainText('ぶき');
+  await expect(bag.locator('.nq-bag-effects')).toContainText('こうか');
+  await expect(bag.locator('.nq-bag-effect-value')).toHaveText(['+1', '+1']);
+  await expect(bag.locator('.nq-party-art img')).toHaveAttribute('src', /.+/);
+  await page.screenshot({ path: testInfo.outputPath('bag-detail-weapon.png') });
   await bag.getByRole('button', { name: 'どうぐ', exact: true }).click();
   await expect(bag.locator('.nq-party-info')).toContainText('テスト');
   await bag.getByRole('button', { name: 'ぜんぶ', exact: true }).click();
@@ -212,6 +218,9 @@ test('どうぐが増えても詳細と操作を保ち、クリック追加・�
   await expect(bag.locator('.nq-bag-reserve-name')).toHaveCount(0);
   await apple.click();
   await apple.click();
+  await expect(bag.locator('.nq-bag-effects')).toContainText('HP');
+  await expect(bag.locator('.nq-party-art img')).toHaveAttribute('src', /.+/);
+  await page.screenshot({ path: testInfo.outputPath('bag-detail-apple.png') });
   for (const [width, height] of [
     [960, 540],
     [640, 540],

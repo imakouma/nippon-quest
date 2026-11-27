@@ -36,6 +36,7 @@ export function BagDetails({
   onRosterRemove,
   flashKey,
 }: Props) {
+  const isObject = m.kind === 'item' || m.kind === 'equip';
   const reason =
     m.blockedReason ?? (m.kind === 'item' && m.action !== 'pack' ? t('field.bagStorageOnly') : null);
   return (
@@ -59,9 +60,26 @@ export function BagDetails({
                 {m.kind === 'monster' && m.element && <ElementChip el={m.element} />}
               </span>
             </div>
+            {isObject && m.count !== undefined && (
+              <span class="nq-bag-detail-count" aria-label={displayText(t('field.townHave', { n: m.count }))}>
+                ×{m.count}
+              </span>
+            )}
           </div>
+          {isObject && m.sub && <RubyLabel text={m.sub} class="nq-bag-detail-kind" as="p" />}
           {m.kind === 'item' && m.action === 'pack' && (
             <RubyLabel text={t('field.bagToolPlace')} class="nq-bag-reason" as="p" />
+          )}
+          {!!m.effects?.length && (
+            <section class="nq-bag-effects" aria-label={displayText(t('field.bagEffect'))}>
+              <RubyLabel text={t('field.bagEffect')} class="nq-bag-effects-title" as="p" />
+              {m.effects.map((effect, i) => (
+                <div class="nq-bag-effect-row" key={i}>
+                  <RubyLabel text={effect.label} />
+                  {effect.value && <strong class="nq-bag-effect-value">{effect.value}</strong>}
+                </div>
+              ))}
+            </section>
           )}
           {m.stats && (
             <div class="nq-party-stats">
@@ -96,7 +114,7 @@ export function BagDetails({
             </>
           )}
           {reason && <RubyLabel text={reason} class="nq-bag-reason" as="p" />}
-          {m.sub && <RubyLabel text={m.sub} class="nq-party-blurb" as="p" />}
+          {!isObject && m.sub && <RubyLabel text={m.sub} class="nq-party-blurb" as="p" />}
           {m.blurb && <RubyLabel text={m.blurb} class="nq-party-blurb" as="p" />}
         </div>
       }

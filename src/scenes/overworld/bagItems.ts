@@ -24,7 +24,7 @@ import { STARTER_EQUIPMENT_ID } from '../../core/state/starter';
 import { itemIconUrl } from '../../rendering/itemIcons';
 import type { BagThing } from '../../ui/field/BagOverlay';
 import { t } from '../../ui/i18n';
-import { itemStatText } from './menuEntries';
+import { itemStatRows } from './menuEntries';
 import { partyFromGameState } from '../../core/battle/setup';
 import { playSfx } from '../../ui/sfx';
 
@@ -208,11 +208,8 @@ function equipmentThing(it: Item, key: string, count?: number, setLines: string[
     inBag: key.startsWith('eq:'),
     count,
     sub: t('field.equipSlot', { slot: t(`slots.${it.kind}`) }),
-    lines: [
-      itemStatText(it),
-      count === undefined ? '' : t('field.townHave', { n: count }),
-      ...setLines,
-    ].filter(Boolean),
+    effects: itemStatRows(it),
+    lines: setLines,
     blurb: it.blurb,
   };
 }
@@ -251,7 +248,7 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
               ? 'field.itemKindMaterial'
               : 'field.itemKindKey',
         ),
-        lines: [item.use?.heal ? t('field.bagHeal', { n: item.use.heal }) : ''].filter(Boolean),
+        effects: item.use?.heal ? [{ label: t('field.bagHeal', { n: item.use.heal }) }] : [],
         blurb: item.blurb,
         action: item.kind === 'consumable' && !!item.use ? 'pack' : undefined,
       },

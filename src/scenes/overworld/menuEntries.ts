@@ -46,10 +46,18 @@ const STAT_LABELS: Readonly<Record<string, string>> = {
   wis: 'field.statWis',
 };
 
-export function itemStatText(item: Item): string {
+export function itemStatRows(item: Item): { label: string; value: string }[] {
   return Object.entries(item.stats ?? {})
     .filter((entry): entry is [string, number] => typeof entry[1] === 'number' && Number.isFinite(entry[1]))
-    .map(([key, value]) => `${STAT_LABELS[key] ? t(STAT_LABELS[key]) : key.toUpperCase()}+${value}`)
+    .map(([key, value]) => ({
+      label: STAT_LABELS[key] ? t(STAT_LABELS[key]) : key.toUpperCase(),
+      value: `${value >= 0 ? '+' : ''}${value}`,
+    }));
+}
+
+export function itemStatText(item: Item): string {
+  return itemStatRows(item)
+    .map(({ label, value }) => `${label}${value}`)
     .join('　');
 }
 

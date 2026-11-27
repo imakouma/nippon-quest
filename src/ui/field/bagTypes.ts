@@ -28,6 +28,7 @@ export interface BagThing {
   /** 名前の下（そうびの 部位 など） */
   sub?: string;
   lines?: string[];
+  effects?: { label: string; value?: string }[];
   skills?: { name: string; gauge: number; scan: boolean }[];
   blurb?: string;
   action?: 'pack';
