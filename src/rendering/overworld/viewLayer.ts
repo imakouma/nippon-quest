@@ -4,7 +4,8 @@ import { NQ } from '../palette';
 import { addSheet } from '../sheet';
 import { buildElevationView, type ElevationFace } from './elevationView';
 import { buildEntranceIcons } from './entranceIcons';
-import { overworldView } from './overworldView';
+import { overworldView, VIEW } from './overworldView';
+import { oceanTextureTile, startOceanMotion } from './oceanMotion';
 import { addTerrainMesh } from './terrainMesh';
 import { buildViewTexture } from './viewTiles';
 
@@ -67,6 +68,7 @@ export function addOverworldViewLayer(
   const blockedTiles =
     map.getLayer('collision')?.data.flatMap((row) => row.map((tile) => tile.index > 0)) ?? [];
   if (addTerrainMesh(scene, ids, elevation, tileSize, blockedTiles)) return true;
+  if (ids.some((tile) => tile >= VIEW.WATER && tile <= VIEW.WATER_GLINT)) startOceanMotion(scene);
   buildFaceTexture(scene, 'cliff');
   buildFaceTexture(scene, 'stairs');
   const viewMap = scene.make.tilemap({
@@ -80,7 +82,10 @@ export function addOverworldViewLayer(
     viewMap.destroy();
     return false;
   }
-  const view = buildElevationView(ids, elevation, tileSize);
+  const animatedIds = ids.map((tile, index) =>
+    oceanTextureTile(tile, index % map.width, Math.floor(index / map.width)),
+  );
+  const view = buildElevationView(animatedIds, elevation, tileSize);
   for (const band of view.bands) {
     const layer = viewMap.createBlankLayer(`view-${band.elevation}`, tiles, 0, band.offsetY);
     if (!layer) continue;
