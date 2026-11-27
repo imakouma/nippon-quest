@@ -147,7 +147,11 @@ export function resolveHit(
   const damage = computeDamage({
     attacker: input.attacker,
     defender: input.defender,
-    skill: input.skill,
+    // 学習用の低威力技を使う通常敵にも、基本攻撃と同程度の反撃を持たせる。
+    skill:
+      !byAlly && state.ruleset.id === 'normal' && input.skill && input.skill.power < 100
+        ? { ...input.skill, power: 100 }
+        : input.skill,
     score: input.score,
     combo: byAlly ? state.player.comboCount : 0,
     canCrit: byAlly,
