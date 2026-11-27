@@ -3,7 +3,6 @@ import { t } from '../i18n';
 import { RubyLabel } from '../RubyLabel';
 import { useModalFocus } from '../useModalFocus';
 import { HeroSkillEditor, type HeroSkillEditorProps } from './HeroSkillEditor';
-import './bag.css';
 import './menu.css';
 
 export function HeroSkillScreen(props: HeroSkillEditorProps & { onClose: () => void }) {
@@ -23,7 +22,7 @@ export function HeroSkillScreen(props: HeroSkillEditorProps & { onClose: () => v
     <div class="nq-wmap" onClick={props.onClose}>
       <div
         ref={root}
-        class="nq-win nq-wmap-box nq-menu-box"
+        class="nq-win nq-wmap-box nq-menu-box nq-hero-skill-window"
         role="dialog"
         aria-modal="true"
         aria-label={t('field.skillLoadoutTitle')}
