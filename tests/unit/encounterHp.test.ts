@@ -68,3 +68,12 @@ it('通常戦では前衛の仲間の追撃を見込み、ボスの最大HPは�
     makeEncounterEnemy(def, 1, 3, growth, 'boss').hp,
   );
 });
+
+it('早く決着しすぎたボスは低学年・仲間ありの序盤で耐久を上げる', async () => {
+  const c = await content();
+  const boss = c.monsters.get('fukuoka-midboss-banana-taisho')!;
+  const growth = c.settings.heroGrowth;
+  const hp = (level: number, party: boolean) => makeEncounterEnemy(boss, level, 1, growth, 'boss', party).hp;
+  expect(hp(10, true)).toBeGreaterThan(hp(10, false) * 1.5);
+  expect(hp(30, true)).toBe(hp(30, false));
+});

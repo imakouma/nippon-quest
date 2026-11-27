@@ -98,6 +98,20 @@ export function partyFromGameState(
 const normalPowerByGrade = [40, 80, 125, 180, 245, 320] as const;
 const companionDurabilityByGrade = [2.25, 1.65, 1.55, 1.45, 1.35, 1.25] as const;
 
+// 同レベル・仲間ありで、装備なしでも4ターン以内の勝利が繰り返されたボス。
+const shortBossEncounters = new Set([
+  'fukuoka-midboss-banana-taisho',
+  'hokkaido-lastboss-clark',
+  'ishikawa-boss-yukitsuri-oomatsu',
+  'kyoto-midboss-kayabuki-monban',
+  'nagasaki-lastboss-siebold',
+  'nara-midboss-hitome-senbon',
+  'saitama-lastboss-shibusawa-eiichi',
+  'shizuoka-lastboss-tokugawa-ieyasu',
+  'wakayama-lastboss-tokugawa-yoshimune',
+  'yamagata-lastboss-matsuo-basho',
+]);
+
 export function makeEncounterEnemy(
   def: Parameters<typeof makeMonster>[0],
   level: number,
@@ -123,7 +137,15 @@ export function makeEncounterEnemy(
   const variation = Math.max(0.9, Math.min(1.1, enemy.hp / (16 + 3 * (level - 1))));
   // 仲間は前衛の1体だけが毎ターン追撃する。控えの人数で倍率を重ねない。
   const durability = boss ? 4 : hasActiveCompanion ? companionDurabilityByGrade[grade - 1]! : 1;
-  enemy.stats.hp = Math.round(targetHp * durability * variation);
+  // 序盤は主人公の技に対して追撃の比重が大きい。Lv.30までに補正を外す。
+  const earlyLevelWeight = Math.max(0, Math.min(1, (30 - level) / 20));
+  const extraBossHp = shortBossEncounters.has(def.id)
+    ? 0.6
+    : def.id === 'aomori-midboss-nebuta-taisho'
+      ? 0.35
+      : 0;
+  const bossAdjustment = boss && hasActiveCompanion && grade <= 2 ? 1 + extraBossHp * earlyLevelWeight : 1;
+  enemy.stats.hp = Math.round(targetHp * durability * variation * bossAdjustment);
   enemy.hp = enemy.stats.hp;
   return enemy;
 }
