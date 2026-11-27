@@ -78,6 +78,42 @@ async function teleport(
   await page.waitForTimeout(750);
 }
 
+async function walkOneTile(
+  page: Page,
+  key: 'ArrowUp' | 'ArrowDown' | 'ArrowLeft' | 'ArrowRight',
+  expected?: [number, number],
+): Promise<void> {
+  const canvas = page.locator('canvas[data-player-tile]');
+  const before = await canvas.getAttribute('data-player-tile');
+  await canvas.evaluate((element) => {
+    delete (element as HTMLElement).dataset.lastMovement;
+    delete (element as HTMLElement).dataset.testStepStarted;
+  });
+  await page.evaluate((key) => {
+    const scene = window.__nq.scene.getScene('Overworld') as Phaser.Scene & {
+      playerLocomotion: { phase: string };
+    };
+    const keyCode = { ArrowUp: 38, ArrowDown: 40, ArrowLeft: 37, ArrowRight: 39 }[key];
+    // CIとの往復中に2歩進まないよう、開始フレーム内でキーを離す。
+    const release = () => {
+      if (scene.playerLocomotion.phase !== 'stepping') return;
+      window.dispatchEvent(new KeyboardEvent('keyup', { key, code: key, keyCode, bubbles: true }));
+      scene.events.off('postupdate', release);
+      scene.game.canvas.dataset.testStepStarted = 'true';
+    };
+    scene.events.on('postupdate', release);
+  }, key);
+  await page.keyboard.down(key);
+  try {
+    await expect(canvas).toHaveAttribute('data-test-step-started', 'true');
+  } finally {
+    await page.keyboard.up(key);
+  }
+  await expect(canvas).toHaveAttribute('data-last-movement', 'move');
+  await expect(canvas).not.toHaveAttribute('data-player-tile', before!);
+  if (expected) await expect(canvas).toHaveAttribute('data-player-tile', `${expected[0]},${expected[1]}`);
+}
+
 test('実ゲームの海面が動き続ける', async ({ page }) => {
   test.setTimeout(120_000);
   await startField(page);
@@ -92,16 +128,19 @@ test('実ゲームの海面が動き続ける', async ({ page }) => {
   const first = await getFrame();
   await page.waitForTimeout(350);
   expect(await getFrame()).not.toEqual(first);
-  const canvas = page.locator('canvas[data-player-tile]');
-  const before = await canvas.getAttribute('data-player-tile');
-  await canvas.click({ position: { x: 400, y: 200 } });
-  await page.keyboard.down('ArrowRight');
-  await page.waitForTimeout(350);
-  await page.keyboard.up('ArrowRight');
-  await expect(canvas).not.toHaveAttribute('data-player-tile', before!);
+  await page.locator('canvas[data-player-tile]').click({ position: { x: 400, y: 200 } });
+  await walkOneTile(page, 'ArrowRight', [71, 12]);
   const second = await getFrame();
   await page.waitForTimeout(350);
   expect(await getFrame()).not.toEqual(second);
+
+  await page.evaluate(() => Object.defineProperty(document, 'hidden', { configurable: true, value: true }));
+  const hidden = await getFrame();
+  await page.waitForTimeout(500);
+  expect(await getFrame()).toEqual(hidden);
+  await page.evaluate(() => Reflect.deleteProperty(document, 'hidden'));
+  await page.waitForTimeout(350);
+  expect(await getFrame()).not.toEqual(hidden);
 
   await teleport(page, [44, 86], { area: 'aomori', map: 'aomori-field', devAll: true });
   const inland = await getFrame();
