@@ -8,7 +8,6 @@ import type { QuestionBank } from '../../questions/engine';
 import type { MenuEntry, MenuHomeKey, MenuTab } from '../../shared/menuModel';
 import { t } from '../../ui/i18n';
 import { itemIconUrl } from '../../rendering/itemIcons';
-import { stripRuby } from '../../ui/ruby';
 import { monsterCatalog, specialtyCatalog } from './catalogs';
 import { dexRegionOf } from './geography';
 
@@ -313,7 +312,7 @@ export function buildMenuView(input: MenuViewInput): MenuView {
         groupLabel: t(region.nameKey),
         icon: item ? itemIconUrl(item) : undefined,
         known,
-        right: stripRuby(area.name, 'kana'),
+        right: t('field.dexNo', { n: String(index + 1).padStart(3, '0') }),
         detailIndex: `${index + 1}/${specialties.length}`,
         sub: t(motifKindLabelKey(motif.kind)),
         lines: known

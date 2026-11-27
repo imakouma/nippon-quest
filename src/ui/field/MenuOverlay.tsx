@@ -154,7 +154,7 @@ export function MenuOverlay({
   }
   const isDex = tab === 'monsters' || tab === 'specialties';
   const isMistakes = tab === 'mistakes';
-  const dexColumns = tab === 'monsters' ? 6 : 2;
+  const dexColumns = 6;
   const groups = isDex
     ? [
         ...new Map(
@@ -512,7 +512,7 @@ export function MenuOverlay({
                 {summary && <RubyLabel text={summary} class="nq-menu-summary" as="p" />}
                 {entries.length ? (
                   <ul
-                    class={`nq-party-list nq-town-list ${isDex ? 'nq-dex-grid' : ''} ${tab === 'monsters' ? 'nq-dex-monsters' : ''} ${isMistakes ? 'nq-mistake-list' : ''}`}
+                    class={`nq-party-list nq-town-list ${isDex ? 'nq-dex-grid nq-dex-numbered' : ''} ${isMistakes ? 'nq-mistake-list' : ''}`}
                     ref={listRef}
                   >
                     {visibleEntries.map((x) => {
@@ -524,7 +524,7 @@ export function MenuOverlay({
                           index={k}
                           selected={k === sel}
                           compactMeta={isMistakes}
-                          numberOnly={tab === 'monsters'}
+                          numberOnly={isDex}
                           onPick={pick}
                         />
                       );
