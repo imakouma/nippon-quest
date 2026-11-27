@@ -102,4 +102,14 @@ test('実ゲームの海面が動き続ける', async ({ page }) => {
   const second = await getFrame();
   await page.waitForTimeout(350);
   expect(await getFrame()).not.toEqual(second);
+
+  await teleport(page, [44, 86], { area: 'aomori', map: 'aomori-field', devAll: true });
+  const inland = await getFrame();
+  await page.waitForTimeout(500);
+  expect(await getFrame()).toEqual(inland);
+
+  await teleport(page, [70, 12], { area: 'aomori', map: 'aomori-field', devAll: true });
+  const coast = await getFrame();
+  await page.waitForTimeout(350);
+  expect(await getFrame()).not.toEqual(coast);
 });

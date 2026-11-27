@@ -205,7 +205,8 @@ export function addTerrainMesh(
     width: number;
     height: number;
   };
-  if (tileIds.some((tile) => tile >= VIEW.WATER && tile <= VIEW.WATER_GLINT)) startOceanMotion(scene);
+  let visibleOcean = false;
+  if (tileIds.some(isOceanTile)) startOceanMotion(scene, () => visibleOcean);
   const topMesh = scene.add.mesh(0, 0, 'overworld-view').setDepth(-1000);
   const faceMesh = scene.add.mesh(0, 0, FACE_TEXTURE).setDepth(-999);
   scene.sys.updateList.remove(topMesh);
@@ -232,6 +233,7 @@ export function addTerrainMesh(
 
   const rebuild = (bounds: TerrainBounds) => {
     const geometry = buildTerrainGeometry(groundTiles, elevation, tileSize, bounds);
+    visibleOcean = geometry.tops.some((triangle) => isOceanTile(triangle.tileId));
     topPoints = geometry.tops.flatMap((triangle) => triangle.vertices);
     const topUv = geometry.tops.flatMap((triangle, index) => {
       if (!isOceanTile(triangle.tileId))

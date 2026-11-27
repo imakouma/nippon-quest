@@ -17,7 +17,7 @@ export const oceanTextureTile = (tile: number, x: number, y: number): number =>
   isOceanTile(tile) ? oceanPhaseAt(x, y) : tile;
 
 /** Replaces the shared water atlas cells, not every visible map tile. */
-export function startOceanMotion(scene: Phaser.Scene): void {
+export function startOceanMotion(scene: Phaser.Scene, isVisible: () => boolean = () => true): void {
   const source = scene.textures.get('overworld-view').source[0];
   if (!source || !(source.image instanceof HTMLCanvasElement)) return;
   const context = source.image.getContext('2d');
@@ -29,6 +29,7 @@ export function startOceanMotion(scene: Phaser.Scene): void {
     if (disposed) return;
     let frame = 0;
     const update = () => {
+      if (document.hidden || !isVisible()) return;
       context.imageSmoothingEnabled = false;
       for (let phase = 0; phase < PHASES; phase++) {
         context.drawImage(
