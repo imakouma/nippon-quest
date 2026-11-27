@@ -1641,10 +1641,28 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 12px;
 }
+.nq-settings-practice {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-items: center;
+  container-type: size;
+  gap: 6px;
+  min-height: 0;
+}
 .nq-settings-preview {
+  width: min(100%, calc(max(0px, 100cqh - 48px) * 16 / 9));
+  aspect-ratio: 16 / 9;
   position: relative;
-  border: 3px solid #4f5c7a;
+  outline: 2px solid #4f5c7a;
   background: #202e42;
+}
+.nq-settings-preview canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
 }
 .nq-settings-options {
   display: grid;

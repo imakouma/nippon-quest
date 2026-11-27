@@ -6,11 +6,11 @@ import { RubyLabel } from '../RubyLabel';
 import { PixelIcon } from '../PixelIcon';
 import { useModalFocus } from '../useModalFocus';
 import { DirectionPad } from './DirectionPad';
-import { VirtualStick } from './VirtualStick';
+import { VirtualStick, type VirtualStickDirection } from './VirtualStick';
+import { SettingsPracticeField } from './SettingsPracticeField';
 
 type Settings = GameState['settings'];
 const idleLayout = { x: 0, y: 100, size: 100, opacity: 42 };
-const ignoreDirection = () => {};
 
 export function SettingsOverlay({
   game,
@@ -22,10 +22,20 @@ export function SettingsOverlay({
   onClose: () => void;
 }) {
   const [page, setPage] = useState<'controls' | 'sound'>();
+  const [playing, setPlaying] = useState(false);
+  const direction = useRef<VirtualStickDirection | null>(null);
+  const setDirection = (next: VirtualStickDirection | null) => {
+    direction.current = next;
+  };
   const pointer = useRef<number>();
   const dialogRef = useRef<HTMLElement>(null);
   useModalFocus(dialogRef, page ? '.nq-settings-back' : '.nq-settings-card');
-  const back = () => (page ? setPage(undefined) : onClose());
+  const back = () => {
+    direction.current = null;
+    setPlaying(false);
+    if (page) setPage(undefined);
+    else onClose();
+  };
   const control = game.settings.movementControl ?? 'stick';
   const defaults = { ...idleLayout, opacity: control === 'stick' ? 42 : 100 };
   const layout = game.settings.touchLayout ?? defaults;
@@ -119,35 +129,48 @@ export function SettingsOverlay({
         )}
         {page === 'controls' && (
           <div class="nq-settings-controls">
-            <div
-              class="nq-settings-preview"
-              aria-hidden="true"
-              onPointerDown={(event) => {
-                if (!event.isPrimary) return;
-                pointer.current = event.pointerId;
-                event.currentTarget.setPointerCapture(event.pointerId);
-                movePad(event);
-              }}
-              onPointerMove={(event) => {
-                if (event.pointerId === pointer.current) movePad(event);
-              }}
-              onLostPointerCapture={() => {
-                pointer.current = undefined;
-              }}
-              style={{
-                '--touch-x': `${layout.x}%`,
-                '--touch-y': `${layout.y}%`,
-                '--touch-size': `${(88 * layout.size) / 100}px`,
-                '--touch-opacity': layout.opacity / 100,
-              }}
-            >
-              <div inert>
-                {control === 'stick' ? (
-                  <VirtualStick label="" onDirection={ignoreDirection} />
-                ) : (
-                  <DirectionPad onDirection={ignoreDirection} />
-                )}
+            <div class="nq-settings-practice">
+              <div
+                class="nq-settings-preview"
+                onPointerDown={(event) => {
+                  if (playing || !event.isPrimary) return;
+                  pointer.current = event.pointerId;
+                  event.currentTarget.setPointerCapture(event.pointerId);
+                  movePad(event);
+                }}
+                onPointerMove={(event) => {
+                  if (event.pointerId === pointer.current) movePad(event);
+                }}
+                onLostPointerCapture={() => {
+                  pointer.current = undefined;
+                }}
+                style={{
+                  '--touch-x': `${layout.x}%`,
+                  '--touch-y': `${layout.y}%`,
+                  '--touch-size': `${(15 * layout.size) / 100}cqw`,
+                  '--touch-opacity': layout.opacity / 100,
+                }}
+              >
+                <SettingsPracticeField appearance={game.player.appearance} direction={direction} />
+                <div inert={!playing}>
+                  {control === 'stick' ? (
+                    <VirtualStick label={t('field.moveStick')} onDirection={setDirection} />
+                  ) : (
+                    <DirectionPad onDirection={setDirection} />
+                  )}
+                </div>
               </div>
+              <button
+                type="button"
+                class="nq-back"
+                aria-pressed={playing}
+                onClick={() => {
+                  direction.current = null;
+                  setPlaying(!playing);
+                }}
+              >
+                <RubyLabel text={t(playing ? 'field.settingsPlacePad' : 'field.settingsTryWalking')} />
+              </button>
             </div>
             <div class="nq-settings-options">
               <div class="nq-settings-pick">
@@ -157,7 +180,10 @@ export function SettingsOverlay({
                     class="nq-back"
                     key={mode}
                     aria-pressed={control === mode}
-                    onClick={() => onChange({ movementControl: mode })}
+                    onClick={() => {
+                      direction.current = null;
+                      onChange({ movementControl: mode });
+                    }}
                   >
                     <RubyLabel text={t(mode === 'stick' ? 'field.settingsStick' : 'field.settingsDpad')} />
                   </button>
