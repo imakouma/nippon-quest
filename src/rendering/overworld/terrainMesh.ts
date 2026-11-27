@@ -24,6 +24,7 @@ import {
   type TerrainBounds,
 } from './terrainMeshGeometry';
 import { VIEW } from './overworldView';
+import { isOceanTile, oceanTextureTile, startOceanMotion } from './oceanMotion';
 import { VIEW_COLS } from './viewTiles';
 
 const FACE_TEXTURE = 'overworld-3d-stone-face';
@@ -204,6 +205,8 @@ export function addTerrainMesh(
     width: number;
     height: number;
   };
+  let visibleOcean = false;
+  if (tileIds.some(isOceanTile)) startOceanMotion(scene, () => visibleOcean);
   const topMesh = scene.add.mesh(0, 0, 'overworld-view').setDepth(-1000);
   const faceMesh = scene.add.mesh(0, 0, FACE_TEXTURE).setDepth(-999);
   scene.sys.updateList.remove(topMesh);
@@ -230,10 +233,16 @@ export function addTerrainMesh(
 
   const rebuild = (bounds: TerrainBounds) => {
     const geometry = buildTerrainGeometry(groundTiles, elevation, tileSize, bounds);
+    visibleOcean = geometry.tops.some((triangle) => isOceanTile(triangle.tileId));
     topPoints = geometry.tops.flatMap((triangle) => triangle.vertices);
-    const topUv = geometry.tops.flatMap((triangle, index) =>
-      topUvs(triangle.tileId, index % 2 === 1, texture.width, texture.height),
-    );
+    const topUv = geometry.tops.flatMap((triangle, index) => {
+      if (!isOceanTile(triangle.tileId))
+        return topUvs(triangle.tileId, index % 2 === 1, texture.width, texture.height);
+      const [a, b, c] = triangle.vertices;
+      const x = Math.floor(Math.min(a.x, b.x, c.x) / tileSize);
+      const y = Math.floor(Math.min(a.z, b.z, c.z) / tileSize);
+      return topUvs(oceanTextureTile(triangle.tileId, x, y), index % 2 === 1, texture.width, texture.height);
+    });
     addMeshVertices(topMesh, topPoints, topUv);
 
     facePoints = geometry.faces.flatMap((triangle) => triangle.vertices);

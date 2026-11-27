@@ -1,7 +1,7 @@
 {
   "source": "assets/",
-  "fileCount": 3118,
-  "totalBytes": 213587200,
+  "fileCount": 3120,
+  "totalBytes": 213589288,
   "categories": {
     "audio": { "fileCount": 25, "extensions": ["json", "md", "mp3"], "subdirectories": ["bgm", "se"] },
     "palette": { "fileCount": 2, "extensions": ["gpl", "hex"], "subdirectories": [] },
@@ -15,7 +15,8 @@
       "fileCount": 562,
       "extensions": ["json", "png"],
       "subdirectories": ["animations", "monsters"]
-    }
+    },
+    "tilesets": { "fileCount": 2, "extensions": ["md", "png"], "subdirectories": [] }
   },
   "files": [
     "audio/bgm/PROVENANCE.md",
@@ -3135,6 +3136,8 @@
     "sprites/animations/batch-06/yamanashi-momorin-v1.png",
     "sprites/monsters/iwate-izumiko.png",
     "sprites/monsters/iwate-kagurabi.png",
-    "sprites/monsters/iwate-kodamaru.png"
+    "sprites/monsters/iwate-kodamaru.png",
+    "tilesets/PROVENANCE.md",
+    "tilesets/ocean-wave.png"
   ]
 }
