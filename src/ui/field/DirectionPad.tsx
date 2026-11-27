@@ -3,10 +3,10 @@ import type { VirtualStickDirection } from './VirtualStick';
 import { t } from '../i18n';
 
 const directions = [
-  ['up', '▲', 'field.moveUp'],
-  ['left', '◀', 'field.moveLeft'],
-  ['right', '▶', 'field.moveRight'],
-  ['down', '▼', 'field.moveDown'],
+  ['up', 'field.moveUp'],
+  ['left', 'field.moveLeft'],
+  ['right', 'field.moveRight'],
+  ['down', 'field.moveDown'],
 ] as const;
 
 export function DirectionPad({
@@ -23,7 +23,7 @@ export function DirectionPad({
       aria-label={t('field.movePad')}
       onTouchStart={(event) => event.stopPropagation()}
     >
-      {directions.map(([direction, arrow, label]) => (
+      {directions.map(([direction, label]) => (
         <button
           type="button"
           class={`nq-direction-pad-${direction}`}
@@ -52,7 +52,7 @@ export function DirectionPad({
             onDirection(null);
           }}
         >
-          {arrow}
+          <span class="nq-direction-pad-arrow" aria-hidden="true" />
         </button>
       ))}
     </div>
