@@ -1,6 +1,13 @@
 import type { ContentIndex } from '../../core/content/loader';
 import type { Item } from '../../core/content/schemas';
-import { bagContext, equipmentUnlocked, evolveRoom } from '../../core/progression/bag';
+import {
+  bagContext,
+  bagUsage,
+  equipmentUnlocked,
+  evolveRoom,
+  toggleBagMonster,
+  type BagPos,
+} from '../../core/progression/bag';
 import { xpToNextLevel } from '../../core/progression/battleResult';
 import { TRIAL_CORE_ID } from '../../core/progression/eventReward';
 import { evolve, skillChanges } from '../../core/progression/evolution';
@@ -193,7 +200,6 @@ function equipmentThing(it: Item, key: string, count?: number, setLines: string[
   return {
     key,
     kind: 'equip',
-    equipSlot: it.kind,
     name: it.name,
     icon: itemIconUrl(it),
     art: itemIconUrl(it),
@@ -256,12 +262,11 @@ export function storedBagThings(gs: GameState, content: ContentIndex): BagThing[
     ...rows
       .filter(({ item }) => isEquip(item))
       .sort((a, b) => rank(a.item) - rank(b.item))
-      .map(({ item, count }) =>
-        equipmentThing(item, `inv:${item.id}`, count, [
-          ...equipmentSetLines(gs, content, item),
-          ...(!equipmentUnlocked(gs) && item.id !== STARTER_EQUIPMENT_ID ? [t('field.equipLocked')] : []),
-        ]),
-      ),
+      .map(({ item, count }) => ({
+        ...equipmentThing(item, `inv:${item.id}`, count, equipmentSetLines(gs, content, item)),
+        blockedReason:
+          !equipmentUnlocked(gs) && item.id !== STARTER_EQUIPMENT_ID ? t('field.equipLocked') : undefined,
+      })),
   ];
 }
 
@@ -304,4 +309,36 @@ export function useBagItem(
 
 export function heroStats(game: GameState, content: ContentIndex) {
   return partyFromGameState(game, content).hero.stats;
+}
+
+/** Keep placement outcomes and their messages together, outside the Scene coordinator. */
+export function toggleBagCompanion(
+  game: GameState,
+  key: string,
+  name: string,
+  content: ContentIndex,
+  position?: BagPos,
+) {
+  const ctx = bagContext(game, content);
+  const { state, result } = toggleBagMonster(game, key.slice('mon:'.length), ctx, Date.now(), position);
+  if (result === 'none') return null;
+  if (result === 'full' || result === 'roster-full') {
+    playSfx('miss');
+    return {
+      state,
+      message:
+        result === 'roster-full'
+          ? t('field.bagRosterFull')
+          : position
+            ? t('field.bagPlaceBlocked')
+            : t('field.bagFullMsg', { free: bagUsage(game, ctx).free }),
+    };
+  }
+  return {
+    state,
+    message: t(
+      result === 'added' ? 'field.bagAdded' : result === 'benched' ? 'field.bagBenched' : 'field.bagRemoved',
+      { name },
+    ),
+  };
 }

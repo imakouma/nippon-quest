@@ -87,29 +87,14 @@ export function monsterCost(monsterId: string, monsters: ReadonlyMap<string, Mon
 const monKey = (uid: string) => `mon:${uid}`;
 const equipKey = (kind: string) => `eq:${kind}`;
 
-const EQUIP_OFFSET: Readonly<Record<(typeof EQUIP_SLOTS)[number], readonly [number, number]>> = {
-  head: [0, -1],
-  weapon: [1, 0],
-  chest: [-1, 0],
-  legs: [-1, 1],
-  feet: [1, 1],
-};
-
-export function equipPosition(gs: GameState, kind: (typeof EQUIP_SLOTS)[number]): BagPos {
-  const hero = gs.party.bagPlacements.hero ?? { x: 1, y: 1 };
-  const [dx, dy] = EQUIP_OFFSET[kind];
-  return { x: hero.x + dx, y: hero.y + dy, rotated: false };
-}
-
-/** 解放済みで、決められた隣接マスに置かれている装備だけを能力と見た目へ反映する。 */
+/** バッグ内にある解放済み装備は、配置場所によらず基本効果を発揮する。 */
 export function activeEquipment(gs: GameState): GameState['player']['equipment'] {
   const result: GameState['player']['equipment'] = {};
   for (const kind of EQUIP_SLOTS) {
     const id = gs.player.equipment[kind];
     if (!equipmentUnlocked(gs) && id !== STARTER_EQUIPMENT_ID) continue;
     const at = gs.party.bagPlacements[equipKey(kind)];
-    const expected = equipPosition(gs, kind);
-    if (id && at?.x === expected.x && at.y === expected.y) result[kind] = id;
+    if (id && at) result[kind] = id;
   }
   return result;
 }
@@ -240,6 +225,7 @@ export function toggleBagMonster(
   uid: string,
   ctx: BagContext,
   now = Date.now(),
+  position?: BagPos,
 ): { state: GameState; result: BagMove } {
   if (!prev.party.owned.some((x) => x.uid === uid)) return { state: prev, result: 'none' };
   const key = monKey(uid);
@@ -255,7 +241,9 @@ export function toggleBagMonster(
   }
   const roster = battleRosterUids(prev);
   if (!roster.includes(uid) && roster.length >= MAX_COMPANIONS) return { state: prev, result: 'roster-full' };
-  const at = firstFreePosition(prev, key, ctx);
+  // A requested drop is atomic: never silently auto-place or bench on failure.
+  if (position && !canPlace(prev, key, position, ctx)) return { state: prev, result: 'full' };
+  const at = position ?? firstFreePosition(prev, key, ctx);
   if (!at) {
     if (!roster.includes(uid)) {
       gs.party.reserve.push(uid);
@@ -306,6 +294,7 @@ export function putEquip(
   it: Item,
   ctx: BagContext,
   now = Date.now(),
+  position?: BagPos,
 ): { state: GameState; result: BagMove; old?: string } {
   if (
     (!equipmentUnlocked(prev) && it.id !== STARTER_EQUIPMENT_ID) ||
@@ -315,10 +304,10 @@ export function putEquip(
     return { state: prev, result: 'none' };
   const old = prev.player.equipment[it.kind];
   const key = equipKey(it.kind);
-  const at = equipPosition(prev, it.kind);
   const next = equipItem(prev, it, now);
   if (!next) return { state: prev, result: 'none' };
-  if (!canPlace(next, key, at, ctx)) return { state: prev, result: 'full' };
+  const at = position ?? prev.party.bagPlacements[key] ?? firstFreePosition(next, key, ctx);
+  if (!at || !canPlace(next, key, at, ctx)) return { state: prev, result: 'full' };
   next.party.bagPlacements[key] = { ...at, rotated: !!at.rotated };
   return old ? { state: next, result: 'swapped', old } : { state: next, result: 'added' };
 }
