@@ -1,0 +1,892 @@
+[
+  {
+    "id": "sk-shakai-g3-map",
+    "name": "ちずのしるし",
+    "subject": "shakai",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "shakai.g3.legacy-cur-1403-01"
+    ],
+    "power": 70,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "地図[ちず]の きごうや 方位[ほうい]を よみとる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g3-map"
+    ]
+  },
+  {
+    "id": "sk-shakai-g3-heritage",
+    "name": "れきしのあかり",
+    "subject": "shakai",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "shakai.g3.legacy-cur-1403-01"
+    ],
+    "power": 70,
+    "element": "hikari",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "地域[ちいき]に のこる 建物[たてもの]や 伝統[でんとう]を しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g3-heritage"
+    ]
+  },
+  {
+    "id": "sk-shakai-g3-town",
+    "name": "まちのたんけん",
+    "subject": "shakai",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "shakai.g3.legacy-cur-1403-01"
+    ],
+    "power": 70,
+    "element": "tsuchi",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "地域[ちいき]の 土地[とち]や 交通[こうつう]を しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g3-town"
+    ]
+  },
+  {
+    "id": "sk-shakai-g3-work",
+    "name": "しごとのつながり",
+    "subject": "shakai",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "shakai.g3.legacy-cur-1403-02"
+    ],
+    "power": 70,
+    "element": "tsuchi",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "品物[しなもの]を 作[つく]り 届[とど]け 売[う]る しごとを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g3-work"
+    ]
+  },
+  {
+    "id": "sk-shakai-g3-safety",
+    "name": "まちのまもり",
+    "subject": "shakai",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "shakai.g3.legacy-cur-1403-03"
+    ],
+    "power": 70,
+    "element": "hikari",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "地域[ちいき]の 安全[あんぜん]を まもる くふうを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g3-safety"
+    ]
+  },
+  {
+    "id": "sk-shakai-g3-change",
+    "name": "くらしのあゆみ",
+    "subject": "shakai",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "shakai.g3.legacy-cur-1403-04"
+    ],
+    "power": 70,
+    "element": "mori",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "昔[むかし]と 今[いま]の くらしや まちを くらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g3-change"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-region",
+    "name": "けんとちず",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-01",
+      "shakai.g4.todofuken"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "都道府県[とどうふけん]の ようすや 地図[ちず]の 見[み]かたを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-region"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-utilities",
+    "name": "みずとでんき",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-02"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "みずとでんきを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-utilities"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-waste",
+    "name": "ごみとリサイクル",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-02"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ごみとリサイクルを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-waste"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-disaster",
+    "name": "さいがいとそなえ",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-03"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "災害[さいがい]の ようすと そなえを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-disaster"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-heritage",
+    "name": "つたわるぶんか",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-04"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "つたわるぶんかを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-heritage"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-waterworks",
+    "name": "まちをひらく",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-04"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "まちをひらくを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-waterworks"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-nature",
+    "name": "しぜんをまもる",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-05"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "しぜんをまもるを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-nature"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-international",
+    "name": "せかいとのつながり",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-05"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "せかいとのつながりを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-international"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-industry",
+    "name": "ちいきのさんぎょう",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-05"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ちいきのさんぎょうを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-industry"
+    ]
+  },
+  {
+    "id": "sk-shakai-g4-community",
+    "name": "まちづくり",
+    "subject": "shakai",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "shakai.g4.legacy-cur-1404-05"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "まちづくりを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g4-community"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-world",
+    "name": "にほんとせかい",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-1"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "にほんとせかいを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-world"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-land",
+    "name": "にほんのこくど",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-2"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "にほんのこくどを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-land"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-region",
+    "name": "ちいきのくらし",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-3"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "地域[ちいき]の 自然[しぜん]や 人々[ひとびと]の くらし、文化[ぶんか]を しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-region"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-agriculture",
+    "name": "のうぎょうのくふう",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-4"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "のうぎょうのくふうを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-agriculture"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-food",
+    "name": "しょくりょうとさんぎょう",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-4",
+      "shakai.g5.legacy-soc-5-5"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "しょくりょうとさんぎょうを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-food"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-industry",
+    "name": "こうぎょうとぼうえき",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-6"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "こうぎょうとぼうえきを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-industry"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-information",
+    "name": "じょうほうしゃかい",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-7"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "じょうほうしゃかいを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-information"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-environment",
+    "name": "しぜんとかんきょう",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-8"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "しぜんとかんきょうを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-environment"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-constitution",
+    "name": "けんぽうとくらし",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-1"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "けんぽうとくらしを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-constitution"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-government",
+    "name": "せいじのしくみ",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-2"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "せいじのしくみを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-government"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-ancient",
+    "name": "こだいのくに",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-3"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "こだいのくにを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-ancient"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-nara-heian",
+    "name": "あすかからへいあん",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-4"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "あすかからへいあんを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-nara-heian"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-kamakura",
+    "name": "かまくらのじだい",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-5"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "かまくらのじだいを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-kamakura"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-sengoku",
+    "name": "せんごくのせかい",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-6"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "せんごくのせかいを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-sengoku"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-edo",
+    "name": "えどのじだい",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-7"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "えどのじだいを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-edo"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-meiji",
+    "name": "えどのおわりとめいじ",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-8"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "えどのおわりとめいじを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-meiji"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-modern",
+    "name": "きんだいのあゆみ",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-9"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "きんだいのあゆみを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-modern"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-war",
+    "name": "せんそうとへいわ",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-10"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "戦争[せんそう]と 平和[へいわ]への あゆみを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-war"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-postwar",
+    "name": "せんそうとそのご",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-10"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "戦争[せんそう]と その後[ご]の 日本[にほん]の あゆみを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-postwar"
+    ]
+  },
+  {
+    "id": "sk-shakai-g6-world",
+    "name": "せかいとわたしたち",
+    "subject": "shakai",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "shakai.g6.legacy-soc-6-11"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "せかいとわたしたちを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g6-world"
+    ]
+  },
+  {
+    "id": "sk-shakai-g5-transport",
+    "name": "こうつうとゆそう",
+    "subject": "shakai",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "shakai.g5.legacy-soc-5-6"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "人[ひと]や 物[もの]を 運[はこ]ぶ 交通[こうつう]の とくちょうを しらべる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-shakai-g5-transport"
+    ]
+  }
+]

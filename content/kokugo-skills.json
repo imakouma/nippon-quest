@@ -1,0 +1,905 @@
+[
+  {
+    "id": "sk-kokugo-1-readkanji",
+    "name": "1年[ねん]・漢字[かんじ]よみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 60,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 読[よ]みを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-1-readkanji"
+    ]
+  },
+  {
+    "id": "sk-kanji-giri",
+    "name": "1年[ねん]・漢字[かんじ]かき",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 66,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 形[かたち]を 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 95,
+    "questionTags": [
+      "assigned:sk-kanji-giri"
+    ]
+  },
+  {
+    "id": "sk-kokugo-1-words",
+    "name": "1年[ねん]・ことばのひかり",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 64,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ことばの 意味[いみ]や 使[つか]い方[かた]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 98,
+    "questionTags": [
+      "assigned:sk-kokugo-1-words"
+    ]
+  },
+  {
+    "id": "sk-bun-no-tsubasa",
+    "name": "1年[ねん]・文[ぶん]のつばさ",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 68,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文[ぶん]の しくみを 見[み]つけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 94,
+    "questionTags": [
+      "assigned:sk-bun-no-tsubasa"
+    ]
+  },
+  {
+    "id": "sk-kokugo-1-reading",
+    "name": "1年[ねん]・読[よ]みときの矢[や]",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 72,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文章[ぶんしょう]を 読[よ]みといて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 92,
+    "questionTags": [
+      "assigned:sk-kokugo-1-reading"
+    ]
+  },
+  {
+    "id": "sk-kokugo-1-express",
+    "name": "1年[ねん]・伝[つた]える声[こえ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 62,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "考[かんが]えを 伝[つた]え合[あ]う 力[ちから]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-1-express"
+    ]
+  },
+  {
+    "id": "sk-kokugo-1-kana",
+    "name": "1年[ねん]・かなのきらめき",
+    "subject": "kokugo",
+    "gradeRange": [
+      1,
+      1
+    ],
+    "power": 58,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "かなの 形[かたち]や 音[おと]を 見[み]わけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-1-kana"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-readkanji",
+    "name": "2年[ねん]・漢字[かんじ]よみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 69,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 読[よ]みを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-2-readkanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-kanji-parts",
+    "name": "2年[ねん]・漢字[かんじ]のしくみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 69,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の つくりを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-2-kanji-parts"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-writekanji",
+    "name": "2年[ねん]・漢字[かんじ]かき",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 75,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 形[かたち]を 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 95,
+    "questionTags": [
+      "assigned:sk-kokugo-2-writekanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-words",
+    "name": "2年[ねん]・ことばのひかり",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 73,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ことばの 意味[いみ]や 使[つか]い方[かた]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 98,
+    "questionTags": [
+      "assigned:sk-kokugo-2-words"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-sentence",
+    "name": "2年[ねん]・文[ぶん]のつばさ",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 77,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文[ぶん]の しくみを 見[み]つけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 94,
+    "questionTags": [
+      "assigned:sk-kokugo-2-sentence"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-reading",
+    "name": "2年[ねん]・読[よ]みときの矢[や]",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 81,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文章[ぶんしょう]を 読[よ]みといて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 92,
+    "questionTags": [
+      "assigned:sk-kokugo-2-reading"
+    ]
+  },
+  {
+    "id": "sk-kokugo-2-express",
+    "name": "2年[ねん]・伝[つた]える声[こえ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      2,
+      2
+    ],
+    "power": 71,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "考[かんが]えを 伝[つた]え合[あ]う 力[ちから]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-2-express"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-readkanji",
+    "name": "3年[ねん]・漢字[かんじ]よみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 78,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 読[よ]みを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-3-readkanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-kanji-parts",
+    "name": "3年[ねん]・漢字[かんじ]のしくみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 78,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の つくりを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-3-kanji-parts"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-writekanji",
+    "name": "3年[ねん]・漢字[かんじ]かき",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 84,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 形[かたち]を 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 95,
+    "questionTags": [
+      "assigned:sk-kokugo-3-writekanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-words",
+    "name": "3年[ねん]・ことばのひかり",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 82,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ことばの 意味[いみ]や 使[つか]い方[かた]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 98,
+    "questionTags": [
+      "assigned:sk-kokugo-3-words"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-sentence",
+    "name": "3年[ねん]・文[ぶん]のつばさ",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 86,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文[ぶん]の しくみを 見[み]つけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 94,
+    "questionTags": [
+      "assigned:sk-kokugo-3-sentence"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-reading",
+    "name": "3年[ねん]・読[よ]みときの矢[や]",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文章[ぶんしょう]を 読[よ]みといて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 92,
+    "questionTags": [
+      "assigned:sk-kokugo-3-reading"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-express",
+    "name": "3年[ねん]・伝[つた]える声[こえ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "考[かんが]えを 伝[つた]え合[あ]う 力[ちから]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-3-express"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-kana",
+    "name": "3年[ねん]・かなのきらめき",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 76,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "かなの 形[かたち]や 音[おと]を 見[み]わけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-3-kana"
+    ]
+  },
+  {
+    "id": "sk-kokugo-3-roman",
+    "name": "3年[ねん]・ローマ字[じ]の風[かぜ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "power": 83,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ローマ字[じ]の 音[おと]を 組[く]み合[あ]わせて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-3-roman"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-readkanji",
+    "name": "4年[ねん]・漢字[かんじ]よみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 87,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 読[よ]みを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-4-readkanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-writekanji",
+    "name": "4年[ねん]・漢字[かんじ]かき",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 93,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 形[かたち]を 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 95,
+    "questionTags": [
+      "assigned:sk-kokugo-4-writekanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-words",
+    "name": "4年[ねん]・ことばのひかり",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 91,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ことばの 意味[いみ]や 使[つか]い方[かた]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 98,
+    "questionTags": [
+      "assigned:sk-kokugo-4-words"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-sentence",
+    "name": "4年[ねん]・文[ぶん]のつばさ",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 95,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文[ぶん]の しくみを 見[み]つけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 94,
+    "questionTags": [
+      "assigned:sk-kokugo-4-sentence"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-reading",
+    "name": "4年[ねん]・読[よ]みときの矢[や]",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 99,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文章[ぶんしょう]を 読[よ]みといて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 92,
+    "questionTags": [
+      "assigned:sk-kokugo-4-reading"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-express",
+    "name": "4年[ねん]・伝[つた]える声[こえ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 89,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "考[かんが]えを 伝[つた]え合[あ]う 力[ちから]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-4-express"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-readkanji",
+    "name": "5年[ねん]・漢字[かんじ]よみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 96,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 読[よ]みを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-5-readkanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-writekanji",
+    "name": "5年[ねん]・漢字[かんじ]かき",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 102,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 形[かたち]を 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 95,
+    "questionTags": [
+      "assigned:sk-kokugo-5-writekanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-words",
+    "name": "5年[ねん]・ことばのひかり",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ことばの 意味[いみ]や 使[つか]い方[かた]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 98,
+    "questionTags": [
+      "assigned:sk-kokugo-5-words"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-sentence",
+    "name": "5年[ねん]・文[ぶん]のつばさ",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 104,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文[ぶん]の しくみを 見[み]つけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 94,
+    "questionTags": [
+      "assigned:sk-kokugo-5-sentence"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-reading",
+    "name": "5年[ねん]・読[よ]みときの矢[や]",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 108,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文章[ぶんしょう]を 読[よ]みといて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 92,
+    "questionTags": [
+      "assigned:sk-kokugo-5-reading"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-express",
+    "name": "5年[ねん]・伝[つた]える声[こえ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 98,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "考[かんが]えを 伝[つた]え合[あ]う 力[ちから]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-5-express"
+    ]
+  },
+  {
+    "id": "sk-kokugo-5-kana",
+    "name": "5年[ねん]・かなのきらめき",
+    "subject": "kokugo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "power": 94,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "かなの 形[かたち]や 音[おと]を 見[み]わけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-5-kana"
+    ]
+  },
+  {
+    "id": "sk-kokugo-6-readkanji",
+    "name": "6年[ねん]・漢字[かんじ]よみ",
+    "subject": "kokugo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 105,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 読[よ]みを 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-6-readkanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-6-writekanji",
+    "name": "6年[ねん]・漢字[かんじ]かき",
+    "subject": "kokugo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 111,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "漢字[かんじ]の 形[かたち]を 見[み]きわめて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 95,
+    "questionTags": [
+      "assigned:sk-kokugo-6-writekanji"
+    ]
+  },
+  {
+    "id": "sk-kokugo-6-words",
+    "name": "6年[ねん]・ことばのひかり",
+    "subject": "kokugo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 109,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ことばの 意味[いみ]や 使[つか]い方[かた]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 98,
+    "questionTags": [
+      "assigned:sk-kokugo-6-words"
+    ]
+  },
+  {
+    "id": "sk-kokugo-6-sentence",
+    "name": "6年[ねん]・文[ぶん]のつばさ",
+    "subject": "kokugo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 113,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文[ぶん]の しくみを 見[み]つけて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 94,
+    "questionTags": [
+      "assigned:sk-kokugo-6-sentence"
+    ]
+  },
+  {
+    "id": "sk-kokugo-6-reading",
+    "name": "6年[ねん]・読[よ]みときの矢[や]",
+    "subject": "kokugo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 117,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文章[ぶんしょう]を 読[よ]みといて こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 92,
+    "questionTags": [
+      "assigned:sk-kokugo-6-reading"
+    ]
+  },
+  {
+    "id": "sk-kokugo-6-express",
+    "name": "6年[ねん]・伝[つた]える声[こえ]",
+    "subject": "kokugo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "power": 107,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "考[かんが]えを 伝[つた]え合[あ]う 力[ちから]で こうげき。",
+    "attackClass": "humanities",
+    "accuracy": 96,
+    "questionTags": [
+      "assigned:sk-kokugo-6-express"
+    ]
+  },
+  {
+    "id": "sk-kokugo-4-kana",
+    "name": "4年[ねん]・都道府県[とどうふけん]",
+    "subject": "kokugo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "power": 85,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "日本[にほん]の 都道府県[とどうふけん]の 数[かず]を たしかめる。",
+    "attackClass": "humanities",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-kokugo-4-kana"
+    ]
+  }
+]

@@ -1,3 +1,4 @@
+import { assignedSkillIds, subjectSkillRows } from '../progression/subjectSkillAssignments';
 /**
  * content/ の読み込み・検証・索引。ブラウザ（fetch）と Node（fs）の両方から使える。
  * 実ファイル一覧は content/manifest.json（`pnpm gen:manifest` が生成）に従う。
@@ -5,6 +6,7 @@
 import type { ZodTypeAny } from 'zod/v3';
 import {
   contentKinds,
+  skillSchema,
   elementSchema,
   equipKinds,
   type Area,
@@ -163,6 +165,16 @@ export async function loadContent(read: FileReader, opts: LoadOptions = {}): Pro
     loadKind<Unit>('units', manifest, read, dup),
     loadKind<ArenaRival>('rivals', manifest, read, dup),
   ]);
+
+  for (const [subject, rows] of subjectSkillRows) {
+    const assigned = assignedSkillIds(subject);
+    for (const row of rows) {
+      const skill = parseWith<Skill>(skillSchema, row, `${subject}-skills.json`);
+      if (!assigned.has(skill.id) && skills.has(skill.id)) continue;
+      if (assigned.has(skill.id)) skill.questionTags = [`assigned:${skill.id}`];
+      skills.set(skill.id, skill);
+    }
+  }
 
   const monstersByArea = new Map<string, Monster[]>();
   for (const m of monsters.values()) {

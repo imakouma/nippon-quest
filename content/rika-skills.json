@@ -1,0 +1,1191 @@
+[
+  {
+    "id": "sk-rika-g3-observe",
+    "name": "かんさつレンズ",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-01"
+    ],
+    "power": 70,
+    "element": "hikari",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "みつけた ものを よく見[み]て、きろくする ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-observe"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-plants-grow",
+    "name": "たねからのびる",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-02"
+    ],
+    "power": 70,
+    "element": "mori",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "たねから花[はな]や実[み]までの そだちを たどる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-plants-grow"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-insects",
+    "name": "こん虫[ちゅう]のすがた",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-03"
+    ],
+    "power": 70,
+    "element": "mori",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "こん虫[ちゅう]の からだや そだちを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-insects"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-plants-body",
+    "name": "くきとはのまい",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-04"
+    ],
+    "power": 70,
+    "element": "mori",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "植物[しょくぶつ]の からだと そだちを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-plants-body"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-light",
+    "name": "ひかりあつめ",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-05"
+    ],
+    "power": 70,
+    "element": "hikari",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "光[ひかり]の すすみ方[かた]や あたたかさを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-light"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-wind-rubber",
+    "name": "かぜとゴム",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-06"
+    ],
+    "power": 70,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "風[かぜ]や ゴムで ものを うごかす ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-wind-rubber"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-sun-shadow",
+    "name": "たいようとかげ",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-07"
+    ],
+    "power": 70,
+    "element": "hikari",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "太陽[たいよう]と かげ、地面[じめん]の ようすを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-sun-shadow"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-electricity",
+    "name": "でんきのわ",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-08"
+    ],
+    "power": 70,
+    "element": "hikari",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "電気[でんき]の 通[とお]り道[みち]を つなぐ ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-electricity"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-magnet",
+    "name": "じしゃくのちから",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-09"
+    ],
+    "power": 70,
+    "element": "tsuchi",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "じしゃくと ものの 引[ひ]きあいを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-magnet"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-weight",
+    "name": "おもさくらべ",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-10"
+    ],
+    "power": 70,
+    "element": "tsuchi",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ものの 形[かたち]と 重[おも]さを くらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-weight"
+    ]
+  },
+  {
+    "id": "sk-rika-g3-sound",
+    "name": "おとのふるえ",
+    "subject": "rika",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "rika.g3.legacy-cur-1503-05"
+    ],
+    "power": 70,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ものの ふるえと 音[おと]の つたわりを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g3-sound"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-temperature",
+    "name": "きおん",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-01"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "きおんを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-temperature"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-seasons",
+    "name": "きせつといきもの",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-02",
+      "rika.g4.legacy-cur-1504-06",
+      "rika.g4.legacy-cur-1504-13",
+      "rika.g4.legacy-cur-1504-17",
+      "rika.g4.legacy-cur-1504-18"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "きせつといきものを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-seasons"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-circuit",
+    "name": "でんりゅう",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-03",
+      "rika.g4.legacy-cur-1504-04"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "でんりゅうを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-circuit"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-air-water",
+    "name": "くうきとみず",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-05"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "くうきとみずを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-air-water"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-stars",
+    "name": "ほしのかんさつ",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-07",
+      "rika.g4.legacy-cur-1504-11",
+      "rika.g4.legacy-cur-1504-16"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "星[ほし]や 星座[せいざ]の ようすを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-stars"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-rainwater",
+    "name": "あまみずとじめん",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-08"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "あまみずとじめんを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-rainwater"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-vapor",
+    "name": "すいじょうき",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-09"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "すいじょうきを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-vapor"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-moon",
+    "name": "つきのかんさつ",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-10"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "つきのかんさつを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-moon"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-body",
+    "name": "からだのしくみ",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-12"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "からだのしくみを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-body"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-volume",
+    "name": "おんどとかさ",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-14",
+      "rika.g4.legacy-cur-1504-15"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "おんどとかさを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-volume"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-heat",
+    "name": "ねつのつたわり",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-19",
+      "rika.g4.legacy-cur-1504-20"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ねつのつたわりを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-heat"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-water-state",
+    "name": "みずのすがた",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.legacy-cur-1504-21",
+      "rika.g4.mizu-no-sugata"
+    ],
+    "power": 80,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "みずのすがたを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-water-state"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-weather",
+    "name": "てんきのかんさつ",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-1"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "てんきのかんさつを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-weather"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-germination",
+    "name": "たねとはつがとそだち",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-2"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "種[たね]の 発芽[はつが]と 植物[しょくぶつ]の 成長[せいちょう]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-germination"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-fish",
+    "name": "メダカとかんさつ",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-3"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "メダカとかんさつを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-fish"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-flower",
+    "name": "はなとじゅふん",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-4"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "はなとじゅふんを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-flower"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-typhoon",
+    "name": "たいふうとぼうさい",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-5"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "たいふうの ようすと そなえを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-typhoon"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-river",
+    "name": "ながれるみず",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-6"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ながれるみずを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-river"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-birth",
+    "name": "いのちのたんじょう",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-7"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "いのちのたんじょうを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-birth"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-solution",
+    "name": "もののとけかた",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-8"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "もののとけかたを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-solution"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-electromagnet",
+    "name": "でんりゅうとでんじしゃく",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-9"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "電流[でんりゅう]の はかり方[かた]や 電磁石[でんじしゃく]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-electromagnet"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-pendulum",
+    "name": "ふりこのきまり",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-10"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ふりこのきまりを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-pendulum"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-burning",
+    "name": "もののもえかた",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-1"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "もののもえかたを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-burning"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-digestion",
+    "name": "たべものとこきゅう",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-2"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "たべものとこきゅうを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-digestion"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-circulation",
+    "name": "からだのはたらき",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-3"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "からだのはたらきを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-circulation"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-plants",
+    "name": "しょくぶつのはたらき",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-4"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "植物[しょくぶつ]の 水[みず]や 養分[ようぶん]、呼吸[こきゅう]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-plants"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-ecosystem",
+    "name": "いきものとかんきょう",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-5"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "生[い]きものと 水[みず]や 空気[くうき]、環境[かんきょう]の つながりを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-ecosystem"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-moon",
+    "name": "つきのようす",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-6"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "月[つき]の 形[かたち]や 動[うご]き、表面[ひょうめん]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-moon"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-earth",
+    "name": "だいちのへんか",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-7"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "だいちのへんかを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-earth"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-lever",
+    "name": "てこのきまり",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-8"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "てこのきまりを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-lever"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-solution",
+    "name": "すいようえきのせいしつ",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-9"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "すいようえきのせいしつを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-solution"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-electricity",
+    "name": "でんきのりよう",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-10"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "でんきのりようを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-electricity"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-microscope",
+    "name": "けんびきょうのめ",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-3",
+      "rika.g5.legacy-sci-5-4"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "けんびきょうの つかい方[かた]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-microscope"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-microscope",
+    "name": "けんびきょうのめ",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-5"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "けんびきょうの つかい方[かた]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-microscope"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-measuring",
+    "name": "じっけんのけいりょう",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-8"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "てんびんや メスシリンダーの つかい方[かた]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-measuring"
+    ]
+  },
+  {
+    "id": "sk-rika-g6-gas-starch-tests",
+    "name": "じっけんのどうぐとやくひん",
+    "subject": "rika",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "rika.g6.legacy-sci-6-1",
+      "rika.g6.legacy-sci-6-2",
+      "rika.g6.legacy-sci-6-9"
+    ],
+    "power": 100,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "実験[じっけん]の 道具[どうぐ]や 薬品[やくひん]の つかい方[かた]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g6-gas-starch-tests"
+    ]
+  },
+  {
+    "id": "sk-rika-g4-water-temperature",
+    "name": "みずとおんど",
+    "subject": "rika",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "rika.g4.mizu-no-sugata"
+    ],
+    "power": 80,
+    "element": "mizu",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "水[みず]を あたためた ときの 温度[おんど]を しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g4-water-temperature"
+    ]
+  },
+  {
+    "id": "sk-rika-g5-starch-test",
+    "name": "でんぷんをしらべる",
+    "subject": "rika",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "rika.g5.legacy-sci-5-2"
+    ],
+    "power": 90,
+    "element": "none",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "ヨウ素液[ようそえき]で でんぷんを しらべる ちから。",
+    "attackClass": "science",
+    "accuracy": 100,
+    "questionTags": [
+      "assigned:sk-rika-g5-starch-test"
+    ]
+  }
+]

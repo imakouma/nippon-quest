@@ -1,0 +1,357 @@
+[
+  {
+    "id": "sk-abc-call",
+    "name": "ABCコール",
+    "subject": "eigo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "eigo.g3.alphabet-small"
+    ],
+    "power": 65,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "文字[もじ]の 音[おと]を きいて 風[かぜ]を おこす。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-greeting",
+    "name": "ハローウィンド",
+    "subject": "eigo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "eigo.g3.greetings-preferences"
+    ],
+    "power": 70,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "あいさつや 好[す]きなものを つたえる 風[かぜ]。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-likes",
+    "name": "すきなものをきこう",
+    "subject": "eigo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "eigo.g3.greetings-preferences"
+    ],
+    "power": 70,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "好[す]きなものを たずねたり こたえたりする ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-abc-shout",
+    "name": "うみのワード",
+    "subject": "eigo",
+    "gradeRange": [
+      3,
+      3
+    ],
+    "unitHint": [
+      "eigo.g3.sea"
+    ],
+    "power": 72,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "海[うみ]に まつわる 言葉[ことば]で 波[なみ]を おこす。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-habataki",
+    "name": "アクションウィング",
+    "subject": "eigo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "eigo.g4.actions"
+    ],
+    "power": 90,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "動[うご]きを あらわす 言葉[ことば]で はばたく。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-clock",
+    "name": "タイムステップ",
+    "subject": "eigo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "eigo.g4.days-time-routines"
+    ],
+    "power": 92,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "曜日[ようび]や 時刻[じこく]、毎日[まいにち]の くらしを つたえる。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-routine",
+    "name": "まいにちのステップ",
+    "subject": "eigo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "eigo.g4.days-time-routines"
+    ],
+    "power": 92,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "毎日[まいにち]の 行動[こうどう]を 英語[えいご]で つたえる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-direction",
+    "name": "みちしるべ",
+    "subject": "eigo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "eigo.g4.directions-requests"
+    ],
+    "power": 120,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "flavor": "道[みち]を つたえる 言葉[ことば]で つきすすむ。",
+    "attackClass": "humanities",
+    "accuracy": 95
+  },
+  {
+    "id": "sk-eigo-request",
+    "name": "おねがいのことば",
+    "subject": "eigo",
+    "gradeRange": [
+      4,
+      4
+    ],
+    "unitHint": [
+      "eigo.g4.directions-requests"
+    ],
+    "power": 120,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "flavor": "お願[ねが]いと へんじを 英語[えいご]で つたえる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 95
+  },
+  {
+    "id": "sk-eigo-introduce",
+    "name": "マイストーリー",
+    "subject": "eigo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "eigo.g5.alphabet-self-introduction",
+      "eigo.g5.town-abilities-writing"
+    ],
+    "power": 110,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "名前[なまえ]や 好[す]きなことを つたえる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-alphabet-g5",
+    "name": "アルファベットつなぎ",
+    "subject": "eigo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "eigo.g5.alphabet-self-introduction"
+    ],
+    "power": 110,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "大文字[おおもじ]と 小文字[こもじ]を みわける ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-daily",
+    "name": "デイリービート",
+    "subject": "eigo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "eigo.g5.daily-life-shopping"
+    ],
+    "power": 112,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "毎日[まいにち]の くらしや 買[か]い物[もの]の 言葉[ことば]を ひびかせる。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-town",
+    "name": "タウンガイド",
+    "subject": "eigo",
+    "gradeRange": [
+      5,
+      5
+    ],
+    "unitHint": [
+      "eigo.g5.town-abilities-writing"
+    ],
+    "power": 145,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "flavor": "町[まち]の 場所[ばしょ]や できることを つたえる。",
+    "attackClass": "humanities",
+    "accuracy": 95
+  },
+  {
+    "id": "sk-eigo-memory",
+    "name": "メモリーフラッシュ",
+    "subject": "eigo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "eigo.g6.school-life-past"
+    ],
+    "power": 130,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "思[おも]い出[で]を 言葉[ことば]にして ひかりを はなつ。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-travel",
+    "name": "トラベルリーダー",
+    "subject": "eigo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "eigo.g6.culture-travel-reading"
+    ],
+    "power": 132,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 1,
+    "costGauge": 0,
+    "effect": "damage",
+    "flavor": "旅[たび]の 案内[あんない]を 読[よ]みとる ちから。",
+    "attackClass": "humanities",
+    "accuracy": 100
+  },
+  {
+    "id": "sk-eigo-dream",
+    "name": "ドリームメッセージ",
+    "subject": "eigo",
+    "gradeRange": [
+      6,
+      6
+    ],
+    "unitHint": [
+      "eigo.g6.dreams-global-writing"
+    ],
+    "power": 165,
+    "element": "kaze",
+    "mp": 0,
+    "gauge": 2,
+    "costGauge": 50,
+    "effect": "damage",
+    "flavor": "夢[ゆめ]や 考[かんが]えを つたえる 大[おお]きな ちから。",
+    "attackClass": "humanities",
+    "accuracy": 95
+  },
+  {
+    "id": "sk-burst-eigo",
+    "name": "えいごバースト",
+    "subject": "eigo",
+    "gradeRange": [
+      3,
+      6
+    ],
+    "power": 180,
+    "element": "none",
+    "mp": 0,
+    "gauge": 3,
+    "costGauge": 100,
+    "effect": "damage",
+    "flavor": "ためた えいごの ちからを いっきに はなつ！",
+    "attackClass": "humanities",
+    "accuracy": 100
+  }
+]
