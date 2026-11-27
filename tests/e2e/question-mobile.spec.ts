@@ -335,7 +335,7 @@ for (const [id, answer] of [
   });
 }
 
-test('復元した国語12問の要約をスマホで読んで正答できる', async ({ page }, testInfo) => {
+test('復元した国語12問の練習文をスマホで読んで正答できる', async ({ page }, testInfo) => {
   test.setTimeout(240_000);
   const restored = (
     JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
@@ -353,7 +353,7 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
-    await expect(page.locator('.nq-q-prompt')).toContainText(/要約|ようやく/);
+    await expect(page.locator('.nq-q-prompt')).toContainText(/練習用|れんしゅうよう/);
     await expect(page.locator('.nq-q-prompt')).not.toContainText(/原文|本文引用/);
     const sizes = [...representative].some((suffix) => id.endsWith(suffix))
       ? [
@@ -406,7 +406,7 @@ test('復元した国語12問の要約をスマホで読んで正答できる', 
   });
 });
 
-test('自作に置換した国語7問をスマホで読んで正答できる', async ({ page }, testInfo) => {
+test('置換した国語7問の練習文をスマホで読んで正答できる', async ({ page }, testInfo) => {
   test.setTimeout(180_000);
   const rows = (
     JSON.parse(readFileSync('scripts/data/kokugo-passage-review.json', 'utf8')) as {
@@ -423,7 +423,7 @@ test('自作に置換した国語7問をスマホで読んで正答できる', a
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`/playground.html?q=${id}`);
     await expect(page.locator('.nq-q')).toBeVisible();
-    await expect(page.locator('.nq-q-prompt')).toContainText(/自作|じさく/);
+    await expect(page.locator('.nq-q-prompt')).toContainText(/練習用|れんしゅうよう/);
     const representative = /a94e12e7a508|6b30823de3da/.test(id);
     for (const width of representative ? [390, 320, 768, 1024, 1440, 390] : [390]) {
       await page.setViewportSize({ width, height: 844 });
