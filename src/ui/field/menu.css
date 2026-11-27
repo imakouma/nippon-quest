@@ -1603,6 +1603,9 @@
   height: min(504px, 100%);
   min-height: 0;
 }
+.nq-settings-box .nq-menu-head {
+  justify-content: space-between;
+}
 .nq-settings-cards {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: minmax(0, 1fr);

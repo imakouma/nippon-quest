@@ -60,9 +60,6 @@ export function SettingsOverlay({
         }}
       >
         <header class="nq-menu-head">
-          <button type="button" class="nq-back nq-menu-back nq-settings-back" onClick={back}>
-            ← <RubyLabel text={t('ui.back')} />
-          </button>
           <h2 class="nq-menu-title">
             <RubyLabel
               text={t(
@@ -74,6 +71,9 @@ export function SettingsOverlay({
               )}
             />
           </h2>
+          <button type="button" class="nq-back nq-menu-back nq-settings-back" onClick={back}>
+            ← <RubyLabel text={t('ui.back')} />
+          </button>
         </header>
         {!page && (
           <div class="nq-menu-home nq-settings-cards">
