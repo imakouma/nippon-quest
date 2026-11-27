@@ -898,8 +898,16 @@
   white-space: nowrap;
 }
 .nq-result-xpbar .nq-bar {
-  min-width: 0;
+  min-width: max-content;
   height: 20px;
+}
+.nq-result-xpbar .nq-bar-value {
+  position: relative;
+  padding-inline: 4px;
+}
+.nq-result-xpbar .nq-bar > i {
+  position: absolute;
+  inset: 0 auto 0 0;
 }
 .nq-result-reward {
   display: flex;
