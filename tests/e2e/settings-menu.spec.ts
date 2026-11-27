@@ -68,7 +68,7 @@ test('カードで変更した音量と移動操作の設定が保存される',
   const sliders = settings.getByRole('slider');
   await sliders.nth(0).fill('68');
   await sliders.nth(1).fill('70');
-  await sliders.nth(2).fill('125');
+  await sliders.nth(2).fill('150');
   await sliders.nth(3).fill('2');
   await expect(settings.locator('.nq-direction-pad')).toHaveCSS('opacity', '0.02');
   await settings.getByRole('combobox').selectOption('wasd');
@@ -81,7 +81,7 @@ test('カードで変更した音量と移動操作の設定が保存される',
   const fieldPad = page.locator('.nq-fhud .nq-direction-pad');
   await expect(fieldPad).toHaveCSS('opacity', '0.02');
   await expect(fieldPad).toBeVisible();
-  await expect(fieldPad).toHaveCSS('width', '180px');
+  await expect(fieldPad).toHaveCSS('width', '216px');
   await page.waitForTimeout(1500);
   await page.goto('/');
   await page.getByRole('menuitem', { name: /つづきから/ }).click();
@@ -99,7 +99,7 @@ test('カードで変更した音量と移動操作の設定が保存される',
   );
   await expect(sliders.nth(0)).toHaveValue('68');
   await expect(sliders.nth(1)).toHaveValue('70');
-  await expect(sliders.nth(2)).toHaveValue('125');
+  await expect(sliders.nth(2)).toHaveValue('150');
   await expect(sliders.nth(3)).toHaveValue('2');
   await expect(settings.getByRole('combobox')).toHaveValue('wasd');
 });

@@ -177,7 +177,7 @@ export const gameStateSchema = z.object({
       .object({
         x: z.number().min(0).max(100),
         y: z.number().min(0).max(100),
-        size: z.number().min(70).max(135),
+        size: z.number().min(70).max(150),
         opacity: z.number().min(2).max(100),
       })
       .optional(),

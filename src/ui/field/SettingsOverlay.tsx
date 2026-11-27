@@ -193,7 +193,7 @@ export function SettingsOverlay({
                 [
                   ['x', 'field.settingsHorizontal', 0, 100],
                   ['y', 'field.settingsVertical', 0, 100],
-                  ['size', 'field.settingsSize', 70, 135],
+                  ['size', 'field.settingsSize', 70, 150],
                   ['opacity', 'field.settingsOpacity', 2, 100],
                 ] as const
               ).map(([key, label, min, max]) => (
