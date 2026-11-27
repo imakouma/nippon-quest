@@ -324,6 +324,122 @@
   min-width: 0;
   gap: 2px;
 }
+.nq-bag-details .nq-party-head:has(.nq-bag-hero-bars) {
+  gap: 5px;
+}
+.nq-bag-details .nq-party-head:has(.nq-bag-hero-bars) .nq-party-who {
+  flex: 0 1 72px;
+}
+.nq-bag-hero-bars {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+.nq-bag-hero-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.nq-bag-hero-bar-label {
+  flex: 0 0 55px;
+  white-space: nowrap;
+  font-size: 10px;
+}
+.nq-bag-hero-bar {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 16px;
+  border: 1px solid #8992aa;
+  background: #302d43;
+}
+.nq-bag-hero-bar-fill {
+  display: block;
+  height: 100%;
+}
+.nq-bag-hero-bar-fill.hp {
+  background: #50bf4d;
+}
+.nq-bag-hero-bar-fill.xp {
+  background: #69cdbb;
+}
+.nq-bag-hero-bar-value {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  font-size: 10px;
+  line-height: 14px;
+  color: white;
+  text-shadow:
+    -1px -1px #000,
+    1px -1px #000,
+    -1px 1px #000,
+    1px 1px #000;
+}
+.nq-bag-hero-heading {
+  margin: 0 0 5px;
+  color: #73ddca;
+  font-size: 13px;
+  line-height: 16px;
+}
+.nq-bag-hero-stat-grid,
+.nq-bag-hero-materials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+.nq-bag-hero-stat {
+  padding: 3px 7px;
+  font-size: 12px;
+  line-height: 13px;
+  overflow-wrap: anywhere;
+}
+.nq-bag-hero-stat strong,
+.nq-bag-hero-materials strong {
+  display: block;
+  font-size: 16px;
+  line-height: 17px;
+}
+.nq-bag-hero-stat strong,
+.nq-bag-hero-cap {
+  color: var(--nq-yellow);
+}
+.nq-bag-hero-stat.attack {
+  background: #64404b;
+  border-left: 3px solid #e87572;
+}
+.nq-bag-hero-stat.defense {
+  background: #395676;
+  border-left: 3px solid #70aee8;
+}
+.nq-bag-hero-stat.other {
+  background: #3a6051;
+  border-left: 3px solid #72c69a;
+}
+.nq-bag-hero-growth {
+  padding: 8px 10px;
+  border-left: 3px solid #73ddca;
+  background: #1b2033;
+  line-height: 16px;
+}
+.nq-bag-hero-cap {
+  display: block;
+  font-size: 22px;
+  line-height: 25px;
+}
+.nq-bag-hero-growth-small {
+  margin: 3px 0;
+  color: var(--nq-cloud);
+  font-size: 11px;
+  line-height: 15px;
+}
+.nq-bag-hero-materials > div {
+  padding: 4px 6px;
+  background: #252d42;
+  font-size: 12px;
+  line-height: 15px;
+}
 .nq-bag-details .nq-party-name {
   font-size: 20px;
   line-height: 26px;

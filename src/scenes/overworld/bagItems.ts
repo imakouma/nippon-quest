@@ -37,6 +37,7 @@ export interface LevelCapBagView {
   canUnlock: boolean;
   levelCap: number;
   maximum: number;
+  materials: { name: string; have: number; need: number }[];
 }
 
 export function levelCapBagView(
@@ -57,6 +58,10 @@ export function levelCapBagView(
     canUnlock: preview.ok,
     levelCap: target.levelCap,
     maximum,
+    materials: [
+      { name: t('field.levelCapFragment'), have: fragments, need: rules.learningFragmentsPerUnlock },
+      { name: t('field.levelCapCore'), have: cores, need: rules.trialCoresPerUnlock },
+    ],
     lines: [
       t('field.levelCapCurrent', { level: target.level, cap: target.levelCap, max: maximum }),
       target.levelCap >= maximum
@@ -84,8 +89,8 @@ function levelCapBagThing(
   return {
     growth,
     lines: [
-      ...growth.lines,
-      ...(target.level < target.levelCap
+      ...(target.kind === 'hero' ? growth.lines.slice(3) : growth.lines),
+      ...(target.level < target.levelCap && target.kind !== 'hero'
         ? [levelProgressLine(table, target.level, target.xp, target.levelCap)]
         : []),
       ...extraLines,

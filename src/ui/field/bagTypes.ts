@@ -25,6 +25,8 @@ export interface BagThing {
   /** あずけている そうびの こすう */
   count?: number;
   stats?: Stats;
+  hp?: number;
+  experience?: { current: number; total: number; capped: boolean };
   /** 名前の下（そうびの 部位 など） */
   sub?: string;
   lines?: string[];
@@ -36,7 +38,12 @@ export interface BagThing {
   blockedReason?: string;
   /** フィールドで回復アイテムを使ったとき、いま効果があるか。 */
   usable?: boolean;
-  growth?: { canUnlock: boolean; levelCap: number; maximum: number };
+  growth?: {
+    canUnlock: boolean;
+    levelCap: number;
+    maximum: number;
+    materials?: { name: string; have: number; need: number }[];
+  };
   /** しんかできる仲間なら、しんか先と条件。room＝バッグに 入りきるか（extra マス ふえる） */
   evolve?: {
     toName: string;

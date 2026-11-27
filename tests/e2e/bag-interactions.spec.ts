@@ -60,6 +60,11 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   const storedWeapon = reserve.locator('[data-bag-key="inv:common-renshu-no-bou"]');
   await expect(bag.locator('[data-bag-key="hero"]')).toBeFocused();
   await expect(bag.locator('.nq-party-skills')).toHaveCount(0);
+  await expect(bag.locator('.nq-bag-hero-bars .nq-bag-hero-bar')).toHaveCount(2);
+  await expect(bag.locator('.nq-bag-hero-stat')).toHaveCount(6);
+  await expect(bag.locator('.nq-bag-hero-cap')).toHaveText('10');
+  await expect(bag.locator('.nq-bag-hero-materials')).toContainText('0/3');
+  await page.screenshot({ path: testInfo.outputPath('hero-details-b.png') });
   await bag.getByRole('button', { name: 'どうぐ', exact: true }).click();
   await page.keyboard.press('ArrowDown');
   await expect(bag.locator('.nq-party-info')).toContainText('テスト');
@@ -312,8 +317,9 @@ test.describe('レベル上限のタッチ操作', () => {
     await menu.getByRole('button', { name: /もちもの・へんせい/ }).click();
     const bag = page.getByRole('dialog', { name: /もちもの・へんせい/ });
     await bag.getByRole('button', { name: 'テスト' }).click();
-    await expect(bag.locator('.nq-party-info')).toContainText('Lv10 / じょうげん 10');
-    await expect(bag.locator('.nq-party-info')).toContainText('さいご 200');
+    await expect(bag.locator('.nq-party-sub')).toContainText('Lv10 / 10');
+    await expect(bag.locator('.nq-bag-hero-growth')).toContainText('200');
+    await expect(bag.locator('.nq-bag-hero-cap')).toHaveText('10');
     await expect(bag.locator('.nq-party-info')).toContainText('3/3');
     await expect(bag.locator('.nq-party-info')).toContainText('1/1');
 
@@ -325,7 +331,8 @@ test.describe('レベル上限のタッチ操作', () => {
     await expect(grow).toBeFocused();
     await page.touchscreen.tap(growBox!.x + growBox!.width / 2, growBox!.y + growBox!.height / 2);
     await expect(bag.locator('.nq-party-msg')).toContainText('10 → 20');
-    await expect(bag.locator('.nq-party-info')).toContainText(/Lv1[1-9] \/ じょうげん 20/);
+    await expect(bag.locator('.nq-party-sub')).toContainText(/Lv1[1-9] \/ 20/);
+    await expect(bag.locator('.nq-bag-hero-cap')).toHaveText('20');
     await expect(bag.locator('[data-bag-key="hero"]')).toHaveClass(/nq-focus/);
     await page.screenshot({ path: testInfo.outputPath('hero-level-cap-unlocked.png'), fullPage: true });
 
