@@ -279,8 +279,6 @@ export function MenuOverlay({
         return;
       const L = live.current;
       if (L.home) {
-        // 上下キーは同じ列のカードへ移動する。
-        const columns = 3;
         const moveHome = (delta: number) => {
           const next = (live.current.homeSel + delta + tabs.length) % tabs.length;
           live.current.homeSel = next;
@@ -297,11 +295,11 @@ export function MenuOverlay({
             playSfx('move');
             break;
           case 'ArrowUp':
-            moveHome(-columns);
+            moveHome(-1);
             playSfx('move');
             break;
           case 'ArrowDown':
-            moveHome(columns);
+            moveHome(1);
             playSfx('move');
             break;
           case 'Enter':
@@ -377,10 +375,10 @@ export function MenuOverlay({
 
   const pic = e?.art ?? e?.icon;
   return (
-    <div class="nq-wmap" onClick={onClose}>
+    <div class={home ? 'nq-wmap nq-menu-drawer-layer' : 'nq-wmap'} onClick={onClose}>
       <div
         ref={dialogRef}
-        class="nq-win nq-wmap-box nq-menu-box"
+        class={`nq-win nq-wmap-box nq-menu-box${home ? ' nq-menu-drawer' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label={t('field.menu')}
