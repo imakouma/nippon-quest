@@ -59,6 +59,7 @@ test('A案の詳細を保ち、装備をクリックとドラッグで追加・�
   const reserve = bag.locator('.nq-bag-reserve-grid');
   const storedWeapon = reserve.locator('[data-bag-key="inv:common-renshu-no-bou"]');
   await expect(bag.locator('[data-bag-key="hero"]')).toBeFocused();
+  await expect(bag.locator('.nq-party-skills')).toHaveCount(0);
   await bag.getByRole('button', { name: 'どうぐ', exact: true }).click();
   await page.keyboard.press('ArrowDown');
   await expect(bag.locator('.nq-party-info')).toContainText('テスト');

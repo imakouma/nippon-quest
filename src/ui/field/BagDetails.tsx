@@ -98,7 +98,7 @@ export function BagDetails({
               ))}
             </div>
           )}
-          {!!m.skills?.length && (
+          {m.kind !== 'hero' && !!m.skills?.length && (
             <>
               <p class="nq-party-label">
                 <RubyLabel text={t('cmd.skill')} />
