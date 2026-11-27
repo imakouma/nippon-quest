@@ -436,7 +436,7 @@ export function MenuOverlay({
             </div>
             <div class="nq-menu-footer">
               <button type="button" class="nq-opt nq-menu-save" onClick={() => void onSave()}>
-                <PixelIcon name="star" scale={2} /> {t('menu.save')}
+                <MenuCategoryIcon name="save" /> {t('menu.save')}
               </button>
               {developerTools && (
                 <div class="nq-menu-dev-tools" aria-label={displayText(t('field.devTools'))}>

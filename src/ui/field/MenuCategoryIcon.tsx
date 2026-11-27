@@ -1,49 +1,30 @@
 import type { MenuHomeKey } from '../../shared/menuModel';
 import { NQ } from '../../rendering/palette';
 
+import roadmap from './menu-icons/roadmap.png';
+import mistakes from './menu-icons/mistakes.png';
+import monsters from './menu-icons/monsters.png';
+import party from './menu-icons/party.png';
+import skills from './menu-icons/skills.png';
+import settings from './menu-icons/settings.png';
+import save from './menu-icons/save.png';
+
+const DRAWER_ICONS: Partial<Record<MenuHomeKey | 'save', string>> = {
+  roadmap,
+  mistakes,
+  monsters,
+  party,
+  skills,
+  settings,
+  save,
+};
+
 type Shape = readonly [x: number, y: number, width: number, height: number, color: string];
 const rect = ([x, y, width, height, fill]: Shape, index: number) => (
   <rect key={index} x={x} y={y} width={width} height={height} fill={fill} />
 );
 
-const ICONS: Readonly<Record<MenuHomeKey, readonly Shape[]>> = {
-  roadmap: [
-    [1, 3, 6, 10, NQ.ink],
-    [9, 3, 6, 10, NQ.ink],
-    [2, 4, 5, 8, NQ.paper],
-    [9, 4, 5, 8, NQ.paper],
-    [3, 5, 3, 1, NQ.sky],
-    [3, 8, 3, 1, NQ.sky],
-    [10, 5, 3, 1, NQ.sky],
-    [10, 8, 3, 1, NQ.sky],
-    [7, 4, 2, 10, NQ.ink],
-    [11, 1, 2, 4, NQ.gold],
-    [10, 2, 4, 2, NQ.gold],
-  ],
-  mistakes: [
-    [3, 1, 10, 14, NQ.ink],
-    [4, 2, 8, 12, NQ.paper],
-    [6, 0, 4, 3, NQ.slate],
-    [5, 5, 2, 2, NQ.red],
-    [9, 5, 2, 2, NQ.red],
-    [7, 7, 2, 2, NQ.red],
-    [5, 9, 2, 2, NQ.red],
-    [9, 9, 2, 2, NQ.red],
-    [11, 11, 4, 2, NQ.azure],
-    [13, 10, 2, 2, NQ.gold],
-  ],
-  monsters: [
-    [2, 4, 12, 10, NQ.ink],
-    [3, 5, 10, 8, NQ.violet],
-    [1, 2, 4, 4, NQ.ink],
-    [11, 2, 4, 4, NQ.ink],
-    [2, 3, 2, 2, NQ.gold],
-    [12, 3, 2, 2, NQ.gold],
-    [5, 7, 2, 2, NQ.white],
-    [9, 7, 2, 2, NQ.white],
-    [6, 11, 1, 2, NQ.white],
-    [9, 11, 1, 2, NQ.white],
-  ],
+const FALLBACK_ICONS: Partial<Record<MenuHomeKey, readonly Shape[]>> = {
   specialties: [
     [1, 5, 14, 3, NQ.ink],
     [2, 6, 12, 8, NQ.vermilion],
@@ -54,33 +35,6 @@ const ICONS: Readonly<Record<MenuHomeKey, readonly Shape[]>> = {
     [4, 2, 3, 2, NQ.red],
     [9, 1, 4, 3, NQ.ink],
     [9, 2, 3, 2, NQ.red],
-  ],
-  settings: [
-    [3, 3, 10, 10, NQ.ink],
-    [4, 4, 8, 8, NQ.silver],
-    [6, 6, 4, 4, NQ.ink],
-    [7, 0, 2, 4, NQ.ink],
-    [7, 12, 2, 4, NQ.ink],
-    [0, 7, 4, 2, NQ.ink],
-    [12, 7, 4, 2, NQ.ink],
-  ],
-  skills: [
-    [7, 1, 2, 14, NQ.ink],
-    [6, 2, 2, 9, NQ.silver],
-    [8, 2, 2, 9, NQ.white],
-    [4, 10, 8, 2, NQ.gold],
-    [7, 12, 2, 3, NQ.brown],
-  ],
-  party: [
-    [4, 1, 8, 4, NQ.ink],
-    [5, 2, 6, 3, NQ.tan],
-    [2, 4, 12, 11, NQ.ink],
-    [3, 5, 10, 9, NQ.orange],
-    [4, 6, 8, 4, NQ.amber],
-    [5, 7, 6, 2, NQ.gold],
-    [2, 7, 2, 6, NQ.brown],
-    [12, 7, 2, 6, NQ.brown],
-    [7, 11, 2, 2, NQ.cream],
   ],
   bag: [
     [2, 7, 6, 7, NQ.ink],
@@ -104,10 +58,14 @@ const ICONS: Readonly<Record<MenuHomeKey, readonly Shape[]>> = {
   ],
 };
 
-export function MenuCategoryIcon({ name }: { name: MenuHomeKey }) {
+export function MenuCategoryIcon({ name }: { name: MenuHomeKey | 'save' }) {
+  const src = DRAWER_ICONS[name];
+  if (src) return <img class="nq-menu-category-icon" src={src} width={32} height={32} alt="" />;
+  if (name === 'save') return null;
+
   return (
     <svg class="nq-menu-category-icon" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true">
-      {ICONS[name].map(rect)}
+      {FALLBACK_ICONS[name]?.map(rect)}
     </svg>
   );
 }
