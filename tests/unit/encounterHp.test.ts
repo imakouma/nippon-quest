@@ -55,3 +55,16 @@ it('中盤の同レベル戦は満点中心の通常技で決着し、ボスは�
   expect(estimatedBossHits).toBeGreaterThanOrEqual(12);
   expect(estimatedBossHits).toBeLessThanOrEqual(20);
 });
+
+it('通常戦では前衛の仲間の追撃を見込み、ボスの最大HPは編成で変えない', async () => {
+  const c = await content();
+  const def = c.monsters.get('aomori-ringoron')!;
+  const growth = c.settings.heroGrowth;
+  const solo = makeEncounterEnemy(def, 1, 3, growth, 'normal');
+  const party = makeEncounterEnemy(def, 1, 3, growth, 'normal', true);
+  expect(party.hp).toBeGreaterThan(solo.hp);
+  expect(party.hp).toBe(party.stats.hp);
+  expect(makeEncounterEnemy(def, 1, 3, growth, 'boss', true).hp).toBe(
+    makeEncounterEnemy(def, 1, 3, growth, 'boss').hp,
+  );
+});

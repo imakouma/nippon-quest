@@ -96,6 +96,7 @@ export function partyFromGameState(
 }
 
 const normalPowerByGrade = [40, 80, 125, 180, 245, 320] as const;
+const companionDurabilityByGrade = [2.25, 1.65, 1.55, 1.45, 1.35, 1.25] as const;
 
 export function makeEncounterEnemy(
   def: Parameters<typeof makeMonster>[0],
@@ -103,6 +104,7 @@ export function makeEncounterEnemy(
   grade: GameState['learning']['grade'],
   growth: ContentIndex['settings']['heroGrowth'],
   kind: BattleRuleset['id'] = def.isBoss ? 'boss' : 'normal',
+  hasActiveCompanion = false,
 ) {
   const enemy = makeMonster(def, level, 'enemy');
   if (kind === 'tutorial' || kind === 'event') return enemy;
@@ -119,7 +121,9 @@ export function makeEncounterEnemy(
   const targetHp = baseDamage * 5.8;
   const boss = kind === 'boss' || def.isBoss;
   const variation = Math.max(0.9, Math.min(1.1, enemy.hp / (16 + 3 * (level - 1))));
-  enemy.stats.hp = Math.round(targetHp * (boss ? 4 : 1) * variation);
+  // 仲間は前衛の1体だけが毎ターン追撃する。控えの人数で倍率を重ねない。
+  const durability = boss ? 4 : hasActiveCompanion ? companionDurabilityByGrade[grade - 1]! : 1;
+  enemy.stats.hp = Math.round(targetHp * durability * variation);
   enemy.hp = enemy.stats.hp;
   return enemy;
 }

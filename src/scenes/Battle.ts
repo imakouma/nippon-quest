@@ -305,18 +305,20 @@ export class BattleScene extends Phaser.Scene {
       this.perfectBySubject = { ...active.perfectBySubject };
       this.resumeSnapshot = active;
     } else {
+      const ally = resolveBattleParty(ruleset, {
+        saved: () => partyFromGameState(this.gs, c),
+        provided: this.opts.party,
+      });
       this.state = createBattle(
         {
-          ally: resolveBattleParty(ruleset, {
-            saved: () => partyFromGameState(this.gs, c),
-            provided: this.opts.party,
-          }),
+          ally,
           enemy: makeEncounterEnemy(
             def,
             this.opts.level,
             this.gs.learning.grade,
             c.settings.heroGrowth,
             ruleset.id,
+            (ally.monsters[ally.activeMonsterIndex]?.hp ?? 0) > 0,
           ),
           seed: freshSeed(),
           isBossBattle: isBoss,
@@ -466,7 +468,6 @@ export class BattleScene extends Phaser.Scene {
     this.idleBob(this.heroSprite, this.layout.hero.y);
     if (this.palSprite) this.idleBob(this.palSprite, this.layout.partner.y);
   }
-
   /** 待機中は 1 ドットだけ上下（コマ送り） */
   private idleBob(sp: Sprite, baseY: number): void {
     this.idleMotion.start(sp, baseY);
@@ -503,7 +504,6 @@ export class BattleScene extends Phaser.Scene {
       this.hudRoot = null;
     }
   }
-
   /** runtime の中断時に、Phaser 側へ残った演出だけを安全な見た目へ戻す。 */
   private cleanupPresentation(): void {
     this.tweens?.killAll();
