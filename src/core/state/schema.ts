@@ -147,6 +147,20 @@ export const gameStateSchema = z.object({
     correctedRewardQuestionIds: z.array(idSchema),
     recent: z.array(z.string()),
     mistakes: z.array(z.string()),
+    mistakeDates: z.record(z.string(), safeNonnegativeIntegerSchema).optional(),
+    reviewStamps: z
+      .array(
+        z.object({
+          questionId: idSchema,
+          at: safeNonnegativeIntegerSchema,
+          x: z.number().finite().min(-1).max(1),
+          y: z.number().finite().min(-1).max(1),
+          seed: z.number().int().min(0).max(65535),
+        }),
+      )
+      .optional(),
+    pendingReviewStamps: z.array(idSchema).optional(),
+    redeemedReviewCards: safeNonnegativeIntegerSchema.optional(),
     playSecondsByDate: z.record(z.string(), safeNonnegativeIntegerSchema),
     attempts: z.array(attemptEventSchema).default([]),
     conceptStates: z.record(z.string(), conceptStateSchema).default({}),

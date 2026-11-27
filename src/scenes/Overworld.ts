@@ -80,7 +80,7 @@ import { specialtyTreasureGain } from '../core/progression/specialty';
 import { applyArenaVictory } from '../core/progression/arena';
 import { createRng, freshSeed, type Rng } from '../core/rng';
 import type { GameState } from '../core/state/schema';
-import { askById, MasteryStore, type QuestionBank } from '../questions/engine';
+import type { QuestionBank } from '../questions/engine';
 import { ENCLAVES } from '../core/content/enclaves';
 import type { DialogueLine } from '../ui/dialogue';
 import { AreaMapOverlay, type AreaMapView } from '../ui/field/AreaMap';
@@ -98,7 +98,6 @@ import { accessibleLastInn, persistOverworldLocation } from './overworld/locatio
 import { WorldMapOverlay, type MapRegionInfo, type WorldMapData } from '../ui/field/WorldMapOverlay';
 import { t, tOpt } from '../ui/i18n';
 import { createSpeaker } from '../ui/overlay';
-import { QuestionFrame } from '../ui/QuestionFrame';
 import { stripRuby } from '../ui/ruby';
 import { playSfx } from '../ui/sfx';
 import {
@@ -148,7 +147,8 @@ import { mapMusicTrack } from './overworld/music';
 import { attachFieldSounds, playFieldFootstep, playEntranceSound } from './overworld/sounds';
 import { resolveEncounterStep } from './overworld/encounterLifecycle';
 import { attachSceneMusic } from './shared/music';
-import { buildReviewQueue, clearReviewedMistake } from './overworld/reviewQueue';
+import { buildReviewQueue } from './overworld/reviewQueue';
+import { openMistakeNotebook, runInnReview } from './overworld/openMistakeNotebook';
 import { dispatchMapObjects } from './overworld/objectDispatch';
 import { storyInterPrefectureLink } from './overworld/interPrefectureSceneFlow';
 import { PhaserInterPrefectureController } from './overworld/phaserInterPrefectureController';
@@ -186,7 +186,6 @@ import {
   type EncounterSource,
 } from './overworld/encounterLifecycle';
 import { createEncounterResultHandlers } from './overworld/encounterResultHandlers';
-import { buildAskEnv } from './shared/askEnv';
 import { runCompanionRite, runOpeningSequence } from './overworld/storyFlow';
 import { musubiDamaPurchaseLines } from './overworld/storyScenes';
 import { hasStoryCompanion, storyCompanionId } from '../core/progression/storyCompanion';
@@ -2177,55 +2176,28 @@ export class OverworldScene extends Phaser.Scene {
     ]);
   }
   /** まちがいを優先し、空きがあれば復習期限を迎えた問題を合わせて最大3問。 */
-  private async reviewMistakes(speaker: string): Promise<number> {
+  private reviewRuntime() {
     const content = this.content();
     const bank = this.registry.get('bank') as QuestionBank | undefined;
-    let gs = this.gs();
-    if (!content || !bank || !gs) return 0;
-    const ids = buildReviewQueue(gs, bank, Date.now());
-    await this.talk([{ speaker, text: t('field.townInnReviewStart', { n: ids.length }) }]);
-    let perfect = 0;
-    for (const id of ids) {
-      const question = bank.get(id)!;
-      const host = document.createElement('div');
-      host.className = 'nq-bq-slot';
-      const root = this.root('fx');
-      render(
-        h(QuestionFrame, {
-          host,
-          title: t('field.tabMistakes'),
-          subject: question.subject,
-          hint: t('field.questionHint'),
-        }),
-        root,
-      );
-      try {
-        const result = await askById(
-          buildAskEnv({
-            host,
-            gs,
-            content,
-            bank,
-            mastery: new MasteryStore(gs.learning.mastery),
-            rng: this.rng,
-            speak: this.speak,
-            reason: 'review',
-            practice: true,
-            getGame: () => this.gs() ?? gs!,
-          }),
-          id,
-        );
-        gs = this.gs() ?? gs;
-        if (result.score >= 1) {
-          gs = clearReviewedMistake(gs, id);
-          this.setGame(gs);
-          perfect++;
+    return content && bank
+      ? {
+          content,
+          bank,
+          gs: () => this.gs(),
+          setGame: (gs: GameState) => this.setGame(gs),
+          rng: this.rng,
+          speak: this.speak,
         }
-      } finally {
-        render(null, root);
-      }
-    }
-    return perfect;
+      : undefined;
+  }
+
+  private async reviewMistakes(speaker: string): Promise<number> {
+    const runtime = this.reviewRuntime();
+    return runtime
+      ? runInnReview(this.root('fx'), runtime, (n) =>
+          this.talk([{ speaker, text: t('field.townInnReviewStart', { n }) }]),
+        )
+      : 0;
   }
 
   /** ずかんがかり：その県で 見つけた めいしょ・とくさんの数を おしえて、DEX_STEP こ ごとに ごほうび */
@@ -2684,6 +2656,10 @@ export class OverworldScene extends Phaser.Scene {
       this.renderHud();
     };
     const draw = (tab: MenuTab, focusKey?: string, message: string | null = null, initialHome = true) => {
+      if (tab === 'mistakes') {
+        const runtime = this.reviewRuntime();
+        if (runtime) return openMistakeNotebook(root, runtime, () => draw('bag'), close);
+      }
       const view = this.menuView(tab);
       const roadmapView = tab === 'roadmap' ? this.roadmapViewModel() : undefined;
       render(
