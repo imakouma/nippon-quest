@@ -41,7 +41,6 @@ import {
   putEquip,
   removeFromRoster,
   setLeader,
-  toggleBagMonster,
   toggleBattleItem,
 } from '../core/progression/bag';
 import { heroLevel, syncHeroLevel } from '../core/progression/battleResult';
@@ -2874,11 +2873,10 @@ export class OverworldScene extends Phaser.Scene {
         focusKey,
         message,
         flashKey,
-        onToggle: (key: string) => {
+        onToggle: (key: string, position?: { x: number; y: number }) => {
           const cur = this.gs();
           const x = view.all.get(key);
           if (!cur || !x) return;
-          const ctx = bagContext(cur, c);
           if (x.kind === 'item') {
             const it = c.items.get(key.slice('item:'.length));
             if (!it) return;
@@ -2895,26 +2893,10 @@ export class OverworldScene extends Phaser.Scene {
             return;
           }
           if (x.kind === 'monster') {
-            const { state, result } = toggleBagMonster(cur, key.slice('mon:'.length), ctx);
-            if (result === 'full') {
-              playSfx('miss');
-              again(key, t('field.bagFullMsg', { free: bagUsage(cur, ctx).free }));
-            } else if (result === 'roster-full') {
-              playSfx('miss');
-              again(key, t('field.bagRosterFull'));
-            } else if (result !== 'none') {
-              this.setGame(state);
-              again(
-                key,
-                t(
-                  result === 'added'
-                    ? 'field.bagAdded'
-                    : result === 'benched'
-                      ? 'field.bagBenched'
-                      : 'field.bagRemoved',
-                  { name: x.name },
-                ),
-              );
+            const changed = bagItems.toggleBagCompanion(cur, key, x.name, c, position);
+            if (changed) {
+              if (changed.state !== cur) this.setGame(changed.state);
+              again(key, changed.message);
             }
             return;
           }

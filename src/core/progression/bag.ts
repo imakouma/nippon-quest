@@ -240,6 +240,7 @@ export function toggleBagMonster(
   uid: string,
   ctx: BagContext,
   now = Date.now(),
+  position?: BagPos,
 ): { state: GameState; result: BagMove } {
   if (!prev.party.owned.some((x) => x.uid === uid)) return { state: prev, result: 'none' };
   const key = monKey(uid);
@@ -255,7 +256,9 @@ export function toggleBagMonster(
   }
   const roster = battleRosterUids(prev);
   if (!roster.includes(uid) && roster.length >= MAX_COMPANIONS) return { state: prev, result: 'roster-full' };
-  const at = firstFreePosition(prev, key, ctx);
+  // A requested drop is atomic: never silently auto-place or bench on failure.
+  if (position && !canPlace(prev, key, position, ctx)) return { state: prev, result: 'full' };
+  const at = position ?? firstFreePosition(prev, key, ctx);
   if (!at) {
     if (!roster.includes(uid)) {
       gs.party.reserve.push(uid);

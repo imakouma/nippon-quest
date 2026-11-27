@@ -82,7 +82,7 @@ it('控えの道具と仲間をドラッグでバッグに入れ、仲間を控�
   drag(root.querySelector('[data-bag-key="item"]')!, root.querySelector('.nq-bag-grid')!, 'item');
   drag(root.querySelector('[data-bag-key="monster"]')!, empty, 'monster');
   drag(root.querySelector('[data-bag-key="packed"]')!, root.querySelector('.nq-bag-reserve-grid')!, 'packed');
-  expect(onToggle.mock.calls).toEqual([['item'], ['item'], ['monster'], ['packed']]);
+  expect(onToggle.mock.calls).toEqual([['item'], ['item'], ['monster', { x: 0, y: 0 }], ['packed']]);
   act(() => (root.querySelector('[data-bag-key="item"]') as HTMLButtonElement).click());
   act(() =>
     [...root.querySelectorAll<HTMLButtonElement>('button')]

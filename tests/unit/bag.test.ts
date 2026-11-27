@@ -302,3 +302,14 @@ describe('装備・隣接効果・描画セル', () => {
     expect(cells.filter((x) => x.kind === 'empty')).toEqual([{ kind: 'empty', x: 0, y: 1 }]);
   });
 });
+
+it('仲間を追加するときに指定したマスを使い、無効なマスでは編成を変えない', () => {
+  const game = own(fresh(), 'drop-target');
+  const ctx = bagContext(game, c);
+  const result = toggleBagMonster(game, 'drop-target', ctx, 2000, { x: 2, y: 2 });
+  expect(result.result).toBe('added');
+  expect(result.state.party.bagPlacements['mon:drop-target']).toMatchObject({ x: 2, y: 2 });
+  const blocked = toggleBagMonster(game, 'drop-target', ctx, 2000, { x: 1, y: 1 });
+  expect(blocked.result).toBe('full');
+  expect(blocked.state).toBe(game);
+});

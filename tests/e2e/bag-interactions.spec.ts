@@ -1,6 +1,16 @@
 import { expect, test, type Page } from '@playwright/test';
 import { completeNewGameSetup } from './newGame';
 
+const pageErrors = new WeakMap<Page, string[]>();
+test.beforeEach(({ page }) => {
+  const errors: string[] = [];
+  pageErrors.set(page, errors);
+  page.on('pageerror', (e) => errors.push(e.message));
+});
+test.afterEach(({ page }) => {
+  expect(pageErrors.get(page)).toEqual([]);
+});
+
 async function seedLevelCapUnlock(page: Page): Promise<void> {
   await page.evaluate(async () => {
     const database = await new Promise<IDBDatabase>((resolve, reject) => {
@@ -37,95 +47,178 @@ async function seedLevelCapUnlock(page: Page): Promise<void> {
   });
 }
 
-test('装備の詳細を閉じても崩れず、武器をドラッグして装備・移動・取り外しできる', async ({
-  page,
-}, testInfo) => {
-  test.setTimeout(60_000);
+test('A案の詳細を保ち、装備をクリックとドラッグで追加・移動・取り外しできる', async ({ page }, testInfo) => {
+  test.setTimeout(90_000);
   await page.goto('/');
   await page.getByRole('menuitem', { name: /はじめから/ }).click();
   await page.getByRole('button', { name: /スロット 1/ }).click();
   await completeNewGameSetup(page, 'テスト');
-
   await page.getByRole('button', { name: 'メニュー' }).click();
   await page.getByRole('button', { name: /もちもの・へんせい/ }).click();
-  const bagWindow = page.locator('.nq-wmap-box');
-  const bagDialog = page.getByRole('dialog', { name: /もちもの・へんせい/ });
-  await expect(bagDialog).toHaveAttribute('aria-modal', 'true');
-  await expect(bagDialog.getByRole('group', { name: /もちもの・へんせい/ })).toBeVisible();
-  await expect(bagDialog.getByText(/バッグ \d+\/9マス/)).toHaveCount(0);
-  const heroCell = page.getByRole('button', { name: 'テスト' });
-  await expect(heroCell).toBeFocused();
-  const openWidth = await bagWindow.evaluate((el) => el.getBoundingClientRect().width);
-
-  const reserve = page.locator('.nq-bag-reserve-grid');
-  const storedWeapon = page.locator('.nq-bag-reserve-tile').filter({ hasText: 'れんしゅうの ぼう' });
+  const bag = page.getByRole('dialog', { name: /もちもの・へんせい/ });
+  const reserve = bag.locator('.nq-bag-reserve-grid');
+  const storedWeapon = reserve.locator('[data-bag-key="inv:common-renshu-no-bou"]');
+  await expect(bag).toHaveAttribute('aria-modal', 'true');
+  await expect(bag.locator('[data-bag-key="hero"]')).toBeFocused();
   for (const [width, height] of [
     [960, 540],
     [640, 540],
     [320, 568],
     [768, 1024],
-    [1024, 768],
     [1440, 900],
   ] as const) {
     await page.setViewportSize({ width, height });
-    const [bagBox, reserveBox, tileBox] = await Promise.all([
-      page.locator('.nq-bag-grid').boundingBox(),
+    const [left, board, detail] = await Promise.all([
       reserve.boundingBox(),
-      storedWeapon.boundingBox(),
+      bag.locator('.nq-bag-grid').boundingBox(),
+      bag.locator('.nq-bag-details').boundingBox(),
     ]);
-    expect(bagBox).not.toBeNull();
-    expect(reserveBox).not.toBeNull();
-    expect(tileBox).not.toBeNull();
-    expect(reserveBox!.x).toBeGreaterThanOrEqual(bagBox!.x + bagBox!.width);
-    expect(reserveBox!.height).toBeGreaterThan(bagBox!.height);
-    expect(tileBox!.y).toBeGreaterThanOrEqual(reserveBox!.y);
-    expect(tileBox!.y + tileBox!.height).toBeLessThanOrEqual(reserveBox!.y + reserveBox!.height);
-    await expect(page.locator('.nq-party-info')).toHaveCount(0);
+    expect(left!.x + left!.width).toBeLessThanOrEqual(board!.x);
+    expect(board!.x + board!.width).toBeLessThanOrEqual(detail!.x);
+    expect(await bag.locator('.nq-party-info').evaluate((el) => el.clientHeight)).toBeGreaterThan(120);
+    expect(await bag.locator('.nq-bag-body').evaluate((el) => el.scrollHeight <= el.clientHeight + 1)).toBe(
+      true,
+    );
+    await expect(storedWeapon).toBeVisible();
   }
   await page.setViewportSize({ width: 960, height: 540 });
-  await page.screenshot({ path: testInfo.outputPath('reserve-right.png') });
-  await heroCell.press('Enter');
-  await expect(page.locator('.nq-party-info')).toBeVisible();
-  await heroCell.press('Space');
-  await expect(page.locator('.nq-party-info')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: /とじる/ })).toBeVisible();
-  await expect.poll(() => bagWindow.evaluate((el) => el.getBoundingClientRect().width)).toBe(openWidth);
-  await page.screenshot({ path: testInfo.outputPath('details-closed.png') });
-
-  await expect(reserve).toBeVisible();
   await storedWeapon.click();
-  await expect(storedWeapon).toBeFocused();
-  await expect(page.locator('.nq-party-name')).toContainText('れんしゅうの ぼう');
-  await expect(bagDialog.getByRole('button', { name: /いれる|バッグから.*ぬく/ })).toHaveCount(0);
   await storedWeapon.click();
-  await expect(page.locator('.nq-party-info')).toHaveCount(0);
-  await storedWeapon.click();
-  await expect(page.locator('.nq-party-info')).toBeVisible();
-  const [gridBox, detailBox, reserveBox] = await Promise.all([
-    page.locator('.nq-bag-grid').boundingBox(),
-    page.locator('.nq-party-info').boundingBox(),
-    reserve.boundingBox(),
-  ]);
-  expect(gridBox!.y + gridBox!.height).toBeLessThanOrEqual(detailBox!.y);
-  expect(detailBox!.x).toBeLessThan(reserveBox!.x);
-  expect(await bagDialog.locator('.nq-bag-left').evaluate((el) => el.scrollHeight <= el.clientHeight)).toBe(
-    true,
-  );
-  const weaponSlot = page.locator('.nq-bag-empty[data-drop-slot="weapon"]');
-  await storedWeapon.dragTo(weaponSlot);
-  const weapon = page.getByRole('button', { name: 'れんしゅうの ぼう' });
+  await storedWeapon.press('Enter');
+  await storedWeapon.press('Space');
+  await expect(bag.locator('.nq-party-info')).toContainText('れんしゅうの ぼう');
+  await storedWeapon.dragTo(bag.locator('.nq-bag-empty').first());
+  await expect(bag.getByRole('status')).toContainText(/決|き/);
+  await expect(storedWeapon).toBeVisible();
+  await bag.getByRole('button', { name: 'そうびする', exact: true }).click();
+  const weapon = bag.locator('.nq-bag-grid [data-bag-key="eq:weapon"]');
+  await expect(weapon).toBeVisible();
+  await expect(bag.locator('.nq-party-info')).toContainText('れんしゅうの ぼう');
+  await bag.locator('.nq-bag-toggle').click();
+  await expect(storedWeapon).toBeVisible();
+  await storedWeapon.dragTo(bag.locator('.nq-bag-empty[data-drop-slot="weapon"]'));
+  await expect(weapon).toBeVisible();
   await weapon.click();
-  await expect(bagDialog.getByRole('button', { name: /いれる|バッグから.*ぬく/ })).toHaveCount(0);
-  await page.locator('.nq-bag-empty').first().click();
+  await bag.locator('.nq-bag-empty').first().click();
   await expect(weapon).toHaveCSS('grid-column-start', '1');
-  await expect(reserve).toContainText('ひかえや もちものは ないよ');
-  await page.screenshot({ path: testInfo.outputPath('weapon-moved.png') });
-
   await weapon.dragTo(reserve);
-  await expect(page.locator('.nq-bag-grid').getByRole('button', { name: 'れんしゅうの ぼう' })).toHaveCount(
-    0,
-  );
-  await expect(reserve.getByRole('button', { name: 'れんしゅうの ぼう' })).toBeVisible();
+  await expect(storedWeapon).toBeVisible();
+  await page.screenshot({ path: testInfo.outputPath('bag-a-equipment.png') });
+});
+
+async function seedBagItems(page: Page) {
+  await page.evaluate(async () => {
+    const db = await new Promise<IDBDatabase>((resolve, reject) => {
+      const r = indexedDB.open('nihonquest');
+      r.onsuccess = () => resolve(r.result);
+      r.onerror = () => reject(r.error);
+    });
+    await new Promise<void>((resolve, reject) => {
+      const tx = db.transaction('saves', 'readwrite');
+      const store = tx.objectStore('saves');
+      const r = store.get('save:1');
+      r.onsuccess = () => {
+        const s = r.result;
+        const packed = [
+          'hiroshima-setoda-lemon',
+          'hokkaido-tokachi-jagaimo',
+          'gifu-fuyugaki',
+          'shiga-omiushi',
+          'gunma-tsumagoi-kyabetsu',
+          'akita-kiritanpo',
+        ];
+        for (const id of [...packed, 'aomori-ringo', 'learning-fragment', 'aomori-ringo-no-yoroi'])
+          s.inventory[id] = 3;
+        s.party.bagItems = packed;
+        s.party.owned.push({ uid: 'bag-test', monsterId: 'iwate-kagurabi', level: 1, levelCap: 10, xp: 0 });
+        s.party.owned.push({
+          uid: 'large-test',
+          monsterId: 'tohoku-boss-rokufuyu',
+          level: 1,
+          levelCap: 10,
+          xp: 0,
+        });
+        s.progress.counters['story.prologue'] = 1;
+        s.progress.counters['story.hero-identity'] = 1;
+        delete s.progress.counters['tutorial.battle-basics.pending'];
+        if (!s.progress.eventsDone.includes('tutorial.battle-basics'))
+          s.progress.eventsDone.push('tutorial.battle-basics');
+        store.put(s, 'save:1');
+      };
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+      tx.onabort = () => reject(tx.error);
+    });
+    db.close();
+  });
+}
+
+test('どうぐが増えても詳細と操作を保ち、クリック追加・指定位置・保存復元が動く', async ({
+  page,
+}, testInfo) => {
+  test.setTimeout(120_000);
+  await page.goto('/?resetSaves=1');
+  await page.getByRole('menuitem', { name: 'はじめから' }).click();
+  await page.getByRole('button', { name: /スロット 1/ }).click();
+  await completeNewGameSetup(page, 'テスト');
+  await page.reload();
+  await expect(page.getByRole('menuitem', { name: 'つづきから' })).toBeEnabled();
+  await seedBagItems(page);
+  await page.getByRole('menuitem', { name: 'つづきから' }).click();
+  await page.getByRole('button', { name: /スロット 1.*Lv/ }).click();
+  const openBag = async () => {
+    await page.getByRole('button', { name: 'メニュー', exact: true }).click();
+    await page.getByRole('button', { name: /もちもの・へんせい/ }).click();
+  };
+  await openBag();
+  const bag = page.getByRole('dialog', { name: /もちもの・へんせい/ });
+  const apple = bag.locator('[data-bag-key="item:aomori-ringo"]');
+  await apple.click();
+  await apple.click();
+  for (const [width, height] of [
+    [960, 540],
+    [640, 540],
+    [320, 568],
+  ] as const) {
+    await page.setViewportSize({ width, height });
+    expect(await bag.locator('.nq-party-info').evaluate((el) => el.clientHeight)).toBeGreaterThan(120);
+    expect(await bag.locator('.nq-bag-body').evaluate((el) => el.scrollHeight <= el.clientHeight + 1)).toBe(
+      true,
+    );
+    await expect(bag.locator('.nq-bag-toggle')).toBeVisible();
+  }
+  await page.setViewportSize({ width: 960, height: 540 });
+  await bag.locator('.nq-bag-toggle').click();
+  await expect(bag.locator('.nq-bag-packed [data-bag-key="item:aomori-ringo"]')).toBeVisible();
+  await expect(bag.locator('.nq-party-info')).toContainText('りんご');
+  await apple.dragTo(bag.locator('.nq-bag-empty').first());
+  await expect(bag.locator('.nq-bag-packed [data-bag-key="item:aomori-ringo"]')).toHaveCount(1);
+  await expect(bag.getByRole('status')).toContainText('どうぐは マスを');
+  await bag.getByRole('button', { name: /(?:前|まえ)の どうぐを/ }).click();
+  await bag.getByRole('button', { name: /(?:次|つぎ)の どうぐを/ }).click();
+  expect(await bag.locator('.nq-bag-packed').evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+  await page.screenshot({ path: testInfo.outputPath('bag-a-many-items.png') });
+  await bag.locator('[data-bag-key="inv:aomori-ringo-no-yoroi"]').click();
+  await expect(bag.locator('.nq-bag-toggle')).toBeDisabled();
+  await expect(bag.locator('.nq-party-info')).toContainText(/東北|とうほく/);
+  await bag.locator('[data-bag-key="item:learning-fragment"]').click();
+  await expect(bag.locator('.nq-bag-toggle')).toBeDisabled();
+  await bag.locator('[data-bag-key="mon:large-test"]').click();
+  await bag.locator('[data-cell-x="2"][data-cell-y="2"]').click();
+  await expect(bag.getByRole('status')).toContainText('そこには おけない');
+  await expect(bag.locator('.nq-bag-grid [data-bag-key="mon:large-test"]')).toHaveCount(0);
+  await bag.locator('[data-bag-key="mon:bag-test"]').click();
+  await bag.locator('[data-cell-x="2"][data-cell-y="2"]').click();
+  await expect(bag.locator('.nq-bag-grid [data-bag-key="mon:bag-test"]')).toHaveCSS('grid-column-start', '3');
+  await expect(bag.locator('.nq-bag-grid [data-bag-key="mon:bag-test"]')).toHaveCSS('grid-row-start', '3');
+  await bag.getByRole('button', { name: /とじる/ }).click();
+  await page.getByRole('button', { name: /セーブ/ }).click();
+  await page.reload();
+  await page.getByRole('menuitem', { name: 'つづきから' }).click();
+  await page.getByRole('button', { name: /スロット 1.*Lv/ }).click();
+  await openBag();
+  await expect(bag.locator('.nq-bag-packed [data-bag-key="item:aomori-ringo"]')).toHaveCount(1);
+  await expect(bag.locator('.nq-bag-grid [data-bag-key="mon:bag-test"]')).toHaveCSS('grid-row-start', '3');
 });
 
 test.describe('レベル上限のタッチ操作', () => {
