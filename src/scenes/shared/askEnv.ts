@@ -58,6 +58,7 @@ export function recordLearningResult(
     appVersion: '0.1.0',
   });
   appendAttemptEvent(gs.learning.attempts, event);
+  if (result.score < 1) (gs.learning.mistakeDates ??= {})[question.id] = answeredAt;
   const learned = assignedSkillForQuestion(question.subject, question.id);
   if (learned && result.score >= 1) {
     if (!gs.player.skills.includes(learned)) gs.player.skills.push(learned);

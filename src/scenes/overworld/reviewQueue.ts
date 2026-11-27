@@ -11,12 +11,15 @@ import type { QuestionBank } from '../../questions/engine';
 /** 復習で正解した問題を、保存可能な新しい状態としてまちがい一覧から外す。 */
 export function clearReviewedMistake(prev: GameState, questionId: string, now = Date.now()): GameState {
   if (!prev.learning.mistakes.includes(questionId)) return prev;
+  const dates = { ...prev.learning.mistakeDates };
+  delete dates[questionId];
   return {
     ...prev,
     updatedAt: now,
     learning: {
       ...prev.learning,
       mistakes: prev.learning.mistakes.filter((id) => id !== questionId),
+      mistakeDates: dates,
     },
   };
 }
