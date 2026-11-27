@@ -1642,6 +1642,22 @@
   background: #23314b;
 }
 
+.nq-menu-drawer .nq-menu-card-mistakes {
+  padding-right: 10px;
+}
+
+.nq-menu-drawer .nq-menu-card-count {
+  position: static;
+  flex: none;
+  margin-left: auto;
+  min-width: 28px;
+  padding: 2px 7px;
+  border-width: 1px;
+  font-size: 14px;
+  line-height: 18px;
+  background: #b92e43;
+}
+
 .nq-menu-drawer .nq-menu-card.nq-focus {
   background: #30374c;
 }
