@@ -12,15 +12,19 @@ export const TYPE_MS = 32;
 export function useTypewriter(key: string | number | null, text: string) {
   // まだ習っていない漢字は ひらがなに開いて出すので、長さも開いたあとの文字で数える
   const total = key === null ? 0 : displayText(text).length;
-  const [n, setN] = useState(0);
+  // 打鍵数は「どの key の文か」と一緒に持つ。key が変わった直後の描画では
+  // 前の文の打鍵数を新しい文へ持ち越さない（effect のリセット前に全文が
+  // 一瞬見えてしまうのを防ぐ）。
+  const [progress, setProgress] = useState<{ key: string | number | null; n: number }>({ key, n: 0 });
   const iRef = useRef(0);
+  const n = progress.key === key ? progress.n : 0;
   useEffect(() => {
     iRef.current = 0;
-    setN(0);
+    setProgress({ key, n: 0 });
     if (key === null) return;
     const id = setInterval(() => {
       iRef.current += 1;
-      setN(iRef.current);
+      setProgress({ key, n: iRef.current });
       if (iRef.current % 2 === 0) playSfx('blip');
       if (iRef.current >= total) clearInterval(id);
     }, TYPE_MS);
@@ -28,7 +32,7 @@ export function useTypewriter(key: string | number | null, text: string) {
   }, [key]);
   const complete = () => {
     iRef.current = total;
-    setN(total);
+    setProgress({ key, n: total });
   };
   return { n, done: n >= total, complete };
 }

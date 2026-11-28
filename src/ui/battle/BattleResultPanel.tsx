@@ -137,7 +137,11 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
             </dt>
             <dd>+{r.xp}</dd>
             <dt class="nq-result-xpbar">
-              <span class="nq-result-level">{t('battle.resultLevel', { lv: r.level ?? 1 })}</span>
+              <span class="nq-result-level">
+                {r.leveledUp && r.levelFrom !== undefined && r.levelFrom !== r.level
+                  ? t('battle.resultLevelChange', { from: r.levelFrom, to: r.level ?? 1 })
+                  : t('battle.resultLevel', { lv: r.level ?? 1 })}
+              </span>
               <Bar
                 value={xpW}
                 max={1}
@@ -158,6 +162,12 @@ export function BattleResultPanel({ r, cursor, store }: { r: ResultView; cursor:
                 ? t('battle.levelCapReached')
                 : t('battle.nextLevel', { n: r.needNext })}
             </dd>
+            {r.leveledUp && (
+              <dd class="nq-result-levelup">
+                <PixelIcon name="star" scale={3} />
+                {t('battle.resultLevelUp')}
+              </dd>
+            )}
             <dt>
               <PixelIcon name="coin" scale={3} />
               {t('battle.gotGold')}

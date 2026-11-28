@@ -64,6 +64,8 @@ export function victoryResultView(
       return { name: item?.name ?? id, count, icon: item ? iconUrl(item) : undefined };
     }),
     level: toLevel,
+    levelFrom: fromLevel,
+    leveledUp,
     levelXp: Math.max(0, xp + summary.xp - (table[toLevel - 1] ?? 0)),
     levelXpNeeded: to.need === 0 ? undefined : (table[toLevel] ?? 0) - (table[toLevel - 1] ?? 0),
     xpFrom: leveledUp ? 0 : from.ratio,

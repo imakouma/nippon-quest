@@ -12,6 +12,9 @@ import {
 import { accountDetails, guestSummaries, importGuestSlot, resolveAccountSlot } from '../../core/state/save';
 import type { GameState } from '../../core/state/schema';
 
+/** 初回読み込みの上限時間。応答がない場合はタイトルへ戻して操作できる状態にする */
+const ACCOUNT_LOAD_TIMEOUT_MS = 15_000;
+
 function describe(state: GameState | null) {
   return state
     ? t('account.adventure', {
@@ -96,7 +99,17 @@ export function mountAccountPanel(
   const unsubscribe = subscribeAccount(() => {
     void refresh().catch(() => {});
   });
-  void refresh().catch(() => {
+  // 読み込みが終わらないと何も描画されず、閉じることもできない。
+  // 失敗時と同じく、上限時間を過ぎたらタイトルへ戻す。
+  void Promise.race([
+    refresh(),
+    new Promise<never>((_resolve, reject) => {
+      setTimeout(
+        () => reject(new Error('アカウント情報の読み込みが時間切れになりました')),
+        ACCOUNT_LOAD_TIMEOUT_MS,
+      );
+    }),
+  ]).catch(() => {
     if (!disposed) close();
   });
   return () => {
