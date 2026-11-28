@@ -123,6 +123,8 @@ describe('バトル結果の表示モデル', () => {
 
     expect(view.xpFrom).toBe(0);
     expect(view.level).toBe(2);
+    expect(view.levelFrom).toBe(1);
+    expect(view.leveledUp).toBe(true);
     expect(view.levelXp).toBe(3);
     expect(view.levelXpNeeded).toBe(c.xp.hero[2]! - c.xp.hero[1]!);
     expect(view.xpTo).toBeCloseTo(3 / view.levelXpNeeded!);
@@ -151,7 +153,14 @@ describe('バトル結果の表示モデル', () => {
       perfectBySubject: {},
     };
     const view = victoryResultView(summary, null, 'テスト', game, c, () => '');
-    expect(view).toMatchObject({ level: 2, levelXp: 17, levelXpNeeded: undefined, needNext: 0 });
+    expect(view).toMatchObject({
+      level: 2,
+      levelFrom: 2,
+      leveledUp: false,
+      levelXp: 17,
+      levelXpNeeded: undefined,
+      needNext: 0,
+    });
   });
 
   it('複数レベル上昇後も最終レベルの経験値を表示する', async () => {
@@ -173,7 +182,13 @@ describe('バトル結果の表示モデル', () => {
       perfectBySubject: {},
     };
     const view = victoryResultView(summary, null, 'テスト', game, c, () => '');
-    expect(view).toMatchObject({ level: 4, levelXp: 2, needNext: c.xp.hero[4]! - c.xp.hero[3]! - 2 });
+    expect(view).toMatchObject({
+      level: 4,
+      levelFrom: 1,
+      leveledUp: true,
+      levelXp: 2,
+      needNext: c.xp.hero[4]! - c.xp.hero[3]! - 2,
+    });
   });
 
   it('敗北表示に失ったお金だけを渡す', () => {

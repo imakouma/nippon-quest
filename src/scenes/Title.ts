@@ -47,6 +47,16 @@ import {
 const S = 4;
 const LOGO_SCALE = 8;
 const LOGO_Y = 124;
+/** セーブ確認の上限時間。保存先が応答しない場合でもタイトルを操作できる状態へ戻すため */
+const SAVE_CHECK_TIMEOUT_MS = 15_000;
+
+/** Promise が時間内に終わったかを返す（応答のない処理を待ち続けないため） */
+function settlesWithin(promise: Promise<void>, ms: number): Promise<boolean> {
+  return Promise.race([
+    promise.then(() => true),
+    new Promise<boolean>((resolve) => setTimeout(() => resolve(false), ms)),
+  ]);
+}
 
 export class TitleScene extends Phaser.Scene {
   private menuRoot: HTMLDivElement | null = null;
@@ -287,6 +297,27 @@ export class TitleScene extends Phaser.Scene {
 
   private async checkSave(): Promise<void> {
     const firstCheck = !this.saveChecked;
+    const loading = this.loadSaveState();
+    // 保存先（IndexedDB やアカウント同期）が応答しないと確認が終わらず、
+    // 「しらべているよ」のまま操作できなくなる。上限時間を過ぎたら
+    // いったん操作できる状態へ戻し、読み込みが終わった時点で合わせ直す。
+    const finished = await settlesWithin(loading, SAVE_CHECK_TIMEOUT_MS);
+    if (!finished) console.error('[title] セーブデータの確認が時間切れになりました');
+    this.saveChecked = true;
+    // セーブ確認が遅れて完了しても、ユーザーが開いたスロット選択や設定画面を上書きしない。
+    if (this.scene.isActive() && !this.starting && this.menuView === 'main') {
+      this.mountMenu();
+      if ((firstCheck && accountSession().blocked) || new URLSearchParams(location.search).has('account'))
+        this.mountAccount();
+    }
+    if (!finished) {
+      void loading.then(() => {
+        if (this.scene.isActive() && !this.starting && this.menuView === 'main') this.mountMenu();
+      });
+    }
+  }
+
+  private async loadSaveState(): Promise<void> {
     try {
       const url = new URL(location.href);
       const params = url.searchParams;
@@ -305,13 +336,6 @@ export class TitleScene extends Phaser.Scene {
     } catch (error) {
       console.error('[title] セーブデータを確認できません', error);
       this.hasSave = false;
-    }
-    this.saveChecked = true;
-    // セーブ確認が遅れて完了しても、ユーザーが開いたスロット選択や設定画面を上書きしない。
-    if (this.scene.isActive() && !this.starting && this.menuView === 'main') {
-      this.mountMenu();
-      if ((firstCheck && accountSession().blocked) || new URLSearchParams(location.search).has('account'))
-        this.mountAccount();
     }
   }
 

@@ -187,6 +187,10 @@ export interface ResultView {
   /** てに いれた もの（icon は どうぐの アイコン） */
   drops: { name: string; count: number; icon?: string }[];
   level?: number;
+  /** バトル前のレベル（レベルアップ時に「Lv.前 → Lv.後」を出すため） */
+  levelFrom?: number;
+  /** このバトルでレベルが上がったか */
+  leveledUp?: boolean;
   levelXp?: number;
   levelXpNeeded?: number;
   xpFrom: number;
